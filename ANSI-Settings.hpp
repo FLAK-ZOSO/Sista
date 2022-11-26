@@ -1,8 +1,25 @@
 #pragma once
 #include <iostream>
 
+#define ESC "\x1b"
+#define CSI "\x1b["
+#define OSC "\x1b]"
+#define BACKSLASH "\\"
+#define STRING_TERMINATOR "\x1b\\"
 
-namespace color {
+#define BEL '\x07' // Bell
+#define BS '\x08' // Backspace
+#define TAB '\x09' // Tab
+#define LF '\x0a' // Line Feed
+#define VT '\x0b' // Vertical Tab
+#define FF '\x0c' // Form Feed
+#define CR '\x0d' // Carriage Return
+#define DEL '\x7f' // Delete
+
+#define SS "\33[2J\33[H" // Scroll Screen
+
+
+namespace ANSI {
     enum ForegroundColor {
         BLACK = 30,
         RED = 31,
@@ -34,13 +51,13 @@ namespace color {
     };
 
     void setForegroundColor(ForegroundColor color) {
-        std::cout << "\033[" << color << "m";
+        std::cout << ESC << color << "m";
     }
     void setBackgroundColor(BackgroundColor color) {
-        std::cout << "\033[" << color << "m";
+        std::cout << ESC << color << "m";
     }
     void setAttribute(Attribute attribute) {
-        std::cout << "\033[" << attribute << "m";
+        std::cout << ESC << attribute << "m";
     }
 
     void reset() {
