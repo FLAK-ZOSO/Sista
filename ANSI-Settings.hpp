@@ -65,4 +65,24 @@ namespace ANSI {
         setForegroundColor(ForegroundColor::WHITE);
         setBackgroundColor(BackgroundColor::BLACK);
     }
+
+    struct Settings {
+        ForegroundColor foregroundColor;
+        BackgroundColor backgroundColor;
+        Attribute attribute;
+
+        Settings() {
+            foregroundColor = ForegroundColor::WHITE;
+            backgroundColor = BackgroundColor::BLACK;
+            attribute = Attribute::RESET;
+        }
+        Settings(ForegroundColor foregroundColor_, BackgroundColor backgroundColor_, Attribute attribute_): foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
+        Settings(ForegroundColor& foregroundColor_, BackgroundColor& backgroundColor_, Attribute& attribute_): foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
+
+        void apply() {
+            setForegroundColor(foregroundColor);
+            setBackgroundColor(backgroundColor);
+            setAttribute(attribute);
+        }
+    };
 };
