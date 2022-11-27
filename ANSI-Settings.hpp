@@ -18,6 +18,9 @@
 #define DEL '\x7f' // Delete
 
 #define SS "\33[2J\33[H" // Scroll Screen
+#define CLS "\33[2J" // Clear Screen
+#define HIDE_CURSOR "\33[?25l" // Hide cursor
+#define SHOW_CURSOR "\33[?25h" // Show cursor
 
 
 namespace ANSI {
