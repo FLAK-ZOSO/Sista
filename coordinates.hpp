@@ -10,7 +10,7 @@ struct Coordinates { // 2D coordinates
     unsigned short x; // x coordinate
 
     Coordinates(): y(0), x(0) {} // Constructor
-    Coordinates(unsigned short y, unsigned short x): y(y), x(x) {} // Constructor
+    Coordinates(unsigned short y_, unsigned short x_): y(y_), x(x_) {} // Constructor
     Coordinates(Coord coord): y(coord.first), x(coord.second) {} // Constructor
 
     bool operator==(const Coordinates& other) const { // == operator overload
