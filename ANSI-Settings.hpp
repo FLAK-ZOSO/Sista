@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include <iostream>
 
 #define ESC "\x1b"
@@ -21,24 +22,24 @@
 
 namespace ANSI {
     enum ForegroundColor {
-        BLACK = 30,
-        RED = 31,
-        GREEN = 32,
-        YELLOW = 33,
-        BLUE = 34,
-        MAGENTA = 35,
-        CYAN = 36,
-        WHITE = 37
+        F_BLACK = 30,
+        F_RED = 31,
+        F_GREEN = 32,
+        F_YELLOW = 33,
+        F_BLUE = 34,
+        F_MAGENTA = 35,
+        F_CYAN = 36,
+        F_WHITE = 37
     };
     enum BackgroundColor {
-        BLACK = 40,
-        RED = 41,
-        GREEN = 42,
-        YELLOW = 43,
-        BLUE = 44,
-        MAGENTA = 45,
-        CYAN = 46,
-        WHITE = 47
+        B_BLACK = 40,
+        B_RED = 41,
+        B_GREEN = 42,
+        B_YELLOW = 43,
+        B_BLUE = 44,
+        B_MAGENTA = 45,
+        B_CYAN = 46,
+        B_WHITE = 47
     };
     enum Attribute {
         RESET = 0,
@@ -51,19 +52,22 @@ namespace ANSI {
     };
 
     void setForegroundColor(ForegroundColor color) {
-        std::cout << ESC << color << "m";
+        std::string command = CSI + std::to_string(color) + "m";
+        std::cout << command;
     }
     void setBackgroundColor(BackgroundColor color) {
-        std::cout << ESC << color << "m";
+        std::string command = CSI + std::to_string(color) + "m";
+        std::cout << command;
     }
     void setAttribute(Attribute attribute) {
-        std::cout << ESC << attribute << "m";
+        std::string command = CSI + std::to_string(attribute) + "m";
+        std::cout << command;
     }
 
     void reset() {
         setAttribute(Attribute::RESET);
-        setForegroundColor(ForegroundColor::WHITE);
-        setBackgroundColor(BackgroundColor::BLACK);
+        setForegroundColor(ForegroundColor::F_WHITE);
+        setBackgroundColor(BackgroundColor::B_BLACK);
     }
 
     struct Settings {
@@ -72,8 +76,8 @@ namespace ANSI {
         Attribute attribute;
 
         Settings() {
-            foregroundColor = ForegroundColor::WHITE;
-            backgroundColor = BackgroundColor::BLACK;
+            foregroundColor = ForegroundColor::F_WHITE;
+            backgroundColor = BackgroundColor::B_BLACK;
             attribute = Attribute::RESET;
         }
         Settings(ForegroundColor foregroundColor_, BackgroundColor backgroundColor_, Attribute attribute_): foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
