@@ -11,7 +11,7 @@ int main() {
         Coordinates(5, 4), 'X',
         ANSI::Settings(
             ANSI::ForegroundColor::F_RED,
-            ANSI::BackgroundColor::B_BLACK,
+            ANSI::BackgroundColor::B_BLUE,
             ANSI::Attribute::BRIGHT
         )
     );
