@@ -1,5 +1,6 @@
 #include <vector> // std::vector
 #include "pawn.hpp" // Pawn
+#include "border.hpp" // Border
 
 
 class Field { // Field class - represents the field
@@ -39,6 +40,63 @@ public:
             }
             std::cout << '\n'; // Print a new line
         }
+        std::cout << std::flush; // Flush the output
+    }
+    void print(char border) { // Prints with custom border
+        ANSI::reset(); // Reset the settings
+        std::cout << '\n'; // Print a new line
+        for (int i=0; i<width+2; i++) // For each row
+            std::cout << border; // Print the border
+        std::cout << '\n'; // Print a new line
+        bool previousPawn = false; // If the previous element was a Pawn
+        for (auto& row: pawns) { // For each row
+            std::cout << border; // Print the border
+            for (auto& pawn: row) { // For each pawn
+                if (pawn != nullptr) { // If the pawn is not nullptr
+                    pawn->print(); // Print the pawn
+                    previousPawn = true; // Set the previousPawn to true
+                } else { // If the pawn is nullptr
+                    if (previousPawn) { // If the previous element was a Pawn
+                        ANSI::reset(); // Reset the settings
+                        previousPawn = false; // Set the previousPawn to false
+                    }
+                    std::cout << ' '; // Print the space
+                }
+            }
+            ANSI::reset(); // Reset the settings
+            std::cout << border << '\n'; // Print the border and a new line
+        }
+        for (int i=0; i<width+2; i++) // For each row
+            std::cout << border; // Print the border
+        std::cout << std::flush; // Flush the output
+    }
+    void print(Border& border) { // Prints with custom border
+        ANSI::reset(); // Reset the settings
+        std::cout << '\n'; // Print a new line
+        for (int i=0; i<width+2; i++) // For each row
+            border.print(); // Print the border
+        std::cout << '\n'; // Print a new line
+        bool previousPawn = true; // If the previous element was a Pawn
+        for (auto& row: pawns) { // For each row
+            border.print(); // Print the border
+            for (auto& pawn: row) { // For each pawn
+                if (pawn != nullptr) { // If the pawn is not nullptr
+                    pawn->print(); // Print the pawn
+                    previousPawn = true; // Set the previousPawn to true
+                } else { // If the pawn is nullptr
+                    if (previousPawn) { // If the previous element was a Pawn
+                        ANSI::reset(); // Reset the settings
+                        previousPawn = false; // Set the previousPawn to false
+                    }
+                    std::cout << ' '; // Print the space
+                }
+            }
+            border.print();
+            previousPawn = true; // Set the previousPawn to true
+            std::cout << '\n'; // Print new line
+        }
+        for (int i=0; i<width+2; i++) // For each row
+            border.print(); // Print the border
         std::cout << std::flush; // Flush the output
     }
 
