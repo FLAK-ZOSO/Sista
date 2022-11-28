@@ -23,10 +23,10 @@ int main() {
             ANSI::Attribute::BRIGHT
         )
     );
-    Field field(10, 10);
+    Field field(50, 50);
     field.addPawn(&pawn);
-    for (int i=0; i<10; i++) {
-        for (int j=0; j<10; j++) {
+    for (int i=0; i<50; i++) {
+        for (int j=0; j<50; j++) {
             field.movePawn(&pawn, Coordinates(i, j));
             std::this_thread::sleep_for(std::chrono::milliseconds(30));
             std::cout << SS;
