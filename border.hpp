@@ -15,4 +15,7 @@ public:
         settings.apply(); // Apply the settings
         std::cout << symbol; // Print the symbol
     }
+    virtual void print(bool _) { // Print the Border when the style is already applied
+        std::cout << symbol; // Print the symbol
+    }
 };
