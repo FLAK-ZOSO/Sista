@@ -28,7 +28,7 @@ int main() {
     for (int i=0; i<50; i++) {
         for (int j=0; j<50; j++) {
             field.movePawn(&pawn, Coordinates(i, j));
-            std::this_thread::sleep_for(std::chrono::milliseconds(30));
+            std::this_thread::sleep_for(std::chrono::milliseconds(10));
             std::cout << SS;
             std::cout << "\x1b[1000A"; // Move the cursor up 1000 lines
             field.print(border);
