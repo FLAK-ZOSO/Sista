@@ -40,6 +40,7 @@ public:
             }
             std::cout << '\n'; // Print a new line
         }
+        ANSI::reset(); // Reset the settings
         std::cout << std::flush; // Flush the output
     }
     void print(char border) { // Prints with custom border
@@ -99,6 +100,7 @@ public:
         border.print(); // Print the border
         for (int i=0; i<width+1; i++) // For each row
             border.print(true); // Print the border
+        ANSI::reset(); // Reset the settings
         std::cout << std::flush; // Flush the output
     }
 
