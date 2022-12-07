@@ -1,13 +1,14 @@
 // g++ sista.cpp -o sista
 #include <chrono>
 #include <thread>
+#include "clearScreen.hpp"
 #include "field.hpp"
 
 
 int main() {
     std::ios_base::sync_with_stdio(false);
     ANSI::reset(); // Reset the settings
-    std::cout << HIDE_CURSOR << SS;
+    std::cout << HIDE_CURSOR << CLS;
     Pawn pawn(
         Coordinates(0, 0), 'X',
         ANSI::Settings(
@@ -28,13 +29,12 @@ int main() {
     for (int i=0; i<50; i++) {
         for (int j=0; j<50; j++) {
             field.movePawn(&pawn, Coordinates(i, j));
-            std::this_thread::sleep_for(std::chrono::milliseconds(10));
-            std::cout << SS;
-            std::cout << "\x1b[1000A"; // Move the cursor up 1000 lines
+            std::this_thread::sleep_for(std::chrono::milliseconds(20));
+            clearScreen();
             field.print(border);
         }
     }
-    std::cout << SS;
+    std::cout << CLS;
     field.print(border);
     std::cout << SHOW_CURSOR;
     return 0;
