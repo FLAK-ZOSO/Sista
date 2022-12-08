@@ -135,7 +135,8 @@ public:
         movePawn(pawn, coordinates_);
     }
     void movePawn(Pawn* pawn, unsigned short y, unsigned short x) { // Move a pawn to the coordinates
-        movePawn(pawn, y, x);
+        Coordinates coordinates_(y, x);
+        movePawn(pawn, coordinates_);
     }
 
     void movePawnBy(Pawn* pawn, Coordinates& coordinates) { // Move a pawn by the coordinates
