@@ -1,6 +1,4 @@
-#ifndef COORDINATES_HPP
-    #define COORDINATES_HPP 1
-#endif
+#pragma once
 
 #include <utility> // std::pair
 

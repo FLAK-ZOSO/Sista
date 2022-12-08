@@ -1,12 +1,7 @@
-#ifndef BORDER_HPP
-    #define BORDER_HPP 1
+#pragma once
 
-#ifndef ANSI_SETTINGS_HPP
-    #include "ANSI-Settings.hpp" // ANSI::ForegroundColor, ANSI::BackgroundColor, ANSI::Attribute, ANSI::Settings
-#endif
-#ifndef COORDINATES_HPP
-    #include "coordinates.hpp" // Coord, Coordinates, <utility>
-#endif
+#include "ANSI-Settings.hpp" // ANSI::ForegroundColor, ANSI::BackgroundColor, ANSI::Attribute, ANSI::Settings
+#include "coordinates.hpp" // Coord, Coordinates, <utility>
 
 
 class Border { // Border class - represents a brick of the border [parent class]
@@ -25,4 +20,3 @@ public:
         std::cout << symbol; // Print the symbol
     }
 };
-#endif

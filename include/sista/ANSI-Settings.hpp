@@ -1,5 +1,4 @@
-#ifndef ANSI_SETTINGS_HPP
-    #define ANSI_SETTINGS_HPP 1
+#pragma once
 
 #include <string>
 #include <iostream>
@@ -96,4 +95,3 @@ namespace ANSI {
         }
     };
 };
-#endif

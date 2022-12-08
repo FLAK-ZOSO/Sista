@@ -1,5 +1,4 @@
-#ifndef CLEARSCREEN_HPP
-    #define CLEARSCREEN_HPP 1
+#pragma once
 
 #include <windows.h>
 
@@ -43,4 +42,3 @@ void clearScreen(bool spaces=true, bool attributes=false) {
     /* Move the cursor home */
     SetConsoleCursorPosition( hStdOut, homeCoords );
 }
-#endif
