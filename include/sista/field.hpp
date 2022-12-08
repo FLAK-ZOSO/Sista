@@ -214,14 +214,20 @@ public:
     bool isOccupied(unsigned short y, unsigned short x) {
         return (getPawn(y, x) != nullptr);
     }
+    bool isOccupied(short int y, short int x) {
+        return (getPawn(y, x) != nullptr);
+    }
 
     bool isOutOfBounds(Coordinates& coordinates) { // Check if the coordinates are out of bounds
-        return (coordinates.y < 0 || coordinates.y >= height || coordinates.x < 0 || coordinates.x >= width); // Return if the coordinates are out of bounds
+        return (coordinates.y >= height || coordinates.x >= width); // Return if the coordinates are out of bounds
     }
     bool isOutOfBounds(Coord& coordinates) {
-        return (coordinates.first < 0 || coordinates.first >= height || coordinates.second < 0 || coordinates.second >= width);
+        return (coordinates.first >= height || coordinates.second >= width);
     }
     bool isOutOfBounds(unsigned short y, unsigned short x) {
+        return  (y >= height || x >= width);
+    }
+    bool isOutOfBounds(short int y, short int x) {
         return  (y < 0 || y >= height || x < 0 || x >= width);
     }
 
@@ -234,24 +240,27 @@ public:
     bool isFree(unsigned short y, unsigned short x) {
         return !(isOutOfBounds(y, x) || isOccupied(y, x));
     }
+    bool isFree(short int y, short int x) {
+        return !(isOutOfBounds(y, x) || isOccupied(y, x));
+    }
 
     // ⚠️ This throws an exception if the coordinates are invalid
     void validateCoordinates(Coordinates& coordinates) { // Validate the coordinates
         if (isOutOfBounds(coordinates)) // If the coordinates are out of bounds
-            throw std::out_of_range("Coordinates are out of bounds"); // Throw an exception
+            throw std::out_of_range("Coordinates are out of bounds");
         if (isOccupied(coordinates)) // If the coordinates are occupied
-            throw std::invalid_argument("Coordinates are occupied"); // Throw an exception
+            throw std::invalid_argument("Coordinates are occupied");
     }
     void validateCoordinates(Coord& coordinates) {
-        if (isOutOfBounds(coordinates)) // If the coordinates are out of bounds
-            throw std::out_of_range("Coordinates are out of bounds"); // Throw an exception
-        if (isOccupied(coordinates)) // If the coordinates are occupied
-            throw std::invalid_argument("Coordinates are occupied"); // Throw an exception
+        if (isOutOfBounds(coordinates))
+            throw std::out_of_range("Coordinates are out of bounds");
+        if (isOccupied(coordinates))
+            throw std::invalid_argument("Coordinates are occupied");
     }
     void validateCoordinates(unsigned short y, unsigned short x) {
-        if (isOutOfBounds(y, x)) // If the coordinates are out of bounds
-            throw std::out_of_range("Coordinates are out of bounds"); // Throw an exception
-        if (isOccupied(y, x)) // If the coordinates are occupied
-            throw std::invalid_argument("Coordinates are occupied"); // Throw an exception
+        if (isOutOfBounds(y, x))
+            throw std::out_of_range("Coordinates are out of bounds");
+        if (isOccupied(y, x))
+            throw std::invalid_argument("Coordinates are occupied");
     }
 };
