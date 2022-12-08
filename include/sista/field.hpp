@@ -4,6 +4,9 @@
 #include "pawn.hpp" // Pawn
 #include "border.hpp" // Border
 
+#define PACMAN_EFFECT 0 // Pacman effect when a coordinate overflows
+#define MATRIX_EFFECT 1 // Classic C style matrix effect when a coordinate overflows
+
 
 class Field { // Field class - represents the field
 public:
@@ -113,48 +116,142 @@ public:
         pawns[pawn->coordinates.y][pawn->coordinates.x] = nullptr; // Set the pawn to nullptr
     }
 
-    void movePawn(Pawn* pawn, Coordinates coordinates) { // Move a pawn to the coordinates
+    void movePawn(Pawn* pawn, Coordinates& coordinates) { // Move a pawn to the coordinates
+        try {
+            validateCoordinates(coordinates);
+        } catch (const std::invalid_argument& e) {
+            if (pawn->coordinates == coordinates) // If the coordinates are the same...
+                return; // ...the cell is occupied by the pawn, so no need to move it
+            // ...otherwise, if the coordinates are occupied by another pawn, throw an exception
+            throw std::invalid_argument("The coordinates are occupied by another pawn");
+        }
         removePawn(pawn); // Remove the pawn from the matrix
         pawn->coordinates = coordinates;
         addPawn(pawn); // Add the pawn to the matrix
     }
-    void movePawn(Pawn* pawn, Coord coordinates) { // Move a pawn to the coordinates
-        movePawn(pawn, Coordinates(coordinates)); // Move the pawn to the coordinates
+    void movePawn(Pawn* pawn, Coord& coordinates) { // Move a pawn to the coordinates
+        // [Call the original function because it's anyway declaring a new Coordinates object]
+        Coord coordinates_ = coordinates;
+        movePawn(pawn, coordinates_);
     }
     void movePawn(Pawn* pawn, unsigned short y, unsigned short x) { // Move a pawn to the coordinates
-        movePawn(pawn, Coordinates(y, x)); // Move the pawn to the coordinates
+        movePawn(pawn, y, x);
     }
 
-    Pawn* getPawn(Coordinates coordinates) { // Get the pawn at the coordinates
+    void movePawnBy(Pawn* pawn, Coordinates& coordinates) { // Move a pawn by the coordinates
+        Coordinates coordinates_ = pawn->coordinates + coordinates;
+        movePawn(pawn, coordinates_);
+    }
+    void movePawnBy(Pawn* pawn, Coord& coordinates) {
+        Coordinates coordinates_(coordinates);
+        movePawnBy(pawn, coordinates_);
+    }
+    void movePawnBy(Pawn* pawn, unsigned short y, unsigned short x) {
+        movePawn(pawn, pawn->coordinates.y + y, pawn->coordinates.x + x);
+    }
+
+    // 🎮 movePawnBy() with arcade game effects on coordinates overflow
+    void movePawnBy(Pawn* pawn, Coordinates& coordinates, bool effect) {
+        Coordinates newCoordinates = pawn->coordinates + coordinates;
+        if (!isOutOfBounds(newCoordinates)) { // If the coordinates are not out of bounds...
+            movePawn(pawn, newCoordinates); // ...no need to apply any effect
+        } else if (effect == PACMAN_EFFECT) { // If the effect is PACMAN_EFFECT...
+            // ...well, you know how Pac Man works
+            if (newCoordinates.x < 0) {
+                newCoordinates.x = width-1;
+            } else if (newCoordinates.x >= width) {
+                newCoordinates.x = 0;
+            }
+            if (newCoordinates.y < 0) {
+                newCoordinates.y = height-1;
+            } else if (newCoordinates.y >= height) {
+                newCoordinates.y = 0;
+            }
+        } else if (effect == MATRIX_EFFECT) {
+            int x = newCoordinates.x;
+            int y = newCoordinates.y;
+            newCoordinates.x = x % width;
+            newCoordinates.y = y + (int)(x / width); // This could lead to a coordinate out of bounds...
+            validateCoordinates(newCoordinates); // ...so we need to validate it
+        }
+        movePawn(pawn, newCoordinates);
+    }
+    void movePawnBy(Pawn* pawn, Coord& coordinates, bool effect) {
+        Coordinates coordinates_(coordinates);
+        movePawnBy(pawn, coordinates_, effect);
+    }
+    void movePawnBy(Pawn* pawn, unsigned short y, unsigned short x, bool effect) {
+        Coordinates coordinates_(y, x);
+        movePawnBy(pawn, coordinates_, effect);
+    }
+
+    void movePawnFromTo(Coordinates& coordinates, Coordinates& newCoordinates) {
+        movePawn(getPawn(coordinates), newCoordinates);
+    }
+    void movePawnFromTo(Coord& coordinates, Coord& newCoordinates) {
+        movePawn(getPawn(coordinates), newCoordinates);
+    }
+    void movePawnFromTo(unsigned short y, unsigned short x, unsigned short newY, unsigned short newX) {
+        movePawn(getPawn(y, x), newY, newX);
+    }
+
+    Pawn* getPawn(Coordinates& coordinates) { // Get the pawn at the coordinates
         return pawns[coordinates.y][coordinates.x]; // Return the pawn at the coordinates
     }
-    bool isOccupied(Coordinates coordinates) { // Check if the coordinates are occupied
-        return (getPawn(coordinates) != nullptr); // Return if the coordinates are occupied
+    Pawn* getPawn(Coord& coordinates) {
+        return pawns[coordinates.first][coordinates.second];
     }
-    bool isOccupied(Coord coordinates) { // Check if the coordinates are occupied
-        return isOccupied(Coordinates(coordinates)); // Return if the coordinates are occupied
-    }
-    bool isOccupied(unsigned short y, unsigned short x) { // Check if the coordinates are occupied
-        return isOccupied(Coordinates(y, x)); // Return if the coordinates are occupied
+    Pawn* getPawn(unsigned short y, unsigned short x) {
+        return pawns[y][x];
     }
 
-    bool isOutOfBounds(Coordinates coordinates) { // Check if the coordinates are out of bounds
+    bool isOccupied(Coordinates& coordinates) { // Check if the coordinates are occupied
+        return (getPawn(coordinates) != nullptr);
+    }
+    bool isOccupied(Coord& coordinates) {
+        return (getPawn(coordinates) != nullptr);
+    }
+    bool isOccupied(unsigned short y, unsigned short x) {
+        return (getPawn(y, x) != nullptr);
+    }
+
+    bool isOutOfBounds(Coordinates& coordinates) { // Check if the coordinates are out of bounds
         return (coordinates.y < 0 || coordinates.y >= height || coordinates.x < 0 || coordinates.x >= width); // Return if the coordinates are out of bounds
     }
-    bool isOutOfBounds(Coord coordinates) { // Check if the coordinates are out of bounds
-        return isOutOfBounds(Coordinates(coordinates)); // Return if the coordinates are out of bounds
+    bool isOutOfBounds(Coord& coordinates) {
+        return (coordinates.first < 0 || coordinates.first >= height || coordinates.second < 0 || coordinates.second >= width);
     }
-    bool isOutOfBounds(unsigned short y, unsigned short x) { // Check if the coordinates are out of bounds
-        return isOutOfBounds(Coordinates(y, x)); // Return if the coordinates are out of bounds
+    bool isOutOfBounds(unsigned short y, unsigned short x) {
+        return  (y < 0 || y >= height || x < 0 || x >= width);
     }
 
-    bool isFree(Coordinates coordinates) { // Check if the coordinates are occupied or out of bounds
-        return !(isOutOfBounds(coordinates) || isOccupied(coordinates)); // Return if the coordinates are occupied or out of bounds
+    bool isFree(Coordinates& coordinates) { // Check if the coordinates are occupied or out of bounds
+        return !(isOutOfBounds(coordinates) || isOccupied(coordinates));
     }
-    bool isFree(Coord coordinates) { // Check if the coordinates are occupied or out of bounds
-        return isFree(Coordinates(coordinates)); // Return if the coordinates are occupied or out of bounds
+    bool isFree(Coord& coordinates) {
+        return !(isOutOfBounds(coordinates) || isOccupied(coordinates));
     }
-    bool isFree(unsigned short y, unsigned short x) { // Check if the coordinates are occupied or out of bounds
-        return isFree(Coordinates(y, x)); // Return if the coordinates are occupied or out of bounds
+    bool isFree(unsigned short y, unsigned short x) {
+        return !(isOutOfBounds(y, x) || isOccupied(y, x));
+    }
+
+    // ⚠️ This throws an exception if the coordinates are invalid
+    void validateCoordinates(Coordinates& coordinates) { // Validate the coordinates
+        if (isOutOfBounds(coordinates)) // If the coordinates are out of bounds
+            throw std::out_of_range("Coordinates are out of bounds"); // Throw an exception
+        if (isOccupied(coordinates)) // If the coordinates are occupied
+            throw std::invalid_argument("Coordinates are occupied"); // Throw an exception
+    }
+    void validateCoordinates(Coord& coordinates) {
+        if (isOutOfBounds(coordinates)) // If the coordinates are out of bounds
+            throw std::out_of_range("Coordinates are out of bounds"); // Throw an exception
+        if (isOccupied(coordinates)) // If the coordinates are occupied
+            throw std::invalid_argument("Coordinates are occupied"); // Throw an exception
+    }
+    void validateCoordinates(unsigned short y, unsigned short x) {
+        if (isOutOfBounds(y, x)) // If the coordinates are out of bounds
+            throw std::out_of_range("Coordinates are out of bounds"); // Throw an exception
+        if (isOccupied(y, x)) // If the coordinates are occupied
+            throw std::invalid_argument("Coordinates are occupied"); // Throw an exception
     }
 };
