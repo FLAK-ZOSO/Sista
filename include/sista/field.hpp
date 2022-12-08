@@ -153,37 +153,43 @@ public:
 
     // 🎮 movePawnBy() with arcade game effects on coordinates overflow
     void movePawnBy(Pawn* pawn, Coordinates& coordinates, bool effect) {
-        Coordinates newCoordinates = pawn->coordinates + coordinates;
-        if (!isOutOfBounds(newCoordinates)) { // If the coordinates are not out of bounds...
-            movePawn(pawn, newCoordinates); // ...no need to apply any effect
-        } else if (effect == PACMAN_EFFECT) { // If the effect is PACMAN_EFFECT...
-            // ...well, you know how Pac Man works
-            if (newCoordinates.x < 0) {
-                newCoordinates.x = width-1;
-            } else if (newCoordinates.x >= width) {
-                newCoordinates.x = 0;
-            }
-            if (newCoordinates.y < 0) {
-                newCoordinates.y = height-1;
-            } else if (newCoordinates.y >= height) {
-                newCoordinates.y = 0;
-            }
-        } else if (effect == MATRIX_EFFECT) {
-            int x = newCoordinates.x;
-            int y = newCoordinates.y;
-            newCoordinates.x = x % width;
-            newCoordinates.y = y + (int)(x / width); // This could lead to a coordinate out of bounds...
-            validateCoordinates(newCoordinates); // ...so we need to validate it
-        }
-        movePawn(pawn, newCoordinates);
+        movePawnBy(pawn, coordinates.y, coordinates.x, effect);
     }
     void movePawnBy(Pawn* pawn, Coord& coordinates, bool effect) {
         Coordinates coordinates_(coordinates);
         movePawnBy(pawn, coordinates_, effect);
     }
-    void movePawnBy(Pawn* pawn, unsigned short y, unsigned short x, bool effect) {
-        Coordinates coordinates_(y, x);
-        movePawnBy(pawn, coordinates_, effect);
+    void movePawnBy(Pawn* pawn, short int y, short int x, bool effect) {
+        short int y_ = pawn->coordinates.y + y;
+        short int x_ = pawn->coordinates.x + x;
+        if (!isOutOfBounds(y_, x_)) { // If the coordinates are not out of bounds...
+            movePawn(pawn, y_, x_); // ...no need to apply any effect
+        } else if (effect == PACMAN_EFFECT) { // If the effect is PACMAN_EFFECT...
+            // ...well, you know how Pac Man works
+            if (x_ < 0) {
+                x_ = width-1-(x_ % width);
+            } else if (x_ >= width) {
+                x_ %= width;
+            }
+            if (y_ < 0) {
+                y_ = height-1-(y_ % width);
+            } else if (y_ >= height) {
+                y_ %= height;
+            }
+        } else if (effect == MATRIX_EFFECT) {
+            short int y = y_;
+            short int x = x_;
+            if (x_ < 0) {
+                x_ = width+(x_ % width);
+                y_ = y + (short int)(x / width) - 1;
+            } else if (x_ >= width) {
+                x_ %= width;
+                y_ = y + (short int)(x / width);
+            }
+            // This [y_] could lead to a coordinate out of bounds...
+            validateCoordinates(y_, x_); // ...so we need to validate it
+        }
+        movePawn(pawn, y_, x_);
     }
 
     void movePawnFromTo(Coordinates& coordinates, Coordinates& newCoordinates) {
