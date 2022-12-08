@@ -3,6 +3,8 @@
 #include <thread>
 #include "include/sista/sista.hpp"
 
+#define TEST_SIZE 50
+
 
 int main() {
     std::ios_base::sync_with_stdio(false);
@@ -17,7 +19,7 @@ int main() {
         )
     );
     Pawn pawn2(
-        Coordinates(49, 49), 'O',
+        Coordinates(TEST_SIZE-1, TEST_SIZE-1), 'O',
         ANSI::Settings(
             ANSI::ForegroundColor::F_BLUE,
             ANSI::BackgroundColor::B_BLACK,
@@ -31,14 +33,14 @@ int main() {
             ANSI::Attribute::BRIGHT
         )
     );
-    Field field(50, 50);
+    Field field(TEST_SIZE, TEST_SIZE);
     field.addPawn(&pawn);
     field.addPawn(&pawn2);
     Coordinates coords(0, 0);
-    for (int i=0; i<50; i++) {
-        for (int j=0; j<50; j++) {
-            field.movePawnBy(&pawn, 1, 1, MATRIX_EFFECT);
-            field.movePawnBy(&pawn2, -1, -1, MATRIX_EFFECT);
+    for (int i=0; i<TEST_SIZE; i++) {
+        for (int j=0; j<TEST_SIZE; j++) {
+            field.movePawnBy(&pawn, 0, 1, MATRIX_EFFECT);
+            field.movePawnBy(&pawn2, 0, -1, MATRIX_EFFECT);
 
             std::this_thread::sleep_for(std::chrono::milliseconds(20));
             clearScreen();
