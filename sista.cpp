@@ -16,6 +16,14 @@ int main() {
             ANSI::Attribute::BRIGHT
         )
     );
+    Pawn pawn2(
+        Coordinates(49, 49), 'O',
+        ANSI::Settings(
+            ANSI::ForegroundColor::F_BLUE,
+            ANSI::BackgroundColor::B_BLACK,
+            ANSI::Attribute::BRIGHT
+        )
+    );
     Border border(
         ' ', ANSI::Settings(
             ANSI::ForegroundColor::F_BLACK,
@@ -25,9 +33,13 @@ int main() {
     );
     Field field(50, 50);
     field.addPawn(&pawn);
+    field.addPawn(&pawn2);
+    Coordinates coords(0, 0);
     for (int i=0; i<50; i++) {
         for (int j=0; j<50; j++) {
-            field.movePawn(&pawn, Coordinates(i, j));
+            field.movePawnBy(&pawn, 1, 1, MATRIX_EFFECT);
+            field.movePawnBy(&pawn2, -1, -1, MATRIX_EFFECT);
+
             std::this_thread::sleep_for(std::chrono::milliseconds(20));
             clearScreen();
             field.print(border);
