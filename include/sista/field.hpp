@@ -37,20 +37,20 @@ public:
                         ANSI::reset(); // Reset the settings
                         previousPawn = false; // Set the previousPawn to false
                     }
-                    std::cout << ' '; // Print a space
+                    std::cout << ' ';
                 }
             }
-            std::cout << '\n'; // Print a new line
+            std::cout << '\n';
         }
         ANSI::reset(); // Reset the settings
         std::cout << std::flush; // Flush the output
     }
     void print(char border) { // Prints with custom border
         ANSI::reset(); // Reset the settings
-        std::cout << '\n'; // Print a new line
+        std::cout << '\n';
         for (int i=0; i<width+2; i++) // For each row
             std::cout << border; // Print the border
-        std::cout << '\n'; // Print a new line
+        std::cout << '\n';
         bool previousPawn = false; // If the previous element was a Pawn
         for (auto& row: pawns) { // For each row
             std::cout << border; // Print the border
@@ -63,7 +63,7 @@ public:
                         ANSI::reset(); // Reset the settings
                         previousPawn = false; // Set the previousPawn to false
                     }
-                    std::cout << ' '; // Print the space
+                    std::cout << ' ';
                 }
             }
             ANSI::reset(); // Reset the settings
@@ -75,11 +75,11 @@ public:
     }
     void print(Border& border) { // Prints with custom border
         ANSI::reset(); // Reset the settings
-        std::cout << '\n'; // Print a new line
+        std::cout << '\n';
         border.print(); // Print the border
         for (int i=0; i<width+1; i++) // For each row
             border.print(true); // Print the border
-        std::cout << '\n'; // Print a new line
+        std::cout << '\n';
         bool previousPawn = true; // If the previous element was a Pawn
         for (auto& row: pawns) { // For each row
             border.print(); // Print the border
@@ -92,12 +92,12 @@ public:
                         ANSI::reset(); // Reset the settings
                         previousPawn = false; // Set the previousPawn to false
                     }
-                    std::cout << ' '; // Print the space
+                    std::cout << ' ';
                 }
             }
             border.print();
             previousPawn = true; // Set the previousPawn to true
-            std::cout << '\n'; // Print new line
+            std::cout << '\n';
         }
         border.print(); // Print the border
         for (int i=0; i<width+1; i++) // For each row
@@ -115,7 +115,7 @@ public:
 
     void movePawn(Pawn* pawn, Coordinates coordinates) { // Move a pawn to the coordinates
         removePawn(pawn); // Remove the pawn from the matrix
-        pawn->coordinates = coordinates; // Set the coordinates of the pawn
+        pawn->coordinates = coordinates;
         addPawn(pawn); // Add the pawn to the matrix
     }
     void movePawn(Pawn* pawn, Coord coordinates) { // Move a pawn to the coordinates
