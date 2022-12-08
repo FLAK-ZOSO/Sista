@@ -1,6 +1,14 @@
+#ifndef FIELD_HPP
+    #define FIELD_HPP 1
+
 #include <vector> // std::vector
-#include "pawn.hpp" // Pawn
-#include "border.hpp" // Border
+#ifndef PAWN_HPP
+    #include "pawn.hpp" // Pawn
+#endif
+#ifndef BORDER_HPP
+    #include "border.hpp" // Border
+#endif
+
 
 
 class Field { // Field class - represents the field
@@ -156,3 +164,4 @@ public:
         return isFree(Coordinates(y, x)); // Return if the coordinates are occupied or out of bounds
     }
 };
+#endif

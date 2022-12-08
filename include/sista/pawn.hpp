@@ -1,6 +1,12 @@
-#pragma once
-#include "coordinates.hpp" // Coord, Coordinates, <utility>
-#include "ANSI-Settings.hpp" // ANSI::ForegroundColor, ANSI::BackgroundColor, ANSI::Attribute, ANSI::Settings
+#ifndef PAWN_HPP
+    #define PAWN_HPP 1
+
+#ifndef ANSI_SETTINGS_HPP
+    #include "ANSI-Settings.hpp" // ANSI::ForegroundColor, ANSI::BackgroundColor, ANSI::Attribute, ANSI::Settings
+#endif
+#ifndef COORDINATES_HPP
+    #include "coordinates.hpp" // Coord, Coordinates, <utility>
+#endif
 
 
 class Pawn { // Pawn class - represents an object on the field [parent class]
@@ -17,3 +23,4 @@ public:
         std::cout << symbol; // Print the symbol
     }
 };
+#endif

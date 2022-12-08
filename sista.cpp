@@ -1,8 +1,7 @@
 // g++ sista.cpp -o sista
 #include <chrono>
 #include <thread>
-#include "clearScreen.hpp"
-#include "field.hpp"
+#include "include/sista/sista.hpp"
 
 
 int main() {

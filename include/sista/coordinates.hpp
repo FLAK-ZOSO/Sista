@@ -1,5 +1,8 @@
-#pragma once
-#include <utility>
+#ifndef COORDINATES_HPP
+    #define COORDINATES_HPP 1
+#endif
+
+#include <utility> // std::pair
 
 
 typedef std::pair<unsigned short, unsigned short> Coord; // Coordinates made into a pair

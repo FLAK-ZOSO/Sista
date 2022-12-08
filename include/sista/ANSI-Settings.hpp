@@ -1,6 +1,9 @@
-#pragma once
+#ifndef ANSI_SETTINGS_HPP
+    #define ANSI_SETTINGS_HPP 1
+
 #include <string>
 #include <iostream>
+
 
 #define ESC "\x1b"
 #define CSI "\x1b["
@@ -14,7 +17,7 @@
 #define LF '\x0a' // Line Feed
 #define VT '\x0b' // Vertical Tab
 #define FF '\x0c' // Form Feed
-#define CR '\x0d' // Carriage Return
+#define CR_ '\x0d' // Carriage Return
 #define DEL '\x7f' // Delete
 
 #define SS "\33[2J\33[H" // Scroll Screen
@@ -93,3 +96,4 @@ namespace ANSI {
         }
     };
 };
+#endif
