@@ -17,7 +17,7 @@ int main() {
         )
     );
     Border border(
-        '#', ANSI::Settings(
+        ' ', ANSI::Settings(
             ANSI::ForegroundColor::F_BLACK,
             ANSI::BackgroundColor::B_WHITE,
             ANSI::Attribute::BRIGHT
