@@ -3,6 +3,8 @@
 =====
 
 .. image:: https://github.com/FLAK-ZOSO/Sista/blob/main/docs/img/OX.png
+    
+    Horizontal version of the Sista logo.
 
 ``Sista`` is a *lightweight*, *fast*, and *easy-to-use* *OOP* library for making terminal games in ``C++``.
 ``Sista`` is a *header-only* library that provides a set of classes and functions to make it easier to create terminal games in ``C++``.
@@ -22,7 +24,7 @@ If you want to use this function, you will have to replace it with your own impl
 ``Installation``
 -------------
 
-To install Sista, simply download the latest release from [``GitHub``](https://github.com/FLAK-ZOSO/Sista).
+To install Sista, simply download the latest release from `GitHub <https://github.com/FLAK-ZOSO/Sista>`_.
 Extract the contents of the archive to your project's source directory.
 
 ``Usage``
