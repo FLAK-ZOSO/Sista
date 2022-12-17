@@ -1,8 +1,8 @@
 =====
-Sista
+``Sista``
 =====
 
-.. image:: https://sista.readthedocs.io/en/latest/img/OX.png
+.. image:: https://github.com/FLAK-ZOSO/Sista/blob/main/docs/img/OX.png
 
 ``Sista`` is a *lightweight*, *fast*, and *easy-to-use* *OOP* library for making terminal games in ``C++``.
 ``Sista`` is a *header-only* library that provides a set of classes and functions to make it easier to create terminal games in ``C++``.
@@ -19,13 +19,13 @@ The only thing that may not work is the ``clearScreen()`` function from ``"clear
 If you want to use this function, you will have to replace it with your own implementation.
 **NOTE**: This function is not used by any of the classes in Sista.
 
-Installation
+``Installation``
 -------------
 
 To install Sista, simply download the latest release from [``GitHub``](https://github.com/FLAK-ZOSO/Sista).
 Extract the contents of the archive to your project's source directory.
 
-Usage
+``Usage``
 -------------
 
 To use Sista, simply include the ``"sista.hpp"`` header in your project's source files.
@@ -37,7 +37,7 @@ To use Sista, simply include the ``"sista.hpp"`` header in your project's source
 
 The ``"sista.hpp"`` header includes all of the other headers in the ``"include/sista/"`` directory, so you don't have to include them individually.
 
-Documentation
+``Documentation``
 --------------
 
 Some of the documentation for Sista can be found in the [``Release Notes``](ReleaseNotes.md) and [``Benchmarks``](Benchmarks.md) files.
