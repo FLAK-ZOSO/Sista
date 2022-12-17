@@ -1,12 +1,10 @@
-.. class:: center
-
-    =====
-    ``Sista``
-    =====
+=====
+``Sista``
+=====
 
 .. image:: https://github.com/FLAK-ZOSO/Sista/blob/main/docs/img/OX.png?raw=true
     :alt: Sista Logo
-    :width: 200px
+    :width: 1000px
     :align: center
 
 ``Sista`` is a *lightweight*, *fast*, and *easy-to-use* *OOP* library for making terminal games in ``C++``.
