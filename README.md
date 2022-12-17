@@ -33,4 +33,3 @@ The `"sista.hpp"` header includes all of the other headers in the `"include/sist
 ## Documentation
 
 Some of the documentation for Sista can be found in the [`Release Notes`](ReleaseNotes.md) and [`Benchmarks`](Benchmarks.md) files.
-I will make a proper documentation for Sista in the future using `ReadTheDocs.io`.
