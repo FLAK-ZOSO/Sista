@@ -10,7 +10,7 @@ Sista
 Inspired by their [``Forsiktig``](https://github.com/Lioydiano/Forsiktig)'s [``variables.hpp``](https://github.com/Lioydiano/Forsiktig/blob/main/variables.hpp) header, @FLAK-ZOSO decided to make a library to prevent others from having to reinvent the wheel every time they wanted to make a terminal game.
 
 ``OS Compatibility``
------------------
+----------------------
 
 Sista is fully compatible with ``Windows``.
 It may work on any other OS which provides an ANSI-supporting Terminal.
@@ -38,6 +38,6 @@ To use Sista, simply include the ``"sista.hpp"`` header in your project's source
 The ``"sista.hpp"`` header includes all of the other headers in the ``"include/sista/"`` directory, so you don't have to include them individually.
 
 Documentation
--------------
+--------------
 
 Some of the documentation for Sista can be found in the [``Release Notes``](ReleaseNotes.md) and [``Benchmarks``](Benchmarks.md) files.
