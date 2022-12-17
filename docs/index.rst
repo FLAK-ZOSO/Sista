@@ -1,6 +1,8 @@
-=====
-``Sista``
-=====
+.. class:: center
+
+    =====
+    ``Sista``
+    =====
 
 .. image:: https://github.com/FLAK-ZOSO/Sista/blob/main/docs/img/OX.png?raw=true
     :alt: Sista Logo
