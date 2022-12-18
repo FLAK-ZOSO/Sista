@@ -11,7 +11,7 @@
 
 ``Sista`` is a *header-only* library that provides a set of classes and functions to make it easier to create terminal games in ``C++``.
 
-Inspired by their `Forsiktig <https://github.com/Lioydiano/Forsiktig>`_ 's `variables.hpp <https://github.com/Lioydiano/Forsiktig/blob/main/variables.hpp>`_ header, @FLAK-ZOSO decided to make a library to prevent others from having to reinvent the wheel every time they wanted to make a terminal game.
+Inspired by their `Forsiktig <https://github.com/Lioydiano/Forsiktig>`_ 's `variables.hpp <https://github.com/Lioydiano/Forsiktig/blob/main/variables.hpp>`_ header, `FLAK-ZOSO <https://flak-zoso.github.io>`_ decided to make a library to prevent others from having to reinvent the wheel every time they wanted to make a terminal game.
 
 ``OS Compatibility``
 ----------------------
@@ -52,4 +52,9 @@ The ``"sista.hpp"`` header includes all of the other headers in the ``"include/s
 ``Documentation``
 --------------
 
-Some of the documentation for Sista can be found in the `Release Notes <ReleaseNotes.md>`_ and `Benchmarks <Benchmarks.md>`_ files.
+Some of the documentation for Sista can be found in the `Release Notes <https://github.com/FLAK-ZOSO/Sista/blob/main/ReleaseNotes.md>`_ and `Benchmarks <https://github.com/FLAK-ZOSO/Sista/blob/main/Benchmarks.md>`_ files.
+
+The rest of the documentation can be found on Read the Docs: `Sista Documentation <https://sista.readthedocs.io/en/latest/>`_.
+
+- `sista.hpp header <sista.rst>`_
+- `clearScreen.hpp header <clearScreen.rst>`_
