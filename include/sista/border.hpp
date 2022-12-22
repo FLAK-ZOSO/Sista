@@ -6,8 +6,8 @@
 
 class Border { // Border class - represents a brick of the border [parent class]
 public:
-    ANSI::Settings settings; // settings of the Border style
     char symbol; // Symbol of the Border
+    ANSI::Settings settings; // settings of the Border style
 
     Border(char symbol_, ANSI::Settings settings_): symbol(symbol_), settings(settings_) {} // Constructor
     Border(char symbol_, ANSI::Settings& settings_): symbol(symbol_), settings(settings_) {} // Constructor

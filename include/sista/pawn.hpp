@@ -6,12 +6,12 @@
 
 class Pawn { // Pawn class - represents an object on the field [parent class]
 public:
+    char symbol; // Symbol of the pawn
     Coordinates coordinates; // Coordinates of the pawn
     ANSI::Settings settings; // settings of the pawn style
-    char symbol; // Symbol of the pawn
 
-    Pawn(Coordinates coordinates_, char symbol_, ANSI::Settings settings_): coordinates(coordinates_), symbol(symbol_), settings(settings_) {} // Constructor
-    Pawn(Coordinates& coordinates_, char symbol_, ANSI::Settings& settings_): coordinates(coordinates_), symbol(symbol_), settings(settings_) {} // Constructor
+    Pawn(char symbol_, Coordinates coordinates_, ANSI::Settings settings_): symbol(symbol_), coordinates(coordinates_), settings(settings_) {} // Constructor
+    Pawn(char symbol_, Coordinates& coordinates_, ANSI::Settings& settings_): symbol(symbol_), coordinates(coordinates_), settings(settings_) {} // Constructor
 
     virtual void print() { // Print the pawn
         settings.apply(); // Apply the settings

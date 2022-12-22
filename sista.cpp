@@ -11,7 +11,7 @@ int main() {
     ANSI::reset(); // Reset the settings
     std::cout << HIDE_CURSOR << CLS;
     Pawn pawn(
-        Coordinates(0, 0), 'X',
+        'X', Coordinates(0, 0),
         ANSI::Settings(
             ANSI::ForegroundColor::F_RED,
             ANSI::BackgroundColor::B_BLACK,
@@ -19,7 +19,7 @@ int main() {
         )
     );
     Pawn pawn2(
-        Coordinates(TEST_SIZE-1, TEST_SIZE-1), 'O',
+        'O', Coordinates(TEST_SIZE-1, TEST_SIZE-1),
         ANSI::Settings(
             ANSI::ForegroundColor::F_BLUE,
             ANSI::BackgroundColor::B_BLACK,
