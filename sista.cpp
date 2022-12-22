@@ -6,11 +6,21 @@
 #define TEST_SIZE 50
 
 
+class Character: public Pawn {
+public:
+    Character(char symbol_, Coordinates coordinates_, ANSI::Settings settings_): Pawn(symbol_, coordinates_, settings_) {}
+
+    void print() override {
+        Pawn::print();
+    }
+};
+
+
 int main() {
     std::ios_base::sync_with_stdio(false);
     ANSI::reset(); // Reset the settings
     std::cout << HIDE_CURSOR << CLS;
-    Pawn pawn(
+    Character pawn(
         'X', Coordinates(0, 0),
         ANSI::Settings(
             ANSI::ForegroundColor::F_RED,
