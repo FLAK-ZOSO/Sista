@@ -5,10 +5,11 @@
 
 
 class Border { // Border class - represents a brick of the border [parent class]
-public:
+protected:
     char symbol; // Symbol of the Border
     ANSI::Settings settings; // settings of the Border style
 
+public:
     Border(char symbol_, ANSI::Settings settings_): symbol(symbol_), settings(settings_) {} // Constructor
     Border(char symbol_, ANSI::Settings& settings_): symbol(symbol_), settings(settings_) {} // Constructor
 
