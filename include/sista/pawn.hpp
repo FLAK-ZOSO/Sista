@@ -13,6 +13,7 @@ protected:
 public:
     Pawn(char symbol_, Coordinates coordinates_, ANSI::Settings settings_): symbol(symbol_), coordinates(coordinates_), settings(settings_) {} // Constructor
     Pawn(char symbol_, Coordinates& coordinates_, ANSI::Settings& settings_): symbol(symbol_), coordinates(coordinates_), settings(settings_) {} // Constructor
+    virtual ~Pawn() {}
 
     inline void setCoordinates(Coordinates& coordinates_) {
         coordinates = coordinates_;
