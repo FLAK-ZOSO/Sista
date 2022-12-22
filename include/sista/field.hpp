@@ -175,11 +175,15 @@ public:
             // ...well, you know how Pac Man works
             if (x_ < 0) {
                 x_ = width-1-(x_ % width);
+                if (x_ == width)
+                	x_ = width - 1;
             } else if (x_ >= width) {
                 x_ %= width;
             }
             if (y_ < 0) {
                 y_ = height-1-(y_ % width);
+                if (y_ == height)
+                	y_ = height -1;
             } else if (y_ >= height) {
                 y_ %= height;
             }
