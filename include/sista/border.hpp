@@ -12,9 +12,6 @@ protected:
 public:
     Border(char symbol_, ANSI::Settings settings_): symbol(symbol_), settings(settings_) {}
     Border(char symbol_, ANSI::Settings& settings_, bool _by_reference): symbol(symbol_), settings(settings_) {}
-    virtual ~Border() {
-        delete &settings;
-    }
 
     virtual void print() { // Print the Border
         settings.apply(); // Apply the settings
