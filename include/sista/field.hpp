@@ -8,12 +8,13 @@
 #define MATRIX_EFFECT 1 // Classic C style matrix effect when a coordinate overflows
 
 
-class Field { // Field class - represents the field
-public:
+class Field { // Field class - represents the field [final class (?)]
+private:
     std::vector<std::vector<Pawn*>> pawns; // Matrix of pawns
     int width; // Width of the matrix
     int height; // Height of the matrix
 
+public:
     void clear() { // Clear the matrix
         for (auto& row: pawns) // For each row
             for (auto& pawn: row) // For each pawn
@@ -110,23 +111,23 @@ public:
     }
 
     void addPawn(Pawn* pawn) { // Add a pawn to the matrix
-        pawns[pawn->coordinates.y][pawn->coordinates.x] = pawn; // Set the pawn to the coordinates
+        pawns[pawn->getCoordinates().y][pawn->getCoordinates().x] = pawn; // Set the pawn to the coordinates
     }
     void removePawn(Pawn* pawn) { // Remove a pawn from the matrix
-        pawns[pawn->coordinates.y][pawn->coordinates.x] = nullptr; // Set the pawn to nullptr
+        pawns[pawn->getCoordinates().y][pawn->getCoordinates().x] = nullptr; // Set the pawn to nullptr
     }
 
     void movePawn(Pawn* pawn, Coordinates& coordinates) { // Move a pawn to the coordinates
         try {
             validateCoordinates(coordinates);
         } catch (const std::invalid_argument& e) {
-            if (pawn->coordinates == coordinates) // If the coordinates are the same...
+            if (pawn->getCoordinates() == coordinates) // If the coordinates are the same...
                 return; // ...the cell is occupied by the pawn, so no need to move it
             // ...otherwise, if the coordinates are occupied by another pawn, throw an exception
             throw std::invalid_argument("The coordinates are occupied by another pawn");
         }
         removePawn(pawn); // Remove the pawn from the matrix
-        pawn->coordinates = coordinates;
+        pawn->setCoordinates(coordinates); // Set the pawn's
         addPawn(pawn); // Add the pawn to the matrix
     }
     void movePawn(Pawn* pawn, Coord& coordinates) { // Move a pawn to the coordinates
@@ -140,7 +141,7 @@ public:
     }
 
     void movePawnBy(Pawn* pawn, Coordinates& coordinates) { // Move a pawn by the coordinates
-        Coordinates coordinates_ = pawn->coordinates + coordinates;
+        Coordinates coordinates_ = pawn->getCoordinates() + coordinates;
         movePawn(pawn, coordinates_);
     }
     void movePawnBy(Pawn* pawn, Coord& coordinates) {
@@ -148,7 +149,7 @@ public:
         movePawnBy(pawn, coordinates_);
     }
     void movePawnBy(Pawn* pawn, unsigned short y, unsigned short x) {
-        movePawn(pawn, pawn->coordinates.y + y, pawn->coordinates.x + x);
+        movePawn(pawn, pawn->getCoordinates().y + y, pawn->getCoordinates().x + x);
     }
 
     // 🎮 movePawnBy() with arcade game effects on coordinates overflow
@@ -160,8 +161,8 @@ public:
         movePawnBy(pawn, coordinates_, effect);
     }
     void movePawnBy(Pawn* pawn, short int y, short int x, bool effect) {
-        short int y_ = pawn->coordinates.y + y;
-        short int x_ = pawn->coordinates.x + x;
+        short int y_ = pawn->getCoordinates().y + y;
+        short int x_ = pawn->getCoordinates().x + x;
         if (!isOutOfBounds(y_, x_)) { // If the coordinates are not out of bounds...
             movePawn(pawn, y_, x_); // ...no need to apply any effect
         } else if (effect == PACMAN_EFFECT) { // If the effect is PACMAN_EFFECT...
