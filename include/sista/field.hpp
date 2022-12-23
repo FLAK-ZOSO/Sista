@@ -8,8 +8,8 @@
 #define MATRIX_EFFECT 1 // Classic C style matrix effect when a coordinate overflows
 
 
-class Field { // Field class - represents the field [final class (?)]
-private:
+class Field { // Field class - represents the field [parent class]
+protected:
     std::vector<std::vector<Pawn*>> pawns; // Matrix of pawns
     int width; // Width of the matrix
     int height; // Height of the matrix
