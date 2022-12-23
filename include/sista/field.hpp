@@ -31,7 +31,6 @@ public:
         for (auto& row: pawns) // For each row
             for (auto& pawn: row) // For each pawn
                 delete pawn; // Delete the pawn
-        delete &pawns; // Delete the matrix
     }
 
     void print() { // Print the matrix
