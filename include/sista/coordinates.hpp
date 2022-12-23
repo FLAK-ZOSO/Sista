@@ -1,6 +1,6 @@
 #pragma once
 
-#include <utility> // std::pair
+#include <utility> // std::pair, std::swap
 
 
 typedef std::pair<unsigned short, unsigned short> Coord; // Coordinates made into a pair [y, x]
