@@ -115,10 +115,10 @@ public:
         std::cout << std::flush; // Flush the output
     }
 
-    void addPawn(Pawn* pawn) { // Add a pawn to the matrix
+    virtual void addPawn(Pawn* pawn) { // Add a pawn to the matrix
         pawns[pawn->getCoordinates().y][pawn->getCoordinates().x] = pawn; // Set the pawn to the coordinates
     }
-    void removePawn(Pawn* pawn) { // Remove a pawn from the matrix
+    virtual void removePawn(Pawn* pawn) { // Remove a pawn from the matrix
         pawns[pawn->getCoordinates().y][pawn->getCoordinates().x] = nullptr; // Set the pawn to nullptr
     }
 
