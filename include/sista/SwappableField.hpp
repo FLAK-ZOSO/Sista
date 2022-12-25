@@ -4,9 +4,6 @@
 #include <algorithm> // std::sort
 #include "field.hpp" // Field, Pawn
 
-#include <fstream> // std::ofstream
-std::ofstream debug("debug.txt"); // debug - debug file
-
 
 struct Path { // Path struct - begin and end Coordinates of a path
     static int current_priority; // current_priority - priority of the current Path [counter]
@@ -130,25 +127,11 @@ public:
     }
     void simulateSwaps() { // simulateSwaps - simulate all the swaps in the pawnsToSwap
         std::vector<std::vector<short int>> pawnsCount_ = pawnsCount; // Copy the pawnsCount
-        debug << "Before:\n";
-        for (auto& row: pawnsCount_) {
-            for (auto& cell: row) {
-                debug << cell;
-            }
-            debug << "\n";
-        }
         for (Path& path : pawnsToSwap) { // Simulate all the swaps in the pawnsToSwap
             pawnsCount_[path.begin.y][path.begin.x]--; // Decrease the number of pawns at the begin of the path (because the pawn will be removed from there)
             pawnsCount_[path.end.y][path.end.x]++; // Increase the number of pawns at the end of the path (because the pawn will be added there)
         }
 
-        debug << "After:\n";
-        for (auto& row: pawnsCount_) {
-            for (auto& cell: row) {
-                debug << cell;
-            }
-            debug << "\n";
-        }
         std::sort(pawnsToSwap.begin(), pawnsToSwap.end()); // Sort the pawnsToSwap by priority
         std::vector<Path>::iterator it = pawnsToSwap.begin();
         Coord arrive_coord; // Coordinates of the cell with 2 or more pawns (so where a certain pawn arrived and should never be arrived at)
@@ -175,15 +158,6 @@ public:
         }
     }
     void applySwaps() {
-        debug << "Applying swaps..." << std::endl;
-        std::cerr << "Applying swaps..." << std::endl;
-        debug << "Swaps to apply: " << pawnsToSwap.size() << std::endl;
-        std::cerr << "Swaps to apply: " << pawnsToSwap.size() << std::endl;
-        for (Path& path: pawnsToSwap) {
-            debug << "Pawn at (" << path.begin.y << ", " << path.begin.x << ") will arrive at (" << path.end.y << ", " << path.end.x << ")" << std::endl;
-            std::cerr << "Pawn at (" << path.begin.y << ", " << path.begin.x << ") will arrive at (" << path.end.y << ", " << path.end.x << ")" << std::endl;
-        }
-
         simulateSwaps(); // This assures that the pawnsToSwap is valid
 
         // The swaps can be applied as it stands
@@ -196,7 +170,6 @@ public:
     }
 
     void swapTwoPawns(Coordinates& first, Coordinates& second) {
-        debug << "Swapping (" << first.y << ", " << first.x << ") with (" << second.y << ", " << second.x << ")\n";
         // Swap the coordinates of the two pawns (into the Pawn object)
         Pawn* first_ = getPawn(first);
         Pawn* second_ = getPawn(second);
@@ -211,16 +184,6 @@ public:
             pawns[first.y][first.x],
             pawns[second.y][second.x]
         );
-        Pawn* now_first = getPawn(first);
-        Pawn* now_second = getPawn(second);
-        if (now_first != nullptr) {
-            Coordinates now_first_coord = now_first->getCoordinates();
-            debug << "The now-first Pawn reached (" << now_first_coord.y << ", " << now_first_coord.x << ")" << std::endl;
-        }
-        if (now_second != nullptr) {
-            Coordinates now_second_coord = now_second->getCoordinates();
-            debug << "The now-second Pawn reached (" << now_second_coord.y << ", " << now_second_coord.x << ")" << std::endl;
-        }
     }
     void swapTwoPawns(Pawn* first, Pawn* second) {
         // Swap the coordinates of the two pawns (into the Pawn object)
