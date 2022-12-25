@@ -11,7 +11,7 @@ int main() {
     ANSI::reset(); // Reset the settings
     std::cout << HIDE_CURSOR;
     clearScreen();
-    Pawn pawn(
+    Pawn* pawn = new Pawn(
         'X', Coordinates(0, 0),
         ANSI::Settings(
             ANSI::ForegroundColor::F_RED,
@@ -19,7 +19,7 @@ int main() {
             ANSI::Attribute::BRIGHT
         )
     );
-    Pawn pawn2(
+    Pawn* pawn2 = new Pawn(
         'O', Coordinates(TEST_SIZE-1, TEST_SIZE-1),
         ANSI::Settings(
             ANSI::ForegroundColor::F_BLUE,
@@ -35,15 +35,15 @@ int main() {
         )
     );
     SwappableField field(TEST_SIZE, TEST_SIZE);
-    field.addPawn(&pawn);
-    field.addPawn(&pawn2);
+    field.addPawn(pawn);
+    field.addPawn(pawn2);
     Coordinates coords(0, 0);
     for (int i=0; i<TEST_SIZE; i++) {
         for (int j=0; j<TEST_SIZE; j++) {
-            coords = field.movingByCoordinates(&pawn, 0, 1, MATRIX_EFFECT);
-            field.addPawnToSwap(&pawn, coords);
-            coords = field.movingByCoordinates(&pawn2, 0, -1, MATRIX_EFFECT);
-            field.addPawnToSwap(&pawn2, coords);
+            coords = field.movingByCoordinates(pawn, 0, 1, MATRIX_EFFECT);
+            field.addPawnToSwap(pawn, coords);
+            coords = field.movingByCoordinates(pawn2, 0, -1, MATRIX_EFFECT);
+            field.addPawnToSwap(pawn2, coords);
 
             field.applySwaps();
 
