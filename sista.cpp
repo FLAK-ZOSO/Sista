@@ -3,7 +3,7 @@
 #include <thread>
 #include "include/sista/sista.hpp"
 
-#define TEST_SIZE 10
+#define TEST_SIZE 50
 
 
 int main() {
@@ -27,14 +27,6 @@ int main() {
             ANSI::Attribute::BRIGHT
         )
     );
-    Pawn* pawn3 = new Pawn(
-        'O', Coordinates(TEST_SIZE-1, 0),
-        ANSI::Settings(
-            ANSI::ForegroundColor::F_MAGENTA,
-            ANSI::BackgroundColor::B_BLACK,
-            ANSI::Attribute::BRIGHT
-        )
-    );
     Border border(
         ' ', ANSI::Settings(
             ANSI::ForegroundColor::F_BLACK,
@@ -52,8 +44,6 @@ int main() {
             field.addPawnToSwap(pawn, coords);
             coords = field.movingByCoordinates(pawn2, 0, -1, MATRIX_EFFECT);
             field.addPawnToSwap(pawn2, coords);
-            coords = field.movingByCoordinates(pawn3, 0, 1, PACMAN_EFFECT);
-            field.addPawnToSwap(pawn3, coords);
 
             field.applySwaps();
 
