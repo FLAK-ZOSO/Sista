@@ -56,6 +56,8 @@ The following test was run with...
 - Almost no blinking or flickering
 - `Pawn`s movement is snappy
 
+## v`0.4.0`
+
 ### `sista.exe` III - 25/12/2022
 
 The following test was run with...
