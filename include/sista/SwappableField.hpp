@@ -209,6 +209,16 @@ public:
             pawns[first.y][first.x],
             pawns[second.y][second.x]
         );
+        Pawn* now_first = getPawn(first);
+        Pawn* now_second = getPawn(second);
+        if (now_first != nullptr) {
+            Coordinates now_first_coord = now_first->getCoordinates();
+            debug << "The now-first Pawn reached (" << now_first_coord.y << ", " << now_first_coord.x << ")" << std::endl;
+        }
+        if (now_second != nullptr) {
+            Coordinates now_second_coord = now_second->getCoordinates();
+            debug << "The now-second Pawn reached (" << now_second_coord.y << ", " << now_second_coord.x << ")" << std::endl;
+        }
     }
     void swapTwoPawns(Pawn* first, Pawn* second) {
         // Swap the coordinates of the two pawns (into the Pawn object)

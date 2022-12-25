@@ -29,7 +29,9 @@ After:
 0000000000
 0000000010
 Swapping (0, 0) with (0, 1)
+The now-second Pawn reached (0, 1)
 Swapping (9, 9) with (9, 8)
+The now-second Pawn reached (9, 8)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (0, 1) to (0, 2)
 Calculating arrival coordinates for second pawn.
@@ -61,7 +63,9 @@ After:
 0000000000
 0000000100
 Swapping (0, 1) with (0, 2)
+The now-second Pawn reached (0, 2)
 Swapping (9, 8) with (9, 7)
+The now-second Pawn reached (9, 7)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (0, 2) to (0, 3)
 Calculating arrival coordinates for second pawn.
@@ -93,7 +97,9 @@ After:
 0000000000
 0000001000
 Swapping (0, 2) with (0, 3)
+The now-second Pawn reached (0, 3)
 Swapping (9, 7) with (9, 6)
+The now-second Pawn reached (9, 6)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (0, 3) to (0, 4)
 Calculating arrival coordinates for second pawn.
@@ -125,7 +131,9 @@ After:
 0000000000
 0000010000
 Swapping (0, 3) with (0, 4)
+The now-second Pawn reached (0, 4)
 Swapping (9, 6) with (9, 5)
+The now-second Pawn reached (9, 5)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (0, 4) to (0, 5)
 Calculating arrival coordinates for second pawn.
@@ -157,7 +165,9 @@ After:
 0000000000
 0000100000
 Swapping (0, 4) with (0, 5)
+The now-second Pawn reached (0, 5)
 Swapping (9, 5) with (9, 4)
+The now-second Pawn reached (9, 4)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (0, 5) to (0, 6)
 Calculating arrival coordinates for second pawn.
@@ -189,7 +199,9 @@ After:
 0000000000
 0001000000
 Swapping (0, 5) with (0, 6)
+The now-second Pawn reached (0, 6)
 Swapping (9, 4) with (9, 3)
+The now-second Pawn reached (9, 3)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (0, 6) to (0, 7)
 Calculating arrival coordinates for second pawn.
@@ -221,7 +233,9 @@ After:
 0000000000
 0010000000
 Swapping (0, 6) with (0, 7)
+The now-second Pawn reached (0, 7)
 Swapping (9, 3) with (9, 2)
+The now-second Pawn reached (9, 2)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (0, 7) to (0, 8)
 Calculating arrival coordinates for second pawn.
@@ -253,7 +267,9 @@ After:
 0000000000
 0100000000
 Swapping (0, 7) with (0, 8)
+The now-second Pawn reached (0, 8)
 Swapping (9, 2) with (9, 1)
+The now-second Pawn reached (9, 1)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (0, 8) to (0, 9)
 Calculating arrival coordinates for second pawn.
@@ -285,7 +301,9 @@ After:
 0000000000
 1000000000
 Swapping (0, 8) with (0, 9)
+The now-second Pawn reached (0, 9)
 Swapping (9, 1) with (9, 0)
+The now-second Pawn reached (9, 0)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (0, 9) to (1, 0)
 Calculating arrival coordinates for second pawn.
@@ -317,7 +335,9 @@ After:
 0000000001
 0000000000
 Swapping (0, 9) with (1, 0)
+The now-second Pawn reached (1, 0)
 Swapping (9, 0) with (8, 9)
+The now-second Pawn reached (8, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (1, 0) to (1, 1)
 Calculating arrival coordinates for second pawn.
@@ -349,7 +369,9 @@ After:
 0000000010
 0000000000
 Swapping (1, 0) with (1, 1)
+The now-second Pawn reached (1, 1)
 Swapping (8, 9) with (8, 8)
+The now-second Pawn reached (8, 8)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (1, 1) to (1, 2)
 Calculating arrival coordinates for second pawn.
@@ -381,7 +403,9 @@ After:
 0000000100
 0000000000
 Swapping (1, 1) with (1, 2)
+The now-second Pawn reached (1, 2)
 Swapping (8, 8) with (8, 7)
+The now-second Pawn reached (8, 7)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (1, 2) to (1, 3)
 Calculating arrival coordinates for second pawn.
@@ -413,7 +437,9 @@ After:
 0000001000
 0000000000
 Swapping (1, 2) with (1, 3)
+The now-second Pawn reached (1, 3)
 Swapping (8, 7) with (8, 6)
+The now-second Pawn reached (8, 6)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (1, 3) to (1, 4)
 Calculating arrival coordinates for second pawn.
@@ -445,7 +471,9 @@ After:
 0000010000
 0000000000
 Swapping (1, 3) with (1, 4)
+The now-second Pawn reached (1, 4)
 Swapping (8, 6) with (8, 5)
+The now-second Pawn reached (8, 5)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (1, 4) to (1, 5)
 Calculating arrival coordinates for second pawn.
@@ -477,7 +505,9 @@ After:
 0000100000
 0000000000
 Swapping (1, 4) with (1, 5)
+The now-second Pawn reached (1, 5)
 Swapping (8, 5) with (8, 4)
+The now-second Pawn reached (8, 4)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (1, 5) to (1, 6)
 Calculating arrival coordinates for second pawn.
@@ -509,7 +539,9 @@ After:
 0001000000
 0000000000
 Swapping (1, 5) with (1, 6)
+The now-second Pawn reached (1, 6)
 Swapping (8, 4) with (8, 3)
+The now-second Pawn reached (8, 3)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (1, 6) to (1, 7)
 Calculating arrival coordinates for second pawn.
@@ -541,7 +573,9 @@ After:
 0010000000
 0000000000
 Swapping (1, 6) with (1, 7)
+The now-second Pawn reached (1, 7)
 Swapping (8, 3) with (8, 2)
+The now-second Pawn reached (8, 2)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (1, 7) to (1, 8)
 Calculating arrival coordinates for second pawn.
@@ -573,7 +607,9 @@ After:
 0100000000
 0000000000
 Swapping (1, 7) with (1, 8)
+The now-second Pawn reached (1, 8)
 Swapping (8, 2) with (8, 1)
+The now-second Pawn reached (8, 1)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (1, 8) to (1, 9)
 Calculating arrival coordinates for second pawn.
@@ -605,7 +641,9 @@ After:
 1000000000
 0000000000
 Swapping (1, 8) with (1, 9)
+The now-second Pawn reached (1, 9)
 Swapping (8, 1) with (8, 0)
+The now-second Pawn reached (8, 0)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (1, 9) to (2, 0)
 Calculating arrival coordinates for second pawn.
@@ -637,7 +675,9 @@ After:
 0000000000
 0000000000
 Swapping (1, 9) with (2, 0)
+The now-second Pawn reached (2, 0)
 Swapping (8, 0) with (7, 9)
+The now-second Pawn reached (7, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (2, 0) to (2, 1)
 Calculating arrival coordinates for second pawn.
@@ -669,7 +709,9 @@ After:
 0000000000
 0000000000
 Swapping (2, 0) with (2, 1)
+The now-second Pawn reached (2, 1)
 Swapping (7, 9) with (7, 8)
+The now-second Pawn reached (7, 8)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (2, 1) to (2, 2)
 Calculating arrival coordinates for second pawn.
@@ -701,7 +743,9 @@ After:
 0000000000
 0000000000
 Swapping (2, 1) with (2, 2)
+The now-second Pawn reached (2, 2)
 Swapping (7, 8) with (7, 7)
+The now-second Pawn reached (7, 7)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (2, 2) to (2, 3)
 Calculating arrival coordinates for second pawn.
@@ -733,7 +777,9 @@ After:
 0000000000
 0000000000
 Swapping (2, 2) with (2, 3)
+The now-second Pawn reached (2, 3)
 Swapping (7, 7) with (7, 6)
+The now-second Pawn reached (7, 6)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (2, 3) to (2, 4)
 Calculating arrival coordinates for second pawn.
@@ -765,7 +811,9 @@ After:
 0000000000
 0000000000
 Swapping (2, 3) with (2, 4)
+The now-second Pawn reached (2, 4)
 Swapping (7, 6) with (7, 5)
+The now-second Pawn reached (7, 5)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (2, 4) to (2, 5)
 Calculating arrival coordinates for second pawn.
@@ -797,7 +845,9 @@ After:
 0000000000
 0000000000
 Swapping (2, 4) with (2, 5)
+The now-second Pawn reached (2, 5)
 Swapping (7, 5) with (7, 4)
+The now-second Pawn reached (7, 4)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (2, 5) to (2, 6)
 Calculating arrival coordinates for second pawn.
@@ -829,7 +879,9 @@ After:
 0000000000
 0000000000
 Swapping (2, 5) with (2, 6)
+The now-second Pawn reached (2, 6)
 Swapping (7, 4) with (7, 3)
+The now-second Pawn reached (7, 3)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (2, 6) to (2, 7)
 Calculating arrival coordinates for second pawn.
@@ -861,7 +913,9 @@ After:
 0000000000
 0000000000
 Swapping (2, 6) with (2, 7)
+The now-second Pawn reached (2, 7)
 Swapping (7, 3) with (7, 2)
+The now-second Pawn reached (7, 2)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (2, 7) to (2, 8)
 Calculating arrival coordinates for second pawn.
@@ -893,7 +947,9 @@ After:
 0000000000
 0000000000
 Swapping (2, 7) with (2, 8)
+The now-second Pawn reached (2, 8)
 Swapping (7, 2) with (7, 1)
+The now-second Pawn reached (7, 1)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (2, 8) to (2, 9)
 Calculating arrival coordinates for second pawn.
@@ -925,7 +981,9 @@ After:
 0000000000
 0000000000
 Swapping (2, 8) with (2, 9)
+The now-second Pawn reached (2, 9)
 Swapping (7, 1) with (7, 0)
+The now-second Pawn reached (7, 0)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (2, 9) to (3, 0)
 Calculating arrival coordinates for second pawn.
@@ -957,7 +1015,9 @@ After:
 0000000000
 0000000000
 Swapping (2, 9) with (3, 0)
+The now-second Pawn reached (3, 0)
 Swapping (7, 0) with (6, 9)
+The now-second Pawn reached (6, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (3, 0) to (3, 1)
 Calculating arrival coordinates for second pawn.
@@ -989,7 +1049,9 @@ After:
 0000000000
 0000000000
 Swapping (3, 0) with (3, 1)
+The now-second Pawn reached (3, 1)
 Swapping (6, 9) with (6, 8)
+The now-second Pawn reached (6, 8)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (3, 1) to (3, 2)
 Calculating arrival coordinates for second pawn.
@@ -1021,7 +1083,9 @@ After:
 0000000000
 0000000000
 Swapping (3, 1) with (3, 2)
+The now-second Pawn reached (3, 2)
 Swapping (6, 8) with (6, 7)
+The now-second Pawn reached (6, 7)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (3, 2) to (3, 3)
 Calculating arrival coordinates for second pawn.
@@ -1053,7 +1117,9 @@ After:
 0000000000
 0000000000
 Swapping (3, 2) with (3, 3)
+The now-second Pawn reached (3, 3)
 Swapping (6, 7) with (6, 6)
+The now-second Pawn reached (6, 6)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (3, 3) to (3, 4)
 Calculating arrival coordinates for second pawn.
@@ -1085,7 +1151,9 @@ After:
 0000000000
 0000000000
 Swapping (3, 3) with (3, 4)
+The now-second Pawn reached (3, 4)
 Swapping (6, 6) with (6, 5)
+The now-second Pawn reached (6, 5)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (3, 4) to (3, 5)
 Calculating arrival coordinates for second pawn.
@@ -1117,7 +1185,9 @@ After:
 0000000000
 0000000000
 Swapping (3, 4) with (3, 5)
+The now-second Pawn reached (3, 5)
 Swapping (6, 5) with (6, 4)
+The now-second Pawn reached (6, 4)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (3, 5) to (3, 6)
 Calculating arrival coordinates for second pawn.
@@ -1149,7 +1219,9 @@ After:
 0000000000
 0000000000
 Swapping (3, 5) with (3, 6)
+The now-second Pawn reached (3, 6)
 Swapping (6, 4) with (6, 3)
+The now-second Pawn reached (6, 3)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (3, 6) to (3, 7)
 Calculating arrival coordinates for second pawn.
@@ -1181,7 +1253,9 @@ After:
 0000000000
 0000000000
 Swapping (3, 6) with (3, 7)
+The now-second Pawn reached (3, 7)
 Swapping (6, 3) with (6, 2)
+The now-second Pawn reached (6, 2)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (3, 7) to (3, 8)
 Calculating arrival coordinates for second pawn.
@@ -1213,7 +1287,9 @@ After:
 0000000000
 0000000000
 Swapping (3, 7) with (3, 8)
+The now-second Pawn reached (3, 8)
 Swapping (6, 2) with (6, 1)
+The now-second Pawn reached (6, 1)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (3, 8) to (3, 9)
 Calculating arrival coordinates for second pawn.
@@ -1245,7 +1321,9 @@ After:
 0000000000
 0000000000
 Swapping (3, 8) with (3, 9)
+The now-second Pawn reached (3, 9)
 Swapping (6, 1) with (6, 0)
+The now-second Pawn reached (6, 0)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (3, 9) to (4, 0)
 Calculating arrival coordinates for second pawn.
@@ -1277,7 +1355,9 @@ After:
 0000000000
 0000000000
 Swapping (3, 9) with (4, 0)
+The now-second Pawn reached (4, 0)
 Swapping (6, 0) with (5, 9)
+The now-second Pawn reached (5, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 0) to (4, 1)
 Calculating arrival coordinates for second pawn.
@@ -1309,7 +1389,9 @@ After:
 0000000000
 0000000000
 Swapping (4, 0) with (4, 1)
+The now-second Pawn reached (4, 1)
 Swapping (5, 9) with (5, 8)
+The now-second Pawn reached (5, 8)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 1) to (4, 2)
 Calculating arrival coordinates for second pawn.
@@ -1341,7 +1423,9 @@ After:
 0000000000
 0000000000
 Swapping (4, 1) with (4, 2)
+The now-second Pawn reached (4, 2)
 Swapping (5, 8) with (5, 7)
+The now-second Pawn reached (5, 7)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 2) to (4, 3)
 Calculating arrival coordinates for second pawn.
@@ -1373,7 +1457,9 @@ After:
 0000000000
 0000000000
 Swapping (4, 2) with (4, 3)
+The now-second Pawn reached (4, 3)
 Swapping (5, 7) with (5, 6)
+The now-second Pawn reached (5, 6)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 3) to (4, 4)
 Calculating arrival coordinates for second pawn.
@@ -1405,7 +1491,9 @@ After:
 0000000000
 0000000000
 Swapping (4, 3) with (4, 4)
+The now-second Pawn reached (4, 4)
 Swapping (5, 6) with (5, 5)
+The now-second Pawn reached (5, 5)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 4) to (4, 5)
 Calculating arrival coordinates for second pawn.
@@ -1437,7 +1525,9 @@ After:
 0000000000
 0000000000
 Swapping (4, 4) with (4, 5)
+The now-second Pawn reached (4, 5)
 Swapping (5, 5) with (5, 4)
+The now-second Pawn reached (5, 4)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 5) to (4, 6)
 Calculating arrival coordinates for second pawn.
@@ -1469,7 +1559,9 @@ After:
 0000000000
 0000000000
 Swapping (4, 5) with (4, 6)
+The now-second Pawn reached (4, 6)
 Swapping (5, 4) with (5, 3)
+The now-second Pawn reached (5, 3)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 6) to (4, 7)
 Calculating arrival coordinates for second pawn.
@@ -1501,7 +1593,9 @@ After:
 0000000000
 0000000000
 Swapping (4, 6) with (4, 7)
+The now-second Pawn reached (4, 7)
 Swapping (5, 3) with (5, 2)
+The now-second Pawn reached (5, 2)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 7) to (4, 8)
 Calculating arrival coordinates for second pawn.
@@ -1533,7 +1627,9 @@ After:
 0000000000
 0000000000
 Swapping (4, 7) with (4, 8)
+The now-second Pawn reached (4, 8)
 Swapping (5, 2) with (5, 1)
+The now-second Pawn reached (5, 1)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 8) to (4, 9)
 Calculating arrival coordinates for second pawn.
@@ -1565,7 +1661,9 @@ After:
 0000000000
 0000000000
 Swapping (4, 8) with (4, 9)
+The now-second Pawn reached (4, 9)
 Swapping (5, 1) with (5, 0)
+The now-second Pawn reached (5, 0)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -1597,7 +1695,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -1629,7 +1731,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -1661,7 +1767,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -1693,7 +1803,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -1725,7 +1839,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -1757,7 +1875,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -1789,7 +1911,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -1821,7 +1947,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -1853,7 +1983,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -1885,7 +2019,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -1917,7 +2055,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -1949,7 +2091,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -1981,7 +2127,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2013,7 +2163,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2045,7 +2199,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2077,7 +2235,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2109,7 +2271,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2141,7 +2307,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2173,7 +2343,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2205,7 +2379,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2237,7 +2415,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2269,7 +2451,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2301,7 +2487,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2333,7 +2523,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2365,7 +2559,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2397,7 +2595,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2429,7 +2631,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2461,7 +2667,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2493,7 +2703,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2525,7 +2739,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2557,7 +2775,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2589,7 +2811,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2621,7 +2847,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2653,7 +2883,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2685,7 +2919,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2717,7 +2955,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2749,7 +2991,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2781,7 +3027,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2813,7 +3063,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2845,7 +3099,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2877,7 +3135,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2909,7 +3171,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2941,7 +3207,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -2973,7 +3243,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -3005,7 +3279,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -3037,7 +3315,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -3069,7 +3351,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -3101,7 +3387,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -3133,7 +3423,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -3165,7 +3459,11 @@ After:
 0000000000
 0000000000
 Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
 Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 9) to (5, 0)
 Calculating arrival coordinates for second pawn.
@@ -3174,3 +3472,31 @@ Applying swaps...
 Swaps to apply: 2
 Pawn at (4, 9) will arrive at (5, 0)
 Pawn at (5, 0) will arrive at (4, 9)
+Before:
+0000000000
+0000000000
+0000000000
+0000000000
+0000000001
+1000000000
+0000000000
+0000000000
+0000000000
+0000000000
+After:
+0000000000
+0000000000
+0000000000
+0000000000
+0000000001
+1000000000
+0000000000
+0000000000
+0000000000
+0000000000
+Swapping (4, 9) with (5, 0)
+The now-first Pawn reached (4, 9)
+The now-second Pawn reached (5, 0)
+Swapping (5, 0) with (4, 9)
+The now-first Pawn reached (5, 0)
+The now-second Pawn reached (4, 9)
