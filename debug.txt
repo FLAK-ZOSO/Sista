@@ -1,0 +1,3176 @@
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 0) to (0, 1)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 9) to (9, 8)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 0) will arrive at (0, 1)
+Pawn at (9, 9) will arrive at (9, 8)
+Before:
+1000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000001
+After:
+0100000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000010
+Swapping (0, 0) with (0, 1)
+Swapping (9, 9) with (9, 8)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 1) to (0, 2)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 8) to (9, 7)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 1) will arrive at (0, 2)
+Pawn at (9, 8) will arrive at (9, 7)
+Before:
+0100000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000010
+After:
+0010000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000100
+Swapping (0, 1) with (0, 2)
+Swapping (9, 8) with (9, 7)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 2) to (0, 3)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 7) to (9, 6)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 2) will arrive at (0, 3)
+Pawn at (9, 7) will arrive at (9, 6)
+Before:
+0010000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000100
+After:
+0001000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000001000
+Swapping (0, 2) with (0, 3)
+Swapping (9, 7) with (9, 6)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 3) to (0, 4)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 6) to (9, 5)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 3) will arrive at (0, 4)
+Pawn at (9, 6) will arrive at (9, 5)
+Before:
+0001000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000001000
+After:
+0000100000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000010000
+Swapping (0, 3) with (0, 4)
+Swapping (9, 6) with (9, 5)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 4) to (0, 5)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 5) to (9, 4)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 4) will arrive at (0, 5)
+Pawn at (9, 5) will arrive at (9, 4)
+Before:
+0000100000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000010000
+After:
+0000010000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000100000
+Swapping (0, 4) with (0, 5)
+Swapping (9, 5) with (9, 4)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 5) to (0, 6)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 4) to (9, 3)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 5) will arrive at (0, 6)
+Pawn at (9, 4) will arrive at (9, 3)
+Before:
+0000010000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000100000
+After:
+0000001000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0001000000
+Swapping (0, 5) with (0, 6)
+Swapping (9, 4) with (9, 3)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 6) to (0, 7)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 3) to (9, 2)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 6) will arrive at (0, 7)
+Pawn at (9, 3) will arrive at (9, 2)
+Before:
+0000001000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0001000000
+After:
+0000000100
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0010000000
+Swapping (0, 6) with (0, 7)
+Swapping (9, 3) with (9, 2)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 7) to (0, 8)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 2) to (9, 1)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 7) will arrive at (0, 8)
+Pawn at (9, 2) will arrive at (9, 1)
+Before:
+0000000100
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0010000000
+After:
+0000000010
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0100000000
+Swapping (0, 7) with (0, 8)
+Swapping (9, 2) with (9, 1)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 8) to (0, 9)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 1) to (9, 0)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 8) will arrive at (0, 9)
+Pawn at (9, 1) will arrive at (9, 0)
+Before:
+0000000010
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0100000000
+After:
+0000000001
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+1000000000
+Swapping (0, 8) with (0, 9)
+Swapping (9, 1) with (9, 0)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 9) to (0, 0)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 0) to (9, 9)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 9) will arrive at (0, 0)
+Pawn at (9, 0) will arrive at (9, 9)
+Before:
+0000000001
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+1000000000
+After:
+1000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000001
+Swapping (0, 9) with (0, 0)
+Swapping (9, 0) with (9, 9)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 0) to (0, 1)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 9) to (9, 8)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 0) will arrive at (0, 1)
+Pawn at (9, 9) will arrive at (9, 8)
+Before:
+1000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000001
+After:
+0100000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000010
+Swapping (0, 0) with (0, 1)
+Swapping (9, 9) with (9, 8)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 1) to (0, 2)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 8) to (9, 7)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 1) will arrive at (0, 2)
+Pawn at (9, 8) will arrive at (9, 7)
+Before:
+0100000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000010
+After:
+0010000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000100
+Swapping (0, 1) with (0, 2)
+Swapping (9, 8) with (9, 7)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 2) to (0, 3)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 7) to (9, 6)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 2) will arrive at (0, 3)
+Pawn at (9, 7) will arrive at (9, 6)
+Before:
+0010000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000100
+After:
+0001000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000001000
+Swapping (0, 2) with (0, 3)
+Swapping (9, 7) with (9, 6)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 3) to (0, 4)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 6) to (9, 5)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 3) will arrive at (0, 4)
+Pawn at (9, 6) will arrive at (9, 5)
+Before:
+0001000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000001000
+After:
+0000100000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000010000
+Swapping (0, 3) with (0, 4)
+Swapping (9, 6) with (9, 5)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 4) to (0, 5)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 5) to (9, 4)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 4) will arrive at (0, 5)
+Pawn at (9, 5) will arrive at (9, 4)
+Before:
+0000100000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000010000
+After:
+0000010000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000100000
+Swapping (0, 4) with (0, 5)
+Swapping (9, 5) with (9, 4)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 5) to (0, 6)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 4) to (9, 3)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 5) will arrive at (0, 6)
+Pawn at (9, 4) will arrive at (9, 3)
+Before:
+0000010000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000100000
+After:
+0000001000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0001000000
+Swapping (0, 5) with (0, 6)
+Swapping (9, 4) with (9, 3)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 6) to (0, 7)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 3) to (9, 2)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 6) will arrive at (0, 7)
+Pawn at (9, 3) will arrive at (9, 2)
+Before:
+0000001000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0001000000
+After:
+0000000100
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0010000000
+Swapping (0, 6) with (0, 7)
+Swapping (9, 3) with (9, 2)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 7) to (0, 8)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 2) to (9, 1)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 7) will arrive at (0, 8)
+Pawn at (9, 2) will arrive at (9, 1)
+Before:
+0000000100
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0010000000
+After:
+0000000010
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0100000000
+Swapping (0, 7) with (0, 8)
+Swapping (9, 2) with (9, 1)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 8) to (0, 9)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 1) to (9, 0)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 8) will arrive at (0, 9)
+Pawn at (9, 1) will arrive at (9, 0)
+Before:
+0000000010
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0100000000
+After:
+0000000001
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+1000000000
+Swapping (0, 8) with (0, 9)
+Swapping (9, 1) with (9, 0)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 9) to (0, 0)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 0) to (9, 9)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 9) will arrive at (0, 0)
+Pawn at (9, 0) will arrive at (9, 9)
+Before:
+0000000001
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+1000000000
+After:
+1000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000001
+Swapping (0, 9) with (0, 0)
+Swapping (9, 0) with (9, 9)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 0) to (0, 1)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 9) to (9, 8)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 0) will arrive at (0, 1)
+Pawn at (9, 9) will arrive at (9, 8)
+Before:
+1000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000001
+After:
+0100000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000010
+Swapping (0, 0) with (0, 1)
+Swapping (9, 9) with (9, 8)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 1) to (0, 2)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 8) to (9, 7)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 1) will arrive at (0, 2)
+Pawn at (9, 8) will arrive at (9, 7)
+Before:
+0100000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000010
+After:
+0010000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000100
+Swapping (0, 1) with (0, 2)
+Swapping (9, 8) with (9, 7)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 2) to (0, 3)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 7) to (9, 6)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 2) will arrive at (0, 3)
+Pawn at (9, 7) will arrive at (9, 6)
+Before:
+0010000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000100
+After:
+0001000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000001000
+Swapping (0, 2) with (0, 3)
+Swapping (9, 7) with (9, 6)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 3) to (0, 4)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 6) to (9, 5)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 3) will arrive at (0, 4)
+Pawn at (9, 6) will arrive at (9, 5)
+Before:
+0001000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000001000
+After:
+0000100000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000010000
+Swapping (0, 3) with (0, 4)
+Swapping (9, 6) with (9, 5)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 4) to (0, 5)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 5) to (9, 4)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 4) will arrive at (0, 5)
+Pawn at (9, 5) will arrive at (9, 4)
+Before:
+0000100000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000010000
+After:
+0000010000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000100000
+Swapping (0, 4) with (0, 5)
+Swapping (9, 5) with (9, 4)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 5) to (0, 6)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 4) to (9, 3)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 5) will arrive at (0, 6)
+Pawn at (9, 4) will arrive at (9, 3)
+Before:
+0000010000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000100000
+After:
+0000001000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0001000000
+Swapping (0, 5) with (0, 6)
+Swapping (9, 4) with (9, 3)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 6) to (0, 7)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 3) to (9, 2)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 6) will arrive at (0, 7)
+Pawn at (9, 3) will arrive at (9, 2)
+Before:
+0000001000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0001000000
+After:
+0000000100
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0010000000
+Swapping (0, 6) with (0, 7)
+Swapping (9, 3) with (9, 2)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 7) to (0, 8)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 2) to (9, 1)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 7) will arrive at (0, 8)
+Pawn at (9, 2) will arrive at (9, 1)
+Before:
+0000000100
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0010000000
+After:
+0000000010
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0100000000
+Swapping (0, 7) with (0, 8)
+Swapping (9, 2) with (9, 1)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 8) to (0, 9)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 1) to (9, 0)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 8) will arrive at (0, 9)
+Pawn at (9, 1) will arrive at (9, 0)
+Before:
+0000000010
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0100000000
+After:
+0000000001
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+1000000000
+Swapping (0, 8) with (0, 9)
+Swapping (9, 1) with (9, 0)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 9) to (0, 0)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 0) to (9, 9)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 9) will arrive at (0, 0)
+Pawn at (9, 0) will arrive at (9, 9)
+Before:
+0000000001
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+1000000000
+After:
+1000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000001
+Swapping (0, 9) with (0, 0)
+Swapping (9, 0) with (9, 9)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 0) to (0, 1)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 9) to (9, 8)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 0) will arrive at (0, 1)
+Pawn at (9, 9) will arrive at (9, 8)
+Before:
+1000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000001
+After:
+0100000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000010
+Swapping (0, 0) with (0, 1)
+Swapping (9, 9) with (9, 8)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 1) to (0, 2)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 8) to (9, 7)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 1) will arrive at (0, 2)
+Pawn at (9, 8) will arrive at (9, 7)
+Before:
+0100000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000010
+After:
+0010000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000100
+Swapping (0, 1) with (0, 2)
+Swapping (9, 8) with (9, 7)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 2) to (0, 3)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 7) to (9, 6)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 2) will arrive at (0, 3)
+Pawn at (9, 7) will arrive at (9, 6)
+Before:
+0010000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000100
+After:
+0001000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000001000
+Swapping (0, 2) with (0, 3)
+Swapping (9, 7) with (9, 6)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 3) to (0, 4)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 6) to (9, 5)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 3) will arrive at (0, 4)
+Pawn at (9, 6) will arrive at (9, 5)
+Before:
+0001000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000001000
+After:
+0000100000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000010000
+Swapping (0, 3) with (0, 4)
+Swapping (9, 6) with (9, 5)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 4) to (0, 5)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 5) to (9, 4)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 4) will arrive at (0, 5)
+Pawn at (9, 5) will arrive at (9, 4)
+Before:
+0000100000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000010000
+After:
+0000010000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000100000
+Swapping (0, 4) with (0, 5)
+Swapping (9, 5) with (9, 4)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 5) to (0, 6)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 4) to (9, 3)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 5) will arrive at (0, 6)
+Pawn at (9, 4) will arrive at (9, 3)
+Before:
+0000010000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000100000
+After:
+0000001000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0001000000
+Swapping (0, 5) with (0, 6)
+Swapping (9, 4) with (9, 3)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 6) to (0, 7)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 3) to (9, 2)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 6) will arrive at (0, 7)
+Pawn at (9, 3) will arrive at (9, 2)
+Before:
+0000001000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0001000000
+After:
+0000000100
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0010000000
+Swapping (0, 6) with (0, 7)
+Swapping (9, 3) with (9, 2)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 7) to (0, 8)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 2) to (9, 1)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 7) will arrive at (0, 8)
+Pawn at (9, 2) will arrive at (9, 1)
+Before:
+0000000100
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0010000000
+After:
+0000000010
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0100000000
+Swapping (0, 7) with (0, 8)
+Swapping (9, 2) with (9, 1)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 8) to (0, 9)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 1) to (9, 0)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 8) will arrive at (0, 9)
+Pawn at (9, 1) will arrive at (9, 0)
+Before:
+0000000010
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0100000000
+After:
+0000000001
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+1000000000
+Swapping (0, 8) with (0, 9)
+Swapping (9, 1) with (9, 0)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 9) to (0, 0)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 0) to (9, 9)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 9) will arrive at (0, 0)
+Pawn at (9, 0) will arrive at (9, 9)
+Before:
+0000000001
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+1000000000
+After:
+1000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000001
+Swapping (0, 9) with (0, 0)
+Swapping (9, 0) with (9, 9)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 0) to (0, 1)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 9) to (9, 8)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 0) will arrive at (0, 1)
+Pawn at (9, 9) will arrive at (9, 8)
+Before:
+1000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000001
+After:
+0100000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000010
+Swapping (0, 0) with (0, 1)
+Swapping (9, 9) with (9, 8)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 1) to (0, 2)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 8) to (9, 7)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 1) will arrive at (0, 2)
+Pawn at (9, 8) will arrive at (9, 7)
+Before:
+0100000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000010
+After:
+0010000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000100
+Swapping (0, 1) with (0, 2)
+Swapping (9, 8) with (9, 7)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 2) to (0, 3)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 7) to (9, 6)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 2) will arrive at (0, 3)
+Pawn at (9, 7) will arrive at (9, 6)
+Before:
+0010000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000100
+After:
+0001000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000001000
+Swapping (0, 2) with (0, 3)
+Swapping (9, 7) with (9, 6)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 3) to (0, 4)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 6) to (9, 5)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 3) will arrive at (0, 4)
+Pawn at (9, 6) will arrive at (9, 5)
+Before:
+0001000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000001000
+After:
+0000100000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000010000
+Swapping (0, 3) with (0, 4)
+Swapping (9, 6) with (9, 5)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 4) to (0, 5)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 5) to (9, 4)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 4) will arrive at (0, 5)
+Pawn at (9, 5) will arrive at (9, 4)
+Before:
+0000100000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000010000
+After:
+0000010000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000100000
+Swapping (0, 4) with (0, 5)
+Swapping (9, 5) with (9, 4)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 5) to (0, 6)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 4) to (9, 3)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 5) will arrive at (0, 6)
+Pawn at (9, 4) will arrive at (9, 3)
+Before:
+0000010000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000100000
+After:
+0000001000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0001000000
+Swapping (0, 5) with (0, 6)
+Swapping (9, 4) with (9, 3)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 6) to (0, 7)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 3) to (9, 2)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 6) will arrive at (0, 7)
+Pawn at (9, 3) will arrive at (9, 2)
+Before:
+0000001000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0001000000
+After:
+0000000100
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0010000000
+Swapping (0, 6) with (0, 7)
+Swapping (9, 3) with (9, 2)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 7) to (0, 8)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 2) to (9, 1)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 7) will arrive at (0, 8)
+Pawn at (9, 2) will arrive at (9, 1)
+Before:
+0000000100
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0010000000
+After:
+0000000010
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0100000000
+Swapping (0, 7) with (0, 8)
+Swapping (9, 2) with (9, 1)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 8) to (0, 9)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 1) to (9, 0)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 8) will arrive at (0, 9)
+Pawn at (9, 1) will arrive at (9, 0)
+Before:
+0000000010
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0100000000
+After:
+0000000001
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+1000000000
+Swapping (0, 8) with (0, 9)
+Swapping (9, 1) with (9, 0)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 9) to (0, 0)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 0) to (9, 9)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 9) will arrive at (0, 0)
+Pawn at (9, 0) will arrive at (9, 9)
+Before:
+0000000001
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+1000000000
+After:
+1000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000001
+Swapping (0, 9) with (0, 0)
+Swapping (9, 0) with (9, 9)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 0) to (0, 1)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 9) to (9, 8)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 0) will arrive at (0, 1)
+Pawn at (9, 9) will arrive at (9, 8)
+Before:
+1000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000001
+After:
+0100000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000010
+Swapping (0, 0) with (0, 1)
+Swapping (9, 9) with (9, 8)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 1) to (0, 2)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 8) to (9, 7)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 1) will arrive at (0, 2)
+Pawn at (9, 8) will arrive at (9, 7)
+Before:
+0100000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000010
+After:
+0010000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000100
+Swapping (0, 1) with (0, 2)
+Swapping (9, 8) with (9, 7)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 2) to (0, 3)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 7) to (9, 6)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 2) will arrive at (0, 3)
+Pawn at (9, 7) will arrive at (9, 6)
+Before:
+0010000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000100
+After:
+0001000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000001000
+Swapping (0, 2) with (0, 3)
+Swapping (9, 7) with (9, 6)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 3) to (0, 4)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 6) to (9, 5)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 3) will arrive at (0, 4)
+Pawn at (9, 6) will arrive at (9, 5)
+Before:
+0001000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000001000
+After:
+0000100000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000010000
+Swapping (0, 3) with (0, 4)
+Swapping (9, 6) with (9, 5)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 4) to (0, 5)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 5) to (9, 4)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 4) will arrive at (0, 5)
+Pawn at (9, 5) will arrive at (9, 4)
+Before:
+0000100000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000010000
+After:
+0000010000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000100000
+Swapping (0, 4) with (0, 5)
+Swapping (9, 5) with (9, 4)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 5) to (0, 6)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 4) to (9, 3)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 5) will arrive at (0, 6)
+Pawn at (9, 4) will arrive at (9, 3)
+Before:
+0000010000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000100000
+After:
+0000001000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0001000000
+Swapping (0, 5) with (0, 6)
+Swapping (9, 4) with (9, 3)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 6) to (0, 7)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 3) to (9, 2)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 6) will arrive at (0, 7)
+Pawn at (9, 3) will arrive at (9, 2)
+Before:
+0000001000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0001000000
+After:
+0000000100
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0010000000
+Swapping (0, 6) with (0, 7)
+Swapping (9, 3) with (9, 2)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 7) to (0, 8)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 2) to (9, 1)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 7) will arrive at (0, 8)
+Pawn at (9, 2) will arrive at (9, 1)
+Before:
+0000000100
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0010000000
+After:
+0000000010
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0100000000
+Swapping (0, 7) with (0, 8)
+Swapping (9, 2) with (9, 1)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 8) to (0, 9)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 1) to (9, 0)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 8) will arrive at (0, 9)
+Pawn at (9, 1) will arrive at (9, 0)
+Before:
+0000000010
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0100000000
+After:
+0000000001
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+1000000000
+Swapping (0, 8) with (0, 9)
+Swapping (9, 1) with (9, 0)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 9) to (0, 0)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 0) to (9, 9)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 9) will arrive at (0, 0)
+Pawn at (9, 0) will arrive at (9, 9)
+Before:
+0000000001
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+1000000000
+After:
+1000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000001
+Swapping (0, 9) with (0, 0)
+Swapping (9, 0) with (9, 9)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 0) to (0, 1)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 9) to (9, 8)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 0) will arrive at (0, 1)
+Pawn at (9, 9) will arrive at (9, 8)
+Before:
+1000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000001
+After:
+0100000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000010
+Swapping (0, 0) with (0, 1)
+Swapping (9, 9) with (9, 8)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 1) to (0, 2)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 8) to (9, 7)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 1) will arrive at (0, 2)
+Pawn at (9, 8) will arrive at (9, 7)
+Before:
+0100000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000010
+After:
+0010000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000100
+Swapping (0, 1) with (0, 2)
+Swapping (9, 8) with (9, 7)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 2) to (0, 3)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 7) to (9, 6)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 2) will arrive at (0, 3)
+Pawn at (9, 7) will arrive at (9, 6)
+Before:
+0010000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000100
+After:
+0001000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000001000
+Swapping (0, 2) with (0, 3)
+Swapping (9, 7) with (9, 6)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 3) to (0, 4)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 6) to (9, 5)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 3) will arrive at (0, 4)
+Pawn at (9, 6) will arrive at (9, 5)
+Before:
+0001000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000001000
+After:
+0000100000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000010000
+Swapping (0, 3) with (0, 4)
+Swapping (9, 6) with (9, 5)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 4) to (0, 5)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 5) to (9, 4)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 4) will arrive at (0, 5)
+Pawn at (9, 5) will arrive at (9, 4)
+Before:
+0000100000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000010000
+After:
+0000010000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000100000
+Swapping (0, 4) with (0, 5)
+Swapping (9, 5) with (9, 4)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 5) to (0, 6)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 4) to (9, 3)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 5) will arrive at (0, 6)
+Pawn at (9, 4) will arrive at (9, 3)
+Before:
+0000010000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000100000
+After:
+0000001000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0001000000
+Swapping (0, 5) with (0, 6)
+Swapping (9, 4) with (9, 3)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 6) to (0, 7)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 3) to (9, 2)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 6) will arrive at (0, 7)
+Pawn at (9, 3) will arrive at (9, 2)
+Before:
+0000001000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0001000000
+After:
+0000000100
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0010000000
+Swapping (0, 6) with (0, 7)
+Swapping (9, 3) with (9, 2)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 7) to (0, 8)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 2) to (9, 1)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 7) will arrive at (0, 8)
+Pawn at (9, 2) will arrive at (9, 1)
+Before:
+0000000100
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0010000000
+After:
+0000000010
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0100000000
+Swapping (0, 7) with (0, 8)
+Swapping (9, 2) with (9, 1)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 8) to (0, 9)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 1) to (9, 0)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 8) will arrive at (0, 9)
+Pawn at (9, 1) will arrive at (9, 0)
+Before:
+0000000010
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0100000000
+After:
+0000000001
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+1000000000
+Swapping (0, 8) with (0, 9)
+Swapping (9, 1) with (9, 0)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 9) to (0, 0)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 0) to (9, 9)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 9) will arrive at (0, 0)
+Pawn at (9, 0) will arrive at (9, 9)
+Before:
+0000000001
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+1000000000
+After:
+1000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000001
+Swapping (0, 9) with (0, 0)
+Swapping (9, 0) with (9, 9)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 0) to (0, 1)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 9) to (9, 8)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 0) will arrive at (0, 1)
+Pawn at (9, 9) will arrive at (9, 8)
+Before:
+1000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000001
+After:
+0100000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000010
+Swapping (0, 0) with (0, 1)
+Swapping (9, 9) with (9, 8)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 1) to (0, 2)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 8) to (9, 7)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 1) will arrive at (0, 2)
+Pawn at (9, 8) will arrive at (9, 7)
+Before:
+0100000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000010
+After:
+0010000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000100
+Swapping (0, 1) with (0, 2)
+Swapping (9, 8) with (9, 7)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 2) to (0, 3)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 7) to (9, 6)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 2) will arrive at (0, 3)
+Pawn at (9, 7) will arrive at (9, 6)
+Before:
+0010000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000100
+After:
+0001000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000001000
+Swapping (0, 2) with (0, 3)
+Swapping (9, 7) with (9, 6)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 3) to (0, 4)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 6) to (9, 5)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 3) will arrive at (0, 4)
+Pawn at (9, 6) will arrive at (9, 5)
+Before:
+0001000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000001000
+After:
+0000100000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000010000
+Swapping (0, 3) with (0, 4)
+Swapping (9, 6) with (9, 5)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 4) to (0, 5)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 5) to (9, 4)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 4) will arrive at (0, 5)
+Pawn at (9, 5) will arrive at (9, 4)
+Before:
+0000100000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000010000
+After:
+0000010000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000100000
+Swapping (0, 4) with (0, 5)
+Swapping (9, 5) with (9, 4)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 5) to (0, 6)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 4) to (9, 3)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 5) will arrive at (0, 6)
+Pawn at (9, 4) will arrive at (9, 3)
+Before:
+0000010000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000100000
+After:
+0000001000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0001000000
+Swapping (0, 5) with (0, 6)
+Swapping (9, 4) with (9, 3)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 6) to (0, 7)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 3) to (9, 2)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 6) will arrive at (0, 7)
+Pawn at (9, 3) will arrive at (9, 2)
+Before:
+0000001000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0001000000
+After:
+0000000100
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0010000000
+Swapping (0, 6) with (0, 7)
+Swapping (9, 3) with (9, 2)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 7) to (0, 8)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 2) to (9, 1)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 7) will arrive at (0, 8)
+Pawn at (9, 2) will arrive at (9, 1)
+Before:
+0000000100
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0010000000
+After:
+0000000010
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0100000000
+Swapping (0, 7) with (0, 8)
+Swapping (9, 2) with (9, 1)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 8) to (0, 9)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 1) to (9, 0)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 8) will arrive at (0, 9)
+Pawn at (9, 1) will arrive at (9, 0)
+Before:
+0000000010
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0100000000
+After:
+0000000001
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+1000000000
+Swapping (0, 8) with (0, 9)
+Swapping (9, 1) with (9, 0)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 9) to (0, 0)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 0) to (9, 9)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 9) will arrive at (0, 0)
+Pawn at (9, 0) will arrive at (9, 9)
+Before:
+0000000001
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+1000000000
+After:
+1000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000001
+Swapping (0, 9) with (0, 0)
+Swapping (9, 0) with (9, 9)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 0) to (0, 1)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 9) to (9, 8)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 0) will arrive at (0, 1)
+Pawn at (9, 9) will arrive at (9, 8)
+Before:
+1000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000001
+After:
+0100000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000010
+Swapping (0, 0) with (0, 1)
+Swapping (9, 9) with (9, 8)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 1) to (0, 2)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 8) to (9, 7)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 1) will arrive at (0, 2)
+Pawn at (9, 8) will arrive at (9, 7)
+Before:
+0100000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000010
+After:
+0010000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000100
+Swapping (0, 1) with (0, 2)
+Swapping (9, 8) with (9, 7)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 2) to (0, 3)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 7) to (9, 6)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 2) will arrive at (0, 3)
+Pawn at (9, 7) will arrive at (9, 6)
+Before:
+0010000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000100
+After:
+0001000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000001000
+Swapping (0, 2) with (0, 3)
+Swapping (9, 7) with (9, 6)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 3) to (0, 4)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 6) to (9, 5)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 3) will arrive at (0, 4)
+Pawn at (9, 6) will arrive at (9, 5)
+Before:
+0001000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000001000
+After:
+0000100000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000010000
+Swapping (0, 3) with (0, 4)
+Swapping (9, 6) with (9, 5)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 4) to (0, 5)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 5) to (9, 4)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 4) will arrive at (0, 5)
+Pawn at (9, 5) will arrive at (9, 4)
+Before:
+0000100000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000010000
+After:
+0000010000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000100000
+Swapping (0, 4) with (0, 5)
+Swapping (9, 5) with (9, 4)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 5) to (0, 6)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 4) to (9, 3)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 5) will arrive at (0, 6)
+Pawn at (9, 4) will arrive at (9, 3)
+Before:
+0000010000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000100000
+After:
+0000001000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0001000000
+Swapping (0, 5) with (0, 6)
+Swapping (9, 4) with (9, 3)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 6) to (0, 7)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 3) to (9, 2)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 6) will arrive at (0, 7)
+Pawn at (9, 3) will arrive at (9, 2)
+Before:
+0000001000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0001000000
+After:
+0000000100
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0010000000
+Swapping (0, 6) with (0, 7)
+Swapping (9, 3) with (9, 2)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 7) to (0, 8)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 2) to (9, 1)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 7) will arrive at (0, 8)
+Pawn at (9, 2) will arrive at (9, 1)
+Before:
+0000000100
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0010000000
+After:
+0000000010
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0100000000
+Swapping (0, 7) with (0, 8)
+Swapping (9, 2) with (9, 1)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 8) to (0, 9)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 1) to (9, 0)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 8) will arrive at (0, 9)
+Pawn at (9, 1) will arrive at (9, 0)
+Before:
+0000000010
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0100000000
+After:
+0000000001
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+1000000000
+Swapping (0, 8) with (0, 9)
+Swapping (9, 1) with (9, 0)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 9) to (0, 0)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 0) to (9, 9)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 9) will arrive at (0, 0)
+Pawn at (9, 0) will arrive at (9, 9)
+Before:
+0000000001
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+1000000000
+After:
+1000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000001
+Swapping (0, 9) with (0, 0)
+Swapping (9, 0) with (9, 9)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 0) to (0, 1)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 9) to (9, 8)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 0) will arrive at (0, 1)
+Pawn at (9, 9) will arrive at (9, 8)
+Before:
+1000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000001
+After:
+0100000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000010
+Swapping (0, 0) with (0, 1)
+Swapping (9, 9) with (9, 8)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 1) to (0, 2)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 8) to (9, 7)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 1) will arrive at (0, 2)
+Pawn at (9, 8) will arrive at (9, 7)
+Before:
+0100000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000010
+After:
+0010000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000100
+Swapping (0, 1) with (0, 2)
+Swapping (9, 8) with (9, 7)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 2) to (0, 3)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 7) to (9, 6)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 2) will arrive at (0, 3)
+Pawn at (9, 7) will arrive at (9, 6)
+Before:
+0010000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000100
+After:
+0001000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000001000
+Swapping (0, 2) with (0, 3)
+Swapping (9, 7) with (9, 6)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 3) to (0, 4)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 6) to (9, 5)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 3) will arrive at (0, 4)
+Pawn at (9, 6) will arrive at (9, 5)
+Before:
+0001000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000001000
+After:
+0000100000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000010000
+Swapping (0, 3) with (0, 4)
+Swapping (9, 6) with (9, 5)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 4) to (0, 5)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 5) to (9, 4)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 4) will arrive at (0, 5)
+Pawn at (9, 5) will arrive at (9, 4)
+Before:
+0000100000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000010000
+After:
+0000010000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000100000
+Swapping (0, 4) with (0, 5)
+Swapping (9, 5) with (9, 4)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 5) to (0, 6)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 4) to (9, 3)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 5) will arrive at (0, 6)
+Pawn at (9, 4) will arrive at (9, 3)
+Before:
+0000010000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000100000
+After:
+0000001000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0001000000
+Swapping (0, 5) with (0, 6)
+Swapping (9, 4) with (9, 3)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 6) to (0, 7)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 3) to (9, 2)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 6) will arrive at (0, 7)
+Pawn at (9, 3) will arrive at (9, 2)
+Before:
+0000001000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0001000000
+After:
+0000000100
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0010000000
+Swapping (0, 6) with (0, 7)
+Swapping (9, 3) with (9, 2)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 7) to (0, 8)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 2) to (9, 1)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 7) will arrive at (0, 8)
+Pawn at (9, 2) will arrive at (9, 1)
+Before:
+0000000100
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0010000000
+After:
+0000000010
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0100000000
+Swapping (0, 7) with (0, 8)
+Swapping (9, 2) with (9, 1)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 8) to (0, 9)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 1) to (9, 0)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 8) will arrive at (0, 9)
+Pawn at (9, 1) will arrive at (9, 0)
+Before:
+0000000010
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0100000000
+After:
+0000000001
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+1000000000
+Swapping (0, 8) with (0, 9)
+Swapping (9, 1) with (9, 0)
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (0, 9) to (0, 0)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (9, 0) to (9, 9)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (0, 9) will arrive at (0, 0)
+Pawn at (9, 0) will arrive at (9, 9)
