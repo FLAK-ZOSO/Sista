@@ -28,10 +28,6 @@ After:
 0000000000
 0000000000
 0000000010
-Swapping (0, 0) with (0, 1)
-The now-second Pawn reached (0, 1)
-Swapping (9, 9) with (9, 8)
-The now-second Pawn reached (9, 8)
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (0, 1) to (0, 2)
 Calculating arrival coordinates for second pawn.
@@ -41,7 +37,7 @@ Swaps to apply: 2
 Pawn at (0, 1) will arrive at (0, 2)
 Pawn at (9, 8) will arrive at (9, 7)
 Before:
-0100000000
+-1200000000
 0000000000
 0000000000
 0000000000
@@ -50,9 +46,9 @@ Before:
 0000000000
 0000000000
 0000000000
-0000000010
+000000002-1
 After:
-0010000000
+-1110000000
 0000000000
 0000000000
 0000000000
@@ -61,11 +57,7 @@ After:
 0000000000
 0000000000
 0000000000
-0000000100
-Swapping (0, 1) with (0, 2)
-The now-second Pawn reached (0, 2)
-Swapping (9, 8) with (9, 7)
-The now-second Pawn reached (9, 7)
+000000011-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (0, 2) to (0, 3)
 Calculating arrival coordinates for second pawn.
@@ -75,7 +67,7 @@ Swaps to apply: 2
 Pawn at (0, 2) will arrive at (0, 3)
 Pawn at (9, 7) will arrive at (9, 6)
 Before:
-0010000000
+-1020000000
 0000000000
 0000000000
 0000000000
@@ -84,9 +76,9 @@ Before:
 0000000000
 0000000000
 0000000000
-0000000100
+000000020-1
 After:
-0001000000
+-1011000000
 0000000000
 0000000000
 0000000000
@@ -95,11 +87,7 @@ After:
 0000000000
 0000000000
 0000000000
-0000001000
-Swapping (0, 2) with (0, 3)
-The now-second Pawn reached (0, 3)
-Swapping (9, 7) with (9, 6)
-The now-second Pawn reached (9, 6)
+000000110-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (0, 3) to (0, 4)
 Calculating arrival coordinates for second pawn.
@@ -109,7 +97,7 @@ Swaps to apply: 2
 Pawn at (0, 3) will arrive at (0, 4)
 Pawn at (9, 6) will arrive at (9, 5)
 Before:
-0001000000
+-1002000000
 0000000000
 0000000000
 0000000000
@@ -118,9 +106,9 @@ Before:
 0000000000
 0000000000
 0000000000
-0000001000
+000000200-1
 After:
-0000100000
+-1001100000
 0000000000
 0000000000
 0000000000
@@ -129,11 +117,7 @@ After:
 0000000000
 0000000000
 0000000000
-0000010000
-Swapping (0, 3) with (0, 4)
-The now-second Pawn reached (0, 4)
-Swapping (9, 6) with (9, 5)
-The now-second Pawn reached (9, 5)
+000001100-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (0, 4) to (0, 5)
 Calculating arrival coordinates for second pawn.
@@ -143,7 +127,7 @@ Swaps to apply: 2
 Pawn at (0, 4) will arrive at (0, 5)
 Pawn at (9, 5) will arrive at (9, 4)
 Before:
-0000100000
+-1000200000
 0000000000
 0000000000
 0000000000
@@ -152,9 +136,9 @@ Before:
 0000000000
 0000000000
 0000000000
-0000010000
+000002000-1
 After:
-0000010000
+-1000110000
 0000000000
 0000000000
 0000000000
@@ -163,11 +147,7 @@ After:
 0000000000
 0000000000
 0000000000
-0000100000
-Swapping (0, 4) with (0, 5)
-The now-second Pawn reached (0, 5)
-Swapping (9, 5) with (9, 4)
-The now-second Pawn reached (9, 4)
+000011000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (0, 5) to (0, 6)
 Calculating arrival coordinates for second pawn.
@@ -177,7 +157,7 @@ Swaps to apply: 2
 Pawn at (0, 5) will arrive at (0, 6)
 Pawn at (9, 4) will arrive at (9, 3)
 Before:
-0000010000
+-1000020000
 0000000000
 0000000000
 0000000000
@@ -186,9 +166,9 @@ Before:
 0000000000
 0000000000
 0000000000
-0000100000
+000020000-1
 After:
-0000001000
+-1000011000
 0000000000
 0000000000
 0000000000
@@ -197,11 +177,7 @@ After:
 0000000000
 0000000000
 0000000000
-0001000000
-Swapping (0, 5) with (0, 6)
-The now-second Pawn reached (0, 6)
-Swapping (9, 4) with (9, 3)
-The now-second Pawn reached (9, 3)
+000110000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (0, 6) to (0, 7)
 Calculating arrival coordinates for second pawn.
@@ -211,7 +187,7 @@ Swaps to apply: 2
 Pawn at (0, 6) will arrive at (0, 7)
 Pawn at (9, 3) will arrive at (9, 2)
 Before:
-0000001000
+-1000002000
 0000000000
 0000000000
 0000000000
@@ -220,9 +196,9 @@ Before:
 0000000000
 0000000000
 0000000000
-0001000000
+000200000-1
 After:
-0000000100
+-1000001100
 0000000000
 0000000000
 0000000000
@@ -231,11 +207,7 @@ After:
 0000000000
 0000000000
 0000000000
-0010000000
-Swapping (0, 6) with (0, 7)
-The now-second Pawn reached (0, 7)
-Swapping (9, 3) with (9, 2)
-The now-second Pawn reached (9, 2)
+001100000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (0, 7) to (0, 8)
 Calculating arrival coordinates for second pawn.
@@ -245,7 +217,7 @@ Swaps to apply: 2
 Pawn at (0, 7) will arrive at (0, 8)
 Pawn at (9, 2) will arrive at (9, 1)
 Before:
-0000000100
+-1000000200
 0000000000
 0000000000
 0000000000
@@ -254,9 +226,9 @@ Before:
 0000000000
 0000000000
 0000000000
-0010000000
+002000000-1
 After:
-0000000010
+-1000000110
 0000000000
 0000000000
 0000000000
@@ -265,11 +237,7 @@ After:
 0000000000
 0000000000
 0000000000
-0100000000
-Swapping (0, 7) with (0, 8)
-The now-second Pawn reached (0, 8)
-Swapping (9, 2) with (9, 1)
-The now-second Pawn reached (9, 1)
+011000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (0, 8) to (0, 9)
 Calculating arrival coordinates for second pawn.
@@ -279,7 +247,7 @@ Swaps to apply: 2
 Pawn at (0, 8) will arrive at (0, 9)
 Pawn at (9, 1) will arrive at (9, 0)
 Before:
-0000000010
+-1000000020
 0000000000
 0000000000
 0000000000
@@ -288,9 +256,9 @@ Before:
 0000000000
 0000000000
 0000000000
-0100000000
+020000000-1
 After:
-0000000001
+-1000000011
 0000000000
 0000000000
 0000000000
@@ -299,11 +267,7 @@ After:
 0000000000
 0000000000
 0000000000
-1000000000
-Swapping (0, 8) with (0, 9)
-The now-second Pawn reached (0, 9)
-Swapping (9, 1) with (9, 0)
-The now-second Pawn reached (9, 0)
+110000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (0, 9) to (1, 0)
 Calculating arrival coordinates for second pawn.
@@ -313,7 +277,7 @@ Swaps to apply: 2
 Pawn at (0, 9) will arrive at (1, 0)
 Pawn at (9, 0) will arrive at (8, 9)
 Before:
-0000000001
+-1000000002
 0000000000
 0000000000
 0000000000
@@ -322,9 +286,9 @@ Before:
 0000000000
 0000000000
 0000000000
-1000000000
+200000000-1
 After:
-0000000000
+-1000000001
 1000000000
 0000000000
 0000000000
@@ -333,11 +297,7 @@ After:
 0000000000
 0000000000
 0000000001
-0000000000
-Swapping (0, 9) with (1, 0)
-The now-second Pawn reached (1, 0)
-Swapping (9, 0) with (8, 9)
-The now-second Pawn reached (8, 9)
+100000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (1, 0) to (1, 1)
 Calculating arrival coordinates for second pawn.
@@ -347,31 +307,27 @@ Swaps to apply: 2
 Pawn at (1, 0) will arrive at (1, 1)
 Pawn at (8, 9) will arrive at (8, 8)
 Before:
-0000000000
-1000000000
-0000000000
-0000000000
+-1000000000
+2000000000
 0000000000
 0000000000
 0000000000
 0000000000
-0000000001
 0000000000
+0000000000
+0000000002
+000000000-1
 After:
-0000000000
-0100000000
-0000000000
-0000000000
+-1000000000
+1100000000
 0000000000
 0000000000
 0000000000
 0000000000
-0000000010
 0000000000
-Swapping (1, 0) with (1, 1)
-The now-second Pawn reached (1, 1)
-Swapping (8, 9) with (8, 8)
-The now-second Pawn reached (8, 8)
+0000000000
+0000000011
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (1, 1) to (1, 2)
 Calculating arrival coordinates for second pawn.
@@ -381,31 +337,27 @@ Swaps to apply: 2
 Pawn at (1, 1) will arrive at (1, 2)
 Pawn at (8, 8) will arrive at (8, 7)
 Before:
-0000000000
-0100000000
-0000000000
-0000000000
+-1000000000
+0200000000
 0000000000
 0000000000
 0000000000
 0000000000
-0000000010
 0000000000
+0000000000
+0000000020
+000000000-1
 After:
-0000000000
-0010000000
-0000000000
-0000000000
+-1000000000
+0110000000
 0000000000
 0000000000
 0000000000
 0000000000
-0000000100
 0000000000
-Swapping (1, 1) with (1, 2)
-The now-second Pawn reached (1, 2)
-Swapping (8, 8) with (8, 7)
-The now-second Pawn reached (8, 7)
+0000000000
+0000000110
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (1, 2) to (1, 3)
 Calculating arrival coordinates for second pawn.
@@ -415,31 +367,27 @@ Swaps to apply: 2
 Pawn at (1, 2) will arrive at (1, 3)
 Pawn at (8, 7) will arrive at (8, 6)
 Before:
-0000000000
-0010000000
-0000000000
-0000000000
+-1000000000
+0020000000
 0000000000
 0000000000
 0000000000
 0000000000
-0000000100
 0000000000
+0000000000
+0000000200
+000000000-1
 After:
-0000000000
-0001000000
-0000000000
-0000000000
+-1000000000
+0011000000
 0000000000
 0000000000
 0000000000
 0000000000
-0000001000
 0000000000
-Swapping (1, 2) with (1, 3)
-The now-second Pawn reached (1, 3)
-Swapping (8, 7) with (8, 6)
-The now-second Pawn reached (8, 6)
+0000000000
+0000001100
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (1, 3) to (1, 4)
 Calculating arrival coordinates for second pawn.
@@ -449,31 +397,27 @@ Swaps to apply: 2
 Pawn at (1, 3) will arrive at (1, 4)
 Pawn at (8, 6) will arrive at (8, 5)
 Before:
-0000000000
-0001000000
-0000000000
-0000000000
+-1000000000
+0002000000
 0000000000
 0000000000
 0000000000
 0000000000
-0000001000
 0000000000
+0000000000
+0000002000
+000000000-1
 After:
-0000000000
-0000100000
-0000000000
-0000000000
+-1000000000
+0001100000
 0000000000
 0000000000
 0000000000
 0000000000
-0000010000
 0000000000
-Swapping (1, 3) with (1, 4)
-The now-second Pawn reached (1, 4)
-Swapping (8, 6) with (8, 5)
-The now-second Pawn reached (8, 5)
+0000000000
+0000011000
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (1, 4) to (1, 5)
 Calculating arrival coordinates for second pawn.
@@ -483,31 +427,27 @@ Swaps to apply: 2
 Pawn at (1, 4) will arrive at (1, 5)
 Pawn at (8, 5) will arrive at (8, 4)
 Before:
-0000000000
-0000100000
-0000000000
-0000000000
+-1000000000
+0000200000
 0000000000
 0000000000
 0000000000
 0000000000
-0000010000
 0000000000
+0000000000
+0000020000
+000000000-1
 After:
-0000000000
-0000010000
-0000000000
-0000000000
+-1000000000
+0000110000
 0000000000
 0000000000
 0000000000
 0000000000
-0000100000
 0000000000
-Swapping (1, 4) with (1, 5)
-The now-second Pawn reached (1, 5)
-Swapping (8, 5) with (8, 4)
-The now-second Pawn reached (8, 4)
+0000000000
+0000110000
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (1, 5) to (1, 6)
 Calculating arrival coordinates for second pawn.
@@ -517,31 +457,27 @@ Swaps to apply: 2
 Pawn at (1, 5) will arrive at (1, 6)
 Pawn at (8, 4) will arrive at (8, 3)
 Before:
-0000000000
-0000010000
-0000000000
-0000000000
+-1000000000
+0000020000
 0000000000
 0000000000
 0000000000
 0000000000
-0000100000
 0000000000
+0000000000
+0000200000
+000000000-1
 After:
-0000000000
-0000001000
-0000000000
-0000000000
+-1000000000
+0000011000
 0000000000
 0000000000
 0000000000
 0000000000
-0001000000
 0000000000
-Swapping (1, 5) with (1, 6)
-The now-second Pawn reached (1, 6)
-Swapping (8, 4) with (8, 3)
-The now-second Pawn reached (8, 3)
+0000000000
+0001100000
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (1, 6) to (1, 7)
 Calculating arrival coordinates for second pawn.
@@ -551,31 +487,27 @@ Swaps to apply: 2
 Pawn at (1, 6) will arrive at (1, 7)
 Pawn at (8, 3) will arrive at (8, 2)
 Before:
-0000000000
-0000001000
-0000000000
-0000000000
+-1000000000
+0000002000
 0000000000
 0000000000
 0000000000
 0000000000
-0001000000
 0000000000
+0000000000
+0002000000
+000000000-1
 After:
-0000000000
-0000000100
-0000000000
-0000000000
+-1000000000
+0000001100
 0000000000
 0000000000
 0000000000
 0000000000
-0010000000
 0000000000
-Swapping (1, 6) with (1, 7)
-The now-second Pawn reached (1, 7)
-Swapping (8, 3) with (8, 2)
-The now-second Pawn reached (8, 2)
+0000000000
+0011000000
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (1, 7) to (1, 8)
 Calculating arrival coordinates for second pawn.
@@ -585,31 +517,27 @@ Swaps to apply: 2
 Pawn at (1, 7) will arrive at (1, 8)
 Pawn at (8, 2) will arrive at (8, 1)
 Before:
-0000000000
-0000000100
-0000000000
-0000000000
+-1000000000
+0000000200
 0000000000
 0000000000
 0000000000
 0000000000
-0010000000
 0000000000
+0000000000
+0020000000
+000000000-1
 After:
-0000000000
-0000000010
-0000000000
-0000000000
+-1000000000
+0000000110
 0000000000
 0000000000
 0000000000
 0000000000
-0100000000
 0000000000
-Swapping (1, 7) with (1, 8)
-The now-second Pawn reached (1, 8)
-Swapping (8, 2) with (8, 1)
-The now-second Pawn reached (8, 1)
+0000000000
+0110000000
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (1, 8) to (1, 9)
 Calculating arrival coordinates for second pawn.
@@ -619,31 +547,27 @@ Swaps to apply: 2
 Pawn at (1, 8) will arrive at (1, 9)
 Pawn at (8, 1) will arrive at (8, 0)
 Before:
-0000000000
-0000000010
-0000000000
-0000000000
+-1000000000
+0000000020
 0000000000
 0000000000
 0000000000
 0000000000
-0100000000
 0000000000
+0000000000
+0200000000
+000000000-1
 After:
-0000000000
-0000000001
-0000000000
-0000000000
+-1000000000
+0000000011
 0000000000
 0000000000
 0000000000
 0000000000
-1000000000
 0000000000
-Swapping (1, 8) with (1, 9)
-The now-second Pawn reached (1, 9)
-Swapping (8, 1) with (8, 0)
-The now-second Pawn reached (8, 0)
+0000000000
+1100000000
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (1, 9) to (2, 0)
 Calculating arrival coordinates for second pawn.
@@ -653,31 +577,27 @@ Swaps to apply: 2
 Pawn at (1, 9) will arrive at (2, 0)
 Pawn at (8, 0) will arrive at (7, 9)
 Before:
-0000000000
-0000000001
-0000000000
-0000000000
+-1000000000
+0000000002
 0000000000
 0000000000
 0000000000
 0000000000
-1000000000
 0000000000
+0000000000
+2000000000
+000000000-1
 After:
-0000000000
-0000000000
+-1000000000
+0000000001
 1000000000
 0000000000
 0000000000
 0000000000
 0000000000
 0000000001
-0000000000
-0000000000
-Swapping (1, 9) with (2, 0)
-The now-second Pawn reached (2, 0)
-Swapping (8, 0) with (7, 9)
-The now-second Pawn reached (7, 9)
+1000000000
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (2, 0) to (2, 1)
 Calculating arrival coordinates for second pawn.
@@ -687,31 +607,27 @@ Swaps to apply: 2
 Pawn at (2, 0) will arrive at (2, 1)
 Pawn at (7, 9) will arrive at (7, 8)
 Before:
+-1000000000
+0000000000
+2000000000
 0000000000
 0000000000
-1000000000
 0000000000
 0000000000
+0000000002
 0000000000
-0000000000
-0000000001
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
+0000000000
+1100000000
 0000000000
 0000000000
-0100000000
 0000000000
 0000000000
+0000000011
 0000000000
-0000000000
-0000000010
-0000000000
-0000000000
-Swapping (2, 0) with (2, 1)
-The now-second Pawn reached (2, 1)
-Swapping (7, 9) with (7, 8)
-The now-second Pawn reached (7, 8)
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (2, 1) to (2, 2)
 Calculating arrival coordinates for second pawn.
@@ -721,31 +637,27 @@ Swaps to apply: 2
 Pawn at (2, 1) will arrive at (2, 2)
 Pawn at (7, 8) will arrive at (7, 7)
 Before:
+-1000000000
+0000000000
+0200000000
 0000000000
 0000000000
-0100000000
 0000000000
 0000000000
+0000000020
 0000000000
-0000000000
-0000000010
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
+0000000000
+0110000000
 0000000000
 0000000000
-0010000000
 0000000000
 0000000000
+0000000110
 0000000000
-0000000000
-0000000100
-0000000000
-0000000000
-Swapping (2, 1) with (2, 2)
-The now-second Pawn reached (2, 2)
-Swapping (7, 8) with (7, 7)
-The now-second Pawn reached (7, 7)
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (2, 2) to (2, 3)
 Calculating arrival coordinates for second pawn.
@@ -755,31 +667,27 @@ Swaps to apply: 2
 Pawn at (2, 2) will arrive at (2, 3)
 Pawn at (7, 7) will arrive at (7, 6)
 Before:
+-1000000000
+0000000000
+0020000000
 0000000000
 0000000000
-0010000000
 0000000000
 0000000000
+0000000200
 0000000000
-0000000000
-0000000100
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
+0000000000
+0011000000
 0000000000
 0000000000
-0001000000
 0000000000
 0000000000
+0000001100
 0000000000
-0000000000
-0000001000
-0000000000
-0000000000
-Swapping (2, 2) with (2, 3)
-The now-second Pawn reached (2, 3)
-Swapping (7, 7) with (7, 6)
-The now-second Pawn reached (7, 6)
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (2, 3) to (2, 4)
 Calculating arrival coordinates for second pawn.
@@ -789,31 +697,27 @@ Swaps to apply: 2
 Pawn at (2, 3) will arrive at (2, 4)
 Pawn at (7, 6) will arrive at (7, 5)
 Before:
+-1000000000
+0000000000
+0002000000
 0000000000
 0000000000
-0001000000
 0000000000
 0000000000
+0000002000
 0000000000
-0000000000
-0000001000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
+0000000000
+0001100000
 0000000000
 0000000000
-0000100000
 0000000000
 0000000000
+0000011000
 0000000000
-0000000000
-0000010000
-0000000000
-0000000000
-Swapping (2, 3) with (2, 4)
-The now-second Pawn reached (2, 4)
-Swapping (7, 6) with (7, 5)
-The now-second Pawn reached (7, 5)
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (2, 4) to (2, 5)
 Calculating arrival coordinates for second pawn.
@@ -823,31 +727,27 @@ Swaps to apply: 2
 Pawn at (2, 4) will arrive at (2, 5)
 Pawn at (7, 5) will arrive at (7, 4)
 Before:
+-1000000000
+0000000000
+0000200000
 0000000000
 0000000000
-0000100000
 0000000000
 0000000000
+0000020000
 0000000000
-0000000000
-0000010000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
+0000000000
+0000110000
 0000000000
 0000000000
-0000010000
 0000000000
 0000000000
+0000110000
 0000000000
-0000000000
-0000100000
-0000000000
-0000000000
-Swapping (2, 4) with (2, 5)
-The now-second Pawn reached (2, 5)
-Swapping (7, 5) with (7, 4)
-The now-second Pawn reached (7, 4)
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (2, 5) to (2, 6)
 Calculating arrival coordinates for second pawn.
@@ -857,31 +757,27 @@ Swaps to apply: 2
 Pawn at (2, 5) will arrive at (2, 6)
 Pawn at (7, 4) will arrive at (7, 3)
 Before:
+-1000000000
+0000000000
+0000020000
 0000000000
 0000000000
-0000010000
 0000000000
 0000000000
+0000200000
 0000000000
-0000000000
-0000100000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
+0000000000
+0000011000
 0000000000
 0000000000
-0000001000
 0000000000
 0000000000
+0001100000
 0000000000
-0000000000
-0001000000
-0000000000
-0000000000
-Swapping (2, 5) with (2, 6)
-The now-second Pawn reached (2, 6)
-Swapping (7, 4) with (7, 3)
-The now-second Pawn reached (7, 3)
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (2, 6) to (2, 7)
 Calculating arrival coordinates for second pawn.
@@ -891,31 +787,27 @@ Swaps to apply: 2
 Pawn at (2, 6) will arrive at (2, 7)
 Pawn at (7, 3) will arrive at (7, 2)
 Before:
+-1000000000
+0000000000
+0000002000
 0000000000
 0000000000
-0000001000
 0000000000
 0000000000
+0002000000
 0000000000
-0000000000
-0001000000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
+0000000000
+0000001100
 0000000000
 0000000000
-0000000100
 0000000000
 0000000000
+0011000000
 0000000000
-0000000000
-0010000000
-0000000000
-0000000000
-Swapping (2, 6) with (2, 7)
-The now-second Pawn reached (2, 7)
-Swapping (7, 3) with (7, 2)
-The now-second Pawn reached (7, 2)
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (2, 7) to (2, 8)
 Calculating arrival coordinates for second pawn.
@@ -925,31 +817,27 @@ Swaps to apply: 2
 Pawn at (2, 7) will arrive at (2, 8)
 Pawn at (7, 2) will arrive at (7, 1)
 Before:
+-1000000000
+0000000000
+0000000200
 0000000000
 0000000000
-0000000100
 0000000000
 0000000000
+0020000000
 0000000000
-0000000000
-0010000000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
+0000000000
+0000000110
 0000000000
 0000000000
-0000000010
 0000000000
 0000000000
+0110000000
 0000000000
-0000000000
-0100000000
-0000000000
-0000000000
-Swapping (2, 7) with (2, 8)
-The now-second Pawn reached (2, 8)
-Swapping (7, 2) with (7, 1)
-The now-second Pawn reached (7, 1)
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (2, 8) to (2, 9)
 Calculating arrival coordinates for second pawn.
@@ -959,31 +847,27 @@ Swaps to apply: 2
 Pawn at (2, 8) will arrive at (2, 9)
 Pawn at (7, 1) will arrive at (7, 0)
 Before:
+-1000000000
+0000000000
+0000000020
 0000000000
 0000000000
-0000000010
 0000000000
 0000000000
+0200000000
 0000000000
-0000000000
-0100000000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
+0000000000
+0000000011
 0000000000
 0000000000
-0000000001
 0000000000
 0000000000
+1100000000
 0000000000
-0000000000
-1000000000
-0000000000
-0000000000
-Swapping (2, 8) with (2, 9)
-The now-second Pawn reached (2, 9)
-Swapping (7, 1) with (7, 0)
-The now-second Pawn reached (7, 0)
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (2, 9) to (3, 0)
 Calculating arrival coordinates for second pawn.
@@ -993,31 +877,27 @@ Swaps to apply: 2
 Pawn at (2, 9) will arrive at (3, 0)
 Pawn at (7, 0) will arrive at (6, 9)
 Before:
+-1000000000
+0000000000
+0000000002
 0000000000
 0000000000
-0000000001
 0000000000
 0000000000
+2000000000
 0000000000
-0000000000
-1000000000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
 0000000000
-0000000000
-0000000000
+0000000001
 1000000000
 0000000000
 0000000000
 0000000001
+1000000000
 0000000000
-0000000000
-0000000000
-Swapping (2, 9) with (3, 0)
-The now-second Pawn reached (3, 0)
-Swapping (7, 0) with (6, 9)
-The now-second Pawn reached (6, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (3, 0) to (3, 1)
 Calculating arrival coordinates for second pawn.
@@ -1027,31 +907,27 @@ Swaps to apply: 2
 Pawn at (3, 0) will arrive at (3, 1)
 Pawn at (6, 9) will arrive at (6, 8)
 Before:
+-1000000000
 0000000000
 0000000000
-0000000000
-1000000000
-0000000000
-0000000000
-0000000001
+2000000000
 0000000000
 0000000000
+0000000002
 0000000000
+0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
-0000000000
-0100000000
-0000000000
-0000000000
-0000000010
+1100000000
 0000000000
 0000000000
+0000000011
 0000000000
-Swapping (3, 0) with (3, 1)
-The now-second Pawn reached (3, 1)
-Swapping (6, 9) with (6, 8)
-The now-second Pawn reached (6, 8)
+0000000000
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (3, 1) to (3, 2)
 Calculating arrival coordinates for second pawn.
@@ -1061,31 +937,27 @@ Swaps to apply: 2
 Pawn at (3, 1) will arrive at (3, 2)
 Pawn at (6, 8) will arrive at (6, 7)
 Before:
+-1000000000
 0000000000
 0000000000
-0000000000
-0100000000
-0000000000
-0000000000
-0000000010
+0200000000
 0000000000
 0000000000
+0000000020
 0000000000
+0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
-0000000000
-0010000000
-0000000000
-0000000000
-0000000100
+0110000000
 0000000000
 0000000000
+0000000110
 0000000000
-Swapping (3, 1) with (3, 2)
-The now-second Pawn reached (3, 2)
-Swapping (6, 8) with (6, 7)
-The now-second Pawn reached (6, 7)
+0000000000
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (3, 2) to (3, 3)
 Calculating arrival coordinates for second pawn.
@@ -1095,31 +967,27 @@ Swaps to apply: 2
 Pawn at (3, 2) will arrive at (3, 3)
 Pawn at (6, 7) will arrive at (6, 6)
 Before:
+-1000000000
 0000000000
 0000000000
-0000000000
-0010000000
-0000000000
-0000000000
-0000000100
+0020000000
 0000000000
 0000000000
+0000000200
 0000000000
+0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
-0000000000
-0001000000
-0000000000
-0000000000
-0000001000
+0011000000
 0000000000
 0000000000
+0000001100
 0000000000
-Swapping (3, 2) with (3, 3)
-The now-second Pawn reached (3, 3)
-Swapping (6, 7) with (6, 6)
-The now-second Pawn reached (6, 6)
+0000000000
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (3, 3) to (3, 4)
 Calculating arrival coordinates for second pawn.
@@ -1129,31 +997,27 @@ Swaps to apply: 2
 Pawn at (3, 3) will arrive at (3, 4)
 Pawn at (6, 6) will arrive at (6, 5)
 Before:
+-1000000000
 0000000000
 0000000000
-0000000000
-0001000000
-0000000000
-0000000000
-0000001000
+0002000000
 0000000000
 0000000000
+0000002000
 0000000000
+0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
-0000000000
-0000100000
-0000000000
-0000000000
-0000010000
+0001100000
 0000000000
 0000000000
+0000011000
 0000000000
-Swapping (3, 3) with (3, 4)
-The now-second Pawn reached (3, 4)
-Swapping (6, 6) with (6, 5)
-The now-second Pawn reached (6, 5)
+0000000000
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (3, 4) to (3, 5)
 Calculating arrival coordinates for second pawn.
@@ -1163,31 +1027,27 @@ Swaps to apply: 2
 Pawn at (3, 4) will arrive at (3, 5)
 Pawn at (6, 5) will arrive at (6, 4)
 Before:
+-1000000000
 0000000000
 0000000000
-0000000000
-0000100000
-0000000000
-0000000000
-0000010000
+0000200000
 0000000000
 0000000000
+0000020000
 0000000000
+0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
-0000000000
-0000010000
-0000000000
-0000000000
-0000100000
+0000110000
 0000000000
 0000000000
+0000110000
 0000000000
-Swapping (3, 4) with (3, 5)
-The now-second Pawn reached (3, 5)
-Swapping (6, 5) with (6, 4)
-The now-second Pawn reached (6, 4)
+0000000000
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (3, 5) to (3, 6)
 Calculating arrival coordinates for second pawn.
@@ -1197,31 +1057,27 @@ Swaps to apply: 2
 Pawn at (3, 5) will arrive at (3, 6)
 Pawn at (6, 4) will arrive at (6, 3)
 Before:
+-1000000000
 0000000000
 0000000000
-0000000000
-0000010000
-0000000000
-0000000000
-0000100000
+0000020000
 0000000000
 0000000000
+0000200000
 0000000000
+0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
-0000000000
-0000001000
-0000000000
-0000000000
-0001000000
+0000011000
 0000000000
 0000000000
+0001100000
 0000000000
-Swapping (3, 5) with (3, 6)
-The now-second Pawn reached (3, 6)
-Swapping (6, 4) with (6, 3)
-The now-second Pawn reached (6, 3)
+0000000000
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (3, 6) to (3, 7)
 Calculating arrival coordinates for second pawn.
@@ -1231,31 +1087,27 @@ Swaps to apply: 2
 Pawn at (3, 6) will arrive at (3, 7)
 Pawn at (6, 3) will arrive at (6, 2)
 Before:
+-1000000000
 0000000000
 0000000000
-0000000000
-0000001000
-0000000000
-0000000000
-0001000000
+0000002000
 0000000000
 0000000000
+0002000000
 0000000000
+0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
-0000000000
-0000000100
-0000000000
-0000000000
-0010000000
+0000001100
 0000000000
 0000000000
+0011000000
 0000000000
-Swapping (3, 6) with (3, 7)
-The now-second Pawn reached (3, 7)
-Swapping (6, 3) with (6, 2)
-The now-second Pawn reached (6, 2)
+0000000000
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (3, 7) to (3, 8)
 Calculating arrival coordinates for second pawn.
@@ -1265,31 +1117,27 @@ Swaps to apply: 2
 Pawn at (3, 7) will arrive at (3, 8)
 Pawn at (6, 2) will arrive at (6, 1)
 Before:
+-1000000000
 0000000000
 0000000000
-0000000000
-0000000100
-0000000000
-0000000000
-0010000000
+0000000200
 0000000000
 0000000000
+0020000000
 0000000000
+0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
-0000000000
-0000000010
-0000000000
-0000000000
-0100000000
+0000000110
 0000000000
 0000000000
+0110000000
 0000000000
-Swapping (3, 7) with (3, 8)
-The now-second Pawn reached (3, 8)
-Swapping (6, 2) with (6, 1)
-The now-second Pawn reached (6, 1)
+0000000000
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (3, 8) to (3, 9)
 Calculating arrival coordinates for second pawn.
@@ -1299,31 +1147,27 @@ Swaps to apply: 2
 Pawn at (3, 8) will arrive at (3, 9)
 Pawn at (6, 1) will arrive at (6, 0)
 Before:
+-1000000000
 0000000000
 0000000000
-0000000000
-0000000010
-0000000000
-0000000000
-0100000000
+0000000020
 0000000000
 0000000000
+0200000000
 0000000000
+0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
-0000000000
-0000000001
-0000000000
-0000000000
-1000000000
+0000000011
 0000000000
 0000000000
+1100000000
 0000000000
-Swapping (3, 8) with (3, 9)
-The now-second Pawn reached (3, 9)
-Swapping (6, 1) with (6, 0)
-The now-second Pawn reached (6, 0)
+0000000000
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (3, 9) to (4, 0)
 Calculating arrival coordinates for second pawn.
@@ -1333,31 +1177,27 @@ Swaps to apply: 2
 Pawn at (3, 9) will arrive at (4, 0)
 Pawn at (6, 0) will arrive at (5, 9)
 Before:
+-1000000000
 0000000000
 0000000000
-0000000000
-0000000001
-0000000000
-0000000000
-1000000000
+0000000002
 0000000000
 0000000000
+2000000000
 0000000000
+0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
-0000000000
-0000000000
+0000000001
 1000000000
 0000000001
+1000000000
 0000000000
 0000000000
-0000000000
-0000000000
-Swapping (3, 9) with (4, 0)
-The now-second Pawn reached (4, 0)
-Swapping (6, 0) with (5, 9)
-The now-second Pawn reached (5, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 0) to (4, 1)
 Calculating arrival coordinates for second pawn.
@@ -1367,31 +1207,27 @@ Swaps to apply: 2
 Pawn at (4, 0) will arrive at (4, 1)
 Pawn at (5, 9) will arrive at (5, 8)
 Before:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-1000000000
-0000000001
-0000000000
+2000000000
+0000000002
 0000000000
 0000000000
 0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0100000000
-0000000010
-0000000000
+1100000000
+0000000011
 0000000000
 0000000000
 0000000000
-Swapping (4, 0) with (4, 1)
-The now-second Pawn reached (4, 1)
-Swapping (5, 9) with (5, 8)
-The now-second Pawn reached (5, 8)
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 1) to (4, 2)
 Calculating arrival coordinates for second pawn.
@@ -1401,31 +1237,27 @@ Swaps to apply: 2
 Pawn at (4, 1) will arrive at (4, 2)
 Pawn at (5, 8) will arrive at (5, 7)
 Before:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0100000000
-0000000010
-0000000000
+0200000000
+0000000020
 0000000000
 0000000000
 0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0010000000
-0000000100
-0000000000
+0110000000
+0000000110
 0000000000
 0000000000
 0000000000
-Swapping (4, 1) with (4, 2)
-The now-second Pawn reached (4, 2)
-Swapping (5, 8) with (5, 7)
-The now-second Pawn reached (5, 7)
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 2) to (4, 3)
 Calculating arrival coordinates for second pawn.
@@ -1435,31 +1267,27 @@ Swaps to apply: 2
 Pawn at (4, 2) will arrive at (4, 3)
 Pawn at (5, 7) will arrive at (5, 6)
 Before:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0010000000
-0000000100
-0000000000
+0020000000
+0000000200
 0000000000
 0000000000
 0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0001000000
-0000001000
-0000000000
+0011000000
+0000001100
 0000000000
 0000000000
 0000000000
-Swapping (4, 2) with (4, 3)
-The now-second Pawn reached (4, 3)
-Swapping (5, 7) with (5, 6)
-The now-second Pawn reached (5, 6)
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 3) to (4, 4)
 Calculating arrival coordinates for second pawn.
@@ -1469,31 +1297,27 @@ Swaps to apply: 2
 Pawn at (4, 3) will arrive at (4, 4)
 Pawn at (5, 6) will arrive at (5, 5)
 Before:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0001000000
-0000001000
-0000000000
+0002000000
+0000002000
 0000000000
 0000000000
 0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000100000
-0000010000
-0000000000
+0001100000
+0000011000
 0000000000
 0000000000
 0000000000
-Swapping (4, 3) with (4, 4)
-The now-second Pawn reached (4, 4)
-Swapping (5, 6) with (5, 5)
-The now-second Pawn reached (5, 5)
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 4) to (4, 5)
 Calculating arrival coordinates for second pawn.
@@ -1503,31 +1327,27 @@ Swaps to apply: 2
 Pawn at (4, 4) will arrive at (4, 5)
 Pawn at (5, 5) will arrive at (5, 4)
 Before:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000100000
-0000010000
-0000000000
+0000200000
+0000020000
 0000000000
 0000000000
 0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000010000
-0000100000
-0000000000
+0000110000
+0000110000
 0000000000
 0000000000
 0000000000
-Swapping (4, 4) with (4, 5)
-The now-second Pawn reached (4, 5)
-Swapping (5, 5) with (5, 4)
-The now-second Pawn reached (5, 4)
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 5) to (4, 6)
 Calculating arrival coordinates for second pawn.
@@ -1537,31 +1357,27 @@ Swaps to apply: 2
 Pawn at (4, 5) will arrive at (4, 6)
 Pawn at (5, 4) will arrive at (5, 3)
 Before:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000010000
-0000100000
-0000000000
+0000020000
+0000200000
 0000000000
 0000000000
 0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000001000
-0001000000
-0000000000
+0000011000
+0001100000
 0000000000
 0000000000
 0000000000
-Swapping (4, 5) with (4, 6)
-The now-second Pawn reached (4, 6)
-Swapping (5, 4) with (5, 3)
-The now-second Pawn reached (5, 3)
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 6) to (4, 7)
 Calculating arrival coordinates for second pawn.
@@ -1571,31 +1387,27 @@ Swaps to apply: 2
 Pawn at (4, 6) will arrive at (4, 7)
 Pawn at (5, 3) will arrive at (5, 2)
 Before:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000001000
-0001000000
-0000000000
+0000002000
+0002000000
 0000000000
 0000000000
 0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000100
-0010000000
-0000000000
+0000001100
+0011000000
 0000000000
 0000000000
 0000000000
-Swapping (4, 6) with (4, 7)
-The now-second Pawn reached (4, 7)
-Swapping (5, 3) with (5, 2)
-The now-second Pawn reached (5, 2)
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 7) to (4, 8)
 Calculating arrival coordinates for second pawn.
@@ -1605,31 +1417,27 @@ Swaps to apply: 2
 Pawn at (4, 7) will arrive at (4, 8)
 Pawn at (5, 2) will arrive at (5, 1)
 Before:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000100
-0010000000
-0000000000
+0000000200
+0020000000
 0000000000
 0000000000
 0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000010
-0100000000
-0000000000
+0000000110
+0110000000
 0000000000
 0000000000
 0000000000
-Swapping (4, 7) with (4, 8)
-The now-second Pawn reached (4, 8)
-Swapping (5, 2) with (5, 1)
-The now-second Pawn reached (5, 1)
+000000000-1
 Calculating arrival coordinates for first pawn.
 Querying swap for first pawn from (4, 8) to (4, 9)
 Calculating arrival coordinates for second pawn.
@@ -1639,7 +1447,108 @@ Swaps to apply: 2
 Pawn at (4, 8) will arrive at (4, 9)
 Pawn at (5, 1) will arrive at (5, 0)
 Before:
+-1000000000
 0000000000
+0000000000
+0000000000
+0000000020
+0200000000
+0000000000
+0000000000
+0000000000
+000000000-1
+After:
+-1000000000
+0000000000
+0000000000
+0000000000
+0000000011
+1100000000
+0000000000
+0000000000
+0000000000
+000000000-1
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (4, 9) to (5, 0)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (5, 0) to (4, 9)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (4, 9) will arrive at (5, 0)
+Pawn at (5, 0) will arrive at (4, 9)
+Before:
+-1000000000
+0000000000
+0000000000
+0000000000
+0000000002
+2000000000
+0000000000
+0000000000
+0000000000
+000000000-1
+After:
+-1000000000
+0000000000
+0000000000
+0000000000
+0000000002
+2000000000
+0000000000
+0000000000
+0000000000
+000000000-1
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (4, 9) to (5, 0)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (5, 0) to (4, 9)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (4, 9) will arrive at (5, 0)
+Pawn at (5, 0) will arrive at (4, 9)
+Before:
+-1000000000
+0000000000
+0000000000
+0000000000
+0000000001
+1000000000
+0000000000
+0000000000
+0000000000
+000000000-1
+After:
+-1000000000
+0000000000
+0000000000
+0000000000
+0000000001
+1000000000
+0000000000
+0000000000
+0000000000
+000000000-1
+Calculating arrival coordinates for first pawn.
+Querying swap for first pawn from (5, 0) to (5, 1)
+Calculating arrival coordinates for second pawn.
+Querying swap for second pawn from (4, 9) to (4, 8)
+Applying swaps...
+Swaps to apply: 2
+Pawn at (5, 0) will arrive at (5, 1)
+Pawn at (4, 9) will arrive at (4, 8)
+Before:
+-1000000000
+0000000000
+0000000000
+0000000000
+0000000001
+1000000000
+0000000000
+0000000000
+0000000000
+000000000-1
+After:
+-1000000000
 0000000000
 0000000000
 0000000000
@@ -1648,1855 +1557,1422 @@ Before:
 0000000000
 0000000000
 0000000000
-0000000000
-After:
-0000000000
-0000000000
-0000000000
-0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 8) with (4, 9)
-The now-second Pawn reached (4, 9)
-Swapping (5, 1) with (5, 0)
-The now-second Pawn reached (5, 0)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (5, 1) to (5, 2)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (4, 8) to (4, 7)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (5, 1) will arrive at (5, 2)
+Pawn at (4, 8) will arrive at (4, 7)
 Before:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000000002-1
+-1200000000
 0000000000
 0000000000
 0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000000011-1
+-1110000000
 0000000000
 0000000000
 0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (5, 2) to (5, 3)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (4, 7) to (4, 6)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (5, 2) will arrive at (5, 3)
+Pawn at (4, 7) will arrive at (4, 6)
 Before:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000000020-1
+-1020000000
 0000000000
 0000000000
 0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000000110-1
+-1011000000
 0000000000
 0000000000
 0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (5, 3) to (5, 4)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (4, 6) to (4, 5)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (5, 3) will arrive at (5, 4)
+Pawn at (4, 6) will arrive at (4, 5)
 Before:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000000200-1
+-1002000000
 0000000000
 0000000000
 0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000001100-1
+-1001100000
 0000000000
 0000000000
 0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (5, 4) to (5, 5)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (4, 5) to (4, 4)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (5, 4) will arrive at (5, 5)
+Pawn at (4, 5) will arrive at (4, 4)
 Before:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000002000-1
+-1000200000
 0000000000
 0000000000
 0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000011000-1
+-1000110000
 0000000000
 0000000000
 0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (5, 5) to (5, 6)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (4, 4) to (4, 3)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (5, 5) will arrive at (5, 6)
+Pawn at (4, 4) will arrive at (4, 3)
 Before:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000020000-1
+-1000020000
 0000000000
 0000000000
 0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000110000-1
+-1000011000
 0000000000
 0000000000
 0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (5, 6) to (5, 7)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (4, 3) to (4, 2)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (5, 6) will arrive at (5, 7)
+Pawn at (4, 3) will arrive at (4, 2)
 Before:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000200000-1
+-1000002000
 0000000000
 0000000000
 0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+001100000-1
+-1000001100
 0000000000
 0000000000
 0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (5, 7) to (5, 8)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (4, 2) to (4, 1)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (5, 7) will arrive at (5, 8)
+Pawn at (4, 2) will arrive at (4, 1)
 Before:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+002000000-1
+-1000000200
 0000000000
 0000000000
 0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+011000000-1
+-1000000110
 0000000000
 0000000000
 0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (5, 8) to (5, 9)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (4, 1) to (4, 0)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (5, 8) will arrive at (5, 9)
+Pawn at (4, 1) will arrive at (4, 0)
 Before:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+020000000-1
+-1000000020
 0000000000
 0000000000
 0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+110000000-1
+-1000000011
 0000000000
 0000000000
 0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (5, 9) to (6, 0)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (4, 0) to (3, 9)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (5, 9) will arrive at (6, 0)
+Pawn at (4, 0) will arrive at (3, 9)
 Before:
+-1000000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+200000000-1
+-1000000002
 0000000000
 0000000000
 0000000000
+000000000-1
 After:
-0000000000
-0000000000
+-1000000000
 0000000000
 0000000000
 0000000001
+100000000-1
+-1000000001
 1000000000
 0000000000
 0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (6, 0) to (6, 1)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (3, 9) to (3, 8)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (6, 0) will arrive at (6, 1)
+Pawn at (3, 9) will arrive at (3, 8)
 Before:
+-1000000000
 0000000000
 0000000000
+0000000002
+000000000-1
+-1000000000
+2000000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
+0000000011
+000000000-1
+-1000000000
+1100000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (6, 1) to (6, 2)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (3, 8) to (3, 7)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (6, 1) will arrive at (6, 2)
+Pawn at (3, 8) will arrive at (3, 7)
 Before:
+-1000000000
 0000000000
 0000000000
+0000000020
+000000000-1
+-1000000000
+0200000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
+0000000110
+000000000-1
+-1000000000
+0110000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (6, 2) to (6, 3)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (3, 7) to (3, 6)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (6, 2) will arrive at (6, 3)
+Pawn at (3, 7) will arrive at (3, 6)
 Before:
+-1000000000
 0000000000
 0000000000
+0000000200
+000000000-1
+-1000000000
+0020000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
+0000001100
+000000000-1
+-1000000000
+0011000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (6, 3) to (6, 4)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (3, 6) to (3, 5)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (6, 3) will arrive at (6, 4)
+Pawn at (3, 6) will arrive at (3, 5)
 Before:
+-1000000000
 0000000000
 0000000000
+0000002000
+000000000-1
+-1000000000
+0002000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
+0000011000
+000000000-1
+-1000000000
+0001100000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (6, 4) to (6, 5)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (3, 5) to (3, 4)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (6, 4) will arrive at (6, 5)
+Pawn at (3, 5) will arrive at (3, 4)
 Before:
+-1000000000
 0000000000
 0000000000
+0000020000
+000000000-1
+-1000000000
+0000200000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
+0000110000
+000000000-1
+-1000000000
+0000110000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (6, 5) to (6, 6)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (3, 4) to (3, 3)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (6, 5) will arrive at (6, 6)
+Pawn at (3, 4) will arrive at (3, 3)
 Before:
+-1000000000
 0000000000
 0000000000
+0000200000
+000000000-1
+-1000000000
+0000020000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
+0001100000
+000000000-1
+-1000000000
+0000011000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (6, 6) to (6, 7)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (3, 3) to (3, 2)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (6, 6) will arrive at (6, 7)
+Pawn at (3, 3) will arrive at (3, 2)
 Before:
+-1000000000
 0000000000
 0000000000
+0002000000
+000000000-1
+-1000000000
+0000002000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
+0011000000
+000000000-1
+-1000000000
+0000001100
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (6, 7) to (6, 8)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (3, 2) to (3, 1)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (6, 7) will arrive at (6, 8)
+Pawn at (3, 2) will arrive at (3, 1)
 Before:
+-1000000000
 0000000000
 0000000000
+0020000000
+000000000-1
+-1000000000
+0000000200
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
+0110000000
+000000000-1
+-1000000000
+0000000110
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (6, 8) to (6, 9)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (3, 1) to (3, 0)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (6, 8) will arrive at (6, 9)
+Pawn at (3, 1) will arrive at (3, 0)
 Before:
+-1000000000
 0000000000
 0000000000
+0200000000
+000000000-1
+-1000000000
+0000000020
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
 0000000000
 0000000000
+1100000000
+000000000-1
+-1000000000
+0000000011
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (6, 9) to (7, 0)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (3, 0) to (2, 9)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (6, 9) will arrive at (7, 0)
+Pawn at (3, 0) will arrive at (2, 9)
 Before:
+-1000000000
 0000000000
 0000000000
+2000000000
+000000000-1
+-1000000000
+0000000002
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+000000000-1
 After:
-0000000000
-0000000000
-0000000000
+-1000000000
 0000000000
 0000000001
 1000000000
+000000000-1
+-1000000000
+0000000001
+1000000000
 0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (7, 0) to (7, 1)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (2, 9) to (2, 8)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (7, 0) will arrive at (7, 1)
+Pawn at (2, 9) will arrive at (2, 8)
 Before:
+-1000000000
 0000000000
+0000000002
 0000000000
+000000000-1
+-1000000000
 0000000000
+2000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
 0000000000
+0000000011
 0000000000
+000000000-1
+-1000000000
 0000000000
+1100000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (7, 1) to (7, 2)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (2, 8) to (2, 7)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (7, 1) will arrive at (7, 2)
+Pawn at (2, 8) will arrive at (2, 7)
 Before:
+-1000000000
 0000000000
+0000000020
 0000000000
+000000000-1
+-1000000000
 0000000000
+0200000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
 0000000000
+0000000110
 0000000000
+000000000-1
+-1000000000
 0000000000
+0110000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (7, 2) to (7, 3)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (2, 7) to (2, 6)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (7, 2) will arrive at (7, 3)
+Pawn at (2, 7) will arrive at (2, 6)
 Before:
+-1000000000
 0000000000
+0000000200
 0000000000
+000000000-1
+-1000000000
 0000000000
+0020000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
 0000000000
+0000001100
 0000000000
+000000000-1
+-1000000000
 0000000000
+0011000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (7, 3) to (7, 4)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (2, 6) to (2, 5)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (7, 3) will arrive at (7, 4)
+Pawn at (2, 6) will arrive at (2, 5)
 Before:
+-1000000000
 0000000000
+0000002000
 0000000000
+000000000-1
+-1000000000
 0000000000
+0002000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
 0000000000
+0000011000
 0000000000
+000000000-1
+-1000000000
 0000000000
+0001100000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (7, 4) to (7, 5)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (2, 5) to (2, 4)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (7, 4) will arrive at (7, 5)
+Pawn at (2, 5) will arrive at (2, 4)
 Before:
+-1000000000
 0000000000
+0000020000
 0000000000
+000000000-1
+-1000000000
 0000000000
+0000200000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
 0000000000
+0000110000
 0000000000
+000000000-1
+-1000000000
 0000000000
+0000110000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (7, 5) to (7, 6)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (2, 4) to (2, 3)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (7, 5) will arrive at (7, 6)
+Pawn at (2, 4) will arrive at (2, 3)
 Before:
+-1000000000
 0000000000
+0000200000
 0000000000
+000000000-1
+-1000000000
 0000000000
+0000020000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
 0000000000
+0001100000
 0000000000
+000000000-1
+-1000000000
 0000000000
+0000011000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (7, 6) to (7, 7)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (2, 3) to (2, 2)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (7, 6) will arrive at (7, 7)
+Pawn at (2, 3) will arrive at (2, 2)
 Before:
+-1000000000
 0000000000
+0002000000
 0000000000
+000000000-1
+-1000000000
 0000000000
+0000002000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
 0000000000
+0011000000
 0000000000
+000000000-1
+-1000000000
 0000000000
+0000001100
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (7, 7) to (7, 8)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (2, 2) to (2, 1)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (7, 7) will arrive at (7, 8)
+Pawn at (2, 2) will arrive at (2, 1)
 Before:
+-1000000000
 0000000000
+0020000000
 0000000000
+000000000-1
+-1000000000
 0000000000
+0000000200
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
 0000000000
+0110000000
 0000000000
+000000000-1
+-1000000000
 0000000000
+0000000110
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (7, 8) to (7, 9)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (2, 1) to (2, 0)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (7, 8) will arrive at (7, 9)
+Pawn at (2, 1) will arrive at (2, 0)
 Before:
+-1000000000
 0000000000
+0200000000
 0000000000
+000000000-1
+-1000000000
 0000000000
+0000000020
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+000000000-1
 After:
+-1000000000
 0000000000
+1100000000
 0000000000
+000000000-1
+-1000000000
 0000000000
+0000000011
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (7, 9) to (8, 0)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (2, 0) to (1, 9)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (7, 9) will arrive at (8, 0)
+Pawn at (2, 0) will arrive at (1, 9)
 Before:
+-1000000000
 0000000000
+2000000000
 0000000000
+000000000-1
+-1000000000
 0000000000
+0000000002
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+000000000-1
 After:
-0000000000
-0000000000
-0000000000
-0000000000
+-1000000000
 0000000001
 1000000000
 0000000000
+000000000-1
+-1000000000
 0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+0000000001
+1000000000
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (8, 0) to (8, 1)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (1, 9) to (1, 8)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (8, 0) will arrive at (8, 1)
+Pawn at (1, 9) will arrive at (1, 8)
 Before:
+-1000000000
+0000000002
 0000000000
 0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+2000000000
+000000000-1
 After:
+-1000000000
+0000000011
 0000000000
 0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+1100000000
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (8, 1) to (8, 2)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (1, 8) to (1, 7)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (8, 1) will arrive at (8, 2)
+Pawn at (1, 8) will arrive at (1, 7)
 Before:
+-1000000000
+0000000020
 0000000000
 0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+0200000000
+000000000-1
 After:
+-1000000000
+0000000110
 0000000000
 0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+0110000000
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (8, 2) to (8, 3)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (1, 7) to (1, 6)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (8, 2) will arrive at (8, 3)
+Pawn at (1, 7) will arrive at (1, 6)
 Before:
+-1000000000
+0000000200
 0000000000
 0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+0020000000
+000000000-1
 After:
+-1000000000
+0000001100
 0000000000
 0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+0011000000
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (8, 3) to (8, 4)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (1, 6) to (1, 5)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (8, 3) will arrive at (8, 4)
+Pawn at (1, 6) will arrive at (1, 5)
 Before:
+-1000000000
+0000002000
 0000000000
 0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+0002000000
+000000000-1
 After:
+-1000000000
+0000011000
 0000000000
 0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+0001100000
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (8, 4) to (8, 5)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (1, 5) to (1, 4)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (8, 4) will arrive at (8, 5)
+Pawn at (1, 5) will arrive at (1, 4)
 Before:
+-1000000000
+0000020000
 0000000000
 0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+0000200000
+000000000-1
 After:
+-1000000000
+0000110000
 0000000000
 0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+0000110000
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (8, 5) to (8, 6)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (1, 4) to (1, 3)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (8, 5) will arrive at (8, 6)
+Pawn at (1, 4) will arrive at (1, 3)
 Before:
+-1000000000
+0000200000
 0000000000
 0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+0000020000
+000000000-1
 After:
+-1000000000
+0001100000
 0000000000
 0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+0000011000
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (8, 6) to (8, 7)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (1, 3) to (1, 2)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (8, 6) will arrive at (8, 7)
+Pawn at (1, 3) will arrive at (1, 2)
 Before:
+-1000000000
+0002000000
 0000000000
 0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+0000002000
+000000000-1
 After:
+-1000000000
+0011000000
 0000000000
 0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+0000001100
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (8, 7) to (8, 8)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (1, 2) to (1, 1)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (8, 7) will arrive at (8, 8)
+Pawn at (1, 2) will arrive at (1, 1)
 Before:
+-1000000000
+0020000000
 0000000000
 0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+0000000200
+000000000-1
 After:
+-1000000000
+0110000000
 0000000000
 0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+0000000110
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (8, 8) to (8, 9)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (1, 1) to (1, 0)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (8, 8) will arrive at (8, 9)
+Pawn at (1, 1) will arrive at (1, 0)
 Before:
+-1000000000
+0200000000
 0000000000
 0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+0000000020
+000000000-1
 After:
+-1000000000
+1100000000
 0000000000
 0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+0000000011
+000000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (8, 9) to (9, 0)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (1, 0) to (0, 9)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (8, 9) will arrive at (9, 0)
+Pawn at (1, 0) will arrive at (0, 9)
 Before:
+-1000000000
+2000000000
 0000000000
 0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
+0000000002
+000000000-1
 After:
-0000000000
-0000000000
-0000000000
-0000000000
-0000000001
+-1000000001
 1000000000
 0000000000
 0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+0000000001
+100000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (9, 0) to (9, 1)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (0, 9) to (0, 8)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (9, 0) will arrive at (9, 1)
+Pawn at (0, 9) will arrive at (0, 8)
 Before:
+-1000000002
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
 0000000000
+200000000-1
 After:
+-1000000011
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
 0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+110000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (9, 1) to (9, 2)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (0, 8) to (0, 7)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (9, 1) will arrive at (9, 2)
+Pawn at (0, 8) will arrive at (0, 7)
 Before:
+-1000000020
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
 0000000000
+020000000-1
 After:
+-1000000110
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
 0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+011000000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (9, 2) to (9, 3)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (0, 7) to (0, 6)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (9, 2) will arrive at (9, 3)
+Pawn at (0, 7) will arrive at (0, 6)
 Before:
+-1000000200
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
 0000000000
+002000000-1
 After:
+-1000001100
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
 0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+001100000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (9, 3) to (9, 4)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (0, 6) to (0, 5)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (9, 3) will arrive at (9, 4)
+Pawn at (0, 6) will arrive at (0, 5)
 Before:
+-1000002000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
 0000000000
+000200000-1
 After:
+-1000011000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
 0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000110000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (9, 4) to (9, 5)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (0, 5) to (0, 4)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (9, 4) will arrive at (9, 5)
+Pawn at (0, 5) will arrive at (0, 4)
 Before:
+-1000020000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
 0000000000
+000020000-1
 After:
+-1000110000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
 0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000011000-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (9, 5) to (9, 6)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (0, 4) to (0, 3)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (9, 5) will arrive at (9, 6)
+Pawn at (0, 4) will arrive at (0, 3)
 Before:
+-1000200000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
 0000000000
+000002000-1
 After:
+-1001100000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
 0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000001100-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (9, 6) to (9, 7)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (0, 3) to (0, 2)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (9, 6) will arrive at (9, 7)
+Pawn at (0, 3) will arrive at (0, 2)
 Before:
+-1002000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
 0000000000
+000000200-1
 After:
+-1011000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
 0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000110-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (9, 7) to (9, 8)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (0, 2) to (0, 1)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
+Pawn at (9, 7) will arrive at (9, 8)
+Pawn at (0, 2) will arrive at (0, 1)
 Before:
+-1020000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
 0000000000
+000000020-1
 After:
+-1110000000
 0000000000
 0000000000
 0000000000
-0000000000
-0000000001
-1000000000
-0000000000
+000000000-1
+-1000000000
 0000000000
 0000000000
 0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+000000011-1
 Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
+Querying swap for first pawn from (9, 8) to (9, 9)
 Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
+Querying swap for second pawn from (0, 1) to (0, 0)
 Applying swaps...
 Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
-Before:
-0000000000
-0000000000
-0000000000
-0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-After:
-0000000000
-0000000000
-0000000000
-0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
-Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
-Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
-Applying swaps...
-Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
-Before:
-0000000000
-0000000000
-0000000000
-0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-After:
-0000000000
-0000000000
-0000000000
-0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
-Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
-Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
-Applying swaps...
-Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
-Before:
-0000000000
-0000000000
-0000000000
-0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-After:
-0000000000
-0000000000
-0000000000
-0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
-Calculating arrival coordinates for first pawn.
-Querying swap for first pawn from (4, 9) to (5, 0)
-Calculating arrival coordinates for second pawn.
-Querying swap for second pawn from (5, 0) to (4, 9)
-Applying swaps...
-Swaps to apply: 2
-Pawn at (4, 9) will arrive at (5, 0)
-Pawn at (5, 0) will arrive at (4, 9)
-Before:
-0000000000
-0000000000
-0000000000
-0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-After:
-0000000000
-0000000000
-0000000000
-0000000000
-0000000001
-1000000000
-0000000000
-0000000000
-0000000000
-0000000000
-Swapping (4, 9) with (5, 0)
-The now-first Pawn reached (4, 9)
-The now-second Pawn reached (5, 0)
-Swapping (5, 0) with (4, 9)
-The now-first Pawn reached (5, 0)
-The now-second Pawn reached (4, 9)
+Pawn at (9, 8) will arrive at (9, 9)
+Pawn at (0, 1) will arrive at (0, 0)

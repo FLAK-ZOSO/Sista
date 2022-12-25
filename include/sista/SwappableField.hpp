@@ -188,7 +188,9 @@ public:
 
         // The swaps can be applied as it stands
         for (Path& path : pawnsToSwap) {
-            swapTwoPawns(path.begin, path.end);
+            removePawn(path.pawn); // Remove the pawn from the begin of the path
+            path.pawn->setCoordinates(path.end); // Set the pawn's coordinates to the end of the path
+            addPawn(path.pawn); // Add the pawn to the end of the path
         }
         clearPawnsToSwap();
     }
