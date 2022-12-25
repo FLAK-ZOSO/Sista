@@ -41,13 +41,13 @@ int main() {
     for (int i=0; i<TEST_SIZE; i++) {
         for (int j=0; j<TEST_SIZE; j++) {
             debug << "Calculating arrival coordinates for first pawn." << std::endl;
-            coords = field.movingByCoordinates(&pawn, 0, 1, PACMAN_EFFECT);
+            coords = field.movingByCoordinates(&pawn, 0, 1, MATRIX_EFFECT);
 
             debug << "Querying swap for first pawn from (" << pawn.getCoordinates().y << ", " << pawn.getCoordinates().x << ") to (" << coords.y << ", " << coords.x << ")" << std::endl;
             field.addPawnToSwap(&pawn, coords);
 
             debug << "Calculating arrival coordinates for second pawn." << std::endl;
-            coords = field.movingByCoordinates(&pawn2, 0, -1, PACMAN_EFFECT);
+            coords = field.movingByCoordinates(&pawn2, 0, -1, MATRIX_EFFECT);
 
             debug << "Querying swap for second pawn from (" << pawn2.getCoordinates().y << ", " << pawn2.getCoordinates().x << ") to (" << coords.y << ", " << coords.x << ")" << std::endl;
             field.addPawnToSwap(&pawn2, coords);
