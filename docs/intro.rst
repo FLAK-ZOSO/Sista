@@ -119,7 +119,7 @@ In this case I am creating a ``sista::SwappableField`` [#]_ object with the foll
 - ``Width``: ``50``
 - ``Height``: ``50``
 
-Now that we have created the ``Field`` object, we can add the ``Pawn``s to it.
+Now that we have created the ``Field`` object, we can add the ``Pawn*`` to it.
 
 .. code-block:: cpp
 
@@ -130,7 +130,7 @@ This line of code will add the ``pawn`` to the ``Field`` object at the ``pawn->c
 ``Main Loop``
 --------------------
 
-The next thing to do is to create the main loop to test the ``SwappableField`` object and the ``Pawn``s movement.
+The next thing to do is to create the main loop to test the ``SwappableField`` object and the ``Pawn`` movement.
 
 .. code-block:: cpp
 
@@ -149,7 +149,7 @@ The next thing to do is to create the main loop to test the ``SwappableField`` o
         }
     }
 
-This is the main loop, it will move the ``Pawn``s ``TEST_SIZE*TEST_SIZE`` times across the field.
+This is the main loop, it will move the ``Pawn`` ``TEST_SIZE*TEST_SIZE`` times across the field.
 
 
 ``Notes``
