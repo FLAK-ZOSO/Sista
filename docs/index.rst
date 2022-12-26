@@ -56,5 +56,12 @@ Some of the documentation for Sista can be found in the `Release Notes <https://
 
 The rest of the documentation can be found on Read the Docs: `Sista Documentation <https://sista.readthedocs.io/en/latest/>`_.
 
-- `sista.hpp header <sista.rst>`_
-- `clearScreen.hpp header <clearScreen.rst>`_
+- `sista.hpp header <sista.html>`_
+
+
+``Introduction``
+----------------
+
+I provided a simple example of how to use Sista to make a terminal animation in `sista.cpp <https://github.com/FLAK-ZOSO/Sista/sista.cpp>`_.
+
+I will provide a more detailed explaination of the Sista example in the `intro <intro.html>`_.
