@@ -18,7 +18,7 @@ The first thing you need to do is include the ``Sista`` library.
 ``Namespace``
 --------------------
 
-The next thing you need to do is to use the ``sista`` namespace [namespace]_.
+The next thing you need to do is to use the ``sista`` namespace [#]_.
 
 .. code-block:: cpp
 
@@ -41,19 +41,19 @@ This two lines of code will make ``I/O`` faster.
 
     ANSI::reset(); // Reset the settings
 
-This line of code will reset the ANSI settings of the terminal [1]_.
+This line of code will reset the ANSI settings of the terminal [#]_.
 
 .. code-block:: cpp
 
     std::cout << HIDE_CURSOR;
 
-This line of code will hide the cursor [2]_ to reduce that noisy flickering.
+This line of code will hide the cursor [#]_ to reduce that noisy flickering.
 
 .. code-block:: cpp
 
     clearScreen();
 
-The ``clearScreen()`` [3]_ function will clear the screen and the buffer [4]_, and move the cursor to the top left corner.
+The ``clearScreen()`` [#]_ function will clear the screen and the buffer [#]_, and move the cursor to the top left corner.
 
 ``Pawn``
 --------------------
@@ -108,18 +108,18 @@ This line of code will create a ``Border`` object with the following properties:
 ``Field``
 --------------------
 
-The next thing to do is to create a ``Field`` object [TEST_SIZE]_.
+The next thing to do is to create a ``Field`` object [#]_.
 
 .. code-block:: cpp
 
     sista::SwappableField field(TEST_SIZE, TEST_SIZE);
 
-In this case I am creating a ``sista::SwappableField`` [5]_ object with the following properties:
+In this case I am creating a ``sista::SwappableField`` [#]_ object with the following properties:
 
 - ``Width``: ``50``
 - ``Height``: ``50``
 
-Now that we have created the ``Field`` object, we can add the ``Pawn*``s to it.
+Now that we have created the ``Field`` object, we can add the ``Pawn``s to it.
 
 .. code-block:: cpp
 
@@ -155,10 +155,10 @@ This is the main loop, it will move the ``Pawn``s ``TEST_SIZE*TEST_SIZE`` times 
 ``Notes``
 ====================
 
-.. [namespace] In the example I anyway specify the namespace despite the fact that I already used the ``using namespace sista;`` statement. This is because I want to make it clear that I am using the ``sista`` namespace.
-.. [1] The ``ANSI::reset`` function comes from the ``ANSI-Settings.hpp`` header.
-.. [2] The ``HIDE_CURSOR`` preprocessor constant comes from the ``ANSI-Settings.hpp`` header.
-.. [3] The ``clearScreen()`` function is OS-specific and only works on ``Windows``.
-.. [4] The ``clearScreen()`` function comes from the ``clearScreen.hpp`` header.
-.. [TEST_SIZE] The ``TEST_SIZE`` preprocessor constant was previously defined, and expands to ``50``.
-.. [5] The ``sista::SwappableField`` class comes from the ``SwappableField.hpp`` header since ``v0.4.0`` and inherits from the ``sista::Field`` class.
+.. [#] In the example I anyway specify the namespace despite the fact that I already used the ``using namespace sista;`` statement. This is because I want to make it clear that I am using the ``sista`` namespace.
+.. [#] The ``ANSI::reset`` function comes from the ``ANSI-Settings.hpp`` header.
+.. [#] The ``HIDE_CURSOR`` preprocessor constant comes from the ``ANSI-Settings.hpp`` header.
+.. [#] The ``clearScreen()`` function is OS-specific and only works on ``Windows``.
+.. [#] The ``clearScreen()`` function comes from the ``clearScreen.hpp`` header.
+.. [#] The ``TEST_SIZE`` preprocessor constant was previously defined, and expands to ``50``.
+.. [#] The ``sista::SwappableField`` class comes from the ``SwappableField.hpp`` header since ``v0.4.0`` and inherits from the ``sista::Field`` class.
