@@ -13,11 +13,9 @@ public:
     Border(char symbol_, ANSI::Settings settings_): symbol(symbol_), settings(settings_) {}
     Border(char symbol_, ANSI::Settings& settings_, bool _by_reference): symbol(symbol_), settings(settings_) {}
 
-    virtual void print() { // Print the Border
-        settings.apply(); // Apply the settings
-        std::cout << symbol; // Print the symbol
-    }
-    virtual void print(bool _) { // Print the Border when the style is already applied
+    virtual void print(bool apply_settings=true) { // Print the Border
+        if (apply_settings)
+            settings.apply(); // Apply the settings
         std::cout << symbol; // Print the symbol
     }
 };

@@ -87,7 +87,7 @@ public:
         std::cout << '\n';
         border.print(); // Print the border
         for (int i=0; i<width+1; i++) // For each row
-            border.print(true); // Print the border
+            border.print(false); // Print the border
         std::cout << '\n';
         bool previousPawn = true; // If the previous element was a Pawn
         for (auto& row: pawns) { // For each row
@@ -110,7 +110,7 @@ public:
         }
         border.print(); // Print the border
         for (int i=0; i<width+1; i++) // For each row
-            border.print(true); // Print the border
+            border.print(false); // Print the border
         ANSI::reset(); // Reset the settings
         std::cout << std::flush; // Flush the output
     }
