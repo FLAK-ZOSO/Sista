@@ -18,7 +18,7 @@ The first thing you need to do is include the ``Sista`` library.
 ``Namespace``
 --------------------
 
-The next thing you need to do is to use the ``sista`` namespace[namespace]_.
+The next thing you need to do is to use the ``sista`` namespace [namespace]_.
 
 .. code-block:: cpp
 
@@ -41,19 +41,19 @@ This two lines of code will make ``I/O`` faster.
 
     ANSI::reset(); // Reset the settings
 
-This line of code will reset the ANSI settings of the terminal[1]_.
+This line of code will reset the ANSI settings of the terminal [1]_.
 
 .. code-block:: cpp
 
     std::cout << HIDE_CURSOR;
 
-This line of code will hide the cursor[2]_ to reduce that noisy flickering.
+This line of code will hide the cursor [2]_ to reduce that noisy flickering.
 
 .. code-block:: cpp
 
     clearScreen();
 
-The ``clearScreen()``[3]_ function will clear the screen and the buffer[4]_, and move the cursor to the top left corner.
+The ``clearScreen()`` [3]_ function will clear the screen and the buffer [4]_, and move the cursor to the top left corner.
 
 ``Pawn``
 --------------------
@@ -108,13 +108,13 @@ This line of code will create a ``Border`` object with the following properties:
 ``Field``
 --------------------
 
-The next thing to do is to create a ``Field`` object[TEST_SIZE].
+The next thing to do is to create a ``Field`` object [TEST_SIZE]_.
 
 .. code-block:: cpp
 
     sista::SwappableField field(TEST_SIZE, TEST_SIZE);
 
-In this case I am creating a ``sista::SwappableField``[5]_ object with the following properties:
+In this case I am creating a ``sista::SwappableField`` [5]_ object with the following properties:
 
 - ``Width``: ``50``
 - ``Height``: ``50``
