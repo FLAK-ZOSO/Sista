@@ -11,33 +11,33 @@ int main() {
     ANSI::reset(); // Reset the settings
     std::cout << HIDE_CURSOR;
     clearScreen();
-    Pawn* pawn = new Pawn(
-        'X', Coordinates(0, 0),
+    sista::Pawn* pawn = new sista::Pawn(
+        'X', sista::Coordinates(0, 0),
         ANSI::Settings(
             ANSI::ForegroundColor::F_RED,
             ANSI::BackgroundColor::B_BLACK,
             ANSI::Attribute::BRIGHT
         )
     );
-    Pawn* pawn2 = new Pawn(
-        'O', Coordinates(TEST_SIZE-1, TEST_SIZE-1),
+    sista::Pawn* pawn2 = new sista::Pawn(
+        'O', sista::Coordinates(TEST_SIZE-1, TEST_SIZE-1),
         ANSI::Settings(
             ANSI::ForegroundColor::F_BLUE,
             ANSI::BackgroundColor::B_BLACK,
             ANSI::Attribute::BRIGHT
         )
     );
-    Border border(
+    sista::Border border(
         ' ', ANSI::Settings(
             ANSI::ForegroundColor::F_BLACK,
             ANSI::BackgroundColor::B_WHITE,
             ANSI::Attribute::BRIGHT
         )
     );
-    SwappableField field(TEST_SIZE, TEST_SIZE);
+    sista::SwappableField field(TEST_SIZE, TEST_SIZE);
     field.addPawn(pawn);
     field.addPawn(pawn2);
-    Coordinates coords(0, 0);
+    sista::Coordinates coords(0, 0);
     for (int i=0; i<TEST_SIZE; i++) {
         for (int j=0; j<TEST_SIZE; j++) {
             coords = field.movingByCoordinates(pawn, 0, 1, MATRIX_EFFECT);
