@@ -58,6 +58,9 @@ namespace sista {
                 }
             }
         }
+        ~SwappableField() {
+            Field::~Field();
+        }
 
         void addPawn(Pawn* pawn) override { // addPawn - add a pawn to the field
             Field::addPawn(pawn);
