@@ -151,6 +151,29 @@ The next thing to do is to create the main loop to test the ``SwappableField`` o
 
 This is the main loop, it will move the ``Pawn`` ``TEST_SIZE*TEST_SIZE`` times across the field.
 
+The following code is an alternative to the previous one, it will move the ``Pawn`` ``TEST_SIZE*TEST_SIZE`` times across the field, but it will use the ``movePawn()`` function instead of the ``addPawnToSwap()`` function when possible, with the goal to increase the performance.
+
+.. code-block:: cpp
+
+    for (int i=0; i<TEST_SIZE; i++) {
+        for (int j=0; j<TEST_SIZE; j++) {
+            coords = field.movingByCoordinates(pawn, 0, 1, MATRIX_EFFECT);
+            coords2 = field.movingByCoordinates(pawn2, 0, -1, MATRIX_EFFECT);
+            try {
+                field.movePawn(pawn, coords);
+                field.movePawn(pawn2, coords2);
+            } catch (const std::invalid_argument& e) {
+                field.addPawnToSwap(pawn, coords);
+                field.addPawnToSwap(pawn2, coords2);
+                field.applySwaps();
+            }
+
+            std::this_thread::sleep_for(std::chrono::milliseconds(20));
+            clearScreen();
+            field.print(border);
+        }
+    }
+
 
 ``Notes``
 ====================

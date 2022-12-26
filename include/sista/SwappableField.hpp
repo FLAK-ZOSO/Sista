@@ -72,9 +72,11 @@ namespace sista {
             pawnsToSwap.clear();
         }
 
-        Coordinates movingByCoordinates(Pawn* pawn, short int y, short int x) { // Function to calculate the resulting coordinates of a pawn after moving by y and x
+        // ℹ️ - The following function calculates coordinates, but does not apply them to the pawns
+        Coordinates movingByCoordinates(Pawn* pawn, short int y, short int x) {
             return Coordinates(pawn->getCoordinates().y + y, pawn->getCoordinates().x + x);
         }
+        // ℹ️ - The following function calculates coordinates, but does not apply them to the pawns
         Coordinates movingByCoordinates(Pawn* pawn, short int y, short int x, bool effect) {
             short int y_ = pawn->getCoordinates().y + y;
             short int x_ = pawn->getCoordinates().x + x;

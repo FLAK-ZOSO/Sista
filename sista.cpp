@@ -3,7 +3,7 @@
 #include <thread>
 #include "include/sista/sista.hpp"
 
-#define TEST_SIZE 50
+#define TEST_SIZE 10
 
 
 int main() {
@@ -37,15 +37,19 @@ int main() {
     sista::SwappableField field(TEST_SIZE, TEST_SIZE);
     field.addPawn(pawn);
     field.addPawn(pawn2);
-    sista::Coordinates coords(0, 0);
+    sista::Coordinates coords(0, 0), coords2(0, 0);
     for (int i=0; i<TEST_SIZE; i++) {
         for (int j=0; j<TEST_SIZE; j++) {
             coords = field.movingByCoordinates(pawn, 0, 1, MATRIX_EFFECT);
-            field.addPawnToSwap(pawn, coords);
-            coords = field.movingByCoordinates(pawn2, 0, -1, MATRIX_EFFECT);
-            field.addPawnToSwap(pawn2, coords);
-
-            field.applySwaps();
+            coords2 = field.movingByCoordinates(pawn2, 0, -1, MATRIX_EFFECT);
+            try {
+                field.movePawn(pawn, coords);
+                field.movePawn(pawn2, coords2);
+            } catch (const std::invalid_argument& e) {
+                field.addPawnToSwap(pawn, coords);
+                field.addPawnToSwap(pawn2, coords2);
+                field.applySwaps();
+            }
 
             std::this_thread::sleep_for(std::chrono::milliseconds(20));
             clearScreen();
