@@ -3,7 +3,7 @@
 
 The purpose of this document is to provide a quick example of how to use the ``Sista`` library.
 
-I will use the `sista.cpp <https://github.com/FLAK-ZOSO/Sista/sista.cpp>`_ file as the example to explain.
+I will use the `sista.cpp <https://github.com/FLAK-ZOSO/Sista/blob/main/sista.cpp>`_ file as the example to explain.
 
 ``Include``
 --------------------

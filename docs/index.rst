@@ -62,6 +62,6 @@ The rest of the documentation can be found on Read the Docs: `Sista Documentatio
 ``Introduction``
 ----------------
 
-I provided a simple example of how to use Sista to make a terminal animation in `sista.cpp <https://github.com/FLAK-ZOSO/Sista/sista.cpp>`_.
+I provided a simple example of how to use Sista to make a terminal animation in `sista.cpp <https://github.com/FLAK-ZOSO/Sista/blob/main/sista.cpp>`_.
 
 I will provide a more detailed explaination of the Sista example in the `intro <intro.html>`_.
