@@ -59,7 +59,9 @@ namespace sista {
             }
         }
         ~SwappableField() {
-            Field::~Field();
+            for (auto& row: pawns) // For each row
+                for (auto& pawn: row) // For each pawn
+                    delete pawn; // Delete the pawn
         }
 
         void addPawn(Pawn* pawn) override { // addPawn - add a pawn to the field
