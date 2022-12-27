@@ -80,3 +80,28 @@ The following test was run with...
 - The refresh is smooth
 - Almost no blinking or flickering
 - Some `Pawn`s movement is snappy
+
+## v`0.5.0`
+
+### `sista.exe` IV - 27/12/2022
+
+The following test was run with...
+
+- `50 x 50` Field size (`2500` cells)
+- `50 x 50` = `2500` iterations
+- `6` `Pawn` instances (allocated on heap with `new`)
+- `10 milliseconds` per frame (`100 FPS`)
+
+...and the following numeric results were obtained...
+
+- `39"` (39 seconds) elapsed time
+- `2500 x 0.010` = `25"` slept time
+- `2500 x 2500 / 39` = `102564` cells per second
+- sista.exe max memory usage: `0.5MBytes`
+- sista.exe max CPU usage: `0%` (according to Task Manager)
+
+...along with the following qualitative results...
+
+- The refresh is smooth (actually there's no refresh)
+- No flickering at all (there's no more refresh)
+- Some `Pawn`s movement is snappy (mostly due to the `10ms` frame time)

@@ -3,7 +3,7 @@
 #include <thread>
 #include "include/sista/sista.hpp"
 
-#define TEST_SIZE 30
+#define TEST_SIZE 50
 
 
 int main() {
