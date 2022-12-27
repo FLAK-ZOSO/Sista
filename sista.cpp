@@ -1,4 +1,4 @@
-// g++ sista.cpp -o sista -std=c++17 -Wall -Wextra
+// g++ sista.cpp -o sista -std=c++17 -Wall
 #include <chrono>
 #include <thread>
 #include "include/sista/sista.hpp"
@@ -84,11 +84,11 @@ int main() {
             coords[4] = field.movingByCoordinates(pawns[4], 1, 0, PACMAN_EFFECT);
             coords[5] = field.movingByCoordinates(pawns[5], 0, 1, PACMAN_EFFECT);
             try {
-                for (int k=0; k<pawns.size(); k++) {
+                for (int k=0; k<(int)pawns.size(); k++) {
                     field.movePawn(pawns[k], coords[k]);
                 }
             } catch (const std::invalid_argument& e) {
-                for (int k=0; k<pawns.size(); k++) {
+                for (int k=0; k<(int)pawns.size(); k++) {
                     field.addPawnToSwap(pawns[k], coords[k]);
                 }
                 field.applySwaps();
