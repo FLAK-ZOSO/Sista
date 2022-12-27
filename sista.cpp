@@ -2,6 +2,7 @@
 #include <chrono>
 #include <thread>
 #include "include/sista/sista.hpp"
+    #include <fstream>
 
 #define TEST_SIZE 30
 
@@ -9,7 +10,6 @@
 int main() {
     std::ios_base::sync_with_stdio(false);
     ANSI::reset(); // Reset the settings
-    std::cout << HIDE_CURSOR;
     clearScreen();
 
     std::vector<sista::Pawn*> pawns = {
@@ -74,6 +74,8 @@ int main() {
         field.addPawn(pawn);
     }
     std::vector<sista::Coordinates> coords(pawns.size());
+    field.print(border);
+    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
     for (int i=0; i<TEST_SIZE; i++) {
         for (int j=0; j<TEST_SIZE; j++) {
             coords[0] = field.movingByCoordinates(pawns[0], 1, 1, PACMAN_EFFECT);
@@ -93,9 +95,10 @@ int main() {
                 field.applySwaps();
             }
 
-            std::this_thread::sleep_for(std::chrono::milliseconds(20));
-            clearScreen();
-            field.print(border);
+            std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+            std::cout << std::flush;
+            // clearScreen();
+            // field.print(border);
         }
     }
     clearScreen();
