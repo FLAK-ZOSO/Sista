@@ -3,6 +3,7 @@
 #include <vector> // std::vector
 #include "pawn.hpp" // Pawn
 #include "border.hpp" // Border
+#include "cursor.hpp" // Cursor
 
 #define PACMAN_EFFECT 0 // Pacman effect when a coordinate overflows
 #define MATRIX_EFFECT 1 // Classic C style matrix effect when a coordinate overflows
@@ -11,6 +12,7 @@ namespace sista {
     class Field { // Field class - represents the field [parent class]
     protected:
         std::vector<std::vector<Pawn*>> pawns; // Matrix of pawns
+        Cursor cursor; // Cursor
         int width; // Width of the matrix
         int height; // Height of the matrix
 
@@ -131,6 +133,14 @@ namespace sista {
                 // ...otherwise, if the coordinates are occupied by another pawn, throw an exception
                 throw std::invalid_argument("The coordinates are occupied by another pawn");
             }
+            // Cursor ANSI stuff
+            cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
+            ANSI::reset(); // Reset the settings for that cell
+            std::cout << ' '; // Print a space to clear the cell
+            cursor.set(coordinates); // Set the cursor to the coordinates
+            pawn->print(); // Print the pawn
+
+            // sista::Field stuff
             removePawn(pawn); // Remove the pawn from the matrix
             pawn->setCoordinates(coordinates); // Set the pawn's
             addPawn(pawn); // Add the pawn to the matrix
