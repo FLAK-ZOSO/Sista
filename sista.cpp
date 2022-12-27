@@ -12,8 +12,7 @@ int main() {
     std::cout << HIDE_CURSOR;
     clearScreen();
 
-    std::vector<sista::Pawn*> pawns;
-    pawns.push_back(
+    std::vector<sista::Pawn*> pawns = {
         new sista::Pawn(
             'X', sista::Coordinates(0, 0),
             ANSI::Settings(
@@ -21,9 +20,7 @@ int main() {
                 ANSI::BackgroundColor::B_BLACK,
                 ANSI::Attribute::BRIGHT
             )
-        )
-    );
-    pawns.push_back(
+        ),
         new sista::Pawn(
             'O', sista::Coordinates(TEST_SIZE*0.2, TEST_SIZE*0.7),
             ANSI::Settings(
@@ -31,9 +28,7 @@ int main() {
                 ANSI::BackgroundColor::B_BLACK,
                 ANSI::Attribute::BRIGHT
             )
-        )
-    );
-    pawns.push_back(
+        ),
         new sista::Pawn(
             '@', sista::Coordinates(TEST_SIZE*0.3, 0),
             ANSI::Settings(
@@ -41,9 +36,7 @@ int main() {
                 ANSI::BackgroundColor::B_YELLOW,
                 ANSI::Attribute::REVERSE
             )
-        )
-    );
-    pawns.push_back(
+        ),
         new sista::Pawn(
             '%', sista::Coordinates(TEST_SIZE*0.5, TEST_SIZE*0.5),
             ANSI::Settings(
@@ -51,8 +44,24 @@ int main() {
                 ANSI::BackgroundColor::B_MAGENTA,
                 ANSI::Attribute::REVERSE
             )
+        ),
+        new sista::Pawn(
+            '!', sista::Coordinates(TEST_SIZE*0.7, TEST_SIZE*0.2),
+            ANSI::Settings(
+                ANSI::ForegroundColor::F_CYAN,
+                ANSI::BackgroundColor::B_BLACK,
+                ANSI::Attribute::BRIGHT
+            )
+        ),
+        new sista::Pawn(
+            '#', sista::Coordinates(TEST_SIZE*0.8, TEST_SIZE*0.8),
+            ANSI::Settings(
+                ANSI::ForegroundColor::F_GREEN,
+                ANSI::BackgroundColor::B_BLACK,
+                ANSI::Attribute::BRIGHT
+            )
         )
-    );
+    };
     sista::Border border(
         '#', ANSI::Settings(
             ANSI::ForegroundColor::F_WHITE,
@@ -64,19 +73,21 @@ int main() {
     for (auto pawn : pawns) {
         field.addPawn(pawn);
     }
-    std::vector<sista::Coordinates> coords(4);
+    std::vector<sista::Coordinates> coords(pawns.size());
     for (int i=0; i<TEST_SIZE; i++) {
         for (int j=0; j<TEST_SIZE; j++) {
             coords[0] = field.movingByCoordinates(pawns[0], 1, 1, PACMAN_EFFECT);
             coords[1] = field.movingByCoordinates(pawns[1], -1, -1, PACMAN_EFFECT);
             coords[2] = field.movingByCoordinates(pawns[2], -1, 1, PACMAN_EFFECT);
             coords[3] = field.movingByCoordinates(pawns[3], 1, -1, PACMAN_EFFECT);
+            coords[4] = field.movingByCoordinates(pawns[4], 1, 0, PACMAN_EFFECT);
+            coords[5] = field.movingByCoordinates(pawns[5], 0, 1, PACMAN_EFFECT);
             try {
-                for (int k=0; k<4; k++) {
+                for (int k=0; k<pawns.size(); k++) {
                     field.movePawn(pawns[k], coords[k]);
                 }
             } catch (const std::invalid_argument& e) {
-                for (int k=0; k<4; k++) {
+                for (int k=0; k<pawns.size(); k++) {
                     field.addPawnToSwap(pawns[k], coords[k]);
                 }
                 field.applySwaps();
