@@ -137,7 +137,7 @@ namespace sista {
         }
         void movePawn(Pawn* pawn, Coord& coordinates) { // Move a pawn to the coordinates
             // [Call the original function because it's anyway declaring a new Coordinates object]
-            Coord coordinates_ = coordinates;
+            Coordinates coordinates_(coordinates.first, coordinates.second);
             movePawn(pawn, coordinates_);
         }
         void movePawn(Pawn* pawn, unsigned short y, unsigned short x) { // Move a pawn to the coordinates
