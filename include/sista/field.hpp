@@ -31,11 +31,6 @@ namespace sista {
                 pawns[i].resize(width); // Resize the vector
             this->clear(); // Clear the matrix
         }
-        ~Field() { // Destructor
-            for (auto& row: pawns) // For each row
-                for (auto& pawn: row) // For each pawn
-                    delete pawn; // Delete the pawn
-        }
 
         void print() { // Print the matrix
             ANSI::reset(); // Reset the settings
@@ -345,11 +340,6 @@ namespace sista {
                     pawnsCount[y][x] = 0;
                 }
             }
-        }
-        ~SwappableField() {
-            for (auto& row: pawns) // For each row
-                for (auto& pawn: row) // For each pawn
-                    delete pawn; // Delete the pawn
         }
 
         void addPawn(Pawn* pawn) override { // addPawn - add a pawn to the field

@@ -96,8 +96,5 @@ int main() {
         std::cout << std::flush;
     }
     std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-    sista::clearScreen();
-    std::cout << SHOW_CURSOR;
-    field.print(border);
     return 0;
 }
