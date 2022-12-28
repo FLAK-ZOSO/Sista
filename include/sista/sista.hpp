@@ -5,6 +5,4 @@
 #include "coordinates.hpp" // Coord, Coordinates, <utility>
 #include "pawn.hpp" // Pawn
 #include "field.hpp" // Field, Path, SwappableField
-#if (_WIN32 || _WIN64)
-    #include "clearScreen.hpp" // clearScreen [Windows-specific]
-#endif
+#include "cursor.hpp" // Cursor, clearScreen [cross-platform since v0.6.0]
