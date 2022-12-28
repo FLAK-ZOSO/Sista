@@ -31,6 +31,12 @@ namespace sista {
                 pawns[i].resize(width); // Resize the vector
             this->clear(); // Clear the matrix
         }
+        ~Field() {
+            for (int i = 0; i < (int)pawns.size(); i++) // For each row
+                for (int j = 0; j < (int)pawns[i].size(); j++) // For each pawn
+                    delete pawns[i][j]; // Delete the pawn
+            pawns.clear(); // Clear the pawns
+        }
 
         void print() { // Print the matrix
             ANSI::reset(); // Reset the settings
@@ -340,6 +346,12 @@ namespace sista {
                     pawnsCount[y][x] = 0;
                 }
             }
+        }
+        ~SwappableField() {
+            for (int i = 0; i < (int)pawns.size(); i++) // For each row
+                for (int j = 0; j < (int)pawns[i].size(); j++) // For each pawn
+                    delete pawns[i][j]; // Delete the pawn
+            pawns.clear(); // Clear the pawns
         }
 
         void addPawn(Pawn* pawn) override { // addPawn - add a pawn to the field
