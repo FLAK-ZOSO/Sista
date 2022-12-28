@@ -4,8 +4,7 @@
 #include "border.hpp" // Border
 #include "coordinates.hpp" // Coord, Coordinates, <utility>
 #include "pawn.hpp" // Pawn
-#include "field.hpp" // Field
-#include "swappableField.hpp" // Path, SwappableField
+#include "field.hpp" // Field, Path, SwappableField
 #if (_WIN32 || _WIN64)
     #include "clearScreen.hpp" // clearScreen [Windows-specific]
 #endif
