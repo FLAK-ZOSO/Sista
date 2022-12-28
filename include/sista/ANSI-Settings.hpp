@@ -4,25 +4,12 @@
 #include <iostream>
 
 
-#define ESC "\x1b"
 #define CSI "\x1b["
-#define OSC "\x1b]"
-#define BACKSLASH "\\"
-#define STRING_TERMINATOR "\x1b\\"
-
-#define BEL '\x07' // Bell
-#define BS '\x08' // Backspace
-#define TAB '\x09' // Tab
-#define LF '\x0a' // Line Feed
-#define VT '\x0b' // Vertical Tab
-#define FF '\x0c' // Form Feed
-#define CR_ '\x0d' // Carriage Return
-#define DEL '\x7f' // Delete
-
-#define SS "\33[2J\33[H" // Scroll Screen
-#define CLS "\33[2J" // Clear Screen
-#define HIDE_CURSOR "\33[?25l" // Hide cursor
-#define SHOW_CURSOR "\33[?25h" // Show cursor
+#define CLS "\x1b[2J" // Clear Screen
+#define SSB "\x1b[3J" // Scroll Screen Buffer
+#define HIDE_CURSOR "\x1b[?25l" // Hide cursor
+#define SHOW_CURSOR "\x1b[?25h" // Show cursor
+#define TL "\x1b[H" // Top Left (0,0)
 
 
 namespace ANSI {
