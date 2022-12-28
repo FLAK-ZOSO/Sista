@@ -9,7 +9,6 @@
 int main() {
     std::ios_base::sync_with_stdio(false);
     ANSI::reset(); // Reset the settings
-    clearScreen();
 
     std::vector<sista::Pawn*> pawns = {
         new sista::Pawn(
@@ -75,30 +74,29 @@ int main() {
     std::vector<sista::Coordinates> coords(pawns.size());
     field.print(border);
     std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-    for (int i=0; i<TEST_SIZE; i++) {
-        for (int j=0; j<TEST_SIZE; j++) {
-            coords[0] = field.movingByCoordinates(pawns[0], 1, 1, PACMAN_EFFECT);
-            coords[1] = field.movingByCoordinates(pawns[1], -1, -1, PACMAN_EFFECT);
-            coords[2] = field.movingByCoordinates(pawns[2], -1, 1, PACMAN_EFFECT);
-            coords[3] = field.movingByCoordinates(pawns[3], 1, -1, PACMAN_EFFECT);
-            coords[4] = field.movingByCoordinates(pawns[4], 1, 0, PACMAN_EFFECT);
-            coords[5] = field.movingByCoordinates(pawns[5], 0, 1, PACMAN_EFFECT);
-            try {
-                for (int k=0; k<(int)pawns.size(); k++) {
-                    field.movePawn(pawns[k], coords[k]);
-                }
-            } catch (const std::invalid_argument& e) {
-                for (int k=0; k<(int)pawns.size(); k++) {
-                    field.addPawnToSwap(pawns[k], coords[k]);
-                }
-                field.applySwaps();
+    for (int i=0; i<TEST_SIZE*TEST_SIZE; i++) {
+        coords[0] = field.movingByCoordinates(pawns[0], 1, 1, PACMAN_EFFECT);
+        coords[1] = field.movingByCoordinates(pawns[1], -1, -1, PACMAN_EFFECT);
+        coords[2] = field.movingByCoordinates(pawns[2], -1, 1, PACMAN_EFFECT);
+        coords[3] = field.movingByCoordinates(pawns[3], 1, -1, PACMAN_EFFECT);
+        coords[4] = field.movingByCoordinates(pawns[4], 1, 0, PACMAN_EFFECT);
+        coords[5] = field.movingByCoordinates(pawns[5], 0, 1, PACMAN_EFFECT);
+        try {
+            for (int k=0; k<(int)pawns.size(); k++) {
+                field.movePawn(pawns[k], coords[k]);
             }
-
-            std::this_thread::sleep_for(std::chrono::milliseconds(10));
-            std::cout << std::flush;
+        } catch (const std::invalid_argument& e) {
+            for (int k=0; k<(int)pawns.size(); k++) {
+                field.addPawnToSwap(pawns[k], coords[k]);
+            }
+            field.applySwaps();
         }
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+        std::cout << std::flush;
     }
-    clearScreen();
+    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+    sista::clearScreen();
     std::cout << SHOW_CURSOR;
     field.print(border);
     return 0;
