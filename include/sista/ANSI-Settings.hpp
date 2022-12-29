@@ -72,9 +72,10 @@ namespace ANSI {
         Settings(ForegroundColor& foregroundColor_, BackgroundColor& backgroundColor_, Attribute& attribute_, bool _by_reference): foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
 
         void apply() {
+            setAttribute(Attribute::RESET);
+            setAttribute(attribute);
             setForegroundColor(foregroundColor);
             setBackgroundColor(backgroundColor);
-            setAttribute(attribute);
         }
     };
 };
