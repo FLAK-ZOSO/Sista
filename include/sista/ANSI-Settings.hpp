@@ -1,6 +1,5 @@
 #pragma once
 
-#include <string>
 #include <iostream>
 
 
@@ -44,16 +43,13 @@ namespace ANSI {
     };
 
     void setForegroundColor(ForegroundColor color) {
-        std::string command = CSI + std::to_string(color) + "m";
-        std::cout << command;
+        std::cout << CSI << color << "m";
     }
     void setBackgroundColor(BackgroundColor color) {
-        std::string command = CSI + std::to_string(color) + "m";
-        std::cout << command;
+        std::cout << CSI << color << "m";
     }
     void setAttribute(Attribute attribute) {
-        std::string command = CSI + std::to_string(attribute) + "m";
-        std::cout << command;
+        std::cout << CSI << attribute << "m";
     }
 
     void reset() {
