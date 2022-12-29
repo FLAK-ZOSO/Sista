@@ -68,7 +68,7 @@ From this point all the elements of the library are part of the ``sista`` namesp
 ``border.hpp``
 ================
 
-This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/border.hpp>`_ contains the following class used to represent the border of a field:
+This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/border.hpp>`_ contains the following class used to represent the border of a field.
 
 .. code-block:: cpp
 
@@ -85,7 +85,7 @@ This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/border.
 ``coordinates.hpp``
 ================
 
-This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/coordinates.hpp>`_ contains the following struct used to represent the coordinates of a pawn:
+This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/coordinates.hpp>`_ contains the following struct used to represent the coordinates of a Pawn.
 
 .. code-block:: cpp
 
@@ -102,8 +102,46 @@ This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/coordin
         Coordinates operator+(const Coordinates&) const;
     };
 
-This header also contains the following typedef used to represent the coordinates of a pawn:
+This header also contains the following typedef used to represent the coordinates of a Pawn.
 
 .. code-block:: cpp
 
     typedef std::pair<unsigned short, unsigned short> Coord;
+
+The library uses the ``Coordinate`` struct more often than the ``Coord`` typedef, but almost all the functions of the library can use both.
+
+``cursor.hpp``
+================
+
+This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/coordinates.hpp>`_ contains the following constants:
+
++--------------+--------------+-----------------------------+
+| Constant     | Value        | Description                 |
++==============+==============+=============================+
+| CHA          | 'H'          | Cursor Horizontal Absolute  |
++--------------+--------------+-----------------------------+
+| VPA          | 'd'          | Vertical Position Absolute  |
++--------------+--------------+-----------------------------+
+
+This header also contains the following function.
+
+.. code-block:: cpp
+
+    void clearScreen();
+
+This header also contains the following struct used to represent the cursor of the terminal.
+
+.. code-block:: cpp
+
+    struct Cursor {
+        unsigned short int x;
+        unsigned short int y;
+
+        Cursor();
+        ~Cursor();
+
+        void set(unsigned short int, unsigned short int);
+        void set(sista::Coordinates);
+    };
+
+The coordinates are 0-based like in the ``Coordinates`` struct, they will be adapted to the {3, 2}-based coordinates of the terminal when printed.

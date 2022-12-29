@@ -18,8 +18,8 @@ namespace sista {
     }
 
     struct Cursor {
-        int x;
-        int y;
+        unsigned short int x;
+        unsigned short int y;
 
         Cursor(): x(0), y(0) {
             std::cout << HIDE_CURSOR;
@@ -31,7 +31,7 @@ namespace sista {
             clearScreen();
         }
 
-        void set(int y_, int x_) {
+        void set(unsigned short int y_, unsigned short int x_) {
             std::cout << CSI << y_ << ";" << x_ << CHA;
         }
         void set(sista::Coordinates coordinates_) {
