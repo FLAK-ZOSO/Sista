@@ -415,12 +415,33 @@ namespace sista {
 
         void addPawnToSwap(Pawn* pawn, Coordinates& first) { // addPawnToSwap - add a pawn to the pawnsToSwap
             if (!isOutOfBounds(first)) {
-                pawnsToSwap.push_back(Path(pawn->getCoordinates(), first, pawn));
+                Coordinates start = pawn->getCoordinates();
+                std::vector<Path>::iterator it = std::find_if(
+                    pawnsToSwap.begin(), pawnsToSwap.end(), [&](Path& path_) {
+                        return (path_.begin == first && path_.end == start);
+                    }
+                ); // Search for the opposite of the swap
+                if (it != pawnsToSwap.end()) { // If the opposite of the swap is found...
+                    swapTwoPawns(it->pawn, pawn); // Swap the pawns
+                    pawnsToSwap.erase(it);
+                } else {
+                    pawnsToSwap.push_back(Path(start, first, pawn));
+                }
             }
         }
         void addPawnToSwap(Path& path) { // addPawnToSwap - add a pawn to the pawnsToSwap
             if (!isOutOfBounds(path.begin) && !isOutOfBounds(path.end)) {
-                pawnsToSwap.push_back(path);
+                std::vector<Path>::iterator it = std::find_if(
+                    pawnsToSwap.begin(), pawnsToSwap.end(), [&](Path& path_) {
+                        return path | path_;
+                    }
+                ); // Search for the opposite of the swap
+                if (it != pawnsToSwap.end()) { // If the opposite of the swap is found...
+                    swapTwoPawns(it->pawn, path.pawn); // Swap the pawns
+                    pawnsToSwap.erase(it);
+                } else {
+                    pawnsToSwap.push_back(path);
+                }
             }
         }
         void simulateSwaps() { // simulateSwaps - simulate all the swaps in the pawnsToSwap
@@ -489,10 +510,20 @@ namespace sista {
             Coordinates app = second->getCoordinates();
             first->setCoordinates(app);
             second->setCoordinates(temp);
+
+            // Draw the first pawn at the second pawn's coordinates
+            cursor.set(temp);
+            std::cout << ' ';
+            cursor.set(app);
+            first->print();
+            // Draw the second pawn at the first pawn's coordinates
+            cursor.set(temp);
+            second->print();
+
             // std::swap the pointers Pawn* in the pawns 2D-std::vector
             std::swap(
-                pawns[first->getCoordinates().y][first->getCoordinates().x],
-                pawns[second->getCoordinates().y][second->getCoordinates().x]
+                pawns[temp.y][temp.x],
+                pawns[app.y][app.x]
             );
         }
     };
