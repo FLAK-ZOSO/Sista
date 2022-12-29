@@ -81,3 +81,29 @@ This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/border.
         Border(char, ANSI::Settings&, bool);
         virtual void print(bool apply_settings=true);
     };
+
+``coordinates.hpp``
+================
+
+This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/coordinates.hpp>`_ contains the following struct used to represent the coordinates of a pawn:
+
+.. code-block:: cpp
+
+    struct Coordinates { // 2D coordinates
+        unsigned short y; // y coordinate
+        unsigned short x; // x coordinate
+
+        Coordinates();
+        Coordinates(unsigned short, unsigned short);
+        Coordinates(Coord);
+
+        bool operator==(const Coordinates&) const;
+        bool operator!=(const Coordinates&) const;
+        Coordinates operator+(const Coordinates&) const;
+    };
+
+This header also contains the following typedef used to represent the coordinates of a pawn:
+
+.. code-block:: cpp
+
+    typedef std::pair<unsigned short, unsigned short> Coord;
