@@ -16,20 +16,7 @@ Inspired by their `Forsiktig <https://github.com/Lioydiano/Forsiktig>`_ 's `vari
 ``OS Compatibility``
 ----------------------
 
-Sista is fully compatible with ``Windows``.
-It may work on any other OS which provides an ANSI-supporting Terminal.
-
-The only thing that may not work is the ``clearScreen()`` function from ``"clearScreen.h"``, which uses the ``<Windows.h>`` header.
-
-If you want to use this function, you will have to replace it with your own implementation.
-
-**NOTE**: This function is not used by any of the classes in Sista, thanks to preprocessing guards.
-
-.. code-block:: cpp
-
-    #if (_WIN32 || _WIN64)
-        #include "clearScreen.hpp" // clearScreen [Windows-specific]
-    #endif
+Sista is cross-platform and should work on any terminal that supports ANSI escape codes.
 
 ``Installation``
 -------------
@@ -56,8 +43,7 @@ Some of the documentation for Sista can be found in the `Release Notes <https://
 
 The rest of the documentation can be found on Read the Docs: `Sista Documentation <https://sista.readthedocs.io/en/latest/>`_.
 
-- `sista.hpp header <sista.html>`_
-
+- `Sista reference <sista.html>`_
 
 ``Introduction``
 ----------------
