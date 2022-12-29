@@ -58,3 +58,26 @@ This header also contains the following struct used to represent the style of a 
         BackgroundColor backgroundColor;
         Attribute attribute;
     };
+
+
+⚠️ Warning
+================
+
+From this point all the elements of the library are part of the ``sista`` namespace.
+
+``border.hpp``
+================
+
+This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/border.hpp>`_ contains the following class used to represent the border of a field:
+
+.. code-block:: cpp
+
+    class Border {
+    protected:
+        char symbol; // Symbol of the Border
+        ANSI::Settings settings; // settings of the Border style
+    public:
+        Border(char, ANSI::Settings);
+        Border(char, ANSI::Settings&, bool);
+        virtual void print(bool apply_settings=true);
+    };
