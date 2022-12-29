@@ -18,7 +18,7 @@ The first thing you need to do is include the ``Sista`` library.
 ``Namespace``
 --------------------
 
-The next thing you need to do is to use the ``sista`` namespace [#]_.
+The next thing you should to do is to use the ``sista`` namespace [#]_.
 
 .. code-block:: cpp
 
@@ -33,7 +33,7 @@ The next thing to do is to set the input and output streams.
 .. code-block:: cpp
 
     std::ios_base::sync_with_stdio(false);
-    std::cin.tie(NULL);
+    std::cout.tie(nullptr);
 
 This two lines of code will make ``I/O`` faster.
 
@@ -49,33 +49,41 @@ This line of code will reset the ANSI settings of the terminal [#]_.
 
 This line of code will hide the cursor [#]_ to reduce that noisy flickering.
 
+ℹ️ - You don't need to do this since the ``sista::Field`` class includes a private ``sista::Cursor`` object that will hide the cursor when the constructor is called.
+
 .. code-block:: cpp
 
-    clearScreen();
+    sista::clearScreen();
 
 The ``clearScreen()`` [#]_ function will clear the screen and the buffer [#]_, and move the cursor to the top left corner.
+
+ℹ️ - You don't need to do this since the ``sista::Field`` class includes a private ``sista::Cursor`` object that will call ``sista::clearScreen()``.
 
 ``Pawn``
 --------------------
 
-The next thing to do is to create a ``Pawn`` object.
+The next thing to do is to create a ``std::vector<sista::Pawn*>`` object as a list of the Pawns.
 
 .. code-block:: cpp
 
-    sista::Pawn* pawn = new sista::Pawn(
-        'X', sista::Coordinates(0, 0),
-        ANSI::Settings(
-            ANSI::ForegroundColor::F_RED,
-            ANSI::BackgroundColor::B_BLACK,
-            ANSI::Attribute::BRIGHT
-        )
-    );
+    std::vector<sista::Pawn*> pawns;
 
-The ``Pawn`` is allocated on the heap, so you need to use the ``new`` keyword to create it.
+The ``Pawn`` is allocated on the heap, so you need to use the ``new`` keyword to create one.
 
-Than ``pawn`` is a pointer to the ``Pawn`` object.
+.. code-block:: cpp
 
-This line of code will create a ``Pawn`` object with the following properties:
+    pawns = {
+        new sista::Pawn(
+            'X', sista::Coordinates(0, 0),
+            ANSI::Settings(
+                ANSI::ForegroundColor::F_RED,
+                ANSI::BackgroundColor::B_BLACK,
+                ANSI::Attribute::BRIGHT
+            )
+        ) // You can add more pawns here
+    };
+
+This line of code will add a ``Pawn`` object with the following properties:
 
 - ``Character``: ``'X'``
 - ``Coordinates``: ``0, 0``
@@ -123,9 +131,16 @@ Now that we have created the ``Field`` object, we can add the ``Pawn*`` to it.
 
 .. code-block:: cpp
 
-    field.addPawn(pawn);
+    for (auto pawn : pawns)
+        field.addPawn(pawn);
 
-This line of code will add the ``pawn`` to the ``Field`` object at the ``pawn->coordinates`` coordinates.
+This line of code will add the ``pawns`` to the ``Field`` object at the ``pawn->coordinates`` coordinates.
+
+.. code-block:: cpp
+
+    std::vector<sista::Coordinates> coords(pawns.size());
+
+This line of code will create a ``std::vector<sista::Coordinates>`` object with the same size as the ``pawns`` object, to precalculate the coordinates and then assign them.
 
 ``Main Loop``
 --------------------
@@ -134,46 +149,37 @@ The next thing to do is to create the main loop to test the ``SwappableField`` o
 
 .. code-block:: cpp
 
-    for (int i=0; i<TEST_SIZE; i++) {
-        for (int j=0; j<TEST_SIZE; j++) {
-            coords = field.movingByCoordinates(pawn, 0, 1, MATRIX_EFFECT); // Calculate the new coordinates
-            field.addPawnToSwap(pawn, coords); // Add the pawn to the swap list
-            coords = field.movingByCoordinates(pawn2, 0, -1, MATRIX_EFFECT);
-            field.addPawnToSwap(pawn2, coords);
+    field.print(border);
 
-            field.applySwaps(); // Apply the queued swaps
-
-            std::this_thread::sleep_for(std::chrono::milliseconds(20)); // Wait 20 milliseconds
-            clearScreen(); // Clear the screen
-            field.print(border); // Print the field with the border object
-        }
-    }
-
-This is the main loop, it will move the ``Pawn`` ``TEST_SIZE*TEST_SIZE`` times across the field.
-
-The following code is an alternative to the previous one, it will move the ``Pawn`` ``TEST_SIZE*TEST_SIZE`` times across the field, but it will use the ``movePawn()`` function instead of the ``addPawnToSwap()`` function when possible, with the goal to increase the performance.
+First of all, we need to print the ``Field`` object with the ``Border`` object.
 
 .. code-block:: cpp
 
-    for (int i=0; i<TEST_SIZE; i++) {
-        for (int j=0; j<TEST_SIZE; j++) {
-            coords = field.movingByCoordinates(pawn, 0, 1, MATRIX_EFFECT);
-            coords2 = field.movingByCoordinates(pawn2, 0, -1, MATRIX_EFFECT);
-            try {
-                field.movePawn(pawn, coords);
-                field.movePawn(pawn2, coords2);
-            } catch (const std::invalid_argument& e) {
-                field.addPawnToSwap(pawn, coords);
-                field.addPawnToSwap(pawn2, coords2);
-                field.applySwaps();
+    for (int i=0; i<TEST_SIZE*TEST_SIZE; i++) {
+        coords[0] = field.movingByCoordinates(pawns[0], 1, 1, PACMAN_EFFECT);
+        coords[1] = field.movingByCoordinates(pawns[1], -1, -1, PACMAN_EFFECT);
+        coords[2] = field.movingByCoordinates(pawns[2], -1, 1, PACMAN_EFFECT);
+        coords[3] = field.movingByCoordinates(pawns[3], 1, -1, PACMAN_EFFECT);
+        coords[4] = field.movingByCoordinates(pawns[4], 1, 0, PACMAN_EFFECT);
+        coords[5] = field.movingByCoordinates(pawns[5], 0, 1, PACMAN_EFFECT);
+        try {
+            for (int k=0; k<(int)pawns.size(); k++) {
+                field.movePawn(pawns[k], coords[k]);
             }
-
-            std::this_thread::sleep_for(std::chrono::milliseconds(20));
-            clearScreen();
-            field.print(border);
+        } catch (const std::invalid_argument& e) {
+            for (int k=0; k<(int)pawns.size(); k++) {
+                field.addPawnToSwap(pawns[k], coords[k]);
+            }
+            field.applySwaps();
         }
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+        std::cout << std::flush;
     }
 
+Since now we'll never going to re-print the ``Field`` object, we'll edit only the needed characters in the ``stdout`` stream.
+
+After applying all the movements, we'll swap the characters in the ``stdout`` stream, and then we'll flush the ``stdout`` stream.
 
 ``Notes``
 ====================
@@ -181,7 +187,7 @@ The following code is an alternative to the previous one, it will move the ``Paw
 .. [#] In the example I anyway specify the namespace despite the fact that I already used the ``using namespace sista;`` statement. This is because I want to make it clear that I am using the ``sista`` namespace.
 .. [#] The ``ANSI::reset`` function comes from the ``ANSI-Settings.hpp`` header.
 .. [#] The ``HIDE_CURSOR`` preprocessor constant comes from the ``ANSI-Settings.hpp`` header.
-.. [#] The ``clearScreen()`` function is OS-specific and only works on ``Windows``.
-.. [#] The ``clearScreen()`` function comes from the ``clearScreen.hpp`` header.
+.. [#] The ``clearScreen()`` function was OS-specific and only worked on ``Windows`` until ``v0.5.0`` when it became cross-platform.
+.. [#] The ``clearScreen()`` function comes from the ``cursor.hpp`` header.
 .. [#] The ``TEST_SIZE`` preprocessor constant was previously defined, and expands to ``50``.
 .. [#] The ``sista::SwappableField`` class comes from the ``SwappableField.hpp`` header since ``v0.4.0`` and inherits from the ``sista::Field`` class.
