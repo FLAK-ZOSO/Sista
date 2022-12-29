@@ -16,9 +16,9 @@
 
 This header contains the following preprocessor constants:
 
-+==============+==============+=============================+
-| Constant     | Value        | Description                 |
 +--------------+--------------+-----------------------------+
+| Constant     | Value        | Description                 |
++==============+==============+=============================+
 | CSI          | "\x1b["      | Command Sequence Introducer |
 +--------------+--------------+-----------------------------+
 | CLS          | "\x1b[2J"    | CLean Screen                |
