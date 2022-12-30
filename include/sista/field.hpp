@@ -364,6 +364,7 @@ namespace sista {
         }
 
         void clearPawnsToSwap() { // clearPawnsToSwap - clear the pawnsToSwap
+            Path::current_priority = 0;
             pawnsToSwap.clear();
         }
 

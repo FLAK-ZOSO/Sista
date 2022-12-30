@@ -145,3 +145,98 @@ This header also contains the following struct used to represent the cursor of t
     };
 
 The coordinates are 0-based like in the ``Coordinates`` struct, they will be adapted to the {3, 2}-based coordinates of the terminal when printed.
+
+``field.hpp``
+================
+
+This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/field.hpp>`_ contains the following constants:
+
++---------------+--------------+-----------------------------+
+| Constant      | Value        | Description                 |
++===============+==============+=============================+
+| PACMAN_EFFECT | 0            | Pacman effect               |
++---------------+--------------+-----------------------------+
+| MATRIX_EFFECT | 1            | Matrix effect               |
++---------------+--------------+-----------------------------+
+
+This header also contains the following "abstract" class used to represent a field.
+
+.. code-block:: cpp
+
+    class Field {
+    protected:
+        std::vector<std::vector<Pawn*>> pawns; // Matrix of pawns
+        Cursor cursor; // Cursor
+        int width; // Width of the matrix
+        int height; // Height of the matrix
+    
+    public:
+        Field(int, int);
+        ~Field();
+    
+        void clear();
+        void print();
+        void print(char);
+        void print(Border&);
+    
+        virtual void addPawn(Pawn*);
+        virtual void removePawn(Pawn*);
+        Pawn* getPawn(Coordinates&);
+
+        void movePawn(Pawn*, Coordinates&);
+        void movePawnBy(Pawn*, Coordinates&);
+        void movePawnBy(Pawn*, Coordinates&, bool);
+        void movePawnFromTo(Coordinates&, Coordinates&);
+    
+        bool isOccupied(Coordinates&);
+        bool isOutOfBounds(Coordinates&);
+        bool isFree(Coordinates&);
+        void validateCoordinates(Coordinates&);
+    };
+
+ℹ️ - All the methods with a ``Coordinates&`` argument can use a ``Coord`` typedef or two ``unsigned short`` instead.
+
+When using a ``SwappableField``, the movement of a ``Pawn`` can be queued using a ``Path`` object.
+
+.. code-block:: cpp
+
+    struct Path { // Path struct - begin and end Coordinates of a path
+        static int current_priority; // current_priority - priority of the current Path [counter]
+        int priority; // priority - priority of the Path (used in operator<)
+        Coordinates begin;
+        Coordinates end;
+        Pawn* pawn; // pawn - the pawn that is moving along the path
+
+        Path(Coordinates, Coordinates, Pawn*);
+
+        bool operator|(const Path& other) const;
+        bool operator<(const Path& other) const;
+    };
+
+Then the ``SwappableField`` class can be used to represent a field with some useful function to handle cell-conflicts.
+
+.. code-block:: cpp
+    
+    class SwappableField: public Field {
+    private:
+        std::vector<std::vector<short int>> pawnsCount;
+        std::vector<Path> pawnsToSwap;
+        Coord firstInvalidCell(std::vector<std::vector<short int>>&);
+    
+    public:
+        SwappableField(int, int);
+        ~SwappableField();
+    
+        void addPawn(Pawn*);
+        void removePawn(Pawn*);
+        void clearPawnsToSwap();
+
+        Coordinates movingByCoordinates(Pawn*, unsigned short, unsigned short);
+        Coordinates movingByCoordinates(Pawn*, unsigned short, unsigned short, bool);
+
+        void addPawnToSwap(Pawn*, Coordinates&);
+        void addPawnToSwap(Path&);
+        void applySwaps();
+        void swapTwoPawns(Coordinates&, Coordinates&);
+        void swapTwoPawns(Pawn*, Pawn*);
+    };
