@@ -240,3 +240,24 @@ Then the ``SwappableField`` class can be used to represent a field with some use
         void swapTwoPawns(Coordinates&, Coordinates&);
         void swapTwoPawns(Pawn*, Pawn*);
     };
+
+``pawn.hpp``
+================
+
+This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/pawn.hpp>`_ contains the following "abstract" class used to represent a pawn.
+
+.. code-block:: cpp
+
+    class Pawn {
+    protected:
+        char symbol;
+        Coordinates coordinates;
+        ANSI::Settings settings;
+
+    public:
+        Pawn(char, Coordinates, ANSI::Settings);
+        Pawn(char, Coordinates&, ANSI::Settings&, bool);
+        virtual ~Pawn();
+
+        virtual void print();
+    };
