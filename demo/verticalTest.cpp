@@ -32,8 +32,8 @@ int main(int argc, char** argv) {
     );
     field.print(border);
     sista::Coordinates coords[50];
-    for (int i = 0; i < 100; i++) {
-        for (int j=0; j<50; j++) {
+    for (int i = 0; i < 1000; i++) {
+        for (int j = 0; j < 50; j++) {
             coords[j] = field.movingByCoordinates(pawns[j], 1, 0, PACMAN_EFFECT);
             try {
                 field.movePawn(pawns[j], coords[j]);
@@ -43,6 +43,6 @@ int main(int argc, char** argv) {
             }
         }
         std::flush(std::cout);
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
 }
