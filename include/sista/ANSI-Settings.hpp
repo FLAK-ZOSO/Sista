@@ -35,11 +35,13 @@ namespace ANSI {
     enum Attribute {
         RESET = 0,
         BRIGHT = 1,
-        DIM = 2,
+        FAINT = 2,
+        ITALIC = 3,
         UNDERSCORE = 4,
         BLINK = 5,
         REVERSE = 7,
-        HIDDEN = 8
+        HIDDEN = 8,
+        STRIKETHROUGH = 9
     };
 
     void setForegroundColor(ForegroundColor color) {
@@ -50,6 +52,9 @@ namespace ANSI {
     }
     void setAttribute(Attribute attribute) {
         std::cout << CSI << attribute << "m";
+    }
+    void resetAttribute(Attribute attribute) {
+        std::cout << CSI << attribute + 20 << "m";
     }
 
     void reset() {

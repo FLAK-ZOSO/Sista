@@ -39,6 +39,7 @@ This header also contains the following functions:
     void setForegroundColor(ForegroundColor);
     void setBackgroundColor(BackgroundColor);
     void setAttribute(Attribute);
+    void resetAttribute(Attribute);
     void reset();
 
 This header also contains the following enums based on the `ANSI escape codes <https://en.wikipedia.org/wiki/ANSI_escape_code>`_
