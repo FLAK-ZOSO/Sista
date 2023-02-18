@@ -12,7 +12,7 @@ int main() {
             ANSI::Settings(
                 ANSI::ForegroundColor::F_RED,
                 ANSI::BackgroundColor::B_BLACK,
-                ANSI::Attribute::DIM
+                ANSI::Attribute::FAINT
             )
         ),
         new sista::Pawn(
