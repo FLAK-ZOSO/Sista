@@ -61,10 +61,10 @@ int main() {
         )
     };
     sista::Border border(
-        '#', ANSI::Settings(
-            ANSI::ForegroundColor::F_WHITE,
+        '@', ANSI::Settings(
+            ANSI::ForegroundColor::F_YELLOW,
             ANSI::BackgroundColor::B_BLACK,
-            ANSI::Attribute::BRIGHT
+            ANSI::Attribute::BLINK
         )
     );
     sista::SwappableField field(TEST_SIZE, TEST_SIZE);
