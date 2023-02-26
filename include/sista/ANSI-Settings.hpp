@@ -54,6 +54,10 @@ namespace ANSI {
         std::cout << CSI << attribute << "m";
     }
     void resetAttribute(Attribute attribute) {
+        if (attribute == Attribute::BRIGHT) {
+            std::cout << CSI << attribute + 21 << "m";
+            return;
+        }
         std::cout << CSI << attribute + 20 << "m";
     }
 
