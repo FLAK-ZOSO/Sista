@@ -12,6 +12,7 @@ int main() {
         ANSI::setBackgroundColor(i);
         std::cout << i << ' ';
         if (i % 16 == 15) {
+	    ANSI::reset();
             std::cout << '\n';
         }
     }
