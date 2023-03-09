@@ -24,8 +24,8 @@ namespace sista {
         ERASE_SAVED_LINES = 3,
     };
     enum EraseLine {
-        FROM_CURSOR_TO_END = 0,
-        FROM_CURSOR_TO_BEGINNING = 1,
+        LINE_FROM_CURSOR_TO_END = 0,
+        LINE_FROM_CURSOR_TO_BEGINNING = 1,
         ENTIRE_LINE = 2,
     };
     enum MoveCursor {
@@ -42,8 +42,8 @@ namespace sista {
         RESTORE_CURSOR_POSITION = 8
     };
     enum MoveCursorSCO {
-        SAVE_CURSOR_POSITION = (int)'s',
-        RESTORE_CURSOR_POSITION = (int)'u'
+        SCO_SAVE_CURSOR_POSITION = (int)'s',
+        SCO_RESTORE_CURSOR_POSITION = (int)'u'
     };
 
     struct Cursor {
@@ -67,10 +67,10 @@ namespace sista {
             this->set(coordinates_.y + 3, coordinates_.x + 2);
         }
 
-        void eraseScreen(ANSI::EraseScreen eraseScreen_) {
+        void eraseScreen(EraseScreen eraseScreen_) {
             std::cout << CSI << eraseScreen_ << "J";
         }
-        void eraseLine(ANSI::EraseLine eraseLine_, bool moveCursor=true) {
+        void eraseLine(EraseLine eraseLine_, bool moveCursor=true) {
             std::cout << CSI << eraseLine_ << "K";
             if (moveCursor) {
                 this->set(this->y, 0);
@@ -78,13 +78,13 @@ namespace sista {
             }
         }
 
-        void move(ANSI::MoveCursor moveCursor_, unsigned short int n=1) {
+        void move(MoveCursor moveCursor_, unsigned short int n=1) {
             std::cout << CSI << n << (char)moveCursor_;
         }
-        void move(ANSI::MoveCursorDEC moveCursorDEC_) {
+        void move(MoveCursorDEC moveCursorDEC_) {
             std::cout << ESC << ' ' << moveCursorDEC_;
         }
-        void move(ANSI::MoveCursorSCO moveCursorSCO_) {
+        void move(MoveCursorSCO moveCursorSCO_) {
             std::cout << ESC << ' ' << moveCursorSCO_;
         }
     };

@@ -16,21 +16,23 @@
 
 This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/ANSI-Settings.hpp>`_ contains the following preprocessor constants:
 
-+--------------+--------------+-----------------------------+
-| Constant     | Value        | Description                 |
-+==============+==============+=============================+
-| CSI          | "\x1b["      | Command Sequence Introducer |
-+--------------+--------------+-----------------------------+
-| CLS          | "\x1b[2J"    | CLean Screen                |
-+--------------+--------------+-----------------------------+
-| SSB          | "\x1b[3J"    | Scroll Screen Buffer        |
-+--------------+--------------+-----------------------------+
-| TL           | "\x1b[H"     | Top Left                    |
-+--------------+--------------+-----------------------------+
-| HIDE_CURSOR  | "\x1b[?25l"  | Hide Cursor                 |
-+--------------+--------------+-----------------------------+
-| SHOW_CURSOR  | "\x1b[?25h"  | Show Cursor                 |
-+--------------+--------------+-----------------------------+
++-------------+-------------+-----------------------------+
+| Constant    | Value       | Description                 |
++=============+=============+=============================+
+| CSI         | "\x1b["     | Command Sequence Introducer |
++-------------+-------------+-----------------------------+
+| ESC         | "\x1b"      | ESC                         |
++-------------+-------------+-----------------------------+
+| CLS         | "\x1b[2J"   | CLean Screen                |
++-------------+-------------+-----------------------------+
+| SSB         | "\x1b[3J"   | Scroll Screen Buffer        |
++-------------+-------------+-----------------------------+
+| TL          | "\x1b[H"    | Top Left                    |
++-------------+-------------+-----------------------------+
+| HIDE_CURSOR | "\x1b[?25l" | Hide Cursor                 |
++-------------+-------------+-----------------------------+
+| SHOW_CURSOR | "\x1b[?25h" | Show Cursor                 |
++-------------+-------------+-----------------------------+
 
 This header also contains the following functions:
 
@@ -130,6 +132,16 @@ This header also contains the following function.
 
     void clearScreen();
 
+This header also contains the following enums based on the `ANSI escape codes <https://en.wikipedia.org/wiki/ANSI_escape_code>`_
+
+.. code-block:: cpp
+
+    enum EraseScreen : int;
+    enum EraseLine : int;
+    enum MoveCursor : int;
+    enum MoveCursorDEC : int;
+    enum MoveCursorSCO : int;
+
 This header also contains the following struct used to represent the cursor of the terminal.
 
 .. code-block:: cpp
@@ -143,6 +155,12 @@ This header also contains the following struct used to represent the cursor of t
 
         void set(unsigned short int, unsigned short int);
         void set(sista::Coordinates);
+
+        void eraseScreen(EraseScreen);
+        void eraseLine(EraseLine);
+        void move(MoveCursor, unsigned short int);
+        void move(MoveCursorDEC);
+        void move(MoveCursorSCO);
     };
 
 The coordinates are 0-based like in the ``Coordinates`` struct, they will be adapted to the {3, 2}-based coordinates of the terminal when printed.
