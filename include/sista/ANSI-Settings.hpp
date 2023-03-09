@@ -3,6 +3,7 @@
 #include <iostream>
 
 
+#define ESC "\x1b"
 #define CSI "\x1b["
 #define CLS "\x1b[2J" // Clear Screen
 #define SSB "\x1b[3J" // Scroll Screen Buffer
