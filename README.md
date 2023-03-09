@@ -7,12 +7,7 @@ Inspired by their [`Forsiktig`](https://github.com/Lioydiano/Forsiktig)'s [`vari
 
 ## OS Compatibility
 
-Sista is compatible with `Windows`.
-It may work on any other OS which provides an ANSI-supporting Terminal.
-
-The only thing that may not work is the `clearScreen()` function from `"clearScreen.h"`, which uses the `<Windows.h>` header.
-If you want to use this function, you will have to replace it with your own implementation.
-**NOTE**: This function is not used by any of the classes in Sista.
+Sista should work on any OS which provides an ANSI-supporting Terminal.
 
 ## Installation
 
