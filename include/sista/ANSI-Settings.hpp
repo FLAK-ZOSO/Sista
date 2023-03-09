@@ -68,6 +68,19 @@ namespace ANSI {
         setBackgroundColor(BackgroundColor::B_BLACK);
     }
 
+    void setForegroundColor(unsigned short int red, unsigned short int green, unsigned short int blue) {
+        std::cout << CSI << "38;2;" << red << ";" << green << ";" << blue << "m";
+    }
+    void setBackgroundColor(unsigned short int red, unsigned short int green, unsigned short int blue) {
+        std::cout << CSI << "48;2;" << red << ";" << green << ";" << blue << "m";
+    }
+    void setForegroundColor(unsigned short int color) {
+        std::cout << CSI << "38;5;" << color << "m";
+    }
+    void setBackgroundColor(unsigned short int color) {
+        std::cout << CSI << "48;5;" << color << "m";
+    }
+
     struct Settings {
         ForegroundColor foregroundColor;
         BackgroundColor backgroundColor;

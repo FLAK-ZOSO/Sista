@@ -80,3 +80,28 @@ void move(MoveCursorSCO moveCursorSCO_) {
 ```
 
 - Added `ESC` constant to `ANSI-Settings.hpp`
+
+
+## v`0.9.0`
+
+- Added 256 color support
+
+```c++
+void setForegroundColor(unsigned short int color) {
+    std::cout << CSI << "38;5;" << color << "m";
+}
+void setBackgroundColor(unsigned short int color) {
+    std::cout << CSI << "48;5;" << color << "m";
+}
+```
+
+- Added 24-biit RGB color support
+
+```c++
+void setForegroundColor(unsigned short int red, unsigned short int green, unsigned short int blue) {
+    std::cout << CSI << "38;2;" << red << ";" << green << ";" << blue << "m";
+}
+void setBackgroundColor(unsigned short int red, unsigned short int green, unsigned short int blue) {
+    std::cout << CSI << "48;2;" << red << ";" << green << ";" << blue << "m";
+}
+```

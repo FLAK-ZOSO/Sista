@@ -43,6 +43,10 @@ This header also contains the following functions:
     void setAttribute(Attribute);
     void resetAttribute(Attribute);
     void reset();
+    void setForegroundColor(unsigned short int, unsigned short int, unsigned short int);
+    void setBackgroundColor(unsigned short int, unsigned short int, unsigned short int);
+    void setForegroundColor(unsigned short int);
+    void setBackgroundColor(unsigned short int);
 
 This header also contains the following enums based on the `ANSI escape codes <https://en.wikipedia.org/wiki/ANSI_escape_code>`_
 
