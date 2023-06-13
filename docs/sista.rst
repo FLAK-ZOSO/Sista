@@ -47,6 +47,8 @@ This header also contains the following functions:
     void setBackgroundColor(unsigned short int, unsigned short int, unsigned short int);
     void setForegroundColor(unsigned short int);
     void setBackgroundColor(unsigned short int);
+    void setScreenMode(ScreenMode);
+    void unsetScreenMode(ScreenMode);
 
 This header also contains the following enums based on the `ANSI escape codes <https://en.wikipedia.org/wiki/ANSI_escape_code>`_
 
@@ -55,6 +57,7 @@ This header also contains the following enums based on the `ANSI escape codes <h
     enum ForegroundColor : int;
     enum BackgroundColor : int;
     enum Attribute : int;
+    enum ScreenMode : int;
 
 This header also contains the following struct used to represent the style of a char in the terminal:
 

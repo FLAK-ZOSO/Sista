@@ -81,6 +81,31 @@ namespace ANSI {
         std::cout << CSI << "48;5;" << color << "m";
     }
 
+    enum ScreenMode {
+        MONOCROME_TEXT_40_25 = 0,
+        COLOR_TEXT_40_25 = 1,
+        MONOCROME_TEXT_80_25 = 2,
+        COLOR_TEXT_80_25 = 3,
+        FOUR_COLORS_GRAPHICS_320_200 = 4,
+        MONOCROME_GRAPHICS_320_200 = 5,
+        MONOCROME_GRAPHICS_640_200 = 6,
+        LINE_WRAPPING = 7,
+        COLOR_GRAPHICS_320_200 = 13,
+        COLOR_16_COLORS_GRAPHICS_640_200 = 14,
+        MONOCROME_2_COLORS_GRAPHICS_640_350 = 15,
+        COLOR_16_COLORS_GRAPHICS_640_350 = 16,
+        MONOCROME_2_COLORS_GRAPHICS_640_480 = 17,
+        COLOR_16_COLORS_GRAPHICS_640_480 = 18,
+        COLOR_256_COLORS_GRAPHICS_320_200 = 19
+    };
+
+    void setScreenMode(ScreenMode mode) {
+        std::cout << CSI << '=' << mode << 'h';
+    }
+    void unsetScreenMode(ScreenMode mode) {
+        std::cout << CSI << '=' << mode << 'l';
+    }
+
     struct Settings {
         ForegroundColor foregroundColor;
         BackgroundColor backgroundColor;
