@@ -18,7 +18,7 @@ The first thing you need to do is include the ``Sista`` library.
 ``Namespace``
 --------------------
 
-The next thing you should to do is to use the ``sista`` namespace [#]_.
+The next thing you should do is to use the ``sista`` namespace [#]_.
 
 .. code-block:: cpp
 
