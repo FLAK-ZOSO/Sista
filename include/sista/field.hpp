@@ -93,6 +93,7 @@ namespace sista {
             border.print(); // Print the border
             for (int i=0; i<width+1; i++) // For each row
                 border.print(false); // Print the border
+            ANSI::reset(); // Reset the settings
             std::cout << '\n';
             bool previousPawn = true; // If the previous element was a Pawn
             for (auto& row: pawns) { // For each row
@@ -110,6 +111,7 @@ namespace sista {
                     }
                 }
                 border.print();
+                ANSI::reset(); // Reset the settings
                 previousPawn = true; // Set the previousPawn to true
                 std::cout << '\n';
             }
