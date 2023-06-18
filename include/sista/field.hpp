@@ -25,11 +25,13 @@ namespace sista {
                     pawn = nullptr; // Set the pawn to nullptr
         }
         void reset() {
-            for (auto& row: pawns) // For each row
-                for (auto& pawn: row) // For each pawn
+            for (auto& row: pawns) { // For each row
+                for (auto& pawn: row) {
                     if (pawn != nullptr) // If the pawn is not nullptr
                         delete pawn; // Delete the pawn
-            pawns.clear(); // Clear the pawns
+                    pawn = nullptr; // Set the pawn to nullptr
+                }
+            }        
         }
 
         Field(int width_, int height_): width(width_), height(height_) { // Constructor

@@ -147,3 +147,19 @@ void reset() {
     pawns.clear(); // Clear the pawns
 }
 ```
+
+## v`0.9.3`
+
+- Fixed `sista::Field::reset()` which was resizing the field to 0x0
+
+```c++
+void reset() {
+    for (auto& row: pawns) { // For each row
+        for (auto& pawn: row) {
+            if (pawn != nullptr) // If the pawn is not nullptr
+                delete pawn; // Delete the pawn
+            pawn = nullptr; // Set the pawn to nullptr
+        }
+    }        
+}
+```
