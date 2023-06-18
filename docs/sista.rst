@@ -201,6 +201,7 @@ This header also contains the following "abstract" class used to represent a fie
         ~Field();
     
         void clear();
+        void reset();
         void print();
         void print(char);
         void print(Border&);

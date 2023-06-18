@@ -81,7 +81,6 @@ void move(MoveCursorSCO moveCursorSCO_) {
 
 - Added `ESC` constant to `ANSI-Settings.hpp`
 
-
 ## v`0.9.0`
 
 - Added 256 color support
@@ -103,5 +102,48 @@ void setForegroundColor(unsigned short int red, unsigned short int green, unsign
 }
 void setBackgroundColor(unsigned short int red, unsigned short int green, unsigned short int blue) {
     std::cout << CSI << "48;2;" << red << ";" << green << ";" << blue << "m";
+}
+```
+
+## v`0.9.2`
+
+- Added ScreenMode management
+
+```c++
+enum ScreenMode {
+    MONOCROME_TEXT_40_25 = 0,
+    COLOR_TEXT_40_25 = 1,
+    MONOCROME_TEXT_80_25 = 2,
+    COLOR_TEXT_80_25 = 3,
+    FOUR_COLORS_GRAPHICS_320_200 = 4,
+    MONOCROME_GRAPHICS_320_200 = 5,
+    MONOCROME_GRAPHICS_640_200 = 6,
+    LINE_WRAPPING = 7,
+    COLOR_GRAPHICS_320_200 = 13,
+    COLOR_16_COLORS_GRAPHICS_640_200 = 14,
+    MONOCROME_2_COLORS_GRAPHICS_640_350 = 15,
+    COLOR_16_COLORS_GRAPHICS_640_350 = 16,
+    MONOCROME_2_COLORS_GRAPHICS_640_480 = 17,
+    COLOR_16_COLORS_GRAPHICS_640_480 = 18,
+    COLOR_256_COLORS_GRAPHICS_320_200 = 19
+};
+
+void setScreenMode(ScreenMode mode) {
+    std::cout << CSI << '=' << mode << 'h';
+}
+void unsetScreenMode(ScreenMode mode) {
+    std::cout << CSI << '=' << mode << 'l';
+}
+```
+
+- Added resetter for `sista::Field` instances, to empty the field from the `sista::Pawn`s
+
+```c++
+void reset() {
+    for (auto& row: pawns) // For each row
+        for (auto& pawn: row) // For each pawn
+            if (pawn != nullptr) // If the pawn is not nullptr
+                delete pawn; // Delete the pawn
+    pawns.clear(); // Clear the pawns
 }
 ```
