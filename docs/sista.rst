@@ -208,6 +208,7 @@ This header also contains the following "abstract" class used to represent a fie
     
         virtual void addPawn(Pawn*);
         virtual void removePawn(Pawn*);
+        void addPrintPawn(Pawn*);
         Pawn* getPawn(Coordinates&);
 
         void movePawn(Pawn*, Coordinates&);

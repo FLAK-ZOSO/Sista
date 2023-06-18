@@ -163,3 +163,15 @@ void reset() {
     }        
 }
 ```
+
+## v`0.9.4`
+
+- Added `sista::Field::addPrintPawn()` to add and print Pawn without reprint
+
+```c++
+void addPrintPawn(Pawn* pawn) { // Add a pawn to the matrix and print it
+    addPawn(pawn); // Add the pawn to the matrix
+    this->cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
+    pawn->print(); // Print the pawn
+}
+```
