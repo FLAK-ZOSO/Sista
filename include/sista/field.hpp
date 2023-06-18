@@ -24,6 +24,13 @@ namespace sista {
                 for (auto& pawn: row) // For each pawn
                     pawn = nullptr; // Set the pawn to nullptr
         }
+        void reset() {
+            for (auto& row: pawns) // For each row
+                for (auto& pawn: row) // For each pawn
+                    if (pawn != nullptr) // If the pawn is not nullptr
+                        delete pawn; // Delete the pawn
+            pawns.clear(); // Clear the pawns
+        }
 
         Field(int width_, int height_): width(width_), height(height_) { // Constructor
             pawns.resize(height); // Resize the vector
