@@ -8,7 +8,7 @@ int main() {
                 std::cout << ' ';
                 ANSI::reset();
             }
-            std::cout << '\n';
         }
+        std::cout << '\n';
     }
 }
