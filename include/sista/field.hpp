@@ -138,6 +138,12 @@ namespace sista {
             pawns[pawn->getCoordinates().y][pawn->getCoordinates().x] = nullptr; // Set the pawn to nullptr
         }
 
+        void addPrintPawn(Pawn* pawn) { // Add a pawn to the matrix and print it
+            addPawn(pawn); // Add the pawn to the matrix
+            this->cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
+            pawn->print(); // Print the pawn
+        }
+
         void movePawn(Pawn* pawn, Coordinates& coordinates) { // Move a pawn to the coordinates
             try {
                 validateCoordinates(coordinates);
