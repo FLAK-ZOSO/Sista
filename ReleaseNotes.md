@@ -175,3 +175,9 @@ void addPrintPawn(Pawn* pawn) { // Add a pawn to the matrix and print it
     pawn->print(); // Print the pawn
 }
 ```
+
+## v`1.0.0`
+
+- Divided Sista in `.hpp` headers and `.cpp` sources
+
+This should make it possible to use Sista in projects with multiple source files.

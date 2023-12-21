@@ -8,6 +8,13 @@ The following benchmarks were run on...
 - Windows 11 Pro `22H2`
 - 64-bit OS, x64-based processor
 
+From version `1.0.0` the benchmarks were run on...
+
+- Acer Aspire E5-573G
+- Intel core `i7-5500U` CPU `3.00GHz`
+- `8GB` RAM
+- Ubuntu 22.04.3 LTS x86_64
+
 ## v`0.1.0`
 
 ### `sista.exe` I - 7/12/2022
@@ -114,7 +121,7 @@ The following test was run with...
 
 - `50 x 50` Field size (`2500` cells)
 - `1000` = `1000` iterations
-- `50` `Pawn` instances (allocated on heap with `new`)
+- `6` `Pawn` instances (allocated on heap with `new`)
 - `10 milliseconds` per frame (`100 FPS`)
 
 ...and the following numeric results were obtained...
@@ -130,3 +137,39 @@ The following test was run with...
 - The refresh is smooth (actually there's no refresh)
 - No flickering at all (there's no more refresh)
 - Not a single `Pawn` movement is snappy (due to the fact that they're at the same x coordinate)
+
+## v`1.0.0`
+
+### [`header-test`](https://github.com/FLAK-ZOSO/Sista/blob/main/demo/header-test.cpp) - 21/12/2023
+
+The following test was run with...
+
+- `50 x 50` Field size (`2500` cells)
+- `50` `Pawn` instances (allocated on heap with `new`)
+- `10 milliseconds` per frame (`100 FPS`)
+- `1000` = `1000` iterations
+
+...and the following numeric results were obtained...
+
+- `11"` (11 seconds) elapsed time
+- `1000 x 0.010` = `10"` slept time
+- `1000 x 2500 / 11` = `227272` cells per second
+- `header-test` max memory usage: `131KBytes`
+- `header-test` max CPU usage: `2.17%` (according to System Monitor)
+
+### `sista` VI - 21/12/2023
+
+The following test was run with...
+
+- `50 x 50` Field size (`2500` cells)
+- `6` `Pawn` instances (allocated on heap with `new`)
+- `10 milliseconds` per frame (`100 FPS`)
+- `1000` = `1000` iterations
+
+...and the following numeric results were obtained...
+
+- `11"` (11 seconds) elapsed time
+- `1000 x 0.010` = `10"` slept time
+- `1000 x 2500 / 11` = `227272` cells per second
+- `sista` max memory usage: `262KBytes`
+- `sista` max CPU usage: `0.26%` (according to System Monitor)
