@@ -181,3 +181,16 @@ void addPrintPawn(Pawn* pawn) { // Add a pawn to the matrix and print it
 - Divided Sista in `.hpp` headers and `.cpp` sources
 
 This should make it possible to use Sista in projects with multiple source files.
+
+## v`1.1.1`
+
+- Added `sista::Field::erasePawn()` to remove and erase Pawn from the screen
+
+```c++
+void Field::erasePawn(Pawn* pawn) { // Erase a pawn from the matrix
+    removePawn(pawn); // Remove the pawn from the matrix
+    cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
+    ANSI::reset(); // Reset the settings for that cell
+    std::cout << ' '; // Print a space to clear the cell
+}
+```
