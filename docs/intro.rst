@@ -181,6 +181,21 @@ Since now we'll never going to re-print the ``Field`` object, we'll edit only th
 
 After applying all the movements, we'll swap the characters in the ``stdout`` stream, and then we'll flush the ``stdout`` stream.
 
+``Compilation``
+--------------------
+
+To compile the ``sista.cpp`` file, you need to use the following command...
+
+.. code-block:: bash
+
+    g++ -std=c++17 -Wall -g -c $(IMPLEMENTATIONS)
+	g++ -std=c++17 -Wall -g -c sista.cpp
+	g++ -std=c++17 -Wall -g -o sista sista.o ANSI-Settings.o border.o coordinates.o cursor.o pawn.o field.o
+	rm -f *.o
+
+...where ``$(IMPLEMENTATIONS)`` is the list of the ``Sista`` library implementation files.
+
+
 ``Notes``
 ====================
 

@@ -11,6 +11,21 @@
 - ``pawn.hpp``: Pawn
 - ``sista.hpp``: main header file, includes all the others
 
+Since `v1.1.0` the library is divided in headers and implementation files.
+This fact isn't relevant in terms of importation, but it is in terms of compilation.
+
+.. code-block:: bash
+
+    # Makefile for sista.cpp
+    IMPLEMENTATIONS = include/sista/ANSI-Settings.cpp include/sista/border.cpp include/sista/coordinates.cpp include/sista/cursor.cpp include/sista/field.cpp include/sista/pawn.cpp
+
+    all:
+        g++ -std=c++17 -Wall -g -c $(IMPLEMENTATIONS)
+        g++ -std=c++17 -Wall -g -c sista.cpp
+        g++ -std=c++17 -Wall -g -o sista sista.o ANSI-Settings.o border.o coordinates.o cursor.o pawn.o field.o
+        rm -f *.o
+
+
 ``ANSI-Settings.hpp``
 ================
 

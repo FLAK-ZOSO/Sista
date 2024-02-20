@@ -1,7 +1,7 @@
 # `Sista`
 
 `Sista` is a *lightweight*, *fast*, and *easy-to-use* *OOP* library for making terminal games in `C++`.
-`Sista` is a *header-only* library that provides a set of classes and functions to make it easier to create terminal games in `C++`.
+`Sista` provides a set of classes and functions to make terminal games in `C++` easier.
 
 Inspired by their [`Forsiktig`](https://github.com/Lioydiano/Forsiktig)'s [`variables.hpp`](https://github.com/Lioydiano/Forsiktig/blob/main/variables.hpp) header, @FLAK-ZOSO decided to make a library to prevent others from having to reinvent the wheel every time they wanted to make a terminal game.
 
@@ -30,3 +30,5 @@ The `"sista.hpp"` header includes all of the other headers in the `"include/sist
 Some of the documentation for Sista can be found in the [`Release Notes`](ReleaseNotes.md) and [`Benchmarks`](Benchmarks.md) files.
 
 The english documentation for Sista can be found at [`Sista - ReadTheDocs`](https://sista.readthedocs.io/).
+
+ℹ️ - ReadTheDocs is now asking for a `.readthedocs.yaml` file to be added to the repository, so the documentation is not updated at the moment

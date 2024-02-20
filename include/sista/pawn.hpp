@@ -12,40 +12,21 @@ namespace sista {
         ANSI::Settings settings; // settings of the pawn style
 
     public:
-        Pawn(char symbol_, Coordinates coordinates_, ANSI::Settings settings_): symbol(symbol_), coordinates(coordinates_), settings(settings_) {}
-        Pawn(char symbol_, Coordinates& coordinates_, ANSI::Settings& settings_, bool _by_reference): symbol(symbol_), coordinates(coordinates_), settings(settings_) {}
+        Pawn(char, Coordinates, ANSI::Settings);
+        Pawn(char, Coordinates&, ANSI::Settings&, bool);
         virtual ~Pawn() {}
 
-        inline void setCoordinates(Coordinates& coordinates_) {
-            coordinates = coordinates_;
-        }
-        inline void getCoordinates(Coordinates& coordinates_) {
-            coordinates_ = coordinates;
-        }
-        inline Coordinates getCoordinates() {
-            return coordinates;
-        }
+        void setCoordinates(Coordinates&);
+        void getCoordinates(Coordinates&);
+        Coordinates getCoordinates();
 
-        inline void setSettings(ANSI::Settings& settings_) {
-            settings = settings_;
-        }
-        inline void getSettings(ANSI::Settings& settings_) {
-            settings_ = settings;
-        }
-        inline ANSI::Settings getSettings() {
-            return settings;
-        }
+        void setSettings(ANSI::Settings&);
+        void getSettings(ANSI::Settings&);
+        ANSI::Settings getSettings();
 
-        inline void setSymbol(char symbol_) {
-            symbol = symbol_;
-        }
-        inline char getSymbol() {
-            return symbol;
-        }
+        void setSymbol(char);
+        char getSymbol();
 
-        virtual void print() { // Print the pawn
-            settings.apply(); // Apply the settings
-            std::cout << symbol; // Print the symbol
-        }
+        virtual void print();
     };
 };

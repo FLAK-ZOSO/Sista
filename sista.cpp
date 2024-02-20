@@ -1,4 +1,4 @@
-// g++ sista.cpp -o sista -std=c++17 -Wall
+// make
 #include <chrono>
 #include <thread>
 #include "include/sista/sista.hpp"

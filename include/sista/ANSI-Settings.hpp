@@ -40,46 +40,23 @@ namespace ANSI {
         ITALIC = 3,
         UNDERSCORE = 4,
         BLINK = 5,
+        RAPID_BLINK = 6,
         REVERSE = 7,
         HIDDEN = 8,
         STRIKETHROUGH = 9
     };
 
-    void setForegroundColor(ForegroundColor color) {
-        std::cout << CSI << color << "m";
-    }
-    void setBackgroundColor(BackgroundColor color) {
-        std::cout << CSI << color << "m";
-    }
-    void setAttribute(Attribute attribute) {
-        std::cout << CSI << attribute << "m";
-    }
-    void resetAttribute(Attribute attribute) {
-        if (attribute == Attribute::BRIGHT) {
-            std::cout << CSI << attribute + 21 << "m";
-            return;
-        }
-        std::cout << CSI << attribute + 20 << "m";
-    }
+    void setForegroundColor(ForegroundColor);
+    void setBackgroundColor(BackgroundColor);
+    void setAttribute(Attribute);
+    void resetAttribute(Attribute);
 
-    void reset() {
-        setAttribute(Attribute::RESET);
-        setForegroundColor(ForegroundColor::F_WHITE);
-        setBackgroundColor(BackgroundColor::B_BLACK);
-    }
+    void reset();
 
-    void setForegroundColor(unsigned short int red, unsigned short int green, unsigned short int blue) {
-        std::cout << CSI << "38;2;" << red << ";" << green << ";" << blue << "m";
-    }
-    void setBackgroundColor(unsigned short int red, unsigned short int green, unsigned short int blue) {
-        std::cout << CSI << "48;2;" << red << ";" << green << ";" << blue << "m";
-    }
-    void setForegroundColor(unsigned short int color) {
-        std::cout << CSI << "38;5;" << color << "m";
-    }
-    void setBackgroundColor(unsigned short int color) {
-        std::cout << CSI << "48;5;" << color << "m";
-    }
+    void setForegroundColor(unsigned short int, unsigned short int, unsigned short int);
+    void setBackgroundColor(unsigned short int, unsigned short int, unsigned short int);
+    void setForegroundColor(unsigned short int);
+    void setBackgroundColor(unsigned short int);
 
     enum ScreenMode {
         MONOCROME_TEXT_40_25 = 0,
@@ -99,31 +76,18 @@ namespace ANSI {
         COLOR_256_COLORS_GRAPHICS_320_200 = 19
     };
 
-    void setScreenMode(ScreenMode mode) {
-        std::cout << CSI << '=' << mode << 'h';
-    }
-    void unsetScreenMode(ScreenMode mode) {
-        std::cout << CSI << '=' << mode << 'l';
-    }
+    void setScreenMode(ScreenMode);
+    void unsetScreenMode(ScreenMode);
 
     struct Settings {
         ForegroundColor foregroundColor;
         BackgroundColor backgroundColor;
         Attribute attribute;
 
-        Settings() {
-            foregroundColor = ForegroundColor::F_WHITE;
-            backgroundColor = BackgroundColor::B_BLACK;
-            attribute = Attribute::RESET;
-        }
-        Settings(ForegroundColor foregroundColor_, BackgroundColor backgroundColor_, Attribute attribute_): foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
-        Settings(ForegroundColor& foregroundColor_, BackgroundColor& backgroundColor_, Attribute& attribute_, bool _by_reference): foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
+        Settings();
+        Settings(ForegroundColor, BackgroundColor, Attribute);
+        Settings(ForegroundColor&, BackgroundColor&, Attribute&, bool);
 
-        void apply() {
-            setAttribute(Attribute::RESET);
-            setAttribute(attribute);
-            setForegroundColor(foregroundColor);
-            setBackgroundColor(backgroundColor);
-        }
+        void apply();
     };
 };
