@@ -34,6 +34,7 @@ namespace sista {
         virtual void erasePawn(Pawn*);
 
         void addPrintPawn(Pawn*);
+        void rePrintPawn(Pawn*);
 
         void movePawn(Pawn*, Coordinates&);
         void movePawn(Pawn*, Coord&);

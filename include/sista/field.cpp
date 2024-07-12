@@ -132,6 +132,10 @@ namespace sista {
         this->cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
         pawn->print(); // Print the pawn
     }
+    void Field::rePrintPawn(Pawn* pawn) { // Print a pawn
+        cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
+        pawn->print(); // Print the pawn
+    }
 
     void Field::movePawn(Pawn* pawn, Coordinates& coordinates) { // Move a pawn to the coordinates
         try {
