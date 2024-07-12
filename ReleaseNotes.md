@@ -194,3 +194,13 @@ void Field::erasePawn(Pawn* pawn) { // Erase a pawn from the matrix
     std::cout << ' '; // Print a space to clear the cell
 }
 ```
+
+## v`1.1.2`
+
+- Added more operators for `sista::Coordinates` struct
+
+```c++
+Coordinates operator-(const Coordinates&) const;
+Coordinates operator+=(const Coordinates&);
+Coordinates operator-=(const Coordinates&);
+```
