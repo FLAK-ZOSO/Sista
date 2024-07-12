@@ -18,6 +18,7 @@ namespace sista {
         bool operator!=(const Coordinates&) const;
         Coordinates operator+(const Coordinates&) const;
         Coordinates operator-(const Coordinates&) const;
+        Coordinates operator*(const unsigned short) const;
         Coordinates operator+=(const Coordinates&);
         Coordinates operator-=(const Coordinates&);
     }; // field[y][x] - y is the row, x is the column

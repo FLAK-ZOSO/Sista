@@ -17,6 +17,9 @@ namespace sista {
     Coordinates Coordinates::operator-(const Coordinates& other) const {
         return Coordinates(y - other.y, x - other.x);
     }
+    Coordinates Coordinates::operator*(const unsigned short multiplier) const {
+        return Coordinates(y*multiplier, x*multiplier);
+    }
     Coordinates Coordinates::operator+=(const Coordinates& other) {
         y += other.y;
         x += other.x;
