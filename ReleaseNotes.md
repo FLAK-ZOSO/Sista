@@ -204,3 +204,19 @@ Coordinates operator-(const Coordinates&) const;
 Coordinates operator+=(const Coordinates&);
 Coordinates operator-=(const Coordinates&);
 ```
+
+## v`1.1.3`
+
+- Added `sista::Field::rePrintPawn()`
+- Added operator for scalar multiplication for `sista::Coordinates` struct
+
+```c++
+void Field::rePrintPawn(Pawn* pawn) { // Print a pawn
+    cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
+    pawn->print(); // Print the pawn
+}
+```
+
+```c++
+Coordinates operator*(const unsigned short int) const;
+```
