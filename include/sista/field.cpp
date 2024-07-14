@@ -120,9 +120,18 @@ namespace sista {
     void Field::removePawn(Pawn* pawn) { // Remove a pawn from the matrix
         pawns[pawn->getCoordinates().y][pawn->getCoordinates().x] = nullptr; // Set the pawn to nullptr
     }
+    void Field::removePawn(Coordinates& coordinates) { // Remove a pawn from the matrix
+        pawns[coordinates.y][coordinates.x] = nullptr; // Set the pawn to nullptr
+    }
     void Field::erasePawn(Pawn* pawn) { // Erase a pawn from the matrix
         removePawn(pawn); // Remove the pawn from the matrix
         cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
+        ANSI::reset(); // Reset the settings for that cell
+        std::cout << ' '; // Print a space to clear the cell
+    }
+    void Field::erasePawn(Coordinates& coordinates) { // Erase a pawn from the matrix
+        removePawn(coordinates);
+        cursor.set(coordinates); // Set the cursor to the coordinates
         ANSI::reset(); // Reset the settings for that cell
         std::cout << ' '; // Print a space to clear the cell
     }

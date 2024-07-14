@@ -220,3 +220,24 @@ void Field::rePrintPawn(Pawn* pawn) { // Print a pawn
 ```c++
 Coordinates operator*(const unsigned short int) const;
 ```
+
+## v`1.1.4`
+
+- Added `sista::Field::removePawn(sista::Coordinates&)` to remove a pawn from the field by coordinates without the need of a pointer to the pawn
+
+```c++
+void Field::removePawn(Coordinates& coordinates) { // Remove a pawn from the matrix
+    pawns[coordinates.y][coordinates.x] = nullptr; // Set the pawn to nullptr
+}
+```
+
+- Added `sista::Field::erasePawn(sista::Coordinates&)` to erase a pawn from the field by coordinates without the need of a pointer to the pawn
+
+```c++
+void Field::erasePawn(Coordinates& coordinates) { // Erase a pawn from the matrix
+    removePawn(coordinates); // Remove the pawn from the matrix
+    cursor.set(coordinates); // Set the cursor to the pawn's coordinates
+    ANSI::reset(); // Reset the settings for that cell
+    std::cout << ' '; // Print a space to clear the cell
+}
+```
