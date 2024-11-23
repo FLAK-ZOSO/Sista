@@ -31,4 +31,11 @@ Some of the documentation for Sista can be found in the [`Release Notes`](Releas
 
 The english documentation for Sista can be found at [`Sista - ReadTheDocs`](https://sista.readthedocs.io/).
 
-ℹ️ - ReadTheDocs is now asking for a `.readthedocs.yaml` file to be added to the repository, so the documentation is not updated at the moment
+## Sista-based works
+
+Here are some of the most relevant works based on Sista.
+
+- [`Inomhus`](https://github.com/FLAK-ZOSO/Inomhus) - _Bättre att stanna inomhus_ (better be in the house) - a survival videogame
+- [`Starklag`](https://github.com/Lioydiano/Starklag) - _den starkastes lag_ (the law of the strongest) - a partial evolution simulator
+- [`Dödas`](https://github.com/Lioydiano/Dodas) - _de dödas angrepp_ (attack of the dead) - a survival speedrun videogame
+- [`Dune`](https://github.com/Lioydiano/Dune) - a survival videogame inspired by Dune
