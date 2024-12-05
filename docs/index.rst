@@ -2,27 +2,21 @@
 ``Sista``
 =====
 
-.. image:: https://github.com/FLAK-ZOSO/Sista/blob/main/docs/img/OX.png?raw=true
-    :alt: Sista Logo
-    :width: 1000px
-    :align: center
+``Sista`` is a *lightweight* and *easy-to-use* *object-oriented* library for handling terminal graphics in ``C++``.
 
-``Sista`` is a *lightweight*, *fast*, and *easy-to-use* *OOP* library for making terminal games in ``C++``.
-
-``Sista`` provides a set of classes and functions to make terminal games in ``C++`` easier.
-
-Inspired by their `Forsiktig <https://github.com/Lioydiano/Forsiktig>`_ 's `variables.hpp <https://github.com/Lioydiano/Forsiktig/blob/main/variables.hpp>`_ header, `FLAK-ZOSO <https://flak-zoso.github.io>`_ decided to make a library to prevent others from having to reinvent the wheel every time they wanted to make a terminal game.
-
-``OS Compatibility``
-----------------------
-
-Sista is cross-platform and should work on any terminal that supports ANSI escape codes.
+``Sista`` provides a set of classes and functions to make terminal games in ``C++`` easier, thus preventing developers from having to reinvent the wheel every time they want to make a terminal game.
 
 ``Installation``
 -------------
 
-To install Sista, simply download the latest release from `GitHub <https://github.com/FLAK-ZOSO/Sista>`_.
+To install Sista, simply download the latest release from `GitHub <https://github.com/FLAK-ZOSO/Sista/releases>`_.
 Extract the contents of the archive to your project's source directory.
+
+An easier approach can be to directly clone the repository into your project's directory.
+
+.. code-block:: bash
+
+    git clone https://github.com/FLAK-ZOSO/Sista
 
 ``Usage``
 -------------
@@ -35,19 +29,47 @@ To use Sista, simply include the ``"sista.hpp"`` header in your project's source
 
 
 The ``"sista.hpp"`` header includes all of the other headers in the ``"include/sista/"`` directory, so you don't have to include them individually.
+However, you will have to include them in the compilation process as shown here.
+
+.. code-block:: bash
+
+    IMPLEMENTATIONS = include/sista/ANSI-Settings.cpp include/sista/border.cpp include/sista/coordinates.cpp include/sista/cursor.cpp include/sista/field.cpp include/sista/pawn.cpp
+
+    all: objects file clean
+
+    objects:
+        g++ -std=c++17 -Wall -g -c $(IMPLEMENTATIONS)
+
+    file: objects
+        g++ -std=c++17 -Wall -g -c sista.cpp
+        g++ -std=c++17 -Wall -g -o sista sista.o ANSI-Settings.o border.o coordinates.o cursor.o pawn.o field.o
+
+    clean:
+        rm -f *.o
 
 ``Documentation``
 --------------
 
-Some of the documentation for Sista can be found in the `Release Notes <https://github.com/FLAK-ZOSO/Sista/blob/main/ReleaseNotes.md>`_ and `Benchmarks <https://github.com/FLAK-ZOSO/Sista/blob/main/Benchmarks.md>`_ files.
+Most of the documentation can be found here on Read the Docs: `Sista Documentation <https://sista.readthedocs.io/en/latest/>`_.
 
-The rest of the documentation can be found on Read the Docs: `Sista Documentation <https://sista.readthedocs.io/en/latest/>`_.
+- `Sista reference <sista.html>`_ - library documentation
+- `Introduction <intro.html>`_ - documented example
 
-- `Sista reference <sista.html>`_
+Some additional documentation for Sista can be found in the `Release Notes <https://github.com/FLAK-ZOSO/Sista/blob/main/ReleaseNotes.md>`_ on GitHub.
 
 ``Introduction``
 ----------------
 
-I provided a simple example of how to use Sista to make a terminal animation in `sista.cpp <https://github.com/FLAK-ZOSO/Sista/blob/main/sista.cpp>`_.
+A simple example of how to use Sista to make a terminal animation is provided by `sista.cpp <https://github.com/FLAK-ZOSO/Sista/blob/main/sista.cpp>`_.
 
-I will provide a more detailed explaination of the Sista example in the `intro <intro.html>`_.
+A more detailed explaination of the example can be found in the `intro <intro.html>`_.
+
+``Derived works``
+----------------
+
+Here are some of the most relevant works based on Sista, which you can use as a base for your project or as examples to better understand the syntax coming with the library.
+
+-  `Inomhus <https://github.com/FLAK-ZOSO/Inomhus>`_ - *Bättre att stanna inomhus* (better be in the house) - a survival videogame
+-  `Starklag <https://github.com/Lioydiano/Starklag>`_ - *den starkastes lag* (the law of the strongest) - a partial evolution simulator
+-  `Dödas <https://github.com/Lioydiano/Dodas>`__ - *de dödas angrepp* (attack of the dead) - a survival speedrun videogame
+-  `Dune <https://github.com/Lioydiano/Dune>`__ - a survival videogame inspired by Dune

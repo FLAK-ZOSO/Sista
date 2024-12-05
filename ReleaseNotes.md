@@ -1,26 +1,167 @@
 # Release Notes
 
-Here you can find the release notes for each version of `Sista` since `v0.1.0`, with changelog since v`0.7.0`.
+Here you can find the release notes for each version of `Sista` since `v0.1.0`, with changelog since v`0.7.0`; these are listed in a bottom-up order.
 
-## v`0.1.0`
+## v`1.1.4`
 
-This is the first version of `Sista` and it is still in development.
-
-## v`0.7.1`
-
-- Added [condition](https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/ANSI-Settings.hpp#L57-L60) over the attribute reset function
+- Added `sista::Field::removePawn(sista::Coordinates&)` to remove a pawn from the field by coordinates without the need of a pointer to the pawn
 
 ```c++
-void resetAttribute(Attribute attribute) {
-    if (attribute == Attribute::BRIGHT) {
-        std::cout << CSI << attribute + 21 << "m";
-        return;
-    }
-    std::cout << CSI << attribute + 20 << "m";
+void Field::removePawn(Coordinates& coordinates) { // Remove a pawn from the matrix
+    pawns[coordinates.y][coordinates.x] = nullptr; // Set the pawn to nullptr
 }
 ```
 
-I added the if statement to check if the attribute is `BRIGHT` or not, because the `BRIGHT` reset code is `+21` (from set code) and the rest are `+20`.
+- Added `sista::Field::erasePawn(sista::Coordinates&)` to erase a pawn from the field by coordinates without the need of a pointer to the pawn
+
+```c++
+void Field::erasePawn(Coordinates& coordinates) { // Erase a pawn from the matrix
+    removePawn(coordinates); // Remove the pawn from the matrix
+    cursor.set(coordinates); // Set the cursor to the pawn's coordinates
+    ANSI::reset(); // Reset the settings for that cell
+    std::cout << ' '; // Print a space to clear the cell
+}
+```
+
+## v`1.1.3`
+
+- Added `sista::Field::rePrintPawn()`
+- Added operator for scalar multiplication for `sista::Coordinates` struct
+
+```c++
+void Field::rePrintPawn(Pawn* pawn) { // Print a pawn
+    cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
+    pawn->print(); // Print the pawn
+}
+```
+
+```c++
+Coordinates operator*(const unsigned short int) const;
+```
+
+## v`1.1.2`
+
+- Added more operators for `sista::Coordinates` struct
+
+```c++
+Coordinates operator-(const Coordinates&) const;
+Coordinates operator+=(const Coordinates&);
+Coordinates operator-=(const Coordinates&);
+```
+
+## v`1.1.1`
+
+- Added `sista::Field::erasePawn()` to remove and erase Pawn from the screen
+
+```c++
+void Field::erasePawn(Pawn* pawn) { // Erase a pawn from the matrix
+    removePawn(pawn); // Remove the pawn from the matrix
+    cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
+    ANSI::reset(); // Reset the settings for that cell
+    std::cout << ' '; // Print a space to clear the cell
+}
+```
+
+## v`1.0.0`
+
+- Divided Sista in `.hpp` headers and `.cpp` sources
+
+This should make it possible to use Sista in projects with multiple source files.
+
+## v`0.9.3`
+
+- Fixed `sista::Field::reset()` which was resizing the field to 0x0
+
+```c++
+void reset() {
+    for (auto& row: pawns) { // For each row
+        for (auto& pawn: row) {
+            if (pawn != nullptr) // If the pawn is not nullptr
+                delete pawn; // Delete the pawn
+            pawn = nullptr; // Set the pawn to nullptr
+        }
+    }        
+}
+```
+
+## v`0.9.4`
+
+- Added `sista::Field::addPrintPawn()` to add and print Pawn without reprint
+
+```c++
+void addPrintPawn(Pawn* pawn) { // Add a pawn to the matrix and print it
+    addPawn(pawn); // Add the pawn to the matrix
+    this->cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
+    pawn->print(); // Print the pawn
+}
+```
+
+## v`0.9.2`
+
+- Added ScreenMode management
+
+```c++
+enum ScreenMode {
+    MONOCROME_TEXT_40_25 = 0,
+    COLOR_TEXT_40_25 = 1,
+    MONOCROME_TEXT_80_25 = 2,
+    COLOR_TEXT_80_25 = 3,
+    FOUR_COLORS_GRAPHICS_320_200 = 4,
+    MONOCROME_GRAPHICS_320_200 = 5,
+    MONOCROME_GRAPHICS_640_200 = 6,
+    LINE_WRAPPING = 7,
+    COLOR_GRAPHICS_320_200 = 13,
+    COLOR_16_COLORS_GRAPHICS_640_200 = 14,
+    MONOCROME_2_COLORS_GRAPHICS_640_350 = 15,
+    COLOR_16_COLORS_GRAPHICS_640_350 = 16,
+    MONOCROME_2_COLORS_GRAPHICS_640_480 = 17,
+    COLOR_16_COLORS_GRAPHICS_640_480 = 18,
+    COLOR_256_COLORS_GRAPHICS_320_200 = 19
+};
+
+void setScreenMode(ScreenMode mode) {
+    std::cout << CSI << '=' << mode << 'h';
+}
+void unsetScreenMode(ScreenMode mode) {
+    std::cout << CSI << '=' << mode << 'l';
+}
+```
+
+- Added resetter for `sista::Field` instances, to empty the field from the `sista::Pawn`s
+
+```c++
+void reset() {
+    for (auto& row: pawns) // For each row
+        for (auto& pawn: row) // For each pawn
+            if (pawn != nullptr) // If the pawn is not nullptr
+                delete pawn; // Delete the pawn
+    pawns.clear(); // Clear the pawns
+}
+```
+
+## v`0.9.0`
+
+- Added 256 color support
+
+```c++
+void setForegroundColor(unsigned short int color) {
+    std::cout << CSI << "38;5;" << color << "m";
+}
+void setBackgroundColor(unsigned short int color) {
+    std::cout << CSI << "48;5;" << color << "m";
+}
+```
+
+- Added 24-biit RGB color support
+
+```c++
+void setForegroundColor(unsigned short int red, unsigned short int green, unsigned short int blue) {
+    std::cout << CSI << "38;2;" << red << ";" << green << ";" << blue << "m";
+}
+void setBackgroundColor(unsigned short int red, unsigned short int green, unsigned short int blue) {
+    std::cout << CSI << "48;2;" << red << ";" << green << ";" << blue << "m";
+}
+```
 
 ## v`0.8.0`
 
@@ -81,163 +222,22 @@ void move(MoveCursorSCO moveCursorSCO_) {
 
 - Added `ESC` constant to `ANSI-Settings.hpp`
 
-## v`0.9.0`
+## v`0.7.1`
 
-- Added 256 color support
+- Added [condition](https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/ANSI-Settings.hpp#L57-L60) over the attribute reset function
 
 ```c++
-void setForegroundColor(unsigned short int color) {
-    std::cout << CSI << "38;5;" << color << "m";
-}
-void setBackgroundColor(unsigned short int color) {
-    std::cout << CSI << "48;5;" << color << "m";
+void resetAttribute(Attribute attribute) {
+    if (attribute == Attribute::BRIGHT) {
+        std::cout << CSI << attribute + 21 << "m";
+        return;
+    }
+    std::cout << CSI << attribute + 20 << "m";
 }
 ```
 
-- Added 24-biit RGB color support
+I added the if statement to check if the attribute is `BRIGHT` or not, because the `BRIGHT` reset code is `+21` (from set code) and the rest are `+20`.
 
-```c++
-void setForegroundColor(unsigned short int red, unsigned short int green, unsigned short int blue) {
-    std::cout << CSI << "38;2;" << red << ";" << green << ";" << blue << "m";
-}
-void setBackgroundColor(unsigned short int red, unsigned short int green, unsigned short int blue) {
-    std::cout << CSI << "48;2;" << red << ";" << green << ";" << blue << "m";
-}
-```
+## v`0.1.0`
 
-## v`0.9.2`
-
-- Added ScreenMode management
-
-```c++
-enum ScreenMode {
-    MONOCROME_TEXT_40_25 = 0,
-    COLOR_TEXT_40_25 = 1,
-    MONOCROME_TEXT_80_25 = 2,
-    COLOR_TEXT_80_25 = 3,
-    FOUR_COLORS_GRAPHICS_320_200 = 4,
-    MONOCROME_GRAPHICS_320_200 = 5,
-    MONOCROME_GRAPHICS_640_200 = 6,
-    LINE_WRAPPING = 7,
-    COLOR_GRAPHICS_320_200 = 13,
-    COLOR_16_COLORS_GRAPHICS_640_200 = 14,
-    MONOCROME_2_COLORS_GRAPHICS_640_350 = 15,
-    COLOR_16_COLORS_GRAPHICS_640_350 = 16,
-    MONOCROME_2_COLORS_GRAPHICS_640_480 = 17,
-    COLOR_16_COLORS_GRAPHICS_640_480 = 18,
-    COLOR_256_COLORS_GRAPHICS_320_200 = 19
-};
-
-void setScreenMode(ScreenMode mode) {
-    std::cout << CSI << '=' << mode << 'h';
-}
-void unsetScreenMode(ScreenMode mode) {
-    std::cout << CSI << '=' << mode << 'l';
-}
-```
-
-- Added resetter for `sista::Field` instances, to empty the field from the `sista::Pawn`s
-
-```c++
-void reset() {
-    for (auto& row: pawns) // For each row
-        for (auto& pawn: row) // For each pawn
-            if (pawn != nullptr) // If the pawn is not nullptr
-                delete pawn; // Delete the pawn
-    pawns.clear(); // Clear the pawns
-}
-```
-
-## v`0.9.3`
-
-- Fixed `sista::Field::reset()` which was resizing the field to 0x0
-
-```c++
-void reset() {
-    for (auto& row: pawns) { // For each row
-        for (auto& pawn: row) {
-            if (pawn != nullptr) // If the pawn is not nullptr
-                delete pawn; // Delete the pawn
-            pawn = nullptr; // Set the pawn to nullptr
-        }
-    }        
-}
-```
-
-## v`0.9.4`
-
-- Added `sista::Field::addPrintPawn()` to add and print Pawn without reprint
-
-```c++
-void addPrintPawn(Pawn* pawn) { // Add a pawn to the matrix and print it
-    addPawn(pawn); // Add the pawn to the matrix
-    this->cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
-    pawn->print(); // Print the pawn
-}
-```
-
-## v`1.0.0`
-
-- Divided Sista in `.hpp` headers and `.cpp` sources
-
-This should make it possible to use Sista in projects with multiple source files.
-
-## v`1.1.1`
-
-- Added `sista::Field::erasePawn()` to remove and erase Pawn from the screen
-
-```c++
-void Field::erasePawn(Pawn* pawn) { // Erase a pawn from the matrix
-    removePawn(pawn); // Remove the pawn from the matrix
-    cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
-    ANSI::reset(); // Reset the settings for that cell
-    std::cout << ' '; // Print a space to clear the cell
-}
-```
-
-## v`1.1.2`
-
-- Added more operators for `sista::Coordinates` struct
-
-```c++
-Coordinates operator-(const Coordinates&) const;
-Coordinates operator+=(const Coordinates&);
-Coordinates operator-=(const Coordinates&);
-```
-
-## v`1.1.3`
-
-- Added `sista::Field::rePrintPawn()`
-- Added operator for scalar multiplication for `sista::Coordinates` struct
-
-```c++
-void Field::rePrintPawn(Pawn* pawn) { // Print a pawn
-    cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
-    pawn->print(); // Print the pawn
-}
-```
-
-```c++
-Coordinates operator*(const unsigned short int) const;
-```
-
-## v`1.1.4`
-
-- Added `sista::Field::removePawn(sista::Coordinates&)` to remove a pawn from the field by coordinates without the need of a pointer to the pawn
-
-```c++
-void Field::removePawn(Coordinates& coordinates) { // Remove a pawn from the matrix
-    pawns[coordinates.y][coordinates.x] = nullptr; // Set the pawn to nullptr
-}
-```
-
-- Added `sista::Field::erasePawn(sista::Coordinates&)` to erase a pawn from the field by coordinates without the need of a pointer to the pawn
-
-```c++
-void Field::erasePawn(Coordinates& coordinates) { // Erase a pawn from the matrix
-    removePawn(coordinates); // Remove the pawn from the matrix
-    cursor.set(coordinates); // Set the cursor to the pawn's coordinates
-    ANSI::reset(); // Reset the settings for that cell
-    std::cout << ' '; // Print a space to clear the cell
-}
-```
+This is the first version of `Sista` and it is still in development.

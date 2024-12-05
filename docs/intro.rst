@@ -184,7 +184,7 @@ After applying all the movements, we'll swap the characters in the ``stdout`` st
 ``Compilation``
 --------------------
 
-To compile the ``sista.cpp`` file, you need to use the following command...
+To compile the ``sista.cpp`` file, you need to use the following commands...
 
 .. code-block:: bash
 
@@ -195,6 +195,24 @@ To compile the ``sista.cpp`` file, you need to use the following command...
 
 ...where ``$(IMPLEMENTATIONS)`` is the list of the ``Sista`` library implementation files.
 
+.. code-block:: bash
+
+    IMPLEMENTATIONS = include/sista/ANSI-Settings.cpp include/sista/border.cpp include/sista/coordinates.cpp include/sista/cursor.cpp include/sista/field.cpp include/sista/pawn.cpp
+
+In case you have ``make`` installed, it's easier to directly use it in pair with the `Makefile <https://github.com/FLAK-ZOSO/Sista/blob/main/Makefile>`_.
+
+.. code-block:: bash
+
+    make
+
+``Execution``
+--------------------
+
+.. code-block:: bash
+
+    ./sista
+
+On Windows it is slightly different, but I will assume whoever reached this point in the documentation is aware of how to launch an executable from a command line interface.
 
 ``Notes``
 ====================
