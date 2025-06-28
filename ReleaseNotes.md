@@ -2,6 +2,24 @@
 
 Here you can find the release notes for each version of `Sista` since `v0.1.0`, with changelog since v`0.7.0`; these are listed in a bottom-up order.
 
+## v`1.1.5`
+
+- Added `RGBColor` and support for it in the `ANSI::Settings` struct
+
+It is now possible to initialize `ANSI::Settings` instances as follows. Even if in general using the constructor could be a bless for backwards compatibility of your code.
+
+```c++
+ANSI::Settings settings = {
+    ANSI::RGBColor(42, 42, 42),
+    ANSI::RGBColor(69, 69, 69),
+    ANSI::Attribute::BRIGHT
+};
+```
+
+The library does not enforce consistency across foreground and background indications, as in one of the two can be an `RGBColor` and the other one a `ForegroundColor`, for instance.
+
+This change is backwards compatible, so the `ForegroundColor`/`BackgroundColor` based initialization is still functional and will always be supported.
+
 ## v`1.1.4`
 
 - Added `sista::Field::removePawn(sista::Coordinates&)` to remove a pawn from the field by coordinates without the need of a pointer to the pawn

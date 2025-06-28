@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <variant>
 
 
 #define ESC "\x1b"
@@ -45,6 +46,14 @@ namespace ANSI {
         HIDDEN = 8,
         STRIKETHROUGH = 9
     };
+    struct RGBColor {
+        unsigned short int red;
+        unsigned short int green;
+        unsigned short int blue;
+
+        RGBColor();
+        RGBColor(unsigned short int, unsigned short int, unsigned short int);
+    };
 
     void setForegroundColor(ForegroundColor);
     void setBackgroundColor(BackgroundColor);
@@ -53,6 +62,8 @@ namespace ANSI {
 
     void reset();
 
+    inline void setForegroundColor(RGBColor);
+    inline void setBackgroundColor(RGBColor);
     void setForegroundColor(unsigned short int, unsigned short int, unsigned short int);
     void setBackgroundColor(unsigned short int, unsigned short int, unsigned short int);
     void setForegroundColor(unsigned short int);
@@ -80,11 +91,13 @@ namespace ANSI {
     void unsetScreenMode(ScreenMode);
 
     struct Settings {
-        ForegroundColor foregroundColor;
-        BackgroundColor backgroundColor;
+        std::variant<ForegroundColor, RGBColor> foregroundColor;
+        std::variant<BackgroundColor, RGBColor> backgroundColor;
         Attribute attribute;
 
         Settings();
+        Settings(RGBColor, RGBColor, Attribute);
+        Settings(RGBColor&, RGBColor&, Attribute&, bool);
         Settings(ForegroundColor, BackgroundColor, Attribute);
         Settings(ForegroundColor&, BackgroundColor&, Attribute&, bool);
 
