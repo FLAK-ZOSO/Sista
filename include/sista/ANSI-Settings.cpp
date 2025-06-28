@@ -69,9 +69,12 @@ namespace ANSI {
         setAttribute(attribute);
         try {
             setForegroundColor(std::get<ForegroundColor>(foregroundColor));
-            setBackgroundColor(std::get<BackgroundColor>(backgroundColor));
         } catch (const std::bad_variant_access& ex) {
             setForegroundColor(std::get<RGBColor>(foregroundColor));
+        }
+        try {
+            setBackgroundColor(std::get<BackgroundColor>(backgroundColor));
+        } catch (const std::bad_variant_access& ex) {
             setBackgroundColor(std::get<RGBColor>(backgroundColor));
         }
     }
