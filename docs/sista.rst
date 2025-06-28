@@ -58,12 +58,27 @@ This header also contains the following functions:
     void setAttribute(Attribute);
     void resetAttribute(Attribute);
     void reset();
+    inline void setForegroundColor(RGBColor);
+    inline void setBackgroundColor(RGBColor);
     void setForegroundColor(unsigned short int, unsigned short int, unsigned short int);
     void setBackgroundColor(unsigned short int, unsigned short int, unsigned short int);
     void setForegroundColor(unsigned short int);
     void setBackgroundColor(unsigned short int);
     void setScreenMode(ScreenMode);
     void unsetScreenMode(ScreenMode);
+
+This header also contains the following struct used to represent a color in RGB format:
+
+.. code-block:: cpp
+
+    struct RGBColor {
+        unsigned short int red;
+        unsigned short int green;
+        unsigned short int blue;
+
+        RGBColor();
+        RGBColor(unsigned short int, unsigned short int, unsigned short int);
+    };
 
 This header also contains the following enums based on the `ANSI escape codes <https://en.wikipedia.org/wiki/ANSI_escape_code>`_
 
