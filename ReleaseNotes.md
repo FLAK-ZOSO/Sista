@@ -2,6 +2,18 @@
 
 Here you can find the release notes for each version of `Sista` since `v0.1.0`, with changelog since v`0.7.0`; these are listed in a bottom-up order.
 
+## v`1.1.6`
+
+- Added `<` comparison operator to `sista::Coordinates`
+
+The purpose is to allow `std::set<sista::Coordinates>`. It is based solely on the distance from the origin.
+
+```c++
+bool Coordinates::operator<(const Coordinates& other) const {
+    return (y + x) < (other.y + other.x);
+}
+```
+
 ## v`1.1.5`
 
 - Added `RGBColor` and support for it in the `ANSI::Settings` struct

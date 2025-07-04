@@ -11,6 +11,9 @@ namespace sista {
     bool Coordinates::operator!=(const Coordinates& other) const {
         return (y != other.y || x != other.x);
     }
+    bool Coordinates::operator<(const Coordinates& other) const {
+        return (y + x) < (other.y + other.x);
+    }
     Coordinates Coordinates::operator+(const Coordinates& other) const {
         return Coordinates(y + other.y, x + other.x);
     }

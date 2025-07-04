@@ -139,7 +139,12 @@ This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/coordin
 
         bool operator==(const Coordinates&) const;
         bool operator!=(const Coordinates&) const;
+        bool operator<(const Coordinates&) const;
         Coordinates operator+(const Coordinates&) const;
+        Coordinates operator-(const Coordinates&) const;
+        Coordinates operator*(const unsigned short) const;
+        Coordinates operator+=(const Coordinates&);
+        Coordinates operator-=(const Coordinates&);
     };
 
 This header also contains the following typedef used to represent the coordinates of a Pawn.

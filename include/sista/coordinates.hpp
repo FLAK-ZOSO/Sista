@@ -16,6 +16,7 @@ namespace sista {
 
         bool operator==(const Coordinates&) const;
         bool operator!=(const Coordinates&) const;
+        bool operator<(const Coordinates&) const;
         Coordinates operator+(const Coordinates&) const;
         Coordinates operator-(const Coordinates&) const;
         Coordinates operator*(const unsigned short) const;
