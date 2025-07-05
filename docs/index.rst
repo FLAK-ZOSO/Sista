@@ -73,3 +73,4 @@ Here are some of the most relevant works based on Sista, which you can use as a 
 -  `Starklag <https://github.com/Lioydiano/Starklag>`_ - *den starkastes lag* (the law of the strongest) - a partial evolution simulator
 -  `Dödas <https://github.com/Lioydiano/Dodas>`__ - *de dödas angrepp* (attack of the dead) - a survival speedrun videogame
 -  `Dune <https://github.com/Lioydiano/Dune>`__ - a survival videogame inspired by Dune
+-  `Inavjaga <https://github.com/FLAK-ZOSO/Inavjaga>`__ - *Inälvor jagade* (intestin hunt) - a survival videogame with hordes of enemies
