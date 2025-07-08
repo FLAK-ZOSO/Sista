@@ -100,6 +100,10 @@ namespace ANSI {
         Settings(RGBColor&, RGBColor&, Attribute&, bool);
         Settings(ForegroundColor, BackgroundColor, Attribute);
         Settings(ForegroundColor&, BackgroundColor&, Attribute&, bool);
+        Settings(RGBColor, BackgroundColor, Attribute);
+        Settings(RGBColor&, BackgroundColor&, Attribute&, bool);
+        Settings(ForegroundColor, RGBColor, Attribute);
+        Settings(ForegroundColor&, RGBColor&, Attribute&, bool);
 
         void apply();
     };

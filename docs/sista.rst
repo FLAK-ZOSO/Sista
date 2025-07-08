@@ -94,8 +94,8 @@ This header also contains the following struct used to represent the style of a 
 .. code-block:: cpp
 
     struct Settings {
-        ForegroundColor foregroundColor;
-        BackgroundColor backgroundColor;
+        std::variant<ForegroundColor, RGBColor> foregroundColor;
+        std::variant<BackgroundColor, RGBColor> backgroundColor;
         Attribute attribute;
     };
 

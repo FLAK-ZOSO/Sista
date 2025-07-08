@@ -2,6 +2,20 @@
 
 Here you can find the release notes for each version of `Sista` since `v0.1.0`, with changelog since v`0.7.0`; these are listed in a bottom-up order.
 
+## v`1.1.7`
+
+- Allow `ANSI::Settings` to be initialized with mixed `ForegroundColor` and `RGBColor` or `RGBColor` and `BackgroundColor`
+
+This change has the purpose to allow more flexibility, especially when using a custom foreground color with a coded background color.
+
+```c++
+ANSI::Settings settings = {
+    ANSI::RGBColor(42, 42, 42),
+    ANSI::backgroundColor::B_BLACK,
+    ANSI::Attribute::BRIGHT
+};
+```
+
 ## v`1.1.6`
 
 - Added `<` comparison operator to `sista::Coordinates`

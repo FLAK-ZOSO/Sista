@@ -59,10 +59,22 @@ namespace ANSI {
         backgroundColor = BackgroundColor::B_BLACK;
         attribute = Attribute::RESET;
     }
-    Settings::Settings(RGBColor foregroundColor_, RGBColor backgroundColor_, Attribute attribute_) : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
-    Settings::Settings(RGBColor& foregroundColor_, RGBColor& backgroundColor_, Attribute& attribute_, bool _by_reference) : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
-    Settings::Settings(ForegroundColor foregroundColor_, BackgroundColor backgroundColor_, Attribute attribute_) : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
-    Settings::Settings(ForegroundColor& foregroundColor_, BackgroundColor& backgroundColor_, Attribute& attribute_, bool _by_reference) : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
+    Settings::Settings(RGBColor foregroundColor_, RGBColor backgroundColor_, Attribute attribute_)
+        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
+    Settings::Settings(RGBColor& foregroundColor_, RGBColor& backgroundColor_, Attribute& attribute_, bool _by_reference)
+        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
+    Settings::Settings(ForegroundColor foregroundColor_, BackgroundColor backgroundColor_, Attribute attribute_)
+        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
+    Settings::Settings(ForegroundColor& foregroundColor_, BackgroundColor& backgroundColor_, Attribute& attribute_, bool _by_reference)
+        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
+    Settings::Settings(ForegroundColor foregroundColor_, RGBColor backgroundColor_, Attribute attribute_)
+        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
+    Settings::Settings(RGBColor foregroundColor_, BackgroundColor backgroundColor_, Attribute attribute_)
+        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
+    Settings::Settings(ForegroundColor& foregroundColor_, RGBColor& backgroundColor_, Attribute& attribute_, bool _by_reference)
+        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
+    Settings::Settings(RGBColor& foregroundColor_, BackgroundColor& backgroundColor_, Attribute& attribute_, bool _by_reference)
+        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
 
     void Settings::apply() {
         setAttribute(Attribute::RESET);
