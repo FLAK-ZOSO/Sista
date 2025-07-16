@@ -2,6 +2,25 @@
 
 Here you can find the release notes for each version of `Sista` since `v0.1.0`, with changelog since v`0.7.0`; these are listed in a bottom-up order.
 
+## v`1.1.8`
+
+Bug fix release.
+
+- Fixed `sista::Coordinates` operator overload `<` to be a strict weak ordering relation
+
+```diff
+bool Coordinates::operator<(const Coordinates& other) const {
+-    return (y + x) < (other.y + other.x);
++    if (y != other.y)
++        return y < other.y;
++    return x < other.x;
+}
+```
+
+This change is necessary to ensure that constructs such as `std::set<sista::Coordinates>` work correctly, as it requires a strict weak ordering relation.
+
+We don't plan to implement an hash function for `sista::Coordinates` at the moment as the direct comparison is more efficient and straightforward for the intended use cases.
+
 ## v`1.1.7`
 
 - Allow `ANSI::Settings` to be initialized with mixed `ForegroundColor` and `RGBColor` or `RGBColor` and `BackgroundColor`
