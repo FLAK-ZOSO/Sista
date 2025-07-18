@@ -1,0 +1,29 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'Makefile'
+      - 'include/**'
+      - '*.cpp'
+      - '*.hpp'
+      - '.github/workflows/makefile.yml'
+  pull_request:
+    branches:
+        - main
+        - '**'
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run make
+        run: make

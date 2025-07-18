@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = "Sista"
-copyright = "2024, FLAK-ZOSO"
+copyright = "2025, FLAK-ZOSO"
 author = "FLAK-ZOSO"
 
 

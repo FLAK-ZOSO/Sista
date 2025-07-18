@@ -2,6 +2,12 @@
 
 Here you can find the release notes for each version of `Sista` since `v0.1.0`, with changelog since v`0.7.0`; these are listed in a bottom-up order.
 
+## v`2.0.0`
+
+Major release.
+
+- Sista now available as a shared library, `libSista.so`, which can be installed in the system library path.
+
 ## v`1.1.8`
 
 Bug fix release.

@@ -21,7 +21,10 @@ An easier approach can be to directly clone the repository into your project's d
 ``Usage``
 -------------
 
-To use Sista, simply include the ``"sista.hpp"`` header in your project's source files.
+As header only library
+-----------------
+
+To use Sista, simply include the ``"sista.hpp"`` header in your project's source files. This is the inclusion method for versions before v`2.0.0`.
 
 .. code-block:: cpp
 
@@ -46,6 +49,59 @@ However, you will have to include them in the compilation process as shown here.
 
     clean:
         rm -f *.o
+
+This assumes that you have the ``include/sista/`` directory in your project's source directory, and that ``sista.cpp`` is the only file of your project that uses Sista.
+For more complex projects, you can use a build system like `CMake <https://cmake.org/>`_ or `Make <https://www.gnu.org/software/make/>`_ to manage the compilation process.
+
+You can likely find a good example of a Makefile for a statically linked from source Sista project at `Inävjaga <https://github.com/FLAK-ZOSO/Inavjaga/blob/main/Makefile>`_.
+
+As a shared library
+-----------------
+
+To use Sista as a shared library, you will need to install it in your system library path. This is the preferred inclusion method in Linux for versions v`2.0.0` and later.
+
+To install Sista, you can use the provided Makefile in the repository. Simply run the following command in your terminal with administrative privileges:
+
+.. code-block:: bash
+
+    sudo make install
+
+After installing Sista, you can include it in your project by adding the following line to your source files:
+
+.. code-block:: cpp
+
+    #include <sista/sista.hpp>
+
+You will also need to link against the Sista library when compiling your project. You can do this by adding the following flags to your compilation command:
+
+.. code-block:: bash
+
+    g++ -std=c++17 -o sista sista.cpp -lSista
+
+This assumes that you have installed Sista in the default system library path, which is `/usr/local/lib` for libraries and `/usr/local/include/sista` for headers, and that `sista.cpp` is the only file of your project that uses Sista.
+For more complex projects, you can use a build system like `CMake <https://cmake.org/>`_ or `Make <https://www.gnu.org/software/make/>`_ to manage the compilation process.
+
+You can verify that Sista is installed correctly by running the following command in your terminal:
+
+.. code-block:: bash
+
+    ldconfig -p | grep libSista
+
+If Sista is installed correctly, you should see an output similar to this:
+
+.. code-block:: text
+
+    libSista.so (libc6,x86-64) => /usr/local/lib/libSista.so
+
+If you see this output, you can now use Sista in your projects as a shared library as described above.
+
+You can also link statically against Sista by using the following command:
+
+.. code-block:: bash
+
+    g++ -std=c++17 -o sista sista.cpp -static -lSista
+
+This will create a statically linked executable that includes the Sista library, which can be useful if you want to distribute your application without requiring users to install Sista separately.
 
 ``Documentation``
 --------------
@@ -73,4 +129,4 @@ Here are some of the most relevant works based on Sista, which you can use as a 
 -  `Starklag <https://github.com/Lioydiano/Starklag>`_ - *den starkastes lag* (the law of the strongest) - a partial evolution simulator
 -  `Dödas <https://github.com/Lioydiano/Dodas>`__ - *de dödas angrepp* (attack of the dead) - a survival speedrun videogame
 -  `Dune <https://github.com/Lioydiano/Dune>`__ - a survival videogame inspired by Dune
--  `Inavjaga <https://github.com/FLAK-ZOSO/Inavjaga>`__ - *Inälvor jagade* (intestin hunt) - a survival videogame with hordes of enemies
+-  `Inävjaga <https://github.com/FLAK-ZOSO/Inavjaga>`__ - *Inälvor jagade* (intestin hunt) - a survival videogame with hordes of enemies
