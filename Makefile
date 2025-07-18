@@ -4,6 +4,7 @@ OBJECTS = ANSI-Settings.o border.o coordinates.o cursor.o field.o pawn.o
 
 all: objects file
 
+build-clean: clean all
 objects:
 	g++ -std=c++17 -Wall -g -c $(IMPLEMENTATIONS)
 
