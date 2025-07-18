@@ -1,0 +1,46 @@
+name: Bulid library and make release assets
+
+on:
+  push:
+    tags:
+      - 'v2.*.*'
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run make
+        run: make install
+        env:
+          PREFIX: /usr/local
+          STATIC_PREFIX: /usr
+    
+      - name: Find dynamic library
+        id: find_dynamic_lib
+        run: |
+          echo "DYNAMIC_LIB=$(find /usr/local/lib -name 'libSista.so' -print -quit)" >> $GITHUB_ENV
+      
+      - name: Find static library
+        id: find_static_lib
+        run: |
+          echo "STATIC_LIB=$(find /usr/local/lib -name 'libSista.a' -print -quit)" >> $GITHUB_ENV
+
+      - name: Upload Release Assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            ${{ env.DYNAMIC_LIB }}
+            ${{ env.STATIC_LIB }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
