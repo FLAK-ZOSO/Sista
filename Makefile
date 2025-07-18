@@ -14,14 +14,14 @@ file: objects
 	g++ -std=c++17 -Wall -g -c sista.cpp
 	g++ -std=c++17 -Wall -g -o sista sista.o $(OBJECTS)
 
-dynamic_lib_file: libSista.o objects_dynamic
+dynamic_lib_file: libSista.so objects_dynamic
 	g++ -std=c++17 -Wall -g -fPIC -c sista.cpp
 	g++ -std=c++17 -Iinclude -L. -o sista sista.cpp -lSista
 
 static_lib_file: static objects
 	g++ -std=c++17 -Iinclude -o sista sista.cpp -lSista
 
-libSista.o: $(OBJECTS)
+libSista.so: $(OBJECTS)
 	g++ -std=c++17 -Wall -fPIC -shared -o libSista.so $(OBJECTS)
 
 %.o: include/sista/%.cpp
