@@ -95,6 +95,14 @@ If Sista is installed correctly, you should see an output similar to this:
 
 If you see this output, you can now use Sista in your projects as a shared library as described above.
 
+You can also link statically against Sista by using the following command:
+
+.. code-block:: bash
+
+    g++ -std=c++17 -o sista sista.cpp -static -lSista
+
+This will create a statically linked executable that includes the Sista library, which can be useful if you want to distribute your application without requiring users to install Sista separately.
+
 ``Documentation``
 --------------
 

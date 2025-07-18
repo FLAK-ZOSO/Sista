@@ -14,7 +14,7 @@ If you want to use Sista as a shared library, you can use the provided `Makefile
 make install
 ```
 
-This will install the `libSista.so` shared library in the system library path, and the headers in the system include path. This is the preferred inclusion method in Linux for versions v`2.0.0` and later.
+This will install the `libSista.so` shared library in the system library path, and the headers in the system include path. This is the preferred inclusion method in Linux for versions v`2.0.0` and later. More on this in the [documentation](https://sista.readthedocs.io/en/latest/).
 
 ## Usage
 
