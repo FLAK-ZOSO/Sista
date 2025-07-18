@@ -26,3 +26,13 @@ library: $(OBJECTS)
 
 clean:
 	rm -f *.o sista libSista.so
+
+PREFIX ?= /usr/local
+
+install: libSista.so
+	install -d $(PREFIX)/lib
+	install -m 755 libSista.so $(PREFIX)/lib/
+	install -d $(PREFIX)/include/sista
+	install -m 644 include/sista/*.hpp $(PREFIX)/include/sista/
+
+.PHONY: install
