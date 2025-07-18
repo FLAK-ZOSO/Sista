@@ -34,5 +34,6 @@ install: libSista.so
 	install -m 755 libSista.so $(PREFIX)/lib/
 	install -d $(PREFIX)/include/sista
 	install -m 644 include/sista/*.hpp $(PREFIX)/include/sista/
+	ldconfig
 
 .PHONY: install
