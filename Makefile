@@ -35,8 +35,7 @@ static: libSista.a
 libSista.a: $(OBJECTS)
 	ar rcs libSista.a $(OBJECTS)
 
-PREFIX ?= /usr/local
-STATIC_PREFIX ?= /usr
+PREFIX ?= /usr
 
 install: libSista.so libSista.a
 	install -d $(PREFIX)/lib

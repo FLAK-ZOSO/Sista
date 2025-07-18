@@ -23,14 +23,13 @@ jobs:
       - name: Run make
         run: make install
         env:
-          PREFIX: /usr/local
-          STATIC_PREFIX: /usr
-    
+          PREFIX: /usr
+
       - name: Find dynamic library
         id: find_dynamic_lib
         run: |
           echo "DYNAMIC_LIB=$(find /usr/local/lib -name 'libSista.so' -print -quit)" >> $GITHUB_ENV
-      
+
       - name: Find static library
         id: find_static_lib
         run: |
