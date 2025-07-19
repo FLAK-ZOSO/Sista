@@ -38,11 +38,11 @@ libSista.a: $(OBJECTS)
 PREFIX ?= /usr
 
 install: libSista.so libSista.a
-	install -d $(PREFIX)/lib
-	install -m 755 libSista.so $(PREFIX)/lib/
-	install -m 644 libSista.a $(PREFIX)/lib/
-	install -d $(PREFIX)/lib/include/sista
-	install -m 644 include/sista/*.hpp $(PREFIX)/lib/include/sista/
+	install -d $(PREFIX)/lib64
+	install -m 755 libSista.so $(PREFIX)/lib64/
+	install -m 644 libSista.a $(PREFIX)/lib64/
+	install -d $(PREFIX)/include/sista
+	install -m 644 include/sista/*.hpp $(PREFIX)/include/sista/
 	ldconfig
 
 .PHONY: install static
