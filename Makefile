@@ -28,7 +28,7 @@ libSista.so: $(OBJECTS)
 	g++ -std=c++17 -Wall -g -fPIC -c $< -o $@
 
 clean:
-	rm -f *.o sista libSista.so libSista.a
+	rm -f *.o libSista.so libSista.a
 
 static: libSista.a
 
@@ -40,9 +40,9 @@ PREFIX ?= /usr
 install: libSista.so libSista.a
 	install -d $(PREFIX)/lib
 	install -m 755 libSista.so $(PREFIX)/lib/
-	install -m 644 libSista.a $(STATIC_PREFIX)/lib/
-	install -d $(PREFIX)/include/sista
-	install -m 644 include/sista/*.hpp $(PREFIX)/include/sista/
+	install -m 644 libSista.a $(PREFIX)/lib/
+	install -d $(PREFIX)/lib/include/sista
+	install -m 644 include/sista/*.hpp $(PREFIX)/lib/include/sista/
 	ldconfig
 
 .PHONY: install static
