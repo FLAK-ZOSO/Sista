@@ -38,17 +38,19 @@ libSista.a: $(OBJECTS)
 PREFIX ?= /usr
 
 install: libSista.so libSista.a
-	install -d $(PREFIX)/lib64
-	install -m 755 libSista.so $(PREFIX)/lib64/
-	install -m 644 libSista.a $(PREFIX)/lib64/
+	install -d $(PREFIX)/lib
+	install -m 755 libSista.so $(PREFIX)/lib/
+	install -m 644 libSista.a $(PREFIX)/lib/
 	install -d $(PREFIX)/include/sista
 	install -m 644 include/sista/*.hpp $(PREFIX)/include/sista/
+	echo "$(PREFIX)/lib" | sudo tee /etc/ld.so.conf.d/sista.conf
 	ldconfig
 
 uninstall:
-	rm -f $(PREFIX)/lib64/libSista.so
-	rm -f $(PREFIX)/lib64/libSista.a
+	rm -f $(PREFIX)/lib/libSista.so
+	rm -f $(PREFIX)/lib/libSista.a
 	rm -rf $(PREFIX)/include/sista
+	rm -f /etc/ld.so.conf.d/sista.conf
 	ldconfig
 
-.PHONY: uninstall install static
+.PHONY: all objects objects_dynamic file dynamic_lib_file static_lib_file clean static install uninstall

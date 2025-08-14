@@ -28,12 +28,12 @@ jobs:
       - name: Find dynamic library
         id: find_dynamic_lib
         run: |
-          echo "DYNAMIC_LIB=$(find /usr/lib /usr/lib64 -name 'libSista.so' -print -quit)" >> $GITHUB_ENV
+          echo "DYNAMIC_LIB=$(find /usr/lib -name 'libSista.so' -print -quit)" >> $GITHUB_ENV
 
       - name: Find static library
         id: find_static_lib
         run: |
-          echo "STATIC_LIB=$(find /usr/lib /usr/lib64 -name 'libSista.a' -print -quit)" >> $GITHUB_ENV
+          echo "STATIC_LIB=$(find /usr/lib -name 'libSista.a' -print -quit)" >> $GITHUB_ENV
 
       - name: Upload Release Assets
         uses: softprops/action-gh-release@v2
