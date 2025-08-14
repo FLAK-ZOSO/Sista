@@ -2,7 +2,7 @@
 IMPLEMENTATIONS = include/sista/ANSI-Settings.cpp include/sista/border.cpp include/sista/coordinates.cpp include/sista/cursor.cpp include/sista/field.cpp include/sista/pawn.cpp
 OBJECTS = ANSI-Settings.o border.o coordinates.o cursor.o field.o pawn.o
 
-all: objects file clean
+all: objects file
 
 objects:
 	g++ -std=c++17 -Wall -g -c $(IMPLEMENTATIONS)
