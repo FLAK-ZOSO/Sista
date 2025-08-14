@@ -34,6 +34,7 @@
 # Test executables
 demo/*
 !demo/*.*
+demo/*.o
 sista
 
 # Other files

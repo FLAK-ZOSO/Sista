@@ -1,7 +1,7 @@
 // make
 #include <chrono>
 #include <thread>
-#include <sista/sista.hpp>
+#include "include/sista/sista.hpp"
 
 #define TEST_SIZE 50
 
