@@ -16,10 +16,10 @@ file: objects
 
 dynamic_lib_file: libSista.so objects_dynamic
 	g++ -std=c++17 -Wall -g -fPIC -c sista.cpp
-	g++ -std=c++17 -Iinclude -L. -o sista sista.cpp -lSista
+	g++ -std=c++17 -o sista sista.o -lSista
 
 static_lib_file: static objects
-	g++ -std=c++17 -Iinclude -o sista sista.cpp -lSista
+	g++ -std=c++17 -o sista sista.cpp -lSista
 
 libSista.so: $(OBJECTS)
 	g++ -std=c++17 -Wall -fPIC -shared -o libSista.so $(OBJECTS)
