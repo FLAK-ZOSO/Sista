@@ -45,4 +45,10 @@ install: libSista.so libSista.a
 	install -m 644 include/sista/*.hpp $(PREFIX)/include/sista/
 	ldconfig
 
-.PHONY: install static
+uninstall:
+	rm -f $(PREFIX)/lib64/libSista.so
+	rm -f $(PREFIX)/lib64/libSista.a
+	rm -rf $(PREFIX)/include/sista
+	ldconfig
+
+.PHONY: uninstall install static

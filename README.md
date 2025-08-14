@@ -6,15 +6,25 @@
 
 ## Installation
 
+### Sista as a header-only library
+
 To install Sista, simply download the latest release from [`GitHub`](https://github.com/FLAK-ZOSO/Sista/releases), and extract the contents of the archive to your project's source directory.
 
-If you want to use Sista as a shared library, you can use the provided `Makefile` in the repository. Simply run the following command in your terminal with administrative privileges:
+### Sista as a shared library on Linux
+
+If you want to use Sista as a shared library, you can use the provided `Makefile` in the repository. Simply run the following command in your terminal *with administrative privileges*.
 
 ```bash
-make install
+sudo make install
 ```
 
 This will install the `libSista.so` shared library in the system library path, and the headers in the system include path. This is the preferred inclusion method in Linux for versions v`2.0.0` and later. More on this in the [documentation](https://sista.readthedocs.io/en/latest/).
+
+```bash
+sudo make uninstall
+```
+
+This will remove the installed files from the system library and include paths. The same disclaimer applies as above, you will need administrative privileges to run this command.
 
 ## Usage
 

@@ -6,7 +6,7 @@
 
 ``Sista`` provides a set of classes and functions to make terminal games in ``C++`` easier, thus preventing developers from having to reinvent the wheel every time they want to make a terminal game.
 
-``Installation``
+``Download``
 -------------
 
 To install Sista, simply download the latest release from `GitHub <https://github.com/FLAK-ZOSO/Sista/releases>`_.
@@ -20,6 +20,14 @@ An easier approach can be to directly clone the repository into your project's d
 
 ``Usage``
 -------------
+
+The way you use Sista depends on how you want to include it in your project. There are two main ways to use Sista:
+
+1. As a header-only library
+2. As a shared library
+
+In the first case, you will include the Sista headers in your project and compile the source files along with your project.
+In the second case, you will install Sista as a shared library and link against it when compiling your project.
 
 As header only library
 -----------------
@@ -102,6 +110,12 @@ You can also link statically against Sista by using the following command:
     g++ -std=c++17 -o sista sista.cpp -static -lSista
 
 This will create a statically linked executable that includes the Sista library, which can be useful if you want to distribute your application without requiring users to install Sista separately.
+
+If you need to uninstall Sista, you can run the following command in your terminal with administrative privileges:
+
+.. code-block:: bash
+
+    sudo make uninstall
 
 ``Documentation``
 --------------
