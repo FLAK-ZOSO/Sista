@@ -1,7 +1,6 @@
 #include <chrono>
 #include <thread>
 #include "../include/sista/sista.hpp"
-// g++ swapTest.cpp -o swapTest -std=c++17 -Wall
 
 
 int main() {

@@ -1,7 +1,6 @@
 #include <chrono>
 #include <thread>
 #include "../include/sista/sista.hpp"
-// g++ horizontalTest.cpp -o horizontalTest -std=c++17 -Wall
 
 
 int main(int argc, char** argv) {

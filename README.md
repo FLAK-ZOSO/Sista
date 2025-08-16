@@ -60,6 +60,8 @@ See the [documentation](https://sista.readthedocs.io/en/latest/) for more detail
 
 The english documentation for Sista can be found at [`Sista - ReadTheDocs`](https://sista.readthedocs.io/).
 
+Under the `demo/` directory, you can find many minimal demos that showcase the features of Sista. These demos are minimal examples and do not provide a complete walkthrough of the library, unlike the `sista.cpp` example.
+
 Additional information about versions can be found in the [`Release Notes`](ReleaseNotes.md).
 
 

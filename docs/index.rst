@@ -134,6 +134,13 @@ A simple example of how to use Sista to make a terminal animation is provided by
 
 A more detailed explaination of the example can be found in the `intro <intro.html>`_.
 
+``Demos``
+----------------
+
+You can find some demos of Sista in the `demo <https://github.com/FLAK-ZOSO/Sista/blob/main/demo>`_ directory of the repository.
+
+These demos showcase various features of Sista. They are minimal examples and, unlike the `sista.cpp` example, they do not provide a complete walkthrough of the library.
+
 ``Derived works``
 ----------------
 

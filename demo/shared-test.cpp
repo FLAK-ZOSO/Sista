@@ -1,4 +1,3 @@
-// make shared-test
 #include <sista/sista.hpp>
 #include <chrono>
 #include <thread>
