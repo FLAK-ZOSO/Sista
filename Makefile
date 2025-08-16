@@ -20,6 +20,11 @@ else
     SHARED_EXT=.so
 endif
 
+# Use cmd.exe for recipes on Windows
+ifeq ($(OS),Windows_NT)
+SHELL := cmd.exe
+endif
+
 all: sista
 
 objects:
