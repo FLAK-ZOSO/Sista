@@ -26,6 +26,7 @@ jobs:
 
       - name: Run make (Windows)
         if: runner.os == 'Windows'
+        shell: pwsh
         run: |
           $env:PREFIX = 'C:\Program Files\Sista'
           make install
