@@ -56,7 +56,7 @@ jobs:
         id: find_static_lib_win
         shell: pwsh
         run: |
-          $lib = Get-ChildItem -Path "C:\Sista\lib" -Filter "libSista.lib" -Recurse | Select-Object -First 1
+          $lib = Get-ChildItem -Path "C:\Program Files\Sista\lib" -Filter "libSista.lib" -Recurse | Select-Object -First 1
           echo "STATIC_LIB=$($lib.FullName)" >> $env:GITHUB_ENV
 
       - name: Upload Release Assets
