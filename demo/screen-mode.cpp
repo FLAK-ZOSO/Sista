@@ -10,4 +10,15 @@ int main() {
             std::cout << '\n';
         }
     }
+    ANSI::unsetScreenMode(ANSI::ScreenMode::LINE_WRAPPING);
+    for (int i = 0; i < 256; i++) {
+        ANSI::setForegroundColor(i);
+        std::cout << i << ' ';
+    }
+    std::cout << std::endl;
+    ANSI::setScreenMode(ANSI::ScreenMode::LINE_WRAPPING);
+    for (int i = 0; i < 256; i++) {
+        ANSI::setForegroundColor(i);
+        std::cout << i << ' ';
+    }
 }
