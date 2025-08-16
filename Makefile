@@ -64,7 +64,7 @@ libSista.dll: $(OBJECTS)
 	g++ -std=c++17 -Wall -shared -o libSista.dll $(OBJECTS) -Wl,--out-implib,libSista.lib
 
 libSista_static.lib: $(OBJECTS)
-    ar rcs libSista_static.lib $(OBJECTS)
+	ar rcs libSista_static.lib $(OBJECTS)
 endif
 
 libSista.a: $(OBJECTS)
