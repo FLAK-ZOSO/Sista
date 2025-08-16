@@ -2,40 +2,52 @@
 IMPLEMENTATIONS = include/sista/ANSI-Settings.cpp include/sista/border.cpp include/sista/coordinates.cpp include/sista/cursor.cpp include/sista/field.cpp include/sista/pawn.cpp
 OBJECTS = ANSI-Settings.o border.o coordinates.o cursor.o field.o pawn.o
 
-all: objects file
+all: sista
 
 objects:
-	g++ -std=c++17 -Wall -g -c $(IMPLEMENTATIONS)
+	g++ -std=c++17 -Wall -c $(IMPLEMENTATIONS)
 
 objects_dynamic:
-	g++ -std=c++17 -Wall -g -fPIC -c $(IMPLEMENTATIONS)
+	g++ -std=c++17 -Wall -fPIC -c $(IMPLEMENTATIONS)
 
-file: objects
-	g++ -std=c++17 -Wall -g -c sista.cpp
-	g++ -std=c++17 -Wall -g -o sista sista.o $(OBJECTS)
+# Compiles all the library files into object files, then links them to the executable
+sista: objects
+	g++ -std=c++17 -Wall -c sista.cpp
+	g++ -std=c++17 -static -Wall -o sista sista.o $(OBJECTS)
 
-dynamic_lib_file: libSista.so objects_dynamic
-	g++ -std=c++17 -Wall -g -fPIC -c sista.cpp
+# Compiles sista.cpp and links it against the local dynamic library libSista.so
+sista_against_dynamic_lib_local: libSista.so objects_dynamic
+	g++ -std=c++17 -Wall -fPIC -c sista.cpp
+	g++ -std=c++17 -o sista sista.o libSista.so
+
+# Compiles sista.cpp and links it against the local static library libSista.a
+sista_against_static_lib_local: libSista.a objects
+	g++ -std=c++17 -Wall -c sista.cpp
+	g++ -std=c++17 -static -o sista sista.o libSista.a
+
+# Compiles sista.cpp and links it against the system dynamic library libSista.so
+sista_against_dynamic_lib_shared: install
+	g++ -std=c++17 -Wall -fPIC -c sista.cpp
 	g++ -std=c++17 -o sista sista.o -lSista
 
-static_lib_file: static objects
-	g++ -std=c++17 -o sista sista.cpp -lSista
+# Compiles sista.cpp and links it against the system static library libSista.a
+sista_against_static_lib_shared: install
+	g++ -std=c++17 -Wall -c sista.cpp
+	g++ -std=c++17 -static -o sista sista.o -lSista
+
+%.o: include/sista/%.cpp
+	g++ -std=c++17 -Wall -fPIC -c $< -o $@
 
 libSista.so: $(OBJECTS)
 	g++ -std=c++17 -Wall -fPIC -shared -o libSista.so $(OBJECTS)
 
-%.o: include/sista/%.cpp
-	g++ -std=c++17 -Wall -g -fPIC -c $< -o $@
+libSista.a: $(OBJECTS)
+	ar rcs libSista.a $(OBJECTS)
 
 clean:
 	rm -f *.o libSista.so libSista.a
 
-static: libSista.a
-
-libSista.a: $(OBJECTS)
-	ar rcs libSista.a $(OBJECTS)
-
-PREFIX ?= /usr
+PREFIX ?= /usr/local
 
 install: libSista.so libSista.a
 	install -d $(PREFIX)/lib
@@ -53,4 +65,4 @@ uninstall:
 	rm -f /etc/ld.so.conf.d/sista.conf
 	ldconfig
 
-.PHONY: all objects objects_dynamic file dynamic_lib_file static_lib_file clean static install uninstall
+.PHONY: all objects objects_dynamic clean install uninstall sista_against_dynamic_lib_local sista_against_static_lib_local sista_against_dynamic_lib_shared sista_against_static_lib_shared
