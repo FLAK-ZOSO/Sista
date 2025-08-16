@@ -73,25 +73,27 @@ libSista.a: $(OBJECTS)
 clean:
 	rm -f *.o libSista.so libSista.a
 
-install: libSista$(SHARED_EXT) libSista$(LIB_EXT)
-	ifeq ($(OS),Windows_NT)
-		@if not exist "$(PREFIX)\lib" mkdir "$(PREFIX)\lib"
-		@if not exist "$(PREFIX)\include\sista" mkdir "$(PREFIX)\include\sista"
-		copy libSista.dll "$(PREFIX)\lib\"
-		copy libSista.lib "$(PREFIX)\lib\"
-		copy libSista_static.lib "$(PREFIX)\lib\"
-		copy include\sista\*.hpp "$(PREFIX)\include\sista\"
-		@echo "Library and headers installed to $(PREFIX)."
-		@echo "Remember to add $(PREFIX)\lib to your compiler's library search path and $(PREFIX)\include\sista to your include path."
-	else
-		install -d $(PREFIX)/lib
-		install -m 755 libSista.so $(PREFIX)/lib/
-		install -m 644 libSista.a $(PREFIX)/lib/
-		install -d $(PREFIX)/include/sista
-		install -m 644 include/sista/*.hpp $(PREFIX)/include/sista/
-		echo "$(PREFIX)/lib" | sudo tee /etc/ld.so.conf.d/sista.conf
-		ldconfig
-	endif
+ifeq ($(OS),Windows_NT)
+install: libSista.dll libSista.lib libSista_static.lib
+	@if not exist "$(PREFIX)" mkdir "$(PREFIX)"
+	@if not exist "$(PREFIX)\lib" mkdir "$(PREFIX)\lib"
+	@if not exist "$(PREFIX)\include\sista" mkdir "$(PREFIX)\include\sista"
+	copy libSista.dll "$(PREFIX)\lib\"
+	copy libSista.lib "$(PREFIX)\lib\"
+	copy libSista_static.lib "$(PREFIX)\lib\"
+	copy include\sista\*.hpp "$(PREFIX)\include\sista\"
+	@echo "Library and headers installed to $(PREFIX)."
+	@echo "Remember to add $(PREFIX)\lib to your compiler's library search path and $(PREFIX)\include\sista to your include path."
+else
+install: libSista.so libSista.a
+	install -d $(PREFIX)/lib
+	install -m 755 libSista.so $(PREFIX)/lib/
+	install -m 644 libSista.a $(PREFIX)/lib/
+	install -d $(PREFIX)/include/sista
+	install -m 644 include/sista/*.hpp $(PREFIX)/include/sista/
+	echo "$(PREFIX)/lib" | sudo tee /etc/ld.so.conf.d/sista.conf
+	ldconfig
+endif
 
 uninstall:
 	ifeq ($(OS),Windows_NT)
