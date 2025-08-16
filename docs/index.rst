@@ -51,7 +51,7 @@ However, you will have to include them in the compilation process as shown here.
     objects:
         g++ -std=c++17 -Wall -g -c $(IMPLEMENTATIONS)
 
-    file: objects
+    sista: objects
         g++ -std=c++17 -Wall -g -c sista.cpp
         g++ -std=c++17 -Wall -g -o sista sista.o ANSI-Settings.o border.o coordinates.o cursor.o pawn.o field.o
 

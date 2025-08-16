@@ -3,7 +3,7 @@
 
 The purpose of this document is to provide a quick example of how to use the ``Sista`` library.
 
-I will use this `sista.cpp <https://github.com/FLAK-ZOSO/Sista/blob/main/sista.cpp>`_ file as the example to explain.
+I will use this `sista.cpp <https://github.com/FLAK-ZOSO/Sista/blob/main/sista.cpp>`_ file as the example and I will provide a walkthrough.
 
 ``Installation``
 --------------------
@@ -55,19 +55,19 @@ The next thing the program does is to unsync the C++ standard input/output strea
 
     std::ios_base::sync_with_stdio(false);
 
-This line will make I/O faster since we only use C++ standard input/output. You can read more about it `on Stack Overflow https://stackoverflow.com/questions/31162367/significance-of-ios-basesync-with-stdiofalse-cin-tienull`_.
+This line will make I/O faster since we only use C++ standard input/output. You can read more about it `on Stack Overflow <https://stackoverflow.com/questions/31162367/significance-of-ios-basesync-with-stdiofalse-cin-tienull>`_.
 
 .. code-block:: cpp
 
     ANSI::reset(); // Reset the settings
 
-This line of code will reset the ANSI settings of the terminal [#]_.
+This line of code will reset the ANSI settings of the terminal.
 
 .. code-block:: cpp
 
     std::cout << HIDE_CURSOR;
 
-This line of code will hide the cursor [#]_ to reduce that noisy flickering.
+This line of code will hide the cursor to reduce that noisy flickering.
 
 ℹ️ - You don't need to do this explicitly since the ``sista::Field`` class includes a private ``sista::Cursor`` object that will hide the cursor when the constructor is called.
 
@@ -75,7 +75,7 @@ This line of code will hide the cursor [#]_ to reduce that noisy flickering.
 
     sista::clearScreen();
 
-The ``clearScreen()`` [#]_ function will clear the screen and the buffer [#]_, and move the cursor to the top left corner.
+The ``clearScreen()`` [#]_ function will clear the screen and the scrollback buffer, and move the cursor to the top left corner.
 
 ℹ️ - You don't need to do this explicitly since the ``sista::Field`` class includes a private ``sista::Cursor`` object that will call ``sista::clearScreen()``.
 
@@ -136,13 +136,13 @@ This line of code will create a ``Border`` object with the following properties:
 ``Field``
 --------------------
 
-The next thing to do is to create a ``Field`` object [#]_.
+The next thing to do is to create a ``Field`` object. In this case, I will use the ``sista::SwappableField`` class, which is a subclass of the ``sista::Field`` class that allows you to swap pawns in case of apparent collisions.
 
 .. code-block:: cpp
 
     sista::SwappableField field(TEST_SIZE, TEST_SIZE);
 
-In this case I am creating a ``sista::SwappableField`` [#]_ object with the following properties:
+In this case I am creating a ``sista::SwappableField`` object with the following - in order - properties:
 
 - ``Width``: ``50``
 - ``Height``: ``50``
@@ -197,7 +197,22 @@ First of all, we need to print the ``Field`` object with the ``Border`` object.
         std::cout << std::flush;
     }
 
-Since now we'll never going to re-print the ``Field`` object, we'll edit only the needed characters in the ``stdout`` stream.
+Since now we'll never going to re-print the ``Field`` object, we'll edit only the needed characters in the ``stdout`` stream. This is the strength of Sista: it allows you to edit only the characters that need to be changed, instead of re-printing the whole field.
+
+In this loop, we are moving the pawns in different directions using the ``movingByCoordinates()`` method of the ``Field`` object, that doesn't actually move the ``Pawn`` but rather calculates its future position. The coordinates are stored in the ``coords`` vector.
+
+Analyzing the code, we can see that we are moving the pawns in the following directions:
+
+- Pawn 0: Down-Right (1, 1)
+- Pawn 1: Up-Left (-1, -1)
+- Pawn 2: Up-Right (-1, 1)
+- Pawn 3: Down-Left (1, -1)
+- Pawn 4: Right (1, 0)
+- Pawn 5: Down (0, 1)
+
+If the movement is valid, we will move the pawn to the new coordinates using the ``movePawn()`` method.
+
+If the movement is not valid, we will add the pawn to the swap list using the ``addPawnToSwap()`` method, and then we will apply the swaps using the ``applySwaps()`` method. This is useful when the pawn is trying to move to a position that is already occupied by another pawn, but that other pawn is moving out of the way at the same time.
 
 After applying all the movements, we'll swap the characters in the ``stdout`` stream, and then we'll flush the ``stdout`` stream.
 
@@ -238,9 +253,4 @@ On Windows it is slightly different, but it is assumed that whoever reaches this
 ====================
 
 .. [#] In the example the namespace is always specified for clarity
-.. [#] The ``ANSI::reset`` function comes from the ``ANSI-Settings.hpp`` header
-.. [#] The ``HIDE_CURSOR`` preprocessor constant comes from the ``ANSI-Settings.hpp`` header
 .. [#] The ``clearScreen()`` function was OS-specific and only worked on ``Windows`` until ``v0.5.0`` when it became cross-platform
-.. [#] The ``clearScreen()`` function comes from the ``cursor.hpp`` header
-.. [#] The ``TEST_SIZE`` preprocessor constant was previously defined, and expands to ``50``
-.. [#] The ``sista::SwappableField`` class comes from the ``SwappableField.hpp`` header since ``v0.4.0`` and inherits from the ``sista::Field`` class
