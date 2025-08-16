@@ -2,6 +2,13 @@
 IMPLEMENTATIONS = include/sista/ANSI-Settings.cpp include/sista/border.cpp include/sista/coordinates.cpp include/sista/cursor.cpp include/sista/field.cpp include/sista/pawn.cpp
 OBJECTS = ANSI-Settings.o border.o coordinates.o cursor.o field.o pawn.o
 
+# For the Makefile CI workflow, macos-latest cannot use the `-static` flag
+ifeq "$(shell uname -s)" "Darwin"
+	STATIC_FLAG=
+else
+	STATIC_FLAG=-static
+endif
+
 all: sista
 
 objects:
@@ -13,7 +20,7 @@ objects_dynamic:
 # Compiles all the library files into object files, then links them to the executable
 sista: objects
 	g++ -std=c++17 -Wall -c sista.cpp
-	g++ -std=c++17 -static -Wall -o sista sista.o $(OBJECTS)
+	g++ -std=c++17 $(STATIC_FLAG) -Wall -o sista sista.o $(OBJECTS)
 
 # Compiles sista.cpp and links it against the local dynamic library libSista.so
 sista_against_dynamic_lib_local: libSista.so objects_dynamic
