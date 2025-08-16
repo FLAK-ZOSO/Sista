@@ -84,6 +84,12 @@ install: libSista.dll libSista.lib libSista_static.lib
 	copy include\sista\*.hpp "$(PREFIX)\include\sista\"
 	@echo "Library and headers installed to $(PREFIX)."
 	@echo "Remember to add $(PREFIX)\lib to your compiler's library search path and $(PREFIX)\include\sista to your include path."
+
+uninstall:
+	del "$(PREFIX)\lib\libSista.dll"
+	del "$(PREFIX)\lib\libSista.lib"
+	del "$(PREFIX)\lib\libSista_static.lib"
+	@if exist "$(PREFIX)\include\sista" rmdir /S /Q "$(PREFIX)\include\sista"
 else
 install: libSista.so libSista.a
 	install -d $(PREFIX)/lib
@@ -93,20 +99,13 @@ install: libSista.so libSista.a
 	install -m 644 include/sista/*.hpp $(PREFIX)/include/sista/
 	echo "$(PREFIX)/lib" | sudo tee /etc/ld.so.conf.d/sista.conf
 	ldconfig
-endif
 
 uninstall:
-	ifeq ($(OS),Windows_NT)
-		del "$(PREFIX)\lib\libSista.dll"
-		del "$(PREFIX)\lib\libSista.lib"
-		del "$(PREFIX)\lib\libSista_static.lib"
-		@if exist "$(PREFIX)\include\sista" rmdir /S /Q "$(PREFIX)\include\sista"
-	else
-		rm -f $(PREFIX)/lib/libSista.so
-		rm -f $(PREFIX)/lib/libSista.a
-		rm -rf $(PREFIX)/include/sista
-		rm -f /etc/ld.so.conf.d/sista.conf
-		ldconfig
-	endif
+	rm -f $(PREFIX)/lib/libSista.so
+	rm -f $(PREFIX)/lib/libSista.a
+	rm -rf $(PREFIX)/include/sista
+	rm -f /etc/ld.so.conf.d/sista.conf
+	ldconfig
+endif
 
 .PHONY: all objects objects_dynamic clean install uninstall sista_against_dynamic_lib_local sista_against_static_lib_local sista_against_dynamic_lib_shared sista_against_static_lib_shared
