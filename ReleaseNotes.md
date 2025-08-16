@@ -2,6 +2,12 @@
 
 Here you can find the release notes for each version of `Sista` since `v0.1.0`, with changelog since v`0.7.0`; these are listed in a bottom-up order.
 
+## v`2.1.1`
+
+- Fixed the `Makefile` to correctly build the demos without the need for `Sista` to be installed
+- Added documentation in the `demo/README.md` file
+- Updated and refreshed the documentation on ReadTheDocs, under `docs/`
+
 ## v`2.1.0`
 
 Minor release.
