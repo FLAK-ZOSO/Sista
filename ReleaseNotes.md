@@ -2,11 +2,19 @@
 
 Here you can find the release notes for each version of `Sista` since `v0.1.0`, with changelog since v`0.7.0`; these are listed in a bottom-up order.
 
+## v`2.1.0`
+
+Minor release.
+
+- Changed path of the `libSista.so` shared library from `{PREFIX}/lib64/libSista.so` to `{PREFIX}/lib/libSista.so` for `ld` to find it correctly on most systems
+- Added `uninstall` target to the `Makefile` to remove the installed files
+- Added `demo/shared-test.cpp` and related `Makefile` target to test the shared library installation
+
 ## v`2.0.0`
 
 Major release.
 
-- Sista now available as a shared library, `libSista.so`, which can be installed in the system library path.
+- Sista now available as a shared library, `libSista.so`, which can be installed in the system library path
 
 ## v`1.1.8`
 

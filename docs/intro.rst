@@ -3,39 +3,59 @@
 
 The purpose of this document is to provide a quick example of how to use the ``Sista`` library.
 
-I will use the `sista.cpp <https://github.com/FLAK-ZOSO/Sista/blob/main/sista.cpp>`_ file as the example to explain.
+I will use this `sista.cpp <https://github.com/FLAK-ZOSO/Sista/blob/main/sista.cpp>`_ file as the example to explain.
+
+``Installation``
+--------------------
+
+To use the ``Sista`` library, you can either include it as a header-only library or install it as a shared library. In the following example we illustrate the latter method.
+
+.. code-block:: bash
+
+    git clone https://github.com/FLAK-ZOSO/Sista
+    cd Sista
+    sudo make install
+
+This will install the ``Sista`` library in your system library path, allowing you to link against it when compiling your project.
 
 ``Include``
 --------------------
 
-The first thing you need to do is include the ``Sista`` library.
+The first thing you need to do is include the ``Sista`` library. The header file you need to include is ``sista.hpp``.
+
+If you installed the library as a shared library, you can include it like this:
+
+.. code-block:: cpp
+
+    #include <sista/sista.hpp>
+
+Otherwise, if you are using it as a header-only library, you can include it like this:
 
 .. code-block:: cpp
 
     #include "include/sista/sista.hpp"
 
+Provided that you have the ``include/sista/`` directory in your project's source directory.
 
 ``Namespace``
 --------------------
 
-The next thing you should do is to use the ``sista`` namespace [#]_.
+If you want you can use the ``sista`` namespace [#]_.
 
 .. code-block:: cpp
 
     using namespace sista;
 
-
 ``Input/Output``
 --------------------
 
-The next thing to do is to set the input and output streams.
+The next thing the program does is to unsync the C++ standard input/output streams from the C standard streams.
 
 .. code-block:: cpp
 
     std::ios_base::sync_with_stdio(false);
-    std::cout.tie(nullptr);
 
-This two lines of code will make ``I/O`` faster.
+This line will make I/O faster since we only use C++ standard input/output. You can read more about it `on Stack Overflow https://stackoverflow.com/questions/31162367/significance-of-ios-basesync-with-stdiofalse-cin-tienull`_.
 
 .. code-block:: cpp
 
@@ -49,7 +69,7 @@ This line of code will reset the ANSI settings of the terminal [#]_.
 
 This line of code will hide the cursor [#]_ to reduce that noisy flickering.
 
-ℹ️ - You don't need to do this since the ``sista::Field`` class includes a private ``sista::Cursor`` object that will hide the cursor when the constructor is called.
+ℹ️ - You don't need to do this explicitly since the ``sista::Field`` class includes a private ``sista::Cursor`` object that will hide the cursor when the constructor is called.
 
 .. code-block:: cpp
 
@@ -57,7 +77,7 @@ This line of code will hide the cursor [#]_ to reduce that noisy flickering.
 
 The ``clearScreen()`` [#]_ function will clear the screen and the buffer [#]_, and move the cursor to the top left corner.
 
-ℹ️ - You don't need to do this since the ``sista::Field`` class includes a private ``sista::Cursor`` object that will call ``sista::clearScreen()``.
+ℹ️ - You don't need to do this explicitly since the ``sista::Field`` class includes a private ``sista::Cursor`` object that will call ``sista::clearScreen()``.
 
 ``Pawn``
 --------------------
@@ -212,15 +232,15 @@ In case you have ``make`` installed, it's easier to directly use it in pair with
 
     ./sista
 
-On Windows it is slightly different, but I will assume whoever reached this point in the documentation is aware of how to launch an executable from a command line interface.
+On Windows it is slightly different, but it is assumed that whoever reaches this point in the documentation is aware of how to launch an executable from a command line interface.
 
 ``Notes``
 ====================
 
-.. [#] In the example I anyway specify the namespace despite the fact that I already used the ``using namespace sista;`` statement. This is because I want to make it clear that I am using the ``sista`` namespace.
-.. [#] The ``ANSI::reset`` function comes from the ``ANSI-Settings.hpp`` header.
-.. [#] The ``HIDE_CURSOR`` preprocessor constant comes from the ``ANSI-Settings.hpp`` header.
-.. [#] The ``clearScreen()`` function was OS-specific and only worked on ``Windows`` until ``v0.5.0`` when it became cross-platform.
-.. [#] The ``clearScreen()`` function comes from the ``cursor.hpp`` header.
-.. [#] The ``TEST_SIZE`` preprocessor constant was previously defined, and expands to ``50``.
-.. [#] The ``sista::SwappableField`` class comes from the ``SwappableField.hpp`` header since ``v0.4.0`` and inherits from the ``sista::Field`` class.
+.. [#] In the example the namespace is always specified for clarity
+.. [#] The ``ANSI::reset`` function comes from the ``ANSI-Settings.hpp`` header
+.. [#] The ``HIDE_CURSOR`` preprocessor constant comes from the ``ANSI-Settings.hpp`` header
+.. [#] The ``clearScreen()`` function was OS-specific and only worked on ``Windows`` until ``v0.5.0`` when it became cross-platform
+.. [#] The ``clearScreen()`` function comes from the ``cursor.hpp`` header
+.. [#] The ``TEST_SIZE`` preprocessor constant was previously defined, and expands to ``50``
+.. [#] The ``sista::SwappableField`` class comes from the ``SwappableField.hpp`` header since ``v0.4.0`` and inherits from the ``sista::Field`` class

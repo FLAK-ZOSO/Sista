@@ -28,6 +28,8 @@ This will remove the installed files from the system library and include paths. 
 
 ## Usage
 
+### Using Sista as a header-only library
+
 To use Sista, simply include the `"sista.hpp"` header in your project's source files.
 
 ```cpp
@@ -37,6 +39,22 @@ To use Sista, simply include the `"sista.hpp"` header in your project's source f
 ```
 
 The `"sista.hpp"` header includes all of the other headers in the `"include/sista/"` directory, so you don't have to include them individually.
+
+### Using Sista as a shared library
+
+You also need to include the `"sista/sista.hpp"` header in your source files, as shown above.
+
+```cpp
+#include <sista/sista.hpp>
+```
+
+This approach will require you to link against `libSista` when compiling your project. You can do this by adding the `-lSista` flag to your `g++` command.
+
+```bash
+g++ -std=c++17 -o my_project my_project.cpp -lSista
+``` 
+
+See the [documentation](https://sista.readthedocs.io/en/latest/) for more details on how to use Sista as a shared library and how to link against it. An example is provided in the [`Makefile`](Makefile) in the repository.
 
 ## Documentation
 
