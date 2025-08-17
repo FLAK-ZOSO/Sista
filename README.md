@@ -54,7 +54,7 @@ This approach will require you to link against `libSista` when compiling your pr
 g++ -std=c++17 -o my_project my_project.cpp -lSista
 ``` 
 
-See the [documentation](https://sista.readthedocs.io/en/latest/) for more details on how to use Sista as a shared library and how to link against it. An example is provided in the [`Makefile`](Makefile) in the repository.
+See the [documentation](https://sista.readthedocs.io/en/latest/) for more details on how to use Sista as a shared library and how to link against it. A comprehensive example is provided in the [`Makefile`](Makefile) in the repository, together with the installation targets.
 
 ## Documentation
 

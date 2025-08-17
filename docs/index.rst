@@ -117,6 +117,14 @@ If you need to uninstall Sista, you can run the following command in your termin
 
     sudo make uninstall
 
+You can likely find a good example of a Makefile that dynamically links to the Sista shared library at `Inävjaga <https://github.com/FLAK-ZOSO/Inavjaga/blob/sista-v2.0.0/Makefile>`_.
+
+If you want to use Sista as a shared library on Windows, you can follow the same steps as above, but you will need to use MinGW or MSYS2 to compile your project. The installation command is the same:
+
+.. code-block:: bash
+
+    make install
+
 ``Documentation``
 --------------
 

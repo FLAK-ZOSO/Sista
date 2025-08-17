@@ -18,6 +18,17 @@ To use the ``Sista`` library, you can either include it as a header-only library
 
 This will install the ``Sista`` library in your system library path, allowing you to link against it when compiling your project.
 
+Since v2.2.0, Sista is available as a shared library on Windows using MinGW. To install it, you can use the following commands in MinGW or MSYS2:
+
+.. code-block:: bash
+
+    git clone https://github.com/FLAK-ZOSO/Sista
+    cd Sista
+    # Make sure to run this in an elevated shell (as administrator) since 'sudo' is not available in MinGW/MSYS2
+    make install
+
+If you want to use it as a header-only library, you can simply copy the ``include/sista/`` directory to your project source directory.
+
 ``Include``
 --------------------
 
