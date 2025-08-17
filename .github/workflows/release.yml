@@ -49,7 +49,7 @@ jobs:
         shell: pwsh
         run: |
           $dll = Get-ChildItem -Path "C:\Program Files\Sista\lib" -Filter "libSista.dll" -Recurse | Select-Object -First 1
-          echo "DYNAMIC_LIB=$($dll.FullName)" >> $env:GITHUB_ENV
+          echo "DYNAMIC_LIB=Windows-$($dll.FullName)" >> $env:GITHUB_ENV
 
       - name: Find static library (Windows)
         if: runner.os == 'Windows'
@@ -57,7 +57,7 @@ jobs:
         shell: pwsh
         run: |
           $lib = Get-ChildItem -Path "C:\Program Files\Sista\lib" -Filter "libSista.a" -Recurse | Select-Object -First 1
-          echo "STATIC_LIB=$($lib.FullName)" >> $env:GITHUB_ENV
+          echo "STATIC_LIB=Windows-$($lib.FullName)" >> $env:GITHUB_ENV
 
       - name: Upload Release Assets
         uses: softprops/action-gh-release@v2
