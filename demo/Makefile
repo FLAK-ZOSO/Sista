@@ -1,5 +1,12 @@
 IMPLEMENTATIONS = ../include/sista/ANSI-Settings.cpp ../include/sista/border.cpp ../include/sista/coordinates.cpp ../include/sista/cursor.cpp ../include/sista/field.cpp ../include/sista/pawn.cpp
 OBJECTS = ANSI-Settings.o border.o coordinates.o cursor.o field.o pawn.o
+ifeq ($(OS),Windows_NT)
+	INCLUDE_PATH_DIRECTIVE = -I"C:/Program Files/Sista/include"
+	LD_LIBRARY_PATH_DIRECTIVE = -L"C:/Program Files/Sista/lib"
+else
+	INCLUDE_PATH_DIRECTIVE=
+	LD_LIBRARY_PATH_DIRECTIVE=
+endif
 
 all: header-test colors24-bit colors256 conflictTest resetAttribute screen-mode swapTest verticalTest clean_objects
 
@@ -10,10 +17,10 @@ header-test: header-test.o $(OBJECTS)
 	g++ -std=c++17 -o header-test header-test.o $(OBJECTS)
 
 shared-test.o:
-	g++ -std=c++17 -Wall -Wno-narrowing -Wno-sign-compare -g -c shared-test.cpp
+	g++ -std=c++17 -Wall -Wno-narrowing -Wno-sign-compare -g $(INCLUDE_PATH_DIRECTIVE) -c shared-test.cpp
 
 shared-test: shared-test.o $(OBJECTS)
-	g++ -std=c++17 -o shared-test shared-test.o -lSista
+	g++ -std=c++17 -o shared-test shared-test.o $(LD_LIBRARY_PATH_DIRECTIVE) -lSista
 
 %.o: ../include/sista/%.cpp
 	g++ -std=c++17 -Wall -fPIC -c $< -o $@
