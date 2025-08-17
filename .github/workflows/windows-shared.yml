@@ -2,7 +2,7 @@ name: demo/shared-test on Windows
 
 on:
     push:
-        branches: [ main ]
+        branches: [ main, windows-shared ]
         paths:
         - 'Makefile'
         - 'include/**'
