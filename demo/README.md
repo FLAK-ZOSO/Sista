@@ -67,6 +67,8 @@ This will create the `shared-test` executable, which you can run to test the ins
 ./shared-test
 ```
 
+On Windows (MinGW), when building the `shared-test` demo with `-lSista`, the linker uses the import library `libSista.dll.a` to link against the shared library `libSista.dll`. This means your executable will require `libSista.dll` to be present at runtime. The `.so` files are used on Linux/macOS for the same purpose. This is just for information, as the `Makefile` handles this automatically.
+
 You can also verify if you can link statically against the library.
 
 ```bash

@@ -2,6 +2,16 @@
 
 Here you can find the release notes for each version of `Sista` since `v0.1.0`, with changelog since v`0.7.0`; these are listed in a bottom-up order.
 
+## v`2.2.0`
+
+Minor release.
+
+- `Sista` now available as a shared library on Windows via `MinGW`, `MSYS2` or alternative toolchains
+
+The previous state was that `Sista` was only available in source format on Windows, but now it can be installed on the system as a shared library.
+
+MSVC support is not available, and it won't for the foreseeable future unless there is a demand for it and a volunteer to test it.
+
 ## v`2.1.1`
 
 - Fixed the `Makefile` to correctly build the demos without the need for `Sista` to be installed
