@@ -52,14 +52,12 @@ jobs:
         run: |
           cd demo
           make shared-test
-          if ($LASTEXITCODE -ne 0) {
-              Write-Error "Tests failed"
-          } else {
-              Write-Host "Tests passed successfully"
-          }
+          make shared-test-static
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
         with:
           name: shared-test
-          path: demo/shared-test.exe
+          path: |
+            demo/shared-test.exe
+            demo/shared-test-static.exe
