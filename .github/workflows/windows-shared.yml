@@ -1,0 +1,66 @@
+name: demo/shared-test on Windows
+
+on:
+    push:
+        branches: [ main ]
+        paths:
+        - 'Makefile'
+        - 'include/**'
+        - '*.cpp'
+        - '*.hpp'
+        - '.github/workflows/windows-shared.yml'
+    pull_request:
+        branches:
+            - main
+            - '**'
+    
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run make
+        shell: pwsh
+        run: |
+          $env:PREFIX = 'C:\Program Files\Sista'
+          make install
+
+      - name: Find dynamic library
+        id: find_dynamic_lib_win
+        shell: pwsh
+        run: |
+          $dll = Get-ChildItem -Path "C:\Program Files\Sista\lib" -Filter "libSista.dll" -Recurse | Select-Object -First 1
+          echo "DYNAMIC_LIB=$($dll.FullName)" >> $env:GITHUB_ENV
+
+      - name: Find static library
+        id: find_static_lib_win
+        shell: pwsh
+        run: |
+          $lib = Get-ChildItem -Path "C:\Program Files\Sista\lib" -Filter "libSista.lib" -Recurse | Select-Object -First 1
+          echo "STATIC_LIB=$($lib.FullName)" >> $env:GITHUB_ENV
+
+      - name: Display libraries
+        shell: pwsh
+        run: |
+          Write-Host "Dynamic Library: $env:DYNAMIC_LIB"
+          Write-Host "Static Library: $env:STATIC_LIB"
+
+      - name: Run tests
+        shell: pwsh
+        run: |
+          cd demo
+          $env:PATH = "C:\Program Files\Sista\bin;$env:PATH"
+          make shared-test
+          if ($LASTEXITCODE -ne 0) {
+              Write-Error "Tests failed"
+          } else {
+              Write-Host "Tests passed successfully"
+          }
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: shared-test
+          path: demo/shared-test.exe
