@@ -22,6 +22,12 @@ shared-test.o:
 shared-test: shared-test.o $(OBJECTS)
 	g++ -std=c++17 -o shared-test shared-test.o $(LD_LIBRARY_PATH_DIRECTIVE) -lSista
 
+shared-test-static.o:
+	g++ -std=c++17 -Wall -Wno-narrowing -Wno-sign-compare -g $(INCLUDE_PATH_DIRECTIVE) -c shared-test-static.cpp
+
+shared-test-static: shared-test-static.o $(OBJECTS)
+	g++ -std=c++17 -static -o shared-test-static shared-test-static.o $(LD_LIBRARY_PATH_DIRECTIVE) -lSista
+
 %.o: ../include/sista/%.cpp
 	g++ -std=c++17 -Wall -fPIC -c $< -o $@
 

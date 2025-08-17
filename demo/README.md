@@ -5,7 +5,8 @@ This directory contains a set of demo programs that showcase the features of the
 ## Demos
 
 - `header-test`: A simple program that tests the header-only usage of `Sista`
-- `shared-test`: A program that tests the shared library usage of `Sista`
+- `shared-test`: A program that tests the shared library usage of `Sista` for dynamic linking
+- `shared-test-static`: A program that tests the shared library usage of `Sista` for static linking
 - `colors24-bit`: showcases the 24-bit color support
 - `colors256`: showcases the 256-color support
 - `conflictTest`: tests the conflict resolution features of `sista::SwappableField`
@@ -25,10 +26,11 @@ g++ -std=c++17 -Wall -Wno-narrowing -Wno-sign-compare -g -c header-test.cpp
 g++ -std=c++17 -Wall -g -o header-test header-test.o ANSI-Settings.o border.o coordinates.o cursor.o field.o pawn.o
 ```
 
-You can replace `header-test.cpp` with any of the other demo files to compile them. The `Makefile` in this directory provides a convenient way to build all demos at once.
+You can replace `header-test.cpp` with any of the other demo files to compile them. The `Makefile` in this directory provides a convenient way to build all demos at once. It does not however, for convenience reasons, include the tests that require the shared library to be installed.
 
 ```bash
 make
+# Equivalent to running: make all
 ```
 
 All demos are compiled with debugging symbols enabled, which allows you to run them in a debugger if needed.
@@ -60,6 +62,27 @@ make shared-test
 ```
 
 This will create the `shared-test` executable, which you can run to test the installation of `libSista`.
+
+```bash
+./shared-test
+```
+
+You can also verify if you can link statically against the library.
+
+```bash
+# Back in the Sista/demo directory
+make shared-test-static
+```
+
+This will create the `shared-test-static` executable, which you can [also after uninstalling the library](https://stackoverflow.com/questions/311882/what-do-statically-linked-and-dynamically-linked-mean).
+
+### Uninstalling the library
+
+If you want to remove the installed files, you can run:
+
+```bash
+sudo make uninstall
+```
 
 ## Running the demos
 
