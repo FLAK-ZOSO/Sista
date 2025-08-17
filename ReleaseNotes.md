@@ -12,6 +12,12 @@ The previous state was that `Sista` was only available in source format on Windo
 
 MSVC support is not available, and it won't for the foreseeable future unless there is a demand for it and a volunteer to test it.
 
+## v`2.1.2`
+
+- Added new demo `shared-test-static` to test static linking against the `Sista` library
+- Updated `demo/Makefile` to include the new demo and to build it correctly
+- Updated Makefile CI workflow to build all demos, including the new `shared-test-static` demo
+
 ## v`2.1.1`
 
 - Fixed the `Makefile` to correctly build the demos without the need for `Sista` to be installed
