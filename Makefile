@@ -12,7 +12,7 @@ endif
 # Set default PREFIX for Windows and Unix
 ifeq ($(OS),Windows_NT)
     PREFIX ?= C:\Program Files\Sista
-    LIB_EXT=.dll.a
+    LIB_EXT=.a
     SHARED_EXT=.dll
 else
     PREFIX ?= /usr/local
@@ -68,8 +68,8 @@ ifeq ($(OS),Windows_NT) # Assumes usage of MinGW on Windows
 libSista.dll: $(OBJECTS)
 	g++ -std=c++17 -Wall -shared -o libSista.dll $(OBJECTS) -Wl,--out-implib,libSista.lib
 
-libSista.dll.a: $(OBJECTS)
-	ar rcs libSista.dll.a $(OBJECTS)
+libSista.a: $(OBJECTS)
+	ar rcs libSista.a $(OBJECTS)
 endif
 
 libSista.a: $(OBJECTS)
@@ -79,13 +79,13 @@ clean:
 	rm -f *.o libSista.so libSista.a
 
 ifeq ($(OS),Windows_NT)
-install: libSista.dll libSista.lib libSista.dll.a
+install: libSista.dll libSista.a
 	@if not exist "$(PREFIX)" mkdir "$(PREFIX)"
 	@if not exist "$(PREFIX)\lib" mkdir "$(PREFIX)\lib"
 	@if not exist "$(PREFIX)\include\sista" mkdir "$(PREFIX)\include\sista"
 	copy libSista.dll "$(PREFIX)\lib\"
 	copy libSista.lib "$(PREFIX)\lib\"
-	copy libSista.dll.a "$(PREFIX)\lib\"
+	copy libSista.a "$(PREFIX)\lib\"
 	copy include\sista\*.hpp "$(PREFIX)\include\sista\"
 	@echo "Library and headers installed to $(PREFIX)."
 	@echo "Remember to add $(PREFIX)\lib to your compiler's library search path and $(PREFIX)\include\sista to your include path."
@@ -93,7 +93,7 @@ install: libSista.dll libSista.lib libSista.dll.a
 uninstall:
 	del "$(PREFIX)\lib\libSista.dll"
 	del "$(PREFIX)\lib\libSista.lib"
-	del "$(PREFIX)\lib\libSista.dll.a"
+	del "$(PREFIX)\lib\libSista.a"
 	@if exist "$(PREFIX)\include\sista" rmdir /S /Q "$(PREFIX)\include\sista"
 else
 install: libSista.so libSista.a
