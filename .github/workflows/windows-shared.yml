@@ -51,7 +51,8 @@ jobs:
         shell: pwsh
         run: |
           cd demo
-          $env:PATH = "C:\Program Files\Sista\bin;$env:PATH"
+          $env:LD_LIBRARY_PATH = "C:\Program Files\Sista\lib;$env:LD_LIBRARY_PATH"
+          $env:INCLUDE = "C:\Program Files\Sista\include\sista;$env:INCLUDE"
           make shared-test
           if ($LASTEXITCODE -ne 0) {
               Write-Error "Tests failed"
