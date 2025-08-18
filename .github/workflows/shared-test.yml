@@ -1,14 +1,14 @@
-name: demo/shared-test on Windows
+name: demo/shared-test
 
 on:
     push:
-        branches: [ main, windows-library ]
+        branches: [ main, windows-library, macos-library ]
         paths:
         - 'Makefile'
         - 'include/**'
         - '*.cpp'
         - '*.hpp'
-        - '.github/workflows/windows-shared.yml'
+        - '.github/workflows/shared-test.yml'
     pull_request:
         branches:
             - main
@@ -16,39 +16,64 @@ on:
     
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: [ windows-latest, macos-latest ]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run make
+      - name: Run make on Windows
+        if: runner.os == 'Windows'
         shell: pwsh
         run: |
           $env:PREFIX = 'C:\Program Files\Sista'
           make install
+      
+      - name: Run make on MacOS
+        if: runner.os == 'macOS'
+        run: sudo PREFIX=/usr/local make install
 
-      - name: Find dynamic library
+      - name: Find dynamic library on Windows
+        if: runner.os == 'Windows'
         id: find_dynamic_lib_win
         shell: pwsh
         run: |
           $dll = Get-ChildItem -Path "C:\Program Files\Sista\lib" -Filter "libSista.dll" -Recurse | Select-Object -First 1
           echo "DYNAMIC_LIB=$($dll.FullName)" >> $env:GITHUB_ENV
 
-      - name: Find static library
+      - name: Find static library on Windows
+        if: runner.os == 'Windows'
         id: find_static_lib_win
         shell: pwsh
         run: |
           $lib = Get-ChildItem -Path "C:\Program Files\Sista\lib" -Filter "libSista.a" -Recurse | Select-Object -First 1
           echo "STATIC_LIB=$($lib.FullName)" >> $env:GITHUB_ENV
 
-      - name: Display libraries
+      - name: Find dynamic library on MacOS
+        if: runner.os == 'macOS'
+        id: find_dynamic_lib_mac
+        run: |
+          echo "DYNAMIC_LIB=$(find /usr/local/lib -name 'libSista.so' -o -name 'libSista.dylib' -print -quit)" >> $GITHUB_ENV
+      
+      - name: Find static library on MacOS
+        if: runner.os == 'macOS'
+        id: find_static_lib_mac
+        run: |
+          echo "STATIC_LIB=$(find /usr/local/lib -name 'libSista.a' -print -quit)" >> $GITHUB_ENV
+    
+      - name: Display libraries on Windows
+        if: runner.os == 'Windows'
         shell: pwsh
         run: |
           Write-Host "Dynamic Library: $env:DYNAMIC_LIB"
           Write-Host "Static Library: $env:STATIC_LIB"
+          
+      - name: Display libraries on MacOS
+        if: runner.os == 'macOS'
+        run: |
+          echo "Dynamic Library: $DYNAMIC_LIB"
+          echo "Static Library: $STATIC_LIB"
 
       - name: Run tests
-        shell: pwsh
         run: |
           cd demo
           make shared-test

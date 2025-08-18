@@ -30,6 +30,10 @@ jobs:
         run: |
           $env:PREFIX = 'C:\Program Files\Sista'
           make install
+      
+      - name: Run make (MacOS)
+        if: runner.os == 'macOS'
+        run: sudo PREFIX=/usr/local make install
 
       - name: Find dynamic library (Linux)
         if: runner.os == 'Linux'
@@ -58,6 +62,23 @@ jobs:
         run: |
           $lib = Get-ChildItem -Path "C:\Program Files\Sista\lib" -Filter "libSista.a" -Recurse | Select-Object -First 1
           echo "STATIC_LIB=Windows-$($lib.FullName)" >> $env:GITHUB_ENV
+
+      - name: Find dynamic library (MacOS)
+        if: runner.os == 'macOS'
+        id: find_dynamic_lib_mac
+        run: |
+          echo "DYNAMIC_LIB=MacOS-$(find /usr/local/lib -name 'libSista.so' -o -name 'libSista.dylib' -print -quit)" >> $GITHUB_ENV
+      
+      - name: Find static library (MacOS)
+        if: runner.os == 'macOS'
+        id: find_static_lib_mac
+        run: |
+          echo "STATIC_LIB=MacOS-$(find /usr/local/lib -name 'libSista.a' -print -quit)" >> $GITHUB_ENV
+
+      - name: Display libraries
+        run: |
+          echo "Dynamic Library: ${{ env.DYNAMIC_LIB }}"
+          echo "Static Library: ${{ env.STATIC_LIB }}"
 
       - name: Upload Release Assets
         uses: softprops/action-gh-release@v2

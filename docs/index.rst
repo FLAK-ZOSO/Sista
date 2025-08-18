@@ -18,18 +18,20 @@ An easier approach can be to directly clone the repository into your project's d
 
     git clone https://github.com/FLAK-ZOSO/Sista
 
+If you want to use Sista as a shared library without installing it from source, you can download the x86-64 library from the `latest release on GitHub <https://github.com/FLAK-ZOSO/Sista/releases>`_. Then, just rename it to `libSista.so` and place it in your system library path (e.g., `/usr/local/lib` on Linux and MacOS, or `C:\Program Files\Sista\lib` on Windows).
+
 ``Usage``
 -------------
 
 The way you use Sista depends on how you want to include it in your project. There are two main ways to use Sista:
 
-1. As a header-only library
+1. As a source library
 2. As a shared library
 
 In the first case, you will include the Sista headers in your project and compile the source files along with your project.
 In the second case, you will install Sista as a shared library and link against it when compiling your project.
 
-As header only library
+As a source library
 -----------------
 
 To use Sista, simply include the ``"sista.hpp"`` header in your project's source files. This is the inclusion method for versions before v`2.0.0`.
@@ -74,6 +76,8 @@ To install Sista, you can use the provided Makefile in the repository. Simply ru
 
     sudo make install
 
+On most Linux and macOS systems, `/usr/local/lib` is a standard library path and no additional configuration is needed after installation. If you install Sista to a different location, you may need to adjust your library search path (e.g., by setting `LD_LIBRARY_PATH` on Linux or `DYLD_LIBRARY_PATH` on macOS).
+
 After installing Sista, you can include it in your project by adding the following line to your source files:
 
 .. code-block:: cpp
@@ -93,7 +97,7 @@ You can verify that Sista is installed correctly by running the following comman
 
 .. code-block:: bash
 
-    ldconfig -p | grep libSista
+    sudo ldconfig -p | grep libSista
 
 If Sista is installed correctly, you should see an output similar to this:
 
@@ -102,6 +106,12 @@ If Sista is installed correctly, you should see an output similar to this:
     libSista.so (libc6,x86-64) => /usr/local/lib/libSista.so
 
 If you see this output, you can now use Sista in your projects as a shared library as described above.
+
+The equivalent command on MacOS to check if Sista is installed correctly is:
+
+.. code-block:: bash
+
+    otool -L /usr/local/lib/libSista.so
 
 You can also link statically against Sista by using the following command:
 
@@ -117,13 +127,13 @@ If you need to uninstall Sista, you can run the following command in your termin
 
     sudo make uninstall
 
-You can likely find a good example of a Makefile that dynamically links to the Sista shared library at `Inävjaga <https://github.com/FLAK-ZOSO/Inavjaga/blob/sista-v2.0.0/Makefile>`_.
-
 If you want to use Sista as a shared library on Windows, you can follow the same steps as above, but you will need to use MinGW or MSYS2 to compile your project. The installation command is the same:
 
 .. code-block:: bash
 
     make install
+
+You can likely find a good example of a Makefile that dynamically links to the Sista shared library at `Inävjaga <https://github.com/FLAK-ZOSO/Inavjaga/blob/sista-v2.0.0/Makefile>`_.
 
 ``Documentation``
 --------------

@@ -5,6 +5,8 @@ OBJECTS = ANSI-Settings.o border.o coordinates.o cursor.o field.o pawn.o
 # For the Makefile CI workflow, macos-latest cannot use the `-static` flag
 ifeq "$(shell uname -s)" "Darwin"
 	STATIC_FLAG=
+	LIB_EXT=.a
+	SHARED_EXT=.dylib
 else
 	STATIC_FLAG=-static
 endif
@@ -14,7 +16,7 @@ ifeq ($(OS),Windows_NT)
     PREFIX ?= C:\Program Files\Sista
     LIB_EXT=.a
     SHARED_EXT=.dll
-else
+else ifneq "$(shell uname -s)" "Darwin"
     PREFIX ?= /usr/local
     LIB_EXT=.a
     SHARED_EXT=.so
@@ -22,7 +24,7 @@ endif
 
 # Use cmd.exe for recipes on Windows
 ifeq ($(OS),Windows_NT)
-SHELL := cmd.exe
+	SHELL := cmd.exe
 endif
 
 all: sista
@@ -43,20 +45,24 @@ sista_against_dynamic_lib_local: libSista.so objects_dynamic
 	g++ -std=c++17 -Wall -fPIC -c sista.cpp
 	g++ -std=c++17 -o sista sista.o libSista.so
 
+ifneq "$(shell uname -s)" "Darwin"
 # Compiles sista.cpp and links it against the local static library libSista.a
 sista_against_static_lib_local: libSista.a objects
 	g++ -std=c++17 -Wall -c sista.cpp
 	g++ -std=c++17 -static -o sista sista.o libSista.a
+endif
 
 # Compiles sista.cpp and links it against the system dynamic library libSista.so
-sista_against_dynamic_lib_shared: install
+sista_against_dynamic_lib_shared:
 	g++ -std=c++17 -Wall -fPIC -c sista.cpp
 	g++ -std=c++17 -o sista sista.o -lSista
 
+ifneq "$(shell uname -s)" "Darwin"
 # Compiles sista.cpp and links it against the system static library libSista.a
-sista_against_static_lib_shared: install
+sista_against_static_lib_shared:
 	g++ -std=c++17 -Wall -c sista.cpp
 	g++ -std=c++17 -static -o sista sista.o -lSista
+endif
 
 %.o: include/sista/%.cpp
 	g++ -std=c++17 -Wall -fPIC -c $< -o $@
@@ -64,12 +70,14 @@ sista_against_static_lib_shared: install
 libSista.so: $(OBJECTS)
 	g++ -std=c++17 -Wall -fPIC -shared -o libSista.so $(OBJECTS)
 
+ifeq ($(shell uname -s), "Darwin")
+libSista.dylib: $(OBJECTS)
+	g++ -std=c++17 -Wall -dynamiclib -o libSista.dylib $(OBJECTS) -Wl,-install_name,@rpath/libSista.dylib
+endif
+
 ifeq ($(OS),Windows_NT) # Assumes usage of MinGW on Windows
 libSista.dll: $(OBJECTS)
 	g++ -std=c++17 -Wall -shared -o libSista.dll $(OBJECTS) -Wl,--out-implib,libSista.lib
-
-libSista.a: $(OBJECTS)
-	ar rcs libSista.a $(OBJECTS)
 endif
 
 libSista.a: $(OBJECTS)
@@ -95,6 +103,18 @@ uninstall:
 	del "$(PREFIX)\lib\libSista.lib"
 	del "$(PREFIX)\lib\libSista.a"
 	@if exist "$(PREFIX)\include\sista" rmdir /S /Q "$(PREFIX)\include\sista"
+else ifeq "$(shell uname -s)" "Darwin"
+install: libSista.dylib libSista.a
+	install -d $(PREFIX)/lib
+	install -m 755 libSista.dylib $(PREFIX)/lib/
+	install -m 644 libSista.a $(PREFIX)/lib/
+	install -d $(PREFIX)/include/sista
+	install -m 644 include/sista/*.hpp $(PREFIX)/include/sista/
+
+uninstall:
+	rm -f $(PREFIX)/lib/libSista.dylib
+	rm -f $(PREFIX)/lib/libSista.a
+	rm -rf $(PREFIX)/include/sista
 else
 install: libSista.so libSista.a
 	install -d $(PREFIX)/lib

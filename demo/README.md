@@ -4,7 +4,7 @@ This directory contains a set of demo programs that showcase the features of the
 
 ## Demos
 
-- `header-test`: A simple program that tests the header-only usage of `Sista`
+- `header-test`: A simple program that tests the usage from source of `Sista`
 - `shared-test`: A program that tests the shared library usage of `Sista` for dynamic linking
 - `shared-test-static`: A program that tests the shared library usage of `Sista` for static linking
 - `colors24-bit`: showcases the 24-bit color support
