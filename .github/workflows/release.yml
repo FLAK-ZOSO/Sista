@@ -98,8 +98,8 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            release\libSista-windows.dll
-            release\libSista-windows.a
+            release/libSista-windows.dll
+            release/libSista-windows.a
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
