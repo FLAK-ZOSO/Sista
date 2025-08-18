@@ -16,7 +16,10 @@ on:
     
 jobs:
   build:
-    runs-on: [ windows-latest, macos-latest ]
+    runs-on: ${ matrix.os }
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -29,7 +32,7 @@ jobs:
           make install
       
       - name: Run make on MacOS
-        if: runner.os == 'macOS'
+        if: runner.os == 'macOS' || runner.os == 'Linux'
         run: sudo PREFIX=/usr/local make install
 
       - name: Find dynamic library on Windows
@@ -60,6 +63,24 @@ jobs:
         run: |
           echo "STATIC_LIB=$(find /usr/local/lib -name 'libSista.a' -print -quit)" >> $GITHUB_ENV
     
+      - name: Find dynamic library on Linux
+        if: runner.os == 'Linux'
+        id: find_dynamic_lib_linux
+        run: |
+          echo "DYNAMIC_LIB=$(find /usr/local/lib -name 'libSista.so' -print -quit)" >> $GITHUB_ENV
+    
+      - name: Find static library on Linux
+        if: runner.os == 'Linux'
+        id: find_static_lib_linux
+        run: |
+          echo "STATIC_LIB=$(find /usr/local/lib -name 'libSista.a' -print -quit)" >> $GITHUB_ENV
+    
+      - name: Display libraries on Linux
+        if: runner.os == 'Linux'
+        run: |
+          echo "Dynamic Library: $DYNAMIC_LIB"
+          echo "Static Library: $STATIC_LIB"
+    
       - name: Display libraries on Windows
         if: runner.os == 'Windows'
         shell: pwsh
@@ -80,9 +101,19 @@ jobs:
           make shared-test-static
 
       - name: Upload test results
+        if: runner.os == 'Windows'
         uses: actions/upload-artifact@v4
         with:
           name: shared-test
           path: |
             demo/shared-test.exe
             demo/shared-test-static.exe
+      
+      - name: Upload test results
+        if: runner.os == 'macOS' || runner.os == 'Linux'
+        uses: actions/upload-artifact@v4
+        with:
+          name: shared-test
+          path: |
+            demo/shared-test
+            demo/shared-test-static
