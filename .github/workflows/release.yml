@@ -14,7 +14,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
       - name: Checkout code
@@ -92,6 +92,33 @@ jobs:
         run: |
           echo "Dynamic Library: ${{ env.DYNAMIC_LIB }}"
           echo "Static Library: ${{ env.STATIC_LIB }}"
+
+      - name: Upload Windows Release Assets
+        if: runner.os == 'Windows'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release\libSista-windows.dll
+            release\libSista-windows.a
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Copy and rename MacOS libraries
+        if: runner.os == 'macOS'
+        run: |
+          mkdir -p release
+          cp /usr/local/lib/libSista.dylib release/libSista-macos.dylib
+          cp /usr/local/lib/libSista.a release/libSista-macos.a
+      
+      - name: Upload MacOS Release Assets
+        if: runner.os == 'macOS'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release/libSista-macos.dylib
+            release/libSista-macos.a
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload Release Assets
         uses: softprops/action-gh-release@v2
