@@ -8,7 +8,7 @@ I will use this `sista.cpp <https://github.com/FLAK-ZOSO/Sista/blob/main/sista.c
 ``Installation``
 --------------------
 
-To use the ``Sista`` library, you can either include it as a header-only library or install it as a shared library. In the following example we illustrate the latter method.
+To use the ``Sista`` library, you can either include it as a source library or install it as a shared library. In the following example we illustrate the latter method.
 
 .. code-block:: bash
 
@@ -27,7 +27,7 @@ Since v2.2.0, Sista is available as a shared library on Windows using MinGW. To 
     # Make sure to run this in an elevated shell (as administrator) since 'sudo' is not available in MinGW/MSYS2
     make install
 
-If you want to use it as a header-only library, you can simply copy the ``include/sista/`` directory to your project source directory.
+If you want to use it as a source library, you can simply copy the ``include/sista/`` directory to your project source directory.
 
 ``Include``
 --------------------
@@ -40,7 +40,7 @@ If you installed the library as a shared library, you can include it like this:
 
     #include <sista/sista.hpp>
 
-Otherwise, if you are using it as a header-only library, you can include it like this:
+Otherwise, if you are using it as a source library, you can include it like this:
 
 .. code-block:: cpp
 

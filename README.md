@@ -6,7 +6,7 @@
 
 ## Installation
 
-### Sista as a header-only library
+### Sista as a source library
 
 To install Sista, simply download the latest release from [`GitHub`](https://github.com/FLAK-ZOSO/Sista/releases), and extract the contents of the archive to your project's source directory.
 
@@ -28,7 +28,7 @@ This will remove the installed files from the system library and include paths. 
 
 ## Usage
 
-### Using Sista as a header-only library
+### Using Sista as a source library
 
 To use Sista, simply include the `"sista.hpp"` header in your project's source files.
 
