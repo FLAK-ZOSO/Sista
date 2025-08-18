@@ -5,6 +5,8 @@ OBJECTS = ANSI-Settings.o border.o coordinates.o cursor.o field.o pawn.o
 # For the Makefile CI workflow, macos-latest cannot use the `-static` flag
 ifeq "$(shell uname -s)" "Darwin"
 	STATIC_FLAG=
+	LIB_EXT=.a
+	SHARED_EXT=.dylib
 else
 	STATIC_FLAG=-static
 endif
@@ -14,7 +16,7 @@ ifeq ($(OS),Windows_NT)
     PREFIX ?= C:\Program Files\Sista
     LIB_EXT=.a
     SHARED_EXT=.dll
-else
+else ifneq "$(shell uname -s)" "Darwin"
     PREFIX ?= /usr/local
     LIB_EXT=.a
     SHARED_EXT=.so
@@ -68,12 +70,14 @@ endif
 libSista.so: $(OBJECTS)
 	g++ -std=c++17 -Wall -fPIC -shared -o libSista.so $(OBJECTS)
 
+ifeq ($(shell uname -s), "Darwin")
+libSista.dylib: $(OBJECTS)
+	g++ -std=c++17 -Wall -dynamiclib -o libSista.dylib $(OBJECTS) -Wl,-install_name,@rpath/libSista.dylib
+endif
+
 ifeq ($(OS),Windows_NT) # Assumes usage of MinGW on Windows
 libSista.dll: $(OBJECTS)
 	g++ -std=c++17 -Wall -shared -o libSista.dll $(OBJECTS) -Wl,--out-implib,libSista.lib
-
-libSista.a: $(OBJECTS)
-	ar rcs libSista.a $(OBJECTS)
 endif
 
 libSista.a: $(OBJECTS)
@@ -100,15 +104,15 @@ uninstall:
 	del "$(PREFIX)\lib\libSista.a"
 	@if exist "$(PREFIX)\include\sista" rmdir /S /Q "$(PREFIX)\include\sista"
 else ifeq "$(shell uname -s)" "Darwin"
-install: libSista.so libSista.a
+install: libSista.dylib libSista.a
 	install -d $(PREFIX)/lib
-	install -m 755 libSista.so $(PREFIX)/lib/
+	install -m 755 libSista.dylib $(PREFIX)/lib/
 	install -m 644 libSista.a $(PREFIX)/lib/
 	install -d $(PREFIX)/include/sista
 	install -m 644 include/sista/*.hpp $(PREFIX)/include/sista/
 
 uninstall:
-	rm -f $(PREFIX)/lib/libSista.so
+	rm -f $(PREFIX)/lib/libSista.dylib
 	rm -f $(PREFIX)/lib/libSista.a
 	rm -rf $(PREFIX)/include/sista
 else
