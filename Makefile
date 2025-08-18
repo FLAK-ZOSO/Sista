@@ -70,7 +70,7 @@ endif
 libSista.so: $(OBJECTS)
 	g++ -std=c++17 -Wall -fPIC -shared -o libSista.so $(OBJECTS)
 
-ifeq ($(shell uname -s), "Darwin")
+ifeq "$(shell uname -s)" "Darwin"
 libSista.dylib: $(OBJECTS)
 	g++ -std=c++17 -Wall -dynamiclib -o libSista.dylib $(OBJECTS) -Wl,-install_name,@rpath/libSista.dylib
 endif
