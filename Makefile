@@ -51,13 +51,13 @@ sista_against_static_lib_local: libSista.a objects
 endif
 
 # Compiles sista.cpp and links it against the system dynamic library libSista.so
-sista_against_dynamic_lib_shared: install
+sista_against_dynamic_lib_shared:
 	g++ -std=c++17 -Wall -fPIC -c sista.cpp
 	g++ -std=c++17 -o sista sista.o -lSista
 
 ifneq "$(shell uname -s)" "Darwin"
 # Compiles sista.cpp and links it against the system static library libSista.a
-sista_against_static_lib_shared: install
+sista_against_static_lib_shared:
 	g++ -std=c++17 -Wall -c sista.cpp
 	g++ -std=c++17 -static -o sista sista.o -lSista
 endif
