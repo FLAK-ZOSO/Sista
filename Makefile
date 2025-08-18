@@ -22,7 +22,7 @@ endif
 
 # Use cmd.exe for recipes on Windows
 ifeq ($(OS),Windows_NT)
-SHELL := cmd.exe
+	SHELL := cmd.exe
 endif
 
 all: sista
@@ -43,20 +43,24 @@ sista_against_dynamic_lib_local: libSista.so objects_dynamic
 	g++ -std=c++17 -Wall -fPIC -c sista.cpp
 	g++ -std=c++17 -o sista sista.o libSista.so
 
+ifneq "$(shell uname -s)" "Darwin"
 # Compiles sista.cpp and links it against the local static library libSista.a
 sista_against_static_lib_local: libSista.a objects
 	g++ -std=c++17 -Wall -c sista.cpp
 	g++ -std=c++17 -static -o sista sista.o libSista.a
+endif
 
 # Compiles sista.cpp and links it against the system dynamic library libSista.so
 sista_against_dynamic_lib_shared: install
 	g++ -std=c++17 -Wall -fPIC -c sista.cpp
 	g++ -std=c++17 -o sista sista.o -lSista
 
+ifneq "$(shell uname -s)" "Darwin"
 # Compiles sista.cpp and links it against the system static library libSista.a
 sista_against_static_lib_shared: install
 	g++ -std=c++17 -Wall -c sista.cpp
 	g++ -std=c++17 -static -o sista sista.o -lSista
+endif
 
 %.o: include/sista/%.cpp
 	g++ -std=c++17 -Wall -fPIC -c $< -o $@
@@ -95,6 +99,18 @@ uninstall:
 	del "$(PREFIX)\lib\libSista.lib"
 	del "$(PREFIX)\lib\libSista.a"
 	@if exist "$(PREFIX)\include\sista" rmdir /S /Q "$(PREFIX)\include\sista"
+else ifeq "$(shell uname -s)" "Darwin"
+install: libSista.so libSista.a
+	install -d $(PREFIX)/lib
+	install -m 755 libSista.so $(PREFIX)/lib/
+	install -m 644 libSista.a $(PREFIX)/lib/
+	install -d $(PREFIX)/include/sista
+	install -m 644 include/sista/*.hpp $(PREFIX)/include/sista/
+
+uninstall:
+	rm -f $(PREFIX)/lib/libSista.so
+	rm -f $(PREFIX)/lib/libSista.a
+	rm -rf $(PREFIX)/include/sista
 else
 install: libSista.so libSista.a
 	install -d $(PREFIX)/lib
