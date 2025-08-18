@@ -88,18 +88,6 @@ jobs:
           Copy-Item "${{ env.DYNAMIC_LIB }}" "release\libSista-windows.dll"
           Copy-Item "${{ env.STATIC_LIB }}" "release\libSista-windows.a"
 
-      - name: Find dynamic library (MacOS)
-        if: runner.os == 'macOS'
-        id: find_dynamic_lib_mac
-        run: |
-          echo "DYNAMIC_LIB=MacOS-$(find /usr/local/lib -name 'libSista.so' -o -name 'libSista.dylib' -print -quit)" >> $GITHUB_ENV
-      
-      - name: Find static library (MacOS)
-        if: runner.os == 'macOS'
-        id: find_static_lib_mac
-        run: |
-          echo "STATIC_LIB=MacOS-$(find /usr/local/lib -name 'libSista.a' -print -quit)" >> $GITHUB_ENV
-
       - name: Display libraries
         run: |
           echo "Dynamic Library: ${{ env.DYNAMIC_LIB }}"
