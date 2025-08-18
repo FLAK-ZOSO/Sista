@@ -111,7 +111,7 @@ jobs:
         if: runner.os == 'Windows'
         uses: actions/upload-artifact@v4
         with:
-          name: shared-test
+          name: shared-test-windows
           path: |
             demo/shared-test.exe
             demo/shared-test-static.exe
@@ -120,7 +120,7 @@ jobs:
         if: runner.os == 'Linux'
         uses: actions/upload-artifact@v4
         with:
-          name: shared-test
+          name: shared-test-linux
           path: |
             demo/shared-test
             demo/shared-test-static
@@ -129,6 +129,6 @@ jobs:
         if: runner.os == 'macOS'
         uses: actions/upload-artifact@v4
         with:
-          name: shared-test
+          name: shared-test-macos
           path: |
             demo/shared-test
