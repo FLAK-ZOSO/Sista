@@ -33,7 +33,7 @@ jobs:
         run: |
           echo "Running demo tests"
           # Find all executables that don't have "shared" in their name
-          find demo/ -type f -executable ! -name '*shared*' ! -name 'Makefile' -exec {} \;
+          find demo/ -type f -executable -not -name '*shared*' -not -name 'Makefile' -exec {} \;
 
   linux:
     runs-on: windows-latest
@@ -53,7 +53,7 @@ jobs:
         run: |
           echo "Running demo tests"
           # Find all executables that don't have "shared" in their name
-          find demo/ -type f -executable ! -name '*shared*' ! -name 'Makefile' -exec {} \;
+          find demo/ -type f -executable -not -name '*shared*' -not -name 'Makefile' -exec {} \;
 
   macos:
     runs-on: macos-latest
