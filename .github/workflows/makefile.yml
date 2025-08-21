@@ -15,12 +15,8 @@ on:
         - '**'
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-
+  windows:
+    runs-on: windows-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -32,3 +28,54 @@ jobs:
         run: |
           cd demo
           make all
+      
+      - name: Display test results
+        shell: pwsh
+        run: |
+          Write-Host "Running demo tests"
+          Get-ChildItem demo\ -File | Where-Object {
+            $_.Name -notlike "*shared*" -and $_.Name -ne "Makefile" -and $_.Extension -eq ".exe"
+          } | ForEach-Object {
+            Write-Host "Running $($_.Name)"
+            & $_.FullName
+          }
+
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run make
+        run: make
+      
+      - name: Run demo tests
+        run: |
+          cd demo
+          make all
+      
+      - name: Display test results
+        run: |
+          echo "Running demo tests"
+          # Find all executables that don't have "shared" in their name
+          find demo/ -type f -executable -not -name '*shared*' -not -name 'Makefile' -exec {} \;
+
+  macos:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run make
+        run: make
+      
+      - name: Run demo tests
+        run: |
+          cd demo
+          make all
+      
+      - name: Display test results
+        run: |
+          echo "Running demo tests"
+          # Find all executables that don't have "shared" in their name
+          find demo/ -type f -perm +111 ! -name '*shared*' ! -name 'Makefile' -exec {} \;

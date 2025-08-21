@@ -1,11 +1,16 @@
 IMPLEMENTATIONS = ../include/sista/ANSI-Settings.cpp ../include/sista/border.cpp ../include/sista/coordinates.cpp ../include/sista/cursor.cpp ../include/sista/field.cpp ../include/sista/pawn.cpp
 OBJECTS = ANSI-Settings.o border.o coordinates.o cursor.o field.o pawn.o
 ifeq ($(OS),Windows_NT)
-	INCLUDE_PATH_DIRECTIVE = -I"C:/Program Files/Sista/include"
-	LD_LIBRARY_PATH_DIRECTIVE = -L"C:/Program Files/Sista/lib"
+	PREFIX ?= C:\Program Files\Sista
+	INCLUDE_PATH_DIRECTIVE = -I"$(PREFIX)\include"
+	LD_LIBRARY_PATH_DIRECTIVE = -L"$(PREFIX)\lib"
 else
-	INCLUDE_PATH_DIRECTIVE=
-	LD_LIBRARY_PATH_DIRECTIVE=
+	PREFIX ?= /usr/local
+	INCLUDE_PATH_DIRECTIVE = -I$(PREFIX)/include
+	LD_LIBRARY_PATH_DIRECTIVE = -L$(PREFIX)/lib
+endif
+ifeq "$(shell uname -s)" "Darwin"
+	DYLD_LIBRARY_PATH_DIRECTIVE = -Wl,-rpath,$(PREFIX)/lib
 endif
 
 all: header-test colors24-bit colors256 conflictTest resetAttribute screen-mode swapTest verticalTest clean_objects
@@ -20,7 +25,7 @@ shared-test.o:
 	g++ -std=c++17 -Wall -Wno-narrowing -Wno-sign-compare -g $(INCLUDE_PATH_DIRECTIVE) -c shared-test.cpp
 
 shared-test: shared-test.o $(OBJECTS)
-	g++ -std=c++17 -o shared-test shared-test.o $(LD_LIBRARY_PATH_DIRECTIVE) -lSista
+	g++ -std=c++17 -o shared-test shared-test.o $(LD_LIBRARY_PATH_DIRECTIVE) -lSista $(DYLD_LIBRARY_PATH_DIRECTIVE)
 
 shared-test-static.o:
 	g++ -std=c++17 -Wall -Wno-narrowing -Wno-sign-compare -g $(INCLUDE_PATH_DIRECTIVE) -c shared-test-static.cpp

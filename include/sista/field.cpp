@@ -11,7 +11,7 @@ namespace sista {
         for (auto& row: pawns) { // For each row
             for (auto& pawn: row) {
                 if (pawn != nullptr) // If the pawn is not nullptr
-                    delete pawn; // Delete the pawn
+                    pawn.reset(); // Delete the pawn
                 pawn = nullptr; // Set the pawn to nullptr
             }
         }        
@@ -26,7 +26,7 @@ namespace sista {
     Field::~Field() {
         for (int i = 0; i < (int)pawns.size(); i++) // For each row
             for (int j = 0; j < (int)pawns[i].size(); j++) // For each pawn
-                delete pawns[i][j]; // Delete the pawn
+                pawns[i][j].reset(); // Delete the pawn
         pawns.clear(); // Clear the pawns
     }
 
@@ -114,14 +114,14 @@ namespace sista {
         std::cout << std::flush; // Flush the output
     }
 
-    void Field::addPawn(Pawn* pawn) { // Add a pawn to the matrix
+    void Field::addPawn(std::shared_ptr<Pawn> pawn) { // Add a pawn to the matrix
         pawns[pawn->getCoordinates().y][pawn->getCoordinates().x] = pawn; // Set the pawn to the coordinates
     }
     void Field::removePawn(Pawn* pawn) { // Remove a pawn from the matrix
-        pawns[pawn->getCoordinates().y][pawn->getCoordinates().x] = nullptr; // Set the pawn to nullptr
+        pawns[pawn->getCoordinates().y][pawn->getCoordinates().x].reset(); // Release the reference to the pointer
     }
     void Field::removePawn(Coordinates& coordinates) { // Remove a pawn from the matrix
-        pawns[coordinates.y][coordinates.x] = nullptr; // Set the pawn to nullptr
+        pawns[coordinates.y][coordinates.x].reset(); // Release the reference to the pointer
     }
     void Field::erasePawn(Pawn* pawn) { // Erase a pawn from the matrix
         removePawn(pawn); // Remove the pawn from the matrix
@@ -136,7 +136,7 @@ namespace sista {
         std::cout << ' '; // Print a space to clear the cell
     }
 
-    void Field::addPrintPawn(Pawn* pawn) { // Add a pawn to the matrix and print it
+    void Field::addPrintPawn(std::shared_ptr<Pawn> pawn) { // Add a pawn to the matrix and print it
         addPawn(pawn); // Add the pawn to the matrix
         this->cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
         pawn->print(); // Print the pawn
@@ -163,9 +163,11 @@ namespace sista {
         pawn->print(); // Print the pawn
 
         // sista::Field stuff
-        removePawn(pawn); // Remove the pawn from the matrix
-        pawn->setCoordinates(coordinates); // Set the pawn's
-        addPawn(pawn); // Add the pawn to the matrix
+        std::shared_ptr<Pawn>& old_cell = pawns[pawn->getCoordinates().y][pawn->getCoordinates().x];
+        pawns[coordinates.y][coordinates.x] = std::move(old_cell); // Moving Pawn ownership away from the old cell
+        removePawn(pawn); // Releasing ownership, now pointing to the void nullptr
+        // Removal must take place *before* updating the coordinates, as it is based on these
+        pawn->setCoordinates(coordinates);
     }
     void Field::movePawn(Pawn* pawn, Coord& coordinates) { // Move a pawn to the coordinates
         // [Call the original function because it's anyway declaring a new Coordinates object]
@@ -245,13 +247,13 @@ namespace sista {
     }
 
     Pawn* Field::getPawn(Coordinates& coordinates) { // Get the pawn at the coordinates
-        return pawns[coordinates.y][coordinates.x]; // Return the pawn at the coordinates
+        return pawns[coordinates.y][coordinates.x].get(); // Return the pawn at the coordinates
     }
     Pawn* Field::getPawn(Coord& coordinates) {
-        return pawns[coordinates.first][coordinates.second];
+        return pawns[coordinates.first][coordinates.second].get();
     }
     Pawn* Field::getPawn(unsigned short y, unsigned short x) {
-        return pawns[y][x];
+        return pawns[y][x].get();
     }
 
     bool Field::isOccupied(Coordinates& coordinates) { // Check if the coordinates are occupied
@@ -352,11 +354,11 @@ namespace sista {
     SwappableField::~SwappableField() {
         for (int i = 0; i < (int)pawns.size(); i++) // For each row
             for (int j = 0; j < (int)pawns[i].size(); j++) // For each pawn
-                delete pawns[i][j]; // Delete the pawn
+                pawns[i][j].reset();
         pawns.clear(); // Clear the pawns
     }
 
-    void SwappableField::addPawn(Pawn* pawn) { // addPawn - add a pawn to the field
+    void SwappableField::addPawn(std::shared_ptr<Pawn> pawn) { // addPawn - add a pawn to the field
         Field::addPawn(pawn);
         pawnsCount[pawn->getCoordinates().y][pawn->getCoordinates().x]++;
     }
@@ -484,9 +486,11 @@ namespace sista {
 
         // The swaps can be applied as it stands
         for (Path& path : pawnsToSwap) {
-            removePawn(path.pawn); // Remove the pawn from the begin of the path
+            std::shared_ptr<Pawn>& old_cell = pawns[path.begin.y][path.begin.x]; // Get a reference to the smart shared pointer to the pawn
+            pawns[path.end.y][path.end.x] = std::move(old_cell); // Move the pawn to the end of the path
+            old_cell.reset(); // Remove the pawn from the begin of the path
+            // Removal must take place *before* updating the coordinates, as it is based on these
             path.pawn->setCoordinates(path.end); // Set the pawn's coordinates to the end of the path
-            addPawn(path.pawn); // Add the pawn to the end of the path
         }
         clearPawnsToSwap();
     }

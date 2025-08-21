@@ -8,10 +8,10 @@ int main(int argc, char** argv) {
     ANSI::reset(); // Reset the settings
 
     sista::SwappableField field(50, 50);
-    std::vector<sista::Pawn*> pawns = {};
+    std::vector<std::shared_ptr<sista::Pawn>> pawns = {};
     for (int i=0; i<50; i++) {
         pawns.push_back(
-            new sista::Pawn(
+            std::make_shared<sista::Pawn>(
                 'v', sista::Coordinates(0, i),
                 ANSI::Settings(
                     ANSI::ForegroundColor::F_GREEN,
@@ -33,11 +33,11 @@ int main(int argc, char** argv) {
     sista::Coordinates coords[50];
     for (int i = 0; i < 1000; i++) {
         for (int j = 0; j < 50; j++) {
-            coords[j] = field.movingByCoordinates(pawns[j], 1, 0, PACMAN_EFFECT);
+            coords[j] = field.movingByCoordinates(pawns[j].get(), 1, 0, PACMAN_EFFECT);
             try {
-                field.movePawn(pawns[j], coords[j]);
+                field.movePawn(pawns[j].get(), coords[j]);
             } catch (std::invalid_argument& e) {
-                field.addPawnToSwap(pawns[j], coords[j]);
+                field.addPawnToSwap(pawns[j].get(), coords[j]);
                 field.applySwaps();
             }
         }

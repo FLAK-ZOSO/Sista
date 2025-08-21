@@ -10,8 +10,8 @@ int main() {
     std::ios_base::sync_with_stdio(false);
     ANSI::reset(); // Reset the settings
 
-    std::vector<sista::Pawn*> pawns = {
-        new sista::Pawn(
+    std::vector<std::shared_ptr<sista::Pawn>> pawns = {
+        std::make_shared<sista::Pawn>(
             'X', sista::Coordinates(0, 0),
             ANSI::Settings(
                 ANSI::ForegroundColor::F_RED,
@@ -19,7 +19,7 @@ int main() {
                 ANSI::Attribute::BRIGHT
             )
         ),
-        new sista::Pawn(
+        std::make_shared<sista::Pawn>(
             'O', sista::Coordinates(TEST_SIZE*0.2, TEST_SIZE*0.7),
             ANSI::Settings(
                 ANSI::ForegroundColor::F_BLUE,
@@ -27,7 +27,7 @@ int main() {
                 ANSI::Attribute::BRIGHT
             )
         ),
-        new sista::Pawn(
+        std::make_shared<sista::Pawn>(
             '@', sista::Coordinates(TEST_SIZE*0.3, 0),
             ANSI::Settings(
                 ANSI::ForegroundColor::F_MAGENTA,
@@ -35,7 +35,7 @@ int main() {
                 ANSI::Attribute::REVERSE
             )
         ),
-        new sista::Pawn(
+        std::make_shared<sista::Pawn>(
             '%', sista::Coordinates(TEST_SIZE*0.5, TEST_SIZE*0.5),
             ANSI::Settings(
                 ANSI::ForegroundColor::F_YELLOW,
@@ -43,7 +43,7 @@ int main() {
                 ANSI::Attribute::REVERSE
             )
         ),
-        new sista::Pawn(
+        std::make_shared<sista::Pawn>(
             '!', sista::Coordinates(TEST_SIZE*0.7, TEST_SIZE*0.2),
             ANSI::Settings(
                 ANSI::ForegroundColor::F_CYAN,
@@ -51,7 +51,7 @@ int main() {
                 ANSI::Attribute::BRIGHT
             )
         ),
-        new sista::Pawn(
+        std::make_shared<sista::Pawn>(
             '#', sista::Coordinates(TEST_SIZE*0.8, TEST_SIZE*0.8),
             ANSI::Settings(
                 ANSI::ForegroundColor::F_GREEN,
@@ -75,19 +75,19 @@ int main() {
     field.print(border);
     std::this_thread::sleep_for(std::chrono::milliseconds(2000));
     for (int i=0; i<TEST_SIZE*TEST_SIZE; i++) {
-        coords[0] = field.movingByCoordinates(pawns[0], 1, 1, PACMAN_EFFECT);
-        coords[1] = field.movingByCoordinates(pawns[1], -1, -1, PACMAN_EFFECT);
-        coords[2] = field.movingByCoordinates(pawns[2], -1, 1, PACMAN_EFFECT);
-        coords[3] = field.movingByCoordinates(pawns[3], 1, -1, PACMAN_EFFECT);
-        coords[4] = field.movingByCoordinates(pawns[4], 1, 0, PACMAN_EFFECT);
-        coords[5] = field.movingByCoordinates(pawns[5], 0, 1, PACMAN_EFFECT);
+        coords[0] = field.movingByCoordinates(pawns[0].get(), 1, 1, PACMAN_EFFECT);
+        coords[1] = field.movingByCoordinates(pawns[1].get(), -1, -1, PACMAN_EFFECT);
+        coords[2] = field.movingByCoordinates(pawns[2].get(), -1, 1, PACMAN_EFFECT);
+        coords[3] = field.movingByCoordinates(pawns[3].get(), 1, -1, PACMAN_EFFECT);
+        coords[4] = field.movingByCoordinates(pawns[4].get(), 1, 0, PACMAN_EFFECT);
+        coords[5] = field.movingByCoordinates(pawns[5].get(), 0, 1, PACMAN_EFFECT);
         try {
             for (int k=0; k<(int)pawns.size(); k++) {
-                field.movePawn(pawns[k], coords[k]);
+                field.movePawn(pawns[k].get(), coords[k]);
             }
         } catch (const std::invalid_argument& e) {
             for (int k=0; k<(int)pawns.size(); k++) {
-                field.addPawnToSwap(pawns[k], coords[k]);
+                field.addPawnToSwap(pawns[k].get(), coords[k]);
             }
             field.applySwaps();
         }
