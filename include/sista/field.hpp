@@ -3,6 +3,7 @@
 #include <vector> // std::vector
 #include <queue> // std::queue, std::priority_queue
 #include <algorithm> // std::sort
+#include <memory> // std::shared_ptr, std::move
 #include "pawn.hpp" // Pawn
 #include "border.hpp" // Border
 #include "cursor.hpp" // Cursor
@@ -13,7 +14,7 @@
 namespace sista {
     class Field { // Field class - represents the field [parent class]
     protected:
-        std::vector<std::vector<Pawn*>> pawns; // Matrix of pawns
+        std::vector<std::vector<std::shared_ptr<Pawn>>> pawns; // Matrix of pawns
         Cursor cursor; // Cursor
         int width; // Width of the matrix
         int height; // Height of the matrix
@@ -29,13 +30,13 @@ namespace sista {
         void print(char);
         void print(Border&);
 
-        virtual void addPawn(Pawn*);
+        virtual void addPawn(std::shared_ptr<Pawn>);
         virtual void removePawn(Pawn*);
         virtual void removePawn(Coordinates&);
         virtual void erasePawn(Pawn*);
         virtual void erasePawn(Coordinates&);
 
-        void addPrintPawn(Pawn*);
+        void addPrintPawn(std::shared_ptr<Pawn>);
         void rePrintPawn(Pawn*);
 
         void movePawn(Pawn*, Coordinates&);
@@ -107,7 +108,7 @@ namespace sista {
         SwappableField(int, int);
         ~SwappableField();
 
-        void addPawn(Pawn*) override; // addPawn - add a pawn to the field
+        void addPawn(std::shared_ptr<Pawn>) override; // addPawn - add a pawn to the field
         void removePawn(Pawn*) override; // removePawn - remove a pawn from the field
 
         void clearPawnsToSwap(); // clearPawnsToSwap - clear the pawnsToSwap
