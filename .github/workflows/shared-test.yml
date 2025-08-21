@@ -58,6 +58,7 @@ jobs:
       
       - name: Display test results
         run: |
+          cd demo
           echo "Running shared-test.exe"
           .\shared-test.exe
           echo "Running shared-test-static.exe"
@@ -102,6 +103,7 @@ jobs:
       
       - name: Display test results
         run: |
+          cd demo
           echo "Running shared-test"
           ./shared-test
 
@@ -145,6 +147,7 @@ jobs:
 
       - name: Display test results
         run: |
+          cd demo
           echo "Running shared-test"
           ./shared-test
           echo "Running shared-test-static"
