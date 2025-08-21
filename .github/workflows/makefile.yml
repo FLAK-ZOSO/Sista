@@ -30,10 +30,15 @@ jobs:
           make all
       
       - name: Display test results
+        shell: pwsh
         run: |
-          echo "Running demo tests"
-          # Find all executables that don't have "shared" in their name
-          find demo/ -type f -executable -not -name '*shared*' -not -name 'Makefile' -exec {} \;
+          Write-Host "Running demo tests"
+          Get-ChildItem demo\ -File | Where-Object {
+            $_.Name -notlike "*shared*" -and $_.Name -ne "Makefile" -and $_.Extension -eq ".exe"
+          } | ForEach-Object {
+            Write-Host "Running $($_.Name)"
+            & $_.FullName
+          }
 
   linux:
     runs-on: ubuntu-latest
