@@ -19,11 +19,11 @@ sista::Border border(
 
 int main() {
     sista::SwappableField field(50, 50);
-    std::vector<sista::Pawn*> pawns;
+    std::vector<std::shared_ptr<sista::Pawn>> pawns;
     for (int i = 0; i < 50; i++) {
         pawns.push_back(
-            new sista::Pawn(
-                'X', {
+            std::make_shared<sista::Pawn>(
+                'X', (sista::Coordinates){
                     rand() % 50,
                     rand() % 50
                 }, default_settings
@@ -37,16 +37,16 @@ int main() {
     for (int i = 0; i < 1000; i++) {
         for (int k = 0; k < pawns.size(); k++) {
             coords[k] = field.movingByCoordinates(
-                pawns[k], rand() % 3 - 1, rand() % 3 - 1, PACMAN_EFFECT
+                pawns[k].get(), rand() % 3 - 1, rand() % 3 - 1, PACMAN_EFFECT
             );
         }
         try {
             for (int k = 0; k < pawns.size(); k++) {
-                field.movePawn(pawns[k], coords[k]);
+                field.movePawn(pawns[k].get(), coords[k]);
             }
         } catch (std::invalid_argument& e) {
             for (int k = 0; k < pawns.size(); k++) {
-                field.addPawnToSwap(pawns[k], coords[k]);
+                field.addPawnToSwap(pawns[k].get(), coords[k]);
             }
             field.applySwaps();
         }
