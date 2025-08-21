@@ -32,3 +32,9 @@ jobs:
         run: |
           cd demo
           make all
+      
+      - name: Display test results
+        run: |
+          echo "Running demo tests"
+          # Find all executables that don't have "shared" in their name
+          find . -type f -executable ! -name '*shared*' ! -name 'Makefile' -exec {} \;
