@@ -1,7 +1,6 @@
 #include <chrono>
 #include <thread>
 #include "../include/sista/sista.hpp"
-// g++ conflictTest.cpp -o conflictTest -std=c++17 -Wall
 
 
 int main() {

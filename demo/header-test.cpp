@@ -24,7 +24,7 @@ int main() {
     for (int i = 0; i < 50; i++) {
         pawns.push_back(
             std::make_shared<sista::Pawn>(
-                'X', (sista::Coordinates){
+                'X', sista::Coordinates{
                     rand() % 50,
                     rand() % 50
                 }, default_settings
