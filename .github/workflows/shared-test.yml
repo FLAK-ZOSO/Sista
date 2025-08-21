@@ -2,7 +2,7 @@ name: demo/shared-test
 
 on:
     push:
-        branches: [ main, windows-library, macos-library ]
+        branches: [ main ]
         paths:
         - 'Makefile'
         - 'include/**'
@@ -20,13 +20,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+      
       - name: Run make
         shell: pwsh
         run: |
           $env:PREFIX = 'C:\Program Files\Sista'
           make install
-
+      
       - name: Find dynamic library
         if: runner.os == 'Windows'
         id: find_dynamic_lib_win
@@ -56,6 +56,13 @@ jobs:
           make shared-test
           make shared-test-static
       
+      - name: Display test results
+        run: |
+          echo "Running shared-test.exe"
+          .\shared-test.exe
+          echo "Running shared-test-static.exe"
+          .\shared-test-static.exe
+
       - name: Upload test results
         uses: actions/upload-artifact@v4
         with:
@@ -92,6 +99,11 @@ jobs:
         run: |
           cd demo
           make shared-test
+      
+      - name: Display test results
+        run: |
+          echo "Running shared-test"
+          ./shared-test
 
       - name: Upload test results
         if: runner.os == 'macOS'
@@ -109,7 +121,7 @@ jobs:
       
       - name: Run make
         run: sudo PREFIX=/usr/local make install
-
+      
       - name: Find dynamic library
         id: find_dynamic_lib_linux
         run: |
@@ -130,6 +142,13 @@ jobs:
           cd demo
           make shared-test
           make shared-test-static
+
+      - name: Display test results
+        run: |
+          echo "Running shared-test"
+          ./shared-test
+          echo "Running shared-test-static"
+          ./shared-test-static
       
       - name: Upload test results
         uses: actions/upload-artifact@v4
