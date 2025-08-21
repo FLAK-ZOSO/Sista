@@ -15,33 +15,18 @@ on:
             - '**'
     
 jobs:
-  install-library:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+  windows:
+    runs-on: windows-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Run make on Windows
-        if: runner.os == 'Windows'
         shell: pwsh
         run: |
           $env:PREFIX = 'C:\Program Files\Sista'
           make install
-      
-      - name: Run make on MacOS
-        if: runner.os == 'macOS' || runner.os == 'Linux'
-        run: sudo PREFIX=/usr/local make install
 
-  debug-library:
-    runs-on: ${{ matrix.os }}
-    needs: install-library
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-    steps:
       - name: Find dynamic library on Windows
         if: runner.os == 'Windows'
         id: find_dynamic_lib_win
@@ -58,93 +43,52 @@ jobs:
           $lib = Get-ChildItem -Path "C:\Program Files\Sista\lib" -Filter "libSista.a" -Recurse | Select-Object -First 1
           echo "STATIC_LIB=$($lib.FullName)" >> $env:GITHUB_ENV
 
-      - name: Find dynamic library on MacOS
-        if: runner.os == 'macOS'
-        id: find_dynamic_lib_mac
-        run: |
-          echo "DYNAMIC_LIB=$(find /usr/local/lib -name 'libSista.so' -o -name 'libSista.dylib' -print -quit)" >> $GITHUB_ENV
-      
-      - name: Find static library on MacOS
-        if: runner.os == 'macOS'
-        id: find_static_lib_mac
-        run: |
-          echo "STATIC_LIB=$(find /usr/local/lib -name 'libSista.a' -print -quit)" >> $GITHUB_ENV
-    
-      - name: Find dynamic library on Linux
-        if: runner.os == 'Linux'
-        id: find_dynamic_lib_linux
-        run: |
-          echo "DYNAMIC_LIB=$(find /usr/local/lib -name 'libSista.so' -print -quit)" >> $GITHUB_ENV
-    
-      - name: Find static library on Linux
-        if: runner.os == 'Linux'
-        id: find_static_lib_linux
-        run: |
-          echo "STATIC_LIB=$(find /usr/local/lib -name 'libSista.a' -print -quit)" >> $GITHUB_ENV
-    
-      - name: Display libraries on Linux
-        if: runner.os == 'Linux'
-        run: |
-          echo "Dynamic Library: $DYNAMIC_LIB"
-          echo "Static Library: $STATIC_LIB"
-    
       - name: Display libraries on Windows
         if: runner.os == 'Windows'
         shell: pwsh
         run: |
           Write-Host "Dynamic Library: $env:DYNAMIC_LIB"
           Write-Host "Static Library: $env:STATIC_LIB"
-          
-      - name: Display libraries on MacOS
-        if: runner.os == 'macOS'
-        run: |
-          echo "Dynamic Library: $DYNAMIC_LIB"
-          echo "Static Library: $STATIC_LIB"
 
-  shared-test:
-    runs-on: ${{ matrix.os }}
-    needs: install-library
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-    steps:
       - name: Run tests
-        if: runner.os == 'Linux' || runner.os == 'Windows'
         run: |
           cd demo
           make shared-test
           make shared-test-static
       
-      - name: Run tests on MacOS
-        if: runner.os == 'macOS'
-        run: |
-          cd demo
-          make shared-test
-
-  upload-test-results:
-    runs-on: ${{ matrix.os }}
-    needs: shared-test
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-    steps:
       - name: Upload test results
-        if: runner.os == 'Windows'
         uses: actions/upload-artifact@v4
         with:
           name: shared-test-windows
           path: |
             demo/shared-test.exe
             demo/shared-test-static.exe
+
+  macos:
+    runs-on: macos-latest
+    steps:
+      - name: Run make
+        run: sudo PREFIX=/usr/local make install
+
+      - name: Find dynamic library
+        id: find_dynamic_lib_mac
+        run: |
+          echo "DYNAMIC_LIB=$(find /usr/local/lib -name 'libSista.so' -o -name 'libSista.dylib' -print -quit)" >> $GITHUB_ENV
+
+      - name: Find static library
+        id: find_static_lib_mac
+        run: |
+          echo "STATIC_LIB=$(find /usr/local/lib -name 'libSista.a' -print -quit)" >> $GITHUB_ENV
       
-      - name: Upload test results
-        if: runner.os == 'Linux'
-        uses: actions/upload-artifact@v4
-        with:
-          name: shared-test-linux
-          path: |
-            demo/shared-test
-            demo/shared-test-static
+      - name: Display libraries
+        run: |
+          echo "Dynamic Library: $DYNAMIC_LIB"
+          echo "Static Library: $STATIC_LIB"
+      
+      - name: Run tests
+        run: |
+          cd demo
+          make shared-test
 
       - name: Upload test results
         if: runner.os == 'macOS'
@@ -153,3 +97,38 @@ jobs:
           name: shared-test-macos
           path: |
             demo/shared-test
+
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run make
+        run: sudo PREFIX=/usr/local make install
+
+      - name: Find dynamic library
+        id: find_dynamic_lib_linux
+        run: |
+          echo "DYNAMIC_LIB=$(find /usr/local/lib -name 'libSista.so' -print -quit)" >> $GITHUB_ENV
+
+      - name: Find static library
+        id: find_static_lib_linux
+        run: |
+          echo "STATIC_LIB=$(find /usr/local/lib -name 'libSista.a' -print -quit)" >> $GITHUB_ENV
+
+      - name: Display libraries
+        run: |
+          echo "Dynamic Library: $DYNAMIC_LIB"
+          echo "Static Library: $STATIC_LIB"
+
+      - name: Run tests
+        run: |
+          cd demo
+          make shared-test
+          make shared-test-static
+      
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: shared-test-linux
+          path: |
+            demo/shared-test
+            demo/shared-test-static
