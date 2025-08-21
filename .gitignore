@@ -36,6 +36,7 @@ demo/*
 !demo/*.*
 demo/*.o
 sista
+!include/sista
 
 # Other files
 .vscode/
