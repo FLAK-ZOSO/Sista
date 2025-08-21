@@ -487,8 +487,8 @@ namespace sista {
         // The swaps can be applied as it stands
         for (Path& path : pawnsToSwap) {
             std::shared_ptr<Pawn>& old_cell = pawns[path.begin.y][path.begin.x]; // Get a reference to the smart shared pointer to the pawn
-            pawns[path.begin.y][path.begin.x] = std::move(old_cell); // Move the pawn to the end of the path
-            removePawn(path.pawn); // Remove the pawn from the begin of the path
+            pawns[path.end.y][path.end.x] = std::move(old_cell); // Move the pawn to the end of the path
+            old_cell.reset(); // Remove the pawn from the begin of the path
             // Removal must take place *before* updating the coordinates, as it is based on these
             path.pawn->setCoordinates(path.end); // Set the pawn's coordinates to the end of the path
         }
