@@ -36,7 +36,7 @@ jobs:
           find demo/ -type f -executable -not -name '*shared*' -not -name 'Makefile' -exec {} \;
 
   linux:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
