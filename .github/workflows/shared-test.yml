@@ -15,7 +15,7 @@ on:
             - '**'
     
 jobs:
-  build:
+  install-library:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -35,6 +35,13 @@ jobs:
         if: runner.os == 'macOS' || runner.os == 'Linux'
         run: sudo PREFIX=/usr/local make install
 
+  debug-library:
+    runs-on: ${{ matrix.os }}
+    needs: install-library
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
       - name: Find dynamic library on Windows
         if: runner.os == 'Windows'
         id: find_dynamic_lib_win
@@ -94,6 +101,13 @@ jobs:
           echo "Dynamic Library: $DYNAMIC_LIB"
           echo "Static Library: $STATIC_LIB"
 
+  shared-test:
+    runs-on: ${{ matrix.os }}
+    needs: install-library
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
       - name: Run tests
         if: runner.os == 'Linux' || runner.os == 'Windows'
         run: |
@@ -107,6 +121,13 @@ jobs:
           cd demo
           make shared-test
 
+  upload-test-results:
+    runs-on: ${{ matrix.os }}
+    needs: shared-test
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
       - name: Upload test results
         if: runner.os == 'Windows'
         uses: actions/upload-artifact@v4
