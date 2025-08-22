@@ -5,7 +5,7 @@
 
 int main(int argc, char** argv) {
     std::ios_base::sync_with_stdio(false);
-    sista::reset(); // Reset the settings
+    sista::resetAnsi(); // Reset the settings
 
     sista::SwappableField field(50, 50);
     std::vector<std::shared_ptr<sista::Pawn>> pawns = {};
