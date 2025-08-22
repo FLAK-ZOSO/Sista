@@ -451,7 +451,13 @@ namespace sista {
     }
     void SwappableField::simulateSwaps() { // simulateSwaps - simulate all the swaps in the pawnsToSwap
         std::vector<std::vector<short int>> pawnsCount_ = pawnsCount; // Copy the pawnsCount
+        std::cerr << "Simulating " << pawnsToSwap.size() << " swaps...\n";
+        if (pawnsToSwap.empty()) { // If there are no swaps to simulate,
+            std::cerr << "No swaps to simulate\n";
+            return; // ...return
+        }
         for (Path& path : pawnsToSwap) { // Simulate all the swaps in the pawnsToSwap
+            std::cerr << "Simulating swap from {" << path.begin.y << ", " << path.begin.x << "} to {" << path.end.y << ", " << path.end.x << "}" << std::endl;
             pawnsCount_[path.begin.y][path.begin.x]--; // Decrease the number of pawns at the begin of the path (because the pawn will be removed from there)
             pawnsCount_[path.end.y][path.end.x]++; // Increase the number of pawns at the end of the path (because the pawn will be added there)
         }
@@ -467,30 +473,37 @@ namespace sista {
 
                 // Find a pawn that arrived at the cell with 2 or more pawns
                 // Pawn* pawn = getPawn(arrive_); // NO! Swap weren't applied yet, so the pawn is still at the begin of the path
-                pawnsCount_[arrive_.y][arrive_.x]--; // Decrease the number of pawns at the cell with 2 or more pawns (because the pawn will be removed from there)
                 for (it = pawnsToSwap.begin(); it != pawnsToSwap.end(); it++) {
                     if (it->end == arrive_) { // If the pawn arrived at the cell with 2 or more pawns
                         pawnsCount_[it->begin.y][it->begin.x]++; // Increase the number of pawns at the begin of the path (because the pawn will be added there)
+                        pawnsCount_[arrive_.y][arrive_.x]--; // Decrease the number of pawns at the cell with 2 or more pawns (because the pawn will be removed from there)
                         pawnsToSwap.erase(it); // Remove the path from the pawnsToSwap (this movement can't be applied anymore)
+                    }
+                    if (pawnsCount_[arrive_.y][arrive_.x] <= 1) {
                         break;
                     }
                 }
             } // This loop will be broken when the firstInvalidCell throws an exception
         } catch (std::runtime_error& e) {
-            pawnsCount = pawnsCount_; // Apply the swaps
-            return; // No more invalid cells found
+            // No more invalid cells found
         }
     }
     void SwappableField::applySwaps() {
         simulateSwaps(); // This assures that the pawnsToSwap is valid
 
+        std::vector<std::vector<std::shared_ptr<Pawn>>> startingBoard(height, std::vector<std::shared_ptr<Pawn>>(width, nullptr));
+        for (Path& path : pawnsToSwap) {
+            startingBoard[path.begin.y][path.begin.x] = pawns[path.begin.y][path.begin.x];
+        }
+        std::cerr << "Applying " << pawnsToSwap.size() << " swaps...\n";
         // The swaps can be applied as it stands
         for (Path& path : pawnsToSwap) {
-            std::shared_ptr<Pawn>& old_cell = pawns[path.begin.y][path.begin.x]; // Get a reference to the smart shared pointer to the pawn
-            pawns[path.end.y][path.end.x] = std::move(old_cell); // Move the pawn to the end of the path
-            old_cell.reset(); // Remove the pawn from the begin of the path
-            // Removal must take place *before* updating the coordinates, as it is based on these
-            path.pawn->setCoordinates(path.end); // Set the pawn's coordinates to the end of the path
+            std::cerr << "Applying swap from {" << path.begin.y << ", " << path.begin.x << "} to {" << path.end.y << ", " << path.end.x << "}" << std::endl;
+            pawnsCount[path.begin.y][path.begin.x]--; // Decrease the number of pawns at the begin of the path (because the pawn will be removed from there)
+            pawnsCount[path.end.y][path.end.x]++; // Increase the number of pawns at the end of the path (because the pawn will be added there)
+            pawns[path.end.y][path.end.x] = startingBoard[path.begin.y][path.begin.x]; // Move the pawn to the end of the path
+            pawns[path.begin.y][path.begin.x].reset(); // Remove the pawn from the begin of the path
+            path.pawn->setCoordinates(path.end); // Update the coordinates of the pawn
         }
         clearPawnsToSwap();
     }
