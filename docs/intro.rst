@@ -70,7 +70,7 @@ This line will make I/O faster since we only use C++ standard input/output. You 
 
 .. code-block:: cpp
 
-    ANSI::reset(); // Reset the settings
+    sista::resetAnsi(); // Reset the settings
 
 This line of code will reset the ANSI settings of the terminal.
 
@@ -106,10 +106,10 @@ The ``Pawn`` is allocated automatically by using `std::make_shared <https://en.c
     pawns = {
         std::make_shared<sista::Pawn>(
             'X', sista::Coordinates(0, 0),
-            ANSI::Settings(
-                ANSI::ForegroundColor::F_RED,
-                ANSI::BackgroundColor::B_BLACK,
-                ANSI::Attribute::BRIGHT
+            sista::ANSISettings(
+                sista::ForegroundColor::F_RED,
+                sista::BackgroundColor::B_BLACK,
+                sista::Attribute::BRIGHT
             )
         ) // You can add more pawns here
     };
@@ -128,10 +128,10 @@ The next thing to do is to create a ``Border`` object.
 .. code-block:: cpp
 
     sista::Border border(
-        ' ', ANSI::Settings(
-            ANSI::ForegroundColor::F_BLACK,
-            ANSI::BackgroundColor::B_WHITE,
-            ANSI::Attribute::BRIGHT
+        ' ', sista::ANSISettings(
+            sista::ForegroundColor::F_BLACK,
+            sista::BackgroundColor::B_WHITE,
+            sista::Attribute::BRIGHT
         )
     );
 

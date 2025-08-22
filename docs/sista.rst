@@ -11,6 +11,8 @@
 - ``pawn.hpp``: Pawn
 - ``sista.hpp``: main header file, includes all the others
 
+From this point all the elements of the library are part of the ``sista`` namespace.
+
 ``ANSI-Settings.hpp``
 ================
 
@@ -42,7 +44,7 @@ This header also contains the following functions:
     void setBackgroundColor(BackgroundColor);
     void setAttribute(Attribute);
     void resetAttribute(Attribute);
-    void reset();
+    void resetAnsi();
     inline void setForegroundColor(RGBColor);
     inline void setBackgroundColor(RGBColor);
     void setForegroundColor(unsigned short int, unsigned short int, unsigned short int);
@@ -78,17 +80,11 @@ This header also contains the following struct used to represent the style of a 
 
 .. code-block:: cpp
 
-    struct Settings {
+    struct ANSISettings {
         std::variant<ForegroundColor, RGBColor> foregroundColor;
         std::variant<BackgroundColor, RGBColor> backgroundColor;
         Attribute attribute;
     };
-
-
-⚠️ Warning
-================
-
-From this point all the elements of the library are part of the ``sista`` namespace.
 
 ``border.hpp``
 ================
@@ -100,10 +96,10 @@ This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/border.
     class Border {
     protected:
         char symbol; // Symbol of the Border
-        ANSI::Settings settings; // settings of the Border style
+        sista::ANSISettings settings; // settings of the Border style
     public:
-        Border(char, ANSI::Settings);
-        Border(char, ANSI::Settings&, bool);
+        Border(char, sista::ANSISettings);
+        Border(char, sista::ANSISettings&, bool);
         virtual void print(bool apply_settings=true);
     };
 
@@ -301,11 +297,11 @@ This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/pawn.hp
     protected:
         char symbol;
         Coordinates coordinates;
-        ANSI::Settings settings;
+        sista::ANSISettings settings;
 
     public:
-        Pawn(char, Coordinates, ANSI::Settings);
-        Pawn(char, Coordinates&, ANSI::Settings&, bool);
+        Pawn(char, Coordinates, sista::ANSISettings);
+        Pawn(char, Coordinates&, sista::ANSISettings&, bool);
         virtual ~Pawn();
 
         virtual void print();
@@ -318,7 +314,7 @@ This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/sista.h
 
 .. code-block:: cpp
 
-    #include "ANSI-Settings.hpp" // ANSI::ForegroundColor, ANSI::BackgroundColor, ANSI::Attribute, ANSI::Settings
+    #include "ANSI-Settings.hpp" // ForegroundColor, BackgroundColor, Attribute, ANSISettings
     #include "border.hpp" // Border
     #include "coordinates.hpp" // Coord, Coordinates, <utility>
     #include "pawn.hpp" // Pawn
