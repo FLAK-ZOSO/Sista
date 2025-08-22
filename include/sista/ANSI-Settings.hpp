@@ -13,7 +13,7 @@
 #define TL "\x1b[H" // Top Left (0,0)
 
 
-namespace ANSI {
+namespace sista {
     enum ForegroundColor {
         F_BLACK = 30,
         F_RED = 31,
@@ -60,7 +60,7 @@ namespace ANSI {
     void setAttribute(Attribute);
     void resetAttribute(Attribute);
 
-    void reset();
+    void resetAnsi();
 
     inline void setForegroundColor(RGBColor);
     inline void setBackgroundColor(RGBColor);
@@ -90,20 +90,20 @@ namespace ANSI {
     void setScreenMode(ScreenMode);
     void unsetScreenMode(ScreenMode);
 
-    struct Settings {
+    struct ANSISettings {
         std::variant<ForegroundColor, RGBColor> foregroundColor;
         std::variant<BackgroundColor, RGBColor> backgroundColor;
         Attribute attribute;
 
-        Settings();
-        Settings(RGBColor, RGBColor, Attribute);
-        Settings(RGBColor&, RGBColor&, Attribute&, bool);
-        Settings(ForegroundColor, BackgroundColor, Attribute);
-        Settings(ForegroundColor&, BackgroundColor&, Attribute&, bool);
-        Settings(RGBColor, BackgroundColor, Attribute);
-        Settings(RGBColor&, BackgroundColor&, Attribute&, bool);
-        Settings(ForegroundColor, RGBColor, Attribute);
-        Settings(ForegroundColor&, RGBColor&, Attribute&, bool);
+        ANSISettings();
+        ANSISettings(RGBColor, RGBColor, Attribute);
+        ANSISettings(RGBColor&, RGBColor&, Attribute&, bool);
+        ANSISettings(ForegroundColor, BackgroundColor, Attribute);
+        ANSISettings(ForegroundColor&, BackgroundColor&, Attribute&, bool);
+        ANSISettings(RGBColor, BackgroundColor, Attribute);
+        ANSISettings(RGBColor&, BackgroundColor&, Attribute&, bool);
+        ANSISettings(ForegroundColor, RGBColor, Attribute);
+        ANSISettings(ForegroundColor&, RGBColor&, Attribute&, bool);
 
         void apply();
     };

@@ -3,16 +3,16 @@
 #include <thread>
 
 
-ANSI::Settings default_settings(
-    ANSI::ForegroundColor::F_WHITE,
-    ANSI::BackgroundColor::B_BLACK,
-    ANSI::Attribute::RESET
+sista::ANSISettings default_settings(
+    sista::ForegroundColor::F_WHITE,
+    sista::BackgroundColor::B_BLACK,
+    sista::Attribute::RESET
 );
 sista::Border border(
-    '#', ANSI::Settings(
-        ANSI::ForegroundColor::F_WHITE,
-        ANSI::BackgroundColor::B_BLACK,
-        ANSI::Attribute::BLINK
+    '#', sista::ANSISettings(
+        sista::ForegroundColor::F_WHITE,
+        sista::BackgroundColor::B_BLACK,
+        sista::Attribute::BLINK
     )
 );
 

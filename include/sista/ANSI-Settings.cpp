@@ -1,7 +1,7 @@
-#include "ANSI-Settings.hpp" // ANSI::ForegroundColor, ANSI::BackgroundColor, ANSI::Attribute, ANSI::Settings
+#include "ANSI-Settings.hpp" // ForegroundColor, BackgroundColor, Attribute, ANSISettings
 
 
-namespace ANSI {
+namespace sista {
     RGBColor::RGBColor() : red(0), green(0), blue(0) {}
     RGBColor::RGBColor(unsigned short int red, unsigned short int green, unsigned short int blue) : red(red), green(green), blue(blue) {}
 
@@ -22,7 +22,7 @@ namespace ANSI {
         std::cout << CSI << attribute + 20 << "m";
     }
 
-    void reset() {
+    void resetAnsi() {
         setAttribute(Attribute::RESET);
         setForegroundColor(ForegroundColor::F_WHITE);
         setBackgroundColor(BackgroundColor::B_BLACK);
@@ -54,29 +54,29 @@ namespace ANSI {
         std::cout << CSI << '=' << mode << 'l';
     }
 
-    Settings::Settings() {
+    ANSISettings::ANSISettings() {
         foregroundColor = ForegroundColor::F_WHITE;
         backgroundColor = BackgroundColor::B_BLACK;
         attribute = Attribute::RESET;
     }
-    Settings::Settings(RGBColor foregroundColor_, RGBColor backgroundColor_, Attribute attribute_)
+    ANSISettings::ANSISettings(RGBColor foregroundColor_, RGBColor backgroundColor_, Attribute attribute_)
         : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
-    Settings::Settings(RGBColor& foregroundColor_, RGBColor& backgroundColor_, Attribute& attribute_, bool _by_reference)
+    ANSISettings::ANSISettings(RGBColor& foregroundColor_, RGBColor& backgroundColor_, Attribute& attribute_, bool _by_reference)
         : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
-    Settings::Settings(ForegroundColor foregroundColor_, BackgroundColor backgroundColor_, Attribute attribute_)
+    ANSISettings::ANSISettings(ForegroundColor foregroundColor_, BackgroundColor backgroundColor_, Attribute attribute_)
         : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
-    Settings::Settings(ForegroundColor& foregroundColor_, BackgroundColor& backgroundColor_, Attribute& attribute_, bool _by_reference)
+    ANSISettings::ANSISettings(ForegroundColor& foregroundColor_, BackgroundColor& backgroundColor_, Attribute& attribute_, bool _by_reference)
         : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
-    Settings::Settings(ForegroundColor foregroundColor_, RGBColor backgroundColor_, Attribute attribute_)
+    ANSISettings::ANSISettings(ForegroundColor foregroundColor_, RGBColor backgroundColor_, Attribute attribute_)
         : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
-    Settings::Settings(RGBColor foregroundColor_, BackgroundColor backgroundColor_, Attribute attribute_)
+    ANSISettings::ANSISettings(RGBColor foregroundColor_, BackgroundColor backgroundColor_, Attribute attribute_)
         : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
-    Settings::Settings(ForegroundColor& foregroundColor_, RGBColor& backgroundColor_, Attribute& attribute_, bool _by_reference)
+    ANSISettings::ANSISettings(ForegroundColor& foregroundColor_, RGBColor& backgroundColor_, Attribute& attribute_, bool _by_reference)
         : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
-    Settings::Settings(RGBColor& foregroundColor_, BackgroundColor& backgroundColor_, Attribute& attribute_, bool _by_reference)
+    ANSISettings::ANSISettings(RGBColor& foregroundColor_, BackgroundColor& backgroundColor_, Attribute& attribute_, bool _by_reference)
         : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
 
-    void Settings::apply() {
+    void ANSISettings::apply() {
         setAttribute(Attribute::RESET);
         setAttribute(attribute);
         try {

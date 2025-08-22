@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ANSI-Settings.hpp" // ANSI::ForegroundColor, ANSI::BackgroundColor, ANSI::Attribute, ANSI::Settings
+#include "ANSI-Settings.hpp" // ForegroundColor, BackgroundColor, Attribute, Settings
 #include "border.hpp" // Border
 #include "coordinates.hpp" // Coord, Coordinates, <utility>
 #include "pawn.hpp" // Pawn

@@ -1,8 +1,8 @@
 #include "border.hpp" // Border
 
 namespace sista {
-    Border::Border(char symbol_, ANSI::Settings settings_): symbol(symbol_), settings(settings_) {}
-    Border::Border(char symbol_, ANSI::Settings& settings_, bool _by_reference): symbol(symbol_), settings(settings_) {}
+    Border::Border(char symbol_, ANSISettings settings_): symbol(symbol_), settings(settings_) {}
+    Border::Border(char symbol_, ANSISettings& settings_, bool _by_reference): symbol(symbol_), settings(settings_) {}
 
     void Border::print() { // Print the Border
         print(true); // Print the Border with the settings

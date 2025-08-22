@@ -32,7 +32,7 @@ namespace sista {
     }
 
     void Field::print() { // Print the matrix
-        ANSI::reset(); // Reset the settings
+        resetAnsi(); // Reset the settings
         bool previousPawn = false; // If the previous element was a Pawn
         for (auto& row: pawns) { // For each row
             for (auto& pawn: row) { // For each pawn
@@ -41,7 +41,7 @@ namespace sista {
                     previousPawn = true; // Set the previousPawn to true
                 } else { // If the pawn is nullptr
                     if (previousPawn) { // If the previous element was a Pawn
-                        ANSI::reset(); // Reset the settings
+                        resetAnsi(); // Reset the settings
                         previousPawn = false; // Set the previousPawn to false
                     }
                     std::cout << ' ';
@@ -49,11 +49,11 @@ namespace sista {
             }
             std::cout << '\n';
         }
-        ANSI::reset(); // Reset the settings
+        resetAnsi(); // Reset the settings
         std::cout << std::flush; // Flush the output
     }
     void Field::print(char border) { // Prints with custom border
-        ANSI::reset(); // Reset the settings
+        resetAnsi(); // Reset the settings
         std::cout << '\n';
         for (int i=0; i<width+2; i++) // For each row
             std::cout << border; // Print the border
@@ -67,13 +67,13 @@ namespace sista {
                     previousPawn = true; // Set the previousPawn to true
                 } else { // If the pawn is nullptr
                     if (previousPawn) { // If the previous element was a Pawn
-                        ANSI::reset(); // Reset the settings
+                        resetAnsi(); // Reset the settings
                         previousPawn = false; // Set the previousPawn to false
                     }
                     std::cout << ' ';
                 }
             }
-            ANSI::reset(); // Reset the settings
+            resetAnsi(); // Reset the settings
             std::cout << border << '\n'; // Print the border and a new line
         }
         for (int i=0; i<width+2; i++) // For each row
@@ -81,12 +81,12 @@ namespace sista {
         std::cout << std::flush; // Flush the output
     }
     void Field::print(Border& border) { // Prints with custom border
-        ANSI::reset(); // Reset the settings
+        resetAnsi(); // Reset the settings
         std::cout << '\n';
         border.print(); // Print the border
         for (int i=0; i<width+1; i++) // For each row
             border.print(false); // Print the border
-        ANSI::reset(); // Reset the settings
+        resetAnsi(); // Reset the settings
         std::cout << '\n';
         bool previousPawn = true; // If the previous element was a Pawn
         for (auto& row: pawns) { // For each row
@@ -97,21 +97,21 @@ namespace sista {
                     previousPawn = true; // Set the previousPawn to true
                 } else { // If the pawn is nullptr
                     if (previousPawn) { // If the previous element was a Pawn
-                        ANSI::reset(); // Reset the settings
+                        resetAnsi(); // Reset the settings
                         previousPawn = false; // Set the previousPawn to false
                     }
                     std::cout << ' ';
                 }
             }
             border.print();
-            ANSI::reset(); // Reset the settings
+            resetAnsi(); // Reset the settings
             previousPawn = true; // Set the previousPawn to true
             std::cout << '\n';
         }
         border.print(); // Print the border
         for (int i=0; i<width+1; i++) // For each row
             border.print(false); // Print the border
-        ANSI::reset(); // Reset the settings
+        resetAnsi(); // Reset the settings
         std::cout << std::flush; // Flush the output
     }
 
@@ -127,13 +127,13 @@ namespace sista {
     void Field::erasePawn(Pawn* pawn) { // Erase a pawn from the matrix
         removePawn(pawn); // Remove the pawn from the matrix
         cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
-        ANSI::reset(); // Reset the settings for that cell
+        resetAnsi(); // Reset the settings for that cell
         std::cout << ' '; // Print a space to clear the cell
     }
     void Field::erasePawn(Coordinates& coordinates) { // Erase a pawn from the matrix
         removePawn(coordinates);
         cursor.set(coordinates); // Set the cursor to the coordinates
-        ANSI::reset(); // Reset the settings for that cell
+        resetAnsi(); // Reset the settings for that cell
         std::cout << ' '; // Print a space to clear the cell
     }
 
@@ -158,7 +158,7 @@ namespace sista {
         }
         // Cursor ANSI stuff
         cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
-        ANSI::reset(); // Reset the settings for that cell
+        resetAnsi(); // Reset the settings for that cell
         std::cout << ' '; // Print a space to clear the cell
         cursor.set(coordinates); // Set the cursor to the coordinates
         pawn->print(); // Print the pawn

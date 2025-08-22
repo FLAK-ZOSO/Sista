@@ -8,18 +8,18 @@ int main() {
     std::vector<std::shared_ptr<sista::Pawn>> pawns = {
         std::make_shared<sista::Pawn>(
             'X', sista::Coordinates(0, 0),
-            ANSI::Settings(
-                ANSI::ForegroundColor::F_RED,
-                ANSI::BackgroundColor::B_BLACK,
-                ANSI::Attribute::FAINT
+            sista::ANSISettings(
+                sista::ForegroundColor::F_RED,
+                sista::BackgroundColor::B_BLACK,
+                sista::Attribute::FAINT
             )
         ),
         std::make_shared<sista::Pawn>(
             'O', sista::Coordinates(0, 9),
-            ANSI::Settings(
-                ANSI::ForegroundColor::F_GREEN,
-                ANSI::BackgroundColor::B_BLACK,
-                ANSI::Attribute::UNDERSCORE
+            sista::ANSISettings(
+                sista::ForegroundColor::F_GREEN,
+                sista::BackgroundColor::B_BLACK,
+                sista::Attribute::UNDERSCORE
             )
         )
     };
@@ -27,10 +27,10 @@ int main() {
         field.addPawn(pawn);
     }
     sista::Border border(
-        '#', ANSI::Settings(
-            ANSI::ForegroundColor::F_WHITE,
-            ANSI::BackgroundColor::B_BLACK,
-            ANSI::Attribute::BLINK
+        '#', sista::ANSISettings(
+            sista::ForegroundColor::F_WHITE,
+            sista::BackgroundColor::B_BLACK,
+            sista::Attribute::BLINK
         )
     );
     field.print(border);

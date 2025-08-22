@@ -2,12 +2,12 @@
 
 
 int main() {
-    ANSI::setAttribute(ANSI::Attribute::BLINK);
-    ANSI::setAttribute(ANSI::Attribute::ITALIC);
+    sista::setAttribute(sista::Attribute::BLINK);
+    sista::setAttribute(sista::Attribute::ITALIC);
     std::cout << "Hello " << std::endl;
-    ANSI::resetAttribute(ANSI::Attribute::BLINK);
+    sista::resetAttribute(sista::Attribute::BLINK);
     std::cout << "World" << std::endl;
-    ANSI::resetAttribute(ANSI::Attribute::ITALIC);
+    sista::resetAttribute(sista::Attribute::ITALIC);
     std::cout << "!" << std::endl;
     return 0;
 }

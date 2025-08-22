@@ -8,63 +8,63 @@
 
 int main() {
     std::ios_base::sync_with_stdio(false);
-    ANSI::reset(); // Reset the settings
+    sista::reset(); // Reset the settings
 
     std::vector<std::shared_ptr<sista::Pawn>> pawns = {
         std::make_shared<sista::Pawn>(
             'X', sista::Coordinates(0, 0),
-            ANSI::Settings(
-                ANSI::ForegroundColor::F_RED,
-                ANSI::BackgroundColor::B_BLACK,
-                ANSI::Attribute::BRIGHT
+            sista::ANSISettings(
+                sista::ForegroundColor::F_RED,
+                sista::BackgroundColor::B_BLACK,
+                sista::Attribute::BRIGHT
             )
         ),
         std::make_shared<sista::Pawn>(
             'O', sista::Coordinates(TEST_SIZE*0.2, TEST_SIZE*0.7),
-            ANSI::Settings(
-                ANSI::ForegroundColor::F_BLUE,
-                ANSI::BackgroundColor::B_BLACK,
-                ANSI::Attribute::BRIGHT
+            sista::ANSISettings(
+                sista::ForegroundColor::F_BLUE,
+                sista::BackgroundColor::B_BLACK,
+                sista::Attribute::BRIGHT
             )
         ),
         std::make_shared<sista::Pawn>(
             '@', sista::Coordinates(TEST_SIZE*0.3, 0),
-            ANSI::Settings(
-                ANSI::ForegroundColor::F_MAGENTA,
-                ANSI::BackgroundColor::B_YELLOW,
-                ANSI::Attribute::REVERSE
+            sista::ANSISettings(
+                sista::ForegroundColor::F_MAGENTA,
+                sista::BackgroundColor::B_YELLOW,
+                sista::Attribute::REVERSE
             )
         ),
         std::make_shared<sista::Pawn>(
             '%', sista::Coordinates(TEST_SIZE*0.5, TEST_SIZE*0.5),
-            ANSI::Settings(
-                ANSI::ForegroundColor::F_YELLOW,
-                ANSI::BackgroundColor::B_MAGENTA,
-                ANSI::Attribute::REVERSE
+            sista::ANSISettings(
+                sista::ForegroundColor::F_YELLOW,
+                sista::BackgroundColor::B_MAGENTA,
+                sista::Attribute::REVERSE
             )
         ),
         std::make_shared<sista::Pawn>(
             '!', sista::Coordinates(TEST_SIZE*0.7, TEST_SIZE*0.2),
-            ANSI::Settings(
-                ANSI::ForegroundColor::F_CYAN,
-                ANSI::BackgroundColor::B_BLACK,
-                ANSI::Attribute::BRIGHT
+            sista::ANSISettings(
+                sista::ForegroundColor::F_CYAN,
+                sista::BackgroundColor::B_BLACK,
+                sista::Attribute::BRIGHT
             )
         ),
         std::make_shared<sista::Pawn>(
             '#', sista::Coordinates(TEST_SIZE*0.8, TEST_SIZE*0.8),
-            ANSI::Settings(
-                ANSI::ForegroundColor::F_GREEN,
-                ANSI::BackgroundColor::B_BLACK,
-                ANSI::Attribute::BRIGHT
+            sista::ANSISettings(
+                sista::ForegroundColor::F_GREEN,
+                sista::BackgroundColor::B_BLACK,
+                sista::Attribute::BRIGHT
             )
         )
     };
     sista::Border border(
-        '@', ANSI::Settings(
-            ANSI::ForegroundColor::F_YELLOW,
-            ANSI::BackgroundColor::B_BLACK,
-            ANSI::Attribute::BLINK
+        '@', sista::ANSISettings(
+            sista::ForegroundColor::F_YELLOW,
+            sista::BackgroundColor::B_BLACK,
+            sista::Attribute::BLINK
         )
     );
     sista::SwappableField field(TEST_SIZE, TEST_SIZE);

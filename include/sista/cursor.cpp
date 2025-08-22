@@ -18,7 +18,7 @@ namespace sista {
         clearScreen();
     }
     Cursor::~Cursor() {
-        ANSI::reset();
+        resetAnsi();
         std::cout << SHOW_CURSOR;
         clearScreen();
     }

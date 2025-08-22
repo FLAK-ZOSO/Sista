@@ -5,7 +5,7 @@
 
 int main(int argc, char** argv) {
     std::ios_base::sync_with_stdio(false);
-    ANSI::reset(); // Reset the settings
+    sista::reset(); // Reset the settings
 
     sista::SwappableField field(50, 50);
     std::vector<std::shared_ptr<sista::Pawn>> pawns = {};
@@ -13,20 +13,20 @@ int main(int argc, char** argv) {
         pawns.push_back(
             std::make_shared<sista::Pawn>(
                 'v', sista::Coordinates(0, i),
-                ANSI::Settings(
-                    ANSI::ForegroundColor::F_GREEN,
-                    ANSI::BackgroundColor::B_RED,
-                    ANSI::Attribute::ITALIC
+                sista::ANSISettings(
+                    sista::ForegroundColor::F_GREEN,
+                    sista::BackgroundColor::B_RED,
+                    sista::Attribute::ITALIC
                 )
             )
         );
         field.addPawn(pawns[i]);
     }
     sista::Border border(
-        '#', ANSI::Settings(
-            ANSI::ForegroundColor::F_YELLOW,
-            ANSI::BackgroundColor::B_BLUE,
-            ANSI::Attribute::BLINK
+        '#', sista::ANSISettings(
+            sista::ForegroundColor::F_YELLOW,
+            sista::BackgroundColor::B_BLUE,
+            sista::Attribute::BLINK
         )
     );
     field.print(border);

@@ -2,17 +2,17 @@
 
 int main() {
     for (int i = 0; i < 256; i++) {
-        ANSI::setForegroundColor(i);
+        sista::setForegroundColor(i);
         std::cout << i << ' ';
         if (i % 16 == 15) {
             std::cout << '\n';
         }
     }
     for (int i = 0; i < 256; i++) {
-        ANSI::setBackgroundColor(i);
+        sista::setBackgroundColor(i);
         std::cout << i << ' ';
         if (i % 16 == 15) {
-	    ANSI::reset();
+	    sista::resetAnsi();
             std::cout << '\n';
         }
     }
