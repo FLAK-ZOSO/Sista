@@ -2,9 +2,12 @@
 
 Here you can find the release notes for each version of `Sista` since `v0.1.0`, with changelog since v`0.7.0`; these are listed in a bottom-up order.
 
-## Unreleased v`2.2.2`
+## v`2.2.2`
 
 Patch release.
+
+- Fixed `SwappableField::simulateSwaps()` to not alter the `pawnsCount` member, as `applySwaps()` will take care of it with the `addPawn()` and `removePawn()` methods
+- Optimized `SwappableField::simulateSwaps()` not to break the inner loop at each found colliding pawn; before the edit, it was breaking to the other loop each time
 
 - Updated `Makefile` for hardcoding the rpath of the MacOS shared library to avoid issues with `DYLD_LIBRARY_PATH`
 

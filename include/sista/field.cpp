@@ -477,8 +477,7 @@ namespace sista {
                 }
             } // This loop will be broken when the firstInvalidCell throws an exception
         } catch (std::runtime_error& e) {
-            pawnsCount = pawnsCount_; // Apply the swaps
-            return; // No more invalid cells found
+            // No more invalid cells found
         }
     }
     void SwappableField::applySwaps() {
