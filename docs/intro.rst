@@ -93,18 +93,18 @@ The ``clearScreen()`` [#]_ function will clear the screen and the scrollback buf
 ``Pawn``
 --------------------
 
-The next thing to do is to create a ``std::vector<sista::Pawn*>`` object as a list of the Pawns.
+The next thing to do is to create a ``std::vector<std::shared_ptr<sista::Pawn>>`` object as a list of the Pawns. You can read more about ``std::shared_ptr`` `here <https://en.cppreference.com/w/cpp/memory/shared_ptr.html>`_.
 
 .. code-block:: cpp
 
-    std::vector<sista::Pawn*> pawns;
+    std::vector<std::shared_ptr<sista::Pawn>> pawns;
 
-The ``Pawn`` is allocated on the heap, so you need to use the ``new`` keyword to create one.
+The ``Pawn`` is allocated automatically by using `std::make_shared <https://en.cppreference.com/w/cpp/memory/shared_ptr/make_shared>`_, and the ``std::shared_ptr`` will take care of deallocating the memory when it is no longer needed.
 
 .. code-block:: cpp
 
     pawns = {
-        new sista::Pawn(
+        std::make_shared<sista::Pawn>(
             'X', sista::Coordinates(0, 0),
             ANSI::Settings(
                 ANSI::ForegroundColor::F_RED,
@@ -187,19 +187,19 @@ First of all, we need to print the ``Field`` object with the ``Border`` object.
 .. code-block:: cpp
 
     for (int i=0; i<TEST_SIZE*TEST_SIZE; i++) {
-        coords[0] = field.movingByCoordinates(pawns[0], 1, 1, PACMAN_EFFECT);
-        coords[1] = field.movingByCoordinates(pawns[1], -1, -1, PACMAN_EFFECT);
-        coords[2] = field.movingByCoordinates(pawns[2], -1, 1, PACMAN_EFFECT);
-        coords[3] = field.movingByCoordinates(pawns[3], 1, -1, PACMAN_EFFECT);
-        coords[4] = field.movingByCoordinates(pawns[4], 1, 0, PACMAN_EFFECT);
-        coords[5] = field.movingByCoordinates(pawns[5], 0, 1, PACMAN_EFFECT);
+        coords[0] = field.movingByCoordinates(pawns[0].get(), 1, 1, PACMAN_EFFECT);
+        coords[1] = field.movingByCoordinates(pawns[1].get(), -1, -1, PACMAN_EFFECT);
+        coords[2] = field.movingByCoordinates(pawns[2].get(), -1, 1, PACMAN_EFFECT);
+        coords[3] = field.movingByCoordinates(pawns[3].get(), 1, -1, PACMAN_EFFECT);
+        coords[4] = field.movingByCoordinates(pawns[4].get(), 1, 0, PACMAN_EFFECT);
+        coords[5] = field.movingByCoordinates(pawns[5].get(), 0, 1, PACMAN_EFFECT);
         try {
             for (int k=0; k<(int)pawns.size(); k++) {
-                field.movePawn(pawns[k], coords[k]);
+                field.movePawn(pawns[k].get(), coords[k]);
             }
         } catch (const std::invalid_argument& e) {
             for (int k=0; k<(int)pawns.size(); k++) {
-                field.addPawnToSwap(pawns[k], coords[k]);
+                field.addPawnToSwap(pawns[k].get(), coords[k]);
             }
             field.applySwaps();
         }
@@ -211,6 +211,8 @@ First of all, we need to print the ``Field`` object with the ``Border`` object.
 Since now we'll never going to re-print the ``Field`` object, we'll edit only the needed characters in the ``stdout`` stream. This is the strength of Sista: it allows you to edit only the characters that need to be changed, instead of re-printing the whole field.
 
 In this loop, we are moving the pawns in different directions using the ``movingByCoordinates()`` method of the ``Field`` object, that doesn't actually move the ``Pawn`` but rather calculates its future position. The coordinates are stored in the ``coords`` vector.
+
+We are using ``.get()`` to get the raw pointer from the ``std::shared_ptr``. By design, ``Pawn``s are passed as shared pointers when they are handed to the ``Field`` for memory safety, but once the field becomes a shared owner of the ``Pawn``, it is safe to use the raw pointers provided by the ``std::shared_ptr``s.
 
 Analyzing the code, we can see that we are moving the pawns in the following directions:
 
@@ -254,11 +256,17 @@ In case you have ``make`` installed, it's easier to directly use it in pair with
 ``Execution``
 --------------------
 
+In BASH or any other UNIX-like shell, you can execute the program like this:
+
 .. code-block:: bash
 
     ./sista
 
-On Windows it is slightly different, but it is assumed that whoever reaches this point in the documentation is aware of how to launch an executable from a command line interface.
+On Windows it may depend on the shell, but it is assumed that whoever reaches this point in the documentation is aware of how to launch an executable from PowerShell.
+
+.. code-block:: bash
+
+    sista.exe
 
 ``Notes``
 ====================

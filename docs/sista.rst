@@ -211,7 +211,7 @@ This header also contains the following "abstract" class used to represent a fie
 
     class Field {
     protected:
-        std::vector<std::vector<Pawn*>> pawns; // Matrix of pawns
+        std::vector<std::vector<std::shared_ptr<Pawn>>> pawns; // Matrix of pawns
         Cursor cursor; // Cursor
         int width; // Width of the matrix
         int height; // Height of the matrix
@@ -226,9 +226,10 @@ This header also contains the following "abstract" class used to represent a fie
         void print(char);
         void print(Border&);
     
-        virtual void addPawn(Pawn*);
+        virtual void addPawn(std::shared_ptr<Pawn>);
         virtual void removePawn(Pawn*);
-        void addPrintPawn(Pawn*);
+        void addPrintPawn(std::shared_ptr<Pawn>);
+        void rePrintPawn(Pawn*);
         Pawn* getPawn(Coordinates&);
 
         void movePawn(Pawn*, Coordinates&);
@@ -275,7 +276,7 @@ Then the ``SwappableField`` class can be used to represent a field with some use
         SwappableField(int, int);
         ~SwappableField();
     
-        void addPawn(Pawn*);
+        void addPawn(std::shared_ptr<Pawn>);
         void removePawn(Pawn*);
         void clearPawnsToSwap();
 
