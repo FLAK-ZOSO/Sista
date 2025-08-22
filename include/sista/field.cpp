@@ -1,4 +1,5 @@
 #include "field.hpp" // Field, Pawn, ANSI, <iostream>, <vector>, <algorithm>, <stdexcept>
+#include <unordered_map> // std::unordered_map
 
 
 namespace sista {
@@ -490,8 +491,9 @@ namespace sista {
     }
     void SwappableField::applySwaps() {
         simulateSwaps(); // This assures that the pawnsToSwap is valid
-
-        std::vector<std::vector<std::shared_ptr<Pawn>>> startingBoard(height, std::vector<std::shared_ptr<Pawn>>(width, nullptr));
+        
+        // Store the starting positions of the pawns to swap
+        std::unordered_map<unsigned short, std::unordered_map<unsigned short, std::shared_ptr<Pawn>>> startingBoard; 
         for (Path& path : pawnsToSwap) {
             startingBoard[path.begin.y][path.begin.x] = pawns[path.begin.y][path.begin.x];
         }
