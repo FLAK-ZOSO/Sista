@@ -465,11 +465,13 @@ namespace sista {
 
                 // Find a pawn that arrived at the cell with 2 or more pawns
                 // Pawn* pawn = getPawn(arrive_); // NO! Swap weren't applied yet, so the pawn is still at the begin of the path
-                pawnsCount_[arrive_.y][arrive_.x]--; // Decrease the number of pawns at the cell with 2 or more pawns (because the pawn will be removed from there)
                 for (it = pawnsToSwap.begin(); it != pawnsToSwap.end(); it++) {
                     if (it->end == arrive_) { // If the pawn arrived at the cell with 2 or more pawns
                         pawnsCount_[it->begin.y][it->begin.x]++; // Increase the number of pawns at the begin of the path (because the pawn will be added there)
+                        pawnsCount_[arrive_.y][arrive_.x]--; // Decrease the number of pawns at the cell with 2 or more pawns (because the pawn will be removed from there)
                         pawnsToSwap.erase(it); // Remove the path from the pawnsToSwap (this movement can't be applied anymore)
+                    }
+                    if (pawnsCount_[arrive_.y][arrive_.x] <= 1) {
                         break;
                     }
                 }
