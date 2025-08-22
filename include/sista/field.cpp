@@ -452,13 +452,10 @@ namespace sista {
     }
     void SwappableField::simulateSwaps() { // simulateSwaps - simulate all the swaps in the pawnsToSwap
         std::vector<std::vector<short int>> pawnsCount_ = pawnsCount; // Copy the pawnsCount
-        std::cerr << "Simulating " << pawnsToSwap.size() << " swaps...\n";
         if (pawnsToSwap.empty()) { // If there are no swaps to simulate,
-            std::cerr << "No swaps to simulate\n";
             return; // ...return
         }
         for (Path& path : pawnsToSwap) { // Simulate all the swaps in the pawnsToSwap
-            std::cerr << "Simulating swap from {" << path.begin.y << ", " << path.begin.x << "} to {" << path.end.y << ", " << path.end.x << "}" << std::endl;
             pawnsCount_[path.begin.y][path.begin.x]--; // Decrease the number of pawns at the begin of the path (because the pawn will be removed from there)
             pawnsCount_[path.end.y][path.end.x]++; // Increase the number of pawns at the end of the path (because the pawn will be added there)
         }
@@ -497,10 +494,8 @@ namespace sista {
         for (Path& path : pawnsToSwap) {
             startingBoard[path.begin.y][path.begin.x] = pawns[path.begin.y][path.begin.x];
         }
-        std::cerr << "Applying " << pawnsToSwap.size() << " swaps...\n";
         // The swaps can be applied as it stands
         for (Path& path : pawnsToSwap) {
-            std::cerr << "Applying swap from {" << path.begin.y << ", " << path.begin.x << "} to {" << path.end.y << ", " << path.end.x << "}" << std::endl;
             pawnsCount[path.begin.y][path.begin.x]--; // Decrease the number of pawns at the begin of the path (because the pawn will be removed from there)
             pawnsCount[path.end.y][path.end.x]++; // Increase the number of pawns at the end of the path (because the pawn will be added there)
             pawns[path.end.y][path.end.x] = startingBoard[path.begin.y][path.begin.x]; // Move the pawn to the end of the path
