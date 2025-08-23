@@ -193,19 +193,19 @@ namespace sista {
     }
 
     // 🎮 movePawnBy() with arcade game effects on coordinates overflow
-    void Field::movePawnBy(Pawn* pawn, Coordinates& coordinates, bool effect) {
+    void Field::movePawnBy(Pawn* pawn, Coordinates& coordinates, Effect effect) {
         movePawnBy(pawn, coordinates.y, coordinates.x, effect);
     }
-    void Field::movePawnBy(Pawn* pawn, Coord& coordinates, bool effect) {
+    void Field::movePawnBy(Pawn* pawn, Coord& coordinates, Effect effect) {
         Coordinates coordinates_(coordinates);
         movePawnBy(pawn, coordinates_, effect);
     }
-    void Field::movePawnBy(Pawn* pawn, short int y, short int x, bool effect) {
+    void Field::movePawnBy(Pawn* pawn, short int y, short int x, Effect effect) {
         short int y_ = pawn->getCoordinates().y + y;
         short int x_ = pawn->getCoordinates().x + x;
         if (!isOutOfBounds(y_, x_)) { // If the coordinates are not out of bounds...
             movePawn(pawn, y_, x_); // ...no need to apply any effect
-        } else if (effect == PACMAN_EFFECT) { // If the effect is PACMAN_EFFECT...
+        } else if (effect == Effect::PACMAN) { // If the effect is PACMAN...
             // ...well, you know how Pac Man works
             if (x_ < 0) {
                 x_ = width-1-(x_ % width);
@@ -221,7 +221,8 @@ namespace sista {
             } else if (y_ >= height) {
                 y_ %= height;
             }
-        } else if (effect == MATRIX_EFFECT) {
+        } else if (effect == Effect::MATRIX) { // If the effect is MATRIX...
+            // ...the coordinates "wrap around" like in a classic C style matrix
             short int y = y_;
             short int x = x_;
             if (x_ < 0) {
@@ -378,12 +379,12 @@ namespace sista {
         return Coordinates(pawn->getCoordinates().y + y, pawn->getCoordinates().x + x);
     }
     // ℹ️ - The following function calculates coordinates, but does not apply them to the pawns
-    Coordinates SwappableField::movingByCoordinates(Pawn* pawn, short int y, short int x, bool effect) {
+    Coordinates SwappableField::movingByCoordinates(Pawn* pawn, short int y, short int x, Effect effect) {
         short int y_ = pawn->getCoordinates().y + y;
         short int x_ = pawn->getCoordinates().x + x;
         if (!isOutOfBounds(y_, x_)) {
             return Coordinates(y_, x_);
-        } else if (effect == PACMAN_EFFECT) {
+        } else if (effect == Effect::PACMAN) {
             if (x_ < 0) {
                 x_ = width-1-(x_ % width);
                 if (x_ == width)
@@ -399,7 +400,7 @@ namespace sista {
                 y_ = abs(y_ % height);
             }
             return Coordinates(y_, x_);
-        } else if (effect == MATRIX_EFFECT) {
+        } else if (effect == Effect::MATRIX) {
             short int y__ = y_;
             short int x__ = x_;
             if (x_ < 0) {

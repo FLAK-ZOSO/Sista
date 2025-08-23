@@ -36,8 +36,8 @@ int main() {
     field.print(border);
     sista::Coordinates coords[2];
     for (int i = 0; i < 10; i++) {
-        coords[0] = field.movingByCoordinates(pawns[0].get(), 0, 1, PACMAN_EFFECT);
-        coords[1] = field.movingByCoordinates(pawns[1].get(), 0, -1, PACMAN_EFFECT);
+        coords[0] = field.movingByCoordinates(pawns[0].get(), 0, 1, sista::Effect::PACMAN);
+        coords[1] = field.movingByCoordinates(pawns[1].get(), 0, -1, sista::Effect::PACMAN);
         try {
             field.movePawn(pawns[0].get(), coords[0]);
             field.movePawn(pawns[1].get(), coords[1]);

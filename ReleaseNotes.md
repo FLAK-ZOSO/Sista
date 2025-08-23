@@ -10,6 +10,7 @@ Major release.
 - Updated demos to use `std::shared_ptr<sista::Pawn>` and `std::make_shared<sista::Pawn>` for creating and managing pawns
 - Updated documentation to reflect changes in `sista::Field` and `sista::Pawn` usage
 - Removed `ANSI` namespace and moved all ANSI-related functionality to `sista::`, among which `ANSI::Settings`->`sista::ANSISettings`
+- Wrapped former `_EFFECT` constants into a scoped `enum class Effect` inside the `sista` namespace
 
 - Updated `Makefile` for hardcoding the rpath of the MacOS shared library to avoid issues with `DYLD_LIBRARY_PATH`
 

@@ -33,7 +33,7 @@ int main(int argc, char** argv) {
     sista::Coordinates coords[50];
     for (int i = 0; i < 1000; i++) {
         for (int j = 0; j < 50; j++) {
-            coords[j] = field.movingByCoordinates(pawns[j].get(), 1, 0, PACMAN_EFFECT);
+            coords[j] = field.movingByCoordinates(pawns[j].get(), 1, 0, sista::Effect::PACMAN);
             try {
                 field.movePawn(pawns[j].get(), coords[j]);
             } catch (std::invalid_argument& e) {

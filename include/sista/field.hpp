@@ -8,10 +8,12 @@
 #include "border.hpp" // Border
 #include "cursor.hpp" // Cursor
 
-#define PACMAN_EFFECT 0 // Pacman effect when a coordinate overflows
-#define MATRIX_EFFECT 1 // Classic C style matrix effect when a coordinate overflows
-
 namespace sista {
+    enum class Effect { // Effect enum - effect when a coordinate is out of bounds
+        PACMAN = 0, // Pacman effect when a coordinate overflows
+        MATRIX = 1 // Classic C style matrix effect when a coordinate overflows
+    };
+
     class Field { // Field class - represents the field [parent class]
     protected:
         std::vector<std::vector<std::shared_ptr<Pawn>>> pawns; // Matrix of pawns
@@ -23,7 +25,7 @@ namespace sista {
         void clear();
         void reset();
 
-        Field(int, int);
+        Field(int, int); // Field - constructor (width, height)
         ~Field();
 
         void print();
@@ -48,9 +50,9 @@ namespace sista {
         void movePawnBy(Pawn*, unsigned short, unsigned short);
 
         // 🎮 movePawnBy() with arcade game effects on coordinates overflow
-        void movePawnBy(Pawn*, Coordinates&, bool);
-        void movePawnBy(Pawn*, Coord&, bool);
-        void movePawnBy(Pawn*, short int, short int, bool);
+        void movePawnBy(Pawn*, Coordinates&, Effect);
+        void movePawnBy(Pawn*, Coord&, Effect);
+        void movePawnBy(Pawn*, short int, short int, Effect);
 
         void movePawnFromTo(Coordinates&, Coordinates&);
         void movePawnFromTo(Coord&, Coord&);
@@ -105,7 +107,7 @@ namespace sista {
         Coord firstInvalidCell(std::vector<std::vector<short int>>&); // firstInvalidCell - find the first cell with 2 or more pawns
 
     public:
-        SwappableField(int, int);
+        SwappableField(int, int); // SwappableField - constructor (width, height)
         ~SwappableField();
 
         void addPawn(std::shared_ptr<Pawn>) override; // addPawn - add a pawn to the field
@@ -116,7 +118,7 @@ namespace sista {
         // ℹ️ - The following function calculates coordinates, but does not apply them to the pawns
         Coordinates movingByCoordinates(Pawn*, short int, short int); // movingByCoordinates - calculate the coordinates of a pawn after a movement
         // ℹ️ - The following function calculates coordinates, but does not apply them to the pawns
-        Coordinates movingByCoordinates(Pawn*, short int, short int, bool); // movingByCoordinates - calculate the coordinates of a pawn after a movement
+        Coordinates movingByCoordinates(Pawn*, short int, short int, Effect); // movingByCoordinates - calculate the coordinates of a pawn after a movement
 
         void addPawnToSwap(Pawn*, Coordinates&); // addPawnToSwap - add a pawn to the pawnsToSwap
         void addPawnToSwap(Path&); // addPawnToSwap - add a path to the pawnsToSwap

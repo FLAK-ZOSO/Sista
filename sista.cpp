@@ -75,12 +75,12 @@ int main() {
     field.print(border);
     std::this_thread::sleep_for(std::chrono::milliseconds(2000));
     for (int i=0; i<TEST_SIZE*TEST_SIZE; i++) {
-        coords[0] = field.movingByCoordinates(pawns[0].get(), 1, 1, PACMAN_EFFECT);
-        coords[1] = field.movingByCoordinates(pawns[1].get(), -1, -1, PACMAN_EFFECT);
-        coords[2] = field.movingByCoordinates(pawns[2].get(), -1, 1, PACMAN_EFFECT);
-        coords[3] = field.movingByCoordinates(pawns[3].get(), 1, -1, PACMAN_EFFECT);
-        coords[4] = field.movingByCoordinates(pawns[4].get(), 1, 0, PACMAN_EFFECT);
-        coords[5] = field.movingByCoordinates(pawns[5].get(), 0, 1, PACMAN_EFFECT);
+        coords[0] = field.movingByCoordinates(pawns[0].get(), 1, 1, sista::Effect::PACMAN);
+        coords[1] = field.movingByCoordinates(pawns[1].get(), -1, -1, sista::Effect::PACMAN);
+        coords[2] = field.movingByCoordinates(pawns[2].get(), -1, 1, sista::Effect::PACMAN);
+        coords[3] = field.movingByCoordinates(pawns[3].get(), 1, -1, sista::Effect::PACMAN);
+        coords[4] = field.movingByCoordinates(pawns[4].get(), 1, 0, sista::Effect::PACMAN);
+        coords[5] = field.movingByCoordinates(pawns[5].get(), 0, 1, sista::Effect::PACMAN);
         try {
             for (int k=0; k<(int)pawns.size(); k++) {
                 field.movePawn(pawns[k].get(), coords[k]);

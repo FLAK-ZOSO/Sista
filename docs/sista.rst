@@ -191,15 +191,14 @@ The coordinates are 0-based like in the ``Coordinates`` struct, they will be ada
 ``field.hpp``
 ================
 
-This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/field.hpp>`_ contains the following constants:
+This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/field.hpp>`_ contains the following enum used to represent the movement of a pawn when it tries to move out of the field boundaries.
 
-+---------------+--------------+-----------------------------+
-| Constant      | Value        | Description                 |
-+===============+==============+=============================+
-| PACMAN_EFFECT | 0            | Pacman effect               |
-+---------------+--------------+-----------------------------+
-| MATRIX_EFFECT | 1            | Matrix effect               |
-+---------------+--------------+-----------------------------+
+.. code-block:: cpp
+
+    enum class Effect { // Effect enum - effect when a coordinate overflows
+        PACMAN = 0, // Pacman effect when a coordinate overflows
+        MATRIX = 1 // Classic C style matrix effect when a coordinate overflows
+    };
 
 This header also contains the following "abstract" class used to represent a field.
 

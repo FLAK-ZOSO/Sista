@@ -38,7 +38,7 @@ int main() {
     for (int i = 0; i < 1000; i++) {
         for (int k = 0; k < pawns.size(); k++) {
             coords[k] = field.movingByCoordinates(
-                pawns[k].get(), rand() % 3 - 1, rand() % 3 - 1, PACMAN_EFFECT
+                pawns[k].get(), rand() % 3 - 1, rand() % 3 - 1, sista::Effect::PACMAN
             );
         }
         try {
