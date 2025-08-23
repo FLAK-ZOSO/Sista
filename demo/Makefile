@@ -1,5 +1,5 @@
-IMPLEMENTATIONS = ../include/sista/ANSI-Settings.cpp ../include/sista/border.cpp ../include/sista/coordinates.cpp ../include/sista/cursor.cpp ../include/sista/field.cpp ../include/sista/pawn.cpp
-OBJECTS = ANSI-Settings.o border.o coordinates.o cursor.o field.o pawn.o
+IMPLEMENTATIONS = ../include/sista/ansi.cpp ../include/sista/border.cpp ../include/sista/coordinates.cpp ../include/sista/cursor.cpp ../include/sista/field.cpp ../include/sista/pawn.cpp
+OBJECTS = ansi.o border.o coordinates.o cursor.o field.o pawn.o
 ifeq ($(OS),Windows_NT)
 	PREFIX ?= C:\Program Files\Sista
 	INCLUDE_PATH_DIRECTIVE = -I"$(PREFIX)\include"
