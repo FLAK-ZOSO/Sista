@@ -71,14 +71,14 @@ namespace sista {
     void ANSISettings::apply() {
         setAttribute(Attribute::RESET);
         setAttribute(attribute);
-        try {
+        if (std::holds_alternative<ForegroundColor>(foregroundColor)) {
             setForegroundColor(std::get<ForegroundColor>(foregroundColor));
-        } catch (const std::bad_variant_access& ex) {
+        } else {
             setForegroundColor(std::get<RGBColor>(foregroundColor));
         }
-        try {
+        if (std::holds_alternative<BackgroundColor>(backgroundColor)) {
             setBackgroundColor(std::get<BackgroundColor>(backgroundColor));
-        } catch (const std::bad_variant_access& ex) {
+        } else {
             setBackgroundColor(std::get<RGBColor>(backgroundColor));
         }
     }
