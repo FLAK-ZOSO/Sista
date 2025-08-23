@@ -96,14 +96,10 @@ namespace sista {
         Attribute attribute;
 
         ANSISettings();
-        ANSISettings(RGBColor, RGBColor, Attribute);
-        ANSISettings(RGBColor&, RGBColor&, Attribute&, bool);
-        ANSISettings(ForegroundColor, BackgroundColor, Attribute);
-        ANSISettings(ForegroundColor&, BackgroundColor&, Attribute&, bool);
-        ANSISettings(RGBColor, BackgroundColor, Attribute);
-        ANSISettings(RGBColor&, BackgroundColor&, Attribute&, bool);
-        ANSISettings(ForegroundColor, RGBColor, Attribute);
-        ANSISettings(ForegroundColor&, RGBColor&, Attribute&, bool);
+        ANSISettings(const RGBColor&, const RGBColor&, const Attribute&);
+        ANSISettings(const ForegroundColor&, const BackgroundColor&, const Attribute&);
+        ANSISettings(const RGBColor&, const BackgroundColor&, const Attribute&);
+        ANSISettings(const ForegroundColor&, const RGBColor&, const Attribute&);
 
         void apply();
     };

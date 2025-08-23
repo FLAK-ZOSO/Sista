@@ -59,21 +59,13 @@ namespace sista {
         backgroundColor = BackgroundColor::BLACK;
         attribute = Attribute::RESET;
     }
-    ANSISettings::ANSISettings(RGBColor foregroundColor_, RGBColor backgroundColor_, Attribute attribute_)
+    ANSISettings::ANSISettings(const RGBColor& foregroundColor_, const RGBColor& backgroundColor_, const Attribute& attribute_)
         : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
-    ANSISettings::ANSISettings(RGBColor& foregroundColor_, RGBColor& backgroundColor_, Attribute& attribute_, bool _by_reference)
+    ANSISettings::ANSISettings(const ForegroundColor& foregroundColor_, const BackgroundColor& backgroundColor_, const Attribute& attribute_)
         : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
-    ANSISettings::ANSISettings(ForegroundColor foregroundColor_, BackgroundColor backgroundColor_, Attribute attribute_)
+    ANSISettings::ANSISettings(const ForegroundColor& foregroundColor_, const RGBColor& backgroundColor_, const Attribute& attribute_)
         : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
-    ANSISettings::ANSISettings(ForegroundColor& foregroundColor_, BackgroundColor& backgroundColor_, Attribute& attribute_, bool _by_reference)
-        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
-    ANSISettings::ANSISettings(ForegroundColor foregroundColor_, RGBColor backgroundColor_, Attribute attribute_)
-        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
-    ANSISettings::ANSISettings(RGBColor foregroundColor_, BackgroundColor backgroundColor_, Attribute attribute_)
-        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
-    ANSISettings::ANSISettings(ForegroundColor& foregroundColor_, RGBColor& backgroundColor_, Attribute& attribute_, bool _by_reference)
-        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
-    ANSISettings::ANSISettings(RGBColor& foregroundColor_, BackgroundColor& backgroundColor_, Attribute& attribute_, bool _by_reference)
+    ANSISettings::ANSISettings(const RGBColor& foregroundColor_, const BackgroundColor& backgroundColor_, const Attribute& attribute_)
         : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
 
     void ANSISettings::apply() {
