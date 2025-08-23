@@ -3,7 +3,7 @@
 
 ``Sista`` as a library is a collection of the following headers:
 
-- ``ANSI-Settings.hpp``: ANSI escape codes for terminal colors and styles
+- ``ansi.hpp``: ANSI escape codes for terminal colors and styles
 - ``border.hpp``: Border
 - ``coordinates.hpp``: Coordinates manipulation
 - ``cursor.hpp``: Cursor, clearScreen
@@ -13,10 +13,10 @@
 
 From this point all the elements of the library are part of the ``sista`` namespace.
 
-``ANSI-Settings.hpp``
+``ansi.hpp``
 ================
 
-This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/ANSI-Settings.hpp>`_ contains the following preprocessor constants:
+This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/ansi.hpp>`_ contains the following preprocessor constants:
 
 +-------------+-------------+-----------------------------+
 | Constant    | Value       | Description                 |
@@ -313,7 +313,7 @@ This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/sista.h
 
 .. code-block:: cpp
 
-    #include "ANSI-Settings.hpp" // ForegroundColor, BackgroundColor, Attribute, ANSISettings
+    #include "ansi.hpp" // ForegroundColor, BackgroundColor, Attribute, ANSISettings
     #include "border.hpp" // Border
     #include "coordinates.hpp" // Coord, Coordinates, <utility>
     #include "pawn.hpp" // Pawn

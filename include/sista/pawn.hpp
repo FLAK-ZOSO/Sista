@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ANSI-Settings.hpp" // ForegroundColor, BackgroundColor, Attribute, ANSISettings
+#include "ansi.hpp" // ForegroundColor, BackgroundColor, Attribute, ANSISettings
 #include "coordinates.hpp" // Coord, Coordinates, <utility>
 
 

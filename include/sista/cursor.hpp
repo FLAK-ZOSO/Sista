@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ANSI-Settings.hpp" // ESC, CSI
+#include "ansi.hpp" // ESC, CSI
 #include "coordinates.hpp" // Coord, Coordinates, <utility>
 
 

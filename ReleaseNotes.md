@@ -12,6 +12,7 @@ Major release.
 - Removed `ANSI` namespace and moved all ANSI-related functionality to `sista::`, among which `ANSI::Settings`->`sista::ANSISettings`
 - Wrapped former `_EFFECT` constants into a scoped `enum class Effect` inside the `sista` namespace
 - Changed `enum` types to `enum class` in `ANSI-Settings.cpp` for better type safety and to avoid name clashes
+- Renamed `ANSI-Settings.hpp` and `ANSI-Settings.cpp` to `ansi.hpp` and `ansi.cpp` respectively for consistency with other filenames
 
 - Updated `Makefile` for hardcoding the rpath of the MacOS shared library to avoid issues with `DYLD_LIBRARY_PATH`
 

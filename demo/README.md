@@ -23,7 +23,7 @@ These demos do not require the installation of `Sista` to build. You can compile
 
 ```bash
 g++ -std=c++17 -Wall -Wno-narrowing -Wno-sign-compare -g -c header-test.cpp
-g++ -std=c++17 -Wall -g -o header-test header-test.o ANSI-Settings.o border.o coordinates.o cursor.o field.o pawn.o
+g++ -std=c++17 -Wall -g -o header-test header-test.o ansi.o border.o coordinates.o cursor.o field.o pawn.o
 ```
 
 You can replace `header-test.cpp` with any of the other demo files to compile them. The `Makefile` in this directory provides a convenient way to build all demos at once. It does not however, for convenience reasons, include the tests that require the shared library to be installed.

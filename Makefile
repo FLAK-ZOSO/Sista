@@ -1,6 +1,6 @@
 # Makefile for sista.cpp
-IMPLEMENTATIONS = include/sista/ANSI-Settings.cpp include/sista/border.cpp include/sista/coordinates.cpp include/sista/cursor.cpp include/sista/field.cpp include/sista/pawn.cpp
-OBJECTS = ANSI-Settings.o border.o coordinates.o cursor.o field.o pawn.o
+IMPLEMENTATIONS = include/sista/ansi.cpp include/sista/border.cpp include/sista/coordinates.cpp include/sista/cursor.cpp include/sista/field.cpp include/sista/pawn.cpp
+OBJECTS = ansi.o border.o coordinates.o cursor.o field.o pawn.o
 
 # For the Makefile CI workflow, macos-latest cannot use the `-static` flag
 ifeq "$(shell uname -s)" "Darwin"
