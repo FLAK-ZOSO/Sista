@@ -31,7 +31,7 @@ namespace sista {
         pawns.clear(); // Clear the pawns
     }
 
-    void Field::print() { // Print the matrix
+    void Field::print() const { // Print the matrix
         resetAnsi(); // Reset the settings
         bool previousPawn = false; // If the previous element was a Pawn
         for (auto& row: pawns) { // For each row
@@ -52,7 +52,7 @@ namespace sista {
         resetAnsi(); // Reset the settings
         std::cout << std::flush; // Flush the output
     }
-    void Field::print(char border) { // Prints with custom border
+    void Field::print(char border) const { // Prints with custom border
         resetAnsi(); // Reset the settings
         std::cout << '\n';
         for (int i=0; i<width+2; i++) // For each row
@@ -80,7 +80,7 @@ namespace sista {
             std::cout << border; // Print the border
         std::cout << std::flush; // Flush the output
     }
-    void Field::print(Border& border) { // Prints with custom border
+    void Field::print(Border& border) const { // Prints with custom border
         resetAnsi(); // Reset the settings
         std::cout << '\n';
         border.print(); // Print the border
@@ -232,51 +232,51 @@ namespace sista {
         movePawn(getPawn(y, x), newY, newX);
     }
 
-    Pawn* Field::getPawn(const Coordinates& coordinates) { // Get the pawn at the coordinates
+    Pawn* Field::getPawn(const Coordinates& coordinates) const { // Get the pawn at the coordinates
         return pawns[coordinates.y][coordinates.x].get(); // Return the pawn at the coordinates
     }
-    Pawn* Field::getPawn(unsigned short y, unsigned short x) {
+    Pawn* Field::getPawn(unsigned short y, unsigned short x) const {
         return pawns[y][x].get();
     }
 
-    bool Field::isOccupied(const Coordinates& coordinates) { // Check if the coordinates are occupied
+    bool Field::isOccupied(const Coordinates& coordinates) const { // Check if the coordinates are occupied
         return (getPawn(coordinates) != nullptr);
     }
-    bool Field::isOccupied(unsigned short y, unsigned short x) {
+    bool Field::isOccupied(unsigned short y, unsigned short x) const {
         return (getPawn(y, x) != nullptr);
     }
-    bool Field::isOccupied(short int y, short int x) {
+    bool Field::isOccupied(short int y, short int x) const {
         return (getPawn(y, x) != nullptr);
     }
 
-    bool Field::isOutOfBounds(const Coordinates& coordinates) { // Check if the coordinates are out of bounds
+    bool Field::isOutOfBounds(const Coordinates& coordinates) const { // Check if the coordinates are out of bounds
         return (coordinates.y >= height || coordinates.x >= width); // Return if the coordinates are out of bounds
     }
-    bool Field::isOutOfBounds(unsigned short y, unsigned short x) {
+    bool Field::isOutOfBounds(unsigned short y, unsigned short x) const {
         return  (y >= height || x >= width);
     }
-    bool Field::isOutOfBounds(short int y, short int x) {
+    bool Field::isOutOfBounds(short int y, short int x) const {
         return  (y < 0 || y >= height || x < 0 || x >= width);
     }
 
-    bool Field::isFree(const Coordinates& coordinates) { // Check if the coordinates are occupied or out of bounds
+    bool Field::isFree(const Coordinates& coordinates) const { // Check if the coordinates are occupied or out of bounds
         return !(isOutOfBounds(coordinates) || isOccupied(coordinates));
     }
-    bool Field::isFree(unsigned short y, unsigned short x) {
+    bool Field::isFree(unsigned short y, unsigned short x) const {
         return !(isOutOfBounds(y, x) || isOccupied(y, x));
     }
-    bool Field::isFree(short int y, short int x) {
+    bool Field::isFree(short int y, short int x) const {
         return !(isOutOfBounds(y, x) || isOccupied(y, x));
     }
 
     // ⚠️ This throws an exception if the coordinates are invalid
-    void Field::validateCoordinates(const Coordinates& coordinates) { // Validate the coordinates
+    void Field::validateCoordinates(const Coordinates& coordinates) const { // Validate the coordinates
         if (isOutOfBounds(coordinates)) // If the coordinates are out of bounds
             throw std::out_of_range("Coordinates are out of bounds");
         if (isOccupied(coordinates)) // If the coordinates are occupied
             throw std::invalid_argument("Coordinates are occupied");
     }
-    void Field::validateCoordinates(unsigned short y, unsigned short x) {
+    void Field::validateCoordinates(unsigned short y, unsigned short x) const {
         if (isOutOfBounds(y, x))
             throw std::out_of_range("Coordinates are out of bounds");
         if (isOccupied(y, x))
@@ -299,7 +299,7 @@ namespace sista {
     int Path::current_priority = 0; // priority - priority of the current Path
 
 
-    Coordinates SwappableField::firstInvalidCell(std::vector<std::vector<short int>>& pawnsCount_) { // lowerBound - find the first cell with a value >= value
+    Coordinates SwappableField::firstInvalidCell(std::vector<std::vector<short int>>& pawnsCount_) const { // lowerBound - find the first cell with a value >= value
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 if (pawnsCount_[y][x] >= 2) {
@@ -341,11 +341,11 @@ namespace sista {
     }
 
     // ℹ️ - The following function calculates coordinates, but does not apply them to the pawns
-    Coordinates SwappableField::movingByCoordinates(Pawn* pawn, short int y, short int x) {
+    Coordinates SwappableField::movingByCoordinates(Pawn* pawn, short int y, short int x) const {
         return Coordinates(pawn->getCoordinates().y + y, pawn->getCoordinates().x + x);
     }
     // ℹ️ - The following function calculates coordinates, but does not apply them to the pawns
-    Coordinates SwappableField::movingByCoordinates(Pawn* pawn, short int y, short int x, Effect effect) {
+    Coordinates SwappableField::movingByCoordinates(Pawn* pawn, short int y, short int x, Effect effect) const {
         short int y_ = pawn->getCoordinates().y + y;
         short int x_ = pawn->getCoordinates().x + x;
         if (!isOutOfBounds(y_, x_)) {
@@ -422,7 +422,7 @@ namespace sista {
         if (pawnsToSwap.empty()) { // If there are no swaps to simulate,
             return; // ...return
         }
-        for (Path& path : pawnsToSwap) { // Simulate all the swaps in the pawnsToSwap
+        for (const Path& path : pawnsToSwap) { // Simulate all the swaps in the pawnsToSwap
             pawnsCount_[path.begin.y][path.begin.x]--; // Decrease the number of pawns at the begin of the path (because the pawn will be removed from there)
             pawnsCount_[path.end.y][path.end.x]++; // Increase the number of pawns at the end of the path (because the pawn will be added there)
         }

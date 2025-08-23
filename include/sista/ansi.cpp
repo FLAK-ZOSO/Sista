@@ -68,7 +68,7 @@ namespace sista {
     ANSISettings::ANSISettings(const RGBColor& foregroundColor_, const BackgroundColor& backgroundColor_, const Attribute& attribute_)
         : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
 
-    void ANSISettings::apply() {
+    void ANSISettings::apply() const {
         setAttribute(Attribute::RESET);
         setAttribute(attribute);
         if (std::holds_alternative<ForegroundColor>(foregroundColor)) {

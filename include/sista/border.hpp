@@ -12,6 +12,6 @@ namespace sista {
     public:
         Border(char, const ANSISettings&);
 
-        virtual void print(bool=true);
+        virtual void print(bool=true) const;
     };
 };

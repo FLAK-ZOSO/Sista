@@ -28,9 +28,9 @@ namespace sista {
         Field(int, int); // Field - constructor (width, height)
         ~Field();
 
-        void print();
-        void print(char);
-        void print(Border&);
+        void print() const;
+        void print(char) const;
+        void print(Border&) const;
 
         virtual void addPawn(std::shared_ptr<Pawn>);
         virtual void removePawn(Pawn*);
@@ -54,24 +54,24 @@ namespace sista {
         void movePawnFromTo(const Coordinates&, const Coordinates&);
         void movePawnFromTo(unsigned short, unsigned short, unsigned short, unsigned short);
 
-        Pawn* getPawn(const Coordinates&);
-        Pawn* getPawn(unsigned short, unsigned short);
+        Pawn* getPawn(const Coordinates&) const;
+        Pawn* getPawn(unsigned short, unsigned short) const;
 
-        bool isOccupied(const Coordinates&);
-        bool isOccupied(unsigned short, unsigned short);
-        bool isOccupied(short int, short int);
+        bool isOccupied(const Coordinates&) const;
+        bool isOccupied(unsigned short, unsigned short) const;
+        bool isOccupied(short int, short int) const;
 
-        bool isOutOfBounds(const Coordinates&);
-        bool isOutOfBounds(unsigned short, unsigned short);
-        bool isOutOfBounds(short int, short int);
+        bool isOutOfBounds(const Coordinates&) const;
+        bool isOutOfBounds(unsigned short, unsigned short) const;
+        bool isOutOfBounds(short int, short int) const;
 
-        bool isFree(const Coordinates&);
-        bool isFree(unsigned short, unsigned short);
-        bool isFree(short int, short int);
+        bool isFree(const Coordinates&) const;
+        bool isFree(unsigned short, unsigned short) const;
+        bool isFree(short int, short int) const;
 
         // ⚠️ This throws an exception if the coordinates are invalid
-        void validateCoordinates(const Coordinates&);
-        void validateCoordinates(unsigned short, unsigned short);
+        void validateCoordinates(const Coordinates&) const;
+        void validateCoordinates(unsigned short, unsigned short) const;
     };
 
     struct Path { // Path struct - begin and end Coordinates of a path
@@ -95,7 +95,7 @@ namespace sista {
         // NOTE: short int instead of bool because of the possibility of having more than 2 pawns on the same field during swap trials
         std::vector<Path> pawnsToSwap; // pawnsToSwap - pawns that need to be swapped
 
-        Coordinates firstInvalidCell(std::vector<std::vector<short int>>&); // firstInvalidCell - find the first cell with 2 or more pawns
+        Coordinates firstInvalidCell(std::vector<std::vector<short int>>&) const; // firstInvalidCell - find the first cell with 2 or more pawns
 
     public:
         SwappableField(int, int); // SwappableField - constructor (width, height)
@@ -107,9 +107,9 @@ namespace sista {
         void clearPawnsToSwap(); // clearPawnsToSwap - clear the pawnsToSwap
 
         // ℹ️ - The following function calculates coordinates, but does not apply them to the pawns
-        Coordinates movingByCoordinates(Pawn*, short int, short int); // movingByCoordinates - calculate the coordinates of a pawn after a movement
+        Coordinates movingByCoordinates(Pawn*, short int, short int) const; // movingByCoordinates - calculate the coordinates of a pawn after a movement
         // ℹ️ - The following function calculates coordinates, but does not apply them to the pawns
-        Coordinates movingByCoordinates(Pawn*, short int, short int, Effect); // movingByCoordinates - calculate the coordinates of a pawn after a movement
+        Coordinates movingByCoordinates(Pawn*, short int, short int, Effect) const; // movingByCoordinates - calculate the coordinates of a pawn after a movement
 
         void addPawnToSwap(Pawn*, const Coordinates&); // addPawnToSwap - add a pawn to the pawnsToSwap
         void addPawnToSwap(Path&); // addPawnToSwap - add a path to the pawnsToSwap

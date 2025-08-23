@@ -5,4 +5,4 @@
 #include "coordinates.hpp" // Coordinates, <utility>
 #include "pawn.hpp" // Pawn
 #include "field.hpp" // Field, Path, SwappableField
-#include "cursor.hpp" // Cursor, clearScreen [cross-platform since v0.6.0]
+#include "cursor.hpp" // Cursor, clearScreen

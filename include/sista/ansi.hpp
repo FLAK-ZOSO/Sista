@@ -101,6 +101,6 @@ namespace sista {
         ANSISettings(const RGBColor&, const BackgroundColor&, const Attribute&);
         ANSISettings(const ForegroundColor&, const RGBColor&, const Attribute&);
 
-        void apply();
+        void apply() const;
     };
 };

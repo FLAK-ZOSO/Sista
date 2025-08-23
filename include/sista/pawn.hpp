@@ -16,16 +16,16 @@ namespace sista {
         virtual ~Pawn() {}
 
         void setCoordinates(const Coordinates&);
-        void getCoordinates(Coordinates&);
-        Coordinates getCoordinates();
+        void getCoordinates(Coordinates&) const;
+        Coordinates getCoordinates() const;
 
         void setSettings(const ANSISettings&);
-        void getSettings(ANSISettings&);
-        ANSISettings getSettings();
+        void getSettings(ANSISettings&) const;
+        ANSISettings getSettings() const;
 
         void setSymbol(char);
-        char getSymbol();
+        char getSymbol() const;
 
-        virtual void print();
+        virtual void print() const;
     };
 };

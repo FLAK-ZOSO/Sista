@@ -14,7 +14,6 @@ Major release.
 - Changed `enum` types to `enum class` for better type safety and to avoid name clashes
     - Fixed `Cursor::move` overload using `MoveCursorSCO`, which was incorrectly using `int` instead of `char`
 - Renamed `ANSI-Settings.hpp` and `ANSI-Settings.cpp` to `ansi.hpp` and `ansi.cpp` respectively for consistency with other filenames
-    - Updated `Makefile` to reflect the new filenames and ensure correct compilation and linking
 - Removed overloads with non-const reference parameters and replaced them with overloads taking parameters by value or const reference
 - Improved internal implementation of `sista::ANSISettings::apply()` for better readability and semantics with [`std::variant::holds_alternative`](https://en.cppreference.com/w/cpp/utility/variant/holds_alternative)
 - Removed `sista::Coord` type alias of `std::pair<unsigned short, unsigned short>` to minimize the public surface area of the library
@@ -23,8 +22,10 @@ Major release.
 - Removed `y` and `x` attributes from `sista::Cursor`, as they were not used outside the struct nor necessary for its functionality
 - Renamed `sista::Coordinates::set` to `goTo` for better clarity (it moves the cursor to the coordinates)
 - Using `const` qualifier for references where appropriate for better performance and semantics
+- Added `const` qualifier to methods that do not modify the state of the object for better semantics and to allow calling them on `const` instances
 
 - Updated `Makefile` for hardcoding the rpath of the MacOS shared library to avoid issues with `DYLD_LIBRARY_PATH`
+- Updated `Makefile` to reflect the new filenames and ensure correct compilation and linking
 
 ## v`2.2.1`
 

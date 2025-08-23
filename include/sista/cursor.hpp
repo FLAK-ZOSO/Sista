@@ -49,14 +49,14 @@ namespace sista {
         Cursor();
         ~Cursor();
 
-        void goTo(unsigned short int, unsigned short int);
-        void goTo(sista::Coordinates);
+        void goTo(unsigned short int, unsigned short int) const;
+        void goTo(sista::Coordinates) const;
 
-        void eraseScreen(EraseScreen);
-        void eraseLine(EraseLine, bool=true);
+        void eraseScreen(EraseScreen) const;
+        void eraseLine(EraseLine, bool=true) const;
 
-        void move(MoveCursor, unsigned short int);
-        void move(MoveCursorDEC);
-        void move(MoveCursorSCO);
+        void move(MoveCursor, unsigned short int) const;
+        void move(MoveCursorDEC) const;
+        void move(MoveCursorSCO) const;
     };
 };

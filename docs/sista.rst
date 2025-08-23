@@ -100,7 +100,7 @@ This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/border.
     public:
         Border(char, sista::ANSISettings);
         Border(char, sista::ANSISettings&, bool);
-        virtual void print(bool apply_settings=true);
+        virtual void print(bool apply_settings=true) const;
     };
 
 ``coordinates.hpp``
@@ -174,20 +174,18 @@ This header also contains the following struct used to represent the cursor of t
     struct Cursor {
         const static unsigned short int offset_y;
         const static unsigned short int offset_x;
-        unsigned short int x;
-        unsigned short int y;
 
         Cursor();
         ~Cursor();
 
-        void goTo(unsigned short int, unsigned short int);
-        void goTo(sista::Coordinates);
+        void goTo(unsigned short int, unsigned short int) const;
+        void goTo(sista::Coordinates) const;
 
-        void eraseScreen(EraseScreen);
-        void eraseLine(EraseLine);
-        void move(MoveCursor, unsigned short int);
-        void move(MoveCursorDEC);
-        void move(MoveCursorSCO);
+        void eraseScreen(EraseScreen) const;
+        void eraseLine(EraseLine) const;
+        void move(MoveCursor, unsigned short int) const;
+        void move(MoveCursorDEC) const;
+        void move(MoveCursorSCO) const;
     };
 
 The coordinates are 0-based like in the ``Coordinates`` struct, they will be adapted to the ``{3, 2}``-based coordinates of the terminal when printed.
@@ -221,9 +219,9 @@ This header also contains the following "abstract" class used to represent a fie
     
         void clear();
         void reset();
-        void print();
-        void print(char);
-        void print(Border&);
+        void print() const;
+        void print(char) const;
+        void print(Border&) const;
     
         virtual void addPawn(std::shared_ptr<Pawn>);
         virtual void removePawn(Pawn*);
@@ -236,10 +234,10 @@ This header also contains the following "abstract" class used to represent a fie
         void movePawnBy(Pawn*, Coordinates&, bool);
         void movePawnFromTo(Coordinates&, Coordinates&);
     
-        bool isOccupied(Coordinates&);
-        bool isOutOfBounds(Coordinates&);
-        bool isFree(Coordinates&);
-        void validateCoordinates(Coordinates&);
+        bool isOccupied(Coordinates&) const;
+        bool isOutOfBounds(Coordinates&) const;
+        bool isFree(Coordinates&) const;
+        void validateCoordinates(Coordinates&) const;
     };
 
 ℹ️ - All the methods with a ``Coordinates&`` argument can use a ``Coord`` typedef or two ``unsigned short`` instead.

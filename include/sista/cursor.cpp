@@ -23,30 +23,30 @@ namespace sista {
         clearScreen();
     }
 
-    void Cursor::goTo(unsigned short int y_, unsigned short int x_) {
+    void Cursor::goTo(unsigned short int y_, unsigned short int x_) const {
         std::cout << CSI << y_ << ";" << x_ << CHA;
     }
-    void Cursor::goTo(sista::Coordinates coordinates_) {
+    void Cursor::goTo(sista::Coordinates coordinates_) const {
         this->goTo(coordinates_.y + offset_y, coordinates_.x + offset_x);
     }
 
-    void Cursor::eraseScreen(EraseScreen eraseScreen_) {
+    void Cursor::eraseScreen(EraseScreen eraseScreen_) const {
         std::cout << CSI << static_cast<int>(eraseScreen_) << "J";
     }
-    void Cursor::eraseLine(EraseLine eraseLine_, bool moveCursor) {
+    void Cursor::eraseLine(EraseLine eraseLine_, bool moveCursor) const {
         std::cout << CSI << static_cast<int>(eraseLine_) << "K";
         if (moveCursor) {
             std::cout << '\r'; // Move cursor to start of line
         }
     }
 
-    void Cursor::move(MoveCursor moveCursor_, unsigned short int n=1) {
+    void Cursor::move(MoveCursor moveCursor_, unsigned short int n=1) const {
         std::cout << CSI << n << static_cast<char>(moveCursor_);
     }
-    void Cursor::move(MoveCursorDEC moveCursorDEC_) {
+    void Cursor::move(MoveCursorDEC moveCursorDEC_) const {
         std::cout << ESC << ' ' << static_cast<int>(moveCursorDEC_);
     }
-    void Cursor::move(MoveCursorSCO moveCursorSCO_) {
+    void Cursor::move(MoveCursorSCO moveCursorSCO_) const {
         std::cout << ESC << ' ' << static_cast<char>(moveCursorSCO_);
     }
 };
