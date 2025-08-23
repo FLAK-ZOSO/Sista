@@ -3,7 +3,13 @@
 namespace sista {
     Coordinates::Coordinates(): y(0), x(0) {} // Constructor
     Coordinates::Coordinates(unsigned short y_, unsigned short x_): y(y_), x(x_) {} // Constructor
-    Coordinates::Coordinates(Coord coord): y(coord.first), x(coord.second) {} // Constructor
+
+    Coordinates Coordinates::fromPair(const std::pair<unsigned short, unsigned short>& p) {
+        return Coordinates(p.first, p.second);
+    }
+    std::pair<unsigned short, unsigned short> Coordinates::toPair() const {
+        return std::make_pair(y, x);
+    }
 
     bool Coordinates::operator==(const Coordinates& other) const {
         return (y == other.y && x == other.x);

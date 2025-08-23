@@ -42,44 +42,35 @@ namespace sista {
         void rePrintPawn(Pawn*);
 
         void movePawn(Pawn*, Coordinates&);
-        void movePawn(Pawn*, Coord&);
         void movePawn(Pawn*, unsigned short, unsigned short);
 
         void movePawnBy(Pawn*, Coordinates&);
-        void movePawnBy(Pawn*, Coord&);
         void movePawnBy(Pawn*, unsigned short, unsigned short);
 
         // 🎮 movePawnBy() with arcade game effects on coordinates overflow
         void movePawnBy(Pawn*, Coordinates&, Effect);
-        void movePawnBy(Pawn*, Coord&, Effect);
         void movePawnBy(Pawn*, short int, short int, Effect);
 
         void movePawnFromTo(Coordinates&, Coordinates&);
-        void movePawnFromTo(Coord&, Coord&);
         void movePawnFromTo(unsigned short, unsigned short, unsigned short, unsigned short);
 
         Pawn* getPawn(Coordinates&);
-        Pawn* getPawn(Coord&);
         Pawn* getPawn(unsigned short, unsigned short);
 
         bool isOccupied(Coordinates&);
-        bool isOccupied(Coord&);
         bool isOccupied(unsigned short, unsigned short);
         bool isOccupied(short int, short int);
 
         bool isOutOfBounds(Coordinates&);
-        bool isOutOfBounds(Coord&);
         bool isOutOfBounds(unsigned short, unsigned short);
         bool isOutOfBounds(short int, short int);
 
         bool isFree(Coordinates&);
-        bool isFree(Coord&);
         bool isFree(unsigned short, unsigned short);
         bool isFree(short int, short int);
 
         // ⚠️ This throws an exception if the coordinates are invalid
         void validateCoordinates(Coordinates&);
-        void validateCoordinates(Coord&);
         void validateCoordinates(unsigned short, unsigned short);
     };
 
@@ -104,7 +95,7 @@ namespace sista {
         // NOTE: short int instead of bool because of the possibility of having more than 2 pawns on the same field during swap trials
         std::vector<Path> pawnsToSwap; // pawnsToSwap - pawns that need to be swapped
 
-        Coord firstInvalidCell(std::vector<std::vector<short int>>&); // firstInvalidCell - find the first cell with 2 or more pawns
+        Coordinates firstInvalidCell(std::vector<std::vector<short int>>&); // firstInvalidCell - find the first cell with 2 or more pawns
 
     public:
         SwappableField(int, int); // SwappableField - constructor (width, height)

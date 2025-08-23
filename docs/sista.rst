@@ -116,7 +116,9 @@ This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/coordin
 
         Coordinates();
         Coordinates(unsigned short, unsigned short);
-        Coordinates(Coord);
+
+        static Coordinates fromPair(const std::pair<unsigned short, unsigned short>&);
+        std::pair<unsigned short, unsigned short> toPair() const;
 
         bool operator==(const Coordinates&) const;
         bool operator!=(const Coordinates&) const;
@@ -265,7 +267,7 @@ Then the ``SwappableField`` class can be used to represent a field with some use
     private:
         std::vector<std::vector<short int>> pawnsCount;
         std::vector<Path> pawnsToSwap;
-        Coord firstInvalidCell(std::vector<std::vector<short int>>&);
+        Coordinates firstInvalidCell(std::vector<std::vector<short int>>&);
     
     public:
         SwappableField(int, int);

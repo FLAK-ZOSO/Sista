@@ -170,11 +170,6 @@ namespace sista {
         // Removal must take place *before* updating the coordinates, as it is based on these
         pawn->setCoordinates(coordinates);
     }
-    void Field::movePawn(Pawn* pawn, Coord& coordinates) { // Move a pawn to the coordinates
-        // [Call the original function because it's anyway declaring a new Coordinates object]
-        Coordinates coordinates_(coordinates.first, coordinates.second);
-        movePawn(pawn, coordinates_);
-    }
     void Field::movePawn(Pawn* pawn, unsigned short y, unsigned short x) { // Move a pawn to the coordinates
         Coordinates coordinates_(y, x);
         movePawn(pawn, coordinates_);
@@ -184,10 +179,6 @@ namespace sista {
         Coordinates coordinates_ = pawn->getCoordinates() + coordinates;
         movePawn(pawn, coordinates_);
     }
-    void Field::movePawnBy(Pawn* pawn, Coord& coordinates) {
-        Coordinates coordinates_(coordinates);
-        movePawnBy(pawn, coordinates_);
-    }
     void Field::movePawnBy(Pawn* pawn, unsigned short y, unsigned short x) {
         movePawn(pawn, pawn->getCoordinates().y + y, pawn->getCoordinates().x + x);
     }
@@ -195,10 +186,6 @@ namespace sista {
     // 🎮 movePawnBy() with arcade game effects on coordinates overflow
     void Field::movePawnBy(Pawn* pawn, Coordinates& coordinates, Effect effect) {
         movePawnBy(pawn, coordinates.y, coordinates.x, effect);
-    }
-    void Field::movePawnBy(Pawn* pawn, Coord& coordinates, Effect effect) {
-        Coordinates coordinates_(coordinates);
-        movePawnBy(pawn, coordinates_, effect);
     }
     void Field::movePawnBy(Pawn* pawn, short int y, short int x, Effect effect) {
         short int y_ = pawn->getCoordinates().y + y;
@@ -241,9 +228,6 @@ namespace sista {
     void Field::movePawnFromTo(Coordinates& coordinates, Coordinates& newCoordinates) {
         movePawn(getPawn(coordinates), newCoordinates);
     }
-    void Field::movePawnFromTo(Coord& coordinates, Coord& newCoordinates) {
-        movePawn(getPawn(coordinates), newCoordinates);
-    }
     void Field::movePawnFromTo(unsigned short y, unsigned short x, unsigned short newY, unsigned short newX) {
         movePawn(getPawn(y, x), newY, newX);
     }
@@ -251,17 +235,11 @@ namespace sista {
     Pawn* Field::getPawn(Coordinates& coordinates) { // Get the pawn at the coordinates
         return pawns[coordinates.y][coordinates.x].get(); // Return the pawn at the coordinates
     }
-    Pawn* Field::getPawn(Coord& coordinates) {
-        return pawns[coordinates.first][coordinates.second].get();
-    }
     Pawn* Field::getPawn(unsigned short y, unsigned short x) {
         return pawns[y][x].get();
     }
 
     bool Field::isOccupied(Coordinates& coordinates) { // Check if the coordinates are occupied
-        return (getPawn(coordinates) != nullptr);
-    }
-    bool Field::isOccupied(Coord& coordinates) {
         return (getPawn(coordinates) != nullptr);
     }
     bool Field::isOccupied(unsigned short y, unsigned short x) {
@@ -274,9 +252,6 @@ namespace sista {
     bool Field::isOutOfBounds(Coordinates& coordinates) { // Check if the coordinates are out of bounds
         return (coordinates.y >= height || coordinates.x >= width); // Return if the coordinates are out of bounds
     }
-    bool Field::isOutOfBounds(Coord& coordinates) {
-        return (coordinates.first >= height || coordinates.second >= width);
-    }
     bool Field::isOutOfBounds(unsigned short y, unsigned short x) {
         return  (y >= height || x >= width);
     }
@@ -285,9 +260,6 @@ namespace sista {
     }
 
     bool Field::isFree(Coordinates& coordinates) { // Check if the coordinates are occupied or out of bounds
-        return !(isOutOfBounds(coordinates) || isOccupied(coordinates));
-    }
-    bool Field::isFree(Coord& coordinates) {
         return !(isOutOfBounds(coordinates) || isOccupied(coordinates));
     }
     bool Field::isFree(unsigned short y, unsigned short x) {
@@ -302,12 +274,6 @@ namespace sista {
         if (isOutOfBounds(coordinates)) // If the coordinates are out of bounds
             throw std::out_of_range("Coordinates are out of bounds");
         if (isOccupied(coordinates)) // If the coordinates are occupied
-            throw std::invalid_argument("Coordinates are occupied");
-    }
-    void Field::validateCoordinates(Coord& coordinates) {
-        if (isOutOfBounds(coordinates))
-            throw std::out_of_range("Coordinates are out of bounds");
-        if (isOccupied(coordinates))
             throw std::invalid_argument("Coordinates are occupied");
     }
     void Field::validateCoordinates(unsigned short y, unsigned short x) {
@@ -333,11 +299,11 @@ namespace sista {
     int Path::current_priority = 0; // priority - priority of the current Path
 
 
-    Coord SwappableField::firstInvalidCell(std::vector<std::vector<short int>>& pawnsCount_) { // lowerBound - find the first cell with a value >= value
+    Coordinates SwappableField::firstInvalidCell(std::vector<std::vector<short int>>& pawnsCount_) { // lowerBound - find the first cell with a value >= value
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 if (pawnsCount_[y][x] >= 2) {
-                    return Coord(y, x);
+                    return Coordinates(y, x);
                 }
             }
         }
@@ -463,12 +429,11 @@ namespace sista {
 
         std::sort(pawnsToSwap.begin(), pawnsToSwap.end()); // Sort the pawnsToSwap by priority
         std::vector<Path>::iterator it = pawnsToSwap.begin();
-        Coord arrive_coord; // Coordinates of the cell with 2 or more pawns (so where a certain pawn arrived and should never be arrived at)
+        Coordinates arrive_; // Coordinates of the cell with 2 or more pawns (so where a certain pawn arrived and should never be arrived at)
         try {
             while (true) {
-                // Find the first cell with 2 or more pawns
-                arrive_coord = firstInvalidCell(pawnsCount_); // throw std::runtime_error("No invalid cells found");
-                Coordinates arrive_(arrive_coord); // Coordinates of the cell with 2 or more pawns (so where a certain pawn arrived and should never be arrived at)
+                // Find the first cell with 2 or more pawns heading there
+                arrive_ = firstInvalidCell(pawnsCount_); // Coordinates of the cell with 2 or more pawns (so where a certain pawn arrived and should never be arrived at)
 
                 // Find a pawn that arrived at the cell with 2 or more pawns
                 // Pawn* pawn = getPawn(arrive_); // NO! Swap weren't applied yet, so the pawn is still at the begin of the path

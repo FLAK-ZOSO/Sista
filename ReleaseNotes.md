@@ -16,6 +16,9 @@ Major release.
     - Updated `Makefile` to reflect the new filenames and ensure correct compilation and linking
 - Removed overloads with non-const reference parameters and replaced them with overloads taking parameters by value or const reference
 - Improved internal implementation of `sista::ANSISettings::apply()` for better readability and semantics with [`std::variant::holds_alternative`](https://en.cppreference.com/w/cpp/utility/variant/holds_alternative)
+- Removed `sista::Coord` type alias of `std::pair<unsigned short, unsigned short>` to minimize the public surface area of the library
+    - Removed all functions taking `sista::Coord` as parameter
+    - Created static methods in `sista::Coordinates` to convert from and to `std::pair<unsigned short, unsigned short>`
 
 - Updated `Makefile` for hardcoding the rpath of the MacOS shared library to avoid issues with `DYLD_LIBRARY_PATH`
 

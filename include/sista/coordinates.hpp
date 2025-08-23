@@ -12,7 +12,8 @@ namespace sista {
 
         Coordinates();
         Coordinates(unsigned short, unsigned short);
-        Coordinates(Coord);
+        static Coordinates fromPair(const std::pair<unsigned short, unsigned short>&);
+        std::pair<unsigned short, unsigned short> toPair() const;
 
         bool operator==(const Coordinates&) const;
         bool operator!=(const Coordinates&) const;
