@@ -24,6 +24,7 @@ Major release.
 - Using `const` qualifier for references where appropriate for better performance and semantics
 - Added `const` qualifier to methods that do not modify the state of the object for better semantics and to allow calling them on `const` instances
 - Moving `sista::SwappableField::movingByCoordinates` to `sista::Field` as it does not depend on `SwappableField` functionality
+- Minimized includes in header files to reduce compilation dependencies and improve build times
 
 - Updated `Makefile` for hardcoding the rpath of the MacOS shared library to avoid issues with `DYLD_LIBRARY_PATH`
 - Updated `Makefile` to reflect the new filenames and ensure correct compilation and linking

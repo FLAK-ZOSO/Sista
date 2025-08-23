@@ -1,4 +1,5 @@
-#include "cursor.hpp" // Cursor, <iostream>
+#include "cursor.hpp" // Cursor
+#include <iostream> // std::cout
 
 
 namespace sista {

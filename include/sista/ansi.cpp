@@ -1,4 +1,5 @@
 #include "ansi.hpp" // ForegroundColor, BackgroundColor, Attribute, ANSISettings
+#include <iostream>
 
 
 namespace sista {

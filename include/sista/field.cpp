@@ -1,6 +1,8 @@
 #include "field.hpp" // Field, Pawn, ANSI, <iostream>, <vector>, <algorithm>, <stdexcept>
 #include <unordered_map> // std::unordered_map
-
+#include <queue> // std::queue, std::priority_queue
+#include <algorithm> // std::sort
+#include <iostream> // std::cout, std::flush
 
 namespace sista {
     void Field::clear() { // Clear the matrix

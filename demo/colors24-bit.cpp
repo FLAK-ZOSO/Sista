@@ -1,3 +1,4 @@
+#include <iostream>
 #include "../include/sista/sista.hpp"
 
 int main() {

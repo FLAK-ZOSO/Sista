@@ -1,4 +1,5 @@
 #include "pawn.hpp" // Pawn
+#include <iostream> // std::cout
 
 namespace sista {
     Pawn::Pawn(char symbol_, const Coordinates& coordinates_, const ANSISettings& settings_): symbol(symbol_), coordinates(coordinates_), settings(settings_) {}

@@ -1,6 +1,7 @@
-#include <sista/sista.hpp>
 #include <chrono>
 #include <thread>
+#include <iostream>
+#include <sista/sista.hpp>
 
 
 sista::ANSISettings default_settings(

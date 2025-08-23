@@ -1,5 +1,6 @@
 #include <chrono>
 #include <thread>
+#include <iostream>
 #include "../include/sista/sista.hpp"
 
 

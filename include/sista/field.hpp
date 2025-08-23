@@ -1,8 +1,6 @@
 #pragma once
 
 #include <vector> // std::vector
-#include <queue> // std::queue, std::priority_queue
-#include <algorithm> // std::sort
 #include <memory> // std::shared_ptr, std::move
 #include "pawn.hpp" // Pawn
 #include "border.hpp" // Border
