@@ -14,27 +14,27 @@
 
 
 namespace sista {
-    enum ForegroundColor {
-        F_BLACK = 30,
-        F_RED = 31,
-        F_GREEN = 32,
-        F_YELLOW = 33,
-        F_BLUE = 34,
-        F_MAGENTA = 35,
-        F_CYAN = 36,
-        F_WHITE = 37
+    enum class ForegroundColor {
+        BLACK = 30,
+        RED = 31,
+        GREEN = 32,
+        YELLOW = 33,
+        BLUE = 34,
+        MAGENTA = 35,
+        CYAN = 36,
+        WHITE = 37
     };
-    enum BackgroundColor {
-        B_BLACK = 40,
-        B_RED = 41,
-        B_GREEN = 42,
-        B_YELLOW = 43,
-        B_BLUE = 44,
-        B_MAGENTA = 45,
-        B_CYAN = 46,
-        B_WHITE = 47
+    enum class BackgroundColor {
+        BLACK = 40,
+        RED = 41,
+        GREEN = 42,
+        YELLOW = 43,
+        BLUE = 44,
+        MAGENTA = 45,
+        CYAN = 46,
+        WHITE = 47
     };
-    enum Attribute {
+    enum class Attribute {
         RESET = 0,
         BRIGHT = 1,
         FAINT = 2,
@@ -69,7 +69,7 @@ namespace sista {
     void setForegroundColor(unsigned short int);
     void setBackgroundColor(unsigned short int);
 
-    enum ScreenMode {
+    enum class ScreenMode: int {
         MONOCROME_TEXT_40_25 = 0,
         COLOR_TEXT_40_25 = 1,
         MONOCROME_TEXT_80_25 = 2,

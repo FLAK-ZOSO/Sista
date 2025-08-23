@@ -11,6 +11,7 @@ Major release.
 - Updated documentation to reflect changes in `sista::Field` and `sista::Pawn` usage
 - Removed `ANSI` namespace and moved all ANSI-related functionality to `sista::`, among which `ANSI::Settings`->`sista::ANSISettings`
 - Wrapped former `_EFFECT` constants into a scoped `enum class Effect` inside the `sista` namespace
+- Changed `enum` types to `enum class` in `ANSI-Settings.cpp` for better type safety and to avoid name clashes
 
 - Updated `Makefile` for hardcoding the rpath of the MacOS shared library to avoid issues with `DYLD_LIBRARY_PATH`
 
@@ -84,7 +85,7 @@ This change has the purpose to allow more flexibility, especially when using a c
 ```c++
 ANSI::Settings settings = {
     ANSI::RGBColor(42, 42, 42),
-    ANSI::backgroundColor::B_BLACK,
+    ANSI::BackgroundColor::B_BLACK,
     ANSI::Attribute::BRIGHT
 };
 ```

@@ -14,8 +14,8 @@ int main(int argc, char** argv) {
             std::make_shared<sista::Pawn>(
                 'v', sista::Coordinates(0, i),
                 sista::ANSISettings(
-                    sista::ForegroundColor::F_GREEN,
-                    sista::BackgroundColor::B_RED,
+                    sista::ForegroundColor::GREEN,
+                    sista::BackgroundColor::RED,
                     sista::Attribute::ITALIC
                 )
             )
@@ -24,8 +24,8 @@ int main(int argc, char** argv) {
     }
     sista::Border border(
         '#', sista::ANSISettings(
-            sista::ForegroundColor::F_YELLOW,
-            sista::BackgroundColor::B_BLUE,
+            sista::ForegroundColor::YELLOW,
+            sista::BackgroundColor::BLUE,
             sista::Attribute::BLINK
         )
     );

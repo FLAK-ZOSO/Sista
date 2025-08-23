@@ -14,56 +14,56 @@ int main() {
         std::make_shared<sista::Pawn>(
             'X', sista::Coordinates(0, 0),
             sista::ANSISettings(
-                sista::ForegroundColor::F_RED,
-                sista::BackgroundColor::B_BLACK,
+                sista::ForegroundColor::RED,
+                sista::BackgroundColor::BLACK,
                 sista::Attribute::BRIGHT
             )
         ),
         std::make_shared<sista::Pawn>(
             'O', sista::Coordinates(TEST_SIZE*0.2, TEST_SIZE*0.7),
             sista::ANSISettings(
-                sista::ForegroundColor::F_BLUE,
-                sista::BackgroundColor::B_BLACK,
+                sista::ForegroundColor::BLUE,
+                sista::BackgroundColor::BLACK,
                 sista::Attribute::BRIGHT
             )
         ),
         std::make_shared<sista::Pawn>(
             '@', sista::Coordinates(TEST_SIZE*0.3, 0),
             sista::ANSISettings(
-                sista::ForegroundColor::F_MAGENTA,
-                sista::BackgroundColor::B_YELLOW,
+                sista::ForegroundColor::MAGENTA,
+                sista::BackgroundColor::YELLOW,
                 sista::Attribute::REVERSE
             )
         ),
         std::make_shared<sista::Pawn>(
             '%', sista::Coordinates(TEST_SIZE*0.5, TEST_SIZE*0.5),
             sista::ANSISettings(
-                sista::ForegroundColor::F_YELLOW,
-                sista::BackgroundColor::B_MAGENTA,
+                sista::ForegroundColor::YELLOW,
+                sista::BackgroundColor::MAGENTA,
                 sista::Attribute::REVERSE
             )
         ),
         std::make_shared<sista::Pawn>(
             '!', sista::Coordinates(TEST_SIZE*0.7, TEST_SIZE*0.2),
             sista::ANSISettings(
-                sista::ForegroundColor::F_CYAN,
-                sista::BackgroundColor::B_BLACK,
+                sista::ForegroundColor::CYAN,
+                sista::BackgroundColor::BLACK,
                 sista::Attribute::BRIGHT
             )
         ),
         std::make_shared<sista::Pawn>(
             '#', sista::Coordinates(TEST_SIZE*0.8, TEST_SIZE*0.8),
             sista::ANSISettings(
-                sista::ForegroundColor::F_GREEN,
-                sista::BackgroundColor::B_BLACK,
+                sista::ForegroundColor::GREEN,
+                sista::BackgroundColor::BLACK,
                 sista::Attribute::BRIGHT
             )
         )
     };
     sista::Border border(
         '@', sista::ANSISettings(
-            sista::ForegroundColor::F_YELLOW,
-            sista::BackgroundColor::B_BLACK,
+            sista::ForegroundColor::YELLOW,
+            sista::BackgroundColor::BLACK,
             sista::Attribute::BLINK
         )
     );

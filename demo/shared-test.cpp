@@ -4,14 +4,14 @@
 
 
 sista::ANSISettings default_settings(
-    sista::ForegroundColor::F_WHITE,
-    sista::BackgroundColor::B_BLACK,
+    sista::ForegroundColor::WHITE,
+    sista::BackgroundColor::BLACK,
     sista::Attribute::RESET
 );
 sista::Border border(
     '#', sista::ANSISettings(
-        sista::ForegroundColor::F_WHITE,
-        sista::BackgroundColor::B_BLACK,
+        sista::ForegroundColor::WHITE,
+        sista::BackgroundColor::BLACK,
         sista::Attribute::BLINK
     )
 );

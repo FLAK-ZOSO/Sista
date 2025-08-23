@@ -107,8 +107,8 @@ The ``Pawn`` is allocated automatically by using `std::make_shared <https://en.c
         std::make_shared<sista::Pawn>(
             'X', sista::Coordinates(0, 0),
             sista::ANSISettings(
-                sista::ForegroundColor::F_RED,
-                sista::BackgroundColor::B_BLACK,
+                sista::ForegroundColor::RED,
+                sista::BackgroundColor::BLACK,
                 sista::Attribute::BRIGHT
             )
         ) // You can add more pawns here
@@ -129,8 +129,8 @@ The next thing to do is to create a ``Border`` object.
 
     sista::Border border(
         ' ', sista::ANSISettings(
-            sista::ForegroundColor::F_BLACK,
-            sista::BackgroundColor::B_WHITE,
+            sista::ForegroundColor::BLACK,
+            sista::BackgroundColor::WHITE,
             sista::Attribute::BRIGHT
         )
     );

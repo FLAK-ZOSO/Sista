@@ -6,26 +6,26 @@ namespace sista {
     RGBColor::RGBColor(unsigned short int red, unsigned short int green, unsigned short int blue) : red(red), green(green), blue(blue) {}
 
     void setForegroundColor(ForegroundColor color) {
-        std::cout << CSI << color << "m";
+        std::cout << CSI << static_cast<int>(color) << "m";
     }
     void setBackgroundColor(BackgroundColor color) {
-        std::cout << CSI << color << "m";
+        std::cout << CSI << static_cast<int>(color) << "m";
     }
     void setAttribute(Attribute attribute) {
-        std::cout << CSI << attribute << "m";
+        std::cout << CSI << static_cast<int>(attribute) << "m";
     }
     void resetAttribute(Attribute attribute) {
         if (attribute == Attribute::BRIGHT) {
-            std::cout << CSI << attribute + 21 << "m";
+            std::cout << CSI << static_cast<int>(attribute) + 21 << "m";
             return;
         }
-        std::cout << CSI << attribute + 20 << "m";
+        std::cout << CSI << static_cast<int>(attribute) + 20 << "m";
     }
 
     void resetAnsi() {
         setAttribute(Attribute::RESET);
-        setForegroundColor(ForegroundColor::F_WHITE);
-        setBackgroundColor(BackgroundColor::B_BLACK);
+        setForegroundColor(ForegroundColor::WHITE);
+        setBackgroundColor(BackgroundColor::BLACK);
     }
 
     inline void setForegroundColor(RGBColor rgbcolor) {
@@ -48,15 +48,15 @@ namespace sista {
     }
 
     void setScreenMode(ScreenMode mode) {
-        std::cout << CSI << '=' << mode << 'h';
+        std::cout << CSI << '=' << static_cast<int>(mode) << 'h';
     }
     void unsetScreenMode(ScreenMode mode) {
-        std::cout << CSI << '=' << mode << 'l';
+        std::cout << CSI << '=' << static_cast<int>(mode) << 'l';
     }
 
     ANSISettings::ANSISettings() {
-        foregroundColor = ForegroundColor::F_WHITE;
-        backgroundColor = BackgroundColor::B_BLACK;
+        foregroundColor = ForegroundColor::WHITE;
+        backgroundColor = BackgroundColor::BLACK;
         attribute = Attribute::RESET;
     }
     ANSISettings::ANSISettings(RGBColor foregroundColor_, RGBColor backgroundColor_, Attribute attribute_)

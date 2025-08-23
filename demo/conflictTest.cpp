@@ -9,16 +9,16 @@ int main() {
         std::make_shared<sista::Pawn>(
             'X', sista::Coordinates(0, 0),
             sista::ANSISettings(
-                sista::ForegroundColor::F_RED,
-                sista::BackgroundColor::B_BLACK,
+                sista::ForegroundColor::RED,
+                sista::BackgroundColor::BLACK,
                 sista::Attribute::FAINT
             )
         ),
         std::make_shared<sista::Pawn>(
             'O', sista::Coordinates(0, 8),
             sista::ANSISettings(
-                sista::ForegroundColor::F_GREEN,
-                sista::BackgroundColor::B_BLACK,
+                sista::ForegroundColor::GREEN,
+                sista::BackgroundColor::BLACK,
                 sista::Attribute::UNDERSCORE
             )
         )
@@ -28,8 +28,8 @@ int main() {
     }
     sista::Border border(
         '#', sista::ANSISettings(
-            sista::ForegroundColor::F_WHITE,
-            sista::BackgroundColor::B_BLACK,
+            sista::ForegroundColor::WHITE,
+            sista::BackgroundColor::BLACK,
             sista::Attribute::BLINK
         )
     );
