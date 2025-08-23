@@ -44,18 +44,13 @@ namespace sista {
     private:
         const static unsigned short int offset_y;
         const static unsigned short int offset_x;
-        unsigned short int x;
-        unsigned short int y;
 
     public:
         Cursor();
         ~Cursor();
 
-        void setCoordinates(unsigned short int, unsigned short int);
-        void setCoordinates(sista::Coordinates);
-
-        sista::Coordinates getCoordinates() const;
-        void getCoordinates(unsigned short int&, unsigned short int&) const;
+        void goTo(unsigned short int, unsigned short int);
+        void goTo(sista::Coordinates);
 
         void eraseScreen(EraseScreen);
         void eraseLine(EraseLine, bool=true);

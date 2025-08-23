@@ -180,11 +180,8 @@ This header also contains the following struct used to represent the cursor of t
         Cursor();
         ~Cursor();
 
-        void setCoordinates(unsigned short int, unsigned short int);
-        void setCoordinates(sista::Coordinates);
-
-        sista::Coordinates getCoordinates() const;
-        void getCoordinates(unsigned short int&, unsigned short int&) const;
+        void goTo(unsigned short int, unsigned short int);
+        void goTo(sista::Coordinates);
 
         void eraseScreen(EraseScreen);
         void eraseLine(EraseLine);

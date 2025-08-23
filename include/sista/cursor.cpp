@@ -13,7 +13,7 @@ namespace sista {
         std::cout << TL; // Move cursor to top-left corner
     }
 
-    Cursor::Cursor(): x(0), y(0) {
+    Cursor::Cursor() {
         std::cout << HIDE_CURSOR;
         clearScreen();
     }
@@ -23,19 +23,11 @@ namespace sista {
         clearScreen();
     }
 
-    void Cursor::setCoordinates(unsigned short int y_, unsigned short int x_) {
+    void Cursor::goTo(unsigned short int y_, unsigned short int x_) {
         std::cout << CSI << y_ << ";" << x_ << CHA;
     }
-    void Cursor::setCoordinates(sista::Coordinates coordinates_) {
-        this->setCoordinates(coordinates_.y + offset_y, coordinates_.x + offset_x);
-    }
-
-    sista::Coordinates Cursor::getCoordinates() const {
-        return sista::Coordinates(y, x);
-    }
-    void Cursor::getCoordinates(unsigned short int& y_, unsigned short int& x_) const {
-        y_ = y;
-        x_ = x;
+    void Cursor::goTo(sista::Coordinates coordinates_) {
+        this->goTo(coordinates_.y + offset_y, coordinates_.x + offset_x);
     }
 
     void Cursor::eraseScreen(EraseScreen eraseScreen_) {
@@ -44,8 +36,7 @@ namespace sista {
     void Cursor::eraseLine(EraseLine eraseLine_, bool moveCursor) {
         std::cout << CSI << static_cast<int>(eraseLine_) << "K";
         if (moveCursor) {
-            this->setCoordinates(this->y, 0);
-            std::cout << '\r';
+            std::cout << '\r'; // Move cursor to start of line
         }
     }
 
