@@ -1,6 +1,7 @@
 #pragma once
 
 #include <utility> // std::pair, std::swap
+#include <functional> // std::hash
 
 namespace sista {
     typedef std::pair<unsigned short, unsigned short> Coord; // Coordinates made into a pair [y, x]
@@ -24,4 +25,9 @@ namespace sista {
         Coordinates operator+=(const Coordinates&);
         Coordinates operator-=(const Coordinates&);
     }; // field[y][x] - y is the row, x is the column
+};
+
+namespace std {
+    template<>
+    struct hash<sista::Coordinates>;
 };

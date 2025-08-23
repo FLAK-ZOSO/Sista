@@ -1,4 +1,5 @@
 #include "coordinates.hpp"
+#include <functional> // std::hash
 
 namespace sista {
     Coordinates::Coordinates(): y(0), x(0) {} // Constructor
@@ -41,4 +42,13 @@ namespace sista {
         x -= other.x;
         return *this;
     }
+};
+
+namespace std {
+    template<>
+    struct hash<sista::Coordinates> {
+        std::size_t operator()(const sista::Coordinates& c) const noexcept {
+            return (std::size_t(c.y) << 16) ^ std::size_t(c.x);
+        }
+    };
 };

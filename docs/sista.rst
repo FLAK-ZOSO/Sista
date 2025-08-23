@@ -130,13 +130,7 @@ This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/coordin
         Coordinates operator-=(const Coordinates&);
     };
 
-This header also contains the following typedef used to represent the coordinates of a Pawn.
-
-.. code-block:: cpp
-
-    typedef std::pair<unsigned short, unsigned short> Coord;
-
-The library uses the ``Coordinate`` struct more often than the ``Coord`` typedef, but almost all the functions of the library can use both.
+``Coordinates`` also supports hashing through a template specialization of ``std::hash``.
 
 ``cursor.hpp``
 ================
