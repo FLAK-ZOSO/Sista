@@ -34,43 +34,43 @@ namespace sista {
 
         virtual void addPawn(std::shared_ptr<Pawn>);
         virtual void removePawn(Pawn*);
-        virtual void removePawn(Coordinates&);
+        virtual void removePawn(const Coordinates&);
         virtual void erasePawn(Pawn*);
-        virtual void erasePawn(Coordinates&);
+        virtual void erasePawn(const Coordinates&);
 
         void addPrintPawn(std::shared_ptr<Pawn>);
         void rePrintPawn(Pawn*);
 
-        void movePawn(Pawn*, Coordinates&);
+        void movePawn(Pawn*, const Coordinates&);
         void movePawn(Pawn*, unsigned short, unsigned short);
 
-        void movePawnBy(Pawn*, Coordinates&);
+        void movePawnBy(Pawn*, const Coordinates&);
         void movePawnBy(Pawn*, unsigned short, unsigned short);
 
         // 🎮 movePawnBy() with arcade game effects on coordinates overflow
-        void movePawnBy(Pawn*, Coordinates&, Effect);
+        void movePawnBy(Pawn*, const Coordinates&, Effect);
         void movePawnBy(Pawn*, short int, short int, Effect);
 
-        void movePawnFromTo(Coordinates&, Coordinates&);
+        void movePawnFromTo(const Coordinates&, const Coordinates&);
         void movePawnFromTo(unsigned short, unsigned short, unsigned short, unsigned short);
 
-        Pawn* getPawn(Coordinates&);
+        Pawn* getPawn(const Coordinates&);
         Pawn* getPawn(unsigned short, unsigned short);
 
-        bool isOccupied(Coordinates&);
+        bool isOccupied(const Coordinates&);
         bool isOccupied(unsigned short, unsigned short);
         bool isOccupied(short int, short int);
 
-        bool isOutOfBounds(Coordinates&);
+        bool isOutOfBounds(const Coordinates&);
         bool isOutOfBounds(unsigned short, unsigned short);
         bool isOutOfBounds(short int, short int);
 
-        bool isFree(Coordinates&);
+        bool isFree(const Coordinates&);
         bool isFree(unsigned short, unsigned short);
         bool isFree(short int, short int);
 
         // ⚠️ This throws an exception if the coordinates are invalid
-        void validateCoordinates(Coordinates&);
+        void validateCoordinates(const Coordinates&);
         void validateCoordinates(unsigned short, unsigned short);
     };
 
@@ -111,12 +111,12 @@ namespace sista {
         // ℹ️ - The following function calculates coordinates, but does not apply them to the pawns
         Coordinates movingByCoordinates(Pawn*, short int, short int, Effect); // movingByCoordinates - calculate the coordinates of a pawn after a movement
 
-        void addPawnToSwap(Pawn*, Coordinates&); // addPawnToSwap - add a pawn to the pawnsToSwap
+        void addPawnToSwap(Pawn*, const Coordinates&); // addPawnToSwap - add a pawn to the pawnsToSwap
         void addPawnToSwap(Path&); // addPawnToSwap - add a path to the pawnsToSwap
         void simulateSwaps(); // simulateSwaps - simulate the swaps of the pawnsToSwap
         void applySwaps(); // applySwaps - apply the swaps of the pawnsToSwap
 
-        void swapTwoPawns(Coordinates&, Coordinates&);
+        void swapTwoPawns(const Coordinates&, const Coordinates&);
         void swapTwoPawns(Pawn*, Pawn*);
     };
 };

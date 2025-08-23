@@ -121,7 +121,7 @@ namespace sista {
     void Field::removePawn(Pawn* pawn) { // Remove a pawn from the matrix
         pawns[pawn->getCoordinates().y][pawn->getCoordinates().x].reset(); // Release the reference to the pointer
     }
-    void Field::removePawn(Coordinates& coordinates) { // Remove a pawn from the matrix
+    void Field::removePawn(const Coordinates& coordinates) { // Remove a pawn from the matrix
         pawns[coordinates.y][coordinates.x].reset(); // Release the reference to the pointer
     }
     void Field::erasePawn(Pawn* pawn) { // Erase a pawn from the matrix
@@ -130,7 +130,7 @@ namespace sista {
         resetAnsi(); // Reset the settings for that cell
         std::cout << ' '; // Print a space to clear the cell
     }
-    void Field::erasePawn(Coordinates& coordinates) { // Erase a pawn from the matrix
+    void Field::erasePawn(const Coordinates& coordinates) { // Erase a pawn from the matrix
         removePawn(coordinates);
         cursor.goTo(coordinates); // Set the cursor to the coordinates
         resetAnsi(); // Reset the settings for that cell
@@ -147,7 +147,7 @@ namespace sista {
         pawn->print(); // Print the pawn
     }
 
-    void Field::movePawn(Pawn* pawn, Coordinates& coordinates) { // Move a pawn to the coordinates
+    void Field::movePawn(Pawn* pawn, const Coordinates& coordinates) { // Move a pawn to the coordinates
         try {
             validateCoordinates(coordinates);
         } catch (const std::invalid_argument& e) {
@@ -175,7 +175,7 @@ namespace sista {
         movePawn(pawn, coordinates_);
     }
 
-    void Field::movePawnBy(Pawn* pawn, Coordinates& coordinates) { // Move a pawn by the coordinates
+    void Field::movePawnBy(Pawn* pawn, const Coordinates& coordinates) { // Move a pawn by the coordinates
         Coordinates coordinates_ = pawn->getCoordinates() + coordinates;
         movePawn(pawn, coordinates_);
     }
@@ -184,7 +184,7 @@ namespace sista {
     }
 
     // 🎮 movePawnBy() with arcade game effects on coordinates overflow
-    void Field::movePawnBy(Pawn* pawn, Coordinates& coordinates, Effect effect) {
+    void Field::movePawnBy(Pawn* pawn, const Coordinates& coordinates, Effect effect) {
         movePawnBy(pawn, coordinates.y, coordinates.x, effect);
     }
     void Field::movePawnBy(Pawn* pawn, short int y, short int x, Effect effect) {
@@ -225,21 +225,21 @@ namespace sista {
         movePawn(pawn, y_, x_);
     }
 
-    void Field::movePawnFromTo(Coordinates& coordinates, Coordinates& newCoordinates) {
+    void Field::movePawnFromTo(const Coordinates& coordinates, const Coordinates& newCoordinates) {
         movePawn(getPawn(coordinates), newCoordinates);
     }
     void Field::movePawnFromTo(unsigned short y, unsigned short x, unsigned short newY, unsigned short newX) {
         movePawn(getPawn(y, x), newY, newX);
     }
 
-    Pawn* Field::getPawn(Coordinates& coordinates) { // Get the pawn at the coordinates
+    Pawn* Field::getPawn(const Coordinates& coordinates) { // Get the pawn at the coordinates
         return pawns[coordinates.y][coordinates.x].get(); // Return the pawn at the coordinates
     }
     Pawn* Field::getPawn(unsigned short y, unsigned short x) {
         return pawns[y][x].get();
     }
 
-    bool Field::isOccupied(Coordinates& coordinates) { // Check if the coordinates are occupied
+    bool Field::isOccupied(const Coordinates& coordinates) { // Check if the coordinates are occupied
         return (getPawn(coordinates) != nullptr);
     }
     bool Field::isOccupied(unsigned short y, unsigned short x) {
@@ -249,7 +249,7 @@ namespace sista {
         return (getPawn(y, x) != nullptr);
     }
 
-    bool Field::isOutOfBounds(Coordinates& coordinates) { // Check if the coordinates are out of bounds
+    bool Field::isOutOfBounds(const Coordinates& coordinates) { // Check if the coordinates are out of bounds
         return (coordinates.y >= height || coordinates.x >= width); // Return if the coordinates are out of bounds
     }
     bool Field::isOutOfBounds(unsigned short y, unsigned short x) {
@@ -259,7 +259,7 @@ namespace sista {
         return  (y < 0 || y >= height || x < 0 || x >= width);
     }
 
-    bool Field::isFree(Coordinates& coordinates) { // Check if the coordinates are occupied or out of bounds
+    bool Field::isFree(const Coordinates& coordinates) { // Check if the coordinates are occupied or out of bounds
         return !(isOutOfBounds(coordinates) || isOccupied(coordinates));
     }
     bool Field::isFree(unsigned short y, unsigned short x) {
@@ -270,7 +270,7 @@ namespace sista {
     }
 
     // ⚠️ This throws an exception if the coordinates are invalid
-    void Field::validateCoordinates(Coordinates& coordinates) { // Validate the coordinates
+    void Field::validateCoordinates(const Coordinates& coordinates) { // Validate the coordinates
         if (isOutOfBounds(coordinates)) // If the coordinates are out of bounds
             throw std::out_of_range("Coordinates are out of bounds");
         if (isOccupied(coordinates)) // If the coordinates are occupied
@@ -386,7 +386,7 @@ namespace sista {
         }
     }
 
-    void SwappableField::addPawnToSwap(Pawn* pawn, Coordinates& first) { // addPawnToSwap - add a pawn to the pawnsToSwap
+    void SwappableField::addPawnToSwap(Pawn* pawn, const Coordinates& first) { // addPawnToSwap - add a pawn to the pawnsToSwap
         if (!isOutOfBounds(first)) {
             Coordinates start = pawn->getCoordinates();
             std::vector<Path>::iterator it = std::find_if(
@@ -471,7 +471,7 @@ namespace sista {
         clearPawnsToSwap();
     }
 
-    void SwappableField::swapTwoPawns(Coordinates& first, Coordinates& second) {
+    void SwappableField::swapTwoPawns(const Coordinates& first, const Coordinates& second) {
         // Swap the coordinates of the two pawns (into the Pawn object)
         Pawn* first_ = getPawn(first);
         Pawn* second_ = getPawn(second);

@@ -310,6 +310,8 @@ This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/pawn.hp
         virtual void print();
     };
 
+It comes with getters and setters for its attributes.
+
 ``sista.hpp``
 ================
 

@@ -15,11 +15,11 @@ namespace sista {
         Pawn(char, const Coordinates&, const ANSISettings&);
         virtual ~Pawn() {}
 
-        void setCoordinates(Coordinates&);
+        void setCoordinates(const Coordinates&);
         void getCoordinates(Coordinates&);
         Coordinates getCoordinates();
 
-        void setSettings(ANSISettings&);
+        void setSettings(const ANSISettings&);
         void getSettings(ANSISettings&);
         ANSISettings getSettings();
 

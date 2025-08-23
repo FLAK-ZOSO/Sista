@@ -3,7 +3,7 @@
 namespace sista {
     Pawn::Pawn(char symbol_, const Coordinates& coordinates_, const ANSISettings& settings_): symbol(symbol_), coordinates(coordinates_), settings(settings_) {}
 
-    void Pawn::setCoordinates(Coordinates& coordinates_) {
+    void Pawn::setCoordinates(const Coordinates& coordinates_) {
         coordinates = coordinates_;
     }
     void Pawn::getCoordinates(Coordinates& coordinates_) {
@@ -13,7 +13,7 @@ namespace sista {
         return coordinates;
     }
 
-    void Pawn::setSettings(ANSISettings& settings_) {
+    void Pawn::setSettings(const ANSISettings& settings_) {
         settings = settings_;
     }
     void Pawn::getSettings(ANSISettings& settings_) {

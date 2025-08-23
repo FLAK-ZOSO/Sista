@@ -22,6 +22,7 @@ Major release.
     - Created static methods in `sista::Coordinates` to convert from and to `std::pair<unsigned short, unsigned short>`
 - Removed `y` and `x` attributes from `sista::Cursor`, as they were not used outside the struct nor necessary for its functionality
 - Renamed `sista::Coordinates::set` to `goTo` for better clarity (it moves the cursor to the coordinates)
+- Using `const` qualifier for references where appropriate for better performance and semantics
 
 - Updated `Makefile` for hardcoding the rpath of the MacOS shared library to avoid issues with `DYLD_LIBRARY_PATH`
 
