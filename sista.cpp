@@ -8,7 +8,7 @@
 
 int main() {
     std::ios_base::sync_with_stdio(false);
-    sista::reset(); // Reset the settings
+    sista::resetAnsi(); // Reset the settings
 
     std::vector<std::shared_ptr<sista::Pawn>> pawns = {
         std::make_shared<sista::Pawn>(
