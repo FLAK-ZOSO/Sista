@@ -1,8 +1,7 @@
 #include "pawn.hpp" // Pawn
 
 namespace sista {
-    Pawn::Pawn(char symbol_, Coordinates coordinates_, ANSISettings settings_): symbol(symbol_), coordinates(coordinates_), settings(settings_) {}
-    Pawn::Pawn(char symbol_, Coordinates& coordinates_, ANSISettings& settings_, bool _by_reference): symbol(symbol_), coordinates(coordinates_), settings(settings_) {}
+    Pawn::Pawn(char symbol_, const Coordinates& coordinates_, const ANSISettings& settings_): symbol(symbol_), coordinates(coordinates_), settings(settings_) {}
 
     void Pawn::setCoordinates(Coordinates& coordinates_) {
         coordinates = coordinates_;

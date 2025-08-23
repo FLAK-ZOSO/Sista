@@ -12,8 +12,7 @@ namespace sista {
         ANSISettings settings; // settings of the pawn style
 
     public:
-        Pawn(char, Coordinates, ANSISettings);
-        Pawn(char, Coordinates&, ANSISettings&, bool);
+        Pawn(char, const Coordinates&, const ANSISettings&);
         virtual ~Pawn() {}
 
         void setCoordinates(Coordinates&);

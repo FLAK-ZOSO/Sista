@@ -10,8 +10,7 @@ namespace sista {
         ANSISettings settings; // settings of the Border style
 
     public:
-        Border(char, ANSISettings);
-        Border(char, ANSISettings&, bool);
+        Border(char, const ANSISettings&);
 
         virtual void print();
         virtual void print(bool);
