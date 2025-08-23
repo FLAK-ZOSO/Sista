@@ -96,10 +96,10 @@ This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/border.
     class Border {
     protected:
         char symbol; // Symbol of the Border
-        sista::ANSISettings settings; // settings of the Border style
+        ANSISettings settings; // settings of the Border style
     public:
-        Border(char, sista::ANSISettings);
-        Border(char, sista::ANSISettings&, bool);
+        Border(char, ANSISettings);
+        Border(char, ANSISettings&, bool);
         virtual void print(bool apply_settings=true) const;
     };
 
@@ -179,7 +179,7 @@ This header also contains the following struct used to represent the cursor of t
         ~Cursor();
 
         void goTo(unsigned short int, unsigned short int) const;
-        void goTo(sista::Coordinates) const;
+        void goTo(Coordinates) const;
 
         void eraseScreen(EraseScreen) const;
         void eraseLine(EraseLine) const;
@@ -233,7 +233,10 @@ This header also contains the following "abstract" class used to represent a fie
         void movePawnBy(Pawn*, Coordinates&);
         void movePawnBy(Pawn*, Coordinates&, bool);
         void movePawnFromTo(Coordinates&, Coordinates&);
-    
+
+        Coordinates movingByCoordinates(Pawn*, short int, short int);
+        Coordinates movingByCoordinates(Pawn*, short int, short int, Effect);
+
         bool isOccupied(Coordinates&) const;
         bool isOutOfBounds(Coordinates&) const;
         bool isFree(Coordinates&) const;
@@ -277,9 +280,6 @@ Then the ``SwappableField`` class can be used to represent a field with some use
         void removePawn(Pawn*);
         void clearPawnsToSwap();
 
-        Coordinates movingByCoordinates(Pawn*, unsigned short, unsigned short);
-        Coordinates movingByCoordinates(Pawn*, unsigned short, unsigned short, bool);
-
         void addPawnToSwap(Pawn*, Coordinates&);
         void addPawnToSwap(Path&);
         void applySwaps();
@@ -298,11 +298,10 @@ This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/pawn.hp
     protected:
         char symbol;
         Coordinates coordinates;
-        sista::ANSISettings settings;
+        ANSISettings settings;
 
     public:
-        Pawn(char, Coordinates, sista::ANSISettings);
-        Pawn(char, Coordinates&, sista::ANSISettings&, bool);
+        Pawn(char, const Coordinates&, const ANSISettings&);
         virtual ~Pawn();
 
         virtual void print();

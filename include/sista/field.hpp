@@ -50,9 +50,14 @@ namespace sista {
         // 🎮 movePawnBy() with arcade game effects on coordinates overflow
         void movePawnBy(Pawn*, const Coordinates&, Effect);
         void movePawnBy(Pawn*, short int, short int, Effect);
-
+        
         void movePawnFromTo(const Coordinates&, const Coordinates&);
         void movePawnFromTo(unsigned short, unsigned short, unsigned short, unsigned short);
+        
+        // ℹ️ - The following function calculates coordinates, but does not apply them to the pawns
+        Coordinates movingByCoordinates(Pawn*, short int, short int) const; // movingByCoordinates - calculate the coordinates of a pawn after a movement
+        // ℹ️ - The following function calculates coordinates, but does not apply them to the pawns
+        Coordinates movingByCoordinates(Pawn*, short int, short int, Effect) const; // movingByCoordinates - calculate the coordinates of a pawn after a movement
 
         Pawn* getPawn(const Coordinates&) const;
         Pawn* getPawn(unsigned short, unsigned short) const;
@@ -72,7 +77,7 @@ namespace sista {
         // ⚠️ This throws an exception if the coordinates are invalid
         void validateCoordinates(const Coordinates&) const;
         void validateCoordinates(unsigned short, unsigned short) const;
-    };
+    };    
 
     struct Path { // Path struct - begin and end Coordinates of a path
         static int current_priority; // current_priority - priority of the current Path [counter]
@@ -85,10 +90,10 @@ namespace sista {
 
         bool operator|(const Path&) const; // operator| - check if two paths are opposite
         bool operator<(const Path&) const; // operator< - check if a path has a lower priority than another path
-    };
+    };    
 
 
-    class SwappableField : public Field { // SwappableField class - a Field with no Pawn Swap issues [final class]
+    class SwappableField final : public Field { // SwappableField class - a Field with no Pawn Swap issues [final class]
     private:
         // pawnsCount[y][x] = 0 - no pawns on the pawns[y][x]
         std::vector<std::vector<short int>> pawnsCount; // pawnsCount[y][x] - number of pawns at pawns[y][x]
@@ -105,11 +110,6 @@ namespace sista {
         void removePawn(Pawn*) override; // removePawn - remove a pawn from the field
 
         void clearPawnsToSwap(); // clearPawnsToSwap - clear the pawnsToSwap
-
-        // ℹ️ - The following function calculates coordinates, but does not apply them to the pawns
-        Coordinates movingByCoordinates(Pawn*, short int, short int) const; // movingByCoordinates - calculate the coordinates of a pawn after a movement
-        // ℹ️ - The following function calculates coordinates, but does not apply them to the pawns
-        Coordinates movingByCoordinates(Pawn*, short int, short int, Effect) const; // movingByCoordinates - calculate the coordinates of a pawn after a movement
 
         void addPawnToSwap(Pawn*, const Coordinates&); // addPawnToSwap - add a pawn to the pawnsToSwap
         void addPawnToSwap(Path&); // addPawnToSwap - add a path to the pawnsToSwap
