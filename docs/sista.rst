@@ -71,10 +71,10 @@ This header also contains the following enums based on the `ANSI escape codes <h
 
 .. code-block:: cpp
 
-    enum ForegroundColor : int;
-    enum BackgroundColor : int;
-    enum Attribute : int;
-    enum ScreenMode : int;
+    enum class ForegroundColor : int;
+    enum class BackgroundColor : int;
+    enum class Attribute : int;
+    enum class ScreenMode : int;
 
 This header also contains the following struct used to represent the style of a char in the terminal:
 
@@ -161,11 +161,11 @@ This header also contains the following enums based on the `ANSI escape codes <h
 
 .. code-block:: cpp
 
-    enum EraseScreen : int;
-    enum EraseLine : int;
-    enum MoveCursor : int;
-    enum MoveCursorDEC : int;
-    enum MoveCursorSCO : int;
+    enum class EraseScreen : int;
+    enum class EraseLine : int;
+    enum class MoveCursor : char;
+    enum class MoveCursorDEC : int;
+    enum class MoveCursorSCO : char;
 
 This header also contains the following struct used to represent the cursor of the terminal.
 

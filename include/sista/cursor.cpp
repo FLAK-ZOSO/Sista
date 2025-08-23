@@ -28,10 +28,10 @@ namespace sista {
     }
 
     void Cursor::eraseScreen(EraseScreen eraseScreen_) {
-        std::cout << CSI << eraseScreen_ << "J";
+        std::cout << CSI << static_cast<int>(eraseScreen_) << "J";
     }
     void Cursor::eraseLine(EraseLine eraseLine_, bool moveCursor=true) {
-        std::cout << CSI << eraseLine_ << "K";
+        std::cout << CSI << static_cast<int>(eraseLine_) << "K";
         if (moveCursor) {
             this->set(this->y, 0);
             std::cout << '\r';
@@ -39,12 +39,12 @@ namespace sista {
     }
 
     void Cursor::move(MoveCursor moveCursor_, unsigned short int n=1) {
-        std::cout << CSI << n << (char)moveCursor_;
+        std::cout << CSI << n << static_cast<char>(moveCursor_);
     }
     void Cursor::move(MoveCursorDEC moveCursorDEC_) {
-        std::cout << ESC << ' ' << moveCursorDEC_;
+        std::cout << ESC << ' ' << static_cast<int>(moveCursorDEC_);
     }
     void Cursor::move(MoveCursorSCO moveCursorSCO_) {
-        std::cout << ESC << ' ' << moveCursorSCO_;
+        std::cout << ESC << ' ' << static_cast<char>(moveCursorSCO_);
     }
 };

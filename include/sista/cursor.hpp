@@ -11,33 +11,33 @@
 namespace sista {
     void clearScreen(bool spaces=true);
 
-    enum EraseScreen {
+    enum class EraseScreen: int {
         FROM_CURSOR_TO_END = 0,
         FROM_CURSOR_TO_BEGINNING = 1,
         ENTIRE_SCREEN = 2,
         ERASE_SAVED_LINES = 3,
     };
-    enum EraseLine {
+    enum class EraseLine: int {
         LINE_FROM_CURSOR_TO_END = 0,
         LINE_FROM_CURSOR_TO_BEGINNING = 1,
         ENTIRE_LINE = 2,
     };
-    enum MoveCursor {
-        UP = (int)'A',
-        DOWN = (int)'B',
-        RIGHT = (int)'C',
-        LEFT = (int)'D',
-        BEGINNING_OF_NEXT_LINE = (int)'E',
-        BEGINNING_OF_PREVIOUS_LINE = (int)'F',
-        HORIZONTAL_ABSOLUTE = (int)'G'
+    enum class MoveCursor: char {
+        UP = 'A',
+        DOWN = 'B',
+        RIGHT = 'C',
+        LEFT = 'D',
+        BEGINNING_OF_NEXT_LINE = 'E',
+        BEGINNING_OF_PREVIOUS_LINE = 'F',
+        HORIZONTAL_ABSOLUTE = 'G'
     };
-    enum MoveCursorDEC {
+    enum class MoveCursorDEC: int {
         SAVE_CURSOR_POSITION = 7,
         RESTORE_CURSOR_POSITION = 8
     };
-    enum MoveCursorSCO {
-        SCO_SAVE_CURSOR_POSITION = (int)'s',
-        SCO_RESTORE_CURSOR_POSITION = (int)'u'
+    enum class MoveCursorSCO: char {
+        SCO_SAVE_CURSOR_POSITION = 's',
+        SCO_RESTORE_CURSOR_POSITION = 'u'
     };
 
     struct Cursor {

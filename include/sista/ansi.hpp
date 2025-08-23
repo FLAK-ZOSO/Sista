@@ -14,7 +14,7 @@
 
 
 namespace sista {
-    enum class ForegroundColor {
+    enum class ForegroundColor: int {
         BLACK = 30,
         RED = 31,
         GREEN = 32,
@@ -24,7 +24,7 @@ namespace sista {
         CYAN = 36,
         WHITE = 37
     };
-    enum class BackgroundColor {
+    enum class BackgroundColor: int {
         BLACK = 40,
         RED = 41,
         GREEN = 42,
@@ -34,7 +34,7 @@ namespace sista {
         CYAN = 46,
         WHITE = 47
     };
-    enum class Attribute {
+    enum class Attribute: int {
         RESET = 0,
         BRIGHT = 1,
         FAINT = 2,

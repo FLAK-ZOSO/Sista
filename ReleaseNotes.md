@@ -11,7 +11,8 @@ Major release.
 - Updated documentation to reflect changes in `sista::Field` and `sista::Pawn` usage
 - Removed `ANSI` namespace and moved all ANSI-related functionality to `sista::`, among which `ANSI::Settings`->`sista::ANSISettings`
 - Wrapped former `_EFFECT` constants into a scoped `enum class Effect` inside the `sista` namespace
-- Changed `enum` types to `enum class` in `ANSI-Settings.cpp` for better type safety and to avoid name clashes
+- Changed `enum` types to `enum class` for better type safety and to avoid name clashes
+    - Fixed `Cursor::move` overload using `MoveCursorSCO`, which was incorrectly using `int` instead of `char`
 - Renamed `ANSI-Settings.hpp` and `ANSI-Settings.cpp` to `ansi.hpp` and `ansi.cpp` respectively for consistency with other filenames
     - Updated `Makefile` to reflect the new filenames and ensure correct compilation and linking
 - Removed overloads with non-const reference parameters and replaced them with overloads taking parameters by value or const reference
