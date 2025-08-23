@@ -35,13 +35,9 @@ int main(int argc, char** argv) {
     for (int i = 0; i < 1000; i++) {
         for (int j = 0; j < 50; j++) {
             coords[j] = field.movingByCoordinates(pawns[j].get(), 1, 0, sista::Effect::PACMAN);
-            try {
-                field.movePawn(pawns[j].get(), coords[j]);
-            } catch (std::invalid_argument& e) {
-                field.addPawnToSwap(pawns[j].get(), coords[j]);
-                field.applySwaps();
-            }
+            field.addPawnToSwap(pawns[j].get(), coords[j]);
         }
+        field.applySwaps();
         std::flush(std::cout);
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }

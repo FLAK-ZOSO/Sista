@@ -41,16 +41,10 @@ int main() {
                 pawns[k].get(), rand() % 3 - 1, rand() % 3 - 1, sista::Effect::PACMAN
             );
         }
-        try {
-            for (int k = 0; k < pawns.size(); k++) {
-                field.movePawn(pawns[k].get(), coords[k]);
-            }
-        } catch (std::invalid_argument& e) {
-            for (int k = 0; k < pawns.size(); k++) {
-                field.addPawnToSwap(pawns[k].get(), coords[k]);
-            }
-            field.applySwaps();
+        for (int k = 0; k < pawns.size(); k++) {
+            field.addPawnToSwap(pawns[k].get(), coords[k]);
         }
+        field.applySwaps();
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
 }
