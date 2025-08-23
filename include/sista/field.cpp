@@ -307,7 +307,7 @@ namespace sista {
     bool Path::operator<(const Path& other) const { // operator< - give priority order to paths
         return this->priority < other.priority;
     }
-    int Path::current_priority = 0; // priority - priority of the current Path
+    long long int Path::current_priority = 0; // priority - priority of the current Path
 
 
     Coordinates SwappableField::firstInvalidCell(std::vector<std::vector<short int>>& pawnsCount_) const { // lowerBound - find the first cell with a value >= value
@@ -397,36 +397,11 @@ namespace sista {
         }
     }
 
-    void SwappableField::addPawnToSwap(Pawn* pawn, const Coordinates& first) { // addPawnToSwap - add a pawn to the pawnsToSwap
-        if (!isOutOfBounds(first)) {
-            Coordinates start = pawn->getCoordinates();
-            std::vector<Path>::iterator it = std::find_if(
-                pawnsToSwap.begin(), pawnsToSwap.end(), [&](Path& path_) {
-                    return (path_.begin == first && path_.end == start);
-                }
-            ); // Search for the opposite of the swap
-            if (it != pawnsToSwap.end()) { // If the opposite of the swap is found...
-                swapTwoPawns(it->pawn, pawn); // Swap the pawns
-                pawnsToSwap.erase(it);
-            } else {
-                pawnsToSwap.push_back(Path(start, first, pawn));
-            }
-        }
+    void SwappableField::addPawnToSwap(Pawn* pawn, const Coordinates& destination) { // addPawnToSwap - add a pawn to the pawnsToSwap
+        pawnsToSwap.push_back(Path(pawn->getCoordinates(), destination, pawn));
     }
     void SwappableField::addPawnToSwap(Path& path) { // addPawnToSwap - add a pawn to the pawnsToSwap
-        if (!isOutOfBounds(path.begin) && !isOutOfBounds(path.end)) {
-            std::vector<Path>::iterator it = std::find_if(
-                pawnsToSwap.begin(), pawnsToSwap.end(), [&](Path& path_) {
-                    return path | path_;
-                }
-            ); // Search for the opposite of the swap
-            if (it != pawnsToSwap.end()) { // If the opposite of the swap is found...
-                swapTwoPawns(it->pawn, path.pawn); // Swap the pawns
-                pawnsToSwap.erase(it);
-            } else {
-                pawnsToSwap.push_back(path);
-            }
-        }
+        pawnsToSwap.push_back(path);
     }
     void SwappableField::simulateSwaps() { // simulateSwaps - simulate all the swaps in the pawnsToSwap
         std::vector<std::vector<short int>> pawnsCount_ = pawnsCount; // Copy the pawnsCount

@@ -81,7 +81,7 @@ namespace sista {
     };    
 
     struct Path { // Path struct - begin and end Coordinates of a path
-        static int current_priority; // current_priority - priority of the current Path [counter]
+        static long long int current_priority; // current_priority - priority of the current Path [counter]
         int priority; // priority - priority of the Path (used in operator<)
         Coordinates begin;
         Coordinates end;
