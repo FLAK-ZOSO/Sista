@@ -193,16 +193,10 @@ First of all, we need to print the ``Field`` object with the ``Border`` object.
         coords[3] = field.movingByCoordinates(pawns[3].get(), 1, -1, sista::Effect::PACMAN);
         coords[4] = field.movingByCoordinates(pawns[4].get(), 1, 0, sista::Effect::PACMAN);
         coords[5] = field.movingByCoordinates(pawns[5].get(), 0, 1, sista::Effect::PACMAN);
-        try {
-            for (int k=0; k<(int)pawns.size(); k++) {
-                field.movePawn(pawns[k].get(), coords[k]);
-            }
-        } catch (const std::invalid_argument& e) {
-            for (int k=0; k<(int)pawns.size(); k++) {
-                field.addPawnToSwap(pawns[k].get(), coords[k]);
-            }
-            field.applySwaps();
+        for (int k=0; k<(int)pawns.size(); k++) {
+            field.addPawnToSwap(pawns[k].get(), coords[k]);
         }
+        field.applySwaps();
 
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
         std::cout << std::flush;
@@ -223,9 +217,7 @@ Analyzing the code, we can see that we are moving the pawns in the following dir
 - Pawn 4: Right (1, 0)
 - Pawn 5: Down (0, 1)
 
-If the movement is valid, we will move the pawn to the new coordinates using the ``movePawn()`` method.
-
-If the movement is not valid, we will add the pawn to the swap list using the ``addPawnToSwap()`` method, and then we will apply the swaps using the ``applySwaps()`` method. This is useful when the pawn is trying to move to a position that is already occupied by another pawn, but that other pawn is moving out of the way at the same time.
+We will add each pawn to the swap list using the ``addPawnToSwap()`` method, and then we will apply the swaps using the ``applySwaps()`` method. This is useful when the pawn is trying to move to a position that is already occupied by another pawn, but that other pawn is moving out of the way at the same time.
 
 After applying all the movements, we'll swap the characters in the ``stdout`` stream, and then we'll flush the ``stdout`` stream.
 
