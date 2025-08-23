@@ -20,6 +20,8 @@ Major release.
 - Removed `sista::Coord` type alias of `std::pair<unsigned short, unsigned short>` to minimize the public surface area of the library
     - Removed all functions taking `sista::Coord` as parameter
     - Created static methods in `sista::Coordinates` to convert from and to `std::pair<unsigned short, unsigned short>`
+- Protected `sista::Cursor`'s members `x` and `y` to enforce encapsulation
+    - Added getter method `getCoordinates()` and setter method `setCoordinates()`
 
 - Updated `Makefile` for hardcoding the rpath of the MacOS shared library to avoid issues with `DYLD_LIBRARY_PATH`
 

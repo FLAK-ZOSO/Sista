@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ansi.hpp" // ESC, CSI
-#include "coordinates.hpp" // Coord, Coordinates, <utility>
+#include "coordinates.hpp" // Coordinates, <utility>
 
 
 #define CHA 'H' // "Cursor Horizontal Absolute"
@@ -41,17 +41,24 @@ namespace sista {
     };
 
     struct Cursor {
+    private:
+        const static unsigned short int offset_y;
+        const static unsigned short int offset_x;
         unsigned short int x;
         unsigned short int y;
 
+    public:
         Cursor();
         ~Cursor();
 
-        void set(unsigned short int, unsigned short int);
-        void set(sista::Coordinates);
+        void setCoordinates(unsigned short int, unsigned short int);
+        void setCoordinates(sista::Coordinates);
+
+        sista::Coordinates getCoordinates() const;
+        void getCoordinates(unsigned short int&, unsigned short int&) const;
 
         void eraseScreen(EraseScreen);
-        void eraseLine(EraseLine, bool);
+        void eraseLine(EraseLine, bool=true);
 
         void move(MoveCursor, unsigned short int);
         void move(MoveCursorDEC);

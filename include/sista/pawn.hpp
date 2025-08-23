@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ansi.hpp" // ForegroundColor, BackgroundColor, Attribute, ANSISettings
-#include "coordinates.hpp" // Coord, Coordinates, <utility>
+#include "coordinates.hpp" // Coordinates, <utility>
 
 
 namespace sista {

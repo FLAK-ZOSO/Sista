@@ -2,6 +2,9 @@
 
 
 namespace sista {
+    const unsigned short int Cursor::offset_y = 3; // Offset for the y coordinate (empyrical)
+    const unsigned short int Cursor::offset_x = 2; // Offset for the x coordinate (empyrical)
+
     void clearScreen(bool spaces) {
         if (spaces) {
             std::cout << CLS; // Clear screen
@@ -20,20 +23,28 @@ namespace sista {
         clearScreen();
     }
 
-    void Cursor::set(unsigned short int y_, unsigned short int x_) {
+    void Cursor::setCoordinates(unsigned short int y_, unsigned short int x_) {
         std::cout << CSI << y_ << ";" << x_ << CHA;
     }
-    void Cursor::set(sista::Coordinates coordinates_) {
-        this->set(coordinates_.y + 3, coordinates_.x + 2);
+    void Cursor::setCoordinates(sista::Coordinates coordinates_) {
+        this->setCoordinates(coordinates_.y + offset_y, coordinates_.x + offset_x);
+    }
+
+    sista::Coordinates Cursor::getCoordinates() const {
+        return sista::Coordinates(y, x);
+    }
+    void Cursor::getCoordinates(unsigned short int& y_, unsigned short int& x_) const {
+        y_ = y;
+        x_ = x;
     }
 
     void Cursor::eraseScreen(EraseScreen eraseScreen_) {
         std::cout << CSI << static_cast<int>(eraseScreen_) << "J";
     }
-    void Cursor::eraseLine(EraseLine eraseLine_, bool moveCursor=true) {
+    void Cursor::eraseLine(EraseLine eraseLine_, bool moveCursor) {
         std::cout << CSI << static_cast<int>(eraseLine_) << "K";
         if (moveCursor) {
-            this->set(this->y, 0);
+            this->setCoordinates(this->y, 0);
             std::cout << '\r';
         }
     }

@@ -126,24 +126,24 @@ namespace sista {
     }
     void Field::erasePawn(Pawn* pawn) { // Erase a pawn from the matrix
         removePawn(pawn); // Remove the pawn from the matrix
-        cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
+        cursor.setCoordinates(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
         resetAnsi(); // Reset the settings for that cell
         std::cout << ' '; // Print a space to clear the cell
     }
     void Field::erasePawn(Coordinates& coordinates) { // Erase a pawn from the matrix
         removePawn(coordinates);
-        cursor.set(coordinates); // Set the cursor to the coordinates
+        cursor.setCoordinates(coordinates); // Set the cursor to the coordinates
         resetAnsi(); // Reset the settings for that cell
         std::cout << ' '; // Print a space to clear the cell
     }
 
     void Field::addPrintPawn(std::shared_ptr<Pawn> pawn) { // Add a pawn to the matrix and print it
         addPawn(pawn); // Add the pawn to the matrix
-        this->cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
+        this->cursor.setCoordinates(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
         pawn->print(); // Print the pawn
     }
     void Field::rePrintPawn(Pawn* pawn) { // Print a pawn
-        cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
+        cursor.setCoordinates(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
         pawn->print(); // Print the pawn
     }
 
@@ -157,10 +157,10 @@ namespace sista {
             throw std::invalid_argument("The coordinates are occupied by another pawn");
         }
         // Cursor ANSI stuff
-        cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
+        cursor.setCoordinates(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
         resetAnsi(); // Reset the settings for that cell
         std::cout << ' '; // Print a space to clear the cell
-        cursor.set(coordinates); // Set the cursor to the coordinates
+        cursor.setCoordinates(coordinates); // Set the cursor to the coordinates
         pawn->print(); // Print the pawn
 
         // sista::Field stuff
@@ -495,12 +495,12 @@ namespace sista {
         second->setCoordinates(temp);
 
         // Draw the first pawn at the second pawn's coordinates
-        cursor.set(temp);
+        cursor.setCoordinates(temp);
         std::cout << ' ';
-        cursor.set(app);
+        cursor.setCoordinates(app);
         first->print();
         // Draw the second pawn at the first pawn's coordinates
-        cursor.set(temp);
+        cursor.setCoordinates(temp);
         second->print();
 
         // std::swap the pointers Pawn* in the pawns 2D-std::vector

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ansi.hpp" // ForegroundColor, BackgroundColor, Attribute, ANSISettings
-#include "coordinates.hpp" // Coord, Coordinates, <utility>
+#include "coordinates.hpp" // Coordinates, <utility>
 
 namespace sista {
     class Border { // Border class - represents a brick of the border [parent class]
@@ -12,6 +12,6 @@ namespace sista {
     public:
         Border(char, const ANSISettings&);
 
-        virtual void print(bool apply_settings=true);
+        virtual void print(bool=true);
     };
 };

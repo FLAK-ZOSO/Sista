@@ -172,14 +172,19 @@ This header also contains the following struct used to represent the cursor of t
 .. code-block:: cpp
 
     struct Cursor {
+        const static unsigned short int offset_y;
+        const static unsigned short int offset_x;
         unsigned short int x;
         unsigned short int y;
 
         Cursor();
         ~Cursor();
 
-        void set(unsigned short int, unsigned short int);
-        void set(sista::Coordinates);
+        void setCoordinates(unsigned short int, unsigned short int);
+        void setCoordinates(sista::Coordinates);
+
+        sista::Coordinates getCoordinates() const;
+        void getCoordinates(unsigned short int&, unsigned short int&) const;
 
         void eraseScreen(EraseScreen);
         void eraseLine(EraseLine);
@@ -188,7 +193,7 @@ This header also contains the following struct used to represent the cursor of t
         void move(MoveCursorSCO);
     };
 
-The coordinates are 0-based like in the ``Coordinates`` struct, they will be adapted to the {3, 2}-based coordinates of the terminal when printed.
+The coordinates are 0-based like in the ``Coordinates`` struct, they will be adapted to the ``{3, 2}``-based coordinates of the terminal when printed.
 
 ``field.hpp``
 ================
@@ -317,7 +322,7 @@ This `header <https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/sista.h
 
     #include "ansi.hpp" // ForegroundColor, BackgroundColor, Attribute, ANSISettings
     #include "border.hpp" // Border
-    #include "coordinates.hpp" // Coord, Coordinates, <utility>
+    #include "coordinates.hpp" // Coordinates, <utility>
     #include "pawn.hpp" // Pawn
     #include "field.hpp" // Field, Path, SwappableField
     #include "cursor.hpp" // Cursor, clearScreen [cross-platform since v0.6.0]
