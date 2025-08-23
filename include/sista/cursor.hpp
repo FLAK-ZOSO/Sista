@@ -9,8 +9,7 @@
 
 
 namespace sista {
-    void clearScreen();
-    void clearScreen(bool);
+    void clearScreen(bool spaces=true);
 
     enum EraseScreen {
         FROM_CURSOR_TO_END = 0,

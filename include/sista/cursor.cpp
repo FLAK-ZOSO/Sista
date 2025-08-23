@@ -2,9 +2,6 @@
 
 
 namespace sista {
-    void clearScreen() {
-        clearScreen(true);
-    }
     void clearScreen(bool spaces) {
         if (spaces) {
             std::cout << CLS; // Clear screen
