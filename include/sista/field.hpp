@@ -19,6 +19,9 @@ namespace sista {
         int width; // Width of the matrix
         int height; // Height of the matrix
 
+        void cleanCoordinates(const Coordinates&) const;
+        void cleanCoordinates(unsigned short, unsigned short) const;
+
     public:
         void clear();
         void reset();

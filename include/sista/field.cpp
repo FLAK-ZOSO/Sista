@@ -138,6 +138,15 @@ namespace sista {
         resetAnsi(); // Reset the settings for that cell
         std::cout << ' '; // Print a space to clear the cell
     }
+    void Field::cleanCoordinates(const Coordinates& coordinates) const { // Clean a cell from the matrix
+        cursor.goTo(coordinates); // Set the cursor to the coordinates
+        resetAnsi(); // Reset the settings for that cell
+        std::cout << ' '; // Print a space to clear the cell
+    }
+    void Field::cleanCoordinates(unsigned short y, unsigned short x) const { // Clean a cell from the matrix
+        Coordinates coordinates(y, x);
+        cleanCoordinates(coordinates);
+    }
 
     void Field::addPrintPawn(std::shared_ptr<Pawn> pawn) { // Add a pawn to the matrix and print it
         addPawn(pawn); // Add the pawn to the matrix
@@ -466,11 +475,18 @@ namespace sista {
         }
         // The swaps can be applied as it stands
         for (Path& path : pawnsToSwap) {
+            std::cerr << "Swapping pawn at (" << path.begin.y << ", " << path.begin.x << ") to (" << path.end.y << ", " << path.end.x << ")\n";
+            std::cerr << "Pawn symbol: " << (startingBoard[path.begin.y][path.begin.x] ? startingBoard[path.begin.y][path.begin.x]->getSymbol() : ' ') << std::endl;
             pawnsCount[path.begin.y][path.begin.x]--; // Decrease the number of pawns at the begin of the path (because the pawn will be removed from there)
             pawnsCount[path.end.y][path.end.x]++; // Increase the number of pawns at the end of the path (because the pawn will be added there)
             pawns[path.end.y][path.end.x] = startingBoard[path.begin.y][path.begin.x]; // Move the pawn to the end of the path
             pawns[path.begin.y][path.begin.x].reset(); // Remove the pawn from the begin of the path
+            std::cerr << "Cleaning coordinates {" << path.begin.y << ", " << path.begin.x << "}\n";
+            cleanCoordinates(path.begin); // Clean the cell at the begin of the path
+            std::cerr << "Reprinting pawn at {" << path.end.y << ", " << path.end.x << "}\n";
             path.pawn->setCoordinates(path.end); // Update the coordinates of the pawn
+            std::cerr << "Reprinting pawn at {" << path.pawn->getCoordinates().y << ", " << path.pawn->getCoordinates().x << "}\n";
+            rePrintPawn(path.pawn); // Reprint the pawn at the new coordinates
         }
         clearPawnsToSwap();
     }
