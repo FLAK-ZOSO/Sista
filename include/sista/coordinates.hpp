@@ -4,9 +4,6 @@
 #include <functional> // std::hash
 
 namespace sista {
-    typedef std::pair<unsigned short, unsigned short> Coord; // Coordinates made into a pair [y, x]
-
-
     struct Coordinates { // 2D coordinates
         unsigned short y; // y coordinate
         unsigned short x; // x coordinate
@@ -29,5 +26,7 @@ namespace sista {
 
 namespace std {
     template<>
-    struct hash<sista::Coordinates>;
+    struct hash<sista::Coordinates> {
+        std::size_t operator()(const sista::Coordinates&) const noexcept;
+    };
 };

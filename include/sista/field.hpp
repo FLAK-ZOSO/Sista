@@ -2,6 +2,7 @@
 
 #include <vector> // std::vector
 #include <memory> // std::shared_ptr, std::move
+#include <map> // std::map
 #include "pawn.hpp" // Pawn
 #include "border.hpp" // Border
 #include "cursor.hpp" // Cursor
@@ -101,7 +102,7 @@ namespace sista {
         // NOTE: short int instead of bool because of the possibility of having more than 2 pawns on the same field during swap trials
         std::vector<Path> pawnsToSwap; // pawnsToSwap - pawns that need to be swapped
 
-        Coordinates firstInvalidCell(std::vector<std::vector<short int>>&) const; // firstInvalidCell - find the first cell with 2 or more pawns
+        Coordinates firstInvalidCell(std::map<Coordinates, short int>&) const; // firstInvalidCell - find the first cell with 2 or more pawns
 
     public:
         SwappableField(int, int); // SwappableField - constructor (width, height)

@@ -26,6 +26,7 @@ Major release.
 - Moving `sista::SwappableField::movingByCoordinates` to `sista::Field` as it does not depend on `SwappableField` functionality
 - Minimized includes in header files to reduce compilation dependencies and improve build times
 - Added `std::hash` specialization for `sista::Coordinates` to allow its use in hash-based containers like `std::unordered_map` and `std::unordered_set`
+- Optimized `sista::SwappableField` internal logic for better performance
 
 - Updated `Makefile` for hardcoding the rpath of the MacOS shared library to avoid issues with `DYLD_LIBRARY_PATH`
 - Updated `Makefile` to reflect the new filenames and ensure correct compilation and linking

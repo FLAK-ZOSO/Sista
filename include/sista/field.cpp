@@ -310,13 +310,10 @@ namespace sista {
     long long int Path::current_priority = 0; // priority - priority of the current Path
 
 
-    Coordinates SwappableField::firstInvalidCell(std::vector<std::vector<short int>>& pawnsCount_) const { // lowerBound - find the first cell with a value >= value
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                if (pawnsCount_[y][x] >= 2) {
-                    return Coordinates(y, x);
-                }
-            }
+    Coordinates SwappableField::firstInvalidCell(std::map<Coordinates, short int>& pawnsCount_) const { // lowerBound - find the first cell with a value >= value
+        for (std::pair<const Coordinates, short int>& pair : pawnsCount_) {
+            if (pair.second >= 2) // If the cell has 2 or more pawns
+                return pair.first; // Return the coordinates of the cell
         }
         throw std::runtime_error("No invalid cells found");
     }
@@ -404,13 +401,17 @@ namespace sista {
         pawnsToSwap.push_back(path);
     }
     void SwappableField::simulateSwaps() { // simulateSwaps - simulate all the swaps in the pawnsToSwap
-        std::vector<std::vector<short int>> pawnsCount_ = pawnsCount; // Copy the pawnsCount
+        std::map<Coordinates, short int> endCount; // Count the number of pawns at the begin of the path
         if (pawnsToSwap.empty()) { // If there are no swaps to simulate,
             return; // ...return
         }
         for (const Path& path : pawnsToSwap) { // Simulate all the swaps in the pawnsToSwap
-            pawnsCount_[path.begin.y][path.begin.x]--; // Decrease the number of pawns at the begin of the path (because the pawn will be removed from there)
-            pawnsCount_[path.end.y][path.end.x]++; // Increase the number of pawns at the end of the path (because the pawn will be added there)
+            if (endCount.count(path.end) == 0) { // If the end of the path is not in the map...
+                endCount[path.begin] = pawnsCount[path.begin.y][path.begin.x]; // ...add it to the map with the current number of pawns at the begin of the path
+                endCount[path.end] = pawnsCount[path.end.y][path.end.x]; // ...add it to the map with the current number of pawns at the end of the path
+            }
+            endCount[path.begin]--; // Decrease the number of pawns at the begin of the path (because the pawn will be removed from there)
+            endCount[path.end]++; // Increase the number of pawns at the end of the path (because the pawn will be added there)
         }
 
         std::sort(pawnsToSwap.begin(), pawnsToSwap.end()); // Sort the pawnsToSwap by priority
@@ -419,20 +420,20 @@ namespace sista {
         try {
             while (true) {
                 // Find the first cell with 2 or more pawns heading there
-                arrive_ = firstInvalidCell(pawnsCount_); // Coordinates of the cell with 2 or more pawns (so where a certain pawn arrived and should never be arrived at)
+                arrive_ = firstInvalidCell(endCount); // Coordinates of the cell with 2 or more pawns (so where a certain pawn arrived and should never be arrived at)
 
                 // Find a pawn that arrived at the cell with 2 or more pawns
                 // Pawn* pawn = getPawn(arrive_); // NO! Swap weren't applied yet, so the pawn is still at the begin of the path
                 for (it = pawnsToSwap.begin(); it != pawnsToSwap.end();) {
                     if (it->end == arrive_) { // If the pawn arrived at the cell with 2 or more pawns
-                        pawnsCount_[it->begin.y][it->begin.x]++; // Increase the number of pawns at the begin of the path (because the pawn will be added there)
-                        pawnsCount_[arrive_.y][arrive_.x]--; // Decrease the number of pawns at the cell with 2 or more pawns (because the pawn will be removed from there)
+                        endCount[arrive_]--; // Increase the number of pawns at the begin of the path (because the pawn will be added there)
+                        endCount[it->begin]++; // Decrease the number of pawns at the cell with 2 or more pawns (because the pawn will be removed from there)
                         it = pawnsToSwap.erase(it); // Remove the path from the pawnsToSwap (this movement can't be applied anymore)
                     } else {
                         ++it;
                     }
-                    if (pawnsCount_[arrive_.y][arrive_.x] <= 1) {
-                        break;
+                    if (endCount[arrive_] < 2) { // If the cell with 2 or more pawns is now valid...
+                        break; // ...break the loop and find another cell with 2 or more pawns
                     }
                 }
             } // This loop will be broken when the firstInvalidCell throws an exception
@@ -444,16 +445,16 @@ namespace sista {
         simulateSwaps(); // This assures that the pawnsToSwap is valid
         
         // Store the starting positions of the pawns to swap
-        std::unordered_map<unsigned short, std::unordered_map<unsigned short, std::shared_ptr<Pawn>>> startingBoard; 
+        std::unordered_map<Coordinates, std::shared_ptr<Pawn>> startingBoard;
         for (Path& path : pawnsToSwap) {
-            startingBoard[path.begin.y][path.begin.x] = pawns[path.begin.y][path.begin.x];
+            startingBoard[path.begin] = pawns[path.begin.y][path.begin.x];
             pawns[path.begin.y][path.begin.x].reset(); // Remove the pawn from the begin of the path
         }
         // The swaps can be applied as it stands
         for (Path& path : pawnsToSwap) {
             pawnsCount[path.begin.y][path.begin.x]--; // Decrease the number of pawns at the begin of the path (because the pawn will be removed from there)
             pawnsCount[path.end.y][path.end.x]++; // Increase the number of pawns at the end of the path (because the pawn will be added there)
-            pawns[path.end.y][path.end.x] = startingBoard[path.begin.y][path.begin.x]; // Move the pawn to the end of the path
+            pawns[path.end.y][path.end.x] = startingBoard[path.begin]; // Move the pawn to the end of the path
             if (isFree(path.begin)) {
                 cleanCoordinates(path.begin); // Clean the cell at the begin of the path
             }

@@ -1,5 +1,4 @@
-#include "coordinates.hpp"
-#include <functional> // std::hash
+#include "coordinates.hpp" // Coordinates, <utility> std::pair std::make_pair, <functional> std::hash
 
 namespace sista {
     Coordinates::Coordinates(): y(0), x(0) {} // Constructor
@@ -44,11 +43,7 @@ namespace sista {
     }
 };
 
-namespace std {
-    template<>
-    struct hash<sista::Coordinates> {
-        std::size_t operator()(const sista::Coordinates& c) const noexcept {
-            return (std::size_t(c.y) << 16) ^ std::size_t(c.x);
-        }
-    };
-};
+
+std::size_t std::hash<sista::Coordinates>::operator()(const sista::Coordinates& c) const noexcept {
+    return (std::size_t(c.y) << 16) ^ std::size_t(c.x);
+} // Simple hash function for Coordinates - combines y and x into a single size_t
