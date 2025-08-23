@@ -472,20 +472,17 @@ namespace sista {
         std::unordered_map<unsigned short, std::unordered_map<unsigned short, std::shared_ptr<Pawn>>> startingBoard; 
         for (Path& path : pawnsToSwap) {
             startingBoard[path.begin.y][path.begin.x] = pawns[path.begin.y][path.begin.x];
+            pawns[path.begin.y][path.begin.x].reset(); // Remove the pawn from the begin of the path
         }
         // The swaps can be applied as it stands
         for (Path& path : pawnsToSwap) {
-            std::cerr << "Swapping pawn at (" << path.begin.y << ", " << path.begin.x << ") to (" << path.end.y << ", " << path.end.x << ")\n";
-            std::cerr << "Pawn symbol: " << (startingBoard[path.begin.y][path.begin.x] ? startingBoard[path.begin.y][path.begin.x]->getSymbol() : ' ') << std::endl;
             pawnsCount[path.begin.y][path.begin.x]--; // Decrease the number of pawns at the begin of the path (because the pawn will be removed from there)
             pawnsCount[path.end.y][path.end.x]++; // Increase the number of pawns at the end of the path (because the pawn will be added there)
             pawns[path.end.y][path.end.x] = startingBoard[path.begin.y][path.begin.x]; // Move the pawn to the end of the path
-            pawns[path.begin.y][path.begin.x].reset(); // Remove the pawn from the begin of the path
-            std::cerr << "Cleaning coordinates {" << path.begin.y << ", " << path.begin.x << "}\n";
-            cleanCoordinates(path.begin); // Clean the cell at the begin of the path
-            std::cerr << "Reprinting pawn at {" << path.end.y << ", " << path.end.x << "}\n";
+            if (isFree(path.begin)) {
+                cleanCoordinates(path.begin); // Clean the cell at the begin of the path
+            }
             path.pawn->setCoordinates(path.end); // Update the coordinates of the pawn
-            std::cerr << "Reprinting pawn at {" << path.pawn->getCoordinates().y << ", " << path.pawn->getCoordinates().x << "}\n";
             rePrintPawn(path.pawn); // Reprint the pawn at the new coordinates
         }
         clearPawnsToSwap();
