@@ -333,12 +333,14 @@ namespace sista {
     }
 
     void SwappableField::addPawn(std::shared_ptr<Pawn> pawn) { // addPawn - add a pawn to the field
+        if (isFree(pawn->getCoordinates())) // If the cell is occupied...
+            pawnsCount[pawn->getCoordinates().y][pawn->getCoordinates().x]++;
         Field::addPawn(pawn);
-        pawnsCount[pawn->getCoordinates().y][pawn->getCoordinates().x]++;
     }
     void SwappableField::removePawn(Pawn* pawn) { // removePawn - remove a pawn from the field
+        if (pawn != nullptr)
+            pawnsCount[pawn->getCoordinates().y][pawn->getCoordinates().x]--;
         Field::removePawn(pawn);
-        pawnsCount[pawn->getCoordinates().y][pawn->getCoordinates().x]--;
     }
 
     void SwappableField::clearPawnsToSwap() { // clearPawnsToSwap - clear the pawnsToSwap

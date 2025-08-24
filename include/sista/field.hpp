@@ -589,22 +589,86 @@ namespace sista {
         void validateCoordinates(unsigned short, unsigned short) const;
     };    
 
-    struct Path { // Path struct - begin and end Coordinates of a path
-        static long long int current_priority; // current_priority - priority of the current Path [counter]
-        int priority; // priority - priority of the Path (used in operator<)
-        Coordinates begin;
-        Coordinates end;
-        Pawn* pawn; // pawn - the pawn that is moving along the path
+    /** \struct Path
+     *  \brief Represents a movement path for a Pawn, including priority handling.
+     *
+     *  The Path struct encapsulates the beginning and end coordinates of a movement path for a Pawn.
+     *  It includes a priority attribute to determine the order of processing paths, as well as a static
+     *  current_priority counter to assign unique priorities to new paths.
+     *
+     *  The struct provides operator overloads to compare paths based on priority, check for equality,
+     *  and determine if two paths are opposite (i.e., one is the reverse of the other).
+     *
+     *  \note The way this struct is handled assumes that no two identical paths (same begin and end coordinates) will be created, as no two pawns can occupy the same coordinates at the same time.
+     *
+     *  \see Coordinates
+     *  \see Pawn
+    */
+    struct Path {
+        static long long int current_priority; /** Static counter to assign unique priorities to new paths. */
+        int priority; /** priority - priority of the path (lower number = higher priority) */
+        Coordinates begin; /** begin - starting coordinates of the path */
+        Coordinates end; /** end - ending coordinates of the path */
+        Pawn* pawn; /** pawn - the pawn that is moving along the path */
 
+        /** \brief Constructor to initialize a Path with begin and end coordinates and associated Pawn.
+         *  \param begin_ The starting Coordinates of the path.
+         *  \param end_ The ending Coordinates of the path.
+         *  \param pawn_ A pointer to the Pawn associated with this path.
+         *
+         *  This constructor initializes a Path object with the specified begin and end coordinates,
+         *  assigns a unique priority based on the static current_priority counter, and associates it
+         *  with the given Pawn.
+         *
+         *  \see Coordinates
+         *  \see Pawn
+        */
         Path(Coordinates, Coordinates, Pawn*);
 
-        bool operator|(const Path&) const; // operator| - check if two paths are opposite
-        bool operator<(const Path&) const; // operator< - check if a path has a lower priority than another path
-        bool operator==(const Path&) const; // operator== - check if two paths are equal (both begin and end coordinates are the same, ignores priority and pawn)
+        /** \brief Overloaded operator to check if two paths are opposite (reverse of each other).
+         *  \param other The other Path to compare with.
+         *  \return `true` if the paths are opposite, `false` otherwise.
+         *
+         *  This operator checks if the current path is the reverse of the other path,
+         *  meaning that the begin coordinates of one path match the end coordinates of the other and vice versa.
+         *
+         *  \see begin
+         *  \see end
+        */
+        bool operator|(const Path&) const;
+        /** \brief Overloaded operator to compare paths based on priority.
+         *  \param other The other Path to compare with.
+         *  \return `true` if this path has a higher priority (lower number) than the other path, `false` otherwise.
+         *
+         *  This operator allows comparing two Path objects based on their priority attribute.
+         *  It is useful for sorting or ordering paths when processing multiple movements.
+         *
+         *  \see priority
+        */
+        bool operator<(const Path&) const;
+        /** \brief Overloaded operator to check if two paths are equal (same begin and end coordinates).
+         *  \param other The other Path to compare with.
+         *  \return `true` if both paths have the same begin and end coordinates, `false` otherwise.
+         *
+         *  This operator checks if two Path objects represent the same movement path,
+         *  ignoring the priority and associated Pawn.
+         *
+         *  \see begin
+         *  \see end
+        */
+        bool operator==(const Path&) const;
     };
 }
 
 namespace std {
+    /** \brief Specialization of std::hash for sista::Path to allow usage in unordered containers.
+     *
+     * This specialization provides a hash function for the sista::Path struct, enabling its use as a key
+     * in unordered containers like std::unordered_set or std::unordered_map. The hash is computed based
+     * on the begin and end coordinates of the path.
+     *
+     * \see sista::Path
+    */
     template<>
     struct hash<sista::Path> {
         std::size_t operator()(const sista::Path& k) const noexcept {
@@ -616,30 +680,160 @@ namespace std {
 }
 
 namespace sista {
-    class SwappableField final : public Field { // SwappableField class - a Field with no Pawn Swap issues [final class]
+    /** \class SwappableField
+     *  \brief A specialized Field that handles Pawn swaps without conflicts.
+     *
+     *  The SwappableField class extends the Field class to manage scenarios where multiple Pawns may need to swap positions.
+     *  It maintains a count of Pawns at each position and a set of paths representing Pawns that need to be moved.
+     *  The class provides methods to add and remove Pawns, manage the swap paths, and simulate or apply the swaps.
+     *  This class is designed to ensure that Pawn movements are handled correctly, even when multiple Pawns are
+     *  attempting to move to the same position.
+     *
+     *  \see Field
+     *  \see Pawn
+     *  \see Coordinates
+     *  \see Path
+     */
+    class SwappableField final : public Field {
     private:
-        // pawnsCount[y][x] = 0 - no pawns on the pawns[y][x]
-        std::vector<std::vector<short int>> pawnsCount; // pawnsCount[y][x] - number of pawns at pawns[y][x]
-        // NOTE: short int instead of bool because of the possibility of having more than 2 pawns on the same field during swap trials
-        std::set<Path> pawnsToSwap; // pawnsToSwap - pawns that need to be swapped
-
+        /** \brief 2D grid [y][x] to track the number of Pawns at each position. */
+        std::vector<std::vector<short int>> pawnsCount;
+        /** \brief Set of Paths representing Pawns that need to be swapped. */
+        std::set<Path> pawnsToSwap;
+        
         Coordinates firstInvalidCell(std::map<Coordinates, short int>&) const; // firstInvalidCell - find the first cell with 2 or more pawns
 
-    public:
-        SwappableField(int, int); // SwappableField - constructor (width, height)
-        ~SwappableField();
-
-        void addPawn(std::shared_ptr<Pawn>) override; // addPawn - add a pawn to the field
-        void removePawn(Pawn*) override; // removePawn - remove a pawn from the field
-
+        /** \brief Cleans the internal state of pawnsToSwap.
+         *
+         *  This method clears the set of paths representing Pawns that need to be swapped.
+         *  It is useful for resetting the state before simulating or applying new swaps.
+         *
+         *  \see pawnsToSwap
+        */
         void clearPawnsToSwap(); // clearPawnsToSwap - clear the pawnsToSwap
 
+    public:
+        /** \brief Constructor to initialize the SwappableField with specified width and height.
+         *  \param width The width of the field (number of columns).
+         *  \param height The height of the field (number of rows).
+         *
+         *  This constructor initializes a SwappableField object with the given dimensions.
+         *  It sets up a 2D grid to track the number of Pawns at each position and initializes
+         *  the base Field class.
+         *
+         *  \see Field
+        */
+        SwappableField(int, int);
+        /** \brief Destructor to clean up resources. */
+        ~SwappableField();
+
+        /** \brief Adds a Pawn to the field and updates the pawnsCount grid.
+         *  \param pawn A shared pointer to the Pawn to add.
+         *
+         *  This method places the given Pawn on the field at its current coordinates and increments
+         *  the count of Pawns at that position in the pawnsCount grid.
+         *  If the coordinates are already occupied, the existing Pawn will be replaced.
+         *
+         *  \warning The Pawn's coordinates must be valid (within the field bounds) as they are not validated here.
+         *  \note The method takes a shared pointer to manage the Pawn's memory automatically.
+         *
+         *  \see Field::addPawn
+         *  \see Pawn
+        */
+        void addPawn(std::shared_ptr<Pawn>) override; // addPawn - add a pawn to the field
+        /** \brief Removes a Pawn from the field and updates the pawnsCount grid.
+         *  \param pawn A pointer to the Pawn to remove.
+         *
+         *  This method removes the specified Pawn from the field based on its coordinates and decrements
+         *  the count of Pawns at that position in the pawnsCount grid.
+         *  If the Pawn is not found at its coordinates, no action is taken.
+         *
+         *  \warning The Pawn's coordinates must be valid (within the field bounds) as they are not validated here.
+         *  \note The method does not delete the Pawn object, it only removes it from the field.
+         *
+         *  \see Field::removePawn
+         *  \see Pawn
+        */
+        void removePawn(Pawn*) override; // removePawn - remove a pawn from the field
+
+        /** \brief Adds a Pawn to the set of pawnsToSwap.
+         *  \param pawn A pointer to the Pawn to add.
+         *  \param coordinates The Coordinates representing the new position of the Pawn.
+         *
+         *  This method adds the specified Pawn and its target coordinates to the set of pawnsToSwap,
+         *  indicating that the Pawn needs to be moved. The method ensures that no duplicate entries
+         *  are added and handles conflicts where multiple Pawns may want to move to the same position.
+         *
+         *  \throws `std::invalid_argument` if the pawn is a nullptr.
+         *  \throws `std::out_of_range` if the destination coordinates are out of bounds.
+         *
+         *  \note If the Pawn's current coordinates are the same as the target coordinates, it is ignored.
+         *
+         *  \see Pawn
+         *  \see Coordinates
+         *  \see pawnsToSwap
+        */
         void addPawnToSwap(Pawn*, const Coordinates&); // addPawnToSwap - add a pawn to the pawnsToSwap
+        /** \brief Adds a Path to the set of pawnsToSwap.
+         *  \param path A Path representing the Pawn movement to add.
+         *
+         *  This method adds the specified Path to the set of pawnsToSwap, indicating that the Pawn
+         *  associated with the path needs to be moved. The method ensures that no duplicate paths
+         *  are added and handles conflicts where multiple Pawns may want to move to the same position.
+         *
+         *  \throws `std::invalid_argument` if the pawn is a nullptr.
+         *  \throws `std::out_of_range` if the destination coordinates of the path are out of bounds.
+         *
+         *  \note If the start and end coordinates of the path are the same, the path is ignored.
+         *
+         *  \see Path
+         *  \see pawnsToSwap
+        */
         void addPawnToSwap(Path&); // addPawnToSwap - add a path to the pawnsToSwap
+
+        /** \brief Simulates the swaps of the pawnsToSwap and removes unfeasible paths.
+         *
+         *  This method processes the set of pawnsToSwap to simulate the movements of the Pawns.
+         *  It identifies and removes any paths that cannot be executed due to conflicts or cycles,
+         *  ensuring that only feasible swaps remain in the set.
+         *
+         *  \todo Make the function return the paths that were removed as unfeasible.
+         *
+         *  \see pawnsToSwap
+        */
         void simulateSwaps(); // simulateSwaps - simulate the swaps of the pawnsToSwap
+        /** \brief Applies the swaps of the pawnsToSwap to the field.
+         *
+         *  This method executes the movements of the Pawns as specified in the pawnsToSwap set.
+         *  It updates the positions of the Pawns on the field and clears the pawnsToSwap set afterward.
+         *
+         *  \see pawnsToSwap
+         *  \see Path
+        */
         void applySwaps(); // applySwaps - apply the swaps of the pawnsToSwap
 
+        /** \brief Swaps two Pawns at the specified coordinates.
+         *  \param first The Coordinates of the first Pawn.
+         *  \param second The Coordinates of the second Pawn.
+         *
+         *  This method swaps the positions of the two Pawns located at the given coordinates on the field.
+         *
+         *  \warning The coordinates must be valid (within the field bounds) as they are not validated here.
+         *
+         *  \see Pawn
+         *  \see Coordinates
+        */
         void swapTwoPawns(const Coordinates&, const Coordinates&);
+        /** \brief Swaps two Pawns.
+         *  \param first A pointer to the first Pawn.
+         *  \param second A pointer to the second Pawn.
+         *
+         *  This method swaps the positions of the two specified Pawns on the field.
+         *
+         *  \warning The Pawns must have valid coordinates (within the field bounds) as they are not validated here.
+         *
+         *  \see Pawn
+        */
         void swapTwoPawns(Pawn*, Pawn*);
     };
 };
