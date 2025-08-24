@@ -360,29 +360,232 @@ namespace sista {
          *  \see movePawn
         */
         void movePawnFromTo(unsigned short, unsigned short, unsigned short, unsigned short);
-        
-        // ℹ️ - The following function calculates coordinates, but does not apply them to the pawns
-        Coordinates movingByCoordinates(Pawn*, short int, short int) const; // movingByCoordinates - calculate the coordinates of a pawn after a movement
-        // ℹ️ - The following function calculates coordinates, but does not apply them to the pawns
+
+        /** \brief Calculates the new coordinates of a Pawn after moving by a relative offset.
+         *  \param pawn A pointer to the Pawn to calculate the new coordinates for.
+         *  \param y The relative y offset (rows) to move the Pawn by.
+         *  \param x The relative x offset (columns) to move the Pawn by.
+         *  \return The new Coordinates of the Pawn after applying the movement.
+         *
+         *  This method calculates the new coordinates of the specified Pawn after moving it by the given relative offset.
+         *  It does not modify the Pawn's actual coordinates, it only computes and returns the new position.
+         *
+         *  \throws `std::out_of_range` if the resulting coordinates are out of bounds.
+         *
+         *  \note This method only calculates the new coordinates, it does not move the Pawn.
+         *
+         *  \see Pawn
+         *  \see Coordinates
+        */
+        Coordinates movingByCoordinates(Pawn*, short int, short int) const;        
+        /** \brief Calculates the new coordinates of a Pawn after moving by a relative offset with specified effect on out-of-bounds coordinates.
+         *  \param pawn A pointer to the Pawn to calculate the new coordinates for.
+         *  \param y The relative y offset (rows) to move the Pawn by.
+         *  \param x The relative x offset (columns) to move the Pawn by.
+         *  \param effect The Effect to apply when the resulting coordinates are out of bounds.
+         *  \return The new Coordinates of the Pawn after applying the movement and effect.
+         *
+         *  This method calculates the new coordinates of the specified Pawn after moving it by the given relative offset.
+         *  If the resulting coordinates go out of bounds, the specified effect is applied to adjust them accordingly.
+         *
+         *  \throws `std::out_of_range` if the resulting coordinates are out of bounds.
+         *
+         *  \note This method only calculates the new coordinates, it does not move the Pawn.
+         *
+         *  \see Pawn
+         *  \see Coordinates
+         *  \see Effect
+        */
         Coordinates movingByCoordinates(Pawn*, short int, short int, Effect) const; // movingByCoordinates - calculate the coordinates of a pawn after a movement
 
+        /** \brief Gets the Pawn at specified coordinates.
+         *  \param coordinates The Coordinates to get the Pawn from.
+         *  \return A pointer to the Pawn at the given coordinates, or nullptr if no Pawn is found.
+         *
+         *  This method retrieves the Pawn located at the specified coordinates on the field.
+         *  If no Pawn is found at those coordinates, the method returns nullptr.
+         *
+         *  \warning The coordinates must be valid (within the field bounds) as they are not validated here.
+         *  \note The method returns a raw pointer to the Pawn that is managed by a shared pointer in the field and thus must not be deleted.
+         *
+         *  \see Pawn
+         *  \see Coordinates
+        */
         Pawn* getPawn(const Coordinates&) const;
+        /** \brief Gets the Pawn at specified coordinates.
+         *  \param y The y coordinate (row) to get the Pawn from.
+         *  \param x The x coordinate (column) to get the Pawn from.
+         *  \return A pointer to the Pawn at the given coordinates, or nullptr if no Pawn is found.
+         *
+         *  This method retrieves the Pawn located at the specified coordinates on the field.
+         *  If no Pawn is found at those coordinates, the method returns nullptr.
+         *
+         *  \warning The coordinates must be valid (within the field bounds) as they are not validated here.
+         *  \note The method returns a raw pointer to the Pawn that is managed by a shared pointer in the field and thus must not be deleted.
+         *
+         *  \see Pawn
+         *  \see Coordinates
+        */
         Pawn* getPawn(unsigned short, unsigned short) const;
 
+        /** \brief Checks if specified coordinates are occupied by a Pawn.
+         *  \param coordinates The Coordinates to check.
+         *  \return `true` if the coordinates are occupied, `false` otherwise.
+         *
+         *  This method checks if there is a Pawn located at the specified coordinates on the field.
+         *
+         *  \warning The coordinates must be valid (within the field bounds) as they are not validated here
+         *
+         *  \see Pawn
+         *  \see Coordinates
+         *  \see isFree
+         *  \see isOutOfBounds
+         */
         bool isOccupied(const Coordinates&) const;
+        /** \brief Checks if specified coordinates are occupied by a Pawn.
+         *  \param y The y coordinate (row) to check.
+         *  \param x The x coordinate (column) to check.
+         *  \return `true` if the coordinates are occupied, `false` otherwise.
+         *
+         *  This method checks if there is a Pawn located at the specified coordinates on the field.
+         *
+         *  \warning The coordinates must be valid (within the field bounds) as they are not validated here
+         *
+         *  \see Pawn
+         *  \see Coordinates
+         *  \see isFree
+         *  \see isOutOfBounds
+        */
         bool isOccupied(unsigned short, unsigned short) const;
+        /** \brief Checks if specified coordinates are occupied by a Pawn.
+         *  \param y The y coordinate (row) to check.
+         *  \param x The x coordinate (column) to check.
+         *  \return `true` if the coordinates are occupied, `false` otherwise.
+         *
+         *  This method checks if there is a Pawn located at the specified coordinates on the field.
+         *
+         *  \note This overload uses signed integers to allow checking for negative coordinates.
+         *  \warning The coordinates must be valid (within the field bounds) as they are not validated here
+         *
+         *  \see Pawn
+         *  \see Coordinates
+         *  \see isFree
+         *  \see isOutOfBounds
+        */
         bool isOccupied(short int, short int) const;
 
+        /** \brief Checks if specified coordinates are out of bounds.
+         *  \param coordinates The Coordinates to check.
+         *  \return `true` if the coordinates are out of bounds, `false` otherwise.
+         *
+         *  This method checks if the given coordinates are outside the valid range of the field.
+         *
+         *  \see Coordinates
+         *  \see isOccupied
+         *  \see isFree
+        */
         bool isOutOfBounds(const Coordinates&) const;
+        /** \brief Checks if specified coordinates are out of bounds.
+         *  \param y The y coordinate (row) to check.
+         *  \param x The x coordinate (column) to check.
+         *  \return `true` if the coordinates are out of bounds, `false` otherwise.
+         *
+         *  This method checks if the given coordinates are outside the valid range of the field.
+         *
+         *  \see Coordinates
+         *  \see isOccupied
+         *  \see isFree
+        */
         bool isOutOfBounds(unsigned short, unsigned short) const;
+        /** \brief Checks if specified coordinates are out of bounds.
+         *  \param y The y coordinate (row) to check.
+         *  \param x The x coordinate (column) to check.
+         *  \return `true` if the coordinates are out of bounds, `false` otherwise.
+         *
+         *  This method checks if the given coordinates are outside the valid range of the field.
+         *
+         *  \note This overload uses signed integers to allow checking for negative coordinates.
+         *
+         *  \see Coordinates
+         *  \see isOccupied
+         *  \see isFree
+        */
         bool isOutOfBounds(short int, short int) const;
 
+        /** \brief Checks if specified coordinates are free (not occupied by a Pawn).
+         *  \param coordinates The Coordinates to check.
+         *  \return `true` if the coordinates are free, `false` otherwise.
+         *
+         *  This method checks if there is no Pawn located at the specified coordinates on the field.
+         *
+         *  \note This is a negation of isOccupied provided that isOutOfBounds returns false. Read implementation for more details.
+         *
+         *  \see Pawn
+         *  \see Coordinates
+         *  \see isOccupied
+         *  \see isOutOfBounds
+        */
         bool isFree(const Coordinates&) const;
+        /** \brief Checks if specified coordinates are free (not occupied by a Pawn).
+         *  \param y The y coordinate (row) to check.
+         *  \param x The x coordinate (column) to check.
+         *  \return `true` if the coordinates are free, `false` otherwise.
+         *
+         *  This method checks if there is no Pawn located at the specified coordinates on the field.
+         *
+         *  \note This is a negation of isOccupied provided that isOutOfBounds returns false. Read implementation for more details.
+         *
+         *  \see Pawn
+         *  \see Coordinates
+         *  \see isOccupied
+         *  \see isOutOfBounds
+        */
         bool isFree(unsigned short, unsigned short) const;
+        /** \brief Checks if specified coordinates are free (not occupied by a Pawn).
+         *  \param y The y coordinate (row) to check.
+         *  \param x The x coordinate (column) to check.
+         *  \return `true` if the coordinates are free, `false` otherwise.
+         *
+         *  This method checks if there is no Pawn located at the specified coordinates on the field.
+         *
+         *  \note This overload uses signed integers to allow checking for negative coordinates.
+         *  \note This is a negation of isOccupied provided that isOutOfBounds returns false. Read implementation for more details.
+         *
+         *  \see Pawn
+         *  \see Coordinates
+         *  \see isOccupied
+         *  \see isOutOfBounds
+        */
         bool isFree(short int, short int) const;
 
-        // ⚠️ This throws an exception if the coordinates are invalid
+        /** \brief Validates that the given coordinates are within bounds and not occupied.
+         *  \param coordinates The Coordinates to validate.
+         *
+         *  This method checks if the specified coordinates are within the valid range of the field
+         *  and not occupied by another Pawn. If either condition is not met, an exception is thrown.
+         *
+         *  \throws `std::invalid_argument` if the coordinates are occupied by another Pawn.
+         *  \throws `std::out_of_range` if the coordinates are out of bounds.
+         *
+         *  \see Coordinates
+         *  \see isOccupied
+         *  \see isOutOfBounds
+        */
         void validateCoordinates(const Coordinates&) const;
+        /** \brief Validates that the given coordinates are within bounds and not occupied.
+         *  \param y The y coordinate (row) to validate.
+         *  \param x The x coordinate (column) to validate.
+         *
+         *  This method checks if the specified coordinates are within the valid range of the field
+         *  and not occupied by another Pawn. If either condition is not met, an exception is thrown.
+         *
+         *  \throws `std::invalid_argument` if the coordinates are occupied by another Pawn.
+         *  \throws `std::out_of_range` if the coordinates are out of bounds.
+         *
+         *  \see Coordinates
+         *  \see isOccupied
+         *  \see isOutOfBounds
+        */
         void validateCoordinates(unsigned short, unsigned short) const;
     };    
 

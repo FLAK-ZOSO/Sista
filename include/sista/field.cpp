@@ -245,7 +245,7 @@ namespace sista {
         return pawns[y][x].get();
     }
 
-    bool Field::isOccupied(const Coordinates& coordinates) const { // Check if the coordinates are occupied
+    bool Field::isOccupied(const Coordinates& coordinates) const {
         return (getPawn(coordinates) != nullptr);
     }
     bool Field::isOccupied(unsigned short y, unsigned short x) const {
@@ -255,7 +255,7 @@ namespace sista {
         return (getPawn(y, x) != nullptr);
     }
 
-    bool Field::isOutOfBounds(const Coordinates& coordinates) const { // Check if the coordinates are out of bounds
+    bool Field::isOutOfBounds(const Coordinates& coordinates) const {
         return (coordinates.y >= height || coordinates.x >= width); // Return if the coordinates are out of bounds
     }
     bool Field::isOutOfBounds(unsigned short y, unsigned short x) const {
@@ -265,7 +265,7 @@ namespace sista {
         return  (y < 0 || y >= height || x < 0 || x >= width);
     }
 
-    bool Field::isFree(const Coordinates& coordinates) const { // Check if the coordinates are occupied or out of bounds
+    bool Field::isFree(const Coordinates& coordinates) const {
         return !(isOutOfBounds(coordinates) || isOccupied(coordinates));
     }
     bool Field::isFree(unsigned short y, unsigned short x) const {
