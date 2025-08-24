@@ -38,6 +38,10 @@ demo/*.o
 sista
 !include/sista
 
+# Doxygen output
+docs/html/
+docs/latex/
+
 # Other files
 .vscode/
 .vscode/*

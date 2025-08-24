@@ -1,3 +1,5 @@
+This documentation is kept for historical reasons, the up-to-date documentation is available at: `flak-zoso.github.io/Sista <https://flak-zoso.github.io/Sista/>`_.
+
 ``Library``
 ================
 
@@ -45,8 +47,8 @@ This header also contains the following functions:
     void setAttribute(Attribute);
     void resetAttribute(Attribute);
     void resetAnsi();
-    inline void setForegroundColor(RGBColor);
-    inline void setBackgroundColor(RGBColor);
+    void setForegroundColor(const RGBColor&);
+    void setBackgroundColor(const RGBColor&);
     void setForegroundColor(unsigned short int, unsigned short int, unsigned short int);
     void setBackgroundColor(unsigned short int, unsigned short int, unsigned short int);
     void setForegroundColor(unsigned short int);

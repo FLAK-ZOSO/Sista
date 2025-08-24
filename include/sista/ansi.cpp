@@ -29,10 +29,10 @@ namespace sista {
         setBackgroundColor(BackgroundColor::BLACK);
     }
 
-    inline void setForegroundColor(RGBColor rgbcolor) {
+    void setForegroundColor(const RGBColor& rgbcolor) {
         setForegroundColor(rgbcolor.red, rgbcolor.green, rgbcolor.blue);
     }
-    inline void setBackgroundColor(RGBColor rgbcolor) {
+    void setBackgroundColor(const RGBColor& rgbcolor) {
         setBackgroundColor(rgbcolor.red, rgbcolor.green, rgbcolor.blue);
     }
     void setForegroundColor(unsigned short int red, unsigned short int green, unsigned short int blue) {
