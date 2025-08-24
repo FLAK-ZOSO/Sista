@@ -83,13 +83,16 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Represents a 2D grid where Pawns can be placed, moved, and managed.  
+ <a href="classsista_1_1Field.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="field_8hpp_source.html">field.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for sista::Field:</div>
 <div class="dyncontent">
 <div class="center"><img src="classsista_1_1Field__inherit__graph.png" border="0" usemap="#asista_1_1Field_inherit__map" alt="Inheritance graph"/></div>
 <map name="asista_1_1Field_inherit__map" id="asista_1_1Field_inherit__map">
-<area shape="rect" title=" " alt="" coords="41,5,133,31"/>
+<area shape="rect" title="Represents a 2D grid where Pawns can be placed, moved, and managed." alt="" coords="41,5,133,31"/>
 <area shape="rect" href="classsista_1_1SwappableField.html" title=" " alt="" coords="5,79,168,104"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -98,7 +101,7 @@ Collaboration diagram for sista::Field:</div>
 <div class="dyncontent">
 <div class="center"><img src="classsista_1_1Field__coll__graph.png" border="0" usemap="#asista_1_1Field_coll__map" alt="Collaboration graph"/></div>
 <map name="asista_1_1Field_coll__map" id="asista_1_1Field_coll__map">
-<area shape="rect" title=" " alt="" coords="11,93,103,119"/>
+<area shape="rect" title="Represents a 2D grid where Pawns can be placed, moved, and managed." alt="" coords="11,93,103,119"/>
 <area shape="rect" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations." alt="" coords="5,5,108,31"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -106,18 +109,22 @@ Collaboration diagram for sista::Field:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:abe9fe24ad291a61d69c0ebe3758940a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Field.html#abe9fe24ad291a61d69c0ebe3758940a8">clear</a> ()</td></tr>
+<tr class="memdesc:abe9fe24ad291a61d69c0ebe3758940a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the field by removing all Pawns and resetting the grid.  <br /></td></tr>
 <tr class="separator:abe9fe24ad291a61d69c0ebe3758940a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a961b2f1f944fa4d11f23ed94b858241a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Field.html#a961b2f1f944fa4d11f23ed94b858241a">reset</a> ()</td></tr>
-<tr class="separator:a961b2f1f944fa4d11f23ed94b858241a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2665f87dea436220db3beb224248b904"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Field.html#a2665f87dea436220db3beb224248b904">Field</a> (int, int)</td></tr>
+<tr class="memdesc:a2665f87dea436220db3beb224248b904"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor to initialize the field with specified width and height.  <br /></td></tr>
 <tr class="separator:a2665f87dea436220db3beb224248b904"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23bdaf8aa6f4c9ccf786e78b5be89bd4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Field.html#a23bdaf8aa6f4c9ccf786e78b5be89bd4">~Field</a> ()</td></tr>
+<tr class="memdesc:a23bdaf8aa6f4c9ccf786e78b5be89bd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor to clean up resources.  <br /></td></tr>
 <tr class="separator:a23bdaf8aa6f4c9ccf786e78b5be89bd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd343354ef7cbdc78ee4019aab000c0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Field.html#abd343354ef7cbdc78ee4019aab000c0e">print</a> () const</td></tr>
+<tr class="memdesc:abd343354ef7cbdc78ee4019aab000c0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the entire field to the terminal.  <br /></td></tr>
 <tr class="separator:abd343354ef7cbdc78ee4019aab000c0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a818d1f75772fda0e52859c206a607659"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Field.html#a818d1f75772fda0e52859c206a607659">print</a> (char) const</td></tr>
+<tr class="memdesc:a818d1f75772fda0e52859c206a607659"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the entire field to the terminal.  <br /></td></tr>
 <tr class="separator:a818d1f75772fda0e52859c206a607659"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d6bddf80ec105766e9c159d3300ffe6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Field.html#a1d6bddf80ec105766e9c159d3300ffe6">print</a> (<a class="el" href="classsista_1_1Border.html">Border</a> &amp;) const</td></tr>
+<tr class="memdesc:a1d6bddf80ec105766e9c159d3300ffe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the entire field to the terminal.  <br /></td></tr>
 <tr class="separator:a1d6bddf80ec105766e9c159d3300ffe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4729a662bfa94eed3b5684d989189e1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Field.html#aa4729a662bfa94eed3b5684d989189e1">addPawn</a> (std::shared_ptr&lt; <a class="el" href="classsista_1_1Pawn.html">Pawn</a> &gt;)</td></tr>
 <tr class="separator:aa4729a662bfa94eed3b5684d989189e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -183,13 +190,16 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a30793342d640e7f73e04c712094a9a75"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Field.html#a30793342d640e7f73e04c712094a9a75">cleanCoordinates</a> (const <a class="el" href="structsista_1_1Coordinates.html">Coordinates</a> &amp;) const</td></tr>
+<tr class="memdesc:a30793342d640e7f73e04c712094a9a75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cleans the coordinates on screen by printing spaces.  <br /></td></tr>
 <tr class="separator:a30793342d640e7f73e04c712094a9a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb098dd88eb47ce00ea3a8636e11cd24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Field.html#adb098dd88eb47ce00ea3a8636e11cd24">cleanCoordinates</a> (unsigned short, unsigned short) const</td></tr>
+<tr class="memdesc:adb098dd88eb47ce00ea3a8636e11cd24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cleans the coordinates on screen by printing spaces.  <br /></td></tr>
 <tr class="separator:adb098dd88eb47ce00ea3a8636e11cd24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a60e33bb565443ff6d1b7838aeb7a68d9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; std::shared_ptr&lt; <a class="el" href="classsista_1_1Pawn.html">Pawn</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Field.html#a60e33bb565443ff6d1b7838aeb7a68d9">pawns</a></td></tr>
+<tr class="memdesc:a60e33bb565443ff6d1b7838aeb7a68d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">2D grid of shared pointers to <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> objects.  <br /></td></tr>
 <tr class="separator:a60e33bb565443ff6d1b7838aeb7a68d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18e2d39b2784e6efded186ca6ebeb1cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsista_1_1Cursor.html">Cursor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Field.html#a18e2d39b2784e6efded186ca6ebeb1cb">cursor</a></td></tr>
 <tr class="separator:a18e2d39b2784e6efded186ca6ebeb1cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -198,7 +208,20 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a27184484af521ba9a0dfe1b7453b5813"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Field.html#a27184484af521ba9a0dfe1b7453b5813">height</a></td></tr>
 <tr class="separator:a27184484af521ba9a0dfe1b7453b5813"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents a 2D grid where Pawns can be placed, moved, and managed. </p>
+<p>The <a class="el" href="classsista_1_1Field.html" title="Represents a 2D grid where Pawns can be placed, moved, and managed.">Field</a> class encapsulates a 2D grid structure using a vector of vectors to hold shared pointers to <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> objects. It provides methods to add, remove, move, and print Pawns on the field. The class also includes functionality to check if specific coordinates are occupied, free, or out of bounds, and to validate coordinates.</p>
+<p>The <a class="el" href="classsista_1_1Field.html" title="Represents a 2D grid where Pawns can be placed, moved, and managed.">Field</a> class is designed to be extended for more specialized behavior, such as in the <a class="el" href="classsista_1_1SwappableField.html">SwappableField</a> subclass, which handles scenarios where multiple Pawns may need to swap positions without conflicts.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> </dd>
+<dd>
+<a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">Coordinates</a> </dd>
+<dd>
+<a class="el" href="classsista_1_1Border.html" title="Represents a brick of the border with a symbol and ANSI settings.">Border</a> </dd>
+<dd>
+<a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">Cursor</a> </dd>
+<dd>
+<a class="el" href="classsista_1_1SwappableField.html">SwappableField</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2665f87dea436220db3beb224248b904" name="a2665f87dea436220db3beb224248b904"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2665f87dea436220db3beb224248b904">&#9670;&#160;</a></span>Field()</h2>
 
@@ -225,6 +248,17 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructor to initialize the field with specified width and height. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width_</td><td>The width of the field (number of columns). </td></tr>
+    <tr><td class="paramname">height_</td><td>The height of the field (number of rows).</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This constructor initializes a <a class="el" href="classsista_1_1Field.html" title="Represents a 2D grid where Pawns can be placed, moved, and managed.">Field</a> object with the given dimensions. It sets up a 2D grid (vector of vectors) to hold shared pointers to <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> objects, and initializes the <a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">Cursor</a> for terminal operations.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">Cursor</a> </dd></dl>
+
 </div>
 </div>
 <a id="a23bdaf8aa6f4c9ccf786e78b5be89bd4" name="a23bdaf8aa6f4c9ccf786e78b5be89bd4"></a>
@@ -241,6 +275,8 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Destructor to clean up resources. </p>
 
 </div>
 </div>
@@ -315,6 +351,14 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Cleans the coordinates on screen by printing spaces. </p>
+<p>Height of the matrix </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coordinates</td><td>The <a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">Coordinates</a> to clean. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="adb098dd88eb47ce00ea3a8636e11cd24" name="adb098dd88eb47ce00ea3a8636e11cd24"></a>
@@ -351,6 +395,15 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Cleans the coordinates on screen by printing spaces. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">y</td><td>The y coordinate (row). </td></tr>
+    <tr><td class="paramname">x</td><td>The x coordinate (column). </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="abe9fe24ad291a61d69c0ebe3758940a8" name="abe9fe24ad291a61d69c0ebe3758940a8"></a>
@@ -367,6 +420,9 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Clears the field by removing all Pawns and resetting the grid. </p>
+<dl class="section note"><dt>Note</dt><dd>This does not delete the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> objects, it only removes them from the field. </dd></dl>
 
 </div>
 </div>
@@ -1045,6 +1101,12 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Prints the entire field to the terminal. </p>
+<p>This method iterates through the 2D grid of Pawns and prints each <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>'s symbol at its respective coordinates. The method uses the <a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">Cursor</a> object to manage terminal cursor positioning.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Pawn.html#a063a3586e938c3e4e8537271fa460b85" title="Prints the pawn to the terminal with its associated ANSI settings.">Pawn::print</a> </dd>
+<dd>
+<a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">Cursor</a> </dd></dl>
+
 </div>
 </div>
 <a id="a1d6bddf80ec105766e9c159d3300ffe6" name="a1d6bddf80ec105766e9c159d3300ffe6"></a>
@@ -1063,6 +1125,20 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Prints the entire field to the terminal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">border</td><td>A <a class="el" href="classsista_1_1Border.html" title="Represents a brick of the border with a symbol and ANSI settings.">Border</a> object to use for the border.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This method iterates through the 2D grid of Pawns and prints each <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>'s symbol at its respective coordinates. It also prints a border around the field using the specified <a class="el" href="classsista_1_1Border.html" title="Represents a brick of the border with a symbol and ANSI settings.">Border</a> object. The method uses the <a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">Cursor</a> object to manage terminal cursor positioning.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Pawn.html#a063a3586e938c3e4e8537271fa460b85" title="Prints the pawn to the terminal with its associated ANSI settings.">Pawn::print</a> </dd>
+<dd>
+<a class="el" href="classsista_1_1Border.html#a625c393138da01011d1d5f302a955578" title="Prints the border symbol to the terminal, applying ANSI settings if specified.">Border::print</a> </dd>
+<dd>
+<a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">Cursor</a> </dd></dl>
+
 </div>
 </div>
 <a id="a818d1f75772fda0e52859c206a607659" name="a818d1f75772fda0e52859c206a607659"></a>
@@ -1080,6 +1156,18 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Prints the entire field to the terminal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">border</td><td>A character to use as the border symbol.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This method iterates through the 2D grid of Pawns and prints each <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>'s symbol at its respective coordinates. It also prints a border around the field using the specified character. The method uses the <a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">Cursor</a> object to manage terminal cursor positioning.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Pawn.html#a063a3586e938c3e4e8537271fa460b85" title="Prints the pawn to the terminal with its associated ANSI settings.">Pawn::print</a> </dd>
+<dd>
+<a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">Cursor</a> </dd></dl>
 
 </div>
 </div>
@@ -1148,23 +1236,6 @@ Protected Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classsista_1_1Pawn.html">Pawn</a> *&#160;</td>
           <td class="paramname"><em>pawn</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a961b2f1f944fa4d11f23ed94b858241a" name="a961b2f1f944fa4d11f23ed94b858241a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a961b2f1f944fa4d11f23ed94b858241a">&#9670;&#160;</a></span>reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sista::Field::reset </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1260,6 +1331,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Width of the matrix </p>
 
 </div>
 </div>
@@ -1283,6 +1355,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>2D grid of shared pointers to <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> objects. </p>
+
 </div>
 </div>
 <a id="aaad4529ed32272f455816ac2bca3ab77" name="aaad4529ed32272f455816ac2bca3ab77"></a>
@@ -1304,6 +1378,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p><a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">Cursor</a> object for terminal operations. </p>
 
 </div>
 </div>

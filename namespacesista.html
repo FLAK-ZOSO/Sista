@@ -96,6 +96,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages terminal cursor operations.  <a href="structsista_1_1Cursor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Field.html">Field</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a 2D grid where Pawns can be placed, moved, and managed.  <a href="classsista_1_1Field.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsista_1_1Path.html">Path</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -217,6 +218,7 @@ Enumerations</h2></td></tr>
 <tr class="memitem:a08036e71b88be0e177eec4ef2a24adc9"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a08036e71b88be0e177eec4ef2a24adc9">Effect</a> { <a class="el" href="namespacesista.html#a08036e71b88be0e177eec4ef2a24adc9a1da57b2bd62ddc95d1e91830646a196b">PACMAN</a> = 0
 , <a class="el" href="namespacesista.html#a08036e71b88be0e177eec4ef2a24adc9a38ef5fe49a654647519ee8c498c49664">MATRIX</a> = 1
  }</td></tr>
+<tr class="memdesc:a08036e71b88be0e177eec4ef2a24adc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration for handling out-of-bounds coordinates.  <a href="namespacesista.html#a08036e71b88be0e177eec4ef2a24adc9">More...</a><br /></td></tr>
 <tr class="separator:a08036e71b88be0e177eec4ef2a24adc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -366,6 +368,16 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Enumeration for handling out-of-bounds coordinates. </p>
+<p>This enum class defines different effects that can be applied when a <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>'s coordinates go out of the bounds of the <a class="el" href="classsista_1_1Field.html" title="Represents a 2D grid where Pawns can be placed, moved, and managed.">Field</a>. The effects determine how the coordinates are adjusted to bring them back within valid limits.</p>
+<ul>
+<li>PACMAN: Wraps around to the opposite side of the field (like in the PacMan game).</li>
+<li>MATRIX: Wraps to the beginning of the next line (like in classic C-style arrays).</li>
+</ul>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Field.html#a47340b18af79b1877808fc276f9397a4">Field::movingByCoordinates</a> </dd>
+<dd>
+<a class="el" href="classsista_1_1Field.html#a9571250cd552cd8cb2c5e9fa767590b6">Field::movePawnBy</a> </dd></dl>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a08036e71b88be0e177eec4ef2a24adc9a1da57b2bd62ddc95d1e91830646a196b" name="a08036e71b88be0e177eec4ef2a24adc9a1da57b2bd62ddc95d1e91830646a196b"></a>PACMAN&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a08036e71b88be0e177eec4ef2a24adc9a38ef5fe49a654647519ee8c498c49664" name="a08036e71b88be0e177eec4ef2a24adc9a38ef5fe49a654647519ee8c498c49664"></a>MATRIX&#160;</td><td class="fielddoc"></td></tr>

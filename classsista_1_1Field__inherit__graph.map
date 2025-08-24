@@ -1,4 +1,4 @@
 <map id="sista::Field" name="sista::Field">
-<area shape="rect" id="node1" title=" " alt="" coords="41,5,133,31"/>
+<area shape="rect" id="node1" title="Represents a 2D grid where Pawns can be placed, moved, and managed." alt="" coords="41,5,133,31"/>
 <area shape="rect" id="node2" href="$classsista_1_1SwappableField.html" title=" " alt="" coords="5,79,168,104"/>
 </map>
