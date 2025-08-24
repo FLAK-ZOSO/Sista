@@ -121,9 +121,7 @@ namespace sista {
     }
     void Field::erasePawn(Pawn* pawn) { // Erase a pawn from the matrix
         removePawn(pawn); // Remove the pawn from the matrix
-        cursor.goTo(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
-        resetAnsi(); // Reset the settings for that cell
-        std::cout << ' '; // Print a space to clear the cell
+        cleanCoordinates(pawn->getCoordinates()); // Clean the coordinates
     }
     void Field::erasePawn(const Coordinates& coordinates) { // Erase a pawn from the matrix
         removePawn(coordinates);
@@ -158,12 +156,10 @@ namespace sista {
             if (pawn->getCoordinates() == coordinates) // If the coordinates are the same...
                 return; // ...the cell is occupied by the pawn, so no need to move it
             // ...otherwise, if the coordinates are occupied by another pawn, throw an exception
-            throw std::invalid_argument("The coordinates are occupied by another pawn");
+            throw std::invalid_argument("The coordinates are occupied by another pawn or out of bounds.");
         }
         // Cursor ANSI stuff
-        cursor.goTo(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
-        resetAnsi(); // Reset the settings for that cell
-        std::cout << ' '; // Print a space to clear the cell
+        cleanCoordinates(pawn->getCoordinates()); // Clean the old coordinates
         cursor.goTo(coordinates); // Set the cursor to the coordinates
         pawn->print(); // Print the pawn
 
@@ -230,10 +226,16 @@ namespace sista {
     }
 
     void Field::movePawnFromTo(const Coordinates& coordinates, const Coordinates& newCoordinates) {
-        movePawn(getPawn(coordinates), newCoordinates);
+        Pawn* pawn = getPawn(coordinates);
+        if (pawn == nullptr)
+            throw std::invalid_argument("There is no pawn at the given coordinates.");
+        movePawn(pawn, newCoordinates);
     }
     void Field::movePawnFromTo(unsigned short y, unsigned short x, unsigned short newY, unsigned short newX) {
-        movePawn(getPawn(y, x), newY, newX);
+        Pawn* pawn = getPawn(y, x);
+        if (pawn == nullptr)
+            throw std::invalid_argument("There is no pawn at the given coordinates.");
+        movePawn(pawn, newY, newX);
     }
 
     Pawn* Field::getPawn(const Coordinates& coordinates) const { // Get the pawn at the coordinates

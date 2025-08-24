@@ -135,26 +135,230 @@ namespace sista {
         */
         void print(Border&) const;
 
+        /** \brief Adds a Pawn to the field at its specified coordinates.
+         *  \param pawn A shared pointer to the Pawn to add.
+         *
+         *  This method places the given Pawn on the field at its current coordinates.
+         *  If the coordinates are already occupied, the existing Pawn will be replaced.
+         *
+         *  \warning The Pawn's coordinates must be valid (within the field bounds) as they are not validated here.
+         *  \note The method takes a shared pointer to manage the Pawn's memory automatically.
+         *
+         *  \see Pawn
+        */
         virtual void addPawn(std::shared_ptr<Pawn>);
+        /** \brief Removes a Pawn from the field.
+         *  \param pawn A pointer to the Pawn to remove.
+         *
+         *  This method removes the specified Pawn from the field based on its coordinates.
+         *  If the Pawn is not found at its coordinates, no action is taken.
+         *
+         *  \warning The Pawn's coordinates must be valid (within the field bounds) as they are not validated here.
+         *  \note The method does not delete the Pawn object, it only removes it from the field.
+         *
+         *  \see Pawn
+        */
         virtual void removePawn(Pawn*);
+        /** \brief Removes a Pawn from the field at specified coordinates.
+         *  \param coordinates The Coordinates of the Pawn to remove.
+         *
+         *  This method removes the Pawn located at the given coordinates from the field.
+         *  If no Pawn is found at the specified coordinates, no action is taken.
+         *
+         *  \warning The coordinates must be valid (within the field bounds) as they are not validated here.
+         *  \note The method does not delete the Pawn object, it only removes it from the field.
+         *
+         *  \see Pawn
+        */
         virtual void removePawn(const Coordinates&);
+        /** \brief Removes a Pawn from the field at specified coordinates.
+         *  \param y The y coordinate (row) of the Pawn to remove.
+         *  \param x The x coordinate (column) of the Pawn to remove.
+         *
+         *  This method removes the Pawn located at the given coordinates from the field.
+         *  Unlike removePawn, this method also cleans the cell on the terminal by printing a space.
+         *
+         *  \warning The coordinates must be valid (within the field bounds) as they are not validated here.
+         *  \note The method does not delete the Pawn object, it only removes it from the field.
+         *
+         *  \see Pawn
+        */
         virtual void erasePawn(Pawn*);
+        /** \brief Removes a Pawn from the field at specified coordinates.
+         *  \param coordinates The Coordinates of the Pawn to remove.
+         *
+         *  This method removes the Pawn located at the given coordinates from the field.
+         *  Unlike removePawn, this method also cleans the cell on the terminal by printing a space.
+         *
+         *  \warning The coordinates must be valid (within the field bounds) as they are not validated here.
+         *  \note The method does not delete the Pawn object, it only removes it from the field.
+         *
+         *  \see Pawn
+        */
         virtual void erasePawn(const Coordinates&);
 
+        /** \brief Adds a Pawn to the field at its specified coordinates and prints it.
+         *  \param pawn A shared pointer to the Pawn to add and print.
+         * 
+         *  This method places the given Pawn on the field at its current coordinates and prints it to the terminal.
+         *  If the coordinates are already occupied, the existing Pawn will be replaced.
+         *
+         *  \warning The Pawn's coordinates must be valid (within the field bounds) as they are not validated here.
+         *  \note The method takes a shared pointer to manage the Pawn's memory automatically.
+         *
+         *  \see Pawn
+         */
         void addPrintPawn(std::shared_ptr<Pawn>);
+        /** \brief Reprints a Pawn at its current coordinates.
+         *  \param pawn A pointer to the Pawn to reprint.
+         *
+         *  This method reprints the specified Pawn at its current coordinates on the terminal.
+         *  It is useful for updating the Pawn's appearance after changes to its settings or symbol.
+         *
+         *  \warning The Pawn's coordinates must be valid (within the field bounds) as they are not validated here.
+         *
+         *  \see Pawn::print
+        */
         void rePrintPawn(Pawn*);
 
+        /** \brief Moves a Pawn to new coordinates.
+         *  \param pawn A pointer to the Pawn to move.
+         *  \param coordinates The new Coordinates to move the Pawn to.
+         *
+         *  This method moves the specified Pawn to the given coordinates on the field.
+         *  If the target coordinates are already occupied, the existing Pawn will be replaced.
+         *
+         *  \throws `std::invalid_argument` if the coordinates are occupied by another Pawn or out of bounds.
+         *
+         *  \see Pawn
+         *  \see Coordinates
+         *  \see validateCoordinates
+        */
         void movePawn(Pawn*, const Coordinates&);
+        /** \brief Moves a Pawn to new coordinates.
+         *  \param pawn A pointer to the Pawn to move.
+         *  \param y The new y coordinate (row) to move the Pawn to.
+         *  \param x The new x coordinate (column) to move the Pawn to.
+         *
+         *  This method moves the specified Pawn to the given coordinates on the field.
+         *  If the target coordinates are already occupied, the existing Pawn will be replaced.
+         *
+         *  \throws `std::invalid_argument` if the coordinates are occupied by another Pawn or out of bounds.
+         *
+         *  \note This method is just a convenience overload that constructs a Coordinates object internally.
+         *
+         *  \see Pawn
+         *  \see Coordinates
+         *  \see validateCoordinates
+        */
         void movePawn(Pawn*, unsigned short, unsigned short);
 
+        /** \brief Moves a Pawn by a relative offset.
+         *  \param pawn A pointer to the Pawn to move.
+         *  \param coordinates The relative Coordinates to move the Pawn by.
+         *
+         *  This method moves the specified Pawn by the given relative offset.
+         *
+         *  \throws `std::invalid_argument` if the resulting coordinates are occupied by another Pawn or out of bounds.
+         *
+         *  \note This method is just a convenience overload that constructs a Coordinates object internally and then calls movePawn.
+         *
+         *  \see Pawn
+         *  \see Coordinates
+         *  \see validateCoordinates
+         */
         void movePawnBy(Pawn*, const Coordinates&);
+        /** \brief Moves a Pawn by a relative offset.
+         *  \param pawn A pointer to the Pawn to move.
+         *  \param y The relative y offset (rows) to move the Pawn by.
+         *  \param x The relative x offset (columns) to move the Pawn by.
+         *
+         *  This method moves the specified Pawn by the given relative offset.
+         *
+         *  \throws `std::invalid_argument` if the resulting coordinates are occupied by another Pawn or out of bounds.
+         *
+         *  \note This method is just a convenience overload that constructs a Coordinates object internally and then calls movePawn.
+         *
+         *  \see Pawn
+         *  \see Coordinates
+         *  \see validateCoordinates
+        */
         void movePawnBy(Pawn*, unsigned short, unsigned short);
 
         // 🎮 movePawnBy() with arcade game effects on coordinates overflow
+        /** \brief Moves a Pawn by a relative offset with specified effect on out-of-bounds coordinates.
+         *  \param pawn A pointer to the Pawn to move.
+         *  \param coordinates The relative Coordinates to move the Pawn by.
+         *  \param effect The Effect to apply when the resulting coordinates are out of bounds.
+         *
+         *  This method moves the specified Pawn by the given relative offset, applying the specified effect
+         *  if the resulting coordinates go out of bounds.
+         *
+         *  \throws `std::invalid_argument` if the resulting coordinates are occupied by another Pawn after applying the effect.
+         *  \throws `std::out_of_range` if the effect is MATRIX and the resulting coordinates are out of bounds.
+         *
+         *  \note This method is just a convenience overload that deconstructs a Coordinates object internally and then calls movePawnBy(y,x).
+         *
+         *  \see Pawn
+         *  \see Coordinates
+         *  \see Effect
+         *  \see validateCoordinates
+        */
         void movePawnBy(Pawn*, const Coordinates&, Effect);
+        /** \brief Moves a Pawn by a relative offset with specified effect on out-of-bounds coordinates.
+         *  \param pawn A pointer to the Pawn to move.
+         *  \param y The relative y offset (rows) to move the Pawn by.
+         *  \param x The relative x offset (columns) to move the Pawn by.
+         *  \param effect The Effect to apply when the resulting coordinates are out of bounds.
+         *
+         *  This method moves the specified Pawn by the given relative offset, applying the specified effect
+         *  if the resulting coordinates go out of bounds.
+         *
+         *  \throws `std::invalid_argument` if the resulting coordinates are occupied by another Pawn after applying the effect.
+         *  \throws `std::out_of_range` if the effect is MATRIX and the resulting coordinates are out of bounds.
+         *
+         *  \see Pawn
+         *  \see Coordinates
+         *  \see Effect
+         *  \see validateCoordinates
+        */
         void movePawnBy(Pawn*, short int, short int, Effect);
-        
+
+        /** \brief Moves a Pawn from one set of coordinates to another.
+         *  \param coordinates The current Coordinates of the Pawn.
+         *  \param newCoordinates The new Coordinates to move the Pawn to.
+         *
+         *  This method finds the Pawn at the specified current coordinates and moves it to the new coordinates.
+         *
+         *  \throws `std::invalid_argument` if there is no Pawn at the current coordinates or if the new coordinates are occupied by another Pawn or out of bounds.
+         *
+         *  \note This method is a convenience function that calls both getPawn and movePawn internally.
+         *
+         *  \see Pawn
+         *  \see Coordinates
+         *  \see validateCoordinates
+         *  \see getPawn
+         *  \see movePawn
+         */
         void movePawnFromTo(const Coordinates&, const Coordinates&);
+        /** \brief Moves a Pawn from one set of coordinates to another.
+         *  \param y The current y coordinate (row) of the Pawn.
+         *  \param x The current x coordinate (column) of the Pawn.
+         *  \param newY The new y coordinate (row) to move the Pawn to.
+         *  \param newX The new x coordinate (column) to move the Pawn to.
+         *
+         *  This method finds the Pawn at the specified current coordinates and moves it to the new coordinates.
+         *
+         *  \throws `std::invalid_argument` if there is no Pawn at the current coordinates or if the new coordinates are occupied by another Pawn or out of bounds.
+         *
+         *  \note This method is a convenience function that calls both getPawn and movePawn internally.
+         *
+         *  \see Pawn
+         *  \see Coordinates
+         *  \see validateCoordinates
+         *  \see getPawn
+         *  \see movePawn
+        */
         void movePawnFromTo(unsigned short, unsigned short, unsigned short, unsigned short);
         
         // ℹ️ - The following function calculates coordinates, but does not apply them to the pawns
