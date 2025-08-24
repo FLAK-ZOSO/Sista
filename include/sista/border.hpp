@@ -1,11 +1,11 @@
 /** \file border.hpp
  *  \brief Border class header file.
- *  \author FLAK-ZOSO
- *  \date 2022-2025
- *  \version 3.0.0
  * 
  *  This file contains the declaration of the Border class, which represents a brick of the border.
  * 
+ *  \author FLAK-ZOSO
+ *  \date 2022-2025
+ *  \version 3.0.0
  *  \see Border
  *  \copyright GNU General Public License v3.0
  */
