@@ -1,38 +1,138 @@
+/** \file field.hpp
+ *  \brief This file contains the Field class and related structures.
+ * 
+ *  This file contains the core functionalities of the Sista library.
+ *
+ *  The Field class represents a 2D grid where Pawns can be placed, moved, and managed.
+ *  It provides methods to add, remove, move, and print Pawns on the field.
+ *  The Field class also handles boundary conditions and occupancy checks.
+ *
+ *  Additionally, the SwappableField subclass extends Field to handle scenarios where
+ *  multiple Pawns may need to swap positions without conflicts.
+ *
+ *  The Path structure is used to represent movement paths for Pawns, including priority handling.
+ *
+ *  \see Pawn
+ *  \see Coordinates
+ *  \see ANSISettings
+ *  \see Border
+ *  \see Cursor
+ */
 #pragma once
 
 #include <vector> // std::vector
 #include <memory> // std::shared_ptr, std::move
 #include <map> // std::map
 #include <set> // std::set
-#include "pawn.hpp" // Pawn
-#include "border.hpp" // Border
-#include "cursor.hpp" // Cursor
+#include "pawn.hpp"
+#include "border.hpp"
+#include "cursor.hpp"
 
 namespace sista {
+    /** \enum Effect
+     *  \brief Enumeration for handling out-of-bounds coordinates.
+     *
+     *  This enum class defines different effects that can be applied when a Pawn's coordinates
+     *  go out of the bounds of the Field. The effects determine how the coordinates are adjusted
+     *  to bring them back within valid limits.
+     *
+     *  - PACMAN: Wraps around to the opposite side of the field (like in the PacMan game).
+     *  - MATRIX: Wraps to the beginning of the next line (like in classic C-style arrays).
+     * 
+     *  \see Field::movingByCoordinates
+     *  \see Field::movePawnBy
+     */
     enum class Effect { // Effect enum - effect when a coordinate is out of bounds
         PACMAN = 0, // Pacman effect when a coordinate overflows
         MATRIX = 1 // Classic C style matrix effect when a coordinate overflows
     };
 
+    /** \class Field
+     *  \brief Represents a 2D grid where Pawns can be placed, moved, and managed.
+     *
+     *  The Field class encapsulates a 2D grid structure using a vector of vectors to hold shared pointers to Pawn objects.
+     *  It provides methods to add, remove, move, and print Pawns on the field. The class also includes functionality
+     *  to check if specific coordinates are occupied, free, or out of bounds, and to validate coordinates.
+     *
+     *  The Field class is designed to be extended for more specialized behavior, such as in the SwappableField subclass,
+     *  which handles scenarios where multiple Pawns may need to swap positions without conflicts.
+     * 
+     *  \see Pawn
+     *  \see Coordinates
+     *  \see Border
+     *  \see Cursor
+     *  \see SwappableField
+     */
     class Field { // Field class - represents the field [parent class]
     protected:
-        std::vector<std::vector<std::shared_ptr<Pawn>>> pawns; // Matrix of pawns
-        Cursor cursor; // Cursor
-        int width; // Width of the matrix
-        int height; // Height of the matrix
+        /** \brief 2D grid of shared pointers to Pawn objects. */
+        std::vector<std::vector<std::shared_ptr<Pawn>>> pawns;
+        Cursor cursor; /** Cursor object for terminal operations. */
+        int width; /** Width of the matrix */
+        int height; /** Height of the matrix */
 
+        /** \brief Cleans the coordinates on screen by printing spaces.
+         *  \param coordinates The Coordinates to clean.
+        */
         void cleanCoordinates(const Coordinates&) const;
+        /** \brief Cleans the coordinates on screen by printing spaces.
+         *  \param y The y coordinate (row).
+         *  \param x The x coordinate (column).
+        */
         void cleanCoordinates(unsigned short, unsigned short) const;
 
     public:
+        /** \brief Clears the field by removing all Pawns and resetting the grid.
+         *  \note This does not delete the Pawn objects, it only removes them from the field.
+         */
         void clear();
-        void reset();
 
-        Field(int, int); // Field - constructor (width, height)
+        /** \brief Constructor to initialize the field with specified width and height.
+         *  \param width_ The width of the field (number of columns).
+         *  \param height_ The height of the field (number of rows).
+         *
+         *  This constructor initializes a Field object with the given dimensions.
+         *  It sets up a 2D grid (vector of vectors) to hold shared pointers to Pawn objects,
+         *  and initializes the Cursor for terminal operations.
+         *
+         *  \see Cursor
+        */
+        Field(int, int);
+        /** \brief Destructor to clean up resources. */
         ~Field();
 
+        /** \brief Prints the entire field to the terminal.
+         *
+         *  This method iterates through the 2D grid of Pawns and prints each Pawn's symbol
+         *  at its respective coordinates.
+         *  The method uses the Cursor object to manage terminal cursor positioning.
+         *
+         *  \see Pawn::print
+         *  \see Cursor
+        */
         void print() const;
+        /** \brief Prints the entire field to the terminal.
+         *  \param border A character to use as the border symbol.
+         *
+         *  This method iterates through the 2D grid of Pawns and prints each Pawn's symbol
+         *  at its respective coordinates. It also prints a border around the field using the specified character.
+         *  The method uses the Cursor object to manage terminal cursor positioning.
+         *
+         *  \see Pawn::print
+         *  \see Cursor
+        */
         void print(char) const;
+        /** \brief Prints the entire field to the terminal.
+         *  \param border A Border object to use for the border.
+         *
+         *  This method iterates through the 2D grid of Pawns and prints each Pawn's symbol
+         *  at its respective coordinates. It also prints a border around the field using the specified Border object.
+         *  The method uses the Cursor object to manage terminal cursor positioning.
+         *
+         *  \see Pawn::print
+         *  \see Border::print
+         *  \see Cursor
+        */
         void print(Border&) const;
 
         virtual void addPawn(std::shared_ptr<Pawn>);

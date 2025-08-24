@@ -4,19 +4,13 @@
 #include <iostream> // std::cout, std::flush
 
 namespace sista {
-    void Field::clear() { // Clear the matrix
-        for (auto& row: pawns) // For each row
-            for (auto& pawn: row) // For each pawn
-                pawn = nullptr; // Set the pawn to nullptr
-    }
-    void Field::reset() {
+    void Field::clear() {
         for (auto& row: pawns) { // For each row
             for (auto& pawn: row) {
-                if (pawn != nullptr) // If the pawn is not nullptr
-                    pawn.reset(); // Delete the pawn
-                pawn = nullptr; // Set the pawn to nullptr
+                if (pawn.get() != nullptr)
+                    pawn.reset(); // Release the shared_ptr
             }
-        }        
+        }
     }
 
     Field::Field(int width_, int height_): width(width_), height(height_) { // Constructor

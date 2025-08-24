@@ -7,6 +7,7 @@ Here you can find the release notes for each version of `Sista` since `v0.1.0`, 
 Major release.
 
 - Changed `sista::Field` to use `std::shared_ptr<sista::Pawn>` instead of raw pointers for memory safety and easier memory management
+    - Removed `Field::reset` method as it is redundant with `Field::clear` in this context
 - Updated demos to use `std::shared_ptr<sista::Pawn>` and `std::make_shared<sista::Pawn>` for creating and managing pawns
 - Updated documentation to reflect changes in `sista::Field` and `sista::Pawn` usage
 - Removed `ANSI` namespace and moved all ANSI-related functionality to `sista::`, among which `ANSI::Settings`->`sista::ANSISettings`
