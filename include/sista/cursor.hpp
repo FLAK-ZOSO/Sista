@@ -45,7 +45,7 @@ namespace sista {
      *  \see SSB
      *  \see TL
     */
-    void clearScreen(bool=true);
+    void clearScreen(bool spaces=true);
 
     /** \enum EraseScreen
      *  \brief Enumeration for screen erasure options in ANSI escape codes.
@@ -147,7 +147,7 @@ namespace sista {
         */
         void goTo(unsigned short int, unsigned short int) const;
         /** \brief Moves the cursor to the specified Coordinates.
-         *  \param coords A Coordinates instance specifying the (y, x) position.
+         *  \param coordinates_ A Coordinates instance specifying the (y, x) position.
          *  \note The coordinates are adjusted by predefined offsets to account for terminal borders or margins.
          *  \see sista::Coordinates
         */

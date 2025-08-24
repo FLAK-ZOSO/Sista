@@ -150,7 +150,7 @@ namespace sista {
         /** \brief Removes a Pawn from the field.
          *  \param pawn A pointer to the Pawn to remove.
          *
-         *  This method removes the specified Pawn from the field based on its coordinates.
+         *  This method removes the specified Pawn from the field.
          *  If the Pawn is not found at its coordinates, no action is taken.
          *
          *  \warning The Pawn's coordinates must be valid (within the field bounds) as they are not validated here.
@@ -172,10 +172,9 @@ namespace sista {
         */
         virtual void removePawn(const Coordinates&);
         /** \brief Removes a Pawn from the field at specified coordinates.
-         *  \param y The y coordinate (row) of the Pawn to remove.
-         *  \param x The x coordinate (column) of the Pawn to remove.
+         *  \param pawn A pointer to the Pawn to remove.
          *
-         *  This method removes the Pawn located at the given coordinates from the field.
+         *  This method removes the given Pawn from the field.
          *  Unlike removePawn, this method also cleans the cell on the terminal by printing a space.
          *
          *  \warning The coordinates must be valid (within the field bounds) as they are not validated here.
@@ -758,7 +757,7 @@ namespace sista {
 
         /** \brief Adds a Pawn to the set of pawnsToSwap.
          *  \param pawn A pointer to the Pawn to add.
-         *  \param coordinates The Coordinates representing the new position of the Pawn.
+         *  \param destination The Coordinates representing the destination of the Pawn.
          *
          *  This method adds the specified Pawn and its target coordinates to the set of pawnsToSwap,
          *  indicating that the Pawn needs to be moved. The method ensures that no duplicate entries
