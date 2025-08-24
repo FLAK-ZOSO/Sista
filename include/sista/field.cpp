@@ -514,6 +514,12 @@ namespace sista {
             pawns[first.y][first.x],
             pawns[second.y][second.x]
         );
+        if (first_ != nullptr) {
+            rePrintPawn(first_);
+        }
+        if (second_ != nullptr) {
+            rePrintPawn(second_);
+        }
     }
     void SwappableField::swapTwoPawns(Pawn* first, Pawn* second) {
         // Swap the coordinates of the two pawns (into the Pawn object)
