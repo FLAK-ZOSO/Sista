@@ -1,5 +1,4 @@
-#include "field.hpp" // Field, Pawn, ANSI, <iostream>, <vector>, <algorithm>, <stdexcept>
-#include <unordered_map> // std::unordered_map
+#include "field.hpp" // Field, Pawn, ANSI, <iostream>, <vector>, <algorithm>, <stdexcept>, <unordered_map>, <memory>, <map>
 #include <queue> // std::queue, std::priority_queue
 #include <algorithm> // std::sort
 #include <iostream> // std::cout, std::flush
@@ -307,6 +306,9 @@ namespace sista {
     bool Path::operator<(const Path& other) const { // operator< - give priority order to paths
         return this->priority < other.priority;
     }
+    bool Path::operator==(const Path& other) const { // operator== - check if two paths are equal (both begin and end coordinates are the same, ignores priority and pawn)
+        return (this->begin == other.begin && this->end == other.end);
+    }
     long long int Path::current_priority = 0; // priority - priority of the current Path
 
 
@@ -395,10 +397,45 @@ namespace sista {
     }
 
     void SwappableField::addPawnToSwap(Pawn* pawn, const Coordinates& destination) { // addPawnToSwap - add a pawn to the pawnsToSwap
-        pawnsToSwap.push_back(Path(pawn->getCoordinates(), destination, pawn));
+        if (pawn == nullptr) // If the pawn is nullptr...
+            throw std::invalid_argument("Pawn is nullptr"); // ...throw an exception
+        if (isOutOfBounds(destination)) // If the destination is out of bounds...
+            throw std::out_of_range("Destination is out of bounds"); // ...throw an exception
+        if (pawn->getCoordinates() == destination) // If the destination is the same as the pawn's coordinates...
+            return; // ...no need to add the pawn to the pawnsToSwap
+        // Note: destination can be occupied, as the swap will be simulated later
+        Coordinates start = pawn->getCoordinates();
+        Path oppositePath(destination, start, nullptr); // Create the opposite path
+        std::set<Path>::iterator it = pawnsToSwap.find(oppositePath); // Find the opposite path in the pawnsToSwap
+        if (it != pawnsToSwap.end()) { // If the opposite path is found
+            std::cerr << "SwappableField::addPawnToSwap(): Found opposite path from {" << it->begin.y << ", " << it->begin.x << "} to {" << it->end.y << ", " << it->end.x << "}" << std::endl;
+            swapTwoPawns(pawn, it->pawn); // Swap the two pawns
+            pawnsToSwap.erase(it); // Remove the opposite path from the pawnsToSwap
+            return; // Return
+        }
+        // If the opposite path is not found, add the path to the pawnsToSwap
+        std::cerr << "SwappableField::addPawnToSwap(): Adding path from {" << start.y << ", " << start.x << "} to {" << destination.y << ", " << destination.x << "}" << std::endl;
+        pawnsToSwap.insert(Path(pawn->getCoordinates(), destination, pawn));
     }
     void SwappableField::addPawnToSwap(Path& path) { // addPawnToSwap - add a pawn to the pawnsToSwap
-        pawnsToSwap.push_back(path);
+        if (path.pawn == nullptr) // If the pawn is nullptr...
+            throw std::invalid_argument("Pawn is nullptr"); // ...throw an exception
+        if (isOutOfBounds(path.end)) // If the destination is out of bounds...
+            throw std::out_of_range("Destination is out of bounds"); // ...throw an exception
+        if (path.begin == path.end) // If the destination is the same as the pawn's coordinates...
+            return; // ...no need to add the pawn to the pawnsToSwap
+        // Note: destination can be occupied, as the swap will be simulated later
+        Path oppositePath(path.end, path.begin, nullptr); // Create the opposite path
+        std::set<Path>::iterator it = pawnsToSwap.find(oppositePath); // Find the opposite path in the pawnsToSwap
+        if (it != pawnsToSwap.end()) { // If the opposite path is found
+            std::cerr << "SwappableField::addPawnToSwap(): Found opposite path from {" << it->begin.y << ", " << it->begin.x << "} to {" << it->end.y << ", " << it->end.x << "}" << std::endl;
+            swapTwoPawns(path.pawn, it->pawn); // Swap the two pawns
+            pawnsToSwap.erase(it); // Remove the opposite path from the pawnsToSwap
+            return; // Return
+        }
+        // If the opposite path is not found, add the path to the pawnsToSwap
+        std::cerr << "SwappableField::addPawnToSwap(): Adding path from {" << path.begin.y << ", " << path.begin.x << "} to {" << path.end.y << ", " << path.end.x << "}" << std::endl;
+        pawnsToSwap.insert(path);
     }
     void SwappableField::simulateSwaps() { // simulateSwaps - simulate all the swaps in the pawnsToSwap
         std::map<Coordinates, short int> endCount; // Count the number of pawns at the begin of the path
@@ -406,21 +443,27 @@ namespace sista {
             return; // ...return
         }
         for (const Path& path : pawnsToSwap) { // Simulate all the swaps in the pawnsToSwap
-            if (endCount.count(path.end) == 0) { // If the end of the path is not in the map...
+            if (endCount.count(path.end) == 0 || endCount.count(path.begin) == 0) { // If one of the coordinates of the path is not in the map...
                 endCount[path.begin] = pawnsCount[path.begin.y][path.begin.x]; // ...add it to the map with the current number of pawns at the begin of the path
+            }
+            if (endCount.count(path.end) == 0) {
                 endCount[path.end] = pawnsCount[path.end.y][path.end.x]; // ...add it to the map with the current number of pawns at the end of the path
             }
             endCount[path.begin]--; // Decrease the number of pawns at the begin of the path (because the pawn will be removed from there)
             endCount[path.end]++; // Increase the number of pawns at the end of the path (because the pawn will be added there)
         }
 
-        std::sort(pawnsToSwap.begin(), pawnsToSwap.end()); // Sort the pawnsToSwap by priority
-        std::vector<Path>::iterator it = pawnsToSwap.begin();
+        // Paths are stored in a std::set, so they are automatically sorted by priority
+        std::set<Path>::iterator it = pawnsToSwap.begin();
         Coordinates arrive_; // Coordinates of the cell with 2 or more pawns (so where a certain pawn arrived and should never be arrived at)
+        std::cerr << "Total swaps to simulate: " << pawnsToSwap.size() << std::endl;
         try {
             while (true) {
                 // Find the first cell with 2 or more pawns heading there
                 arrive_ = firstInvalidCell(endCount); // Coordinates of the cell with 2 or more pawns (so where a certain pawn arrived and should never be arrived at)
+
+                std::cerr << "\tSwappableField::simulateSwaps(): Found invalid cell at {" << arrive_.y << ", " << arrive_.x << "}";
+                std::cerr << " with " << endCount[arrive_] << " pawns heading there." << std::endl;
 
                 // Find a pawn that arrived at the cell with 2 or more pawns
                 // Pawn* pawn = getPawn(arrive_); // NO! Swap weren't applied yet, so the pawn is still at the begin of the path
@@ -446,12 +489,11 @@ namespace sista {
         
         // Store the starting positions of the pawns to swap
         std::unordered_map<Coordinates, std::shared_ptr<Pawn>> startingBoard;
-        for (Path& path : pawnsToSwap) {
-            startingBoard[path.begin] = pawns[path.begin.y][path.begin.x];
-            pawns[path.begin.y][path.begin.x].reset(); // Remove the pawn from the begin of the path
+        for (const Path& path : pawnsToSwap) {
+            startingBoard[path.begin] = std::move(pawns[path.begin.y][path.begin.x]); // Remove the pawn from the begin of the path
         }
         // The swaps can be applied as it stands
-        for (Path& path : pawnsToSwap) {
+        for (const Path& path : pawnsToSwap) {
             pawnsCount[path.begin.y][path.begin.x]--; // Decrease the number of pawns at the begin of the path (because the pawn will be removed from there)
             pawnsCount[path.end.y][path.end.x]++; // Increase the number of pawns at the end of the path (because the pawn will be added there)
             pawns[path.end.y][path.end.x] = startingBoard[path.begin]; // Move the pawn to the end of the path
@@ -486,20 +528,12 @@ namespace sista {
         Coordinates app = second->getCoordinates();
         first->setCoordinates(app);
         second->setCoordinates(temp);
-
-        // Draw the first pawn at the second pawn's coordinates
-        cursor.goTo(temp);
-        std::cout << ' ';
-        cursor.goTo(app);
-        first->print();
-        // Draw the second pawn at the first pawn's coordinates
-        cursor.goTo(temp);
-        second->print();
-
         // std::swap the pointers Pawn* in the pawns 2D-std::vector
         std::swap(
             pawns[temp.y][temp.x],
             pawns[app.y][app.x]
         );
+        rePrintPawn(first);
+        rePrintPawn(second);
     }
 };

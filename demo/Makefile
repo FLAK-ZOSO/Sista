@@ -34,7 +34,7 @@ shared-test-static: shared-test-static.o $(OBJECTS)
 	g++ -std=c++17 -static -o shared-test-static shared-test-static.o $(LD_LIBRARY_PATH_DIRECTIVE) -lSista
 
 %.o: ../include/sista/%.cpp
-	g++ -std=c++17 -Wall -fPIC -c $< -o $@
+	g++ -std=c++17 -Wall -g -fPIC -c $< -o $@
 
 colors24-bit: colors24-bit.cpp $(OBJECTS)
 	g++ -std=c++17 -Wall -g -c colors24-bit.cpp

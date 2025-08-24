@@ -3,6 +3,7 @@
 #include <vector> // std::vector
 #include <memory> // std::shared_ptr, std::move
 #include <map> // std::map
+#include <set> // std::set
 #include "pawn.hpp" // Pawn
 #include "border.hpp" // Border
 #include "cursor.hpp" // Cursor
@@ -92,15 +93,28 @@ namespace sista {
 
         bool operator|(const Path&) const; // operator| - check if two paths are opposite
         bool operator<(const Path&) const; // operator< - check if a path has a lower priority than another path
-    };    
+        bool operator==(const Path&) const; // operator== - check if two paths are equal (both begin and end coordinates are the same, ignores priority and pawn)
+    };
+}
 
+namespace std {
+    template<>
+    struct hash<sista::Path> {
+        std::size_t operator()(const sista::Path& k) const noexcept {
+            auto h1 = std::hash<sista::Coordinates>{}(k.begin);
+            auto h2 = std::hash<sista::Coordinates>{}(k.end);
+            return h1 ^ (h2 << 1);
+        }
+    };
+}
 
+namespace sista {
     class SwappableField final : public Field { // SwappableField class - a Field with no Pawn Swap issues [final class]
     private:
         // pawnsCount[y][x] = 0 - no pawns on the pawns[y][x]
         std::vector<std::vector<short int>> pawnsCount; // pawnsCount[y][x] - number of pawns at pawns[y][x]
         // NOTE: short int instead of bool because of the possibility of having more than 2 pawns on the same field during swap trials
-        std::vector<Path> pawnsToSwap; // pawnsToSwap - pawns that need to be swapped
+        std::set<Path> pawnsToSwap; // pawnsToSwap - pawns that need to be swapped
 
         Coordinates firstInvalidCell(std::map<Coordinates, short int>&) const; // firstInvalidCell - find the first cell with 2 or more pawns
 
