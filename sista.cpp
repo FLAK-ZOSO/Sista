@@ -1,4 +1,24 @@
-// make
+/** \file sista.cpp
+ *  \brief A demo of the SwappableField class from the Sista library.
+ *
+ *  This demo creates a SwappableField, adds several Pawns with different
+ *  characters and colors, and moves them around the field in a loop,
+ *  demonstrating the swapping functionality.
+ *
+ *  It compiles the Sista library included with the repository as described
+ *  in the Makefile, and requires a terminal that supports ANSI escape codes.
+ *
+ *  \author FLAK-ZOSO
+ *  \date 2022-2025
+ *  \version 3.0.0
+ *  \see SwappableField
+ *  \see Field
+ *  \see Pawn
+ *  \see Border
+ *  \see Coordinates
+ *  \see ANSISettings
+ *  \copyright GNU General Public License v3.0
+ */
 #include <chrono>
 #include <thread>
 #include <iostream>

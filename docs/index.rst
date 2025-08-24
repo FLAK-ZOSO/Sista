@@ -140,7 +140,8 @@ You can likely find a good example of a Makefile that dynamically links to the S
 
 Most of the documentation can be found here on Read the Docs: `Sista Documentation <https://sista.readthedocs.io/en/latest/>`_.
 
-- `Sista reference <sista.html>`_ - library documentation
+- `Doxygen documentation <https://flak-zoso.github.io/Sista/>`_ - auto-generated API reference
+- `Old Sista reference <sista.html>`_ - old library documentation
 - `Introduction <intro.html>`_ - documented example
 
 Some additional documentation for Sista can be found in the `Release Notes <https://github.com/FLAK-ZOSO/Sista/blob/main/ReleaseNotes.md>`_ on GitHub.
