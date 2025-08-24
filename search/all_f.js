@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['save_5fcursor_5fposition_0',['SAVE_CURSOR_POSITION',['../namespacesista.html#af3bc6f60c5d75fa9fa275946c516ee51ab8c070ae21b81d5567440ddf0c05cb23',1,'sista']]],
+  ['sco_5frestore_5fcursor_5fposition_1',['SCO_RESTORE_CURSOR_POSITION',['../namespacesista.html#aa75360a85012722dea448c7fb5c4e35eaccb850cb1798d55b4e070751125ace72',1,'sista']]],
+  ['sco_5fsave_5fcursor_5fposition_2',['SCO_SAVE_CURSOR_POSITION',['../namespacesista.html#aa75360a85012722dea448c7fb5c4e35ea0a83a6790ffdca9d07adc7ddb963883a',1,'sista']]],
+  ['screenmode_3',['ScreenMode',['../namespacesista.html#a9630b668dd6f74adc69788f13da9da8e',1,'sista']]],
+  ['setattribute_4',['setAttribute',['../namespacesista.html#aff52c1acd042b6c4fb31519fe5b9acb3',1,'sista']]],
+  ['setbackgroundcolor_5',['setBackgroundColor',['../namespacesista.html#ad011a35d3ede3fe280762670df9929d4',1,'sista::setBackgroundColor(BackgroundColor)'],['../namespacesista.html#a45d1521552d9f562ec63e6ffef1ab7d7',1,'sista::setBackgroundColor(const RGBColor &amp;)'],['../namespacesista.html#aff8f78e24863b71911853f4c7525369c',1,'sista::setBackgroundColor(unsigned short int, unsigned short int, unsigned short int)'],['../namespacesista.html#ab7f4956d1c57301c9584c2de91ef1fb3',1,'sista::setBackgroundColor(unsigned short int)']]],
+  ['setcoordinates_6',['setCoordinates',['../classsista_1_1Pawn.html#a94b21620c174afaa02bcfd7b30d83863',1,'sista::Pawn']]],
+  ['setforegroundcolor_7',['setForegroundColor',['../namespacesista.html#a00c8222183fe99324fb054b3a35d0e01',1,'sista::setForegroundColor(const RGBColor &amp;)'],['../namespacesista.html#adb5ea9331c533139582edf8e2c6225c0',1,'sista::setForegroundColor(ForegroundColor)'],['../namespacesista.html#a271d669b03bec76400ff76565b4e3bca',1,'sista::setForegroundColor(unsigned short int, unsigned short int, unsigned short int)'],['../namespacesista.html#a3690ebfda231848c0c4d6ae364db25ca',1,'sista::setForegroundColor(unsigned short int)']]],
+  ['setscreenmode_8',['setScreenMode',['../namespacesista.html#aecc669f8e3b77995888c0f38c2341663',1,'sista']]],
+  ['setsettings_9',['setSettings',['../classsista_1_1Pawn.html#aab2037b4fd7b4b90498f7a8ce2004a1c',1,'sista::Pawn']]],
+  ['setsymbol_10',['setSymbol',['../classsista_1_1Pawn.html#a199fa74ff27bc6b3fffd5f684cf682f7',1,'sista::Pawn']]],
+  ['settings_11',['settings',['../classsista_1_1Pawn.html#aa232193b27341a76e02d6f90b24959c7',1,'sista::Pawn::settings()'],['../classsista_1_1Border.html#a7b509ceb194c41ceb17c44792d694792',1,'sista::Border::settings()']]],
+  ['show_5fcursor_12',['SHOW_CURSOR',['../ansi_8hpp.html#a09ec0b302bee7262f9959add53ccd0c4',1,'ansi.hpp']]],
+  ['simulateswaps_13',['simulateSwaps',['../classsista_1_1SwappableField.html#a5250dbac4e89a595d310c2f12ac1e35b',1,'sista::SwappableField']]],
+  ['sista_14',['sista',['../namespacesista.html',1,'']]],
+  ['sista_2ecpp_15',['sista.cpp',['../sista_8cpp.html',1,'']]],
+  ['sista_2ehpp_16',['sista.hpp',['../sista_8hpp.html',1,'']]],
+  ['ssb_17',['SSB',['../ansi_8hpp.html#a7cfa144d4795a4c35d31854db46ab405',1,'ansi.hpp']]],
+  ['std_18',['std',['../namespacestd.html',1,'']]],
+  ['strikethrough_19',['STRIKETHROUGH',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2faad166989fa2b7da7d238b3e7105c64f8',1,'sista']]],
+  ['swappablefield_20',['SwappableField',['../classsista_1_1SwappableField.html',1,'sista::SwappableField'],['../classsista_1_1SwappableField.html#ac40be59ca60aaa1fe2a8ffda78bc37b5',1,'sista::SwappableField::SwappableField(int, int)']]],
+  ['swaptwopawns_21',['swapTwoPawns',['../classsista_1_1SwappableField.html#a489acecf8e06f8142a3c7a7f1da1916d',1,'sista::SwappableField::swapTwoPawns(Pawn *, Pawn *)'],['../classsista_1_1SwappableField.html#a6b3cb425199a0f3321c5144833ead17f',1,'sista::SwappableField::swapTwoPawns(const Coordinates &amp;, const Coordinates &amp;)']]],
+  ['symbol_22',['symbol',['../classsista_1_1Pawn.html#a85cddde323c954067d792372d9ebbc3a',1,'sista::Pawn::symbol()'],['../classsista_1_1Border.html#a3c161ef85e4b4a572c82eac5dc615fef',1,'sista::Border::symbol()']]]
+];

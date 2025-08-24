@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['cha_0',['CHA',['../cursor_8hpp.html#a98915660c262f91e514b8ca742bc5429',1,'cursor.hpp']]],
+  ['cleancoordinates_1',['cleanCoordinates',['../classsista_1_1Field.html#a30793342d640e7f73e04c712094a9a75',1,'sista::Field::cleanCoordinates(const Coordinates &amp;) const'],['../classsista_1_1Field.html#adb098dd88eb47ce00ea3a8636e11cd24',1,'sista::Field::cleanCoordinates(unsigned short, unsigned short) const']]],
+  ['clear_2',['clear',['../classsista_1_1Field.html#abe9fe24ad291a61d69c0ebe3758940a8',1,'sista::Field']]],
+  ['clearpawnstoswap_3',['clearPawnsToSwap',['../classsista_1_1SwappableField.html#ad4bcec91740ee7916151e078f98a0b42',1,'sista::SwappableField']]],
+  ['clearscreen_4',['clearScreen',['../namespacesista.html#a1172cf8c4d5ad9fb1cf93ff99b01539e',1,'sista']]],
+  ['cls_5',['CLS',['../ansi_8hpp.html#ada59561816893aa39c4aa41f1043c554',1,'ansi.hpp']]],
+  ['color_5f16_5fcolors_5fgraphics_5f640_5f200_6',['COLOR_16_COLORS_GRAPHICS_640_200',['../namespacesista.html#a9630b668dd6f74adc69788f13da9da8eaab8227d7892e6dba3a9254fbe9c08bd9',1,'sista']]],
+  ['color_5f16_5fcolors_5fgraphics_5f640_5f350_7',['COLOR_16_COLORS_GRAPHICS_640_350',['../namespacesista.html#a9630b668dd6f74adc69788f13da9da8ea0a3dead846023ab6acb9fa789fc4374d',1,'sista']]],
+  ['color_5f16_5fcolors_5fgraphics_5f640_5f480_8',['COLOR_16_COLORS_GRAPHICS_640_480',['../namespacesista.html#a9630b668dd6f74adc69788f13da9da8ea0dc9af5b68e9b6a30a4d678e20478ff4',1,'sista']]],
+  ['color_5f256_5fcolors_5fgraphics_5f320_5f200_9',['COLOR_256_COLORS_GRAPHICS_320_200',['../namespacesista.html#a9630b668dd6f74adc69788f13da9da8ea9924526c1a5154766988e2ce6e9e0e31',1,'sista']]],
+  ['color_5fgraphics_5f320_5f200_10',['COLOR_GRAPHICS_320_200',['../namespacesista.html#a9630b668dd6f74adc69788f13da9da8ea06690465b5aed8493355edc0a18294dc',1,'sista']]],
+  ['color_5ftext_5f40_5f25_11',['COLOR_TEXT_40_25',['../namespacesista.html#a9630b668dd6f74adc69788f13da9da8eabe2d6063d66bf8bf6bd394b8ce778af4',1,'sista']]],
+  ['color_5ftext_5f80_5f25_12',['COLOR_TEXT_80_25',['../namespacesista.html#a9630b668dd6f74adc69788f13da9da8ea23c20001b5625d52a8926d08f06b1e88',1,'sista']]],
+  ['coordinates_13',['Coordinates',['../structsista_1_1Coordinates.html#a30517eb1312b80363d5ba3418b374db1',1,'sista::Coordinates::Coordinates(unsigned short, unsigned short)'],['../structsista_1_1Coordinates.html#a0501eb23fa804f9a73a8339873106930',1,'sista::Coordinates::Coordinates()']]],
+  ['coordinates_14',['coordinates',['../classsista_1_1Pawn.html#a6fdf70c637ed75b0c3070d1f9ea932d2',1,'sista::Pawn']]],
+  ['coordinates_15',['Coordinates',['../structsista_1_1Coordinates.html',1,'sista']]],
+  ['coordinates_2ecpp_16',['coordinates.cpp',['../coordinates_8cpp.html',1,'']]],
+  ['coordinates_2ehpp_17',['coordinates.hpp',['../coordinates_8hpp.html',1,'']]],
+  ['csi_18',['CSI',['../ansi_8hpp.html#abc85bb07f8fa1e7c2eba467b6c8e8624',1,'ansi.hpp']]],
+  ['current_5fpriority_19',['current_priority',['../structsista_1_1Path.html#a7766a8fe47bc8bb53640e6208a1d2616',1,'sista::Path']]],
+  ['cursor_20',['cursor',['../classsista_1_1Field.html#a18e2d39b2784e6efded186ca6ebeb1cb',1,'sista::Field']]],
+  ['cursor_21',['Cursor',['../structsista_1_1Cursor.html#a30997a54d11766ef9cb539f595bf1577',1,'sista::Cursor::Cursor()'],['../structsista_1_1Cursor.html',1,'sista::Cursor']]],
+  ['cursor_2ecpp_22',['cursor.cpp',['../cursor_8cpp.html',1,'']]],
+  ['cursor_2ehpp_23',['cursor.hpp',['../cursor_8hpp.html',1,'']]],
+  ['cyan_24',['CYAN',['../namespacesista.html#a72a9a13a3fd5aa83f5852d073bcdbe28a344dd8cd533280795b9db82ef0c92749',1,'sista::CYAN()'],['../namespacesista.html#ade2b5834bc07e347f46027a10a06d1caa344dd8cd533280795b9db82ef0c92749',1,'sista::CYAN()']]]
+];
