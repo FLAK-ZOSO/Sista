@@ -2,7 +2,7 @@
 <area shape="rect" id="node1" title="Pawn class header file." alt="" coords="191,5,361,31"/>
 <area shape="rect" id="node2" href="$field_8hpp.html" title="This file contains the Field class and related structures." alt="" coords="74,79,238,104"/>
 <area shape="rect" id="node4" href="$sista_8hpp.html" title="Main include file for the Sista library." alt="" coords="193,152,359,177"/>
-<area shape="rect" id="node6" href="$pawn_8cpp.html" title=" " alt="" coords="313,79,484,104"/>
-<area shape="rect" id="node3" href="$field_8cpp.html" title=" " alt="" coords="5,152,168,177"/>
+<area shape="rect" id="node6" href="$pawn_8cpp.html" title="Implementation of the Pawn class." alt="" coords="313,79,484,104"/>
+<area shape="rect" id="node3" href="$field_8cpp.html" title="Implementation of the field management functionalities of the Sista library." alt="" coords="5,152,168,177"/>
 <area shape="rect" id="node5" href="$sista_8cpp.html" title=" " alt="" coords="236,225,316,251"/>
 </map>
