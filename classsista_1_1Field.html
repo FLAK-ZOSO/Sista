@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Sista<span id="projectnumber">&#160;v3.0.0-alpha</span>
+   <div id="projectname">Sista<span id="projectnumber">&#160;v3.0.0-alpha.1</span>
    </div>
    <div id="projectbrief">Sista is a C++ lightweight OS-agnostic library for terminal animations and videogames</div>
   </td>
@@ -545,12 +545,11 @@ Protected Attributes</h2></td></tr>
 <p>Removes a <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> from the field at specified coordinates. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">y</td><td>The y coordinate (row) of the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> to remove. </td></tr>
-    <tr><td class="paramname">x</td><td>The x coordinate (column) of the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> to remove.</td></tr>
+    <tr><td class="paramname">pawn</td><td>A pointer to the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> to remove.</td></tr>
   </table>
   </dd>
 </dl>
-<p>This method removes the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> located at the given coordinates from the field. Unlike removePawn, this method also cleans the cell on the terminal by printing a space.</p>
+<p>This method removes the given <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> from the field. Unlike removePawn, this method also cleans the cell on the terminal by printing a space.</p>
 <dl class="section warning"><dt>Warning</dt><dd>The coordinates must be valid (within the field bounds) as they are not validated here. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The method does not delete the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> object, it only removes it from the field.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> </dd></dl>
@@ -1755,7 +1754,7 @@ This is a negation of isOccupied provided that isOutOfBounds returns false. Read
   </table>
   </dd>
 </dl>
-<p>This method removes the specified <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> from the field based on its coordinates. If the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> is not found at its coordinates, no action is taken.</p>
+<p>This method removes the specified <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> from the field. If the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> is not found at its coordinates, no action is taken.</p>
 <dl class="section warning"><dt>Warning</dt><dd>The <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>'s coordinates must be valid (within the field bounds) as they are not validated here. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The method does not delete the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> object, it only removes it from the field.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> </dd></dl>
@@ -1982,7 +1981,7 @@ This is a negation of isOccupied provided that isOutOfBounds returns false. Read
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Aug 24 2025 15:48:46 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generated on Sun Aug 24 2025 16:02:57 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>
