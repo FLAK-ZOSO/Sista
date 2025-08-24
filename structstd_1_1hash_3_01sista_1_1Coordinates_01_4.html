@@ -81,6 +81,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Specialization of std::hash for <a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">sista::Coordinates</a>.  
+ <a href="structstd_1_1hash_3_01sista_1_1Coordinates_01_4.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="coordinates_8hpp_source.html">coordinates.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -88,7 +91,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9b4df1df6c53c427bed71dd79a048f09"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstd_1_1hash_3_01sista_1_1Coordinates_01_4.html#a9b4df1df6c53c427bed71dd79a048f09">operator()</a> (const <a class="el" href="structsista_1_1Coordinates.html">sista::Coordinates</a> &amp;) const noexcept</td></tr>
 <tr class="separator:a9b4df1df6c53c427bed71dd79a048f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Specialization of std::hash for <a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">sista::Coordinates</a>. </p>
+<p>This specialization allows Coordinates to be used as keys in hash-based containers like std::unordered_map and std::unordered_set. The hash function combines the y and x coordinates into a single size_t value.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">sista::Coordinates</a> </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9b4df1df6c53c427bed71dd79a048f09" name="a9b4df1df6c53c427bed71dd79a048f09"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9b4df1df6c53c427bed71dd79a048f09">&#9670;&#160;</a></span>operator()()</h2>
 

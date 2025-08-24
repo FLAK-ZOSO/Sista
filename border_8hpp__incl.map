@@ -1,7 +1,7 @@
 <map id="include/sista/border.hpp" name="include/sista/border.hpp">
 <area shape="rect" id="node1" title="Border class header file." alt="" coords="18,5,195,31"/>
 <area shape="rect" id="node2" href="$ansi_8hpp.html" title="ANSI escape code utilities and types for terminal formatting." alt="" coords="5,79,83,104"/>
-<area shape="rect" id="node4" href="$coordinates_8hpp.html" title=" " alt="" coords="107,79,234,104"/>
+<area shape="rect" id="node4" href="$coordinates_8hpp.html" title="Coordinates struct header file." alt="" coords="107,79,234,104"/>
 <area shape="rect" id="node3" title=" " alt="" coords="10,152,78,177"/>
 <area shape="rect" id="node5" title=" " alt="" coords="121,152,181,177"/>
 <area shape="rect" id="node6" title=" " alt="" coords="205,152,291,177"/>
