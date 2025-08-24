@@ -408,13 +408,11 @@ namespace sista {
         Path oppositePath(destination, start, nullptr); // Create the opposite path
         std::set<Path>::iterator it = pawnsToSwap.find(oppositePath); // Find the opposite path in the pawnsToSwap
         if (it != pawnsToSwap.end()) { // If the opposite path is found
-            std::cerr << "SwappableField::addPawnToSwap(): Found opposite path from {" << it->begin.y << ", " << it->begin.x << "} to {" << it->end.y << ", " << it->end.x << "}" << std::endl;
             swapTwoPawns(pawn, it->pawn); // Swap the two pawns
             pawnsToSwap.erase(it); // Remove the opposite path from the pawnsToSwap
             return; // Return
         }
         // If the opposite path is not found, add the path to the pawnsToSwap
-        std::cerr << "SwappableField::addPawnToSwap(): Adding path from {" << start.y << ", " << start.x << "} to {" << destination.y << ", " << destination.x << "}" << std::endl;
         pawnsToSwap.insert(Path(pawn->getCoordinates(), destination, pawn));
     }
     void SwappableField::addPawnToSwap(Path& path) { // addPawnToSwap - add a pawn to the pawnsToSwap
@@ -428,13 +426,11 @@ namespace sista {
         Path oppositePath(path.end, path.begin, nullptr); // Create the opposite path
         std::set<Path>::iterator it = pawnsToSwap.find(oppositePath); // Find the opposite path in the pawnsToSwap
         if (it != pawnsToSwap.end()) { // If the opposite path is found
-            std::cerr << "SwappableField::addPawnToSwap(): Found opposite path from {" << it->begin.y << ", " << it->begin.x << "} to {" << it->end.y << ", " << it->end.x << "}" << std::endl;
             swapTwoPawns(path.pawn, it->pawn); // Swap the two pawns
             pawnsToSwap.erase(it); // Remove the opposite path from the pawnsToSwap
             return; // Return
         }
         // If the opposite path is not found, add the path to the pawnsToSwap
-        std::cerr << "SwappableField::addPawnToSwap(): Adding path from {" << path.begin.y << ", " << path.begin.x << "} to {" << path.end.y << ", " << path.end.x << "}" << std::endl;
         pawnsToSwap.insert(path);
     }
     void SwappableField::simulateSwaps() { // simulateSwaps - simulate all the swaps in the pawnsToSwap
@@ -456,14 +452,11 @@ namespace sista {
         // Paths are stored in a std::set, so they are automatically sorted by priority
         std::set<Path>::iterator it = pawnsToSwap.begin();
         Coordinates arrive_; // Coordinates of the cell with 2 or more pawns (so where a certain pawn arrived and should never be arrived at)
-        std::cerr << "Total swaps to simulate: " << pawnsToSwap.size() << std::endl;
         try {
             while (true) {
                 // Find the first cell with 2 or more pawns heading there
                 arrive_ = firstInvalidCell(endCount); // Coordinates of the cell with 2 or more pawns (so where a certain pawn arrived and should never be arrived at)
 
-                std::cerr << "\tSwappableField::simulateSwaps(): Found invalid cell at {" << arrive_.y << ", " << arrive_.x << "}";
-                std::cerr << " with " << endCount[arrive_] << " pawns heading there." << std::endl;
 
                 // Find a pawn that arrived at the cell with 2 or more pawns
                 // Pawn* pawn = getPawn(arrive_); // NO! Swap weren't applied yet, so the pawn is still at the begin of the path
