@@ -82,13 +82,16 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Represents a brick of the border with a symbol and ANSI settings.  
+ <a href="classsista_1_1Border.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="border_8hpp_source.html">border.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for sista::Border:</div>
 <div class="dyncontent">
 <div class="center"><img src="classsista_1_1Border__coll__graph.png" border="0" usemap="#asista_1_1Border_coll__map" alt="Collaboration graph"/></div>
 <map name="asista_1_1Border_coll__map" id="asista_1_1Border_coll__map">
-<area shape="rect" title=" " alt="" coords="26,93,130,119"/>
+<area shape="rect" title="Represents a brick of the border with a symbol and ANSI settings." alt="" coords="26,93,130,119"/>
 <area shape="rect" href="structsista_1_1ANSISettings.html" title="Represents a set of ANSI settings including colors and attributes." alt="" coords="5,5,151,31"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -96,8 +99,10 @@ Collaboration diagram for sista::Border:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aae5dad867ba825a47cbb85e30f260b38"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Border.html#aae5dad867ba825a47cbb85e30f260b38">Border</a> (char, const <a class="el" href="structsista_1_1ANSISettings.html">ANSISettings</a> &amp;)</td></tr>
+<tr class="memdesc:aae5dad867ba825a47cbb85e30f260b38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor to initialize the border with a symbol and ANSI settings.  <br /></td></tr>
 <tr class="separator:aae5dad867ba825a47cbb85e30f260b38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a625c393138da01011d1d5f302a955578"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Border.html#a625c393138da01011d1d5f302a955578">print</a> (bool=true) const</td></tr>
+<tr class="memdesc:a625c393138da01011d1d5f302a955578"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the border symbol to the terminal, applying ANSI settings if specified.  <br /></td></tr>
 <tr class="separator:a625c393138da01011d1d5f302a955578"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
@@ -107,7 +112,11 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a7b509ceb194c41ceb17c44792d694792"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsista_1_1ANSISettings.html">ANSISettings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Border.html#a7b509ceb194c41ceb17c44792d694792">settings</a></td></tr>
 <tr class="separator:a7b509ceb194c41ceb17c44792d694792"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents a brick of the border with a symbol and ANSI settings. </p>
+<p>The <a class="el" href="classsista_1_1Border.html" title="Represents a brick of the border with a symbol and ANSI settings.">Border</a> class encapsulates a character symbol and its associated ANSI settings, allowing for the representation and printing of border "bricks" in a terminal.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1ANSISettings.html" title="Represents a set of ANSI settings including colors and attributes.">ANSISettings</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aae5dad867ba825a47cbb85e30f260b38" name="aae5dad867ba825a47cbb85e30f260b38"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aae5dad867ba825a47cbb85e30f260b38">&#9670;&#160;</a></span>Border()</h2>
 
@@ -133,6 +142,16 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructor to initialize the border with a symbol and ANSI settings. </p>
+<p>The ANSI settings for the border brick. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">symbol_</td><td>The character symbol for the border brick. </td></tr>
+    <tr><td class="paramname">settings_</td><td>The <a class="el" href="structsista_1_1ANSISettings.html" title="Represents a set of ANSI settings including colors and attributes.">ANSISettings</a> for the border brick. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -161,6 +180,16 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Prints the border symbol to the terminal, applying ANSI settings if specified. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">apply_settings</td><td>If true, applies the ANSI settings before printing the symbol.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This method prints the border's symbol to the terminal. If apply_settings is true, it first applies the stored ANSI settings (foreground color, background color, and attribute) to ensure the symbol is displayed with the desired formatting.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1ANSISettings.html#a41f1181ac07aa60b90358bdc0fbf011e" title="Applies the ANSI settings to the terminal.">ANSISettings::apply</a> </dd></dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -183,6 +212,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>The character symbol representing the border brick. </p>
 
 </div>
 </div>
