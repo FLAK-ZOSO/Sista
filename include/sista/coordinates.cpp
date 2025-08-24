@@ -1,4 +1,18 @@
-#include "coordinates.hpp" // Coordinates, <utility> std::pair std::make_pair, <functional> std::hash
+/** \file coordinates.cpp
+ *  \brief Implementation of the Coordinates struct and its hash function.
+ * 
+ *  This file contains the implementation of the Coordinates struct, which represents
+ *  2D coordinates with x and y values. It includes constructors, conversion methods,
+ *  and overloaded operators for comparison and arithmetic operations. Additionally,
+ *  it provides a specialization of std::hash for using Coordinates in hash-based containers.
+ * 
+ *  \author FLAK-ZOSO
+ *  \date 2022-2025
+ *  \version 3.0.0
+ *  \see Border
+ *  \copyright GNU General Public License v3.0
+ */
+#include "coordinates.hpp"
 
 namespace sista {
     Coordinates::Coordinates(): y(0), x(0) {} // Constructor

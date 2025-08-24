@@ -1,6 +1,19 @@
-#include "cursor.hpp" // Cursor
-#include <iostream> // std::cout
-
+/** \file cursor.cpp
+ *  \brief Implementation of the Cursor class for representing and manipulating the terminal cursor.
+ * 
+ *  This file contains the implementation of the Cursor class, which provides methods to
+ *  manipulate the terminal cursor, including moving to specific coordinates, erasing parts
+ *  of the screen or line, and moving the cursor in various directions. The class also
+ *  handles hiding and showing the cursor upon creation and destruction.
+ * 
+ *  \author FLAK-ZOSO
+ *  \date 2022-2025
+ *  \version 3.0.0
+ *  \see Border
+ *  \copyright GNU General Public License v3.0
+ */
+#include "cursor.hpp"
+#include <iostream>
 
 namespace sista {
     const unsigned short int Cursor::offset_y = 3; // Offset for the y coordinate (empyrical)

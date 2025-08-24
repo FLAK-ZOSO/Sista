@@ -1,4 +1,24 @@
-#include "ansi.hpp" // ForegroundColor, BackgroundColor, Attribute, ANSISettings
+/** \file ansi.cpp
+ *  \brief Implementation of ANSI functions and classes.
+ * 
+ *  This file contains the implementation of functions and classes for handling ANSI escape codes,
+ *  including setting foreground and background colors, text attributes, and screen modes.
+ * 
+ *  The implementation includes support for both standard colors and RGB colors, as well as
+ *  managing ANSI settings through the `ANSISettings` class.
+ * 
+ *  The code is designed to work with C++17 and later standards.
+ * 
+ * \author FLAK-ZOSO
+ * \date 2022-2025
+ * \version 3.0.0
+ * \note Many niche features are not implemented, see references for more details.
+ * \note Not all terminals support all ANSI features.
+ * \see https://en.wikipedia.org/wiki/ANSI_escape_code
+ * \see https://gist.github.com/ConnerWill/d4b6c776b509add763e17f9f113fd25b
+ * \copyright GNU General Public License v3.0
+ */
+#include "ansi.hpp"
 #include <iostream>
 
 

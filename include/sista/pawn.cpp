@@ -1,3 +1,16 @@
+/** \file pawn.cpp
+ *  \brief Implementation of the Pawn class.
+ * 
+ *  This file contains the implementation of the Pawn class, which represents
+ *  a game piece with a symbol, coordinates on a field, and ANSI settings for
+ *  its appearance in the terminal.
+ * 
+ *  \author FLAK-ZOSO
+ *  \date 2022-2025
+ *  \version 3.0.0
+ *  \see Pawn
+ *  \copyright GNU General Public License v3.0
+ */
 #include "pawn.hpp"
 #include <iostream>
 

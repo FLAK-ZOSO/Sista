@@ -1,7 +1,26 @@
-#include "field.hpp" // Field, Pawn, ANSI, <iostream>, <vector>, <algorithm>, <stdexcept>, <unordered_map>, <memory>, <map>
-#include <queue> // std::queue, std::priority_queue
-#include <algorithm> // std::sort
-#include <iostream> // std::cout, std::flush
+/** \file field.cpp
+ *  \brief Implementation of the field management functionalities of the Sista library.
+ * 
+ *  This file contains the implementation of the Field class and its methods for managing
+ *  a 2D grid of Pawns. It includes methods for adding, removing, moving, and printing Pawns,
+ *  as well as checking the state of the field (e.g., occupancy, bounds).
+ *  The Field class uses `std::shared_ptr` for managing Pawn objects to ensure proper memory management
+ *  and avoid memory leaks.
+ *  The implementation also includes the SwappableField subclass, which extends Field to handle
+ *  scenarios where multiple Pawns may need to swap positions.
+ *
+ * \author FLAK-ZOSO
+ * \date 2022-2025
+ * \version 3.0.0
+ * \see Field
+ * \see SwappableField
+ * \see Path
+ * \copyright GNU General Public License v3.0
+ */
+#include "field.hpp"
+#include <queue>
+#include <algorithm>
+#include <iostream>
 
 namespace sista {
     void Field::clear() {
