@@ -4,7 +4,7 @@ var searchData=
   ['cleancoordinates_1',['cleanCoordinates',['../classsista_1_1Field.html#a30793342d640e7f73e04c712094a9a75',1,'sista::Field::cleanCoordinates(const Coordinates &amp;) const'],['../classsista_1_1Field.html#adb098dd88eb47ce00ea3a8636e11cd24',1,'sista::Field::cleanCoordinates(unsigned short, unsigned short) const']]],
   ['clear_2',['clear',['../classsista_1_1Field.html#abe9fe24ad291a61d69c0ebe3758940a8',1,'sista::Field']]],
   ['clearpawnstoswap_3',['clearPawnsToSwap',['../classsista_1_1SwappableField.html#ad4bcec91740ee7916151e078f98a0b42',1,'sista::SwappableField']]],
-  ['clearscreen_4',['clearScreen',['../namespacesista.html#a1172cf8c4d5ad9fb1cf93ff99b01539e',1,'sista']]],
+  ['clearscreen_4',['clearScreen',['../namespacesista.html#ab57cb2b4c053ac3883c5c9f61a184827',1,'sista']]],
   ['cls_5',['CLS',['../ansi_8hpp.html#ada59561816893aa39c4aa41f1043c554',1,'ansi.hpp']]],
   ['color_5f16_5fcolors_5fgraphics_5f640_5f200_6',['COLOR_16_COLORS_GRAPHICS_640_200',['../namespacesista.html#a9630b668dd6f74adc69788f13da9da8eaab8227d7892e6dba3a9254fbe9c08bd9',1,'sista']]],
   ['color_5f16_5fcolors_5fgraphics_5f640_5f350_7',['COLOR_16_COLORS_GRAPHICS_640_350',['../namespacesista.html#a9630b668dd6f74adc69788f13da9da8ea0a3dead846023ab6acb9fa789fc4374d',1,'sista']]],

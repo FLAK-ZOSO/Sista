@@ -8,7 +8,7 @@
 <area shape="rect" id="node7" href="$ansi_8hpp.html" title="ANSI escape code utilities and types for terminal formatting." alt="" coords="651,299,728,324"/>
 <area shape="rect" id="node9" href="$border_8hpp.html" title="Border class header file." alt="" coords="399,225,489,251"/>
 <area shape="rect" id="node10" href="$coordinates_8hpp.html" title="Coordinates struct header file." alt="" coords="794,299,921,324"/>
-<area shape="rect" id="node13" href="$cursor_8hpp.html" title=" " alt="" coords="757,225,846,251"/>
+<area shape="rect" id="node13" href="$cursor_8hpp.html" title="Cursor manipulation header file." alt="" coords="757,225,846,251"/>
 <area shape="rect" id="node14" href="$field_8hpp.html" title=" " alt="" coords="579,152,658,177"/>
 <area shape="rect" id="node18" href="$pawn_8hpp.html" title=" " alt="" coords="871,225,956,251"/>
 <area shape="rect" id="node8" title=" " alt="" coords="655,372,723,397"/>
