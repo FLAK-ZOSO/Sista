@@ -81,6 +81,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Specialization of std::hash for <a class="el" href="structsista_1_1Path.html" title="Represents a movement path for a Pawn, including priority handling.">sista::Path</a> to allow usage in unordered containers.  
+ <a href="structstd_1_1hash_3_01sista_1_1Path_01_4.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="field_8hpp_source.html">field.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -88,7 +91,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7b2cec6e4bb37cfa818a300cc0e6e2ff"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstd_1_1hash_3_01sista_1_1Path_01_4.html#a7b2cec6e4bb37cfa818a300cc0e6e2ff">operator()</a> (const <a class="el" href="structsista_1_1Path.html">sista::Path</a> &amp;k) const noexcept</td></tr>
 <tr class="separator:a7b2cec6e4bb37cfa818a300cc0e6e2ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Specialization of std::hash for <a class="el" href="structsista_1_1Path.html" title="Represents a movement path for a Pawn, including priority handling.">sista::Path</a> to allow usage in unordered containers. </p>
+<p>This specialization provides a hash function for the <a class="el" href="structsista_1_1Path.html" title="Represents a movement path for a Pawn, including priority handling.">sista::Path</a> struct, enabling its use as a key in unordered containers like std::unordered_set or std::unordered_map. The hash is computed based on the begin and end coordinates of the path.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1Path.html" title="Represents a movement path for a Pawn, including priority handling.">sista::Path</a> </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a7b2cec6e4bb37cfa818a300cc0e6e2ff" name="a7b2cec6e4bb37cfa818a300cc0e6e2ff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7b2cec6e4bb37cfa818a300cc0e6e2ff">&#9670;&#160;</a></span>operator()()</h2>
 

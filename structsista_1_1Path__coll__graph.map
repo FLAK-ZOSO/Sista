@@ -1,5 +1,5 @@
 <map id="sista::Path" name="sista::Path">
-<area shape="rect" id="node1" title=" " alt="" coords="51,185,141,211"/>
+<area shape="rect" id="node1" title="Represents a movement path for a Pawn, including priority handling." alt="" coords="51,185,141,211"/>
 <area shape="rect" id="node2" href="$structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values." alt="" coords="5,5,144,31"/>
 <area shape="rect" id="node3" href="$classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings." alt="" coords="141,95,235,121"/>
 <area shape="rect" id="node4" href="$structsista_1_1ANSISettings.html" title="Represents a set of ANSI settings including colors and attributes." alt="" coords="169,5,314,31"/>
