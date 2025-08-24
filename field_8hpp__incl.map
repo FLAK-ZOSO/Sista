@@ -4,7 +4,7 @@
 <area shape="rect" id="node3" title=" " alt="" coords="93,79,170,104"/>
 <area shape="rect" id="node4" title=" " alt="" coords="194,79,245,104"/>
 <area shape="rect" id="node5" title=" " alt="" coords="269,79,311,104"/>
-<area shape="rect" id="node6" href="$pawn_8hpp.html" title=" " alt="" coords="335,79,421,104"/>
+<area shape="rect" id="node6" href="$pawn_8hpp.html" title="Pawn class header file." alt="" coords="335,79,421,104"/>
 <area shape="rect" id="node12" href="$border_8hpp.html" title="Border class header file." alt="" coords="445,79,535,104"/>
 <area shape="rect" id="node13" href="$cursor_8hpp.html" title="Cursor manipulation header file." alt="" coords="560,79,649,104"/>
 <area shape="rect" id="node7" href="$ansi_8hpp.html" title="ANSI escape code utilities and types for terminal formatting." alt="" coords="389,152,466,177"/>
