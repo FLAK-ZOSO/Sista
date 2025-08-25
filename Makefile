@@ -1,9 +1,10 @@
 IMPLEMENTATIONS = include/sista/ansi.cpp include/sista/border.cpp include/sista/coordinates.cpp include/sista/cursor.cpp include/sista/field.cpp include/sista/pawn.cpp
 OBJECTS = ansi.o border.o coordinates.o cursor.o field.o pawn.o
 
-RAW_TAG := $(shell git describe --tags --abbrev=0)
-FULL_VERSION := $(subst v,,$(RAW_TAG)) # Remove leading 'v'
-FULL_VERSION ?= 3.0.0-alpha.42 # Fallback version if git command fails
+RAW_TAG := $(shell git describe --tags --abbrev=0 2>/dev/null)
+TAG := $(subst v,,$(RAW_TAG))
+FULL_VERSION ?= $(TAG)
+FULL_VERSION ?= 3.0.0-alpha.42 # Fallback version if no tag is found
 
 MAJOR_VERSION := $(word 1,$(subst ., ,$(FULL_VERSION)))
 MINOR_VERSION := $(word 2,$(subst ., ,$(FULL_VERSION)))
