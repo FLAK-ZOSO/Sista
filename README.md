@@ -1,6 +1,6 @@
 # `Sista`
 
-`Sista` is a *lightweight*, *fast*, *easy-to-use* and *OS-agnostic* *object-oriented* library for making terminal videogames and animations in `C++`.
+`Sista` is a *lightweight*, *fast*, *easy-to-use*, *memory-safe* and *OS-agnostic* *object-oriented* library for making terminal videogames and animations in `C++`.
 
 `Sista` provides a set of classes and functions to make terminal games in `C++` easier, shielding developers from having to reinvent the wheel every time they want to make a terminal videogame.
 
