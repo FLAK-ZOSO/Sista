@@ -1,6 +1,14 @@
-# Makefile for sista.cpp
 IMPLEMENTATIONS = include/sista/ansi.cpp include/sista/border.cpp include/sista/coordinates.cpp include/sista/cursor.cpp include/sista/field.cpp include/sista/pawn.cpp
 OBJECTS = ansi.o border.o coordinates.o cursor.o field.o pawn.o
+
+RAW_TAG := $(shell git describe --tags --abbrev=0)
+FULL_VERSION := $(subst v,,$(RAW_TAG)) # Remove leading 'v'
+FULL_VERSION ?= 3.0.0-alpha.42 # Fallback version if git command fails
+
+MAJOR_VERSION := $(word 1,$(subst ., ,$(FULL_VERSION)))
+MINOR_VERSION := $(word 2,$(subst ., ,$(FULL_VERSION)))
+PATCH_AND_PR := $(word 3,$(subst ., ,$(FULL_VERSION)))
+
 
 # For the Makefile CI workflow, macos-latest cannot use the `-static` flag
 ifeq "$(shell uname -s)" "Darwin"
@@ -68,11 +76,11 @@ endif
 	g++ -std=c++17 -Wall -fPIC -c $< -o $@
 
 libSista.so: $(OBJECTS)
-	g++ -std=c++17 -Wall -fPIC -shared -o libSista.so $(OBJECTS)
+	g++ -std=c++17 -Wall -fPIC -shared -o libSista.so.$(FULL_VERSION) $(OBJECTS) -Wl,-soname,libSista.so.$(MAJOR_VERSION)
 
 ifeq "$(shell uname -s)" "Darwin"
 libSista.dylib: $(OBJECTS)
-	g++ -std=c++17 -Wall -dynamiclib -o libSista.dylib $(OBJECTS) -Wl,-install_name,@rpath/libSista.dylib
+	g++ -std=c++17 -Wall -dynamiclib -o libSista.dylib.$(FULL_VERSION) $(OBJECTS) -Wl,-install_name,@rpath/libSista.dylib,-current_version,$(MAJOR_VERSION),-compatibility_version,$(MAJOR_VERSION)
 endif
 
 ifeq ($(OS),Windows_NT) # Assumes usage of MinGW on Windows
@@ -84,10 +92,11 @@ libSista.a: $(OBJECTS)
 	ar rcs libSista.a $(OBJECTS)
 
 clean:
-	rm -f *.o libSista.so libSista.a
+	rm -f *.o sista libSista.so* libSista.a libSista.dylib* libSista.dll libSista.lib
 
 ifeq ($(OS),Windows_NT)
 install: libSista.dll libSista.a
+	@echo "Installing Sista version $(FULL_VERSION) to $(PREFIX)..."
 	@if not exist "$(PREFIX)" mkdir "$(PREFIX)"
 	@if not exist "$(PREFIX)\lib" mkdir "$(PREFIX)\lib"
 	@if not exist "$(PREFIX)\include\sista" mkdir "$(PREFIX)\include\sista"
@@ -105,20 +114,28 @@ uninstall:
 	@if exist "$(PREFIX)\include\sista" rmdir /S /Q "$(PREFIX)\include\sista"
 else ifeq "$(shell uname -s)" "Darwin"
 install: libSista.dylib libSista.a
+	@echo "Installing Sista version $(FULL_VERSION) to $(PREFIX)..."
 	install -d $(PREFIX)/lib
-	install -m 755 libSista.dylib $(PREFIX)/lib/
+	install -m 755 libSista.dylib.$(FULL_VERSION) $(PREFIX)/lib/
+	ln -sf $(PREFIX)/lib/libSista.dylib.$(FULL_VERSION) $(PREFIX)/lib/libSista.dylib.$(MAJOR_VERSION)
+	ln -sf $(PREFIX)/lib/libSista.dylib.$(MAJOR_VERSION) $(PREFIX)/lib/libSista.dylib
 	install -m 644 libSista.a $(PREFIX)/lib/
 	install -d $(PREFIX)/include/sista
 	install -m 644 include/sista/*.hpp $(PREFIX)/include/sista/
 
 uninstall:
 	rm -f $(PREFIX)/lib/libSista.dylib
+	rm -f $(PREFIX)/lib/libSista.dylib.$(MAJOR_VERSION)
+	rm -f $(PREFIX)/lib/libSista.dylib.$(FULL_VERSION)
 	rm -f $(PREFIX)/lib/libSista.a
 	rm -rf $(PREFIX)/include/sista
 else
 install: libSista.so libSista.a
+	@echo "Installing Sista version $(FULL_VERSION) to $(PREFIX)..."
 	install -d $(PREFIX)/lib
-	install -m 755 libSista.so $(PREFIX)/lib/
+	install -m 755 libSista.so.$(FULL_VERSION) $(PREFIX)/lib/
+	ln -sf $(PREFIX)/lib/libSista.so.$(FULL_VERSION) $(PREFIX)/lib/libSista.so.$(MAJOR_VERSION)
+	ln -sf $(PREFIX)/lib/libSista.so.$(MAJOR_VERSION) $(PREFIX)/lib/libSista.so
 	install -m 644 libSista.a $(PREFIX)/lib/
 	install -d $(PREFIX)/include/sista
 	install -m 644 include/sista/*.hpp $(PREFIX)/include/sista/
@@ -127,6 +144,8 @@ install: libSista.so libSista.a
 
 uninstall:
 	rm -f $(PREFIX)/lib/libSista.so
+	rm -f $(PREFIX)/lib/libSista.so.$(MAJOR_VERSION)
+	rm -f $(PREFIX)/lib/libSista.so.$(FULL_VERSION)
 	rm -f $(PREFIX)/lib/libSista.a
 	rm -rf $(PREFIX)/include/sista
 	rm -f /etc/ld.so.conf.d/sista.conf
