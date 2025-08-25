@@ -456,7 +456,7 @@ namespace sista {
             return; // ...return
         }
         for (const Path& path : pawnsToSwap) { // Simulate all the swaps in the pawnsToSwap
-            if (endCount.count(path.end) == 0 || endCount.count(path.begin) == 0) { // If one of the coordinates of the path is not in the map...
+            if (endCount.count(path.begin) == 0) { // If one of the coordinates of the path is not in the map...
                 endCount[path.begin] = pawnsCount[path.begin.y][path.begin.x]; // ...add it to the map with the current number of pawns at the begin of the path
             }
             if (endCount.count(path.end) == 0) {
