@@ -117,8 +117,8 @@ install: libSista.dylib libSista.a
 	@echo "Installing Sista version $(FULL_VERSION) to $(PREFIX)..."
 	install -d $(PREFIX)/lib
 	install -m 755 libSista.dylib.$(FULL_VERSION) $(PREFIX)/lib/
-	ln -sf $(PREFIX)/lib/libSista.dylib.$(FULL_VERSION) $(PREFIX)/lib/libSista.dylib.$(MAJOR_VERSION)
-	ln -sf $(PREFIX)/lib/libSista.dylib.$(MAJOR_VERSION) $(PREFIX)/lib/libSista.dylib
+	ln -sf libSista.dylib.$(FULL_VERSION) $(PREFIX)/lib/libSista.dylib.$(MAJOR_VERSION)
+	ln -sf libSista.dylib.$(MAJOR_VERSION) $(PREFIX)/lib/libSista.dylib
 	install -m 644 libSista.a $(PREFIX)/lib/
 	install -d $(PREFIX)/include/sista
 	install -m 644 include/sista/*.hpp $(PREFIX)/include/sista/
@@ -134,8 +134,8 @@ install: libSista.so libSista.a
 	@echo "Installing Sista version $(FULL_VERSION) to $(PREFIX)..."
 	install -d $(PREFIX)/lib
 	install -m 755 libSista.so.$(FULL_VERSION) $(PREFIX)/lib/
-	ln -sf $(PREFIX)/lib/libSista.so.$(FULL_VERSION) $(PREFIX)/lib/libSista.so.$(MAJOR_VERSION)
-	ln -sf $(PREFIX)/lib/libSista.so.$(MAJOR_VERSION) $(PREFIX)/lib/libSista.so
+	ln -sf libSista.so.$(FULL_VERSION) $(PREFIX)/lib/libSista.so.$(MAJOR_VERSION)
+	ln -sf libSista.so.$(MAJOR_VERSION) $(PREFIX)/lib/libSista.so
 	install -m 644 libSista.a $(PREFIX)/lib/
 	install -d $(PREFIX)/include/sista
 	install -m 644 include/sista/*.hpp $(PREFIX)/include/sista/
