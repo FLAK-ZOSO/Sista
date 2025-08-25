@@ -68,6 +68,6 @@ clean_objects:
 	rm -f *.o
 
 clean: clean_objects
-	rm -f header-test shared-test colors24-bit colors256 conflictTest resetAttribute screen-mode swapTest verticalTest
+	rm -f header-test shared-test shared-test-static colors24-bit colors256 conflictTest resetAttribute screen-mode swapTest verticalTest
 
 .PHONY: all clean_objects clean
