@@ -4,7 +4,11 @@ var searchData=
   ['getpawn_1',['getPawn',['../classsista_1_1Field.html#a022b5a459aa6cfcb28d9a418d4aeff5d',1,'sista::Field::getPawn(const Coordinates &amp;) const'],['../classsista_1_1Field.html#a11974c328945348b144d3a5b4aec9e76',1,'sista::Field::getPawn(unsigned short, unsigned short) const']]],
   ['getsettings_2',['getSettings',['../classsista_1_1Pawn.html#a975154392a58d00ab3c924ba48e3d242',1,'sista::Pawn::getSettings(ANSISettings &amp;) const'],['../classsista_1_1Pawn.html#a3a450b5c3afb447aedaf9e565caf963e',1,'sista::Pawn::getSettings() const']]],
   ['getsymbol_3',['getSymbol',['../classsista_1_1Pawn.html#ae88ecedfc72309bcb8b125887a0771a5',1,'sista::Pawn']]],
-  ['goto_4',['goTo',['../structsista_1_1Cursor.html#a8108bca18a010e5376d51a441c463855',1,'sista::Cursor::goTo(unsigned short int, unsigned short int) const'],['../structsista_1_1Cursor.html#a374cefd86dd146c01cd2092449f6be6c',1,'sista::Cursor::goTo(sista::Coordinates) const']]],
-  ['green_5',['green',['../structsista_1_1RGBColor.html#a331fb9a490e2d3d53c1da3636c2ece0f',1,'sista::RGBColor']]],
-  ['green_6',['GREEN',['../namespacesista.html#a72a9a13a3fd5aa83f5852d073bcdbe28a9de0e5dd94e861317e74964bed179fa0',1,'sista::GREEN()'],['../namespacesista.html#ade2b5834bc07e347f46027a10a06d1caa9de0e5dd94e861317e74964bed179fa0',1,'sista::GREEN()']]]
+  ['getversion_4',['getVersion',['../namespacesista.html#a974632556d1b19482a19f6fb9ed666b4',1,'sista']]],
+  ['getversionmajor_5',['getVersionMajor',['../namespacesista.html#af0bc6786b2b2d9863cf4c5ea1f951cb7',1,'sista']]],
+  ['getversionminor_6',['getVersionMinor',['../namespacesista.html#a540ac9639ce9722504542ac0980a0eef',1,'sista']]],
+  ['getversionpatch_7',['getVersionPatch',['../namespacesista.html#ad827ed9a4f765ef61e50cb28393f127e',1,'sista']]],
+  ['goto_8',['goTo',['../structsista_1_1Cursor.html#a8108bca18a010e5376d51a441c463855',1,'sista::Cursor::goTo(unsigned short int, unsigned short int) const'],['../structsista_1_1Cursor.html#a374cefd86dd146c01cd2092449f6be6c',1,'sista::Cursor::goTo(sista::Coordinates) const']]],
+  ['green_9',['green',['../structsista_1_1RGBColor.html#a331fb9a490e2d3d53c1da3636c2ece0f',1,'sista::RGBColor']]],
+  ['green_10',['GREEN',['../namespacesista.html#a72a9a13a3fd5aa83f5852d073bcdbe28a9de0e5dd94e861317e74964bed179fa0',1,'sista::GREEN()'],['../namespacesista.html#ade2b5834bc07e347f46027a10a06d1caa9de0e5dd94e861317e74964bed179fa0',1,'sista::GREEN()']]]
 ];

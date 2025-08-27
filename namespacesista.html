@@ -267,6 +267,18 @@ Functions</h2></td></tr>
 <tr class="memitem:ab565ece8b1fc80fb01f6ab41951b42ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#ab565ece8b1fc80fb01f6ab41951b42ce">clearScreen</a> (bool spaces=true)</td></tr>
 <tr class="memdesc:ab565ece8b1fc80fb01f6ab41951b42ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the terminal screen and optionally the scrollback buffer.  <br /></td></tr>
 <tr class="separator:ab565ece8b1fc80fb01f6ab41951b42ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a974632556d1b19482a19f6fb9ed666b4"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a974632556d1b19482a19f6fb9ed666b4">getVersion</a> ()</td></tr>
+<tr class="memdesc:a974632556d1b19482a19f6fb9ed666b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Sista library version as a string.  <br /></td></tr>
+<tr class="separator:a974632556d1b19482a19f6fb9ed666b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0bc6786b2b2d9863cf4c5ea1f951cb7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#af0bc6786b2b2d9863cf4c5ea1f951cb7">getVersionMajor</a> ()</td></tr>
+<tr class="memdesc:af0bc6786b2b2d9863cf4c5ea1f951cb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the major version number of the Sista library.  <br /></td></tr>
+<tr class="separator:af0bc6786b2b2d9863cf4c5ea1f951cb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a540ac9639ce9722504542ac0980a0eef"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a540ac9639ce9722504542ac0980a0eef">getVersionMinor</a> ()</td></tr>
+<tr class="memdesc:a540ac9639ce9722504542ac0980a0eef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the minor version number of the Sista library.  <br /></td></tr>
+<tr class="separator:a540ac9639ce9722504542ac0980a0eef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad827ed9a4f765ef61e50cb28393f127e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#ad827ed9a4f765ef61e50cb28393f127e">getVersionPatch</a> ()</td></tr>
+<tr class="memdesc:ad827ed9a4f765ef61e50cb28393f127e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the patch version number of the Sista library.  <br /></td></tr>
+<tr class="separator:ad827ed9a4f765ef61e50cb28393f127e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Sista library namespace. </p>
@@ -659,6 +671,126 @@ Functions</h2></td></tr>
 <a class="el" href="ansi_8hpp.html#a7cfa144d4795a4c35d31854db46ab405" title="Erase Scrollback Buffer ANSI escape code.">SSB</a> </dd>
 <dd>
 <a class="el" href="ansi_8hpp.html#a34332585ce6b88358cabf90092fbbb8d" title="Top Left ANSI escape code.">TL</a> </dd></dl>
+
+</div>
+</div>
+<a id="a974632556d1b19482a19f6fb9ed666b4" name="a974632556d1b19482a19f6fb9ed666b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a974632556d1b19482a19f6fb9ed666b4">&#9670;&#160;</a></span>getVersion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * sista::getVersion </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the Sista library version as a string. </p>
+<dl class="section return"><dt>Returns</dt><dd>A string representing the Sista library version.</dd></dl>
+<p>This function returns the version of the Sista library in the format "MAJOR.MINOR.PATCH". It is useful for logging, debugging, or displaying version information in applications that utilize the Sista library.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="version_8hpp.html#a004ded2ec48142818271b61e286191bc">SISTA_VERSION</a> </dd></dl>
+
+</div>
+</div>
+<a id="af0bc6786b2b2d9863cf4c5ea1f951cb7" name="af0bc6786b2b2d9863cf4c5ea1f951cb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0bc6786b2b2d9863cf4c5ea1f951cb7">&#9670;&#160;</a></span>getVersionMajor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista::getVersionMajor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the major version number of the Sista library. </p>
+<dl class="section return"><dt>Returns</dt><dd>An integer representing the major version number.</dd></dl>
+<p>This function returns the major version number of the Sista library. The major version typically indicates significant changes or milestones in the library's development.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="version_8hpp.html#a16b4140c41cdf83c19f60b6dab77ddbb">SISTA_VERSION_MAJOR</a> </dd></dl>
+
+</div>
+</div>
+<a id="a540ac9639ce9722504542ac0980a0eef" name="a540ac9639ce9722504542ac0980a0eef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a540ac9639ce9722504542ac0980a0eef">&#9670;&#160;</a></span>getVersionMinor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista::getVersionMinor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the minor version number of the Sista library. </p>
+<dl class="section return"><dt>Returns</dt><dd>An integer representing the minor version number.</dd></dl>
+<p>This function returns the minor version number of the Sista library. The minor version typically indicates the addition of new features or improvements that are backward-compatible.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="version_8hpp.html#abf7635facf2856508c9145802676391f">SISTA_VERSION_MINOR</a> </dd></dl>
+
+</div>
+</div>
+<a id="ad827ed9a4f765ef61e50cb28393f127e" name="ad827ed9a4f765ef61e50cb28393f127e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad827ed9a4f765ef61e50cb28393f127e">&#9670;&#160;</a></span>getVersionPatch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista::getVersionPatch </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the patch version number of the Sista library. </p>
+<dl class="section return"><dt>Returns</dt><dd>An integer representing the patch version number.</dd></dl>
+<p>This function returns the patch version number of the Sista library. The patch version typically indicates bug fixes or minor changes that do not affect the overall functionality or compatibility of the library.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="version_8hpp.html#ab1176d0382b32684873c1c70520092f8">SISTA_VERSION_PATCH</a> </dd></dl>
 
 </div>
 </div>
@@ -1067,7 +1199,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 25 2025 18:09:27 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generated on Wed Aug 27 2025 11:47:35 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>

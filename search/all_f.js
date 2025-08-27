@@ -17,10 +17,14 @@ var searchData=
   ['sista_14',['sista',['../namespacesista.html',1,'']]],
   ['sista_2ecpp_15',['sista.cpp',['../sista_8cpp.html',1,'']]],
   ['sista_2ehpp_16',['sista.hpp',['../sista_8hpp.html',1,'']]],
-  ['ssb_17',['SSB',['../ansi_8hpp.html#a7cfa144d4795a4c35d31854db46ab405',1,'ansi.hpp']]],
-  ['std_18',['std',['../namespacestd.html',1,'']]],
-  ['strikethrough_19',['STRIKETHROUGH',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2faad166989fa2b7da7d238b3e7105c64f8',1,'sista']]],
-  ['swappablefield_20',['SwappableField',['../classsista_1_1SwappableField.html',1,'sista::SwappableField'],['../classsista_1_1SwappableField.html#ac40be59ca60aaa1fe2a8ffda78bc37b5',1,'sista::SwappableField::SwappableField(int, int)']]],
-  ['swaptwopawns_21',['swapTwoPawns',['../classsista_1_1SwappableField.html#a489acecf8e06f8142a3c7a7f1da1916d',1,'sista::SwappableField::swapTwoPawns(Pawn *, Pawn *)'],['../classsista_1_1SwappableField.html#a6b3cb425199a0f3321c5144833ead17f',1,'sista::SwappableField::swapTwoPawns(const Coordinates &amp;, const Coordinates &amp;)']]],
-  ['symbol_22',['symbol',['../classsista_1_1Pawn.html#a85cddde323c954067d792372d9ebbc3a',1,'sista::Pawn::symbol()'],['../classsista_1_1Border.html#a3c161ef85e4b4a572c82eac5dc615fef',1,'sista::Border::symbol()']]]
+  ['sista_5fversion_17',['SISTA_VERSION',['../version_8hpp.html#a004ded2ec48142818271b61e286191bc',1,'version.hpp']]],
+  ['sista_5fversion_5fmajor_18',['SISTA_VERSION_MAJOR',['../version_8hpp.html#a16b4140c41cdf83c19f60b6dab77ddbb',1,'version.hpp']]],
+  ['sista_5fversion_5fminor_19',['SISTA_VERSION_MINOR',['../version_8hpp.html#abf7635facf2856508c9145802676391f',1,'version.hpp']]],
+  ['sista_5fversion_5fpatch_20',['SISTA_VERSION_PATCH',['../version_8hpp.html#ab1176d0382b32684873c1c70520092f8',1,'version.hpp']]],
+  ['ssb_21',['SSB',['../ansi_8hpp.html#a7cfa144d4795a4c35d31854db46ab405',1,'ansi.hpp']]],
+  ['std_22',['std',['../namespacestd.html',1,'']]],
+  ['strikethrough_23',['STRIKETHROUGH',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2faad166989fa2b7da7d238b3e7105c64f8',1,'sista']]],
+  ['swappablefield_24',['SwappableField',['../classsista_1_1SwappableField.html',1,'sista::SwappableField'],['../classsista_1_1SwappableField.html#ac40be59ca60aaa1fe2a8ffda78bc37b5',1,'sista::SwappableField::SwappableField(int, int)']]],
+  ['swaptwopawns_25',['swapTwoPawns',['../classsista_1_1SwappableField.html#a489acecf8e06f8142a3c7a7f1da1916d',1,'sista::SwappableField::swapTwoPawns(Pawn *, Pawn *)'],['../classsista_1_1SwappableField.html#a6b3cb425199a0f3321c5144833ead17f',1,'sista::SwappableField::swapTwoPawns(const Coordinates &amp;, const Coordinates &amp;)']]],
+  ['symbol_26',['symbol',['../classsista_1_1Pawn.html#a85cddde323c954067d792372d9ebbc3a',1,'sista::Pawn::symbol()'],['../classsista_1_1Border.html#a3c161ef85e4b4a572c82eac5dc615fef',1,'sista::Border::symbol()']]]
 ];
