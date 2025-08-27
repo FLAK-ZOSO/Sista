@@ -76,27 +76,42 @@ endif
 %.o: include/sista/%.cpp
 	g++ -std=c++17 -Wall -fPIC -c $< -o $@
 
+api.o: include/sista/api.h include/sista/api.cpp
+	g++ -std=c++17 -Wall -fPIC -c include/sista/api.cpp -o api.o
+
 libSista.so: $(OBJECTS)
 	g++ -std=c++17 -Wall -fPIC -shared -o libSista.so.$(FULL_VERSION) $(OBJECTS) -Wl,-soname,libSista.so.$(MAJOR_VERSION)
+
+libSista_api.so: api.o
+	g++ -std=c++17 -Wall -fPIC -shared -o libSista_api.so.$(FULL_VERSION) api.o -Wl,-soname,libSista_api.so.$(MAJOR_VERSION)
 
 ifeq "$(shell uname -s)" "Darwin"
 libSista.dylib: $(OBJECTS)
 	g++ -std=c++17 -Wall -dynamiclib -o libSista.dylib.$(FULL_VERSION) $(OBJECTS) -Wl,-install_name,@rpath/libSista.dylib,-current_version,$(MAJOR_VERSION),-compatibility_version,$(MAJOR_VERSION)
+
+libSista_api.dylib: api.o
+	g++ -std=c++17 -Wall -dynamiclib -o libSista_api.dylib.$(FULL_VERSION) api.o -Wl,-install_name,@rpath/libSista_api.dylib,-current_version,$(MAJOR_VERSION),-compatibility_version,$(MAJOR_VERSION)
 endif
 
 ifeq ($(OS),Windows_NT) # Assumes usage of MinGW on Windows
 libSista.dll: $(OBJECTS)
 	g++ -std=c++17 -Wall -shared -o libSista.dll $(OBJECTS) -Wl,--out-implib,libSista.lib
+
+libSista_api.dll: api.o
+	g++ -std=c++17 -Wall -shared -o libSista_api.dll api.o -Wl,--out-implib,libSista_api.lib
 endif
 
 libSista.a: $(OBJECTS)
 	ar rcs libSista.a $(OBJECTS)
 
+libSista_api.a: api.o
+	ar rcs libSista_api.a api.o
+
 clean:
-	rm -f *.o sista libSista.so* libSista.a libSista.dylib* libSista.dll libSista.lib
+	rm -f *.o sista libSista.so* libSista.a libSista.dylib* libSista.dll libSista.lib api.o libSista_api.so* libSista_api.a libSista_api.dylib* libSista_api.dll libSista_api.lib
 
 ifeq ($(OS),Windows_NT)
-install: libSista.dll libSista.a
+install: libSista.dll libSista.a libSista_api.dll libSista_api.a
 	@echo "Installing Sista version $(FULL_VERSION) to $(PREFIX)..."
 	@if not exist "$(PREFIX)" mkdir "$(PREFIX)"
 	@if not exist "$(PREFIX)\lib" mkdir "$(PREFIX)\lib"
@@ -104,7 +119,11 @@ install: libSista.dll libSista.a
 	copy libSista.dll "$(PREFIX)\lib\"
 	copy libSista.lib "$(PREFIX)\lib\"
 	copy libSista.a "$(PREFIX)\lib\"
+	copy libSista_api.dll "$(PREFIX)\lib\"
+	copy libSista_api.lib "$(PREFIX)\lib\"
+	copy libSista_api.a "$(PREFIX)\lib\"
 	copy include\sista\*.hpp "$(PREFIX)\include\sista\"
+	copy include\sista\*.h "$(PREFIX)\include\sista\"
 	@echo "Library and headers installed to $(PREFIX)."
 	@echo "Remember to add $(PREFIX)\lib to your compiler's library search path and $(PREFIX)\include\sista to your include path."
 
@@ -112,34 +131,50 @@ uninstall:
 	del "$(PREFIX)\lib\libSista.dll"
 	del "$(PREFIX)\lib\libSista.lib"
 	del "$(PREFIX)\lib\libSista.a"
+	del "$(PREFIX)\lib\libSista_api.dll"
+	del "$(PREFIX)\lib\libSista_api.lib"
 	@if exist "$(PREFIX)\include\sista" rmdir /S /Q "$(PREFIX)\include\sista"
 else ifeq "$(shell uname -s)" "Darwin"
-install: libSista.dylib libSista.a
+install: libSista.dylib libSista.a libSista_api.dylib libSista_api.a
 	@echo "Installing Sista version $(FULL_VERSION) to $(PREFIX)..."
 	install -d $(PREFIX)/lib
 	install -m 755 libSista.dylib.$(FULL_VERSION) $(PREFIX)/lib/
+	install -m 755 libSista_api.dylib.$(FULL_VERSION) $(PREFIX)/lib/
 	ln -sf libSista.dylib.$(FULL_VERSION) $(PREFIX)/lib/libSista.dylib.$(MAJOR_VERSION)
 	ln -sf libSista.dylib.$(MAJOR_VERSION) $(PREFIX)/lib/libSista.dylib
+	ln -sf libSista_api.dylib.$(FULL_VERSION) $(PREFIX)/lib/libSista_api.dylib.$(MAJOR_VERSION)
+	ln -sf libSista_api.dylib.$(MAJOR_VERSION) $(PREFIX)/lib/libSista_api.dylib
 	install -m 644 libSista.a $(PREFIX)/lib/
+	install -m 644 libSista_api.a $(PREFIX)/lib/
 	install -d $(PREFIX)/include/sista
 	install -m 644 include/sista/*.hpp $(PREFIX)/include/sista/
+	install -m 644 include/sista/*.h $(PREFIX)/include/sista/
 
 uninstall:
 	rm -f $(PREFIX)/lib/libSista.dylib
 	rm -f $(PREFIX)/lib/libSista.dylib.$(MAJOR_VERSION)
 	rm -f $(PREFIX)/lib/libSista.dylib.$(FULL_VERSION)
+	rm -f $(PREFIX)/lib/libSista_api.dylib
+	rm -f $(PREFIX)/lib/libSista_api.dylib.$(MAJOR_VERSION)
+	rm -f $(PREFIX)/lib/libSista_api.dylib.$(FULL_VERSION)
 	rm -f $(PREFIX)/lib/libSista.a
+	rm -f $(PREFIX)/lib/libSista_api.a
 	rm -rf $(PREFIX)/include/sista
 else
-install: libSista.so libSista.a
+install: libSista.so libSista.a libSista_api.so libSista_api.a
 	@echo "Installing Sista version $(FULL_VERSION) to $(PREFIX)..."
 	install -d $(PREFIX)/lib
 	install -m 755 libSista.so.$(FULL_VERSION) $(PREFIX)/lib/
+	install -m 755 libSista_api.so.$(FULL_VERSION) $(PREFIX)/lib/
+	ln -sf libSista_api.so.$(FULL_VERSION) $(PREFIX)/lib/libSista_api.so.$(MAJOR_VERSION)
+	ln -sf libSista_api.so.$(MAJOR_VERSION) $(PREFIX)/lib/libSista_api.so
 	ln -sf libSista.so.$(FULL_VERSION) $(PREFIX)/lib/libSista.so.$(MAJOR_VERSION)
 	ln -sf libSista.so.$(MAJOR_VERSION) $(PREFIX)/lib/libSista.so
 	install -m 644 libSista.a $(PREFIX)/lib/
+	install -m 644 libSista_api.a $(PREFIX)/lib/
 	install -d $(PREFIX)/include/sista
 	install -m 644 include/sista/*.hpp $(PREFIX)/include/sista/
+	install -m 644 include/sista/*.h $(PREFIX)/include/sista/
 	echo "$(PREFIX)/lib" | sudo tee /etc/ld.so.conf.d/sista.conf
 	ldconfig
 
@@ -147,7 +182,11 @@ uninstall:
 	rm -f $(PREFIX)/lib/libSista.so
 	rm -f $(PREFIX)/lib/libSista.so.$(MAJOR_VERSION)
 	rm -f $(PREFIX)/lib/libSista.so.$(FULL_VERSION)
+	rm -f $(PREFIX)/lib/libSista_api.so
+	rm -f $(PREFIX)/lib/libSista_api.so.$(MAJOR_VERSION)
+	rm -f $(PREFIX)/lib/libSista_api.so.$(FULL_VERSION)
 	rm -f $(PREFIX)/lib/libSista.a
+	rm -f $(PREFIX)/lib/libSista_api.a
 	rm -rf $(PREFIX)/include/sista
 	rm -f /etc/ld.so.conf.d/sista.conf
 	ldconfig
