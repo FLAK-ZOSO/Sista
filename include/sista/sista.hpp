@@ -11,6 +11,8 @@
  */
 #pragma once
 
+#include "version.hpp"
+
 #include "ansi.hpp"
 #include "border.hpp"
 #include "coordinates.hpp"

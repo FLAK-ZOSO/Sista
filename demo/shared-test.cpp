@@ -19,6 +19,13 @@ sista::Border border(
 
 
 int main() {
+    std::cout << sista::getVersion() << std::endl;
+    std::cout << "Version Major: " << sista::getVersionMajor() << std::endl;
+    std::cout << "Version Minor: " << sista::getVersionMinor() << std::endl;
+    std::cout << "Version Patch: " << sista::getVersionPatch() << std::endl;
+    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+    sista::clearScreen(true);
+
     sista::SwappableField field(50, 50);
     std::vector<std::shared_ptr<sista::Pawn>> pawns;
     for (int i = 0; i < 50; i++) {
