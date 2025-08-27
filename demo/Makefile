@@ -24,13 +24,13 @@ header-test: header-test.o $(OBJECTS)
 shared-test.o:
 	g++ -std=c++17 -Wall -Wno-narrowing -Wno-sign-compare -g $(INCLUDE_PATH_DIRECTIVE) -c shared-test.cpp
 
-shared-test: shared-test.o $(OBJECTS)
+shared-test: shared-test.o
 	g++ -std=c++17 -o shared-test shared-test.o $(LD_LIBRARY_PATH_DIRECTIVE) -lSista $(DYLD_LIBRARY_PATH_DIRECTIVE)
 
 shared-test-static.o:
 	g++ -std=c++17 -Wall -Wno-narrowing -Wno-sign-compare -g $(INCLUDE_PATH_DIRECTIVE) -c shared-test-static.cpp
 
-shared-test-static: shared-test-static.o $(OBJECTS)
+shared-test-static: shared-test-static.o
 	g++ -std=c++17 -static -o shared-test-static shared-test-static.o $(LD_LIBRARY_PATH_DIRECTIVE) -lSista
 
 %.o: ../include/sista/%.cpp
