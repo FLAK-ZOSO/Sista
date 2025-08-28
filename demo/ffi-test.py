@@ -10,8 +10,8 @@ except (OSError, FileNotFoundError):
         ctypes.cdll.LoadLibrary('libSista_api.dylib')
         sista_api = ctypes.CDLL('libSista_api.dylib')
     except (OSError, FileNotFoundError):
-        ctypes.cdll.LoadLibrary(r'C:\\Program Files\Sista\lib\libSista_api.dll')
-        sista_api = ctypes.CDLL(r'C:\\Program Files\Sista\lib\libSista_api.dll')
+        ctypes.windll.LoadLibrary(r'C:\\Program Files\Sista\lib\libSista_api.dll')
+        sista_api = ctypes.WinDLL(r'C:\\Program Files\Sista\lib\libSista_api.dll')
 
 class sista_SwappableField(ctypes.Structure):
     ...
