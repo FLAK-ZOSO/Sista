@@ -69,7 +69,7 @@ api-test.o: api-test.cpp
 
 api-test: api-test.cpp
 	g++ -std=c++17 -Wall -g -c api-test.cpp
-	g++ -std=c++17 -Wall -g -o api-test api-test.o -lSista_api
+	g++ -std=c++17 -Wall -g -o api-test api-test.o -lSista_api -Wl,-rpath,$(PREFIX)/lib
 
 clean_objects:
 	rm -f *.o
