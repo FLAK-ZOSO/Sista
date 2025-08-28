@@ -5,11 +5,11 @@ import time
 try:
     ctypes.cdll.LoadLibrary('libSista_api.so')
     sista_api = ctypes.CDLL('libSista_api.so')
-except OSError:
+except OSError | FileNotFoundError:
     try:
         ctypes.cdll.LoadLibrary('libSista_api.dylib')
         sista_api = ctypes.CDLL('libSista_api.dylib')
-    except OSError:
+    except OSError | FileNotFoundError:
         ctypes.cdll.LoadLibrary('libSista_api.dll')
         sista_api = ctypes.CDLL('libSista_api.dll')
 
