@@ -58,9 +58,11 @@ See the [documentation](https://sista.readthedocs.io/en/latest/) for more detail
 
 ## Documentation
 
-The english documentation for Sista can be found at [`Sista - ReadTheDocs`](https://sista.readthedocs.io/).
+The English tutorials and basic documentation for Sista can be found at [`Sista - ReadTheDocs`](https://sista.readthedocs.io/).
 
-Under the `demo/` directory, you can find many minimal demos that showcase the features of Sista. These demos are minimal examples and do not provide a complete walkthrough of the library, unlike the `sista.cpp` example.
+The actual, detailed documentation of both library and C API can be found at [`flak-zoso.github.io`](https://flak-zoso.github.io/Sista/) and is automatically generated from the source code using [`Doxygen`](https://www.doxygen.nl/).
+
+Under the `demo/` directory, you can find many minimal demos that showcase the features of Sista. These demos are minimal examples and do not aim to provide a complete walkthrough of the library, unlike the `sista.cpp` example. Their description is provided in the [`demo/README.md`](demo/README.md) file.
 
 Additional information about versions can be found in the [`Release Notes`](ReleaseNotes.md).
 
