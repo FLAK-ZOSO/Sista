@@ -126,8 +126,9 @@ install: libSista.dylib libSista.a
 
 uninstall:
 	rm -f $(PREFIX)/lib/libSista.dylib
-	rm -f $(PREFIX)/lib/libSista.dylib.$(MAJOR_VERSION)
-	rm -f $(PREFIX)/lib/libSista.dylib.$(FULL_VERSION)
+	rm -f $(PREFIX)/lib/libSista.dylib.*
+	rm -f $(PREFIX)/lib/libSista_api.dylib
+	rm -f $(PREFIX)/lib/libSista_api.dylib.*
 	rm -f $(PREFIX)/lib/libSista.a
 	rm -rf $(PREFIX)/include/sista
 else
@@ -145,8 +146,9 @@ install: libSista.so libSista.a
 
 uninstall:
 	rm -f $(PREFIX)/lib/libSista.so
-	rm -f $(PREFIX)/lib/libSista.so.$(MAJOR_VERSION)
-	rm -f $(PREFIX)/lib/libSista.so.$(FULL_VERSION)
+	rm -f $(PREFIX)/lib/libSista.so.*
+	rm -f $(PREFIX)/lib/libSista_api.so
+	rm -f $(PREFIX)/lib/libSista_api.so.*
 	rm -f $(PREFIX)/lib/libSista.a
 	rm -rf $(PREFIX)/include/sista
 	rm -f /etc/ld.so.conf.d/sista.conf
