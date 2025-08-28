@@ -77,7 +77,7 @@ endif
 	g++ -std=c++17 -Wall -fPIC -c $< -o $@
 
 api.o: include/sista-api/api.h include/sista-api/api.cpp
-	g++ -std=c++17 -Wall -fPIC -Iinclude -c include/sista-api/api.cpp -o api.o
+	g++ -std=c++17 -Wall -fPIC -Iinclude -Iinclude/sista-api -c include/sista-api/api.cpp -o api.o
 
 libSista.so: $(OBJECTS)
 	g++ -std=c++17 -Wall -fPIC -shared -o libSista.so.$(FULL_VERSION) $(OBJECTS) -Wl,-soname,libSista.so.$(MAJOR_VERSION)
