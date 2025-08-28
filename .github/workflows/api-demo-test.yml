@@ -84,14 +84,13 @@ jobs:
       - name: Upload test results
         uses: actions/upload-artifact@v4
         with:
-          name: shared-test-windows
+          name: api-test-windows
           path: |
             demo/api-test.exe
             
       - name: Test Python demo scripts
         run: |
-          export LD_LIBRARY_PATH="C:/Program Files\Sista\lib"
-          python demo/ffi-test.py
+          LD_LIBRARY_PATH="C:/Program Files\Sista\lib" python demo/ffi-test.py
 
   macos:
     runs-on: macos-latest
@@ -194,7 +193,7 @@ jobs:
       - name: Upload test results
         uses: actions/upload-artifact@v4
         with:
-          name: shared-test-linux
+          name: api-test-linux
           path: |
             demo/api-test
         
