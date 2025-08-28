@@ -1,0 +1,190 @@
+name: C API tests
+
+on:
+    push:
+        branches: [ main, 20-c-api-for-sista ]
+        paths:
+        - 'Makefile'
+        - 'include/**'
+        - 'demo/*.py'
+        - 'demo/*.h'
+        - 'demo/*.cpp'
+        - 'demo/Makefile'
+        - '.github/workflows/api-demo-test.yml'
+    pull_request:
+        branches:
+            - main
+            - '**'
+    
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Run make
+        shell: pwsh
+        run: |
+          $env:PREFIX = 'C:\Program Files\Sista'
+          make install
+      
+      - name: Find dynamic library
+        if: runner.os == 'Windows'
+        id: find_dynamic_lib_win
+        shell: pwsh
+        run: |
+          $dll = Get-ChildItem -Path "C:\Program Files\Sista\lib" -Filter "libSista.dll" -Recurse | Select-Object -First 1
+          echo "DYNAMIC_LIB=$($dll.FullName)" >> $env:GITHUB_ENV
+
+      - name: Find static library
+        if: runner.os == 'Windows'
+        id: find_static_lib_win
+        shell: pwsh
+        run: |
+          $lib = Get-ChildItem -Path "C:\Program Files\Sista\lib" -Filter "libSista.a" -Recurse | Select-Object -First 1
+          echo "STATIC_LIB=$($lib.FullName)" >> $env:GITHUB_ENV
+
+      - name: Find C API library
+        if: runner.os == 'Windows'
+        id: find_c_api_lib_win
+        shell: pwsh
+        run: |
+          $lib = Get-ChildItem -Path "C:\Program Files\Sista\lib" -Filter "libSista_api.dll" -Recurse | Select-Object -First 1
+          echo "C_API_LIB=$($lib.FullName)" >> $env:GITHUB_ENV
+    
+      - name: Find C API static library
+        if: runner.os == 'Windows'
+        id: find_c_api_static_lib_win
+        shell: pwsh
+        run: |
+          $lib = Get-ChildItem -Path "C:\Program Files\Sista\lib" -Filter "libSista_api.a" -Recurse | Select-Object -First 1
+          echo "C_API_STATIC_LIB=$($lib.FullName)" >> $env:GITHUB_ENV
+
+      - name: Display libraries
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          Write-Host "Dynamic Library: $env:DYNAMIC_LIB"
+          Write-Host "Static Library: $env:STATIC_LIB"
+          Write-Host "C API Library: $env:C_API_LIB"
+          Write-Host "C API Static Library: $env:C_API_STATIC_LIB"
+
+      - name: Compile tests
+        run: |
+          cd demo
+          make api-test
+      
+      - name: Display test results
+        run: |
+          cd demo
+          echo "Running api-test.exe"
+          .\api-test.exe
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: shared-test-windows
+          path: |
+            demo/api-test.exe
+
+  macos:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for tags
+
+      - name: Run make
+        run: sudo PREFIX=/usr/local make install
+
+      - name: Find dynamic library
+        id: find_dynamic_lib_mac
+        run: |
+          echo "DYNAMIC_LIB=$(find /usr/local/lib -name 'libSista.so' -o -name 'libSista.dylib' -print -quit)" >> $GITHUB_ENV
+
+      - name: Find static library
+        id: find_static_lib_mac
+        run: |
+          echo "STATIC_LIB=$(find /usr/local/lib -name 'libSista.a' -print -quit)" >> $GITHUB_ENV
+    
+      - name: Find C API library
+        id: find_c_api_lib_mac
+        run: |
+          echo "C_API_LIB=$(find /usr/local/lib -name 'libSista_api.so' -o -name 'libSista_api.dylib' -print -quit)" >> $GITHUB_ENV
+    
+      - name: Find C API static library
+        id: find_c_api_static_lib_mac
+        run: |
+            echo "C_API_STATIC_LIB=$(find /usr/local/lib -name 'libSista_api.a' -print -quit)" >> $GITHUB_ENV
+      
+      - name: Display libraries
+        run: |
+          echo "Dynamic Library: $DYNAMIC_LIB"
+          echo "Static Library: $STATIC_LIB"
+          echo "C API Library: $C_API_LIB"
+          echo "C API Static Library: $C_API_STATIC_LIB"
+
+      - name: Run tests
+        run: |
+          cd demo
+          make api-test
+      
+      - name: Display test results
+        run: |
+          cd demo
+          echo "Running api-test"
+          ./api-test
+
+      - name: Upload test results
+        if: runner.os == 'macOS'
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-test-macos
+          path: |
+            demo/api-test
+
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for tags
+      
+      - name: Run make
+        run: sudo PREFIX=/usr/local make install
+      
+      - name: Find dynamic library
+        id: find_dynamic_lib_linux
+        run: |
+          echo "DYNAMIC_LIB=$(find /usr/local/lib -name 'libSista.so' -print -quit)" >> $GITHUB_ENV
+
+      - name: Find static library
+        id: find_static_lib_linux
+        run: |
+          echo "STATIC_LIB=$(find /usr/local/lib -name 'libSista.a' -print -quit)" >> $GITHUB_ENV
+
+      - name: Display libraries
+        run: |
+          echo "Dynamic Library: $DYNAMIC_LIB"
+          echo "Static Library: $STATIC_LIB"
+
+      - name: Run tests
+        run: |
+          cd demo
+          make api-test
+
+      - name: Display test results
+        run: |
+          cd demo
+          echo "Running api-test"
+          ./api-test
+      
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: shared-test-linux
+          path: |
+            demo/api-test
