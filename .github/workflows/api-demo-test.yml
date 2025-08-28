@@ -89,8 +89,10 @@ jobs:
             demo/api-test.exe
             
       - name: Test Python demo scripts
+        shell: pwsh
         run: |
-          set LD_LIBRARY_PATH="C:\Program Files\Sista\lib"
+          $env:PATH += ";C:\Program Files\Sista\lib"
+          $env:LD_LIBRARY_PATH = "C:\Program Files\Sista\lib"
           python demo/ffi-test.py
 
   macos:
