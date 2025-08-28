@@ -64,6 +64,10 @@ verticalTest: verticalTest.cpp $(OBJECTS)
 	g++ -std=c++17 -Wall -g -c verticalTest.cpp
 	g++ -std=c++17 -Wall -g -o verticalTest verticalTest.o $(OBJECTS)
 
+api-test: api-test.cpp api.o
+	g++ -std=c++17 -Wall -g -c api-test.cpp
+	g++ -std=c++17 -Wall -g -o api-test api-test.o -lSista -lSista_api
+
 clean_objects:
 	rm -f *.o
 
