@@ -68,8 +68,8 @@ api-test.o: api-test.cpp
 	g++ -std=c++17 -Wall -g -c api-test.cpp -I../include
 
 api-test: api-test.cpp
-	g++ -std=c++17 -Wall -g -c api-test.cpp
-	g++ -std=c++17 -Wall -g -o api-test api-test.o -lSista_api -Wl,-rpath,$(PREFIX)/lib
+	g++ -std=c++17 -Wall -g -c api-test.cpp $(INCLUDE_PATH_DIRECTIVE)
+	g++ -std=c++17 -Wall -g -o api-test api-test.o -lSista_api $(LD_LIBRARY_PATH_DIRECTIVE) $(DYLD_LIBRARY_PATH_DIRECTIVE)
 
 clean_objects:
 	rm -f *.o
