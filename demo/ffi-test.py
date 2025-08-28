@@ -2,8 +2,16 @@
 import ctypes
 import time
 
-ctypes.cdll.LoadLibrary('libSista_api.so')
-sista_api = ctypes.CDLL('libSista_api.so')
+try:
+    ctypes.cdll.LoadLibrary('libSista_api.so')
+    sista_api = ctypes.CDLL('libSista_api.so')
+except OSError:
+    try:
+        ctypes.cdll.LoadLibrary('libSista_api.dylib')
+        sista_api = ctypes.CDLL('libSista_api.dylib')
+    except OSError:
+        ctypes.cdll.LoadLibrary('libSista_api.dll')
+        sista_api = ctypes.CDLL('libSista_api.dll')
 
 class sista_SwappableField(ctypes.Structure):
     ...

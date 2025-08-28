@@ -109,3 +109,37 @@ You can look at the source code of each demo to understand how to use the `Sista
 ## Contributing
 
 If you would like to contribute to the `Sista` demos, feel free to submit a pull request. We welcome contributions that improve the demos, add new features, or fix bugs.
+
+# `Sista` C API demo
+
+This directory also contains programs that showcase the features of the `Sista` C API.
+
+## Demos
+
+- `api-test`: A simple program that tests the usage of the `Sista` C API from C++. Note how this is not a real use case, as C++ can use the C++ API (referred to as *'the library'*) directly. This is just for demonstration and testing purposes.
+- `ffi-test.py`: A Python script that tests the usage of the `Sista` C API from Python using the `ctypes` library. This is a more realistic use case, as Python cannot use the C++ API directly for ABI incompatibility reasons.
+
+## Building the C API demos
+
+These demos require the installation of `Sista` to build. You can compile them directly using `g++` for the C++ demos.
+
+```bash
+g++ -std=c++17 -Wall -Wno-narrowing -Wno-sign-compare -g -c api-test.cpp
+g++ -std=c++17 -Wall -g -o api-test api-test.o -lSista_api
+```
+
+You can use the equivalent `Makefile` in this directory to build any demo given its name, if the library is installed.
+
+```bash
+make api-test
+```
+
+### Python demos
+
+The Python demo requires Python 3 and the `Sista` library to be installed. You can run the Python demo directly using the Python interpreter.
+
+```bash
+python3 ffi-test.py
+```
+
+Make sure that `libSista_api.so` (or `libSista_api.dll` on Windows) is in your library path so that Python can find it when loading the C API.
