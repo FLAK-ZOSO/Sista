@@ -34,7 +34,7 @@ shared-test-static: shared-test-static.o
 	g++ -std=c++17 -static -o shared-test-static shared-test-static.o $(LD_LIBRARY_PATH_DIRECTIVE) -lSista
 
 %.o: ../include/sista/%.cpp
-	g++ -std=c++17 -Wall -g -fPIC -c $< -o $@
+	g++ -std=c++17 -Wall -g -c $< -o $@
 
 colors24-bit: colors24-bit.cpp $(OBJECTS)
 	g++ -std=c++17 -Wall -g -c colors24-bit.cpp
@@ -64,9 +64,12 @@ verticalTest: verticalTest.cpp $(OBJECTS)
 	g++ -std=c++17 -Wall -g -c verticalTest.cpp
 	g++ -std=c++17 -Wall -g -o verticalTest verticalTest.o $(OBJECTS)
 
+api-test.o: api-test.cpp
+	g++ -std=c++17 -Wall -g -c api-test.cpp -I../include
+
 api-test: api-test.cpp api.o
 	g++ -std=c++17 -Wall -g -c api-test.cpp
-	g++ -std=c++17 -Wall -g -o api-test api-test.o -lSista -lSista_api
+	g++ -std=c++17 -Wall -g -o api-test api-test.o -lSista_api
 
 clean_objects:
 	rm -f *.o

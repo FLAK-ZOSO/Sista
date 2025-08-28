@@ -1,5 +1,4 @@
 #include <sista/api.h>
-#include <sista/sista.hpp>
 #include <time.h>
 #include <chrono>
 #include <thread>
