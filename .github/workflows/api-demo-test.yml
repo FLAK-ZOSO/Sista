@@ -90,6 +90,7 @@ jobs:
             
       - name: Test Python demo scripts
         run: |
+          set LD_LIBRARY_PATH="C:\Program Files\Sista\lib"
           python demo/ffi-test.py
 
   macos:
