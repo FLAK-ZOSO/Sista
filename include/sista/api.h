@@ -22,8 +22,6 @@ extern "C" {
 
 struct sista_SwappableField;
 typedef struct sista_SwappableField* SwappableFieldHandler_t;
-struct sista_Pawn;
-typedef struct sista_Pawn* PawnHandler_t;
 
 /** \brief Creates a SwappableField with the specified width and height.
  *  \param width The width of the SwappableField.
