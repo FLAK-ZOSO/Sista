@@ -90,6 +90,7 @@ jobs:
             
       - name: Test Python demo scripts
         run: |
+          export LD_LIBRARY_PATH="C:/Program Files\Sista\lib"
           python demo/ffi-test.py
 
   macos:
@@ -199,5 +200,4 @@ jobs:
         
       - name: Test Python demo scripts
         run: |
-          export LD_LIBRARY_PATH=C:\Program Files\Sista\lib
-          python3 demo/ffi-test.py
+            python3 demo/ffi-test.py
