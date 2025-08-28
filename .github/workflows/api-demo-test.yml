@@ -199,4 +199,4 @@ jobs:
         
       - name: Test Python demo scripts
         run: |
-          LD_LIBRARY_PATH=/usr/local/lib python3 demo/ffi-test.py
+          LD_LIBRARY_PATH="C:/Program Files\Sista\lib" python3 demo/ffi-test.py
