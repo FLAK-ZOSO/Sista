@@ -76,8 +76,8 @@ endif
 %.o: include/sista/%.cpp
 	g++ -std=c++17 -Wall -fPIC -c $< -o $@
 
-api.o: include/sista/api.h include/sista/api.cpp
-	g++ -std=c++17 -Wall -fPIC -Iinclude -c include/sista/api.cpp -o api.o
+api.o: include/sista-api/api.h include/sista-api/api.cpp
+	g++ -std=c++17 -Wall -fPIC -Iinclude -c include/sista-api/api.cpp -o api.o
 
 libSista.so: $(OBJECTS)
 	g++ -std=c++17 -Wall -fPIC -shared -o libSista.so.$(FULL_VERSION) $(OBJECTS) -Wl,-soname,libSista.so.$(MAJOR_VERSION)
@@ -123,7 +123,7 @@ install: libSista.dll libSista.a libSista_api.dll libSista_api.a
 	copy libSista_api.lib "$(PREFIX)\lib\"
 	copy libSista_api.a "$(PREFIX)\lib\"
 	copy include\sista\*.hpp "$(PREFIX)\include\sista\"
-	copy include\sista\*.h "$(PREFIX)\include\sista\"
+	copy include\sista-api\*.h "$(PREFIX)\include\sista\"
 	@echo "Library and headers installed to $(PREFIX)."
 	@echo "Remember to add $(PREFIX)\lib to your compiler's library search path and $(PREFIX)\include\sista to your include path."
 
@@ -148,7 +148,7 @@ install: libSista.dylib libSista.a libSista_api.dylib libSista_api.a
 	install -m 644 libSista_api.a $(PREFIX)/lib/
 	install -d $(PREFIX)/include/sista
 	install -m 644 include/sista/*.hpp $(PREFIX)/include/sista/
-	install -m 644 include/sista/*.h $(PREFIX)/include/sista/
+	install -m 644 include/sista-api/*.h $(PREFIX)/include/sista/
 
 uninstall:
 	rm -f $(PREFIX)/lib/libSista.dylib
@@ -174,7 +174,7 @@ install: libSista.so libSista.a libSista_api.so libSista_api.a
 	install -m 644 libSista_api.a $(PREFIX)/lib/
 	install -d $(PREFIX)/include/sista
 	install -m 644 include/sista/*.hpp $(PREFIX)/include/sista/
-	install -m 644 include/sista/*.h $(PREFIX)/include/sista/
+	install -m 644 include/sista-api/*.h $(PREFIX)/include/sista/
 	echo "$(PREFIX)/lib" | sudo tee /etc/ld.so.conf.d/sista.conf
 	ldconfig
 
