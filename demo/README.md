@@ -121,14 +121,7 @@ This directory also contains programs that showcase the features of the `Sista` 
 
 ## Building the C API demos
 
-These demos require the installation of `Sista` to build. You can compile them directly using `g++` for the C++ demos.
-
-```bash
-g++ -std=c++17 -Wall -Wno-narrowing -Wno-sign-compare -g -c api-test.cpp
-g++ -std=c++17 -Wall -g -o api-test api-test.o -lSista_api
-```
-
-You can use the equivalent `Makefile` in this directory to build any demo given its name, if the library is installed.
+These demos require the installation of `Sista` to build. You can use `Makefile` in this directory to build any demo given its name, if the library is installed.
 
 ```bash
 make api-test

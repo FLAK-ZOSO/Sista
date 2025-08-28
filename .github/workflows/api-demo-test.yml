@@ -87,6 +87,10 @@ jobs:
           name: shared-test-windows
           path: |
             demo/api-test.exe
+            
+      - name: Test Python demo scripts
+        run: |
+          python demo/ffi-test.py
 
   macos:
     runs-on: macos-latest
@@ -144,6 +148,10 @@ jobs:
           name: api-test-macos
           path: |
             demo/api-test
+    
+      - name: Test Python demo scripts
+        run: |
+          python3 demo/ffi-test.py
 
   linux:
     runs-on: ubuntu-latest
@@ -188,3 +196,7 @@ jobs:
           name: shared-test-linux
           path: |
             demo/api-test
+        
+      - name: Test Python demo scripts
+        run: |
+          python3 demo/ffi-test.py
