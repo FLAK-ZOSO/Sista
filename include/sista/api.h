@@ -13,6 +13,9 @@
  *  \copyright GNU General Public License v3.0
  */
 #pragma once
+
+#include <stddef.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -31,12 +34,14 @@ typedef struct sista_Pawn* PawnHandler_t;
  *  with the given dimensions. It returns a pointer that can be used to
  *  reference the SwappableField in subsequent API calls.
  *
+ *  \retval NULL If memory allocation fails.
+ *
  *  \note The caller is responsible for managing the lifetime of the
  *        returned SwappableField object, including deallocation if necessary.
  *
  *  \see SwappableField
 */
-SwappableFieldHandler_t sista_createSwappableField(int, int);
+SwappableFieldHandler_t sista_createSwappableField(size_t, size_t);
 /** \brief Prints the specified Field with a given border
  *  \param field The SwappableField.
  *  \param border The border character to use.

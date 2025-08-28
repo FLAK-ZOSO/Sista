@@ -16,8 +16,14 @@
 using namespace sista;
 
 extern "C" {
-    SwappableFieldHandler_t sista_createSwappableField(int width, int height) {
-        return reinterpret_cast<SwappableFieldHandler_t>(new SwappableField(width, height));
+    SwappableFieldHandler_t sista_createSwappableField(size_t width, size_t height) {
+        try {
+            return reinterpret_cast<SwappableFieldHandler_t>(
+                new SwappableField(static_cast<int>(width), static_cast<int>(height))
+            );
+        } catch (const std::bad_alloc&) {
+            return NULL;
+        }
     }
     void sista_destroySwappableField(SwappableFieldHandler_t field) {
         delete reinterpret_cast<SwappableField*>(field);
