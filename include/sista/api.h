@@ -12,6 +12,7 @@
  *  \version 3.0.0
  *  \copyright GNU General Public License v3.0
  */
+#pragma once
 #ifdef __cplusplus
 extern "C" {
 #endif
