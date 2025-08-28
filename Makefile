@@ -77,20 +77,20 @@ endif
 	g++ -std=c++17 -Wall -fPIC -c $< -o $@
 
 api.o: include/sista/api.h include/sista/api.cpp
-	g++ -std=c++17 -Wall -fPIC -c include/sista/api.cpp -o api.o
+	g++ -std=c++17 -Wall -fPIC -Iinclude -c include/sista/api.cpp -o api.o
 
 libSista.so: $(OBJECTS)
 	g++ -std=c++17 -Wall -fPIC -shared -o libSista.so.$(FULL_VERSION) $(OBJECTS) -Wl,-soname,libSista.so.$(MAJOR_VERSION)
 
 libSista_api.so: api.o
-	g++ -std=c++17 -Wall -fPIC -shared -o libSista_api.so.$(FULL_VERSION) api.o -Wl,-soname,libSista_api.so.$(MAJOR_VERSION)
+	g++ -std=c++17 -Wall -fPIC -shared -o libSista_api.so.$(FULL_VERSION) api.o libSista.so.$(FULL_VERSION) -Wl,-soname,libSista_api.so.$(MAJOR_VERSION)
 
 ifeq "$(shell uname -s)" "Darwin"
 libSista.dylib: $(OBJECTS)
 	g++ -std=c++17 -Wall -dynamiclib -o libSista.dylib.$(FULL_VERSION) $(OBJECTS) -Wl,-install_name,@rpath/libSista.dylib,-current_version,$(MAJOR_VERSION),-compatibility_version,$(MAJOR_VERSION)
 
 libSista_api.dylib: api.o
-	g++ -std=c++17 -Wall -dynamiclib -o libSista_api.dylib.$(FULL_VERSION) api.o -Wl,-install_name,@rpath/libSista_api.dylib,-current_version,$(MAJOR_VERSION),-compatibility_version,$(MAJOR_VERSION)
+	g++ -std=c++17 -Wall -dynamiclib -o libSista_api.dylib.$(FULL_VERSION) api.o libSista.so.$(FULL_VERSION) -Wl,-install_name,@rpath/libSista_api.dylib,-current_version,$(MAJOR_VERSION),-compatibility_version,$(MAJOR_VERSION)
 endif
 
 ifeq ($(OS),Windows_NT) # Assumes usage of MinGW on Windows
@@ -98,7 +98,7 @@ libSista.dll: $(OBJECTS)
 	g++ -std=c++17 -Wall -shared -o libSista.dll $(OBJECTS) -Wl,--out-implib,libSista.lib
 
 libSista_api.dll: api.o
-	g++ -std=c++17 -Wall -shared -o libSista_api.dll api.o -Wl,--out-implib,libSista_api.lib
+	g++ -std=c++17 -Wall -shared -o libSista_api.dll api.o libSista.so.$(FULL_VERSION) -Wl,--out-implib,libSista_api.lib
 endif
 
 libSista.a: $(OBJECTS)
