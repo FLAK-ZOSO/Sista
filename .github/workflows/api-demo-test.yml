@@ -92,7 +92,6 @@ jobs:
         shell: pwsh
         run: |
           $env:PATH += ";C:\Program Files\Sista\lib"
-          $env:LD_LIBRARY_PATH = "C:\Program Files\Sista\lib"
           python demo/ffi-test.py
 
   macos:
