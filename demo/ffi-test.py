@@ -11,7 +11,7 @@ except (OSError, FileNotFoundError):
         ctypes.cdll.LoadLibrary('libSista_api.dylib')
         sista_api = ctypes.CDLL('libSista_api.dylib')
     except (OSError, FileNotFoundError):
-        print(os.path)
+        print(os.environ["PATH"])
         ctypes.windll.LoadLibrary(r'C:\Program Files\Sista\lib\libSista.dll')
         sista = ctypes.WinDLL(r'C:\Program Files\Sista\lib\libSista.dll')
         ctypes.windll.LoadLibrary(r'C:\Program Files\Sista\lib\libSista_api.dll')
