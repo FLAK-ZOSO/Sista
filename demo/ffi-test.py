@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import ctypes
 import time
+import os
 
 try:
     ctypes.cdll.LoadLibrary('libSista_api.so')
@@ -10,6 +11,7 @@ except (OSError, FileNotFoundError):
         ctypes.cdll.LoadLibrary('libSista_api.dylib')
         sista_api = ctypes.CDLL('libSista_api.dylib')
     except (OSError, FileNotFoundError):
+        print(os.path)
         ctypes.windll.LoadLibrary(r'C:\Program Files\Sista\lib\libSista.dll')
         sista = ctypes.WinDLL(r'C:\Program Files\Sista\lib\libSista.dll')
         ctypes.windll.LoadLibrary(r'C:\Program Files\Sista\lib\libSista_api.dll')
