@@ -52,17 +52,60 @@ extern "C" {
     void sista_setForegroundColorRGB(const struct sista_RGBColor* color) {
         if (color == nullptr) return;
         sista::setForegroundColor(
-            static_cast<unsigned short int>(color->red),
-            static_cast<unsigned short int>(color->green),
-            static_cast<unsigned short int>(color->blue)
+            color->red,
+            color->green,
+            color->blue
         );
     }
     void sista_setBackgroundColorRGB(const struct sista_RGBColor* color) {
         if (color == nullptr) return;
         sista::setBackgroundColor(
-            static_cast<unsigned short int>(color->red),
-            static_cast<unsigned short int>(color->green),
-            static_cast<unsigned short int>(color->blue)
+            color->red,
+            color->green,
+            color->blue
         );
+    }
+
+    ANSISettingsHandler_t sista_createANSISettings(
+        enum sista_ForegroundColor fgColor,
+        enum sista_BackgroundColor bgColor,
+        enum sista_Attribute attribute
+    ) {
+        try {
+            return reinterpret_cast<ANSISettingsHandler_t>(
+                new sista::ANSISettings(
+                    static_cast<sista::ForegroundColor>(fgColor),
+                    static_cast<sista::BackgroundColor>(bgColor),
+                    static_cast<sista::Attribute>(attribute)
+                )
+            );
+        } catch (const std::bad_alloc&) {
+            return NULL;
+        }
+    }
+    ANSISettingsHandler_t sista_createANSISettingsRGB(
+        struct sista_RGBColor fgColor,
+        struct sista_RGBColor bgColor,
+        sista_Attribute attribute
+    ) {
+        try {
+            return reinterpret_cast<ANSISettingsHandler_t>(
+                new sista::ANSISettings(
+                    sista::RGBColor(fgColor.red, fgColor.green, fgColor.blue),
+                    sista::RGBColor(bgColor.red, bgColor.green, bgColor.blue),
+                    static_cast<sista::Attribute>(attribute)
+                )
+            );
+        } catch (const std::bad_alloc&) {
+            return NULL;
+        }
+    }
+    void sista_destroyANSISettings(ANSISettingsHandler_t settings) {
+        delete reinterpret_cast<sista::ANSISettings*>(settings);
+    }
+
+    void sista_applyANSISettings(ANSISettingsHandler_t settings) {
+        if (settings == nullptr) return;
+        reinterpret_cast<sista::ANSISettings*>(settings)->apply();
     }
 }

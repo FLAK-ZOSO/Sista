@@ -34,7 +34,7 @@ typedef struct sista_SwappableField* SwappableFieldHandler_t;
  *
  *  \retval NULL If memory allocation fails.
  *
- *  \note The caller is responsible for managing the lifetime of the
+ *  \warning The caller is responsible for managing the lifetime of the
  *        returned SwappableField object, including deallocation if necessary.
  *
  *  \see SwappableField
@@ -145,9 +145,9 @@ enum sista_Attribute: int {
  *  \see sista::RGBColor
 */
 struct sista_RGBColor {
-    unsigned char red;
-    unsigned char green;
-    unsigned char blue;
+    unsigned char red; /** Red component (0-255) */
+    unsigned char green; /** Green component (0-255) */
+    unsigned char blue; /** Blue component (0-255) */
 };
 
 /** \brief Sets the foreground color using a predefined color.
@@ -220,6 +220,85 @@ void sista_setForegroundColorRGB(const struct sista_RGBColor*);
  *  \see sista::setBackgroundColor
 */
 void sista_setBackgroundColorRGB(const struct sista_RGBColor*);
+
+/** \struct sista_ANSISettings
+ *  \brief Opaque struct representing ANSI settings.
+ *
+ *  This struct is used as an opaque handle for managing ANSI settings
+ *  in terminal applications. It encapsulates the internal state and
+ *  configuration related to ANSI escape codes.
+ *
+ *  \see sista::ANSISettings
+*/
+struct sista_ANSISettings;
+typedef struct sista_ANSISettings* ANSISettingsHandler_t;
+
+/** \brief Creates an ANSISettings object.
+ *  \param fgColor The foreground color (predefined).
+ *  \param bgColor The background color (predefined).
+ *  \param attribute The text attribute to apply.
+ *  \return A handler to the created ANSISettings object.
+ *
+ *  This function allocates and initializes a new ANSISettings object.
+ *  It returns a pointer that can be used to reference the ANSISettings
+ *  in subsequent API calls.
+ *
+ *  \retval NULL If memory allocation fails.
+ *
+ *  \warning The caller is responsible for managing the lifetime of the
+ *        returned ANSISettings object, including deallocation if necessary.
+ *
+ *  \see sista::ANSISettings
+ *  \see sista_destroyANSISettings
+*/
+ANSISettingsHandler_t sista_createANSISettings(enum sista_ForegroundColor,
+                                               enum sista_BackgroundColor,
+                                               enum sista_Attribute);
+/** \brief Creates an ANSISettings object.
+ *  \param fgColor The foreground color (RGB).
+ *  \param bgColor The background color (RGB).
+ *  \param attribute The text attribute to apply.
+ *  \return A handler to the created ANSISettings object.
+ *
+ *  This function allocates and initializes a new ANSISettings object.
+ *  It returns a pointer that can be used to reference the ANSISettings
+ *  in subsequent API calls. Unlike sista_createANSISettings, it takes
+ *  RGB colors for foreground and background.
+ *
+ *  \retval NULL If memory allocation fails.
+ *
+ *  \warning The caller is responsible for managing the lifetime of the
+ *        returned ANSISettings object, including deallocation if necessary.
+ *
+ *  \note While the API only accepts either predefined colors or RGB colors,
+ *        the underlying implementation supports mixing both types. This
+ *        would require two more functions to be exposed in the API.
+ *
+ *  \see sista::ANSISettings
+ *  \see sista_destroyANSISettings
+*/
+ANSISettingsHandler_t sista_createANSISettingsRGB(struct sista_RGBColor,
+                                                  struct sista_RGBColor,
+                                                  enum sista_Attribute);
+/** \brief Applies the ANSI settings to the terminal.
+ *  \param settings The ANSISettings to apply.
+ *
+ *  This function applies the specified ANSI settings to the terminal by
+ *  outputting the corresponding ANSI escape codes to standard output.
+ *
+ *  \see sista::ANSISettings::apply
+*/
+void sista_applyANSISettings(ANSISettingsHandler_t);
+/** \brief Deallocates the ANSISettings from memory.
+ *  \param settings The ANSISettings to delete.
+ *
+ *  This function deallocates the ANSISettings from memory through the opaque
+ *  handler pointing to it.
+ *
+ *  \see sista::ANSISettings
+ *  \see sista_createANSISettings
+*/
+void sista_destroyANSISettings(ANSISettingsHandler_t);
 
 #ifdef __cplusplus
 }

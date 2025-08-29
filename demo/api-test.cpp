@@ -33,6 +33,28 @@ int main(int argc, char* argv[]) {
     sista_setForegroundColorRGB(nullptr); // This call has no effect
     sista_setBackgroundColorRGB(nullptr); // This call has no effect
     printf("This text is still orange (RGB 255,165,0) on blue (RGB 0,0,255) background.\n");
+    std::this_thread::sleep_for(std::chrono::seconds(2));
+    
+    ANSISettingsHandler_t settings = sista_createANSISettings(
+        sista_ForegroundColor::F_CYAN,
+        sista_BackgroundColor::B_BLACK,
+        sista_Attribute::A_UNDERLINE
+    );
+    if (settings != nullptr) {
+        sista_applyANSISettings(settings);
+        printf("This text is cyan on black background and underlined.\n");
+        sista_destroyANSISettings(settings);
+    }
+    settings = sista_createANSISettingsRGB(
+        { 255, 20, 147 }, // Deep Pink
+        { 0, 0, 0 },      // Black
+        sista_Attribute::A_ITALIC
+    );
+    if (settings != nullptr) {
+        sista_applyANSISettings(settings);
+        printf("This text is deep pink (RGB 255,20,147) on black background and italic.\n");
+        sista_destroyANSISettings(settings);
+    }
     sista_resetAnsi();
     return 0;
 }

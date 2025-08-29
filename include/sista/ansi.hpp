@@ -169,14 +169,14 @@ namespace sista {
     /** \struct RGBColor
      *  \brief Represents an RGB color with red, green, and blue components in True Color (24-bit).
      *
-     *  This struct holds three unsigned short integers representing the red, green,
+     *  This struct holds three numbers in (0-255) representing the red, green,
      *  and blue components of a color. It provides constructors for default and
      *  parameterized initialization. Default values are set to 0.
     */
     struct RGBColor {
-        unsigned short int red; /** Red component (0-255) */
-        unsigned short int green; /** Green component (0-255) */
-        unsigned short int blue; /** Blue component (0-255) */
+        unsigned char red; /** Red component (0-255) */
+        unsigned char green; /** Green component (0-255) */
+        unsigned char blue; /** Blue component (0-255) */
 
         /** \brief Default constructor initializing color to black (0,0,0). */
         RGBColor();
@@ -185,7 +185,7 @@ namespace sista {
          *  \param green The green component (0-255).
          *  \param blue The blue component (0-255).
         */
-        RGBColor(unsigned short int, unsigned short int, unsigned short int);
+        RGBColor(unsigned char, unsigned char, unsigned char);
     };
 
     /** \brief Sets the foreground color using a predefined ForegroundColor enum.
@@ -276,7 +276,7 @@ namespace sista {
      *
      *  \see RGBColor
     */
-    void setForegroundColor(unsigned short int, unsigned short int, unsigned short int);
+    void setForegroundColor(unsigned char, unsigned char, unsigned char);
     /** \brief Sets the background color using RGB values.
      *  \param red The red component (0-255).
      *  \param green The green component (0-255).
@@ -287,7 +287,7 @@ namespace sista {
      *
      *  \see RGBColor
     */
-    void setBackgroundColor(unsigned short int, unsigned short int, unsigned short int);
+    void setBackgroundColor(unsigned char, unsigned char, unsigned char);
     /** \brief Sets the foreground color using a 256-color palette index.
      *  \param color The color index (0-255).
      *
@@ -297,7 +297,7 @@ namespace sista {
      *
      *  \see 256-color palette
     */
-    void setForegroundColor(unsigned short int);
+    void setForegroundColor(unsigned char);
     /** \brief Sets the background color using a 256-color palette index.
      *  \param color The color index (0-255).
      *
@@ -307,7 +307,7 @@ namespace sista {
      *
      *  \see 256-color palette
     */
-    void setBackgroundColor(unsigned short int);
+    void setBackgroundColor(unsigned char);
 
     /** \enum ScreenMode
      *  \brief Represents various ANSI screen modes.
