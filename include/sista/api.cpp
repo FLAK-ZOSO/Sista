@@ -33,4 +33,36 @@ extern "C" {
         if (field == nullptr) return;
         reinterpret_cast<SwappableField*>(field)->print(border);
     }
+
+    void sista_resetAnsi() {
+        sista::resetAnsi();
+    }
+    void sista_setForegroundColor(enum sista_ForegroundColor color) {
+        sista::setForegroundColor(static_cast<sista::ForegroundColor>(color));
+    }
+    void sista_setBackgroundColor(enum sista_BackgroundColor color) {
+        sista::setBackgroundColor(static_cast<sista::BackgroundColor>(color));
+    }
+    void sista_setAttribute(enum sista_Attribute attribute) {
+        sista::setAttribute(static_cast<sista::Attribute>(attribute));
+    }
+    void sista_resetAttribute(enum sista_Attribute attribute) {
+        sista::resetAttribute(static_cast<sista::Attribute>(attribute));
+    }
+    void sista_setForegroundColorRGB(const struct sista_RGBColor* color) {
+        if (color == nullptr) return;
+        sista::setForegroundColor(
+            static_cast<unsigned short int>(color->red),
+            static_cast<unsigned short int>(color->green),
+            static_cast<unsigned short int>(color->blue)
+        );
+    }
+    void sista_setBackgroundColorRGB(const struct sista_RGBColor* color) {
+        if (color == nullptr) return;
+        sista::setBackgroundColor(
+            static_cast<unsigned short int>(color->red),
+            static_cast<unsigned short int>(color->green),
+            static_cast<unsigned short int>(color->blue)
+        );
+    }
 }
