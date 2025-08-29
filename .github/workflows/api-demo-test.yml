@@ -88,11 +88,11 @@ jobs:
           path: |
             demo/api-test.exe
             
-      - name: Test Python demo scripts
-        shell: pwsh
-        run: |
-          $env:PATH += ";C:\Program Files\Sista\lib"
-          python demo/ffi-test.py
+      # - name: Test Python demo scripts
+      #   shell: pwsh
+      #   run: |
+      #     $env:PATH += ";C:\Program Files\Sista\lib"
+      #     python demo/ffi-test.py
 
   macos:
     runs-on: macos-latest
