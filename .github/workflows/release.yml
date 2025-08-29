@@ -52,6 +52,18 @@ jobs:
         run: |
           echo "STATIC_LIB=$(find /usr/local/lib -name 'libSista.a' -print -quit)" >> $GITHUB_ENV
 
+      - name: Find C API library (Linux)
+        if: runner.os == 'Linux'
+        id: find_capi_lib
+        run: |
+          echo "CAPI_LIB=$(find /usr/local/lib -name 'libSista_api.so' -print -quit)" >> $GITHUB_ENV
+
+      - name: Find C API static library (Linux)
+        if: runner.os == 'Linux'
+        id: find_capi_static_lib
+        run: |
+          echo "CAPI_STATIC_LIB=$(find /usr/local/lib -name 'libSista_api.a' -print -quit)" >> $GITHUB_ENV
+
       - name: Find dynamic library (Windows)
         if: runner.os == 'Windows'
         id: find_dynamic_lib_win
@@ -68,6 +80,22 @@ jobs:
           $lib = Get-ChildItem -Path "C:\Program Files\Sista\lib" -Filter "libSista.a" -Recurse | Select-Object -First 1
           echo "STATIC_LIB=$($lib.FullName)" >> $env:GITHUB_ENV
 
+      - name: Find C API library (Windows)
+        if: runner.os == 'Windows'
+        id: find_capi_lib_win
+        shell: pwsh
+        run: |
+          $dll = Get-ChildItem -Path "C:\Program Files\Sista\lib" -Filter "libSista_api.dll" -Recurse | Select-Object -First 1
+          echo "CAPI_LIB=$($dll.FullName)" >> $env:GITHUB_ENV
+
+      - name: Find C API static library (Windows)
+        if: runner.os == 'Windows'
+        id: find_capi_static_lib_win
+        shell: pwsh
+        run: |
+          $lib = Get-ChildItem -Path "C:\Program Files\Sista\lib" -Filter "libSista_api.a" -Recurse | Select-Object -First 1
+          echo "CAPI_STATIC_LIB=$($lib.FullName)" >> $env:GITHUB_ENV
+
       - name: Find dynamic library (MacOS)
         if: runner.os == 'macOS'
         id: find_dynamic_lib_mac
@@ -80,10 +108,24 @@ jobs:
         run: |
           echo "STATIC_LIB=$(find /usr/local/lib -name 'libSista.a' -print -quit)" >> $GITHUB_ENV
 
+      - name: Find C API library (MacOS)
+        if: runner.os == 'macOS'
+        id: find_capi_lib_mac
+        run: |
+          echo "CAPI_LIB=$(find /usr/local/lib -name 'libSista_api.so' -o -name 'libSista_api.dylib' -print -quit)" >> $GITHUB_ENV
+
+      - name: Find C API static library (MacOS)
+        if: runner.os == 'macOS'
+        id: find_capi_static_lib_mac
+        run: |
+          echo "CAPI_STATIC_LIB=$(find /usr/local/lib -name 'libSista_api.a' -print -quit)" >> $GITHUB_ENV
+
       - name: Display libraries
         run: |
           echo "Dynamic Library: ${{ env.DYNAMIC_LIB }}"
           echo "Static Library: ${{ env.STATIC_LIB }}"
+          echo "C API Library: ${{ env.CAPI_LIB }}"
+          echo "C API Static Library: ${{ env.CAPI_STATIC_LIB }}"
 
       - name: Copy and rename Windows libraries
         if: runner.os == 'Windows'
@@ -92,11 +134,15 @@ jobs:
           mkdir release
           Copy-Item "${{ env.DYNAMIC_LIB }}" "release\libSista-windows.dll"
           Copy-Item "${{ env.STATIC_LIB }}" "release\libSista-windows.a"
+          Copy-Item "${{ env.CAPI_LIB }}" "release\libSista_api-windows.dll"
+          Copy-Item "${{ env.CAPI_STATIC_LIB }}" "release\libSista_api-windows.a"
 
       - name: Display libraries
         run: |
           echo "Dynamic Library: ${{ env.DYNAMIC_LIB }}"
           echo "Static Library: ${{ env.STATIC_LIB }}"
+          echo "C API Library: ${{ env.CAPI_LIB }}"
+          echo "C API Static Library: ${{ env.CAPI_STATIC_LIB }}"
 
       - name: Upload Windows Release Assets
         if: runner.os == 'Windows'
@@ -105,6 +151,8 @@ jobs:
           files: |
             release/libSista-windows.dll
             release/libSista-windows.a
+            release/libSista_api-windows.dll
+            release/libSista_api-windows.a
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -114,6 +162,8 @@ jobs:
           mkdir -p release
           cp /usr/local/lib/libSista.dylib release/libSista-macos.dylib
           cp /usr/local/lib/libSista.a release/libSista-macos.a
+          cp /usr/local/lib/libSista_api.dylib release/libSista_api-macos.dylib
+          cp /usr/local/lib/libSista_api.a release/libSista_api-macos.a
       
       - name: Upload MacOS Release Assets
         if: runner.os == 'macOS'
@@ -122,6 +172,8 @@ jobs:
           files: |
             release/libSista-macos.dylib
             release/libSista-macos.a
+            release/libSista_api-macos.dylib
+            release/libSista_api-macos.a
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -132,5 +184,7 @@ jobs:
           files: |
             ${{ env.DYNAMIC_LIB }}
             ${{ env.STATIC_LIB }}
+            ${{ env.CAPI_LIB }}
+            ${{ env.CAPI_STATIC_LIB }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
