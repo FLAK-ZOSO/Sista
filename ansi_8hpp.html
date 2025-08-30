@@ -110,7 +110,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <area shape="rect" href="border_8cpp.html" title="Implementation of the Border class for terminal borders." alt="" coords="5,152,181,177"/>
 <area shape="rect" href="field_8hpp.html" title="This file contains the Field class and related structures." alt="" coords="455,152,619,177"/>
 <area shape="rect" href="field_8cpp.html" title="Implementation of the field management functionalities of the Sista library." alt="" coords="412,225,575,251"/>
-<area shape="rect" href="sista_8cpp.html" title="A demo of the SwappableField class from the Sista library." alt="" coords="643,299,723,324"/>
+<area shape="rect" href="api_8cpp.html" title="Implementation of the C API for Sista." alt="" coords="535,299,689,324"/>
+<area shape="rect" href="sista_8cpp.html" title="A demo of the SwappableField class from the Sista library." alt="" coords="713,299,793,324"/>
 <area shape="rect" href="cursor_8cpp.html" title="Implementation of the Cursor class for representing and manipulating the terminal cursor." alt="" coords="257,152,431,177"/>
 <area shape="rect" href="pawn_8cpp.html" title="Implementation of the Pawn class." alt="" coords="796,152,967,177"/>
 </map>
@@ -251,18 +252,18 @@ Functions</h2></td></tr>
 <tr class="memitem:a45d1521552d9f562ec63e6ffef1ab7d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a45d1521552d9f562ec63e6ffef1ab7d7">sista::setBackgroundColor</a> (const RGBColor &amp;)</td></tr>
 <tr class="memdesc:a45d1521552d9f562ec63e6ffef1ab7d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the background color using an <a class="el" href="structsista_1_1RGBColor.html" title="Represents an RGB color with red, green, and blue components in True Color (24-bit).">RGBColor</a> struct.  <br /></td></tr>
 <tr class="separator:a45d1521552d9f562ec63e6ffef1ab7d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a271d669b03bec76400ff76565b4e3bca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a271d669b03bec76400ff76565b4e3bca">sista::setForegroundColor</a> (unsigned short int, unsigned short int, unsigned short int)</td></tr>
-<tr class="memdesc:a271d669b03bec76400ff76565b4e3bca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the foreground color using RGB values.  <br /></td></tr>
-<tr class="separator:a271d669b03bec76400ff76565b4e3bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff8f78e24863b71911853f4c7525369c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#aff8f78e24863b71911853f4c7525369c">sista::setBackgroundColor</a> (unsigned short int, unsigned short int, unsigned short int)</td></tr>
-<tr class="memdesc:aff8f78e24863b71911853f4c7525369c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the background color using RGB values.  <br /></td></tr>
-<tr class="separator:aff8f78e24863b71911853f4c7525369c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3690ebfda231848c0c4d6ae364db25ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a3690ebfda231848c0c4d6ae364db25ca">sista::setForegroundColor</a> (unsigned short int)</td></tr>
-<tr class="memdesc:a3690ebfda231848c0c4d6ae364db25ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the foreground color using a 256-color palette index.  <br /></td></tr>
-<tr class="separator:a3690ebfda231848c0c4d6ae364db25ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7f4956d1c57301c9584c2de91ef1fb3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#ab7f4956d1c57301c9584c2de91ef1fb3">sista::setBackgroundColor</a> (unsigned short int)</td></tr>
-<tr class="memdesc:ab7f4956d1c57301c9584c2de91ef1fb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the background color using a 256-color palette index.  <br /></td></tr>
-<tr class="separator:ab7f4956d1c57301c9584c2de91ef1fb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39b4dda71b5a2914bc0dd0ee55e82389"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a39b4dda71b5a2914bc0dd0ee55e82389">sista::setForegroundColor</a> (unsigned char, unsigned char, unsigned char)</td></tr>
+<tr class="memdesc:a39b4dda71b5a2914bc0dd0ee55e82389"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the foreground color using RGB values.  <br /></td></tr>
+<tr class="separator:a39b4dda71b5a2914bc0dd0ee55e82389"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e40c4c563e2f4c535a15cf210e1fb97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a5e40c4c563e2f4c535a15cf210e1fb97">sista::setBackgroundColor</a> (unsigned char, unsigned char, unsigned char)</td></tr>
+<tr class="memdesc:a5e40c4c563e2f4c535a15cf210e1fb97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the background color using RGB values.  <br /></td></tr>
+<tr class="separator:a5e40c4c563e2f4c535a15cf210e1fb97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a5f73adaf791b4eaf7adf569c8a209f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a2a5f73adaf791b4eaf7adf569c8a209f">sista::setForegroundColor</a> (unsigned char)</td></tr>
+<tr class="memdesc:a2a5f73adaf791b4eaf7adf569c8a209f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the foreground color using a 256-color palette index.  <br /></td></tr>
+<tr class="separator:a2a5f73adaf791b4eaf7adf569c8a209f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57266ae1873a1389181e2238d88c2e28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a57266ae1873a1389181e2238d88c2e28">sista::setBackgroundColor</a> (unsigned char)</td></tr>
+<tr class="memdesc:a57266ae1873a1389181e2238d88c2e28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the background color using a 256-color palette index.  <br /></td></tr>
+<tr class="separator:a57266ae1873a1389181e2238d88c2e28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecc669f8e3b77995888c0f38c2341663"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#aecc669f8e3b77995888c0f38c2341663">sista::setScreenMode</a> (ScreenMode)</td></tr>
 <tr class="memdesc:aecc669f8e3b77995888c0f38c2341663"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a specific screen mode.  <br /></td></tr>
 <tr class="separator:aecc669f8e3b77995888c0f38c2341663"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -455,7 +456,7 @@ Not all terminals support all ANSI features. </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 28 2025 19:36:27 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generated on Sat Aug 30 2025 19:26:19 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>

@@ -1,4 +1,15 @@
 var searchData=
 [
-  ['green_0',['GREEN',['../namespacesista.html#a72a9a13a3fd5aa83f5852d073bcdbe28a9de0e5dd94e861317e74964bed179fa0',1,'sista::GREEN()'],['../namespacesista.html#ade2b5834bc07e347f46027a10a06d1caa9de0e5dd94e861317e74964bed179fa0',1,'sista::GREEN()']]]
+  ['f_5fblack_0',['F_BLACK',['../api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5efab4b139c6b148e976bb5947f456548447',1,'api.h']]],
+  ['f_5fblue_1',['F_BLUE',['../api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5efaf482d9feaaf35fd980737a7b8f1cce15',1,'api.h']]],
+  ['f_5fcyan_2',['F_CYAN',['../api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5efa23dbe4ac0ff9bd8df5c1a76c7821095c',1,'api.h']]],
+  ['f_5fgreen_3',['F_GREEN',['../api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5efa190505a743927691f1a10275d182f361',1,'api.h']]],
+  ['f_5fmagenta_4',['F_MAGENTA',['../api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5efa8056e0824cdcb3b355ce5dd9b5939fe4',1,'api.h']]],
+  ['f_5fred_5',['F_RED',['../api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5efa12ed4e98a9c49121b86dab3f2aa20ecd',1,'api.h']]],
+  ['f_5fwhite_6',['F_WHITE',['../api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5efa7c35328901e819a1f46a67ca907da8e8',1,'api.h']]],
+  ['f_5fyellow_7',['F_YELLOW',['../api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5efac94a55a9b1b494c8087623cf8ddab2a0',1,'api.h']]],
+  ['faint_8',['FAINT',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2fa509b5416bf705c10f9812317852300db',1,'sista']]],
+  ['four_5fcolors_5fgraphics_5f320_5f200_9',['FOUR_COLORS_GRAPHICS_320_200',['../namespacesista.html#a9630b668dd6f74adc69788f13da9da8eaa525ea11551d6b38a1fc33c3bad3dba1',1,'sista']]],
+  ['from_5fcursor_5fto_5fbeginning_10',['FROM_CURSOR_TO_BEGINNING',['../namespacesista.html#a70ce4a80cec5f70ff58a4566ae546da6a1c241f3eb712c1ec3e7281ec946e7908',1,'sista']]],
+  ['from_5fcursor_5fto_5fend_11',['FROM_CURSOR_TO_END',['../namespacesista.html#a70ce4a80cec5f70ff58a4566ae546da6a5e0c193110d5e2f1ad30f0efd6294941',1,'sista']]]
 ];

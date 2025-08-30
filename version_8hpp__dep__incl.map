@@ -1,5 +1,6 @@
 <map id="include/sista/version.hpp" name="include/sista/version.hpp">
-<area shape="rect" id="node1" title="Sista version information." alt="" coords="5,5,189,31"/>
-<area shape="rect" id="node2" href="$sista_8hpp.html" title="Main include file for the Sista library." alt="" coords="14,79,181,104"/>
-<area shape="rect" id="node3" href="$sista_8cpp.html" title="A demo of the SwappableField class from the Sista library." alt="" coords="57,152,137,177"/>
+<area shape="rect" id="node1" title="Sista version information." alt="" coords="61,5,245,31"/>
+<area shape="rect" id="node2" href="$sista_8hpp.html" title="Main include file for the Sista library." alt="" coords="70,79,237,104"/>
+<area shape="rect" id="node3" href="$api_8cpp.html" title="Implementation of the C API for Sista." alt="" coords="5,152,160,177"/>
+<area shape="rect" id="node4" href="$sista_8cpp.html" title="A demo of the SwappableField class from the Sista library." alt="" coords="184,152,264,177"/>
 </map>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['white_0',['WHITE',['../namespacesista.html#a72a9a13a3fd5aa83f5852d073bcdbe28ab5bf627e448384cf3a4c35121ca6008d',1,'sista::WHITE()'],['../namespacesista.html#ade2b5834bc07e347f46027a10a06d1caab5bf627e448384cf3a4c35121ca6008d',1,'sista::WHITE()']]]
+  ['underscore_0',['UNDERSCORE',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2faa058c5dc734e54ff3d93b96acac339f4',1,'sista']]],
+  ['up_1',['UP',['../namespacesista.html#a7aced27e09de586e7565fcad8f5459e4afbaedde498cdead4f2780217646e9ba1',1,'sista']]]
 ];

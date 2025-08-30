@@ -2,5 +2,6 @@
 <area shape="rect" id="node1" title="This file contains the Field class and related structures." alt="" coords="99,5,263,31"/>
 <area shape="rect" id="node2" href="$field_8cpp.html" title="Implementation of the field management functionalities of the Sista library." alt="" coords="5,79,168,104"/>
 <area shape="rect" id="node3" href="$sista_8hpp.html" title="Main include file for the Sista library." alt="" coords="193,79,359,104"/>
-<area shape="rect" id="node4" href="$sista_8cpp.html" title="A demo of the SwappableField class from the Sista library." alt="" coords="236,152,316,177"/>
+<area shape="rect" id="node4" href="$api_8cpp.html" title="Implementation of the C API for Sista." alt="" coords="128,152,283,177"/>
+<area shape="rect" id="node5" href="$sista_8cpp.html" title="A demo of the SwappableField class from the Sista library." alt="" coords="307,152,387,177"/>
 </map>

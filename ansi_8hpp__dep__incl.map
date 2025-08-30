@@ -3,12 +3,13 @@
 <area shape="rect" id="node2" href="$ansi_8cpp.html" title="Implementation of ANSI functions and classes." alt="" coords="84,79,247,104"/>
 <area shape="rect" id="node3" href="$border_8hpp.html" title="Border class header file." alt="" coords="271,79,449,104"/>
 <area shape="rect" id="node7" href="$sista_8hpp.html" title="Main include file for the Sista library." alt="" coords="599,225,766,251"/>
-<area shape="rect" id="node9" href="$cursor_8hpp.html" title="Cursor manipulation header file." alt="" coords="473,79,647,104"/>
-<area shape="rect" id="node11" href="$pawn_8hpp.html" title="Pawn class header file." alt="" coords="745,79,916,104"/>
+<area shape="rect" id="node10" href="$cursor_8hpp.html" title="Cursor manipulation header file." alt="" coords="473,79,647,104"/>
+<area shape="rect" id="node12" href="$pawn_8hpp.html" title="Pawn class header file." alt="" coords="745,79,916,104"/>
 <area shape="rect" id="node4" href="$border_8cpp.html" title="Implementation of the Border class for terminal borders." alt="" coords="5,152,181,177"/>
 <area shape="rect" id="node5" href="$field_8hpp.html" title="This file contains the Field class and related structures." alt="" coords="455,152,619,177"/>
 <area shape="rect" id="node6" href="$field_8cpp.html" title="Implementation of the field management functionalities of the Sista library." alt="" coords="412,225,575,251"/>
-<area shape="rect" id="node8" href="$sista_8cpp.html" title="A demo of the SwappableField class from the Sista library." alt="" coords="643,299,723,324"/>
-<area shape="rect" id="node10" href="$cursor_8cpp.html" title="Implementation of the Cursor class for representing and manipulating the terminal cursor." alt="" coords="257,152,431,177"/>
-<area shape="rect" id="node12" href="$pawn_8cpp.html" title="Implementation of the Pawn class." alt="" coords="796,152,967,177"/>
+<area shape="rect" id="node8" href="$api_8cpp.html" title="Implementation of the C API for Sista." alt="" coords="535,299,689,324"/>
+<area shape="rect" id="node9" href="$sista_8cpp.html" title="A demo of the SwappableField class from the Sista library." alt="" coords="713,299,793,324"/>
+<area shape="rect" id="node11" href="$cursor_8cpp.html" title="Implementation of the Cursor class for representing and manipulating the terminal cursor." alt="" coords="257,152,431,177"/>
+<area shape="rect" id="node13" href="$pawn_8cpp.html" title="Implementation of the Pawn class." alt="" coords="796,152,967,177"/>
 </map>
