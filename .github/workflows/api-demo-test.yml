@@ -80,6 +80,7 @@ jobs:
           make api-test
           make api-test-border
           make api-test-multiple-styles
+          make api-test-swap
       
       - name: Display test results
         run: |
@@ -88,6 +89,7 @@ jobs:
           .\api-test.exe
           .\api-test-border.exe
           .\api-test-multiple-styles.exe
+          .\api-test-swap.exe
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
@@ -97,6 +99,7 @@ jobs:
             demo/api-test.exe
             demo/api-test-border.exe
             demo/api-test-multiple-styles.exe
+            demo/api-test-swap.exe
             
       # - name: Test Python demo scripts
       #   shell: pwsh
@@ -148,6 +151,7 @@ jobs:
           make api-test
           make api-test-border
           make api-test-multiple-styles
+          make api-test-swap
       
       - name: Display test results
         run: |
@@ -156,6 +160,7 @@ jobs:
           ./api-test
           ./api-test-border
           ./api-test-multiple-styles
+          ./api-test-swap
 
       - name: Upload test results
         if: runner.os == 'macOS'
@@ -166,6 +171,7 @@ jobs:
             demo/api-test
             demo/api-test-border
             demo/api-test-multiple-styles
+            demo/api-test-swap
     
       - name: Test Python demo scripts
         run: |
@@ -203,6 +209,7 @@ jobs:
           make api-test
           make api-test-border
           make api-test-multiple-styles
+          make api-test-swap
 
       - name: Display test results
         run: |
@@ -211,6 +218,7 @@ jobs:
           ./api-test
           ./api-test-border
           ./api-test-multiple-styles
+          ./api-test-swap
       
       - name: Upload test results
         uses: actions/upload-artifact@v4
@@ -220,6 +228,7 @@ jobs:
             demo/api-test
             demo/api-test-border
             demo/api-test-multiple-styles
+            demo/api-test-swap
         
       - name: Test Python demo scripts
         run: |

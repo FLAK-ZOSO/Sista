@@ -496,8 +496,8 @@ PawnHandler_t sista_createPawnInSwappableField(SwappableFieldHandler_t,
  *  \see sista::Pawn
  *  \see sista_destroyPawn
 */
-PawnHandler_t sista_createPawnInField(FieldHandler_t,
-                                      char, ANSISettingsHandler_t,
+PawnHandler_t sista_createPawnInField(FieldHandler_t, char,
+                                      ANSISettingsHandler_t,
                                       struct sista_Coordinates);
 
 /** \brief Moves the pawn to a new position.
@@ -510,11 +510,53 @@ PawnHandler_t sista_createPawnInField(FieldHandler_t,
  *  \retval 1 If the move failed for any other reason.
  *  \retval 2 If the destination is out of bounds.
  *  \retval 3 If the destination is occupied by another pawn.
+ *  \retval 4 If the field is a nullptr.
+ *  \retval 5 If the pawn is a nullptr.
  *
  *  \see sista::Field::movePawn
 */
-int sista_movePawn(FieldHandler_t, PawnHandler_t,
-                   struct sista_Coordinates);
+int sista_movePawn(FieldHandler_t, PawnHandler_t, struct sista_Coordinates);
+
+/** \brief Adds the Pawn to a list of pawns to be moved ("swapped") later.
+ *  \param field The SwappableField containing the Pawn.
+ *  \param pawn The Pawn to add to the swap list.
+ *  \param destination The destination coordinates.
+ *  \return Status code
+ *
+ *  This function adds the specified Pawn to a list of pawns that will be
+ *  moved (swapped) when sista_executeSwaps is called. The pawn will be moved
+ *  to the specified destination coordinates.
+ *
+ *  \retval 0 If the pawn was successfully added to the swap list.
+ *  \retval 1 If adding the pawn to the swap list failed for any other reason.
+ *  \retval 2 If the destination is out of bounds.
+ *  \retval 3 If the destination is occupied by another pawn.
+ *  \retval 4 If the field is a nullptr.
+ *  \retval 5 If the pawn is a nullptr.
+ *
+ *  \see sista::SwappableField::addPawnToSwap
+*/
+int sista_addPawnToSwap(SwappableFieldHandler_t, PawnHandler_t, struct sista_Coordinates);
+/** \brief Executes all pending pawn swaps.
+ *  \param field The SwappableField containing the pawns to swap.
+ *  \return Status code
+ *
+ *  This function executes all pending pawn swaps that have been added
+ *  using sista_addPawnToSwap. It attempts to move each pawn to its
+ *  specified destination, handling any conflicts or errors that arise.
+ *
+ *  \note The swaps that cannot be applied (due to more than one pawn
+ *        trying to move to the same destination, generally) are skipped.
+ * 
+ *  \todo In future versions, the function may return a list of the
+ *        swaps that could not be applied.
+ *
+ *  \retval 0 If all possible (read note) swaps were successful.
+ *  \retval 1 If executing the swaps failed for any other reason.
+ *
+ *  \see sista::SwappableField::applySwaps
+*/
+int sista_applySwaps(SwappableFieldHandler_t);
 
 #ifdef __cplusplus
 }

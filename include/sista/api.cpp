@@ -187,7 +187,8 @@ extern "C" {
         }
     }
     int sista_movePawn(FieldHandler_t field, PawnHandler_t pawn, struct sista_Coordinates destination) {
-        if (field == nullptr || pawn == nullptr) return -1;
+        if (field == nullptr) return 4;
+        if (pawn == nullptr) return 5;
         sista::Coordinates newPos(destination.x, destination.y);
         sista::Field* f = reinterpret_cast<sista::Field*>(field);
         try {
@@ -201,6 +202,37 @@ extern "C" {
             f->movePawn(
                 reinterpret_cast<sista::Pawn*>(pawn), newPos
             );
+        } catch (const std::exception&) {
+            return 1;
+        }
+        return 0;
+    }
+    int sista_addPawnToSwap(
+        SwappableFieldHandler_t field,
+        PawnHandler_t pawn,
+        struct sista_Coordinates destination
+    ) {
+        if (field == nullptr) return 4;
+        if (pawn == nullptr) return 5;
+        sista::Coordinates newPos(destination.x, destination.y);
+        sista::SwappableField* f = reinterpret_cast<sista::SwappableField*>(field);
+        try {
+            f->addPawnToSwap(
+                reinterpret_cast<sista::Pawn*>(pawn), newPos
+            );
+        } catch (const std::out_of_range&) {
+            return 2;
+        } catch (const std::invalid_argument&) {
+            return 3;
+        } catch (const std::exception&) {
+            return 1;
+        }
+        return 0;
+    }
+    int sista_applySwaps(SwappableFieldHandler_t field) {
+        if (field == nullptr) return 1;
+        try {
+            reinterpret_cast<sista::SwappableField*>(field)->applySwaps();
         } catch (const std::exception&) {
             return 1;
         }
