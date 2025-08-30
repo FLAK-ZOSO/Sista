@@ -152,11 +152,9 @@ install: libSista.dylib libSista.a libSista_api.dylib libSista_api.a
 
 uninstall:
 	rm -f $(PREFIX)/lib/libSista.dylib
-	rm -f $(PREFIX)/lib/libSista.dylib.$(MAJOR_VERSION)
-	rm -f $(PREFIX)/lib/libSista.dylib.$(FULL_VERSION)
+	rm -f $(PREFIX)/lib/libSista.dylib.*
 	rm -f $(PREFIX)/lib/libSista_api.dylib
-	rm -f $(PREFIX)/lib/libSista_api.dylib.$(MAJOR_VERSION)
-	rm -f $(PREFIX)/lib/libSista_api.dylib.$(FULL_VERSION)
+	rm -f $(PREFIX)/lib/libSista_api.dylib.*
 	rm -f $(PREFIX)/lib/libSista.a
 	rm -f $(PREFIX)/lib/libSista_api.a
 	rm -rf $(PREFIX)/include/sista
@@ -180,11 +178,9 @@ install: libSista.so libSista.a libSista_api.so libSista_api.a
 
 uninstall:
 	rm -f $(PREFIX)/lib/libSista.so
-	rm -f $(PREFIX)/lib/libSista.so.$(MAJOR_VERSION)
-	rm -f $(PREFIX)/lib/libSista.so.$(FULL_VERSION)
+	rm -f $(PREFIX)/lib/libSista.so.*
 	rm -f $(PREFIX)/lib/libSista_api.so
-	rm -f $(PREFIX)/lib/libSista_api.so.$(MAJOR_VERSION)
-	rm -f $(PREFIX)/lib/libSista_api.so.$(FULL_VERSION)
+	rm -f $(PREFIX)/lib/libSista_api.so.*
 	rm -f $(PREFIX)/lib/libSista.a
 	rm -f $(PREFIX)/lib/libSista_api.a
 	rm -rf $(PREFIX)/include/sista

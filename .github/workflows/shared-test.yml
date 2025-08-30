@@ -8,6 +8,7 @@ on:
         - 'include/**'
         - '*.cpp'
         - '*.hpp'
+        - 'demo/shared-test.cpp'
         - '.github/workflows/shared-test.yml'
     pull_request:
         branches:
@@ -50,7 +51,7 @@ jobs:
           Write-Host "Dynamic Library: $env:DYNAMIC_LIB"
           Write-Host "Static Library: $env:STATIC_LIB"
 
-      - name: Run tests
+      - name: Compile tests
         run: |
           cd demo
           make shared-test
@@ -98,7 +99,7 @@ jobs:
           echo "Dynamic Library: $DYNAMIC_LIB"
           echo "Static Library: $STATIC_LIB"
 
-      - name: Run tests
+      - name: Compile tests
         run: |
           cd demo
           make shared-test
@@ -143,7 +144,7 @@ jobs:
           echo "Dynamic Library: $DYNAMIC_LIB"
           echo "Static Library: $STATIC_LIB"
 
-      - name: Run tests
+      - name: Compile tests
         run: |
           cd demo
           make shared-test
