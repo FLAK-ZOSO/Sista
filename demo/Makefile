@@ -80,7 +80,7 @@ api-test-multiple-styles.o: api-test-multiple-styles.c
 	gcc -std=c89 -Wall -g -c api-test-multiple-styles.c $(INCLUDE_PATH_DIRECTIVE)
 
 api-test-multiple-styles: api-test-multiple-styles.o
-	g++ -Wall -g -o api-test-multiple-styles api-test-multiple-styles.o -lSista_api $(LD_LIBRARY_PATH_DIRECTIVE) $(DYLD_LIBRARY_PATH_DIRECTIVE)
+	g++ -Wall -g -o api-test-multiple-styles api-test-multiple-styles.o -lSista_api -lSista $(LD_LIBRARY_PATH_DIRECTIVE) $(DYLD_LIBRARY_PATH_DIRECTIVE)
 
 clean_objects:
 	rm -f *.o
