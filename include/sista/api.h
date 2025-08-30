@@ -127,11 +127,11 @@ enum sista_Attribute: int {
     A_FAINT = 2,
     A_ITALIC = 3,
     A_UNDERLINE = 4,
-    A_BLINK_SLOW = 5,
+    A_BLINK = 5,
     A_BLINK_FAST = 6,
     A_REVERSE = 7,
-    A_CONCEAL = 8,
-    A_CROSSED_OUT = 9
+    A_HIDDEN = 8,
+    A_STRIKETHROUGH = 9
 };
 /** \struct sista_RGBColor
  *  \brief Represents an RGB color with red, green, and blue components.
