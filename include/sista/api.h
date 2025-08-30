@@ -300,6 +300,59 @@ void sista_applyANSISettings(ANSISettingsHandler_t);
 */
 void sista_destroyANSISettings(ANSISettingsHandler_t);
 
+/** \struct sista_Border
+ *  \brief Opaque struct representing a Border object.
+ *
+ *  This struct is used as an opaque handle for managing Border objects
+ *  in terminal applications. It encapsulates the internal state and
+ *  configuration related to border representation.
+ *
+ *  \see sista::Border
+*/
+struct sista_Border;
+typedef struct sista_Border* BorderHandler_t;
+
+/** \brief Creates a Border object.
+ *  \param symbol The character symbol for the border brick.
+ *  \param settings The ANSISettings to apply to the border brick.
+ *  \return A handler to the created Border object.
+ *
+ *  This function allocates and initializes a new Border object with the
+ *  specified symbol and ANSI settings. It returns a pointer that can be
+ *  used to reference the Border in subsequent API calls.
+ *
+ *  \retval NULL If memory allocation fails.
+ *
+ *  \warning The caller is responsible for managing the lifetime of the
+ *        returned Border object, including deallocation if necessary.
+ *
+ *  \see sista::Border
+ *  \see sista_destroyBorder
+*/
+BorderHandler_t sista_createBorder(char, ANSISettingsHandler_t);
+/** \brief Deallocates the Border from memory.
+ *  \param border The Border to delete.
+ *
+ *  This function deallocates the Border from memory through the opaque
+ *  handler pointing to it.
+ *
+ *  \see sista::Border
+ *  \see sista_createBorder
+*/
+void sista_destroyBorder(BorderHandler_t);
+
+/** \brief Prints the field with the specified border.
+ *  \param field The SwappableField to print.
+ *  \param border The Border to print.
+ *
+ *  This function prints the entire field to the terminal, using the specified
+ *  Border object to draw the border around the field.
+ *
+ *  \see sista::Border::print
+ *  \see sista::Field::print
+*/
+void sista_printFieldWithBorder(SwappableFieldHandler_t, BorderHandler_t);
+
 /** \struct sista_Coordinates
  *  \brief Represents a pair of coordinates (y, x).
  *

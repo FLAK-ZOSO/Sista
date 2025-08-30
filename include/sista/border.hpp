@@ -43,6 +43,8 @@ namespace sista {
          *  \param settings_ The ANSISettings for the border brick.
          */
         Border(char, const ANSISettings&);
+        /** \brief Default destructor. */
+        virtual ~Border() = default;
 
         /** \brief Prints the border symbol to the terminal, applying ANSI settings if specified.
          * 

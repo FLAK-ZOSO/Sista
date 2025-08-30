@@ -108,4 +108,22 @@ extern "C" {
         if (settings == nullptr) return;
         reinterpret_cast<sista::ANSISettings*>(settings)->apply();
     }
+
+    BorderHandler_t sista_createBorder(char symbol, ANSISettingsHandler_t settings) {
+        try {
+            return reinterpret_cast<BorderHandler_t>(
+                new sista::Border(symbol, *reinterpret_cast<sista::ANSISettings*>(settings))
+            );
+        } catch (const std::bad_alloc&) {
+            return NULL;
+        }
+    }
+    void sista_destroyBorder(BorderHandler_t border) {
+        delete reinterpret_cast<sista::Border*>(border);
+    }
+
+    void sista_printFieldWithBorder(SwappableFieldHandler_t field, BorderHandler_t border) {
+        if (field == nullptr || border == nullptr) return;
+        reinterpret_cast<SwappableField*>(field)->print(*reinterpret_cast<sista::Border*>(border));
+    }
 }
