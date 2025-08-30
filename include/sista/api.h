@@ -472,9 +472,33 @@ typedef struct sista_Pawn* PawnHandler_t;
  *  \see sista::Pawn
  *  \see sista_destroyPawn
 */
-PawnHandler_t sista_createPawn(SwappableFieldHandler_t,
-                               char, ANSISettingsHandler_t,
-                               struct sista_Coordinates);
+PawnHandler_t sista_createPawnInSwappableField(SwappableFieldHandler_t,
+                                               char, ANSISettingsHandler_t,
+                                               struct sista_Coordinates);
+/** \brief Creates a Pawn object in a given field.
+ *  \param field The Field to add the pawn to.
+ *  \param symbol The character symbol for the pawn.
+ *  \param settings The ANSISettings to apply to the pawn.
+ *  \param position The initial position of the pawn.
+ *  \return A handler to the created Pawn object.
+ *
+ *  This function allocates and initializes a new Pawn object with the
+ *  specified symbol, ANSI settings, and initial position. It returns a
+ *  pointer that can be used to reference the Pawn in subsequent API calls.
+ *
+ *  \retval NULL If memory allocation fails.
+ *
+ *  \warning Unlike with other objects, the caller is NOT responsible for
+ *           managing the lifetime of the returned Pawn object. Pawns are
+ *           managed by the Field they are added to, and will be deallocated
+ *           when the Field is destroyed.
+ *
+ *  \see sista::Pawn
+ *  \see sista_destroyPawn
+*/
+PawnHandler_t sista_createPawnInField(FieldHandler_t,
+                                      char, ANSISettingsHandler_t,
+                                      struct sista_Coordinates);
 
 /** \brief Moves the pawn to a new position.
  *  \param field The Field containing the Pawn.
