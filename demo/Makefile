@@ -65,17 +65,15 @@ verticalTest: verticalTest.cpp $(OBJECTS)
 	g++ -std=c++17 -Wall -g -o verticalTest verticalTest.o $(OBJECTS)
 
 api-test.o: api-test.cpp
-	g++ -std=c++17 -Wall -g -c api-test.cpp -I../include
+	g++ -std=c++17 -Wall -g -c api-test.cpp $(INCLUDE_PATH_DIRECTIVE)
 
 api-test: api-test.cpp
-	g++ -std=c++17 -Wall -g -c api-test.cpp $(INCLUDE_PATH_DIRECTIVE)
 	g++ -std=c++17 -Wall -g -o api-test api-test.o -lSista_api -lSista $(LD_LIBRARY_PATH_DIRECTIVE) $(DYLD_LIBRARY_PATH_DIRECTIVE)
 
 api-test-border.o: api-test-border.cpp
-	g++ -std=c++17 -Wall -g -c api-test-border.cpp -I../include
+	g++ -std=c++17 -Wall -g -c api-test-border.cpp $(INCLUDE_PATH_DIRECTIVE)
 
 api-test-border: api-test-border.cpp
-	g++ -std=c++17 -Wall -g -c api-test-border.cpp $(INCLUDE_PATH_DIRECTIVE)
 	g++ -std=c++17 -Wall -g -o api-test-border api-test-border.o -lSista_api -lSista $(LD_LIBRARY_PATH_DIRECTIVE) $(DYLD_LIBRARY_PATH_DIRECTIVE)
 
 api-test-multiple-styles.o: api-test-multiple-styles.c
