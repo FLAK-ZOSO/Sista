@@ -108,6 +108,13 @@ Unreleased v&lt;tt&gt;3.0.0&lt;/tt&gt;</h1>
 <li>Added <code>std::hash</code> specialization for <code><a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">sista::Coordinates</a></code> to allow its use in hash-based containers like <code>std::unordered_map</code> and <code>std::unordered_set</code></li>
 <li>Optimized <code><a class="el" href="classsista_1_1SwappableField.html" title="A specialized Field that handles Pawn swaps without conflicts.">sista::SwappableField</a></code> internal logic for better performance</li>
 <li>Improved encapsulation of <code><a class="el" href="classsista_1_1SwappableField.html" title="A specialized Field that handles Pawn swaps without conflicts.">sista::SwappableField</a></code> by making internal methods private and exposing only necessary public methods</li>
+<li>Exposed C API for stable ABI that allows FFI bindings and easier integration with other programming languages<ul>
+<li>Added <code><a class="el" href="api_8h.html" title="C API for Sista library.">api.h</a></code> header file with C API declarations</li>
+<li>Added <code><a class="el" href="api_8cpp.html" title="Implementation of the C API for Sista.">api.cpp</a></code> implementation file with C API definitions</li>
+<li>Updated <code>Makefile</code> to build the C API and link it with the C++ library</li>
+</ul>
+</li>
+<li>Updated CI workflows to build and test the C API</li>
 <li>Updated <code>Makefile</code> for hardcoding the rpath of the MacOS shared library to avoid issues with <code>DYLD_LIBRARY_PATH</code></li>
 <li>Updated <code>Makefile</code> to reflect the new filenames and ensure correct compilation and linking</li>
 <li>Testing on memory safety with <code>valgrind</code>, detected no memory leaks or invalid accesses</li>
@@ -432,7 +439,7 @@ v&lt;tt&gt;0.1.0&lt;/tt&gt;</h1>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Aug 30 2025 19:44:30 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generated on Sat Aug 30 2025 20:08:15 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>
