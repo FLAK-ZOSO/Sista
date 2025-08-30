@@ -29,6 +29,11 @@ Major release.
 - Added `std::hash` specialization for `sista::Coordinates` to allow its use in hash-based containers like `std::unordered_map` and `std::unordered_set`
 - Optimized `sista::SwappableField` internal logic for better performance
 - Improved encapsulation of `sista::SwappableField` by making internal methods private and exposing only necessary public methods
+- Exposed C API for stable ABI that allows FFI bindings and easier integration with other programming languages
+    - Added `api.h` header file with C API declarations
+    - Added `api.cpp` implementation file with C API definitions
+    - Updated `Makefile` to build the C API and link it with the C++ library
+- Updated CI workflows to build and test the C API
 
 - Updated `Makefile` for hardcoding the rpath of the MacOS shared library to avoid issues with `DYLD_LIBRARY_PATH`
 - Updated `Makefile` to reflect the new filenames and ensure correct compilation and linking
