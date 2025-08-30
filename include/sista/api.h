@@ -369,6 +369,43 @@ struct sista_Coordinates {
     unsigned short x; /** x coordinate */
 };
 
+/** \struct sista_Pawn
+ *  \brief Opaque struct representing a Pawn object.
+ *
+ *  This struct is used as an opaque handle for managing Pawn objects
+ *  in terminal applications. It encapsulates the internal state and
+ *  configuration related to pawn representation and behavior.
+ *
+ *  \see sista::Pawn
+*/
+struct sista_Pawn;
+typedef struct sista_Pawn* PawnHandler_t;
+
+/** \brief Creates a Pawn object in a given field.
+ *  \param field The SwappableField to add the pawn to.
+ *  \param symbol The character symbol for the pawn.
+ *  \param settings The ANSISettings to apply to the pawn.
+ *  \param position The initial position of the pawn.
+ *  \return A handler to the created Pawn object.
+ *
+ *  This function allocates and initializes a new Pawn object with the
+ *  specified symbol, ANSI settings, and initial position. It returns a
+ *  pointer that can be used to reference the Pawn in subsequent API calls.
+ *
+ *  \retval NULL If memory allocation fails.
+ *
+ *  \warning Unlike with other objects, the caller is NOT responsible for
+ *           managing the lifetime of the returned Pawn object. Pawns are
+ *           managed by the SwappableField they are added to, and will be
+ *           deallocated when the SwappableField is destroyed.
+ *
+ *  \see sista::Pawn
+ *  \see sista_destroyPawn
+*/
+PawnHandler_t sista_createPawn(SwappableFieldHandler_t,
+                               char, ANSISettingsHandler_t,
+                               struct sista_Coordinates);
+
 #ifdef __cplusplus
 }
 #endif

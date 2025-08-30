@@ -12,6 +12,7 @@
  */
 #include <sista/api.h>
 #include <sista/sista.hpp>
+#include <stdexcept>
 
 using namespace sista;
 
@@ -125,5 +126,21 @@ extern "C" {
     void sista_printFieldWithBorder(SwappableFieldHandler_t field, BorderHandler_t border) {
         if (field == nullptr || border == nullptr) return;
         reinterpret_cast<SwappableField*>(field)->print(*reinterpret_cast<sista::Border*>(border));
+    }
+
+    PawnHandler_t sista_createPawn(SwappableFieldHandler_t field, char symbol, ANSISettingsHandler_t settings, struct sista_Coordinates position) {
+        if (field == nullptr || settings == nullptr) return NULL;
+        sista::Coordinates pos(position.x, position.y);
+        sista::SwappableField* f = reinterpret_cast<sista::SwappableField*>(field);
+        try {
+            std::shared_ptr<sista::Pawn> p = std::make_shared<sista::Pawn>(
+                symbol, pos,
+                *reinterpret_cast<sista::ANSISettings*>(settings)
+            );
+            f->addPawn(p);
+            return reinterpret_cast<PawnHandler_t>(f->getPawn(pos));
+        } catch (const std::bad_alloc&) {
+            return NULL;
+        }
     }
 }
