@@ -7,6 +7,8 @@
  *  bridge to the underlying C++ implementations and allowing for FFI usage
  *  with other programming languages thanks to ABI compatibility.
  *
+ *  \note This API is compatible with the C89 standard for maximum ABI stability.
+ *
  *  \author FLAK-ZOSO
  *  \date 2025
  *  \version 3.0.0
@@ -80,7 +82,7 @@ void sista_resetAnsi();
  *  \see sista_setForegroundColor
  *  \see sista::ForegroundColor
 */
-enum sista_ForegroundColor : int {
+enum sista_ForegroundColor {
     F_BLACK = 30,
     F_RED = 31,
     F_GREEN = 32,
@@ -100,7 +102,7 @@ enum sista_ForegroundColor : int {
  *  \see sista_setBackgroundColor
  *  \see sista::BackgroundColor
 */
-enum sista_BackgroundColor: int {
+enum sista_BackgroundColor {
     B_BLACK = 40,
     B_RED = 41,
     B_GREEN = 42,
@@ -121,7 +123,7 @@ enum sista_BackgroundColor: int {
  *  \see sista_resetAttribute
  *  \see sista::Attribute
 */
-enum sista_Attribute: int {
+enum sista_Attribute {
     A_RESET = 0,
     A_BRIGHT = 1,
     A_FAINT = 2,
