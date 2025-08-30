@@ -24,7 +24,7 @@
 
 namespace sista {
     RGBColor::RGBColor() : red(0), green(0), blue(0) {}
-    RGBColor::RGBColor(unsigned short int red, unsigned short int green, unsigned short int blue) : red(red), green(green), blue(blue) {}
+    RGBColor::RGBColor(unsigned char red, unsigned char green, unsigned char blue) : red(red), green(green), blue(blue) {}
 
     void setForegroundColor(ForegroundColor color) {
         std::cout << CSI << static_cast<int>(color) << "m";
@@ -55,16 +55,20 @@ namespace sista {
     void setBackgroundColor(const RGBColor& rgbcolor) {
         setBackgroundColor(rgbcolor.red, rgbcolor.green, rgbcolor.blue);
     }
-    void setForegroundColor(unsigned short int red, unsigned short int green, unsigned short int blue) {
-        std::cout << CSI << "38;2;" << red << ";" << green << ";" << blue << "m";
+    void setForegroundColor(unsigned char red, unsigned char green, unsigned char blue) {
+        std::cout << CSI << "38;2;" << static_cast<short int>(red) << ";";
+        std::cout << static_cast<short int>(green) << ";";
+        std::cout << static_cast<short int>(blue) << "m";
     }
-    void setBackgroundColor(unsigned short int red, unsigned short int green, unsigned short int blue) {
-        std::cout << CSI << "48;2;" << red << ";" << green << ";" << blue << "m";
+    void setBackgroundColor(unsigned char red, unsigned char green, unsigned char blue) {
+        std::cout << CSI << "48;2;" << static_cast<short int>(red) << ";";
+        std::cout << static_cast<short int>(green) << ";";
+        std::cout << static_cast<short int>(blue) << "m";
     }
-    void setForegroundColor(unsigned short int color) {
+    void setForegroundColor(unsigned char color) {
         std::cout << CSI << "38;5;" << color << "m";
     }
-    void setBackgroundColor(unsigned short int color) {
+    void setBackgroundColor(unsigned char color) {
         std::cout << CSI << "48;5;" << color << "m";
     }
 

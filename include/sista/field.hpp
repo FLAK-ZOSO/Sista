@@ -104,7 +104,7 @@ namespace sista {
         */
         Field(int, int);
         /** \brief Destructor to clean up resources. */
-        ~Field();
+        virtual ~Field() = default;
 
         /** \brief Prints the entire field to the terminal.
          *
