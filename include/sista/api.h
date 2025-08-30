@@ -300,6 +300,20 @@ void sista_applyANSISettings(ANSISettingsHandler_t);
 */
 void sista_destroyANSISettings(ANSISettingsHandler_t);
 
+/** \struct sista_Coordinates
+ *  \brief Represents a pair of coordinates (y, x).
+ *
+ *  This struct is used to define a pair of coordinates in a 2D space,
+ *  typically representing a position in a grid or matrix. The y coordinate
+ *  corresponds to the row, and the x coordinate corresponds to the column.
+ *
+ *  \see sista::Coordinates
+*/
+struct sista_Coordinates {
+    unsigned short y; /** y coordinate */
+    unsigned short x; /** x coordinate */
+};
+
 #ifdef __cplusplus
 }
 #endif
