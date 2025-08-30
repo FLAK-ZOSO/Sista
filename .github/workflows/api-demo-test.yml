@@ -78,12 +78,14 @@ jobs:
         run: |
           cd demo
           make api-test
+          make api-test-border
       
       - name: Display test results
         run: |
           cd demo
           echo "Running api-test.exe"
           .\api-test.exe
+          .\api-test-border.exe
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
@@ -91,6 +93,7 @@ jobs:
           name: api-test-windows
           path: |
             demo/api-test.exe
+            demo/api-test-border.exe
             
       # - name: Test Python demo scripts
       #   shell: pwsh
@@ -136,16 +139,18 @@ jobs:
           echo "C API Library: $C_API_LIB"
           echo "C API Static Library: $C_API_STATIC_LIB"
 
-      - name: Run tests
+      - name: Compile tests
         run: |
           cd demo
           make api-test
+          make api-test-border
       
       - name: Display test results
         run: |
           cd demo
           echo "Running api-test"
           ./api-test
+          ./api-test-border
 
       - name: Upload test results
         if: runner.os == 'macOS'
@@ -154,6 +159,7 @@ jobs:
           name: api-test-macos
           path: |
             demo/api-test
+            demo/api-test-border
     
       - name: Test Python demo scripts
         run: |
@@ -185,16 +191,18 @@ jobs:
           echo "Dynamic Library: $DYNAMIC_LIB"
           echo "Static Library: $STATIC_LIB"
 
-      - name: Run tests
+      - name: Compile tests
         run: |
           cd demo
           make api-test
+          make api-test-border
 
       - name: Display test results
         run: |
           cd demo
           echo "Running api-test"
           ./api-test
+          ./api-test-border
       
       - name: Upload test results
         uses: actions/upload-artifact@v4
@@ -202,6 +210,7 @@ jobs:
           name: api-test-linux
           path: |
             demo/api-test
+            demo/api-test-border
         
       - name: Test Python demo scripts
         run: |

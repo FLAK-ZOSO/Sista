@@ -71,6 +71,13 @@ api-test: api-test.cpp
 	g++ -std=c++17 -Wall -g -c api-test.cpp $(INCLUDE_PATH_DIRECTIVE)
 	g++ -std=c++17 -Wall -g -o api-test api-test.o -lSista_api -lSista $(LD_LIBRARY_PATH_DIRECTIVE) $(DYLD_LIBRARY_PATH_DIRECTIVE)
 
+api-test-border.o: api-test-border.cpp
+	g++ -std=c++17 -Wall -g -c api-test-border.cpp -I../include
+
+api-test-border: api-test-border.cpp
+	g++ -std=c++17 -Wall -g -c api-test-border.cpp $(INCLUDE_PATH_DIRECTIVE)
+	g++ -std=c++17 -Wall -g -o api-test-border api-test-border.o -lSista_api -lSista $(LD_LIBRARY_PATH_DIRECTIVE) $(DYLD_LIBRARY_PATH_DIRECTIVE)
+
 clean_objects:
 	rm -f *.o
 
