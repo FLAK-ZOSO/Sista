@@ -38,12 +38,6 @@ namespace sista {
             pawns[i].resize(width); // Resize the vector
         this->clear(); // Clear the matrix
     }
-    Field::~Field() {
-        for (int i = 0; i < (int)pawns.size(); i++) // For each row
-            for (int j = 0; j < (int)pawns[i].size(); j++) // For each pawn
-                pawns[i][j].reset(); // Delete the pawn
-        pawns.clear(); // Clear the pawns
-    }
 
     void Field::print() const { // Print the matrix
         resetAnsi(); // Reset the settings
