@@ -47,30 +47,30 @@ objects_dynamic:
 # Compiles all the library files into object files, then links them to the executable
 sista: objects
 	g++ -std=c++17 -Wall -c sista.cpp
-	g++ -std=c++17 $(STATIC_FLAG) -Wall -o sista sista.o $(OBJECTS)
+	g++ $(STATIC_FLAG) -Wall -o sista sista.o $(OBJECTS)
 
 # Compiles sista.cpp and links it against the local dynamic library libSista.so
 sista_against_dynamic_lib_local: libSista.so objects_dynamic
 	g++ -std=c++17 -Wall -fPIC -c sista.cpp
-	g++ -std=c++17 -o sista sista.o libSista.so
+	g++ -o sista sista.o libSista.so
 
 ifneq "$(shell uname -s)" "Darwin"
 # Compiles sista.cpp and links it against the local static library libSista.a
 sista_against_static_lib_local: libSista.a objects
 	g++ -std=c++17 -Wall -c sista.cpp
-	g++ -std=c++17 -static -o sista sista.o libSista.a
+	g++ -static -o sista sista.o libSista.a
 endif
 
 # Compiles sista.cpp and links it against the system dynamic library libSista.so
 sista_against_dynamic_lib_shared:
 	g++ -std=c++17 -Wall -fPIC -c sista.cpp
-	g++ -std=c++17 -o sista sista.o -lSista
+	g++ -o sista sista.o -lSista
 
 ifneq "$(shell uname -s)" "Darwin"
 # Compiles sista.cpp and links it against the system static library libSista.a
 sista_against_static_lib_shared:
 	g++ -std=c++17 -Wall -c sista.cpp
-	g++ -std=c++17 -static -o sista sista.o -lSista
+	g++ -static -o sista sista.o -lSista
 endif
 
 %.o: include/sista/%.cpp
@@ -83,14 +83,14 @@ libSista.so: $(OBJECTS)
 	g++ -std=c++17 -Wall -fPIC -shared -o libSista.so.$(FULL_VERSION) $(OBJECTS) -Wl,-soname,libSista.so.$(MAJOR_VERSION)
 
 libSista_api.so: api.o
-	g++ -std=c++17 -Wall -fPIC -shared -o libSista_api.so.$(FULL_VERSION) api.o libSista.so.$(FULL_VERSION) -Wl,-soname,libSista_api.so.$(MAJOR_VERSION)
+	g++ -Wall -fPIC -shared -o libSista_api.so.$(FULL_VERSION) api.o libSista.so.$(FULL_VERSION) -Wl,-soname,libSista_api.so.$(MAJOR_VERSION)
 
 ifeq "$(shell uname -s)" "Darwin"
 libSista.dylib: $(OBJECTS)
-	g++ -std=c++17 -Wall -dynamiclib -o libSista.dylib.$(FULL_VERSION) $(OBJECTS) -Wl,-install_name,@rpath/libSista.dylib,-current_version,$(MAJOR_VERSION),-compatibility_version,$(MAJOR_VERSION)
+	g++ -Wall -dynamiclib -o libSista.dylib.$(FULL_VERSION) $(OBJECTS) -Wl,-install_name,@rpath/libSista.dylib,-current_version,$(MAJOR_VERSION),-compatibility_version,$(MAJOR_VERSION)
 
 libSista_api.dylib: api.o
-	g++ -std=c++17 -Wall -dynamiclib -o libSista_api.dylib.$(FULL_VERSION) api.o libSista.dylib.$(FULL_VERSION) -Wl,-install_name,@rpath/libSista_api.dylib,-current_version,$(MAJOR_VERSION),-compatibility_version,$(MAJOR_VERSION)
+	g++ -Wall -dynamiclib -o libSista_api.dylib.$(FULL_VERSION) api.o libSista.dylib.$(FULL_VERSION) -Wl,-install_name,@rpath/libSista_api.dylib,-current_version,$(MAJOR_VERSION),-compatibility_version,$(MAJOR_VERSION)
 endif
 
 ifeq ($(OS),Windows_NT) # Assumes usage of MinGW on Windows
@@ -98,7 +98,7 @@ libSista.dll: $(OBJECTS)
 	g++ -std=c++17 -Wall -shared -o libSista.dll $(OBJECTS) -Wl,--out-implib,libSista.lib
 
 libSista_api.dll: api.o
-	g++ -std=c++17 -Wall -shared -o libSista_api.dll api.o libSista.dll -Wl,--out-implib,libSista_api.lib
+	g++ -Wall -shared -o libSista_api.dll api.o libSista.dll -Wl,--out-implib,libSista_api.lib
 endif
 
 libSista.a: $(OBJECTS)
