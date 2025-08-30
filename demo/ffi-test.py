@@ -35,16 +35,16 @@ match platform.system():
 sista_api.sista_setForegroundColor.argtypes = [ctypes.c_int]
 sista_api.sista_setForegroundColor.restype = None
 
-class sista_SwappableField(ctypes.Structure):
+class sista_Field(ctypes.Structure):
     ...
 
-sista_api.sista_createSwappableField.argtypes = [
+sista_api.sista_createField.argtypes = [
     ctypes.c_size_t, ctypes.c_size_t
 ]
-sista_api.sista_createSwappableField.restype = ctypes.POINTER(
-    sista_SwappableField
+sista_api.sista_createField.restype = ctypes.POINTER(
+    sista_Field
 )
-field = sista_api.sista_createSwappableField(
+field = sista_api.sista_createField(
     ctypes.c_size_t(42),
     ctypes.c_size_t(42//2)
 )
@@ -54,7 +54,7 @@ if (field != ctypes.c_size_t(0)):
     sista_api.sista_printField(field, ctypes.c_char(b'#'))
 
 time.sleep(2)
-sista_api.sista_destroySwappableField(field)
+sista_api.sista_destroyField(field)
 
 sista_api.sista_setForegroundColor(31)
 libc.puts(b"This text is in red, foreground color number 31 for ANSI")
