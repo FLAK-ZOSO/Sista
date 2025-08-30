@@ -22,6 +22,65 @@
 extern "C" {
 #endif
 
+/** \struct sista_Field
+ *  \brief Opaque struct representing a Field object.
+ *
+ *  This struct is used as an opaque handle for managing Field objects
+ *  in terminal applications. It encapsulates the internal state and
+ *  configuration related to field representation and behavior.
+ *
+ *  \see sista::Field
+*/
+struct sista_Field;
+typedef struct sista_Field* FieldHandler_t;
+
+/** \brief Creates a Field with the specified width and height.
+ *  \param width The width of the Field.
+ *  \param height The height of the Field.
+ *  \return A handler to the created Field.
+ *
+ *  This function allocates and initializes a new Field object
+ *  with the given dimensions. It returns a pointer that can be used to
+ *  reference the Field in subsequent API calls.
+ *
+ *  \retval NULL If memory allocation fails.
+ *
+ *  \warning The caller is responsible for managing the lifetime of the
+ *        returned Field object, including deallocation if necessary.
+ *
+ *  \see Field
+*/
+FieldHandler_t sista_createField(size_t, size_t);
+/** \brief Prints the specified Field with a given border
+ *  \param field The Field.
+ *  \param border The border character to use.
+ *
+ *  This function prints the entire field to the terminal, using the specified
+ *  character as the border around the field.
+ *
+ *  \see Field
+ *  \see Border
+*/
+void sista_printField(FieldHandler_t, char);
+/** \brief Deallocates the Field from memory
+ *  \param field The Field to delete
+ *
+ *  This function deallocates the Field from memory through the opaque
+ *  handler pointing to it.
+ *
+ *  \see Field
+ */
+void sista_destroyField(FieldHandler_t);
+
+/** \struct sista_SwappableField
+ *  \brief Opaque struct representing a SwappableField object.
+ *
+ *  This struct is used as an opaque handle for managing SwappableField
+ *  objects in terminal applications. It encapsulates the internal state
+ *  and configuration related to swappable fields.
+ *
+ *  \see sista::SwappableField
+*/
 struct sista_SwappableField;
 typedef struct sista_SwappableField* SwappableFieldHandler_t;
 
@@ -52,7 +111,7 @@ SwappableFieldHandler_t sista_createSwappableField(size_t, size_t);
  *  \see Field
  *  \see Border
 */
-void sista_printField(SwappableFieldHandler_t, char);
+void sista_printSwappableField(SwappableFieldHandler_t, char);
 /** \brief Deallocates the SwappableField from memory
  *  \param field The SwappableField to delete
  *
@@ -344,6 +403,17 @@ BorderHandler_t sista_createBorder(char, ANSISettingsHandler_t);
 void sista_destroyBorder(BorderHandler_t);
 
 /** \brief Prints the field with the specified border.
+ *  \param field The Field to print.
+ *  \param border The Border to print.
+ *
+ *  This function prints the entire field to the terminal, using the specified
+ *  Border object to draw the border around the field.
+ *
+ *  \see sista::Border::print
+ *  \see sista::Field::print
+*/
+void sista_printFieldWithBorder(FieldHandler_t, BorderHandler_t);
+/** \brief Prints the field with the specified border.
  *  \param field The SwappableField to print.
  *  \param border The Border to print.
  *
@@ -353,7 +423,7 @@ void sista_destroyBorder(BorderHandler_t);
  *  \see sista::Border::print
  *  \see sista::Field::print
 */
-void sista_printFieldWithBorder(SwappableFieldHandler_t, BorderHandler_t);
+void sista_printSwappableFieldWithBorder(SwappableFieldHandler_t, BorderHandler_t);
 
 /** \struct sista_Coordinates
  *  \brief Represents a pair of coordinates (y, x).
@@ -405,6 +475,22 @@ typedef struct sista_Pawn* PawnHandler_t;
 PawnHandler_t sista_createPawn(SwappableFieldHandler_t,
                                char, ANSISettingsHandler_t,
                                struct sista_Coordinates);
+
+/** \brief Moves the pawn to a new position.
+ *  \param field The Field containing the Pawn.
+ *  \param pawn The Pawn to move.
+ *  \param destination The destination coordinates.
+ *  \return Status code
+ *
+ *  \retval 0 If the move was successful.
+ *  \retval 1 If the move failed for any other reason.
+ *  \retval 2 If the destination is out of bounds.
+ *  \retval 3 If the destination is occupied by another pawn.
+ *
+ *  \see sista::Field::movePawn
+*/
+int sista_movePawn(FieldHandler_t, PawnHandler_t,
+                   struct sista_Coordinates);
 
 #ifdef __cplusplus
 }

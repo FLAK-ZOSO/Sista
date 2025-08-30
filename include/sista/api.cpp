@@ -17,6 +17,18 @@
 using namespace sista;
 
 extern "C" {
+    FieldHandler_t sista_createField(size_t width, size_t height) {
+        try {
+            return reinterpret_cast<FieldHandler_t>(
+                new Field(static_cast<int>(width), static_cast<int>(height))
+            );
+        } catch (const std::bad_alloc&) {
+            return NULL;
+        }
+    }
+    void sista_destroyField(FieldHandler_t field) {
+        delete reinterpret_cast<Field*>(field);
+    }
     SwappableFieldHandler_t sista_createSwappableField(size_t width, size_t height) {
         try {
             return reinterpret_cast<SwappableFieldHandler_t>(
@@ -30,7 +42,11 @@ extern "C" {
         delete reinterpret_cast<SwappableField*>(field);
     }
 
-    void sista_printField(SwappableFieldHandler_t field, char border) {
+    void sista_printField(FieldHandler_t field, char border) {
+        if (field == nullptr) return;
+        reinterpret_cast<Field*>(field)->print(border);
+    }
+    void sista_printSwappableField(SwappableFieldHandler_t field, char border) {
         if (field == nullptr) return;
         reinterpret_cast<SwappableField*>(field)->print(border);
     }
@@ -123,12 +139,20 @@ extern "C" {
         delete reinterpret_cast<sista::Border*>(border);
     }
 
-    void sista_printFieldWithBorder(SwappableFieldHandler_t field, BorderHandler_t border) {
+    void sista_printFieldWithBorder(FieldHandler_t field, BorderHandler_t border) {
+        if (field == nullptr || border == nullptr) return;
+        reinterpret_cast<Field*>(field)->print(*reinterpret_cast<sista::Border*>(border));
+    }
+    void sista_printSwappableFieldWithBorder(SwappableFieldHandler_t field, BorderHandler_t border) {
         if (field == nullptr || border == nullptr) return;
         reinterpret_cast<SwappableField*>(field)->print(*reinterpret_cast<sista::Border*>(border));
     }
 
-    PawnHandler_t sista_createPawn(SwappableFieldHandler_t field, char symbol, ANSISettingsHandler_t settings, struct sista_Coordinates position) {
+    PawnHandler_t sista_createPawnInSwappableField(
+        SwappableFieldHandler_t field,
+        char symbol, ANSISettingsHandler_t settings,
+        struct sista_Coordinates position
+    ) {
         if (field == nullptr || settings == nullptr) return NULL;
         sista::Coordinates pos(position.x, position.y);
         sista::SwappableField* f = reinterpret_cast<sista::SwappableField*>(field);
@@ -142,5 +166,44 @@ extern "C" {
         } catch (const std::bad_alloc&) {
             return NULL;
         }
+    }
+    PawnHandler_t sista_createPawnInField(
+        FieldHandler_t field,
+        char symbol, ANSISettingsHandler_t settings,
+        struct sista_Coordinates position
+    ) {
+        if (field == nullptr || settings == nullptr) return NULL;
+        sista::Coordinates pos(position.x, position.y);
+        sista::Field* f = reinterpret_cast<sista::Field*>(field);
+        try {
+            std::shared_ptr<sista::Pawn> p = std::make_shared<sista::Pawn>(
+                symbol, pos,
+                *reinterpret_cast<sista::ANSISettings*>(settings)
+            );
+            f->addPawn(p);
+            return reinterpret_cast<PawnHandler_t>(f->getPawn(pos));
+        } catch (const std::bad_alloc&) {
+            return NULL;
+        }
+    }
+    int sista_movePawn(FieldHandler_t field, PawnHandler_t pawn, struct sista_Coordinates destination) {
+        if (field == nullptr || pawn == nullptr) return -1;
+        sista::Coordinates newPos(destination.x, destination.y);
+        sista::Field* f = reinterpret_cast<sista::Field*>(field);
+        try {
+            f->validateCoordinates(newPos);
+        } catch (const std::out_of_range&) {
+            return 2;
+        } catch (const std::invalid_argument&) {
+            return 3;
+        }
+        try {
+            f->movePawn(
+                reinterpret_cast<sista::Pawn*>(pawn), newPos
+            );
+        } catch (const std::exception&) {
+            return 1;
+        }
+        return 0;
     }
 }

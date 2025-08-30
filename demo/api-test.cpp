@@ -7,7 +7,7 @@
 
 int main(int argc, char* argv[]) {
     SwappableFieldHandler_t field = sista_createSwappableField(42, 42/2);
-    sista_printField(field, '#');
+    sista_printSwappableField(field, '#');
     std::this_thread::sleep_for(std::chrono::seconds(2));
     sista_destroySwappableField(field);
 
