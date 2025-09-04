@@ -1,4 +1,4 @@
 <map id="sista::SwappableField" name="sista::SwappableField">
-<area shape="rect" id="node1" title="A specialized Field that handles Pawn swaps without conflicts." alt="" coords="5,79,168,104"/>
-<area shape="rect" id="node2" href="$classsista_1_1Field.html" title="Represents a 2D grid where Pawns can be placed, moved, and managed." alt="" coords="41,5,133,31"/>
+<area shape="rect" id="node1" title="A specialized Field that handles Pawn swaps without conflicts." alt="" coords="5,351,168,560"/>
+<area shape="rect" id="node2" href="$classsista_1_1Field.html" title="Represents a 2D grid where Pawns can be placed, moved, and managed." alt="" coords="7,5,167,303"/>
 </map>
