@@ -1,8 +1,9 @@
 <map id="include/sista/cursor.hpp" name="include/sista/cursor.hpp">
-<area shape="rect" id="node1" title="Cursor manipulation header file." alt="" coords="19,5,194,31"/>
-<area shape="rect" id="node2" href="$ansi_8hpp.html" title="ANSI escape code utilities and types for terminal formatting." alt="" coords="5,79,83,104"/>
-<area shape="rect" id="node4" href="$coordinates_8hpp.html" title="Coordinates struct header file." alt="" coords="107,79,234,104"/>
-<area shape="rect" id="node3" title=" " alt="" coords="10,152,78,177"/>
-<area shape="rect" id="node5" title=" " alt="" coords="121,152,181,177"/>
-<area shape="rect" id="node6" title=" " alt="" coords="205,152,291,177"/>
+<area shape="rect" id="node1" title="Cursor manipulation header file." alt="" coords="92,5,267,31"/>
+<area shape="rect" id="node2" href="$ansi_8hpp.html" title="ANSI escape code utilities and types for terminal formatting." alt="" coords="78,79,155,104"/>
+<area shape="rect" id="node5" href="$coordinates_8hpp.html" title="Coordinates struct header file." alt="" coords="180,79,307,104"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,152,73,177"/>
+<area shape="rect" id="node4" title=" " alt="" coords="98,152,157,177"/>
+<area shape="rect" id="node6" title=" " alt="" coords="203,152,263,177"/>
+<area shape="rect" id="node7" title=" " alt="" coords="287,152,373,177"/>
 </map>

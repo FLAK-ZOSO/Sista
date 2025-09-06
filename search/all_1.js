@@ -22,5 +22,6 @@ var searchData=
   ['apply_19',['apply',['../structsista_1_1ANSISettings.html#a41f1181ac07aa60b90358bdc0fbf011e',1,'sista::ANSISettings']]],
   ['applyswaps_20',['applySwaps',['../classsista_1_1SwappableField.html#a935206fd3813b742efb6fc1720f71376',1,'sista::SwappableField']]],
   ['attribute_21',['attribute',['../structsista_1_1ANSISettings.html#a237721e7765335bb555ade0c6431d269',1,'sista::ANSISettings']]],
-  ['attribute_22',['Attribute',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2f',1,'sista']]]
+  ['attribute_22',['Attribute',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2f',1,'sista']]],
+  ['attrstr_23',['attrStr',['../namespacesista.html#a687185cf5802d0217bac5e9e5f0e020a',1,'sista']]]
 ];

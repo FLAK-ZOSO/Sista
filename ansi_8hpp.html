@@ -88,13 +88,15 @@ $(function() {
 <p>ANSI escape code utilities and types for terminal formatting.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;variant&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ansi.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="ansi_8hpp__incl.png" border="0" usemap="#ainclude_2sista_2ansi_8hpp" alt=""/></div>
 <map name="ainclude_2sista_2ansi_8hpp" id="ainclude_2sista_2ansi_8hpp">
 <area shape="rect" title="ANSI escape code utilities and types for terminal formatting." alt="" coords="5,5,168,31"/>
-<area shape="rect" title=" " alt="" coords="53,79,121,104"/>
+<area shape="rect" title=" " alt="" coords="9,79,77,104"/>
+<area shape="rect" title=" " alt="" coords="101,79,160,104"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -265,6 +267,24 @@ Functions</h2></td></tr>
 <tr class="memitem:a57266ae1873a1389181e2238d88c2e28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a57266ae1873a1389181e2238d88c2e28">sista::setBackgroundColor</a> (unsigned char)</td></tr>
 <tr class="memdesc:a57266ae1873a1389181e2238d88c2e28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the background color using a 256-color palette index.  <br /></td></tr>
 <tr class="separator:a57266ae1873a1389181e2238d88c2e28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9056dcc89d8852520b790608821a109"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#ad9056dcc89d8852520b790608821a109">sista::fgColorStr</a> (ForegroundColor)</td></tr>
+<tr class="memdesc:ad9056dcc89d8852520b790608821a109"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a ForegroundColor enum to its corresponding ANSI escape code string.  <br /></td></tr>
+<tr class="separator:ad9056dcc89d8852520b790608821a109"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa02fe9e406add1ee51a67968dfdd0a3e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#aa02fe9e406add1ee51a67968dfdd0a3e">sista::bgColorStr</a> (BackgroundColor)</td></tr>
+<tr class="memdesc:aa02fe9e406add1ee51a67968dfdd0a3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a BackgroundColor enum to its corresponding ANSI escape code string.  <br /></td></tr>
+<tr class="separator:aa02fe9e406add1ee51a67968dfdd0a3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a687185cf5802d0217bac5e9e5f0e020a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a687185cf5802d0217bac5e9e5f0e020a">sista::attrStr</a> (Attribute)</td></tr>
+<tr class="memdesc:a687185cf5802d0217bac5e9e5f0e020a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an Attribute enum to its corresponding ANSI escape code string.  <br /></td></tr>
+<tr class="separator:a687185cf5802d0217bac5e9e5f0e020a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6c1e15767787eafbe9eeeea2dce4655"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#ae6c1e15767787eafbe9eeeea2dce4655">sista::fgColorStr</a> (const RGBColor &amp;)</td></tr>
+<tr class="memdesc:ae6c1e15767787eafbe9eeeea2dce4655"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an <a class="el" href="structsista_1_1RGBColor.html" title="Represents an RGB color with red, green, and blue components in True Color (24-bit).">RGBColor</a> struct to its corresponding ANSI escape code string for foreground color.  <br /></td></tr>
+<tr class="separator:ae6c1e15767787eafbe9eeeea2dce4655"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a8111229f1a0d69ea09d58595432cad"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a3a8111229f1a0d69ea09d58595432cad">sista::bgColorStr</a> (const RGBColor &amp;)</td></tr>
+<tr class="memdesc:a3a8111229f1a0d69ea09d58595432cad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts RGB values to their corresponding ANSI escape code string for foreground color.  <br /></td></tr>
+<tr class="separator:a3a8111229f1a0d69ea09d58595432cad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a967e5156819f2f3b0144a99fdabefa11"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a967e5156819f2f3b0144a99fdabefa11">sista::fgColorStr</a> (unsigned char, unsigned char, unsigned char)</td></tr>
+<tr class="memdesc:a967e5156819f2f3b0144a99fdabefa11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts RGB values to their corresponding ANSI escape code string for foreground color.  <br /></td></tr>
+<tr class="separator:a967e5156819f2f3b0144a99fdabefa11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecc669f8e3b77995888c0f38c2341663"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#aecc669f8e3b77995888c0f38c2341663">sista::setScreenMode</a> (ScreenMode)</td></tr>
 <tr class="memdesc:aecc669f8e3b77995888c0f38c2341663"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a specific screen mode.  <br /></td></tr>
 <tr class="separator:aecc669f8e3b77995888c0f38c2341663"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -457,7 +477,7 @@ Not all terminals support all ANSI features. </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 4 2025 13:15:26 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generated on Sat Sep 6 2025 19:08:08 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>

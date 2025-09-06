@@ -5,5 +5,6 @@ var searchData=
   ['addprintpawn_2',['addPrintPawn',['../classsista_1_1Field.html#a1a98bca7c067d5d72c9c1d1329ad5474',1,'sista::Field']]],
   ['ansisettings_3',['ANSISettings',['../structsista_1_1ANSISettings.html#aac7e1123de071b88e73a21f9283f0cdf',1,'sista::ANSISettings::ANSISettings()'],['../structsista_1_1ANSISettings.html#a7bef6e56f78c6f5029e3f48b82c7b691',1,'sista::ANSISettings::ANSISettings(const RGBColor &amp;, const RGBColor &amp;, const Attribute &amp;)'],['../structsista_1_1ANSISettings.html#a9fb532f612086b8f3e088e6ba2251eff',1,'sista::ANSISettings::ANSISettings(const ForegroundColor &amp;, const BackgroundColor &amp;, const Attribute &amp;)'],['../structsista_1_1ANSISettings.html#a1dda458c775d0557c93b02d76751a1d0',1,'sista::ANSISettings::ANSISettings(const RGBColor &amp;, const BackgroundColor &amp;, const Attribute &amp;)'],['../structsista_1_1ANSISettings.html#a57b66bc96062109321dce606f1041270',1,'sista::ANSISettings::ANSISettings(const ForegroundColor &amp;, const RGBColor &amp;, const Attribute &amp;)']]],
   ['apply_4',['apply',['../structsista_1_1ANSISettings.html#a41f1181ac07aa60b90358bdc0fbf011e',1,'sista::ANSISettings']]],
-  ['applyswaps_5',['applySwaps',['../classsista_1_1SwappableField.html#a935206fd3813b742efb6fc1720f71376',1,'sista::SwappableField']]]
+  ['applyswaps_5',['applySwaps',['../classsista_1_1SwappableField.html#a935206fd3813b742efb6fc1720f71376',1,'sista::SwappableField']]],
+  ['attrstr_6',['attrStr',['../namespacesista.html#a687185cf5802d0217bac5e9e5f0e020a',1,'sista']]]
 ];
