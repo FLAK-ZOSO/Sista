@@ -103,6 +103,13 @@ namespace sista {
             << static_cast<short int>(blue) << "m";
         return oss.str();
     }
+    std::string bgColorStr(unsigned char red, unsigned char green, unsigned char blue) {
+        std::ostringstream oss;
+        oss << CSI << "48;2;" << static_cast<short int>(red) << ";"
+            << static_cast<short int>(green) << ";"
+            << static_cast<short int>(blue) << "m";
+        return oss.str();
+    }
 
     void setScreenMode(ScreenMode mode) {
         std::cout << CSI << '=' << static_cast<int>(mode) << 'h';

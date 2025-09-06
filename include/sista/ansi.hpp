@@ -380,6 +380,19 @@ namespace sista {
      *  \see RGBColor
     */
     std::string fgColorStr(unsigned char, unsigned char, unsigned char);
+    /** \brief Converts RGB values to their corresponding ANSI escape code string for background color.
+     *  \param red The red component (0-255).
+     *  \param green The green component (0-255).
+     *  \param blue The blue component (0-255).
+     *  \return A string representing the ANSI escape code for the specified RGB background color.
+     *
+     *  This function takes RGB values and returns the corresponding
+     *  ANSI escape code as a string for setting the background color. This can be
+     *  useful for constructing custom ANSI sequences or for logging purposes.
+     *
+     *  \see RGBColor
+    */
+    std::string bgColorStr(unsigned char, unsigned char, unsigned char);
 
     /** \enum ScreenMode
      *  \brief Represents various ANSI screen modes.
