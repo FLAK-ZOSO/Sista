@@ -20,6 +20,7 @@
  */
 #include "ansi.hpp"
 #include <iostream>
+#include <sstream>
 
 
 namespace sista {
@@ -73,28 +74,34 @@ namespace sista {
     }
 
     std::string fgColorStr(ForegroundColor color) {
-        return std::string(CSI) + std::to_string(static_cast<int>(color)) + "m";
+        return CSI + std::to_string(static_cast<int>(color)) + "m";
     }
     std::string bgColorStr(BackgroundColor color) {
-        return std::string(CSI) + std::to_string(static_cast<int>(color)) + "m";
+        return CSI + std::to_string(static_cast<int>(color)) + "m";
     }
     std::string attrStr(Attribute attribute) {
-        return std::string(CSI) + std::to_string(static_cast<int>(attribute)) + "m";
+        return CSI + std::to_string(static_cast<int>(attribute)) + "m";
     }
     std::string fgColorStr(const RGBColor& color) {
-        return std::string(CSI) + "38;2;" + std::to_string(static_cast<short int>(color.red)) + ";" +
-               std::to_string(static_cast<short int>(color.green)) + ";" +
-               std::to_string(static_cast<short int>(color.blue)) + "m";
+        std::ostringstream oss;
+        oss << CSI << "38;2;" << static_cast<short int>(color.red) << ";"
+            << static_cast<short int>(color.green) << ";"
+            << static_cast<short int>(color.blue) << "m";
+        return oss.str();
     }
     std::string bgColorStr(const RGBColor& color) {
-        return std::string(CSI) + "48;2;" + std::to_string(static_cast<short int>(color.red)) + ";" +
-               std::to_string(static_cast<short int>(color.green)) + ";" +
-               std::to_string(static_cast<short int>(color.blue)) + "m";
+        std::ostringstream oss;
+        oss << CSI << "48;2;" << static_cast<short int>(color.red) << ";"
+            << static_cast<short int>(color.green) << ";"
+            << static_cast<short int>(color.blue) << "m";
+        return oss.str();
     }
     std::string fgColorStr(unsigned char red, unsigned char green, unsigned char blue) {
-        return std::string(CSI) + "38;2;" + std::to_string(static_cast<short int>(red)) + ";" +
-               std::to_string(static_cast<short int>(green)) + ";" +
-               std::to_string(static_cast<short int>(blue)) + "m";
+        std::ostringstream oss;
+        oss << CSI << "38;2;" << static_cast<short int>(red) << ";"
+            << static_cast<short int>(green) << ";"
+            << static_cast<short int>(blue) << "m";
+        return oss.str();
     }
 
     void setScreenMode(ScreenMode mode) {
