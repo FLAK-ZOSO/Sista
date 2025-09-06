@@ -20,6 +20,7 @@
  */
 #include "ansi.hpp"
 #include <iostream>
+#include <sstream>
 
 
 namespace sista {
@@ -70,6 +71,37 @@ namespace sista {
     }
     void setBackgroundColor(unsigned char color) {
         std::cout << CSI << "48;5;" << color << "m";
+    }
+
+    std::string fgColorStr(ForegroundColor color) {
+        return CSI + std::to_string(static_cast<int>(color)) + "m";
+    }
+    std::string bgColorStr(BackgroundColor color) {
+        return CSI + std::to_string(static_cast<int>(color)) + "m";
+    }
+    std::string attrStr(Attribute attribute) {
+        return CSI + std::to_string(static_cast<int>(attribute)) + "m";
+    }
+    std::string fgColorStr(const RGBColor& color) {
+        std::ostringstream oss;
+        oss << CSI << "38;2;" << static_cast<short int>(color.red) << ";"
+            << static_cast<short int>(color.green) << ";"
+            << static_cast<short int>(color.blue) << "m";
+        return oss.str();
+    }
+    std::string bgColorStr(const RGBColor& color) {
+        std::ostringstream oss;
+        oss << CSI << "48;2;" << static_cast<short int>(color.red) << ";"
+            << static_cast<short int>(color.green) << ";"
+            << static_cast<short int>(color.blue) << "m";
+        return oss.str();
+    }
+    std::string fgColorStr(unsigned char red, unsigned char green, unsigned char blue) {
+        std::ostringstream oss;
+        oss << CSI << "38;2;" << static_cast<short int>(red) << ";"
+            << static_cast<short int>(green) << ";"
+            << static_cast<short int>(blue) << "m";
+        return oss.str();
     }
 
     void setScreenMode(ScreenMode mode) {

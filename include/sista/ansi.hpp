@@ -19,6 +19,7 @@
 #pragma once
 
 #include <variant>
+#include <string>
 
 
 /** \def ESC
@@ -308,6 +309,77 @@ namespace sista {
      *  \see 256-color palette
     */
     void setBackgroundColor(unsigned char);
+
+    /** \brief Converts a ForegroundColor enum to its corresponding ANSI escape code string.
+     *  \param color The ForegroundColor to convert.
+     *  \return A string representing the ANSI escape code for the specified foreground color.
+     *
+     *  This function takes a ForegroundColor enum value and returns the corresponding
+     *  ANSI escape code as a string. This can be useful for constructing custom
+     *  ANSI sequences or for logging purposes.
+     *
+     *  \see ForegroundColor
+    */
+    std::string fgColorStr(ForegroundColor);
+    /** \brief Converts a BackgroundColor enum to its corresponding ANSI escape code string.
+     *  \param color The BackgroundColor to convert.
+     *  \return A string representing the ANSI escape code for the specified background color.
+     *
+     *  This function takes a BackgroundColor enum value and returns the corresponding
+     *  ANSI escape code as a string. This can be useful for constructing custom
+     *  ANSI sequences or for logging purposes.
+     *
+     *  \see BackgroundColor
+    */
+    std::string bgColorStr(BackgroundColor);
+    /** \brief Converts an Attribute enum to its corresponding ANSI escape code string.
+     *  \param attribute The Attribute to convert.
+     *  \return A string representing the ANSI escape code for the specified attribute.
+     *
+     *  This function takes an Attribute enum value and returns the corresponding
+     *  ANSI escape code as a string. This can be useful for constructing custom
+     *  ANSI sequences or for logging purposes.
+     *
+     *  \see Attribute
+    */
+    std::string attrStr(Attribute);
+    /** \brief Converts an RGBColor struct to its corresponding ANSI escape code string for foreground color.
+     *  \param color The RGBColor to convert.
+     *  \return A string representing the ANSI escape code for the specified RGB foreground color.
+     *
+     *  This function takes an RGBColor struct and returns the corresponding
+     *  ANSI escape code as a string for setting the foreground color. This can be
+     *  useful for constructing custom ANSI sequences or for logging purposes.
+     *
+     *  \see RGBColor
+    */
+    std::string fgColorStr(const RGBColor&);
+    /** \brief Converts RGB values to their corresponding ANSI escape code string for foreground color.
+     *  \param red The red component (0-255).
+     *  \param green The green component (0-255).
+     *  \param blue The blue component (0-255).
+     *  \return A string representing the ANSI escape code for the specified RGB foreground color.
+     *
+     *  This function takes RGB values and returns the corresponding
+     *  ANSI escape code as a string for setting the foreground color. This can be
+     *  useful for constructing custom ANSI sequences or for logging purposes.
+     *
+     *  \see RGBColor
+    */
+    std::string bgColorStr(const RGBColor&);
+    /** \brief Converts RGB values to their corresponding ANSI escape code string for foreground color.
+     *  \param red The red component (0-255).
+     *  \param green The green component (0-255).
+     *  \param blue The blue component (0-255).
+     *  \return A string representing the ANSI escape code for the specified RGB foreground color.
+     *
+     *  This function takes RGB values and returns the corresponding
+     *  ANSI escape code as a string for setting the foreground color. This can be
+     *  useful for constructing custom ANSI sequences or for logging purposes.
+     *
+     *  \see RGBColor
+    */
+    std::string fgColorStr(unsigned char, unsigned char, unsigned char);
 
     /** \enum ScreenMode
      *  \brief Represents various ANSI screen modes.
