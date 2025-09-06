@@ -277,6 +277,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a967e5156819f2f3b0144a99fdabefa11"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a967e5156819f2f3b0144a99fdabefa11">fgColorStr</a> (unsigned char, unsigned char, unsigned char)</td></tr>
 <tr class="memdesc:a967e5156819f2f3b0144a99fdabefa11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts RGB values to their corresponding ANSI escape code string for foreground color.  <br /></td></tr>
 <tr class="separator:a967e5156819f2f3b0144a99fdabefa11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6af17320ac5ad66e1684faa66a7b9fb3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a6af17320ac5ad66e1684faa66a7b9fb3">bgColorStr</a> (unsigned char, unsigned char, unsigned char)</td></tr>
+<tr class="memdesc:a6af17320ac5ad66e1684faa66a7b9fb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts RGB values to their corresponding ANSI escape code string for background color.  <br /></td></tr>
+<tr class="separator:a6af17320ac5ad66e1684faa66a7b9fb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecc669f8e3b77995888c0f38c2341663"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#aecc669f8e3b77995888c0f38c2341663">setScreenMode</a> (<a class="el" href="namespacesista.html#a9630b668dd6f74adc69788f13da9da8e">ScreenMode</a>)</td></tr>
 <tr class="memdesc:aecc669f8e3b77995888c0f38c2341663"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a specific screen mode.  <br /></td></tr>
 <tr class="separator:aecc669f8e3b77995888c0f38c2341663"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -690,7 +693,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="aa02fe9e406add1ee51a67968dfdd0a3e" name="aa02fe9e406add1ee51a67968dfdd0a3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa02fe9e406add1ee51a67968dfdd0a3e">&#9670;&#160;</a></span>bgColorStr() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa02fe9e406add1ee51a67968dfdd0a3e">&#9670;&#160;</a></span>bgColorStr() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -719,7 +722,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="a3a8111229f1a0d69ea09d58595432cad" name="a3a8111229f1a0d69ea09d58595432cad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a8111229f1a0d69ea09d58595432cad">&#9670;&#160;</a></span>bgColorStr() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a8111229f1a0d69ea09d58595432cad">&#9670;&#160;</a></span>bgColorStr() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -745,6 +748,53 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A string representing the ANSI escape code for the specified RGB foreground color.</dd></dl>
 <p>This function takes RGB values and returns the corresponding ANSI escape code as a string for setting the foreground color. This can be useful for constructing custom ANSI sequences or for logging purposes.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1RGBColor.html" title="Represents an RGB color with red, green, and blue components in True Color (24-bit).">RGBColor</a> </dd></dl>
+
+</div>
+</div>
+<a id="a6af17320ac5ad66e1684faa66a7b9fb3" name="a6af17320ac5ad66e1684faa66a7b9fb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6af17320ac5ad66e1684faa66a7b9fb3">&#9670;&#160;</a></span>bgColorStr() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string sista::bgColorStr </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts RGB values to their corresponding ANSI escape code string for background color. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">red</td><td>The red component (0-255). </td></tr>
+    <tr><td class="paramname">green</td><td>The green component (0-255). </td></tr>
+    <tr><td class="paramname">blue</td><td>The blue component (0-255). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A string representing the ANSI escape code for the specified RGB background color.</dd></dl>
+<p>This function takes RGB values and returns the corresponding ANSI escape code as a string for setting the background color. This can be useful for constructing custom ANSI sequences or for logging purposes.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1RGBColor.html" title="Represents an RGB color with red, green, and blue components in True Color (24-bit).">RGBColor</a> </dd></dl>
 
 </div>
@@ -1412,7 +1462,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Sep 6 2025 19:08:08 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generated on Sat Sep 6 2025 19:12:45 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>
