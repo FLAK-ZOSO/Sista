@@ -72,6 +72,31 @@ namespace sista {
         std::cout << CSI << "48;5;" << color << "m";
     }
 
+    std::string fgColorStr(ForegroundColor color) {
+        return std::string(CSI) + std::to_string(static_cast<int>(color)) + "m";
+    }
+    std::string bgColorStr(BackgroundColor color) {
+        return std::string(CSI) + std::to_string(static_cast<int>(color)) + "m";
+    }
+    std::string attrStr(Attribute attribute) {
+        return std::string(CSI) + std::to_string(static_cast<int>(attribute)) + "m";
+    }
+    std::string fgColorStr(const RGBColor& color) {
+        return std::string(CSI) + "38;2;" + std::to_string(static_cast<short int>(color.red)) + ";" +
+               std::to_string(static_cast<short int>(color.green)) + ";" +
+               std::to_string(static_cast<short int>(color.blue)) + "m";
+    }
+    std::string bgColorStr(const RGBColor& color) {
+        return std::string(CSI) + "48;2;" + std::to_string(static_cast<short int>(color.red)) + ";" +
+               std::to_string(static_cast<short int>(color.green)) + ";" +
+               std::to_string(static_cast<short int>(color.blue)) + "m";
+    }
+    std::string fgColorStr(unsigned char red, unsigned char green, unsigned char blue) {
+        return std::string(CSI) + "38;2;" + std::to_string(static_cast<short int>(red)) + ";" +
+               std::to_string(static_cast<short int>(green)) + ";" +
+               std::to_string(static_cast<short int>(blue)) + "m";
+    }
+
     void setScreenMode(ScreenMode mode) {
         std::cout << CSI << '=' << static_cast<int>(mode) << 'h';
     }
