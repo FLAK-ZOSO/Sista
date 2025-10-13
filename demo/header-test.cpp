@@ -30,7 +30,9 @@ int main() {
                 }, default_settings
             )
         );
-        field.addPawn(pawns[i]);
+        try {
+            field.addPawn(pawns[i]);
+        } catch (const std::invalid_argument& e) {}
     }
     field.print(border);
 
