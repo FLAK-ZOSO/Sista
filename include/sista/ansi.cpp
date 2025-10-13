@@ -134,7 +134,16 @@ namespace sista {
 
     void ANSISettings::apply() const {
         setAttribute(Attribute::RESET);
-        setAttribute(attribute);
+        if (std::holds_alternative<Attribute>(attribute)) {
+            setAttribute(std::get<Attribute>(attribute));
+        } else {
+            const auto& attrs = std::get<std::bitset<10>>(attribute);
+            for (size_t i = 0; i < attrs.size(); ++i) {
+                if (attrs.test(i)) {
+                    setAttribute(static_cast<Attribute>(i));
+                }
+            }
+        }
         if (std::holds_alternative<ForegroundColor>(foregroundColor)) {
             setForegroundColor(std::get<ForegroundColor>(foregroundColor));
         } else {

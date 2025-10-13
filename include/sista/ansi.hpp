@@ -19,6 +19,7 @@
 #pragma once
 
 #include <variant>
+#include <bitset>
 #include <string>
 
 
@@ -470,8 +471,26 @@ namespace sista {
          *  \see RGBColor
         */
         std::variant<BackgroundColor, RGBColor> backgroundColor;
-        /** \brief Text attribute setting. */
-        Attribute attribute;
+        /** \brief Text attribute setting.
+         *
+         *  This variant holds either a single Attribute enum value
+         *  or a bitset representing multiple attributes.
+         * 
+         *  The bitset uses the following mapping:
+         * - Bit 0: RESET
+         * - Bit 1: BRIGHT
+         * - Bit 2: FAINT
+         * - Bit 3: ITALIC
+         * - Bit 4: UNDERSCORE
+         * - Bit 5: BLINK
+         * - Bit 6: RAPID_BLINK
+         * - Bit 7: REVERSE
+         * - Bit 8: HIDDEN
+         * - Bit 9: STRIKETHROUGH
+         *
+         *  \see Attribute
+        */
+        std::variant<Attribute, std::bitset<10>> attribute;
 
         /** Default constructor initializing to white foreground, black background, and reset attribute. */
         ANSISettings();
