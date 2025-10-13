@@ -168,6 +168,24 @@ namespace sista {
         HIDDEN = 8,
         STRIKETHROUGH = 9
     };
+    /** \brief Helper function to create a bitset from an initializer list of Attributes.
+     *  \param attrs An initializer list of Attribute enums.
+     *  \return A std::bitset<10> representing the set attributes.
+     *
+     *  This function takes an initializer list of Attribute enums and converts it
+     *  into a std::bitset<10>, where each bit corresponds to an attribute being set.
+     *  This is useful for managing multiple attributes in the ANSISettings struct.
+     *
+     *  \see Attribute
+    */
+    inline std::bitset<10> make_attr_bitset(std::initializer_list<Attribute> attrs) {
+        std::bitset<10> bits;
+        for (auto attr : attrs) {
+            bits.set(static_cast<int>(attr));
+        }
+        return bits;
+    }
+
     /** \struct RGBColor
      *  \brief Represents an RGB color with red, green, and blue components in True Color (24-bit).
      *
@@ -518,6 +536,26 @@ namespace sista {
          *  \param attribute_ The text Attribute.
         */
         ANSISettings(const ForegroundColor&, const RGBColor&, const Attribute&);
+        /** \brief Parametrized constructor with an initializer for the bitset attribute.
+         *  \param foregroundColor_ The ForegroundColor for the foreground.
+         *  \param backgroundColor_ The BackgroundColor for the background.
+         *  \param attribute_ The text attributes as a bitset.
+        */
+        ANSISettings(const ForegroundColor&, const BackgroundColor&, const std::bitset<10>&);
+        /** \brief Parametrized constructor with an initializer list for the bitset attribute.
+         *  \param foregroundColor_ The RGBColor for the foreground.
+         *  \param backgroundColor_ The RGBColor for the background.
+         *  \param attribute_ The text attributes as a bitset.
+        */
+        ANSISettings(const RGBColor&, const RGBColor&, std::initializer_list<Attribute>);
+        /** \brief Parametrized constructor with all variants.
+         *  \param foregroundColor_ The foreground color (ForegroundColor or RGBColor).
+         *  \param backgroundColor_ The background color (BackgroundColor or RGBColor).
+         *  \param attribute_ The text attribute (Attribute or bitset).
+        */
+        ANSISettings(const std::variant<ForegroundColor, RGBColor>&,
+                     const std::variant<BackgroundColor, RGBColor>&,
+                     const std::variant<Attribute, std::bitset<10>>&);
 
         /** \brief Applies the ANSI settings to the terminal.
          *
