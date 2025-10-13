@@ -505,7 +505,12 @@ namespace sista {
          * - Bit 7: REVERSE
          * - Bit 8: HIDDEN
          * - Bit 9: STRIKETHROUGH
-         *
+         * 
+         *  Setting a bit to 1 enables the corresponding attribute.
+         *  \note In case of conflict, the last applied attribute takes precedence.
+         *  \note Not all terminals support all attributes. RAPID_BLINK and HIDDEN are particularly unsupported.
+         * 
+         *  \see make_attr_bitset
          *  \see Attribute
         */
         std::variant<Attribute, std::bitset<10>> attribute;
