@@ -124,6 +124,10 @@ namespace sista {
     }
 
     void Field::addPawn(std::shared_ptr<Pawn> pawn) { // Add a pawn to the matrix
+        // Check if the coordinates are already occupied by another pawn
+        if (isOccupied(pawn->getCoordinates())) {
+            throw std::invalid_argument("Cannot add pawn: coordinates are already occupied");
+        }
         pawns[pawn->getCoordinates().y][pawn->getCoordinates().x] = pawn; // Set the pawn to the coordinates
     }
     void Field::removePawn(Pawn* pawn) { // Remove a pawn from the matrix
@@ -346,14 +350,30 @@ namespace sista {
     }
 
     void SwappableField::addPawn(std::shared_ptr<Pawn> pawn) { // addPawn - add a pawn to the field
-        if (isFree(pawn->getCoordinates())) // If the cell is occupied...
-            pawnsCount[pawn->getCoordinates().y][pawn->getCoordinates().x]++;
-        Field::addPawn(pawn);
+        Field::addPawn(pawn); // This will throw if the cell is occupied
+        // Set the count to 1 for this cell
+        pawnsCount[pawn->getCoordinates().y][pawn->getCoordinates().x] = 1;
     }
     void SwappableField::removePawn(Pawn* pawn) { // removePawn - remove a pawn from the field
         if (pawn != nullptr)
             pawnsCount[pawn->getCoordinates().y][pawn->getCoordinates().x]--;
         Field::removePawn(pawn);
+    }
+
+    void SwappableField::movePawn(Pawn* pawn, const Coordinates& coordinates) { // movePawn - move a pawn to the coordinates
+        // Store old coordinates before moving
+        Coordinates oldCoordinates = pawn->getCoordinates();
+        
+        // Call the base class method (this will throw if the move is invalid)
+        Field::movePawn(pawn, coordinates);
+        
+        // Update pawnsCount: decrement at old position, set to 1 at new position
+        pawnsCount[oldCoordinates.y][oldCoordinates.x]--;
+        pawnsCount[coordinates.y][coordinates.x] = 1;
+    }
+    void SwappableField::movePawn(Pawn* pawn, unsigned short y, unsigned short x) { // movePawn - move a pawn to the coordinates
+        Coordinates coordinates_(y, x);
+        movePawn(pawn, coordinates_);
     }
 
     void SwappableField::clearPawnsToSwap() { // clearPawnsToSwap - clear the pawnsToSwap

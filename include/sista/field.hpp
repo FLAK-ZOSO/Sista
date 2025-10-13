@@ -760,6 +760,40 @@ namespace sista {
         */
         void removePawn(Pawn*) override; // removePawn - remove a pawn from the field
 
+        /** \brief Moves a Pawn to new coordinates and updates the pawnsCount grid.
+         *  \param pawn A pointer to the Pawn to move.
+         *  \param coordinates The new Coordinates to move the Pawn to.
+         *
+         *  This method moves the specified Pawn to the given coordinates on the field
+         *  and updates the pawnsCount grid accordingly by decrementing the count at the
+         *  old position and setting it to 1 at the new position.
+         *
+         *  \throws `std::invalid_argument` if the coordinates are occupied by another Pawn or out of bounds.
+         *
+         *  \see Field::movePawn
+         *  \see Pawn
+         *  \see Coordinates
+        */
+        void movePawn(Pawn*, const Coordinates&); // movePawn - move a pawn to the coordinates
+        /** \brief Moves a Pawn to new coordinates and updates the pawnsCount grid.
+         *  \param pawn A pointer to the Pawn to move.
+         *  \param y The new y coordinate (row) to move the Pawn to.
+         *  \param x The new x coordinate (column) to move the Pawn to.
+         *
+         *  This method moves the specified Pawn to the given coordinates on the field
+         *  and updates the pawnsCount grid accordingly by decrementing the count at the
+         *  old position and setting it to 1 at the new position.
+         *
+         *  \throws `std::invalid_argument` if the coordinates are occupied by another Pawn or out of bounds.
+         *
+         *  \note This method is just a convenience overload that constructs a Coordinates object internally.
+         *
+         *  \see Field::movePawn
+         *  \see Pawn
+         *  \see Coordinates
+        */
+        void movePawn(Pawn*, unsigned short, unsigned short); // movePawn - move a pawn to the coordinates
+
         /** \brief Adds a Pawn to the set of pawnsToSwap.
          *  \param pawn A pointer to the Pawn to add.
          *  \param destination The Coordinates representing the destination of the Pawn.
