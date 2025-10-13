@@ -827,7 +827,12 @@ Public Attributes</h2></td></tr>
 <li>Bit 7: REVERSE</li>
 <li>Bit 8: HIDDEN</li>
 <li><p class="startli">Bit 9: STRIKETHROUGH</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2f" title="Enumeration of text attributes for ANSI escape codes.">Attribute</a> </dd></dl>
+<p class="startli">Setting a bit to 1 enables the corresponding attribute. </p><dl class="section note"><dt>Note</dt><dd>In case of conflict, the last applied attribute takes precedence. </dd>
+<dd>
+Not all terminals support all attributes. RAPID_BLINK and HIDDEN are particularly unsupported.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacesista.html#a17788919e6baa754d322be521ba47833" title="Helper function to create a bitset from an initializer list of Attributes.">make_attr_bitset</a> </dd>
+<dd>
+<a class="el" href="namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2f" title="Enumeration of text attributes for ANSI escape codes.">Attribute</a> </dd></dl>
 </li>
 </ul>
 
@@ -880,7 +885,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 13 2025 21:48:33 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generated on Mon Oct 13 2025 21:55:39 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>
