@@ -570,5 +570,16 @@ namespace sista {
          *  \see setAttribute
         */
         void apply() const;
+        /** \brief Resets all ANSI settings to default values.
+         *
+         *  This method resets the terminal's text attributes by
+         *  disabling the ones that were set in this ANSISettings instance.
+         * 
+         *  It also tries to reset the foreground color to WHITE
+         *  and the background color to BLACK, which are the defaults.
+         *
+         *  \see Attribute
+        */
+        void reset() const;
     };
 };

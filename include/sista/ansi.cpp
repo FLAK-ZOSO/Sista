@@ -163,4 +163,26 @@ namespace sista {
             setBackgroundColor(std::get<RGBColor>(backgroundColor));
         }
     }
+    void ANSISettings::reset() const {
+        if (std::holds_alternative<Attribute>(attribute)) {
+            resetAttribute(std::get<Attribute>(attribute));
+        } else {
+            const auto& attrs = std::get<std::bitset<10>>(attribute);
+            for (size_t i = 0; i < attrs.size(); ++i) {
+                if (attrs.test(i)) {
+                    resetAttribute(static_cast<Attribute>(i));
+                }
+            }
+        }
+        if (std::holds_alternative<ForegroundColor>(foregroundColor)) {
+            setForegroundColor(ForegroundColor::WHITE);
+        } else {
+            setForegroundColor(RGBColor(255, 255, 255));
+        }
+        if (std::holds_alternative<BackgroundColor>(backgroundColor)) {
+            setBackgroundColor(BackgroundColor::BLACK);
+        } else {
+            setBackgroundColor(RGBColor(0, 0, 0));
+        }
+    }
 };
