@@ -148,6 +148,8 @@ namespace sista {
          *
          *  \warning The Pawn's coordinates must be valid (within the field bounds) as they are not validated here.
          *  \note The method takes a shared pointer to manage the Pawn's memory automatically.
+         * 
+         *  \throws `std::invalid_argument` if the coordinates are occupied by another Pawn.
          *
          *  \see Pawn
         */
@@ -740,6 +742,8 @@ namespace sista {
          *
          *  \warning The Pawn's coordinates must be valid (within the field bounds) as they are not validated here.
          *  \note The method takes a shared pointer to manage the Pawn's memory automatically.
+         *
+         *  \throws `std::invalid_argument` if the coordinates are occupied by another Pawn.
          *
          *  \see Field::addPawn
          *  \see Pawn
