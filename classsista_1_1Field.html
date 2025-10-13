@@ -94,7 +94,7 @@ Inheritance diagram for sista::Field:</div>
 <div class="center"><img src="classsista_1_1Field__inherit__graph.png" border="0" usemap="#asista_1_1Field_inherit__map" alt="Inheritance graph"/></div>
 <map name="asista_1_1Field_inherit__map" id="asista_1_1Field_inherit__map">
 <area shape="rect" title="Represents a 2D grid where Pawns can be placed, moved, and managed." alt="" coords="7,5,167,303"/>
-<area shape="rect" href="classsista_1_1SwappableField.html" title="A specialized Field that handles Pawn swaps without conflicts." alt="" coords="5,351,168,560"/>
+<area shape="rect" href="classsista_1_1SwappableField.html" title="A specialized Field that handles Pawn swaps without conflicts." alt="" coords="5,351,168,589"/>
 </map>
 </div>
 <div class="dynheader">
@@ -354,6 +354,12 @@ Protected Attributes</h2></td></tr>
 <p>This method places the given <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> on the field at its current coordinates. If the coordinates are already occupied, the existing <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> will be replaced.</p>
 <dl class="section warning"><dt>Warning</dt><dd>The <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>'s coordinates must be valid (within the field bounds) as they are not validated here. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The method takes a shared pointer to manage the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>'s memory automatically.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">`std::invalid_argument`</td><td>if the coordinates are occupied by another <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classsista_1_1SwappableField.html#a49e13212cf1b0f28d428762105c34cfd">sista::SwappableField</a>.</p>
@@ -1990,7 +1996,7 @@ This is a negation of isOccupied provided that isOutOfBounds returns false. Read
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Sep 6 2025 19:12:45 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generated on Mon Oct 13 2025 15:53:54 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>

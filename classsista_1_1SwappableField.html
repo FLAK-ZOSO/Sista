@@ -91,7 +91,7 @@ Inheritance diagram for sista::SwappableField:</div>
 <div class="dyncontent">
 <div class="center"><img src="classsista_1_1SwappableField__inherit__graph.png" border="0" usemap="#asista_1_1SwappableField_inherit__map" alt="Inheritance graph"/></div>
 <map name="asista_1_1SwappableField_inherit__map" id="asista_1_1SwappableField_inherit__map">
-<area shape="rect" title="A specialized Field that handles Pawn swaps without conflicts." alt="" coords="5,351,168,560"/>
+<area shape="rect" title="A specialized Field that handles Pawn swaps without conflicts." alt="" coords="5,351,168,589"/>
 <area shape="rect" href="classsista_1_1Field.html" title="Represents a 2D grid where Pawns can be placed, moved, and managed." alt="" coords="7,5,167,303"/>
 </map>
 </div>
@@ -100,7 +100,7 @@ Collaboration diagram for sista::SwappableField:</div>
 <div class="dyncontent">
 <div class="center"><img src="classsista_1_1SwappableField__coll__graph.png" border="0" usemap="#asista_1_1SwappableField_coll__map" alt="Collaboration graph"/></div>
 <map name="asista_1_1SwappableField_coll__map" id="asista_1_1SwappableField_coll__map">
-<area shape="rect" title="A specialized Field that handles Pawn swaps without conflicts." alt="" coords="5,595,168,804"/>
+<area shape="rect" title="A specialized Field that handles Pawn swaps without conflicts." alt="" coords="5,595,168,833"/>
 <area shape="rect" href="classsista_1_1Field.html" title="Represents a 2D grid where Pawns can be placed, moved, and managed." alt="" coords="7,263,167,545"/>
 <area shape="rect" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations." alt="" coords="23,5,150,200"/>
 </map>
@@ -120,6 +120,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abfe055739090c33966a736be1c020b11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1SwappableField.html#abfe055739090c33966a736be1c020b11">removePawn</a> (<a class="el" href="classsista_1_1Pawn.html">Pawn</a> *) override</td></tr>
 <tr class="memdesc:abfe055739090c33966a736be1c020b11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> from the field and updates the pawnsCount grid.  <br /></td></tr>
 <tr class="separator:abfe055739090c33966a736be1c020b11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a930d407604bbeffbcb7cce1a8cc7f189"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1SwappableField.html#a930d407604bbeffbcb7cce1a8cc7f189">movePawn</a> (<a class="el" href="classsista_1_1Pawn.html">Pawn</a> *, const <a class="el" href="structsista_1_1Coordinates.html">Coordinates</a> &amp;)</td></tr>
+<tr class="memdesc:a930d407604bbeffbcb7cce1a8cc7f189"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves a <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> to new coordinates and updates the pawnsCount grid.  <br /></td></tr>
+<tr class="separator:a930d407604bbeffbcb7cce1a8cc7f189"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7a2084105b58363dd4b4e0943ff0236"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1SwappableField.html#af7a2084105b58363dd4b4e0943ff0236">movePawn</a> (<a class="el" href="classsista_1_1Pawn.html">Pawn</a> *, unsigned short, unsigned short)</td></tr>
+<tr class="memdesc:af7a2084105b58363dd4b4e0943ff0236"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves a <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> to new coordinates and updates the pawnsCount grid.  <br /></td></tr>
+<tr class="separator:af7a2084105b58363dd4b4e0943ff0236"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adddb7c2d26903c32470f7f12c14da0ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1SwappableField.html#adddb7c2d26903c32470f7f12c14da0ae">addPawnToSwap</a> (<a class="el" href="classsista_1_1Pawn.html">Pawn</a> *, const <a class="el" href="structsista_1_1Coordinates.html">Coordinates</a> &amp;)</td></tr>
 <tr class="memdesc:adddb7c2d26903c32470f7f12c14da0ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> to the set of pawnsToSwap.  <br /></td></tr>
 <tr class="separator:adddb7c2d26903c32470f7f12c14da0ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -372,6 +378,12 @@ Additional Inherited Members</h2></td></tr>
 <p>This method places the given <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> on the field at its current coordinates and increments the count of Pawns at that position in the pawnsCount grid. If the coordinates are already occupied, the existing <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> will be replaced.</p>
 <dl class="section warning"><dt>Warning</dt><dd>The <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>'s coordinates must be valid (within the field bounds) as they are not validated here. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The method takes a shared pointer to manage the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>'s memory automatically.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">`std::invalid_argument`</td><td>if the coordinates are occupied by another <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Field.html#aa4729a662bfa94eed3b5684d989189e1" title="Adds a Pawn to the field at its specified coordinates.">Field::addPawn</a> </dd>
 <dd>
 <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> </dd></dl>
@@ -489,6 +501,112 @@ pawnsToSwap </dd></dl>
 <dl class="section see"><dt>See also</dt><dd>pawnsToSwap </dd>
 <dd>
 <a class="el" href="structsista_1_1Path.html" title="Represents a movement path for a Pawn, including priority handling.">Path</a> </dd></dl>
+
+</div>
+</div>
+<a id="a930d407604bbeffbcb7cce1a8cc7f189" name="a930d407604bbeffbcb7cce1a8cc7f189"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a930d407604bbeffbcb7cce1a8cc7f189">&#9670;&#160;</a></span>movePawn() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sista::SwappableField::movePawn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsista_1_1Pawn.html">Pawn</a> *&#160;</td>
+          <td class="paramname"><em>pawn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structsista_1_1Coordinates.html">Coordinates</a> &amp;&#160;</td>
+          <td class="paramname"><em>coordinates</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Moves a <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> to new coordinates and updates the pawnsCount grid. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pawn</td><td>A pointer to the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> to move. </td></tr>
+    <tr><td class="paramname">coordinates</td><td>The new <a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">Coordinates</a> to move the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> to.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This method moves the specified <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> to the given coordinates on the field and updates the pawnsCount grid accordingly by decrementing the count at the old position and setting it to 1 at the new position.</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">`std::invalid_argument`</td><td>if the coordinates are occupied by another <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> or out of bounds.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Field.html#a008c504583d57fc0ff207f7ae71fe5ce" title="Moves a Pawn to new coordinates.">Field::movePawn</a> </dd>
+<dd>
+<a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> </dd>
+<dd>
+<a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">Coordinates</a> </dd></dl>
+
+</div>
+</div>
+<a id="af7a2084105b58363dd4b4e0943ff0236" name="af7a2084105b58363dd4b4e0943ff0236"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7a2084105b58363dd4b4e0943ff0236">&#9670;&#160;</a></span>movePawn() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sista::SwappableField::movePawn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsista_1_1Pawn.html">Pawn</a> *&#160;</td>
+          <td class="paramname"><em>pawn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Moves a <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> to new coordinates and updates the pawnsCount grid. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pawn</td><td>A pointer to the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> to move. </td></tr>
+    <tr><td class="paramname">y</td><td>The new y coordinate (row) to move the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> to. </td></tr>
+    <tr><td class="paramname">x</td><td>The new x coordinate (column) to move the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> to.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This method moves the specified <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> to the given coordinates on the field and updates the pawnsCount grid accordingly by decrementing the count at the old position and setting it to 1 at the new position.</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">`std::invalid_argument`</td><td>if the coordinates are occupied by another <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> or out of bounds.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This method is just a convenience overload that constructs a <a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">Coordinates</a> object internally.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Field.html#a008c504583d57fc0ff207f7ae71fe5ce" title="Moves a Pawn to new coordinates.">Field::movePawn</a> </dd>
+<dd>
+<a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> </dd>
+<dd>
+<a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">Coordinates</a> </dd></dl>
 
 </div>
 </div>
@@ -645,7 +763,7 @@ pawnsToSwap </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Sep 6 2025 19:12:45 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generated on Mon Oct 13 2025 15:53:54 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>
