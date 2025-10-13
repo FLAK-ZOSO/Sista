@@ -286,6 +286,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ac1d0f710dead79a74b4a4f5aeb0002b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#ac1d0f710dead79a74b4a4f5aeb0002b3">unsetScreenMode</a> (<a class="el" href="namespacesista.html#a9630b668dd6f74adc69788f13da9da8e">ScreenMode</a>)</td></tr>
 <tr class="memdesc:ac1d0f710dead79a74b4a4f5aeb0002b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unsets a specific screen mode.  <br /></td></tr>
 <tr class="separator:ac1d0f710dead79a74b4a4f5aeb0002b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17788919e6baa754d322be521ba47833"><td class="memItemLeft" align="right" valign="top">std::bitset&lt; 10 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a17788919e6baa754d322be521ba47833">make_attr_bitset</a> (std::initializer_list&lt; <a class="el" href="namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2f">Attribute</a> &gt; attrs)</td></tr>
+<tr class="memdesc:a17788919e6baa754d322be521ba47833"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to create a bitset from an initializer list of Attributes.  <br /></td></tr>
+<tr class="separator:a17788919e6baa754d322be521ba47833"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab565ece8b1fc80fb01f6ab41951b42ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#ab565ece8b1fc80fb01f6ab41951b42ce">clearScreen</a> (bool spaces=true)</td></tr>
 <tr class="memdesc:ab565ece8b1fc80fb01f6ab41951b42ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the terminal screen and optionally the scrollback buffer.  <br /></td></tr>
 <tr class="separator:ab565ece8b1fc80fb01f6ab41951b42ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1057,6 +1060,43 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a17788919e6baa754d322be521ba47833" name="a17788919e6baa754d322be521ba47833"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17788919e6baa754d322be521ba47833">&#9670;&#160;</a></span>make_attr_bitset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::bitset&lt; 10 &gt; sista::make_attr_bitset </td>
+          <td>(</td>
+          <td class="paramtype">std::initializer_list&lt; <a class="el" href="namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2f">Attribute</a> &gt;&#160;</td>
+          <td class="paramname"><em>attrs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper function to create a bitset from an initializer list of Attributes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">attrs</td><td>An initializer list of Attribute enums. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A std::bitset&lt;10&gt; representing the set attributes.</dd></dl>
+<p>This function takes an initializer list of Attribute enums and converts it into a std::bitset&lt;10&gt;, where each bit corresponds to an attribute being set. This is useful for managing multiple attributes in the <a class="el" href="structsista_1_1ANSISettings.html" title="Represents a set of ANSI settings including colors and attributes.">ANSISettings</a> struct.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2f" title="Enumeration of text attributes for ANSI escape codes.">Attribute</a> </dd></dl>
+
+</div>
+</div>
 <a id="a01b6f49cb4ab2bca5aa726b576a6f3ad" name="a01b6f49cb4ab2bca5aa726b576a6f3ad"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a01b6f49cb4ab2bca5aa726b576a6f3ad">&#9670;&#160;</a></span>resetAnsi()</h2>
 
@@ -1462,7 +1502,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 13 2025 15:53:54 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generated on Mon Oct 13 2025 21:48:33 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>

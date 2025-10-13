@@ -1,4 +1,4 @@
 <map id="sista::Border" name="sista::Border">
-<area shape="rect" id="node1" title="Represents a brick of the border with a symbol and ANSI settings." alt="" coords="27,248,131,355"/>
-<area shape="rect" id="node2" href="$structsista_1_1ANSISettings.html" title="Represents a set of ANSI settings including colors and attributes." alt="" coords="5,5,152,185"/>
+<area shape="rect" id="node1" title="Represents a brick of the border with a symbol and ANSI settings." alt="" coords="27,321,131,428"/>
+<area shape="rect" id="node2" href="$structsista_1_1ANSISettings.html" title="Represents a set of ANSI settings including colors and attributes." alt="" coords="5,5,152,259"/>
 </map>
