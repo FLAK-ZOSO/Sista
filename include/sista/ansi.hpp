@@ -536,6 +536,42 @@ namespace sista {
          *  \param attribute_ The text Attribute.
         */
         ANSISettings(const ForegroundColor&, const RGBColor&, const Attribute&);
+        /** \brief Parameterized constructor with RGBColor for both foreground and background, and a bitset for attributes.
+         *  \param foregroundColor_ The RGBColor for the foreground.
+         *  \param backgroundColor_ The RGBColor for the background.
+         *  \param attribute_ The text attributes as a bitset.
+        */
+        ANSISettings(const RGBColor&, const RGBColor&, const std::bitset<10>&);
+        /** \brief Parameterized constructor with ForegroundColor and RGBColor, and a bitset for attributes.
+         *  \param foregroundColor_ The ForegroundColor for the foreground.
+         *  \param backgroundColor_ The RGBColor for the background.
+         *  \param attribute_ The text attributes as a bitset.
+        */
+        ANSISettings(const ForegroundColor&, const RGBColor&, const std::bitset<10>&);
+        /** \brief Parameterized constructor with RGBColor and BackgroundColor, and a bitset for attributes.
+         *  \param foregroundColor_ The RGBColor for the foreground.
+         *  \param backgroundColor_ The BackgroundColor for the background.
+         *  \param attribute_ The text attributes as a bitset.
+        */
+        ANSISettings(const RGBColor&, const BackgroundColor&, const std::bitset<10>&);
+        /** \brief Parameterized constructor with ForegroundColor and BackgroundColor, and an initializer list for attributes.
+         *  \param foregroundColor_ The ForegroundColor for the foreground.
+         *  \param backgroundColor_ The BackgroundColor for the background.
+         *  \param attribute_ The text attributes as an initializer list.
+        */
+        ANSISettings(const ForegroundColor&, const BackgroundColor&, std::initializer_list<Attribute>);
+        /** \brief Parameterized constructor with ForegroundColor and RGBColor, and an initializer list for attributes.
+         *  \param foregroundColor_ The ForegroundColor for the foreground.
+         *  \param backgroundColor_ The RGBColor for the background.
+         *  \param attribute_ The text attributes as an initializer list.
+        */
+        ANSISettings(const ForegroundColor&, const RGBColor&, std::initializer_list<Attribute>);
+        /** \brief Parameterized constructor with RGBColor and BackgroundColor, and an initializer list for attributes.
+         *  \param foregroundColor_ The RGBColor for the foreground.
+         *  \param backgroundColor_ The BackgroundColor for the background.
+         *  \param attribute_ The text attributes as an initializer list.
+        */
+        ANSISettings(const RGBColor&, const BackgroundColor&, std::initializer_list<Attribute>);
         /** \brief Parametrized constructor with an initializer for the bitset attribute.
          *  \param foregroundColor_ The ForegroundColor for the foreground.
          *  \param backgroundColor_ The BackgroundColor for the background.

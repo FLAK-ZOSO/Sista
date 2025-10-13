@@ -133,12 +133,20 @@ namespace sista {
         : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
     ANSISettings::ANSISettings(const ForegroundColor& foregroundColor_, const BackgroundColor& backgroundColor_, const std::bitset<10>& attribute_)
         : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
+    ANSISettings::ANSISettings(const RGBColor& foregroundColor_, const RGBColor& backgroundColor_, const std::bitset<10>& attribute_)
+        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
+    ANSISettings::ANSISettings(const ForegroundColor& foregroundColor_, const BackgroundColor& backgroundColor_, std::initializer_list<Attribute> attribute_)
+        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(make_attr_bitset(attribute_)) {}
     ANSISettings::ANSISettings(const RGBColor& foregroundColor_, const RGBColor& backgroundColor_, std::initializer_list<Attribute> attribute_)
         : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(make_attr_bitset(attribute_)) {}
-    ANSISettings::ANSISettings(const std::variant<ForegroundColor, RGBColor>& foregroundColor_,
-                               const std::variant<BackgroundColor, RGBColor>& backgroundColor_,
-                               const std::variant<Attribute, std::bitset<10>>& attribute_)
+    ANSISettings::ANSISettings(const ForegroundColor& foregroundColor_, const RGBColor& backgroundColor_, const std::bitset<10>& attribute_)
         : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
+    ANSISettings::ANSISettings(const RGBColor& foregroundColor_, const BackgroundColor& backgroundColor_, const std::bitset<10>& attribute_)
+        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
+    ANSISettings::ANSISettings(const ForegroundColor& foregroundColor_, const RGBColor& backgroundColor_, std::initializer_list<Attribute> attribute_)
+        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(make_attr_bitset(attribute_)) {}
+    ANSISettings::ANSISettings(const RGBColor& foregroundColor_, const BackgroundColor& backgroundColor_, std::initializer_list<Attribute> attribute_)
+        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(make_attr_bitset(attribute_)) {}
 
     void ANSISettings::apply() const {
         setAttribute(Attribute::RESET);
