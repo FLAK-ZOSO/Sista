@@ -13,7 +13,13 @@ ifeq "$(shell uname -s)" "Darwin"
 	DYLD_LIBRARY_PATH_DIRECTIVE = -Wl,-rpath,$(PREFIX)/lib
 endif
 
-all: header-test color-string colors24-bit colors256 conflictTest resetAttribute screen-mode swapTest verticalTest pawnsCountTest clean_objects
+all: header-test color-string colors24-bit colors256 conflictTest resetAttribute screen-mode swapTest verticalTest pawnsCountTest attributes clean_objects
+
+attributes.o: attributes.cpp
+	g++ -std=c++17 -Wall -g -c attributes.cpp
+
+attributes: attributes.o $(OBJECTS)
+	g++ -Wall -g -o attributes attributes.o $(OBJECTS)
 
 pawnsCountTest.o: pawnsCountTest.cpp
 	g++ -std=c++17 -Wall -Wno-narrowing -Wno-sign-compare -g -c pawnsCountTest.cpp

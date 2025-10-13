@@ -131,10 +131,35 @@ namespace sista {
         : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
     ANSISettings::ANSISettings(const RGBColor& foregroundColor_, const BackgroundColor& backgroundColor_, const Attribute& attribute_)
         : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
+    ANSISettings::ANSISettings(const ForegroundColor& foregroundColor_, const BackgroundColor& backgroundColor_, const std::bitset<10>& attribute_)
+        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
+    ANSISettings::ANSISettings(const RGBColor& foregroundColor_, const RGBColor& backgroundColor_, const std::bitset<10>& attribute_)
+        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
+    ANSISettings::ANSISettings(const ForegroundColor& foregroundColor_, const BackgroundColor& backgroundColor_, std::initializer_list<Attribute> attribute_)
+        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(make_attr_bitset(attribute_)) {}
+    ANSISettings::ANSISettings(const RGBColor& foregroundColor_, const RGBColor& backgroundColor_, std::initializer_list<Attribute> attribute_)
+        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(make_attr_bitset(attribute_)) {}
+    ANSISettings::ANSISettings(const ForegroundColor& foregroundColor_, const RGBColor& backgroundColor_, const std::bitset<10>& attribute_)
+        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
+    ANSISettings::ANSISettings(const RGBColor& foregroundColor_, const BackgroundColor& backgroundColor_, const std::bitset<10>& attribute_)
+        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(attribute_) {}
+    ANSISettings::ANSISettings(const ForegroundColor& foregroundColor_, const RGBColor& backgroundColor_, std::initializer_list<Attribute> attribute_)
+        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(make_attr_bitset(attribute_)) {}
+    ANSISettings::ANSISettings(const RGBColor& foregroundColor_, const BackgroundColor& backgroundColor_, std::initializer_list<Attribute> attribute_)
+        : foregroundColor(foregroundColor_), backgroundColor(backgroundColor_), attribute(make_attr_bitset(attribute_)) {}
 
     void ANSISettings::apply() const {
         setAttribute(Attribute::RESET);
-        setAttribute(attribute);
+        if (std::holds_alternative<Attribute>(attribute)) {
+            setAttribute(std::get<Attribute>(attribute));
+        } else {
+            const auto& attrs = std::get<std::bitset<10>>(attribute);
+            for (size_t i = 0; i < attrs.size(); ++i) {
+                if (attrs.test(i)) {
+                    setAttribute(static_cast<Attribute>(i));
+                }
+            }
+        }
         if (std::holds_alternative<ForegroundColor>(foregroundColor)) {
             setForegroundColor(std::get<ForegroundColor>(foregroundColor));
         } else {
@@ -144,6 +169,28 @@ namespace sista {
             setBackgroundColor(std::get<BackgroundColor>(backgroundColor));
         } else {
             setBackgroundColor(std::get<RGBColor>(backgroundColor));
+        }
+    }
+    void ANSISettings::reset() const {
+        if (std::holds_alternative<Attribute>(attribute)) {
+            resetAttribute(std::get<Attribute>(attribute));
+        } else {
+            const auto& attrs = std::get<std::bitset<10>>(attribute);
+            for (size_t i = 0; i < attrs.size(); ++i) {
+                if (attrs.test(i)) {
+                    resetAttribute(static_cast<Attribute>(i));
+                }
+            }
+        }
+        if (std::holds_alternative<ForegroundColor>(foregroundColor)) {
+            setForegroundColor(ForegroundColor::WHITE);
+        } else {
+            setForegroundColor(RGBColor(255, 255, 255));
+        }
+        if (std::holds_alternative<BackgroundColor>(backgroundColor)) {
+            setBackgroundColor(BackgroundColor::BLACK);
+        } else {
+            setBackgroundColor(RGBColor(0, 0, 0));
         }
     }
 };
