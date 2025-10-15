@@ -20,12 +20,16 @@ else
 	STATIC_FLAG=-static
 endif
 
-# Set default PREFIX for Windows and Unix
+# Set default PREFIX and variables based on OS
 ifeq ($(OS),Windows_NT)
     PREFIX ?= C:\Program Files\Sista
     LIB_EXT=.a
     SHARED_EXT=.dll
-else ifneq "$(shell uname -s)" "Darwin"
+else ifeq "$(shell uname -s)" "Darwin"
+    PREFIX ?= /usr/local
+    LIB_EXT=.a
+    SHARED_EXT=.dylib
+else
     PREFIX ?= /usr/local
     LIB_EXT=.a
     SHARED_EXT=.so
