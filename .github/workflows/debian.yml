@@ -22,7 +22,6 @@ jobs:
           path: packageroot/${{ steps.build_debs.outputs.artifacts }}
           if-no-files-found: warn
 
-      - uses: actions/checkout@v4
       - name: List repo root
         run: ls -la
       - name: List packageroot
