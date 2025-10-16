@@ -23,6 +23,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         name: Debian packages
         with:
-          path: ${{ needs.build-debs.outputs.artifacts }}
+          path: packageroot/${{ needs.build-debs.outputs.artifacts }}
           name: debian-packages
           if-no-files-found: warn
