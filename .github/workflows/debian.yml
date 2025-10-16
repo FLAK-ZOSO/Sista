@@ -9,4 +9,5 @@ jobs:
         env:
           DEB_BUILD_OPTIONS: noautodbgsym
         with:
+          source-dir: packageroot
           buildpackage-opts: --build=binary --no-sign
