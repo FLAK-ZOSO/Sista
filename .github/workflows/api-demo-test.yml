@@ -176,6 +176,7 @@ jobs:
       - name: Test Python demo scripts
         run: |
           DYLD_LIBRARY_PATH=/usr/local/lib python3 demo/ffi-test.py
+          DYLD_LIBRARY_PATH=/usr/local/lib python3 demo/ffi-version.py
 
   linux:
     runs-on: ubuntu-latest
@@ -233,3 +234,4 @@ jobs:
       - name: Test Python demo scripts
         run: |
             python3 demo/ffi-test.py
+            python3 demo/ffi-version.py

@@ -558,6 +558,11 @@ int sista_addPawnToSwap(SwappableFieldHandler_t, PawnHandler_t, struct sista_Coo
 */
 int sista_applySwaps(SwappableFieldHandler_t);
 
+const char* sista_getVersion();
+int sista_getVersionMajor();
+int sista_getVersionMinor();
+int sista_getVersionPatch();
+
 #ifdef __cplusplus
 }
 #endif

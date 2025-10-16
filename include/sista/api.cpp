@@ -238,4 +238,16 @@ extern "C" {
         }
         return 0;
     }
+    const char* sista_getVersion() {
+        return sista::getVersion();
+    }
+    int sista_getVersionMajor() {
+        return sista::getVersionMajor();
+    }
+    int sista_getVersionMinor() {
+        return sista::getVersionMinor();
+    }
+    int sista_getVersionPatch() {
+        return sista::getVersionPatch();
+    }
 }
