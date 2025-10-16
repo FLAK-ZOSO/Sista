@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+clean:
+	make -C .. clean
+
+build:
+	make -C .. all
+	make -C .. clean
+
+binary:
+	# install into staging tree: PREFIX must be the real install prefix; DESTDIR is the package root
+	make -C .. install PREFIX=/usr DESTDIR=debian/sista
+	dh_makeshlibs
+	dh_shlibdeps
+	dh_gencontrol
+	dh_builddeb
