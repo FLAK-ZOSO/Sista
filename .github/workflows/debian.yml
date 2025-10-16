@@ -3,11 +3,9 @@ on: push
 jobs:
   build-debs:
     runs-on: ubuntu-latest
-    # expose the step output as a job output
-    outputs:
-      artifacts: ${{ steps.build_debs.outputs.artifacts }}
     steps:
       - uses: actions/checkout@v4
+
       - id: build_debs
         uses: jtdor/build-deb-action@v1
         env:
@@ -16,22 +14,16 @@ jobs:
           source-dir: packageroot
           buildpackage-opts: --build=binary --no-sign
 
-  upload-artifacts:
-    needs: build-debs
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/upload-artifact@v4
-        name: Debian packages
+      - name: Upload Debian packages
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
-          path: packageroot/${{ needs.build-debs.outputs.artifacts }}
           name: debian-packages
+          path: packageroot/${{ steps.build_debs.outputs.artifacts }}
           if-no-files-found: warn
 
-  debug-ls:
-    runs-on: ubuntu-latest
-    needs: build-debs
-    steps:
-      - name: List files in packageroot
-        run: ls -l packageroot
-      - name: List generated artifacts
-        run: ls -l packageroot/${{ needs.build-debs.outputs.artifacts }}
+      - uses: actions/checkout@v4
+      - name: List repo root
+        run: ls -la
+      - name: List packageroot
+        run: ls -la packageroot || true
