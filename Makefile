@@ -166,32 +166,49 @@ uninstall:
 	rm -rf $(PREFIX)/include/sista
 else
 install: libSista.so libSista.a libSista_api.so libSista_api.a
-	@echo "Installing Sista version $(FULL_VERSION) to $(PREFIX)..."
-	install -d $(PREFIX)/lib
-	install -m 755 libSista.so.$(FULL_VERSION) $(PREFIX)/lib/
-	install -m 755 libSista_api.so.$(FULL_VERSION) $(PREFIX)/lib/
-	ln -sf libSista_api.so.$(FULL_VERSION) $(PREFIX)/lib/libSista_api.so.$(MAJOR_VERSION)
-	ln -sf libSista_api.so.$(MAJOR_VERSION) $(PREFIX)/lib/libSista_api.so
-	ln -sf libSista.so.$(FULL_VERSION) $(PREFIX)/lib/libSista.so.$(MAJOR_VERSION)
-	ln -sf libSista.so.$(MAJOR_VERSION) $(PREFIX)/lib/libSista.so
-	install -m 644 libSista.a $(PREFIX)/lib/
-	install -m 644 libSista_api.a $(PREFIX)/lib/
-	install -d $(PREFIX)/include/sista
-	install -m 644 include/sista/*.hpp $(PREFIX)/include/sista/
-	install -m 644 include/sista/*.h $(PREFIX)/include/sista/
-	echo "$(PREFIX)/lib" | sudo tee /etc/ld.so.conf.d/sista.conf
-	ldconfig
+	@echo "Staged install to '$(DESTDIR)$(PREFIX)' (use DESTDIR for packaging)"
+	install -d $(DESTDIR)$(PREFIX)/lib
+	install -m 755 libSista.so.$(FULL_VERSION) $(DESTDIR)$(PREFIX)/lib/
+	install -m 755 libSista_api.so.$(FULL_VERSION) $(DESTDIR)$(PREFIX)/lib/
+	ln -sf libSista_api.so.$(FULL_VERSION) $(DESTDIR)$(PREFIX)/lib/libSista_api.so.$(MAJOR_VERSION)
+	ln -sf libSista_api.so.$(MAJOR_VERSION) $(DESTDIR)$(PREFIX)/lib/libSista_api.so
+	ln -sf libSista.so.$(FULL_VERSION) $(DESTDIR)$(PREFIX)/lib/libSista.so.$(MAJOR_VERSION)
+	ln -sf libSista.so.$(MAJOR_VERSION) $(DESTDIR)$(PREFIX)/lib/libSista.so
+	install -m 644 libSista.a $(DESTDIR)$(PREFIX)/lib/
+	install -m 644 libSista_api.a $(DESTDIR)$(PREFIX)/lib/
+	install -d $(DESTDIR)$(PREFIX)/include/sista
+	install -m 644 include/sista/*.hpp $(DESTDIR)$(PREFIX)/include/sista/ || true
+	install -m 644 include/sista/*.h $(DESTDIR)$(PREFIX)/include/sista/ || true
+	# write ld.so config into the package tree (do not modify the real system)
+	install -d $(DESTDIR)/etc/ld.so.conf.d
+	printf '%s\n' '$(PREFIX)/lib' > $(DESTDIR)/etc/ld.so.conf.d/sista.conf
+	# only update the real system if DESTDIR is empty (interactive install)
+	if [ -z "$(DESTDIR)" ]; then \
+	  if command -v sudo >/dev/null 2>&1; then \
+	    echo "$(PREFIX)/lib" | sudo tee /etc/ld.so.conf.d/sista.conf; \
+	    sudo ldconfig || true; \
+	  else \
+	    echo "$(PREFIX)/lib" | tee /etc/ld.so.conf.d/sista.conf; \
+	    ldconfig || true; \
+	  fi \
+	fi
 
 uninstall:
-	rm -f $(PREFIX)/lib/libSista.so
-	rm -f $(PREFIX)/lib/libSista.so.*
-	rm -f $(PREFIX)/lib/libSista_api.so
-	rm -f $(PREFIX)/lib/libSista_api.so.*
-	rm -f $(PREFIX)/lib/libSista.a
-	rm -f $(PREFIX)/lib/libSista_api.a
-	rm -rf $(PREFIX)/include/sista
-	rm -f /etc/ld.so.conf.d/sista.conf
-	ldconfig
+	rm -f $(DESTDIR)$(PREFIX)/lib/libSista.so
+	rm -f $(DESTDIR)$(PREFIX)/lib/libSista.so.*
+	rm -f $(DESTDIR)$(PREFIX)/lib/libSista_api.so
+	rm -f $(DESTDIR)$(PREFIX)/lib/libSista_api.so.*
+	rm -f $(DESTDIR)$(PREFIX)/lib/libSista.a
+	rm -f $(DESTDIR)$(PREFIX)/lib/libSista_api.a
+	rm -rf $(DESTDIR)$(PREFIX)/include/sista
+	rm -f $(DESTDIR)/etc/ld.so.conf.d/sista.conf
+	if [ -z "$(DESTDIR)" ]; then \
+	  if command -v sudo >/dev/null 2>&1; then \
+	    sudo ldconfig || true; \
+	  else \
+	    ldconfig || true; \
+	  fi \
+	fi
 endif
 
 .PHONY: all objects objects_dynamic clean install uninstall sista_against_dynamic_lib_local sista_against_static_lib_local sista_against_dynamic_lib_shared sista_against_static_lib_shared

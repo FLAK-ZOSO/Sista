@@ -44,6 +44,16 @@ sista
 docs/html/
 docs/latex/
 
+# Debian packages
+*.deb
+*.changes
+*.buildinfo
+
+packageroot/debian/sista/
+packageroot/debian/*.log
+packageroot/debian/*.substvars
+packageroot/debian/files
+
 # Other files
 .vscode/
 .vscode/*

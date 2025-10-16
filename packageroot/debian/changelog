@@ -1,0 +1,11 @@
+sista (3.0.0-alpha.11-1) stretch; urgency=medium
+
+  * New alpha release to test .deb packages
+
+ -- FLAK-ZOSO <mattia.marchese.2006@gmail.com>  Thu, 16 Oct 2025 15:20:18 +0300
+
+sista (3.0.0-alpha.10-1) stretch; urgency=medium
+
+  * Initial packaging work with dpkg-buildpackage.
+
+ -- FLAK-ZOSO <mattia.marchese.2006@gmail.com>  Thu, 16 Oct 2025 12:27:00 +0300

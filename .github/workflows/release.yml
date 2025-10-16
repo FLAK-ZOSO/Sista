@@ -177,6 +177,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - id: build_debs
+        if: runner.os == 'Linux'
+        uses: jtdor/build-deb-action@v1
+        env:
+          DEB_BUILD_OPTIONS: noautodbgsym
+        with:
+          source-dir: packageroot
+          buildpackage-opts: --build=binary --no-sign
+
       - name: Upload Release Assets
         if: runner.os == 'Linux'
         uses: softprops/action-gh-release@v2
@@ -186,5 +195,6 @@ jobs:
             ${{ env.STATIC_LIB }}
             ${{ env.CAPI_LIB }}
             ${{ env.CAPI_STATIC_LIB }}
+            packageroot/${{ steps.build_debs.outputs.artifacts }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
