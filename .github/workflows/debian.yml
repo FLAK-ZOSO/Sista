@@ -21,8 +21,3 @@ jobs:
           name: debian-packages
           path: packageroot/${{ steps.build_debs.outputs.artifacts }}
           if-no-files-found: warn
-
-      - name: List repo root
-        run: ls -la
-      - name: List packageroot
-        run: ls -la packageroot || true
