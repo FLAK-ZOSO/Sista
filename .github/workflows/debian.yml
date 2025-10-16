@@ -13,7 +13,7 @@ jobs:
           buildpackage-opts: --build=binary --no-sign
     # The previous one outputs as "artifacts" the paths to the .deb files it built.
     # We want to upload them as workflow artifacts.
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           path: ${{ steps.build-debs.outputs.artifacts }}
           name: debian-packages
