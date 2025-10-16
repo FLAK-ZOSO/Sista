@@ -26,3 +26,11 @@ jobs:
           path: packageroot/${{ needs.build-debs.outputs.artifacts }}
           name: debian-packages
           if-no-files-found: warn
+
+  debug-ls:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List files in packageroot
+        run: ls -l packageroot
+      - name: List generated artifacts
+        run: ls -l packageroot/${{ needs.build-debs.outputs.artifacts }}
