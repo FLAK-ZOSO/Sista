@@ -38,6 +38,8 @@ Major release.
 - Updated `Makefile` for hardcoding the rpath of the MacOS shared library to avoid issues with `DYLD_LIBRARY_PATH`
 - Updated `Makefile` to reflect the new filenames and ensure correct compilation and linking
 
+- Added files for `.deb` packaging under `packageroot`
+
 - Testing on memory safety with `valgrind`, detected no memory leaks or invalid accesses
 
 ## v`2.2.1`

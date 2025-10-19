@@ -26,6 +26,22 @@ sudo make uninstall
 
 This will remove the installed files from the system library and include paths. The same disclaimer applies as above, you will need administrative privileges to run this command.
 
+### Sista as a shared library - `.deb` package
+
+We release a `.deb` package for Debian and derivatives with each release. The upload is manual for the moment.
+
+- go to the [latest release](https://github.com/FLAK-ZOSO/Sista/releases)
+- download the `sista_<VERSION>_<ARCHITECTURE>.deb` release asset
+- use `sudo apt install path/to/sista_<VERSION>_amd64.deb`, like `sudo apt install ~/Downloads/sista_3.0.0-1_amd64.deb`
+
+For the moment only `amd64` (for x86_64 architectures essentially) packages are published. With the right tools you can package your own.
+
+```bash
+git clone https://github.com/FLAK-ZOSO/Sista
+cd packageroot
+dpkg-buildpackage -us -uc -a arm64 -b # Specify your architecture, such as "i386", "arm64", "amd64"
+```
+
 ## Usage
 
 ### Using Sista as a source library
