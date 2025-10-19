@@ -88,28 +88,40 @@ Sista as a shared library</h2>
 </div><!-- fragment --><p>This will install the <code>libSista.so</code> shared library in the system library path, and the headers in the system include path. This is the preferred inclusion method for versions v<code>3.0.0</code> and later. More on this in the <a href="https://sista.readthedocs.io/en/latest/">documentation</a>.</p>
 <div class="fragment"><div class="line">sudo make uninstall</div>
 </div><!-- fragment --><p>This will remove the installed files from the system library and include paths. The same disclaimer applies as above, you will need administrative privileges to run this command.</p>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Sista as a shared library - &lt;tt&gt;.deb&lt;/tt&gt; package</h2>
+<p>We release a <code>.deb</code> package for Debian and derivatives with each release. The upload is manual for the moment.</p>
+<ul>
+<li>go to the <a href="https://github.com/FLAK-ZOSO/Sista/releases">latest release</a></li>
+<li>download the <code>sista_&lt;VERSION&gt;_&lt;ARCHITECTURE&gt;.deb</code> release asset</li>
+<li>use <code>sudo apt install path/to/sista_&lt;VERSION&gt;_amd64.deb</code>, like <code>sudo apt install ~/Downloads/sista_3.0.0-1_amd64.deb</code></li>
+</ul>
+<p>For the moment only <code>amd64</code> (for x86_64 architectures essentially) packages are published. With the right tools you can package your own.</p>
+<div class="fragment"><div class="line">git clone https://github.com/FLAK-ZOSO/Sista</div>
+<div class="line">cd packageroot</div>
+<div class="line">dpkg-buildpackage -us -uc -a arm64 -b # Specify your architecture, such as &quot;i386&quot;, &quot;arm64&quot;, &quot;amd64&quot;</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md5"></a>
 Usage</h1>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Using Sista as a source library</h2>
 <p>To use Sista, simply include the <code>"sista.hpp"</code> header in your project's source files.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="sista_8hpp.html">include/sista/sista.hpp</a>&quot;</span></div>
 <div class="ttc" id="asista_8hpp_html"><div class="ttname"><a href="sista_8hpp.html">sista.hpp</a></div><div class="ttdoc">Main include file for the Sista library.</div></div>
 </div><!-- fragment --><p>The <code>"sista.hpp"</code> header includes all of the other headers in the <code>"include/sista/"</code> directory, so you don't have to include them individually.</p>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<h2><a class="anchor" id="autotoc_md7"></a>
 Using Sista as a shared library</h2>
 <p>You also need to include the <code>"sista/sista.hpp"</code> header in your source files, as shown above.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="sista_8hpp.html">sista/sista.hpp</a>&gt;</span></div>
 </div><!-- fragment --><p>This approach will require you to link against <code>libSista</code> when compiling your project. You can do this by adding the <code>-lSista</code> flag to your <code>g++</code> command.</p>
 <div class="fragment"><div class="line">g++ -std=c++17 -o my_project my_project.cpp -lSista</div>
 </div><!-- fragment --><p>See the <a href="https://sista.readthedocs.io/en/latest/">documentation</a> for more details on how to use Sista as a shared library and how to link against it. A comprehensive example is provided in the [<code>Makefile</code>](Makefile) in the repository, together with the installation targets.</p>
-<h1><a class="anchor" id="autotoc_md7"></a>
+<h1><a class="anchor" id="autotoc_md8"></a>
 Documentation</h1>
 <p>The English tutorials and basic documentation for Sista can be found at <a href="https://sista.readthedocs.io/"><code>Sista - ReadTheDocs</code></a>.</p>
 <p>The actual, detailed documentation of both library and C API can be found at <a href="https://flak-zoso.github.io/Sista/"><code>flak-zoso.github.io</code></a> and is automatically generated from the source code using <a href="https://www.doxygen.nl/"><code>Doxygen</code></a>.</p>
 <p>Under the <code>demo/</code> directory, you can find many minimal demos that showcase the features of Sista. These demos are minimal examples and do not aim to provide a complete walkthrough of the library, unlike the <code><a class="el" href="sista_8cpp.html" title="A demo of the SwappableField class from the Sista library.">sista.cpp</a></code> example. Their description is provided in the `demo/README.md` file.</p>
 <p>Additional information about versions can be found in the <a class="el" href="md_ReleaseNotes.html">`Release Notes`</a>.</p>
-<h1><a class="anchor" id="autotoc_md8"></a>
+<h1><a class="anchor" id="autotoc_md9"></a>
 Sista-based works</h1>
 <p>Here are some of the most relevant works based on Sista.</p>
 <ul>
@@ -123,7 +135,7 @@ Sista-based works</h1>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 16 2025 12:47:35 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generated on Sun Oct 19 2025 09:35:47 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>
