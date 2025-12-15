@@ -1,3 +1,9 @@
+sista (3.0.0-alpha.12-1) stretch; urgency=medium
+
+  * Calling ranlib to index the library file
+
+ -- FLAK-ZOSO <mattia.marchese.2006@gmail.com>  Mon, 15 Dec 2025 23:46:58 +0300
+
 sista (3.0.0-alpha.11-1) stretch; urgency=medium
 
   * New alpha release to test .deb packages

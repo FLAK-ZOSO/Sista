@@ -109,9 +109,11 @@ endif
 
 libSista.a: $(OBJECTS)
 	ar rcs libSista.a $(OBJECTS)
+	ranlib libSista.a
 
 libSista_api.a: api.o
 	ar rcs libSista_api.a api.o
+	ranlib libSista_api.a
 
 clean:
 	rm -f *.o sista libSista.so* libSista.a libSista.dylib* libSista.dll libSista.lib api.o libSista_api.so* libSista_api.a libSista_api.dylib* libSista_api.dll libSista_api.lib
