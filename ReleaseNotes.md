@@ -213,6 +213,18 @@ void Field::erasePawn(Pawn* pawn) { // Erase a pawn from the matrix
 
 This should make it possible to use Sista in projects with multiple source files.
 
+## v`0.9.4`
+
+- Added `sista::Field::addPrintPawn()` to add and print Pawn without reprint
+
+```c++
+void addPrintPawn(Pawn* pawn) { // Add a pawn to the matrix and print it
+    addPawn(pawn); // Add the pawn to the matrix
+    this->cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
+    pawn->print(); // Print the pawn
+}
+```
+
 ## v`0.9.3`
 
 - Fixed `sista::Field::reset()` which was resizing the field to 0x0
@@ -226,18 +238,6 @@ void reset() {
             pawn = nullptr; // Set the pawn to nullptr
         }
     }        
-}
-```
-
-## v`0.9.4`
-
-- Added `sista::Field::addPrintPawn()` to add and print Pawn without reprint
-
-```c++
-void addPrintPawn(Pawn* pawn) { // Add a pawn to the matrix and print it
-    addPawn(pawn); // Add the pawn to the matrix
-    this->cursor.set(pawn->getCoordinates()); // Set the cursor to the pawn's coordinates
-    pawn->print(); // Print the pawn
 }
 ```
 
