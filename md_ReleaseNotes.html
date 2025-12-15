@@ -272,6 +272,17 @@ v&lt;tt&gt;1.0.0&lt;/tt&gt;</h1>
 </ul>
 <p>This should make it possible to use Sista in projects with multiple source files.</p>
 <h1><a class="anchor" id="autotoc_md27"></a>
+v&lt;tt&gt;0.9.4&lt;/tt&gt;</h1>
+<ul>
+<li>Added <code><a class="el" href="classsista_1_1Field.html#a1a98bca7c067d5d72c9c1d1329ad5474" title="Adds a Pawn to the field at its specified coordinates and prints it.">sista::Field::addPrintPawn()</a></code> to add and print Pawn without reprint</li>
+</ul>
+<div class="fragment"><div class="line"> {c++}</div>
+<div class="line">void addPrintPawn(Pawn* pawn) { // Add a pawn to the matrix and print it</div>
+<div class="line">    addPawn(pawn); // Add the pawn to the matrix</div>
+<div class="line">    this-&gt;cursor.set(pawn-&gt;getCoordinates()); // Set the cursor to the pawn&#39;s coordinates</div>
+<div class="line">    pawn-&gt;print(); // Print the pawn</div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md28"></a>
 v&lt;tt&gt;0.9.3&lt;/tt&gt;</h1>
 <ul>
 <li>Fixed <code>sista::Field::reset()</code> which was resizing the field to 0x0</li>
@@ -285,17 +296,6 @@ v&lt;tt&gt;0.9.3&lt;/tt&gt;</h1>
 <div class="line">            pawn = nullptr; // Set the pawn to nullptr</div>
 <div class="line">        }</div>
 <div class="line">    }        </div>
-<div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md28"></a>
-v&lt;tt&gt;0.9.4&lt;/tt&gt;</h1>
-<ul>
-<li>Added <code><a class="el" href="classsista_1_1Field.html#a1a98bca7c067d5d72c9c1d1329ad5474" title="Adds a Pawn to the field at its specified coordinates and prints it.">sista::Field::addPrintPawn()</a></code> to add and print Pawn without reprint</li>
-</ul>
-<div class="fragment"><div class="line"> {c++}</div>
-<div class="line">void addPrintPawn(Pawn* pawn) { // Add a pawn to the matrix and print it</div>
-<div class="line">    addPawn(pawn); // Add the pawn to the matrix</div>
-<div class="line">    this-&gt;cursor.set(pawn-&gt;getCoordinates()); // Set the cursor to the pawn&#39;s coordinates</div>
-<div class="line">    pawn-&gt;print(); // Print the pawn</div>
 <div class="line">}</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md29"></a>
 v&lt;tt&gt;0.9.2&lt;/tt&gt;</h1>
@@ -440,7 +440,7 @@ v&lt;tt&gt;0.1.0&lt;/tt&gt;</h1>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 19 2025 09:35:47 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generated on Mon Dec 15 2025 14:31:30 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>
