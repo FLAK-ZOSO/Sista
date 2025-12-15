@@ -99,7 +99,10 @@ Sista as a shared library - &lt;tt&gt;.deb&lt;/tt&gt; package</h2>
 <p>For the moment only <code>amd64</code> (for x86_64 architectures essentially) packages are published. With the right tools you can package your own.</p>
 <div class="fragment"><div class="line">git clone https://github.com/FLAK-ZOSO/Sista</div>
 <div class="line">cd packageroot</div>
+<div class="line">sudo make -C .. install PREFIX=/usr DESTDIR=$(pwd)/debian/sista # This builds the binaries</div>
 <div class="line">dpkg-buildpackage -us -uc -a arm64 -b # Specify your architecture, such as &quot;i386&quot;, &quot;arm64&quot;, &quot;amd64&quot;</div>
+</div><!-- fragment --><p>If you build more than once, remember to remove the artifacts under <code>packageroot/debian/sista</code>, or the cached library will be used instead.</p>
+<div class="fragment"><div class="line">rm -rf packageroot/debian/sista</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md5"></a>
 Usage</h1>
 <h2><a class="anchor" id="autotoc_md6"></a>
@@ -135,7 +138,7 @@ Sista-based works</h1>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 15 2025 14:31:30 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generated on Mon Dec 15 2025 22:46:39 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>
