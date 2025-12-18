@@ -1,0 +1,4 @@
+build/
+sista.egg-info/
+__pycache__/
+*.so
