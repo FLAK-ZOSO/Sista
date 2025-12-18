@@ -21,6 +21,7 @@ match platform.system():
         sista_api_lib_path = ctypes.util.find_library("Sista_api")
         ctypes.windll.LoadLibrary(sista_api_lib_path)
         sista_api = ctypes.WinDLL(sista_api_lib_path)
+    case _: pass
 
 match platform.system():
     case "Windows":
@@ -31,6 +32,7 @@ match platform.system():
         libc_path = ctypes.util.find_library("c")
         ctypes.cdll.LoadLibrary(libc_path)
         libc = ctypes.CDLL(libc_path)
+    case _: pass
 
 sista_api.sista_setForegroundColor.argtypes = [ctypes.c_int]
 sista_api.sista_setForegroundColor.restype = None
