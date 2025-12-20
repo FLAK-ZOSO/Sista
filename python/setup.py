@@ -3,7 +3,7 @@ import platform
 
 sista_ext = Extension(
     "sista",
-    sources=["sistamodule.c"],
+    sources=["src/sistamodule.c"],
     include_dirs=["/usr/local/include", "/usr/include"],
     library_dirs=["/usr/local/lib", "/usr/lib"],
     language="c",
@@ -14,8 +14,7 @@ sista_ext = Extension(
     ] if not platform.platform().lower().startswith("win") else []
 )
 
+# Only provide build-time things here (extensions). Project metadata lives in pyproject.toml
 setup(
-    name="sista",
-    version="3.0.0",
     ext_modules=[sista_ext],
 )

@@ -76,12 +76,14 @@ field = sista.create_swappable_field(10, 10)
 sista.destroy_swappable_field(field)
 ```
 
+See the demos in [`demo/`](demo/) for more examples.
+
 ## Testing
 
 You can test the extension with the provided test script:
 
 ```bash
-python test_enums.py
+python demo/test_enums.py
 ```
 
 This should output all the enum values that were successfully exposed.
