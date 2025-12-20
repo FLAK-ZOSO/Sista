@@ -68,7 +68,7 @@ import sista
 print(sista.F_BLACK)    # 30
 print(sista.F_RED)      # 31
 print(sista.B_WHITE)    # 47
-print(sista.A_BOLD)     # 1
+print(sista.A_BRIGHT)     # 1
 
 # Use the API functions
 field = sista.create_swappable_field(10, 10)
