@@ -340,6 +340,8 @@ sista_module_exec(PyObject* module)
     PyModule_AddIntConstant(module, "A_HIDDEN", A_HIDDEN);
     PyModule_AddIntConstant(module, "A_STRIKETHROUGH", A_STRIKETHROUGH);
 
+    // PyModule_AddStringConstant(module, "__version__", version);
+
     printf("Sista C API Module - Version: %s\n", version);
     return 0;
 }
@@ -387,7 +389,7 @@ static PyModuleDef_Slot sista_module_slots[] = {
 */
 static struct PyModuleDef sista_module = {
     .m_base = PyModuleDef_HEAD_INIT,
-    .m_name = "sista",
+    .m_name = "sista._sista",
     .m_size = 0,  // non-negative
     .m_methods = sista_module_methods,
     .m_slots = sista_module_slots,
@@ -400,7 +402,7 @@ static struct PyModuleDef sista_module = {
  *  initializes the module and returns the module object.
 */
 PyMODINIT_FUNC
-PyInit_sista(void)
+PyInit__sista(void)
 {
     /* create module; the exec slot (sista_module_exec) will be run by the import machinery */
     return PyModuleDef_Init(&sista_module);

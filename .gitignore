@@ -39,6 +39,7 @@ demo/*
 demo/*.o
 sista
 !include/sista
+!python/src/sista
 
 # Doxygen output
 docs/html/

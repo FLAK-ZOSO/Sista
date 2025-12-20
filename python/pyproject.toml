@@ -8,9 +8,12 @@ package-dir = {"" = "src"}
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.dynamic]
+version = {attr = "sista.__version__"}
+
 [project]
 name = "sista"
-version = "3.0.0"
+dynamic = ["version"]
 requires-python = ">=3.10"
 license = "GPL-3.0-only"
 license-files = ["LICENSE.md"]

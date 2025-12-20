@@ -2,7 +2,7 @@ from setuptools import setup, Extension
 import platform
 
 sista_ext = Extension(
-    "sista",
+    "sista._sista",
     sources=["src/sistamodule.c"],
     include_dirs=["/usr/local/include", "/usr/include"],
     library_dirs=["/usr/local/lib", "/usr/lib"],
