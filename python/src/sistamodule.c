@@ -53,8 +53,10 @@ py_sista_set_attribute(PyObject* self, PyObject* arg) {
 static PyObject* py_sista_print(PyObject* self, PyObject* args) {
     const char* message;
     if (!PyArg_ParseTuple(args, "s", &message)) {
-        PyErr_SetString(PyExc_TypeError,
-                        "Invalid arguments: expected a string");
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_TypeError,
+                            "Invalid arguments: expected a string");
+        }
         return NULL;
     }
     printf("%s\n", message);
@@ -82,15 +84,19 @@ py_sista_createSwappableField(PyObject* self,
     size_t width;
     size_t height;
     if (!PyArg_ParseTuple(args, "nn", &width, &height)) {
-        PyErr_SetString(PyExc_TypeError,
-                        "Invalid arguments: expected two size_t values (width, height)");
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_TypeError,
+                            "Invalid arguments: expected two size_t values (width, height)");
+        }
         return NULL;
     }
 
     SwappableFieldHandler_t field = sista_createSwappableField(width, height);
     if (field == NULL) {
-        PyErr_SetString(PyExc_MemoryError,
-                        "Failed to create SwappableField");
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_MemoryError,
+                            "Failed to create SwappableField");
+        }
         return NULL;
     }
 
@@ -126,8 +132,10 @@ py_sista_create_ansi_settings(PyObject* self, PyObject* args, PyObject* kwargs) 
     static char *kwlist[] = {"fgcolor", "bgcolor", "attribute", NULL};
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs, "|iii", kwlist, &fg, &bg, &attr)) {
-        PyErr_SetString(PyExc_TypeError,
-                        "Invalid arguments: expected optional keyword ints (fgcolor, bgcolor, attribute)");
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_TypeError,
+                            "Invalid arguments: expected optional keyword ints (fgcolor, bgcolor, attribute)");
+        }
         return NULL;
     }
 
@@ -138,8 +146,10 @@ py_sista_create_ansi_settings(PyObject* self, PyObject* args, PyObject* kwargs) 
     );
 
     if (settings == NULL) {
-        PyErr_SetString(PyExc_MemoryError,
-                        "Failed to create ANSISettings");
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_MemoryError,
+                            "Failed to create ANSISettings");
+        }
         return NULL;
     }
 
@@ -171,14 +181,18 @@ py_sista_create_border(PyObject* self, PyObject* args) {
     PyObject* ansi_capsule;
 
     if (!PyArg_ParseTuple(args, "s#O", &symbol_str, &symbol_len, &ansi_capsule)) {
-        PyErr_SetString(PyExc_TypeError,
-                        "Invalid arguments: expected (symbol: str of length 1, ansi_settings_capsule)");
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_TypeError,
+                            "Invalid arguments: expected (symbol: str of length 1, ansi_settings_capsule)");
+        }
         return NULL;
     }
 
     if (symbol_len != 1) {
-        PyErr_SetString(PyExc_ValueError,
-                        "Symbol must be a single character");
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_ValueError,
+                            "Symbol must be a single character");
+        }
         return NULL;
     }
     char symbol = symbol_str[0];
@@ -187,15 +201,19 @@ py_sista_create_border(PyObject* self, PyObject* args) {
         ansi_capsule, "ANSISettingsHandler_t"
     );
     if (settings == NULL) {
-        PyErr_SetString(PyExc_ValueError,
-                        "Invalid ANSISettingsHandler_t capsule");
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_ValueError,
+                            "Invalid ANSISettingsHandler_t capsule");
+        }
         return NULL;
     }
 
     BorderHandler_t border = sista_createBorder(symbol, settings);
     if (border == NULL) {
-        PyErr_SetString(PyExc_MemoryError,
-                        "Failed to create Border");
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_MemoryError,
+                            "Failed to create Border");
+        }
         return NULL;
     }
 
@@ -236,8 +254,10 @@ py_sista_print_swappable_field_with_border(PyObject* self, PyObject* args)
     PyObject* field_capsule;
     PyObject* border_capsule;
     if (!PyArg_ParseTuple(args, "OO", &field_capsule, &border_capsule)) {
-        PyErr_SetString(PyExc_TypeError,
-                        "Invalid arguments: expected two capsules (SwappableFieldHandler_t, BorderHandler_t)");
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_TypeError,
+                            "Invalid arguments: expected two capsules (SwappableFieldHandler_t, BorderHandler_t)");
+        }
         return NULL;
     }
 
@@ -245,8 +265,10 @@ py_sista_print_swappable_field_with_border(PyObject* self, PyObject* args)
         field_capsule, "SwappableFieldHandler_t"
     );
     if (field == NULL) {
-        PyErr_SetString(PyExc_ValueError,
-                        "Invalid SwappableFieldHandler_t capsule");
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_ValueError,
+                            "Invalid SwappableFieldHandler_t capsule");
+        }
         return NULL;
     }
 
@@ -254,8 +276,10 @@ py_sista_print_swappable_field_with_border(PyObject* self, PyObject* args)
         border_capsule, "BorderHandler_t"
     );
     if (border == NULL) {
-        PyErr_SetString(PyExc_ValueError,
-                        "Invalid BorderHandler_t capsule");
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_ValueError,
+                            "Invalid BorderHandler_t capsule");
+        }
         return NULL;
     }
 
@@ -275,8 +299,10 @@ sista_module_exec(PyObject* module)
 {
     const char* version = sista_getVersion();
     if (version == NULL) {
-        PyErr_SetString(PyExc_RuntimeError,
-                        "Failed to retrieve Sista version");
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_RuntimeError,
+                            "Failed to retrieve Sista version");
+        }
         return -1;
     }
 
