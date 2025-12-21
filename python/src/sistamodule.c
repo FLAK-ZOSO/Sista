@@ -480,8 +480,8 @@ py_sista_destroy_coordinates_capsule_destructor(PyObject* capsule) {
 /** \brief Creates a Pawn in the specified Field at given coordinates with ANSI settings.
  *  \param field_capsule Capsule containing FieldHandler_t.
  *  \param symbol Character symbol for the Pawn.
- *  \param coords_capsule Capsule containing Coordinates.
  *  \param ansi_capsule Capsule containing ANSISettingsHandler_t.
+ *  \param coords_capsule Capsule containing Coordinates.
  *  \return Capsule containing PawnHandler_t.
  *
  *  This function creates a Pawn in the specified Field at the given coordinates,
@@ -497,7 +497,7 @@ py_sista_create_pawn_in_field(PyObject* self, PyObject* args) {
     if (!PyArg_ParseTuple(args, "OcOO", &field_capsule, &symbol, &ansi_capsule, &coords_capsule)) {
         if (!PyErr_Occurred()) {
             PyErr_SetString(PyExc_TypeError,
-                            "Invalid arguments: expected (FieldHandler_t capsule, symbol: str of length 1, Coordinates capsule, ANSISettingsHandler_t capsule)");
+                            "Invalid arguments: expected (FieldHandler_t capsule, symbol: str of length 1, ANSISettingsHandler_t capsule, Coordinates capsule)");
         }
         return NULL;
     }
