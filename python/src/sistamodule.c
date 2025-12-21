@@ -310,6 +310,352 @@ py_sista_print_swappable_field_with_border(PyObject* self, PyObject* args)
     Py_RETURN_NONE;
 }
 
+/** \brief Prints the field with the specified border.
+ *  \param field The Field to print.
+ *  \param border The Border to print.
+ *
+ *  This function prints the entire field to the terminal, using the specified
+ *  Border object to draw the border around the field.
+ *
+ *  \see sista::Border::print
+ *  \see sista::Field::print
+*/
+static PyObject*
+py_sista_print_field_with_border(PyObject* self, PyObject* args)
+{
+    PyObject* field_capsule;
+    PyObject* border_capsule;
+    if (!PyArg_ParseTuple(args, "OO", &field_capsule, &border_capsule)) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_TypeError,
+                            "Invalid arguments: expected two capsules (FieldHandler_t, BorderHandler_t)");
+        }
+        return NULL;
+    }
+
+    FieldHandler_t field = (FieldHandler_t)PyCapsule_GetPointer(
+        field_capsule, "FieldHandler_t"
+    );
+    if (field == NULL) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_ValueError,
+                            "Invalid FieldHandler_t capsule");
+        }
+        return NULL;
+    }
+
+    BorderHandler_t border = (BorderHandler_t)PyCapsule_GetPointer(
+        border_capsule, "BorderHandler_t"
+    );
+    if (border == NULL) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_ValueError,
+                            "Invalid BorderHandler_t capsule");
+        }
+        return NULL;
+    }
+
+    sista_printFieldWithBorder(field, border);
+    Py_RETURN_NONE;
+}
+
+/** \brief Creates a Pawn in the specified SwappableField at given coordinates with ANSI settings.
+ *  \param field_capsule Capsule containing SwappableFieldHandler_t.
+ *  \param symbol Character symbol for the Pawn.
+ *  \param ansi_capsule Capsule containing ANSISettingsHandler_t.
+ *  \param coords_capsule Capsule containing Coordinates.
+ *  \return Capsule containing PawnHandler_t.
+ *
+ *  This function creates a Pawn in the specified SwappableField at the given coordinates,
+ *  using the provided ANSI settings for its appearance.
+ *  \retval NULL If any error occurs during the creation process.
+*/
+static PyObject*
+py_sista_create_pawn_in_swappable_field(PyObject* self, PyObject* args) {
+    PyObject* field_capsule;
+    char symbol;
+    PyObject* ansi_capsule;
+    PyObject* coords_capsule;
+    if (!PyArg_ParseTuple(args, "OcOO", &field_capsule, &symbol, &ansi_capsule, &coords_capsule)) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_TypeError,
+                            "Invalid arguments: expected (SwappableFieldHandler_t capsule, symbol: str of length 1, ANSISettingsHandler_t capsule, Coordinates capsule)");
+        }
+        return NULL;
+    }
+
+    SwappableFieldHandler_t field = (SwappableFieldHandler_t)PyCapsule_GetPointer(
+        field_capsule, "SwappableFieldHandler_t"
+    );
+    if (field == NULL) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_ValueError,
+                            "Invalid SwappableFieldHandler_t capsule");
+        }
+        return NULL;
+    }
+
+    ANSISettingsHandler_t settings = (ANSISettingsHandler_t)PyCapsule_GetPointer(
+        ansi_capsule, "ANSISettingsHandler_t"
+    );
+    if (settings == NULL) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_ValueError,
+                            "Invalid ANSISettingsHandler_t capsule");
+        }
+        return NULL;
+    }
+
+    struct sista_Coordinates* coords = (struct sista_Coordinates*)PyCapsule_GetPointer(
+        coords_capsule, "sista_Coordinates"
+    );
+    if (coords == NULL) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_ValueError,
+                            "Invalid Coordinates capsule");
+        }
+        return NULL;
+    }
+
+    PawnHandler_t pawn = sista_createPawnInSwappableField(
+        field, symbol, settings, *coords
+    );
+    if (pawn == NULL) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_MemoryError,
+                            "Failed to create Pawn in SwappableField");
+        }
+        return NULL;
+    }
+
+    return PyCapsule_New((void*)pawn, "PawnHandler_t",
+                         NULL);
+}
+
+static void
+py_sista_destroy_coordinates_capsule_destructor(PyObject*);
+
+/** \brief Creates a Coordinates object.
+ *  \param y The y coordinate.
+ *  \param x The x coordinate.
+ *  \return A capsule containing the Coordinates object.
+*/
+static PyObject*
+py_sista_create_coordinates(PyObject* self, PyObject* args) {
+    unsigned short y, x;
+    if (!PyArg_ParseTuple(args, "HH", &y, &x)) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_TypeError,
+                            "Invalid arguments: expected two unsigned shorts (y, x)");
+        }
+        return NULL;
+    }
+
+    struct sista_Coordinates* coords = (struct sista_Coordinates*)malloc(sizeof(struct sista_Coordinates));
+    if (coords == NULL) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_MemoryError,
+                            "Failed to allocate Coordinates");
+        }
+        return NULL;
+    }
+
+    coords->y = y;
+    coords->x = x;
+
+    return PyCapsule_New((void*)coords, "sista_Coordinates",
+                         (PyCapsule_Destructor)py_sista_destroy_coordinates_capsule_destructor);
+}
+
+static void
+py_sista_destroy_coordinates_capsule_destructor(PyObject* capsule) {
+    struct sista_Coordinates* coords = (struct sista_Coordinates*)PyCapsule_GetPointer(
+        capsule, "sista_Coordinates"
+    );
+    if (coords != NULL) {
+        free(coords);
+    }
+}
+
+/** \brief Creates a Pawn in the specified Field at given coordinates with ANSI settings.
+ *  \param field_capsule Capsule containing FieldHandler_t.
+ *  \param symbol Character symbol for the Pawn.
+ *  \param coords_capsule Capsule containing Coordinates.
+ *  \param ansi_capsule Capsule containing ANSISettingsHandler_t.
+ *  \return Capsule containing PawnHandler_t.
+ *
+ *  This function creates a Pawn in the specified Field at the given coordinates,
+ *  using the provided ANSI settings for its appearance.
+ *  \retval NULL If any error occurs during the creation process.
+*/
+static PyObject*
+py_sista_create_pawn_in_field(PyObject* self, PyObject* args) {
+    PyObject* field_capsule;
+    char symbol;
+    PyObject* ansi_capsule;
+    PyObject* coords_capsule;
+    if (!PyArg_ParseTuple(args, "OcOO", &field_capsule, &symbol, &ansi_capsule, &coords_capsule)) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_TypeError,
+                            "Invalid arguments: expected (FieldHandler_t capsule, symbol: str of length 1, Coordinates capsule, ANSISettingsHandler_t capsule)");
+        }
+        return NULL;
+    }
+    FieldHandler_t field = (FieldHandler_t)PyCapsule_GetPointer(
+        field_capsule, "FieldHandler_t"
+    );
+    if (field == NULL) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_ValueError,
+                            "Invalid FieldHandler_t capsule");
+        }
+        return NULL;
+    }
+    struct sista_Coordinates* coords = (struct sista_Coordinates*)PyCapsule_GetPointer(
+        coords_capsule, "sista_Coordinates"
+    );
+    if (coords == NULL) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_ValueError,
+                            "Invalid Coordinates capsule");
+        }
+        return NULL;
+    }
+    ANSISettingsHandler_t settings = (ANSISettingsHandler_t)PyCapsule_GetPointer(
+        ansi_capsule, "ANSISettingsHandler_t"
+    );
+    if (settings == NULL) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_ValueError,
+                            "Invalid ANSISettingsHandler_t capsule");
+        }
+        return NULL;
+    }
+    PawnHandler_t pawn = sista_createPawnInField(
+        field, symbol, settings, *coords
+    );
+    if (pawn == NULL) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_MemoryError,
+                            "Failed to create Pawn in Field");
+        }
+        return NULL;
+    }
+    return PyCapsule_New((void*)pawn, "PawnHandler_t",
+                         NULL);
+}
+
+/** \brief Moves the Pawn by the specified deltas.
+ *  \param pawn_capsule Capsule containing PawnHandler_t.
+ *  \param dx The delta x to move.
+ *  \param dy The delta y to move.
+ *  \return The result of the move operation.
+ *
+ *  This function moves the specified Pawn by the given deltas in the x and y directions.
+ *  It returns an integer indicating the result of the move operation.
+*/
+static PyObject*
+py_sista_move_pawn(PyObject* self, PyObject* args) {
+    PyObject* field_capsule;
+    PyObject* pawn_capsule;
+    Py_ssize_t dx, dy;
+    if (!PyArg_ParseTuple(args, "OOnn", &field_capsule, &pawn_capsule, &dx, &dy)) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_TypeError,
+                            "Invalid arguments: expected (FieldHandler_t capsule, PawnHandler_t capsule, dx: int, dy: int)");
+        }
+        return NULL;
+    }
+
+    FieldHandler_t field = (FieldHandler_t)PyCapsule_GetPointer(
+        field_capsule, "FieldHandler_t"
+    );
+    if (field == NULL) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_ValueError,
+                            "Invalid FieldHandler_t capsule");
+        }
+        return NULL;
+    }
+
+    PawnHandler_t pawn = (PawnHandler_t)PyCapsule_GetPointer(
+        pawn_capsule, "PawnHandler_t"
+    );
+    if (pawn == NULL) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_ValueError,
+                            "Invalid PawnHandler_t capsule");
+        }
+        return NULL;
+    }
+    struct sista_Coordinates delta = {
+        .y = (unsigned short)dy,
+        .x = (unsigned short)dx
+    };
+    int result = sista_movePawn(field, pawn, delta);
+    return PyLong_FromLong((long)result);
+}
+
+/** \brief Adds a Pawn to the SwappableField's swap list at given coordinates.
+ *  \param field_capsule Capsule containing SwappableFieldHandler_t.
+ *  \param pawn_capsule Capsule containing PawnHandler_t.
+ *  \param coords_capsule Capsule containing Coordinates.
+ *  \return The result of the add operation.
+ *
+ *  This function adds the specified Pawn to the SwappableField's swap list
+ *  at the given coordinates. It returns an integer indicating the result
+ *  of the add operation.
+*/
+static PyObject*
+py_sista_add_pawn_to_swap(PyObject* self, PyObject* args) {
+    PyObject* field_capsule;
+    PyObject* pawn_capsule;
+    PyObject* coords_capsule;
+    if (!PyArg_ParseTuple(args, "OOO", &field_capsule, &pawn_capsule, &coords_capsule)) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_TypeError,
+                            "Invalid arguments: expected (SwappableFieldHandler_t capsule, PawnHandler_t capsule, Coordinates capsule)");
+        }
+        return NULL;
+    }
+
+    SwappableFieldHandler_t field = (SwappableFieldHandler_t)PyCapsule_GetPointer(
+        field_capsule, "SwappableFieldHandler_t"
+    );
+    if (field == NULL) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_ValueError,
+                            "Invalid SwappableFieldHandler_t capsule");
+        }
+        return NULL;
+    }
+
+    PawnHandler_t pawn = (PawnHandler_t)PyCapsule_GetPointer(
+        pawn_capsule, "PawnHandler_t"
+    );
+    if (pawn == NULL) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_ValueError,
+                            "Invalid PawnHandler_t capsule");
+        }
+        return NULL;
+    }
+
+    struct sista_Coordinates* coords = (struct sista_Coordinates*)PyCapsule_GetPointer(
+        coords_capsule, "sista_Coordinates"
+    );
+    if (coords == NULL) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_ValueError,
+                            "Invalid Coordinates capsule");
+        }
+        return NULL;
+    }
+
+    int result = sista_addPawnToSwap(field, pawn, *coords);
+    return PyLong_FromLong((long)result);
+}
+
 /** \brief Module execution function.
  *  \param module The module object.
  *  \return 0 on success, -1 on failure.
@@ -393,12 +739,28 @@ static PyMethodDef sista_module_methods[] = {
      py_sista_print_swappable_field_with_border,
      METH_VARARGS,
      "Prints the SwappableField with the specified Border."},
+    {"print_field_with_border",
+     py_sista_print_field_with_border,
+     METH_VARARGS,
+     "Prints the Field with the specified Border."},
     {"create_ansi_settings", (PyCFunction)py_sista_create_ansi_settings,
      METH_VARARGS | METH_KEYWORDS,
      "create_ansi_settings(fgcolor=F_WHITE, bgcolor=B_BLACK, attribute=A_RESET) -> ANSISettingsHandler_t capsule"},
     {"print", (PyCFunction)py_sista_print,
      METH_VARARGS,
      "Prints a message using Sista's ANSI settings."},
+
+    {"create_pawn_in_swappable_field", py_sista_create_pawn_in_swappable_field, METH_VARARGS,
+     "Creates a Pawn in the specified SwappableField at given coordinates with ANSI settings."},
+    {"create_coordinates", py_sista_create_coordinates, METH_VARARGS,
+     "Creates a Coordinates object."},
+    {"move_pawn", py_sista_move_pawn, METH_VARARGS,
+     "Moves the Pawn by the specified deltas."},
+    {"add_pawn_to_swap", py_sista_add_pawn_to_swap, METH_VARARGS,
+     "Adds a Pawn to the SwappableField's swap list at given coordinates."},
+    {"create_pawn_in_field", py_sista_create_pawn_in_field, METH_VARARGS,
+     "Creates a Pawn in the specified Field at given coordinates with ANSI settings."},
+
     {NULL, NULL, 0, NULL}  // Sentinel
 };
 
