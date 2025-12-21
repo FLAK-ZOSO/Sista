@@ -4,8 +4,14 @@ import platform
 sista_ext = Extension(
     "sista._sista",
     sources=["src/sistamodule.c"],
-    include_dirs=["/usr/local/include", "/usr/include"],
-    library_dirs=["/usr/local/lib", "/usr/lib"],
+    include_dirs=[
+        "/usr/local/include", 
+        "/usr/include"
+    ] if not platform.platform().lower().startswith("win") else [],
+    library_dirs=[
+        "/usr/local/lib", 
+        "/usr/lib"
+    ] if not platform.platform().lower().startswith("win") else [],
     language="c",
     libraries=["Sista_api"],
     extra_link_args=[
