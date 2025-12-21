@@ -63,7 +63,7 @@ static PyObject* py_sista_print(PyObject* self, PyObject* args) {
     Py_RETURN_NONE;
 }
 
-static void py_sista_destroySwappableField_capsule_destructor(PyObject*);
+static void py_sista_destroy_swappable_field_capsule_destructor(PyObject*);
 
 /** \brief Creates a SwappableField with the specified width and height.
  *  \param width The width of the SwappableField.
@@ -101,7 +101,7 @@ py_sista_createSwappableField(PyObject* self,
     }
 
     return PyCapsule_New((void*)field, "SwappableFieldHandler_t", 
-                         (PyCapsule_Destructor)py_sista_destroySwappableField_capsule_destructor);
+                         (PyCapsule_Destructor)py_sista_destroy_swappable_field_capsule_destructor);
 }
 
 /** \brief Destructor for SwappableFieldHandler_t capsule.
@@ -112,7 +112,7 @@ py_sista_createSwappableField(PyObject* self,
  *  the capsule and calls the appropriate destructor to free the memory.
 */
 static void
-py_sista_destroySwappableField_capsule_destructor(PyObject* capsule) {
+py_sista_destroy_swappable_field_capsule_destructor(PyObject* capsule) {
     SwappableFieldHandler_t field = (SwappableFieldHandler_t)PyCapsule_GetPointer(
         capsule, "SwappableFieldHandler_t"
     );
@@ -346,8 +346,6 @@ sista_module_exec(PyObject* module)
 static PyMethodDef sista_module_methods[] = {
     {"create_swappable_field", py_sista_createSwappableField, METH_VARARGS,
      "Creates a SwappableField with the specified width and height."},
-    {"destroy_swappable_field", py_sista_destroySwappableField, METH_VARARGS,
-     "Deallocates the SwappableField from memory."},
 
     {"set_foreground_color", (PyCFunction)py_sista_set_foreground_color,
      METH_O,
