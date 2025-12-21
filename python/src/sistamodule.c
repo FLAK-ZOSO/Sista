@@ -383,7 +383,7 @@ static PyModuleDef_Slot sista_module_slots[] = {
 static struct PyModuleDef sista_module = {
     .m_base = PyModuleDef_HEAD_INIT,
     .m_name = "sista._sista",
-    .m_size = -1, // -1 means the module keeps state in global variables, https://realpython.com/python312-subinterpreters/
+    .m_size = 0,  // non-negative
     .m_methods = sista_module_methods,
     .m_slots = sista_module_slots,
 };
