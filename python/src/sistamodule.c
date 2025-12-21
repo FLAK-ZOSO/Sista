@@ -98,36 +98,6 @@ py_sista_createSwappableField(PyObject* self,
                          (PyCapsule_Destructor)py_sista_destroySwappableField_capsule_destructor);
 }
 
-/** \brief Deallocates the SwappableField from memory
- *  \param field The SwappableField to delete
- *
- *  This function deallocates the SwappableField from memory through the opaque
- *  handler pointing to it.
- *  \see SwappableField
- *
-*/
-static PyObject*
-py_sista_destroySwappableField(PyObject* self, PyObject* args) {
-    PyObject* field_capsule;
-    if (!PyArg_ParseTuple(args, "O", &field_capsule)) {
-        PyErr_SetString(PyExc_TypeError,
-                        "Invalid arguments: expected a SwappableFieldHandler_t capsule");
-        return NULL;
-    }
-
-    SwappableFieldHandler_t field = (SwappableFieldHandler_t)PyCapsule_GetPointer(
-        field_capsule, "SwappableFieldHandler_t"
-    );
-    if (field == NULL) {
-        PyErr_SetString(PyExc_ValueError,
-                        "Invalid SwappableFieldHandler_t capsule");
-        return NULL;
-    }
-
-    sista_destroySwappableField(field);
-    Py_RETURN_NONE;
-}
-
 /** \brief Destructor for SwappableFieldHandler_t capsule.
  *  \param capsule The capsule object.
  *
