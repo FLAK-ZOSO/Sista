@@ -76,7 +76,7 @@ py_sista_print(PyObject* self, PyObject* args) {
 }
 
 static PyObject*
-py_sista_reset_ansi(PyObject* self, PyObject* args) {
+py_sista_reset_ansi(PyObject* self, PyObject* Py_UNUSED(ignored)) {
     sista_resetAnsi();
     Py_RETURN_NONE;
 }
