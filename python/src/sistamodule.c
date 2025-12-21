@@ -99,15 +99,20 @@ static void py_sista_destroy_swappable_field_capsule_destructor(PyObject*);
 static PyObject*
 py_sista_createSwappableField(PyObject* self,
                               PyObject* args) {
-    size_t width;
-    size_t height;
-    if (!PyArg_ParseTuple(args, "nn", &width, &height)) {
+    Py_ssize_t w, h;
+    if (!PyArg_ParseTuple(args, "nn", &w, &h)) {
         if (!PyErr_Occurred()) {
             PyErr_SetString(PyExc_TypeError,
-                            "Invalid arguments: expected two size_t values (width, height)");
+                            "Invalid arguments: expected two integers (width, height)");
         }
         return NULL;
     }
+    if (w < 0 || h < 0) {
+        PyErr_SetString(PyExc_ValueError, "width and height must be non-negative");
+        return NULL;
+    }
+    size_t width = (size_t)w;
+    size_t height = (size_t)h;
 
     SwappableFieldHandler_t field = sista_createSwappableField(width, height);
     if (field == NULL) {
