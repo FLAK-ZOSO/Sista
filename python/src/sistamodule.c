@@ -378,7 +378,7 @@ static PyMethodDef sista_module_methods[] = {
     {"set_attribute", (PyCFunction)py_sista_set_attribute,
      METH_O,
      "Sets the text attribute."},
-    {"reset_attribute", (PyCFunction)py_sista_set_attribute,
+    {"reset_attribute", (PyCFunction)py_sista_reset_attribute,
      METH_O,
      "Resets the text attribute."},
 
