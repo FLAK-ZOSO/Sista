@@ -337,8 +337,7 @@ sista_module_exec(PyObject* module)
     PyModule_AddIntConstant(module, "A_STRIKETHROUGH", A_STRIKETHROUGH);
 
     // PyModule_AddStringConstant(module, "__version__", version);
-
-    printf("Sista C API Module - Version: %s\n", version);
+    // printf("Sista C API Module - Version: %s\n", version);
     return 0;
 }
 
