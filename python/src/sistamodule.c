@@ -49,8 +49,20 @@ py_sista_set_attribute(PyObject* self, PyObject* arg) {
     Py_RETURN_NONE;
 }
 
+/** \brief Resets the text attribute.
+ *  \param attribute The text attribute to reset.
+ */
+static PyObject*
+py_sista_reset_attribute(PyObject* self, PyObject* arg) {
+    long val = PyLong_AsLong(arg);
+    if (PyErr_Occurred()) return NULL;
+    sista_resetAttribute((enum sista_Attribute)val);
+    Py_RETURN_NONE;
+}
+
 // Just a function printing a string using the same stream settings as sista
-static PyObject* py_sista_print(PyObject* self, PyObject* args) {
+static PyObject*
+py_sista_print(PyObject* self, PyObject* args) {
     const char* message;
     if (!PyArg_ParseTuple(args, "s", &message)) {
         if (!PyErr_Occurred()) {
@@ -60,6 +72,12 @@ static PyObject* py_sista_print(PyObject* self, PyObject* args) {
         return NULL;
     }
     printf("%s\n", message);
+    Py_RETURN_NONE;
+}
+
+static PyObject*
+py_sista_reset_ansi(PyObject* self, PyObject* args) {
+    sista_resetAnsi();
     Py_RETURN_NONE;
 }
 
@@ -346,6 +364,10 @@ sista_module_exec(PyObject* module)
 static PyMethodDef sista_module_methods[] = {
     {"create_swappable_field", py_sista_createSwappableField, METH_VARARGS,
      "Creates a SwappableField with the specified width and height."},
+    
+    {"reset_ansi", (PyCFunction)py_sista_reset_ansi,
+     METH_NOARGS,
+     "Resets ANSI settings to default."},
 
     {"set_foreground_color", (PyCFunction)py_sista_set_foreground_color,
      METH_O,
@@ -356,6 +378,9 @@ static PyMethodDef sista_module_methods[] = {
     {"set_attribute", (PyCFunction)py_sista_set_attribute,
      METH_O,
      "Sets the text attribute."},
+    {"reset_attribute", (PyCFunction)py_sista_set_attribute,
+     METH_O,
+     "Resets the text attribute."},
 
     {"create_border", py_sista_create_border, METH_VARARGS,
      "Creates a Border object."},
