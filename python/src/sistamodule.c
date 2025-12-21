@@ -668,10 +668,8 @@ sista_module_exec(PyObject* module)
 {
     const char* version = sista_getVersion();
     if (version == NULL) {
-        if (!PyErr_Occurred()) {
-            PyErr_SetString(PyExc_RuntimeError,
-                            "Failed to retrieve Sista version");
-        }
+        PyErr_SetString(PyExc_RuntimeError,
+                        "Failed to retrieve Sista version");
         return -1;
     }
 
