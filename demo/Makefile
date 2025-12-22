@@ -16,7 +16,7 @@ endif
 all: header-test color-string colors24-bit \
 	colors256 conflictTest resetAttribute \
 	screen-mode swapTest verticalTest pawnsCountTest \
-	attributes api-test-cursor clean_objects
+	attributes clean_objects
 
 attributes.o: attributes.cpp
 	g++ -std=c++17 -Wall -g -c attributes.cpp
