@@ -238,6 +238,30 @@ extern "C" {
         }
         return 0;
     }
+    CursorHandler_t sista_createCursor() {
+        try {
+            return reinterpret_cast<CursorHandler_t>(new sista::Cursor());
+        } catch (const std::bad_alloc&) {
+            return NULL;
+        }
+    }
+    void sista_destroyCursor(CursorHandler_t cursor) {
+        delete reinterpret_cast<sista::Cursor*>(cursor);
+    }
+    void sista_moveCursor(CursorHandler_t cursor, enum sista_MoveCursor direction, unsigned short amount) {
+        if (cursor == nullptr) return;
+        reinterpret_cast<sista::Cursor*>(cursor)->move(
+            static_cast<sista::MoveCursor>(direction), amount
+        );
+    }
+    void sista_cursorGoTo(CursorHandler_t cursor, unsigned short y, unsigned short x) {
+        if (cursor == nullptr) return;
+        reinterpret_cast<sista::Cursor*>(cursor)->goTo(y, x);
+    }
+    void sista_cursorGoToCoordinates(CursorHandler_t cursor, struct sista_Coordinates coords) {
+        if (cursor == nullptr) return;
+        reinterpret_cast<sista::Cursor*>(cursor)->goTo(coords.y, coords.x);
+    }
     const char* sista_getVersion() {
         return sista::getVersion();
     }
