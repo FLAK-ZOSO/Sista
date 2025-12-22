@@ -72,8 +72,15 @@ print(sista.A_BRIGHT)     # 1
 
 # Use the API functions
 field = sista.create_swappable_field(10, 10)
-# ... use the field ...
-sista.destroy_swappable_field(field)
+pawn = sista.create_pawn_in_field(
+    field, 'P',
+    sista.create_ansi_settings(
+        sista.F_RED,
+        sista.B_BLACK,
+        sista.A_BLINK
+    ),
+    sista.create_coordinates(0, 0)
+)
 ```
 
 See the demos in [`demo/`](demo/) for more examples.

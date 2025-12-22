@@ -26,6 +26,12 @@ py_sista_set_foreground_color(PyObject* self, PyObject* arg) {
     sista_setForegroundColor((enum sista_ForegroundColor)val);
     Py_RETURN_NONE;
 }
+PyDoc_STRVAR(py_sista_set_foreground_color_doc,
+"Sets the foreground color.\n"
+"\n"
+"Parameters:\n"
+"  color (int): The foreground color to set.\n"
+);
 
 /** \brief Sets the background color.
  *  \param color The background color to set.
@@ -224,10 +230,8 @@ py_sista_create_border(PyObject* self, PyObject* args) {
         ansi_capsule, "ANSISettingsHandler_t"
     );
     if (settings == NULL) {
-        if (!PyErr_Occurred()) {
-            PyErr_SetString(PyExc_ValueError,
-                            "Invalid ANSISettingsHandler_t capsule");
-        }
+        PyErr_SetString(PyExc_ValueError,
+                        "Invalid ANSISettingsHandler_t capsule");
         return NULL;
     }
 
@@ -373,16 +377,23 @@ py_sista_print_field_with_border(PyObject* self, PyObject* args)
 static PyObject*
 py_sista_create_pawn_in_swappable_field(PyObject* self, PyObject* args) {
     PyObject* field_capsule;
-    char symbol;
+    const char* symbol_str;
+    Py_ssize_t symbol_len;
     PyObject* ansi_capsule;
     PyObject* coords_capsule;
-    if (!PyArg_ParseTuple(args, "OcOO", &field_capsule, &symbol, &ansi_capsule, &coords_capsule)) {
+    /* accept str or bytes; s# returns UTF-8 bytes + length */
+    if (!PyArg_ParseTuple(args, "Os#OO", &field_capsule, &symbol_str, &symbol_len, &ansi_capsule, &coords_capsule)) {
         if (!PyErr_Occurred()) {
             PyErr_SetString(PyExc_TypeError,
-                            "Invalid arguments: expected (SwappableFieldHandler_t capsule, symbol: str of length 1, ANSISettingsHandler_t capsule, Coordinates capsule)");
+                            "Invalid arguments: expected (SwappableFieldHandler_t capsule, symbol (1-char), ANSISettingsHandler_t capsule, Coordinates capsule)");
         }
         return NULL;
     }
+    if (symbol_len != 1) {
+        PyErr_SetString(PyExc_ValueError, "symbol must be a single character (length 1)");
+        return NULL;
+    }
+    char symbol = symbol_str[0];
 
     SwappableFieldHandler_t field = (SwappableFieldHandler_t)PyCapsule_GetPointer(
         field_capsule, "SwappableFieldHandler_t"
@@ -491,16 +502,23 @@ py_sista_destroy_coordinates_capsule_destructor(PyObject* capsule) {
 static PyObject*
 py_sista_create_pawn_in_field(PyObject* self, PyObject* args) {
     PyObject* field_capsule;
-    char symbol;
+    const char* symbol_str;
+    Py_ssize_t symbol_len;
     PyObject* ansi_capsule;
     PyObject* coords_capsule;
-    if (!PyArg_ParseTuple(args, "OcOO", &field_capsule, &symbol, &ansi_capsule, &coords_capsule)) {
+    if (!PyArg_ParseTuple(args, "Os#OO", &field_capsule, &symbol_str, &symbol_len, &ansi_capsule, &coords_capsule)) {
         if (!PyErr_Occurred()) {
             PyErr_SetString(PyExc_TypeError,
-                            "Invalid arguments: expected (FieldHandler_t capsule, symbol: str of length 1, ANSISettingsHandler_t capsule, Coordinates capsule)");
+                            "Invalid arguments: expected (FieldHandler_t capsule, symbol (1-char), ANSISettingsHandler_t capsule, Coordinates capsule)");
         }
         return NULL;
     }
+    if (symbol_len != 1) {
+        PyErr_SetString(PyExc_ValueError, "symbol must be a single character (length 1)");
+        return NULL;
+    }
+    char symbol = symbol_str[0];
+
     FieldHandler_t field = (FieldHandler_t)PyCapsule_GetPointer(
         field_capsule, "FieldHandler_t"
     );
@@ -720,7 +738,7 @@ static PyMethodDef sista_module_methods[] = {
 
     {"set_foreground_color", (PyCFunction)py_sista_set_foreground_color,
      METH_O,
-     "Sets the foreground color."},
+     py_sista_set_foreground_color_doc},
     {"set_background_color", (PyCFunction)py_sista_set_background_color,
      METH_O,
      "Sets the background color."},
