@@ -146,8 +146,8 @@ else ifeq "$(shell uname -s)" "Darwin"
 install: libSista.dylib libSista.a libSista_api.dylib libSista_api.a
 	@echo "Installing Sista version $(FULL_VERSION) to $(PREFIX)..."
 	install -d $(PREFIX)/lib
-	install -m 755 libSista.dylib.$(FULL_VERSION) $(PREFIX)/lib/
-	install -m 755 libSista_api.dylib.$(FULL_VERSION) $(PREFIX)/lib/
+	install -m 644 libSista.dylib.$(FULL_VERSION) $(PREFIX)/lib/
+	install -m 644 libSista_api.dylib.$(FULL_VERSION) $(PREFIX)/lib/
 	ln -sf libSista.dylib.$(FULL_VERSION) $(PREFIX)/lib/libSista.dylib.$(MAJOR_VERSION)
 	ln -sf libSista.dylib.$(MAJOR_VERSION) $(PREFIX)/lib/libSista.dylib
 	ln -sf libSista_api.dylib.$(FULL_VERSION) $(PREFIX)/lib/libSista_api.dylib.$(MAJOR_VERSION)
