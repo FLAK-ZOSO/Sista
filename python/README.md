@@ -24,7 +24,7 @@ Before building the extension, ensure you have:
 
 ```bash
 # Navigate to the project root directory
-cd /path/to/sista
+cd python
 
 # Install required Python packages
 pip install setuptools wheel
@@ -32,19 +32,6 @@ pip install setuptools wheel
 # Build the extension
 python setup.py build_ext --inplace
 ```
-
-### Alternative: Manual Compilation
-
-If you prefer manual compilation:
-
-```bash
-# Compile the extension module
-gcc -shared -fPIC -I/usr/include/python3.13 -I../include -I../include/sista \
-    -o sista.cpython-313-x86_64-linux-gnu.so sistamodule.c \
-    -lSista_api -lSista
-```
-
-Replace `python3.x` with your Python version and adjust library paths as needed.
 
 ## Installing the Extension
 
