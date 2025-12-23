@@ -1,0 +1,31 @@
+__version__ = '3.0.0'
+
+# Do NOT import the compiled extension at import-time (keeps metadata reads safe).
+# Lazy-load the private extension module on attribute access.
+
+MODULE_NAME = f"{__name__}._sista"
+
+def _load_ext():
+    import importlib
+    import importlib.util
+    try:
+        return importlib.import_module(MODULE_NAME)
+    except Exception as e:
+        # give useful diagnostics and preserve original error
+        spec = importlib.util.find_spec(MODULE_NAME)
+        raise ImportError(f"Failed to load compiled extension '{MODULE_NAME}': {e!s} (spec={spec!r})") from e
+
+def __getattr__(name: str):
+    # forward lookups to the compiled submodule (constants, functions)
+    ext = _load_ext()
+    if hasattr(ext, name):
+        return getattr(ext, name)
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+
+def __dir__():
+    # include extension attributes in dir()
+    try:
+        ext = _load_ext()
+        return sorted(list(globals().keys()) + [a for a in dir(ext) if not a.startswith("__")])
+    except Exception:
+        return sorted(list(globals().keys()))

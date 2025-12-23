@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.dynamic]
+version = {attr = "sista.__version__"}
+
+[project]
+name = "sista"
+dynamic = ["version"]
+requires-python = ">=3.10"
+license = "GPL-3.0-only"
+license-files = ["LICENSE.md"]
+description = "Sista is a memory-safe and OS-agnostic library for making terminal videogames and animations"
+authors = [
+    {name = "FLAK-ZOSO", email = "mattia.marchese.2006@gmail.com"},
+]
+readme = "README.md"
+keywords = [
+    "ansi",
+    "graphics",
+    "terminal",
+    "videogames",
+    "animations"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Operating System :: Unix",
+    "Operating System :: MacOS",
+    # "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Games/Entertainment",
+    "Topic :: Games/Entertainment :: Simulation"
+]
+
+[project.urls]
+Homepage = "https://github.com/FLAK-ZOSO/Sista"
+Repository = "https://github.com/FLAK-ZOSO/Sista"
+Documentation = "https://flak-zoso.github.io/Sista/"
+Changelog = "https://github.com/FLAK-ZOSO/Sista/blob/main/changelog.md"
+ReleaseNotes = "https://github.com/FLAK-ZOSO/Sista/blob/main/ReleaseNotes.md"
