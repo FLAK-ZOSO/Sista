@@ -23,6 +23,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
     - Updated `Makefile` to build the C API and link it with the C++ library
 - Updated CI workflows to build and test the C API
 
+- Added Python C extension module `sista._sista` loaded in the `sista` Python module
+    - Added `python/` directory with the C extension source code and `setup.py` for building and installing the Python module
+    - Updated CI workflows to build and test the Python module
+
 ### Changed
 
 - Changed `sista::Field` to use `std::shared_ptr<sista::Pawn>` instead of raw pointers for memory safety and easier memory management
