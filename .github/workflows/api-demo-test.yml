@@ -100,6 +100,7 @@ jobs:
             demo/api-test-border.exe
             demo/api-test-multiple-styles.exe
             demo/api-test-swap.exe
+            demo/api-test-cursor.exe
             
       # - name: Test Python demo scripts
       #   shell: pwsh
@@ -172,6 +173,7 @@ jobs:
             demo/api-test-border
             demo/api-test-multiple-styles
             demo/api-test-swap
+            demo/api-test-cursor
     
       - name: Test Python demo scripts
         run: |
@@ -230,6 +232,7 @@ jobs:
             demo/api-test-border
             demo/api-test-multiple-styles
             demo/api-test-swap
+            demo/api-test-cursor
         
       - name: Test Python demo scripts
         run: |

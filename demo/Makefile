@@ -13,7 +13,10 @@ ifeq "$(shell uname -s)" "Darwin"
 	DYLD_LIBRARY_PATH_DIRECTIVE = -Wl,-rpath,$(PREFIX)/lib
 endif
 
-all: header-test color-string colors24-bit colors256 conflictTest resetAttribute screen-mode swapTest verticalTest pawnsCountTest attributes clean_objects
+all: header-test color-string colors24-bit \
+	colors256 conflictTest resetAttribute \
+	screen-mode swapTest verticalTest pawnsCountTest \
+	attributes clean_objects
 
 attributes.o: attributes.cpp
 	g++ -std=c++17 -Wall -g -c attributes.cpp
@@ -104,12 +107,18 @@ api-test-swap.o: api-test-swap.cpp
 api-test-swap: api-test-swap.o
 	g++ -Wall -g -o api-test-swap api-test-swap.o -lSista_api -lSista $(LD_LIBRARY_PATH_DIRECTIVE) $(DYLD_LIBRARY_PATH_DIRECTIVE)
 
+api-test-cursor.o: api-test-cursor.c
+	g++ -std=c++17 -Wall -g -c api-test-cursor.c $(INCLUDE_PATH_DIRECTIVE)
+
+api-test-cursor: api-test-cursor.o
+	g++ -Wall -g -o api-test-cursor api-test-cursor.o -lSista_api -lSista $(LD_LIBRARY_PATH_DIRECTIVE) $(DYLD_LIBRARY_PATH_DIRECTIVE)
+
 clean_objects:
 	rm -f *.o
 
 clean: clean_objects
-	rm -f colors24-bit colors256 conflictTest resetAttribute screen-mode swapTest verticalTest
+	rm -f colors24-bit colors256 conflictTest resetAttribute screen-mode swapTest verticalTest pawnsCountTest
 	rm -f header-test shared-test shared-test-static
-	rm -f api-test api-test-border api-test-multiple-styles
+	rm -f api-test api-test-border api-test-multiple-styles api-test-swap api-test-cursor attributes
 
 .PHONY: all clean_objects clean

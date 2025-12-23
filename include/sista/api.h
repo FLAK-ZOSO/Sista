@@ -558,6 +558,85 @@ int sista_addPawnToSwap(SwappableFieldHandler_t, PawnHandler_t, struct sista_Coo
 */
 int sista_applySwaps(SwappableFieldHandler_t);
 
+/** \enum sista_MoveCursor
+ *  \brief Enumeration for cursor movement directions in ANSI escape codes.
+ *
+ *  This enum class defines various directions for moving the terminal cursor using ANSI escape codes.
+ *  Each direction corresponds to a specific command character used in the escape sequences.
+ *
+ *  \see sista::MoveCursor
+*/
+enum sista_MoveCursor {
+    UP = 'A',
+    DOWN = 'B',
+    RIGHT = 'C',
+    LEFT = 'D',
+    BEGINNING_OF_NEXT_LINE = 'E',
+    BEGINNING_OF_PREVIOUS_LINE = 'F',
+    HORIZONTAL_ABSOLUTE = 'G' /** Move to an absolute horizontal position (column). */
+};
+
+struct sista_Cursor;
+typedef struct sista_Cursor* CursorHandler_t;
+
+/** \brief Creates a cursor handler.
+ *  \return A handler to the created Cursor object.
+ *
+ *  This function allocates and initializes a new Cursor object.
+ *  It returns a pointer that can be used to reference the Cursor
+ *  in subsequent API calls.
+ *
+ *  \retval NULL If memory allocation fails.
+ *
+ *  \warning The caller is responsible for managing the lifetime of the
+ *           returned Cursor object, including deallocation if necessary.
+ *
+ *  \see sista::Cursor
+*/
+CursorHandler_t sista_createCursor();
+/** \brief Moves the cursor in the specified direction by a given amount.
+ *  \param cursor The Cursor handler.
+ *  \param direction The direction to move the cursor.
+ *  \param amount The number of positions to move the cursor.
+ *
+ *  This function moves the terminal cursor in the specified direction
+ *  by the given amount using ANSI escape codes.
+ *
+ *  \see sista::Cursor::move
+*/
+void sista_moveCursor(CursorHandler_t, enum sista_MoveCursor, unsigned short);
+/** \brief Moves the cursor to the specified coordinates.
+ *  \param cursor The Cursor handler.
+ *  \param y The y coordinate (row).
+ *  \param x The x coordinate (column).
+ *
+ *  This function moves the terminal cursor to the specified (y, x)
+ *  coordinates using ANSI escape codes.
+ *
+ *  \see sista::Cursor::goTo
+*/
+void sista_cursorGoTo(CursorHandler_t, unsigned short, unsigned short);
+/** \brief Moves the cursor to the specified coordinates.
+ *  \param cursor The Cursor handler.
+ *  \param coords The coordinates struct containing y and x.
+ *
+ *  This function moves the terminal cursor to the specified (y, x)
+ *  coordinates using ANSI escape codes.
+ *
+ *  \see sista::Cursor::goTo
+*/
+void sista_cursorGoToCoordinates(CursorHandler_t, struct sista_Coordinates);
+/** \brief Deallocates the Cursor from memory.
+ *  \param cursor The Cursor to delete.
+ *
+ *  This function deallocates the Cursor from memory through the opaque
+ *  handler pointing to it.
+ *
+ *  \see sista::Cursor
+ *  \see sista_createCursor
+*/
+void sista_destroyCursor(CursorHandler_t);
+
 const char* sista_getVersion();
 int sista_getVersionMajor();
 int sista_getVersionMinor();
