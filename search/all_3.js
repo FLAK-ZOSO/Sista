@@ -24,5 +24,6 @@ var searchData=
   ['cursor_21',['Cursor',['../structsista_1_1Cursor.html',1,'sista']]],
   ['cursor_2ecpp_22',['cursor.cpp',['../cursor_8cpp.html',1,'']]],
   ['cursor_2ehpp_23',['cursor.hpp',['../cursor_8hpp.html',1,'']]],
-  ['cyan_24',['CYAN',['../namespacesista.html#a72a9a13a3fd5aa83f5852d073bcdbe28a344dd8cd533280795b9db82ef0c92749',1,'sista::CYAN()'],['../namespacesista.html#ade2b5834bc07e347f46027a10a06d1caa344dd8cd533280795b9db82ef0c92749',1,'sista::CYAN()']]]
+  ['cursorhandler_5ft_24',['CursorHandler_t',['../api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8',1,'api.h']]],
+  ['cyan_25',['CYAN',['../namespacesista.html#a72a9a13a3fd5aa83f5852d073bcdbe28a344dd8cd533280795b9db82ef0c92749',1,'sista::CYAN()'],['../namespacesista.html#ade2b5834bc07e347f46027a10a06d1caa344dd8cd533280795b9db82ef0c92749',1,'sista::CYAN()']]]
 ];

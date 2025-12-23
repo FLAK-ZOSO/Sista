@@ -16,5 +16,5 @@ var searchData=
   ['restore_5fcursor_5fposition_13',['RESTORE_CURSOR_POSITION',['../namespacesista.html#af3bc6f60c5d75fa9fa275946c516ee51a62684cb7aa31e0d521228313ef65bb7b',1,'sista']]],
   ['reverse_14',['REVERSE',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2fa642e0b6684e6165e142c074f1cd8d55c',1,'sista']]],
   ['rgbcolor_15',['RGBColor',['../structsista_1_1RGBColor.html#a6fefbc7d8ec4427f2a783bf7e89c24fe',1,'sista::RGBColor::RGBColor()'],['../structsista_1_1RGBColor.html#a80f1b3240c6678b7da86e476c5c2663e',1,'sista::RGBColor::RGBColor(unsigned char, unsigned char, unsigned char)'],['../structsista_1_1RGBColor.html',1,'sista::RGBColor']]],
-  ['right_16',['RIGHT',['../namespacesista.html#a7aced27e09de586e7565fcad8f5459e4a21507b40c80068eda19865706fdc2403',1,'sista']]]
+  ['right_16',['RIGHT',['../api_8h.html#acf93245807642a551415bb6eaeb1bca4aec8379af7490bb9eaaf579cf17876f38',1,'RIGHT():&#160;api.h'],['../namespacesista.html#a7aced27e09de586e7565fcad8f5459e4a21507b40c80068eda19865706fdc2403',1,'sista::RIGHT()']]]
 ];

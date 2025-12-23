@@ -129,6 +129,8 @@ Typedefs</h2></td></tr>
 <tr class="separator:a3f4fff393723c61865b05482c653bf3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f04683e8866acbfa86279ddc3f1b7db"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structsista__Pawn.html">sista_Pawn</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a6f04683e8866acbfa86279ddc3f1b7db">PawnHandler_t</a></td></tr>
 <tr class="separator:a6f04683e8866acbfa86279ddc3f1b7db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a205c5ba279e6b3e4dc4837bb56ec06c8"><td class="memItemLeft" align="right" valign="top">typedef struct sista_Cursor *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a></td></tr>
+<tr class="separator:a205c5ba279e6b3e4dc4837bb56ec06c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -177,6 +179,19 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:a2e1c40f571e82f2df5cbb8e8f966af07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Text attributes for terminal text.  <a href="api_8h.html#a2e1c40f571e82f2df5cbb8e8f966af07">More...</a><br /></td></tr>
 <tr class="separator:a2e1c40f571e82f2df5cbb8e8f966af07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf93245807642a551415bb6eaeb1bca4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#acf93245807642a551415bb6eaeb1bca4">sista_MoveCursor</a> { <br />
+&#160;&#160;<a class="el" href="api_8h.html#acf93245807642a551415bb6eaeb1bca4aba595d8bca8bc5e67c37c0a9d89becfa">UP</a> = 'A'
+, <a class="el" href="api_8h.html#acf93245807642a551415bb6eaeb1bca4a9b0b4a95b99523966e0e34ffdadac9da">DOWN</a> = 'B'
+, <a class="el" href="api_8h.html#acf93245807642a551415bb6eaeb1bca4aec8379af7490bb9eaaf579cf17876f38">RIGHT</a> = 'C'
+, <a class="el" href="api_8h.html#acf93245807642a551415bb6eaeb1bca4adb45120aafd37a973140edee24708065">LEFT</a> = 'D'
+, <br />
+&#160;&#160;<a class="el" href="api_8h.html#acf93245807642a551415bb6eaeb1bca4a0c96f8e634947f2235c525c34384ca08">BEGINNING_OF_NEXT_LINE</a> = 'E'
+, <a class="el" href="api_8h.html#acf93245807642a551415bb6eaeb1bca4afbc52c5d9432b5150c0ce57545b65eff">BEGINNING_OF_PREVIOUS_LINE</a> = 'F'
+, <a class="el" href="api_8h.html#acf93245807642a551415bb6eaeb1bca4a1c47acf91139ae964615d55e56ef2d55">HORIZONTAL_ABSOLUTE</a> = 'G'
+<br />
+ }</td></tr>
+<tr class="memdesc:acf93245807642a551415bb6eaeb1bca4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration for cursor movement directions in ANSI escape codes.  <a href="api_8h.html#acf93245807642a551415bb6eaeb1bca4">More...</a><br /></td></tr>
+<tr class="separator:acf93245807642a551415bb6eaeb1bca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -258,6 +273,21 @@ Functions</h2></td></tr>
 <tr class="memitem:ab6394669ecea9aa6c83e0eb9fbbbdec1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#ab6394669ecea9aa6c83e0eb9fbbbdec1">sista_applySwaps</a> (<a class="el" href="api_8h.html#aad51f8d970d4b608c39c1d8c6b9b4f88">SwappableFieldHandler_t</a>)</td></tr>
 <tr class="memdesc:ab6394669ecea9aa6c83e0eb9fbbbdec1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes all pending pawn swaps.  <br /></td></tr>
 <tr class="separator:ab6394669ecea9aa6c83e0eb9fbbbdec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8d0f573303bb327a793696c7ebdb0e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#ac8d0f573303bb327a793696c7ebdb0e0">sista_createCursor</a> ()</td></tr>
+<tr class="memdesc:ac8d0f573303bb327a793696c7ebdb0e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a cursor handler.  <br /></td></tr>
+<tr class="separator:ac8d0f573303bb327a793696c7ebdb0e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69e6c6505c5448582401c528559fe7ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a69e6c6505c5448582401c528559fe7ac">sista_moveCursor</a> (<a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a>, enum <a class="el" href="api_8h.html#acf93245807642a551415bb6eaeb1bca4">sista_MoveCursor</a>, unsigned short)</td></tr>
+<tr class="memdesc:a69e6c6505c5448582401c528559fe7ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the cursor in the specified direction by a given amount.  <br /></td></tr>
+<tr class="separator:a69e6c6505c5448582401c528559fe7ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade8dde06b9f31f5cb1d2fe34bd48239a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#ade8dde06b9f31f5cb1d2fe34bd48239a">sista_cursorGoTo</a> (<a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a>, unsigned short, unsigned short)</td></tr>
+<tr class="memdesc:ade8dde06b9f31f5cb1d2fe34bd48239a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the cursor to the specified coordinates.  <br /></td></tr>
+<tr class="separator:ade8dde06b9f31f5cb1d2fe34bd48239a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4cc9938f8e4dfa2ab51bb7c9f063859"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#ad4cc9938f8e4dfa2ab51bb7c9f063859">sista_cursorGoToCoordinates</a> (<a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a>, struct <a class="el" href="structsista__Coordinates.html">sista_Coordinates</a>)</td></tr>
+<tr class="memdesc:ad4cc9938f8e4dfa2ab51bb7c9f063859"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the cursor to the specified coordinates.  <br /></td></tr>
+<tr class="separator:ad4cc9938f8e4dfa2ab51bb7c9f063859"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16cead8805fb3810a64dde741cd5102c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a16cead8805fb3810a64dde741cd5102c">sista_destroyCursor</a> (<a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a>)</td></tr>
+<tr class="memdesc:a16cead8805fb3810a64dde741cd5102c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates the Cursor from memory.  <br /></td></tr>
+<tr class="separator:a16cead8805fb3810a64dde741cd5102c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05f0932ced08d5b0cbc973b44d3ea1f3"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a05f0932ced08d5b0cbc973b44d3ea1f3">sista_getVersion</a> ()</td></tr>
 <tr class="separator:a05f0932ced08d5b0cbc973b44d3ea1f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d0755bca2c721f27477aa63277982a3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a1d0755bca2c721f27477aa63277982a3">sista_getVersionMajor</a> ()</td></tr>
@@ -298,6 +328,20 @@ Functions</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">typedef struct <a class="el" href="structsista__Border.html">sista_Border</a>* <a class="el" href="api_8h.html#a3f4fff393723c61865b05482c653bf3a">BorderHandler_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a205c5ba279e6b3e4dc4837bb56ec06c8" name="a205c5ba279e6b3e4dc4837bb56ec06c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a205c5ba279e6b3e4dc4837bb56ec06c8">&#9670;&#160;</a></span>CursorHandler_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct sista_Cursor* <a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -437,6 +481,33 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a3e96ff0d0454a62df1bd01897ba1a5efa8056e0824cdcb3b355ce5dd9b5939fe4" name="a3e96ff0d0454a62df1bd01897ba1a5efa8056e0824cdcb3b355ce5dd9b5939fe4"></a>F_MAGENTA&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a3e96ff0d0454a62df1bd01897ba1a5efa23dbe4ac0ff9bd8df5c1a76c7821095c" name="a3e96ff0d0454a62df1bd01897ba1a5efa23dbe4ac0ff9bd8df5c1a76c7821095c"></a>F_CYAN&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a3e96ff0d0454a62df1bd01897ba1a5efa7c35328901e819a1f46a67ca907da8e8" name="a3e96ff0d0454a62df1bd01897ba1a5efa7c35328901e819a1f46a67ca907da8e8"></a>F_WHITE&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="acf93245807642a551415bb6eaeb1bca4" name="acf93245807642a551415bb6eaeb1bca4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf93245807642a551415bb6eaeb1bca4">&#9670;&#160;</a></span>sista_MoveCursor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="api_8h.html#acf93245807642a551415bb6eaeb1bca4">sista_MoveCursor</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enumeration for cursor movement directions in ANSI escape codes. </p>
+<p>This enum class defines various directions for moving the terminal cursor using ANSI escape codes. Each direction corresponds to a specific command character used in the escape sequences.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacesista.html#a7aced27e09de586e7565fcad8f5459e4" title="Enumeration for cursor movement directions in ANSI escape codes.">sista::MoveCursor</a> </dd></dl>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="acf93245807642a551415bb6eaeb1bca4aba595d8bca8bc5e67c37c0a9d89becfa" name="acf93245807642a551415bb6eaeb1bca4aba595d8bca8bc5e67c37c0a9d89becfa"></a>UP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acf93245807642a551415bb6eaeb1bca4a9b0b4a95b99523966e0e34ffdadac9da" name="acf93245807642a551415bb6eaeb1bca4a9b0b4a95b99523966e0e34ffdadac9da"></a>DOWN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acf93245807642a551415bb6eaeb1bca4aec8379af7490bb9eaaf579cf17876f38" name="acf93245807642a551415bb6eaeb1bca4aec8379af7490bb9eaaf579cf17876f38"></a>RIGHT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acf93245807642a551415bb6eaeb1bca4adb45120aafd37a973140edee24708065" name="acf93245807642a551415bb6eaeb1bca4adb45120aafd37a973140edee24708065"></a>LEFT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acf93245807642a551415bb6eaeb1bca4a0c96f8e634947f2235c525c34384ca08" name="acf93245807642a551415bb6eaeb1bca4a0c96f8e634947f2235c525c34384ca08"></a>BEGINNING_OF_NEXT_LINE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acf93245807642a551415bb6eaeb1bca4afbc52c5d9432b5150c0ce57545b65eff" name="acf93245807642a551415bb6eaeb1bca4afbc52c5d9432b5150c0ce57545b65eff"></a>BEGINNING_OF_PREVIOUS_LINE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acf93245807642a551415bb6eaeb1bca4a1c47acf91139ae964615d55e56ef2d55" name="acf93245807642a551415bb6eaeb1bca4a1c47acf91139ae964615d55e56ef2d55"></a>HORIZONTAL_ABSOLUTE&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -728,6 +799,35 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ac8d0f573303bb327a793696c7ebdb0e0" name="ac8d0f573303bb327a793696c7ebdb0e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8d0f573303bb327a793696c7ebdb0e0">&#9670;&#160;</a></span>sista_createCursor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a> sista_createCursor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a cursor handler. </p>
+<dl class="section return"><dt>Returns</dt><dd>A handler to the created Cursor object.</dd></dl>
+<p>This function allocates and initializes a new Cursor object. It returns a pointer that can be used to reference the Cursor in subsequent API calls.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">NULL</td><td>If memory allocation fails.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>The caller is responsible for managing the lifetime of the returned Cursor object, including deallocation if necessary.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">sista::Cursor</a> </dd></dl>
+
+</div>
+</div>
 <a id="a8d155b491481acf0f4c9a28f822d48c0" name="a8d155b491481acf0f4c9a28f822d48c0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8d155b491481acf0f4c9a28f822d48c0">&#9670;&#160;</a></span>sista_createField()</h2>
 
@@ -948,6 +1048,91 @@ sista_destroyPawn </dd></dl>
 
 </div>
 </div>
+<a id="ade8dde06b9f31f5cb1d2fe34bd48239a" name="ade8dde06b9f31f5cb1d2fe34bd48239a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade8dde06b9f31f5cb1d2fe34bd48239a">&#9670;&#160;</a></span>sista_cursorGoTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sista_cursorGoTo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a>&#160;</td>
+          <td class="paramname"><em>cursor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Moves the cursor to the specified coordinates. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cursor</td><td>The Cursor handler. </td></tr>
+    <tr><td class="paramname">y</td><td>The y coordinate (row). </td></tr>
+    <tr><td class="paramname">x</td><td>The x coordinate (column).</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function moves the terminal cursor to the specified (y, x) coordinates using ANSI escape codes.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1Cursor.html#a8108bca18a010e5376d51a441c463855" title="Moves the cursor to the specified (y, x) coordinates.">sista::Cursor::goTo</a> </dd></dl>
+
+</div>
+</div>
+<a id="ad4cc9938f8e4dfa2ab51bb7c9f063859" name="ad4cc9938f8e4dfa2ab51bb7c9f063859"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4cc9938f8e4dfa2ab51bb7c9f063859">&#9670;&#160;</a></span>sista_cursorGoToCoordinates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sista_cursorGoToCoordinates </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a>&#160;</td>
+          <td class="paramname"><em>cursor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structsista__Coordinates.html">sista_Coordinates</a>&#160;</td>
+          <td class="paramname"><em>coords</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Moves the cursor to the specified coordinates. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cursor</td><td>The Cursor handler. </td></tr>
+    <tr><td class="paramname">coords</td><td>The coordinates struct containing y and x.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function moves the terminal cursor to the specified (y, x) coordinates using ANSI escape codes.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1Cursor.html#a8108bca18a010e5376d51a441c463855" title="Moves the cursor to the specified (y, x) coordinates.">sista::Cursor::goTo</a> </dd></dl>
+
+</div>
+</div>
 <a id="a1bf0f892610023810009beb4683b5609" name="a1bf0f892610023810009beb4683b5609"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1bf0f892610023810009beb4683b5609">&#9670;&#160;</a></span>sista_destroyANSISettings()</h2>
 
@@ -1005,6 +1190,36 @@ sista_destroyPawn </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Border.html" title="Represents a brick of the border with a symbol and ANSI settings.">sista::Border</a> </dd>
 <dd>
 <a class="el" href="api_8h.html#ae3e1e1ef7f2f849b5899d28081278219" title="Creates a Border object.">sista_createBorder</a> </dd></dl>
+
+</div>
+</div>
+<a id="a16cead8805fb3810a64dde741cd5102c" name="a16cead8805fb3810a64dde741cd5102c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16cead8805fb3810a64dde741cd5102c">&#9670;&#160;</a></span>sista_destroyCursor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sista_destroyCursor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a>&#160;</td>
+          <td class="paramname"><em>cursor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deallocates the Cursor from memory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cursor</td><td>The Cursor to delete.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function deallocates the Cursor from memory through the opaque handler pointing to it.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">sista::Cursor</a> </dd>
+<dd>
+<a class="el" href="api_8h.html#ac8d0f573303bb327a793696c7ebdb0e0" title="Creates a cursor handler.">sista_createCursor</a> </dd></dl>
 
 </div>
 </div>
@@ -1129,6 +1344,52 @@ sista_destroyPawn </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a69e6c6505c5448582401c528559fe7ac" name="a69e6c6505c5448582401c528559fe7ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69e6c6505c5448582401c528559fe7ac">&#9670;&#160;</a></span>sista_moveCursor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sista_moveCursor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a>&#160;</td>
+          <td class="paramname"><em>cursor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">enum&#160;</td>
+          <td class="paramname"><em>sista_MoveCursor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short&#160;</td>
+          <td class="paramname"><em>amount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Moves the cursor in the specified direction by a given amount. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cursor</td><td>The Cursor handler. </td></tr>
+    <tr><td class="paramname">direction</td><td>The direction to move the cursor. </td></tr>
+    <tr><td class="paramname">amount</td><td>The number of positions to move the cursor.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function moves the terminal cursor in the specified direction by the given amount using ANSI escape codes.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1Cursor.html#a28b28cc36d1da945d5a3b3ceca103928" title="Moves the cursor in the specified direction by a given number of positions.">sista::Cursor::move</a> </dd></dl>
 
 </div>
 </div>
@@ -1559,7 +1820,7 @@ Border </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 18 2025 12:35:37 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generated on Tue Dec 23 2025 07:57:04 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>
