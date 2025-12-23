@@ -1,7 +1,0 @@
-#!/bin/sh
-set -e
-# update dynamic linker cache on remove/upgrade
-if [ -x ldconfig ]; then
-    ldconfig || true
-fi
-exit 0
