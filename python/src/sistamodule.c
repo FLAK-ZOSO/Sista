@@ -710,7 +710,7 @@ py_sista_destroy_cursor_capsule_destructor(PyObject* capsule) {
  *  This function moves the specified cursor in the given direction by
  *  the specified amount.
 */
-static void
+static PyObject*
 py_sista_move_cursor(PyObject* self, PyObject* args) {
     PyObject* cursor_capsule;
     Py_ssize_t direction, amount;
@@ -719,7 +719,7 @@ py_sista_move_cursor(PyObject* self, PyObject* args) {
             PyErr_SetString(PyExc_TypeError,
                             "Invalid arguments: expected (CursorHandler_t capsule, direction: int, amount: int)");
         }
-        return;
+        return NULL;
     }
     CursorHandler_t cursor = (CursorHandler_t)PyCapsule_GetPointer(
         cursor_capsule, "CursorHandler_t"
@@ -729,9 +729,10 @@ py_sista_move_cursor(PyObject* self, PyObject* args) {
             PyErr_SetString(PyExc_ValueError,
                             "Invalid CursorHandler_t capsule");
         }
-        return;
+        return NULL;
     }
     sista_moveCursor(cursor, (enum sista_MoveCursor)direction, (unsigned short)amount);
+    Py_RETURN_NONE;
 }
 
 /** \brief Moves the cursor to the specified coordinates.
@@ -741,7 +742,7 @@ py_sista_move_cursor(PyObject* self, PyObject* args) {
  *
  *  This function moves the specified cursor to the given (y, x) coordinates.
 */
-static void
+static PyObject*
 py_sista_cursor_go_to(PyObject* self, PyObject* args) {
     PyObject* cursor_capsule;
     Py_ssize_t y, x;
@@ -750,7 +751,7 @@ py_sista_cursor_go_to(PyObject* self, PyObject* args) {
             PyErr_SetString(PyExc_TypeError,
                             "Invalid arguments: expected (CursorHandler_t capsule, y: int, x: int)");
         }
-        return;
+        return NULL;
     }
     CursorHandler_t cursor = (CursorHandler_t)PyCapsule_GetPointer(
         cursor_capsule, "CursorHandler_t"
@@ -760,9 +761,10 @@ py_sista_cursor_go_to(PyObject* self, PyObject* args) {
             PyErr_SetString(PyExc_ValueError,
                             "Invalid CursorHandler_t capsule");
         }
-        return;
+        return NULL;
     }
     sista_cursorGoTo(cursor, (unsigned short)y, (unsigned short)x);
+    Py_RETURN_NONE;
 }
 
 /** \brief Moves the cursor to the specified coordinates.
@@ -771,7 +773,7 @@ py_sista_cursor_go_to(PyObject* self, PyObject* args) {
  *
  *  This function moves the specified cursor to the given Coordinates.
 */
-static void
+static PyObject*
 py_sista_cursor_go_to_coordinates(PyObject* self, PyObject* args) {
     PyObject* cursor_capsule;
     PyObject* coords_capsule;
@@ -780,7 +782,7 @@ py_sista_cursor_go_to_coordinates(PyObject* self, PyObject* args) {
             PyErr_SetString(PyExc_TypeError,
                             "Invalid arguments: expected (CursorHandler_t capsule, Coordinates capsule)");
         }
-        return;
+        return NULL;
     }
     CursorHandler_t cursor = (CursorHandler_t)PyCapsule_GetPointer(
         cursor_capsule, "CursorHandler_t"
@@ -790,7 +792,7 @@ py_sista_cursor_go_to_coordinates(PyObject* self, PyObject* args) {
             PyErr_SetString(PyExc_ValueError,
                             "Invalid CursorHandler_t capsule");
         }
-        return;
+        return NULL;
     }
     struct sista_Coordinates* coords = (struct sista_Coordinates*)PyCapsule_GetPointer(
         coords_capsule, "sista_Coordinates"
@@ -800,9 +802,10 @@ py_sista_cursor_go_to_coordinates(PyObject* self, PyObject* args) {
             PyErr_SetString(PyExc_ValueError,
                             "Invalid Coordinates capsule");
         }
-        return;
+        return NULL;
     }
     sista_cursorGoToCoordinates(cursor, *coords);
+    Py_RETURN_NONE;
 }
 
 /** \brief Module execution function.
@@ -887,14 +890,14 @@ static PyMethodDef sista_module_methods[] = {
      METH_O,
      "Resets the text attribute."},
 
-    {"create_border", py_sista_create_border, METH_VARARGS,
+    {"create_border", (PyCFunction)py_sista_create_border, METH_VARARGS,
      "Creates a Border object."},
     {"print_swappable_field_with_border",
-     py_sista_print_swappable_field_with_border,
+     (PyCFunction)py_sista_print_swappable_field_with_border,
      METH_VARARGS,
      "Prints the SwappableField with the specified Border."},
     {"print_field_with_border",
-     py_sista_print_field_with_border,
+     (PyCFunction)py_sista_print_field_with_border,
      METH_VARARGS,
      "Prints the Field with the specified Border."},
     {"create_ansi_settings", (PyCFunction)py_sista_create_ansi_settings,
@@ -904,15 +907,15 @@ static PyMethodDef sista_module_methods[] = {
      METH_VARARGS,
      "Prints a message using Sista's ANSI settings."},
 
-    {"create_pawn_in_swappable_field", py_sista_create_pawn_in_swappable_field, METH_VARARGS,
+    {"create_pawn_in_swappable_field", (PyCFunction)py_sista_create_pawn_in_swappable_field, METH_VARARGS,
      "Creates a Pawn in the specified SwappableField at given coordinates with ANSI settings."},
-    {"create_coordinates", py_sista_create_coordinates, METH_VARARGS,
+    {"create_coordinates", (PyCFunction)py_sista_create_coordinates, METH_VARARGS,
      "Creates a Coordinates object."},
-    {"move_pawn", py_sista_move_pawn, METH_VARARGS,
+    {"move_pawn", (PyCFunction)py_sista_move_pawn, METH_VARARGS,
      "Moves the Pawn by the specified deltas."},
-    {"add_pawn_to_swap", py_sista_add_pawn_to_swap, METH_VARARGS,
+    {"add_pawn_to_swap", (PyCFunction)py_sista_add_pawn_to_swap, METH_VARARGS,
      "Adds a Pawn to the SwappableField's swap list at given coordinates."},
-    {"create_pawn_in_field", py_sista_create_pawn_in_field, METH_VARARGS,
+    {"create_pawn_in_field", (PyCFunction)py_sista_create_pawn_in_field, METH_VARARGS,
      "Creates a Pawn in the specified Field at given coordinates with ANSI settings."},
 
     {"create_cursor", (PyCFunction)py_sista_create_cursor,
