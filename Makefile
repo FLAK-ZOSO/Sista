@@ -170,8 +170,8 @@ else
 install: libSista.so libSista.a libSista_api.so libSista_api.a
 	@echo "Staged install to '$(DESTDIR)$(PREFIX)' (use DESTDIR for packaging)"
 	install -d $(DESTDIR)$(PREFIX)/lib
-	install -m 755 libSista.so.$(FULL_VERSION) $(DESTDIR)$(PREFIX)/lib/
-	install -m 755 libSista_api.so.$(FULL_VERSION) $(DESTDIR)$(PREFIX)/lib/
+	install -m 644 libSista.so.$(FULL_VERSION) $(DESTDIR)$(PREFIX)/lib/
+	install -m 644 libSista_api.so.$(FULL_VERSION) $(DESTDIR)$(PREFIX)/lib/
 	ln -sf libSista_api.so.$(FULL_VERSION) $(DESTDIR)$(PREFIX)/lib/libSista_api.so.$(MAJOR_VERSION)
 	ln -sf libSista_api.so.$(MAJOR_VERSION) $(DESTDIR)$(PREFIX)/lib/libSista_api.so
 	ln -sf libSista.so.$(FULL_VERSION) $(DESTDIR)$(PREFIX)/lib/libSista.so.$(MAJOR_VERSION)
