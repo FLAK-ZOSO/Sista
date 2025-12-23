@@ -36,12 +36,28 @@ jobs:
           cd python
           python -m pip install build
           python -m build
+    
+      - name: Install cibuildwheel
+        run: |
+          cd python
+          python -m pip install cibuildwheel
+
+      - name: Build wheels
+        run: |
+          cd python
+          cibuildwheel --output-dir wheelhouse
 
       - name: Upload distributions
         uses: actions/upload-artifact@v4
         with:
           name: release-dists
           path: python/dist/
+
+      - name: Upload wheels
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-wheels
+          path: python/wheelhouse/
 
   pypi-publish:
     runs-on: ubuntu-latest
@@ -69,7 +85,17 @@ jobs:
           name: release-dists
           path: python/dist/
 
-      - name: Publish release distributions to PyPI
+      - name: Retrieve wheels
+        uses: actions/download-artifact@v4
+        with:
+          name: release-wheels
+
+    #   - name: Publish release distributions to PyPI
+    #     uses: pypa/gh-action-pypi-publish@release/v1
+    #     with:
+    #       packages-dir: python/dist/
+
+      - name: Publish wheels to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          packages-dir: python/dist/
+          packages-dir: python/wheelhouse/
