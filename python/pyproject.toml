@@ -56,6 +56,7 @@ Changelog = "https://github.com/FLAK-ZOSO/Sista/blob/main/changelog.md"
 ReleaseNotes = "https://github.com/FLAK-ZOSO/Sista/blob/main/ReleaseNotes.md"
 
 [external]
+# https://peps.python.org/pep-0725/
 host-requires = [
     "dep:generic/sista"
 ]
