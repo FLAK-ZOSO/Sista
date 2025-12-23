@@ -1,6 +1,7 @@
 #!/usr/bin/make -f
 clean:
 	make -C .. clean
+	dh_clean
 
 build:
 	make -C .. all
