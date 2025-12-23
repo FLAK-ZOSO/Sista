@@ -2,9 +2,13 @@ Source: sista
 Section: devel
 Priority: optional
 Maintainer: FLAK-ZOSO <mattia.marchese.2006@gmail.com>
-Build-Depends: build-essential, debhelper (>= 11), g++ (>= 7)
+Build-Depends: debhelper (>= 11), g++ (>= 7)
+Standards-Version: 4.6.0
 
 Package: sista
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Sista is a lightweight, fast, easy-to-use, memory-safe and OS-agnostic object-oriented library for making terminal videogames and animations.
+Description: Lightweight, fast, memory-safe, OS-agnostic library for terminal games
+ Sista provides a small C++ library with a C API that helps build terminal
+ videogames and animations. It includes terminal ANSI helpers, field and pawn
+ primitives, and optional development headers for C/C++ integration.
