@@ -42,6 +42,8 @@ endif
 
 all: sista
 
+build: libSista.so libSista_api.so libSista.a libSista_api.a
+
 objects:
 	g++ -std=c++17 -Wall -c $(IMPLEMENTATIONS)
 
@@ -146,8 +148,8 @@ else ifeq "$(shell uname -s)" "Darwin"
 install: libSista.dylib libSista.a libSista_api.dylib libSista_api.a
 	@echo "Installing Sista version $(FULL_VERSION) to $(PREFIX)..."
 	install -d $(PREFIX)/lib
-	install -m 755 libSista.dylib.$(FULL_VERSION) $(PREFIX)/lib/
-	install -m 755 libSista_api.dylib.$(FULL_VERSION) $(PREFIX)/lib/
+	install -m 644 libSista.dylib.$(FULL_VERSION) $(PREFIX)/lib/
+	install -m 644 libSista_api.dylib.$(FULL_VERSION) $(PREFIX)/lib/
 	ln -sf libSista.dylib.$(FULL_VERSION) $(PREFIX)/lib/libSista.dylib.$(MAJOR_VERSION)
 	ln -sf libSista.dylib.$(MAJOR_VERSION) $(PREFIX)/lib/libSista.dylib
 	ln -sf libSista_api.dylib.$(FULL_VERSION) $(PREFIX)/lib/libSista_api.dylib.$(MAJOR_VERSION)
@@ -170,8 +172,8 @@ else
 install: libSista.so libSista.a libSista_api.so libSista_api.a
 	@echo "Staged install to '$(DESTDIR)$(PREFIX)' (use DESTDIR for packaging)"
 	install -d $(DESTDIR)$(PREFIX)/lib
-	install -m 755 libSista.so.$(FULL_VERSION) $(DESTDIR)$(PREFIX)/lib/
-	install -m 755 libSista_api.so.$(FULL_VERSION) $(DESTDIR)$(PREFIX)/lib/
+	install -m 644 libSista.so.$(FULL_VERSION) $(DESTDIR)$(PREFIX)/lib/
+	install -m 644 libSista_api.so.$(FULL_VERSION) $(DESTDIR)$(PREFIX)/lib/
 	ln -sf libSista_api.so.$(FULL_VERSION) $(DESTDIR)$(PREFIX)/lib/libSista_api.so.$(MAJOR_VERSION)
 	ln -sf libSista_api.so.$(MAJOR_VERSION) $(DESTDIR)$(PREFIX)/lib/libSista_api.so
 	ln -sf libSista.so.$(FULL_VERSION) $(DESTDIR)$(PREFIX)/lib/libSista.so.$(MAJOR_VERSION)

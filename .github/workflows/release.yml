@@ -64,6 +64,20 @@ jobs:
         run: |
           echo "CAPI_STATIC_LIB=$(find /usr/local/lib -name 'libSista_api.a' -print -quit)" >> $GITHUB_ENV
 
+      - name: Build .deb package
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get install -y debhelper devscripts
+          cd packageroot
+          debuild -us -uc
+          cd ..
+
+      - name: Find .deb package
+        if: runner.os == 'Linux'
+        id: find_deb_package
+        run: |
+          echo "DEB_PACKAGE=$(ls *.deb | head -n 1)" >> $GITHUB_ENV
+
       - name: Find dynamic library (Windows)
         if: runner.os == 'Windows'
         id: find_dynamic_lib_win
@@ -186,5 +200,6 @@ jobs:
             ${{ env.STATIC_LIB }}
             ${{ env.CAPI_LIB }}
             ${{ env.CAPI_STATIC_LIB }}
+            ${{ env.DEB_PACKAGE }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

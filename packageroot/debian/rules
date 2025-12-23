@@ -1,15 +1,47 @@
 #!/usr/bin/make -f
 clean:
 	make -C .. clean
+	dh_clean
 
 build:
-	make -C .. all
-	make -C .. clean
+	make -C .. build
 
-binary:
+# https://www.debian.org/doc/manuals/debmake-doc/ch06.en.html#rules
+build-arch: build
+build-indep: build
+
+install:
 	# install into staging tree: PREFIX must be the real install prefix; DESTDIR is the package root
-	make -C .. install PREFIX=/usr DESTDIR=debian/sista
+	make -C .. install PREFIX=/usr DESTDIR=$(CURDIR)/debian/sista
+
+	# remove any ld.so config created by upstream install (packaging must not modify ld.so search path)
+	-rm -f $(CURDIR)/debian/sista/etc/ld.so.conf.d/sista.conf
+	-rmdir --ignore-fail-on-non-empty $(CURDIR)/debian/sista/etc/ld.so.conf.d 2>/dev/null || true
+	-rmdir --ignore-fail-on-non-empty $(CURDIR)/debian/sista/etc 2>/dev/null || true
+
+	# Install documentation
+	install -d $(CURDIR)/debian/sista/usr/share/doc/sista
+	gzip -9n -c $(CURDIR)/debian/changelog > $(CURDIR)/debian/sista/usr/share/doc/sista/changelog.Debian.gz || true
+	install -m 644 $(CURDIR)/debian/copyright $(CURDIR)/debian/sista/usr/share/doc/sista/copyright || true
+
+	# fix library perms and strip unneeded symbols (avoid lintian errors)
+	if [ -d $(CURDIR)/debian/sista/usr/lib ]; then \
+		find $(CURDIR)/debian/sista/usr/lib -type f -name '*.so.*' -exec strip --strip-unneeded {} \; 2>/dev/null || true; \
+	fi
+
+	# Install lintian overrides
+	install -d $(CURDIR)/debian/sista/usr/share/lintian/overrides
+	install -m 644 $(CURDIR)/debian/lintian-overrides $(CURDIR)/debian/sista/usr/share/lintian/overrides/sista
+
+install-arch: install
+install-indep: install
+
+binary: install
 	dh_makeshlibs
 	dh_shlibdeps
 	dh_gencontrol
+	dh_installdeb
 	dh_builddeb
+
+binary-arch: binary
+binary-indep: binary

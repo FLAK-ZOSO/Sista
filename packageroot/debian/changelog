@@ -1,3 +1,9 @@
+sista (3.0.0-alpha.13-1) stretch; urgency=medium
+
+  * Adding sista_Cursor functions to the C API
+
+ -- FLAK-ZOSO <mattia.marchese.2006@gmail.com>  Mon, 22 Dec 2025 20:46:58 +0200
+
 sista (3.0.0-alpha.12-1) stretch; urgency=medium
 
   * Calling ranlib to index the library file

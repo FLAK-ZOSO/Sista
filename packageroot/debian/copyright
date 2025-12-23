@@ -1,0 +1,14 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: sista
+Source: https://github.com/FLAK-ZOSO/Sista
+
+Files: *
+Copyright: 2022-2025 FLAK-ZOSO <mattia.marchese.2006@gmail.com>
+License: GPL-3.0-only
+
+License: GPL-3.0-only
+ GNU General Public License version 3.
+ .
+ On Debian systems, the complete text of the
+ GNU General Public License version 3
+ can be found in `/usr/share/common-licenses/GPL-3'.

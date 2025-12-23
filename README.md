@@ -39,14 +39,7 @@ For the moment only `amd64` (for x86_64 architectures essentially) packages are 
 ```bash
 git clone https://github.com/FLAK-ZOSO/Sista
 cd packageroot
-sudo make -C .. install PREFIX=/usr DESTDIR=$(pwd)/debian/sista # This builds the binaries
-dpkg-buildpackage -us -uc -a arm64 -b # Specify your architecture, such as "i386", "arm64", "amd64"
-```
-
-If you build more than once, remember to remove the artifacts under `packageroot/debian/sista`, or the cached library will be used instead.
-
-```bash
-rm -rf packageroot/debian/sista
+debuild -us -uc -a arm64 -b # Specify your architecture, such as "i386", "arm64", "amd64"
 ```
 
 ## Usage

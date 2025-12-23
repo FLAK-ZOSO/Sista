@@ -1,0 +1,7 @@
+# https://lintian.debian.org/manual/index.html#overrides
+
+# https://lintian.debian.org/tags/link-to-shared-library-in-wrong-package.html
+sista: link-to-shared-library-in-wrong-package
+
+# https://lintian.debian.org/tags/package-name-doesnt-match-sonames.html
+sista: package-name-doesnt-match-sonames libSista-api* libSista*
