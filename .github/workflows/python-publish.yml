@@ -43,6 +43,7 @@ jobs:
           python -m pip install cibuildwheel
 
       - name: Build wheels
+        # https://cibuildwheel.pypa.io/en/stable/configuration/#environment-variables
         run: |
           cd python
           cibuildwheel --output-dir wheelhouse

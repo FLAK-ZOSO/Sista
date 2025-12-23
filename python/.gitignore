@@ -1,5 +1,6 @@
 build/
 dist/
+wheelhouse/
 sista.egg-info/
 __pycache__/
 *.so
