@@ -11,4 +11,4 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Lightweight, fast, memory-safe, OS-agnostic library for terminal games
  Sista provides a small C++ library with a C API that helps build terminal
  videogames and animations. It includes terminal ANSI helpers, field and pawn
- primitives, and optional development headers for C/C++ integration.
+ primitives, and development headers and libs.
