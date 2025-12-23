@@ -90,6 +90,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: release-wheels
+          path: python/wheelhouse/
 
     #   - name: Publish release distributions to PyPI
     #     uses: pypa/gh-action-pypi-publish@release/v1
