@@ -40,6 +40,7 @@ binary: install
 	dh_makeshlibs
 	dh_shlibdeps
 	dh_gencontrol
+	dh_installdeb
 	dh_builddeb
 
 binary-arch: binary
