@@ -564,7 +564,7 @@ int sista_applySwaps(SwappableFieldHandler_t);
  *  This enum class defines various directions for moving the terminal cursor using ANSI escape codes.
  *  Each direction corresponds to a specific command character used in the escape sequences.
  *
- *  \see 
+ *  \see sista::MoveCursor
 */
 enum sista_MoveCursor {
     UP = 'A',
