@@ -24,6 +24,15 @@ install:
 	gzip -9n -c $(CURDIR)/debian/changelog > $(CURDIR)/debian/sista/usr/share/doc/sista/changelog.Debian.gz || true
 	install -m 644 $(CURDIR)/debian/copyright $(CURDIR)/debian/sista/usr/share/doc/sista/copyright || true
 
+	# fix library perms and strip unneeded symbols (avoid lintian errors)
+	if [ -d $(CURDIR)/debian/sista/usr/lib ]; then \
+		find $(CURDIR)/debian/sista/usr/lib -type f -name '*.so.*' -exec strip --strip-unneeded {} \; 2>/dev/null || true; \
+	fi
+
+	# Install lintian overrides
+	install -d $(CURDIR)/debian/sista/usr/share/lintian/overrides
+	install -m 644 $(CURDIR)/debian/lintian-overrides $(CURDIR)/debian/sista/usr/share/lintian/overrides/sista
+
 install-arch: install
 install-indep: install
 
