@@ -54,3 +54,8 @@ Repository = "https://github.com/FLAK-ZOSO/Sista"
 Documentation = "https://flak-zoso.github.io/Sista/"
 Changelog = "https://github.com/FLAK-ZOSO/Sista/blob/main/changelog.md"
 ReleaseNotes = "https://github.com/FLAK-ZOSO/Sista/blob/main/ReleaseNotes.md"
+
+[external]
+host-requires = [
+    "dep:generic/sista"
+]
