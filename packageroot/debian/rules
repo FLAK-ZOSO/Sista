@@ -6,10 +6,22 @@ build:
 	make -C .. all
 	make -C .. clean
 
-binary:
+# https://www.debian.org/doc/manuals/debmake-doc/ch06.en.html#rules
+build-arch: build
+build-indep: build
+
+install:
 	# install into staging tree: PREFIX must be the real install prefix; DESTDIR is the package root
 	make -C .. install PREFIX=/usr DESTDIR=debian/sista
+
+install-arch: install
+install-indep: install
+
+binary: install
 	dh_makeshlibs
 	dh_shlibdeps
 	dh_gencontrol
 	dh_builddeb
+
+binary-arch: binary
+binary-indep: binary
