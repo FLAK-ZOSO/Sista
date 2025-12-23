@@ -4,8 +4,7 @@ clean:
 	dh_clean
 
 build:
-	make -C .. all
-	make -C .. clean
+	make -C .. build
 
 # https://www.debian.org/doc/manuals/debmake-doc/ch06.en.html#rules
 build-arch: build

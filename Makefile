@@ -42,6 +42,8 @@ endif
 
 all: sista
 
+build: libSista.so libSista_api.so libSista.a libSista_api.a
+
 objects:
 	g++ -std=c++17 -Wall -c $(IMPLEMENTATIONS)
 
