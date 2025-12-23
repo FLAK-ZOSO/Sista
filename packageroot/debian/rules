@@ -13,6 +13,9 @@ build-indep: build
 install:
 	# install into staging tree: PREFIX must be the real install prefix; DESTDIR is the package root
 	make -C .. install PREFIX=/usr DESTDIR=debian/sista
+	install -d debian/sista/usr/share/doc/sista
+	gzip -9n -c debian/changelog > debian/sista/usr/share/doc/sista/changelog.Debian.gz || true
+	install -m 644 debian/copyright debian/sista/usr/share/doc/sista/copyright || true
 
 install-arch: install
 install-indep: install
