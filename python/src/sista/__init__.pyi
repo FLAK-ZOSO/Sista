@@ -1,3 +1,4 @@
+"""Python type hints and pydocstrings for the Sista C extension module."""
 from typing import Any
 
 # Type alias used for opaque Python capsules returned by the C extension.
@@ -40,24 +41,209 @@ DIRECTION_LEFT: int
 BEGINNING_OF_NEXT_LINE: int
 BEGINNING_OF_PREVIOUS_LINE: int
 
-def set_foreground_color(color: int) -> None: ...
-def set_background_color(color: int) -> None: ...
-def set_attribute(attribute: int) -> None: ...
-def reset_attribute(attribute: int) -> None: ...
-def reset_ansi() -> None: ...
-def print(message: str) -> None: ...
+def set_foreground_color(color: int) -> None:
+    """
+    Set the terminal foreground color using one of the F_* constants.
 
-def create_swappable_field(width: int, height: int) -> Capsule: ...
-def create_ansi_settings(fgcolor: int = ..., bgcolor: int = ..., attribute: int = ...) -> Capsule: ...
-def create_border(symbol: str, ansi_settings: Capsule) -> Capsule: ...
-def create_pawn_in_swappable_field(field: Capsule, symbol: str, ansi_settings: Capsule, coords: Capsule) -> Capsule: ...
-def create_coordinates(y: int, x: int) -> Capsule: ...
-def move_pawn(field: Capsule, pawn: Capsule, dx: int, dy: int) -> int: ...
-def add_pawn_to_swap(field: Capsule, pawn: Capsule, coords: Capsule) -> int: ...
-def create_pawn_in_field(field: Capsule, symbol: str, ansi_settings: Capsule, coords: Capsule) -> Capsule: ...
-def print_swappable_field_with_border(field: Capsule, border: Capsule) -> None: ...
-def print_field_with_border(field: Capsule, border: Capsule) -> None: ...
-def create_cursor() -> Capsule: ...
-def move_cursor(cursor: Capsule, direction: int, amount: int) -> None: ...
-def cursor_go_to(cursor: Capsule, y: int, x: int) -> None: ...
-def cursor_go_to_coordinates(cursor: Capsule, coords: Capsule) -> None: ...
+    :param color: One of the F_* constants (e.g. F_RED).
+    :type color: int
+    """
+    ...
+def set_background_color(color: int) -> None:
+    """
+    Set the terminal background color using one of the B_* constants.
+
+    :param color: One of the B_* constants (e.g. B_BLUE).
+    :type color: int
+    """
+    ...
+def set_attribute(attribute: int) -> None:
+    """
+    Enable a terminal text attribute using one of the A_* constants.
+
+    :param attribute: One of the A_* constants (e.g. A_UNDERLINE).
+    :type attribute: int
+    """
+    ...
+def reset_attribute(attribute: int) -> None:
+    """
+    Disable/reset a terminal text attribute using one of the A_* constants.
+
+    :param attribute: One of the A_* constants (e.g. A_RESET).
+    :type attribute: int
+    """
+    ...
+def reset_ansi() -> None:
+    """
+    Reset all ANSI text attributes and colors to the terminal defaults.
+    """
+    ...
+def print(message: str) -> None:
+    """
+    Print a message to the terminal using Sista's configured output stream.
+
+    The function respects Sista's current ANSI settings (colors/attributes)
+    as managed by the extension.
+
+    :param message: Message to print (a single text line).
+    :type message: str
+    """
+    ...
+
+def create_swappable_field(width: int, height: int) -> Capsule:
+    """
+    Create and return an opaque handle to a SwappableField.
+
+    The returned Capsule represents a SwappableField object allocated by the
+    underlying C library. The Capsule must be passed back to other functions
+    in this module to operate on the field.
+
+    :param width: Field width (number of columns).
+    :param height: Field height (number of rows).
+    :return: Capsule wrapping the SwappableField handler.
+    """
+    ...
+def create_ansi_settings(fgcolor: int = ..., bgcolor: int = ..., attribute: int = ...) -> Capsule:
+    """
+    Create an ANSI settings object and return it as a Capsule.
+
+    The settings object describes foreground/background colors and a text
+    attribute to be applied when rendering borders, pawns, etc.
+
+    :param fgcolor: Foreground color (one of the F_* constants).
+    :param bgcolor: Background color (one of the B_* constants).
+    :param attribute: Text attribute (one of the A_* constants).
+    :return: Capsule wrapping the ANSISettings handler.
+    """
+    ...
+def create_border(symbol: str, ansi_settings: Capsule) -> Capsule:
+    """
+    Create a Border object that uses a single-character symbol and ANSI settings.
+
+    :param symbol: Single character string used to draw border bricks.
+    :param ansi_settings: Capsule returned by create_ansi_settings.
+    :return: Capsule wrapping the Border handler.
+    """
+    ...
+def create_pawn_in_swappable_field(field: Capsule, symbol: str, ansi_settings: Capsule, coords: Capsule) -> Capsule:
+    """
+    Create a Pawn inside a SwappableField and return a Pawn capsule.
+
+    The pawn is created at the specified coordinates and rendered using the
+    provided ANSI settings. Pawns created in swappable fields are managed by
+    the field (caller should not free the pawn handle).
+
+    :param field: Capsule returned by create_swappable_field.
+    :param symbol: Single character string used to represent the pawn.
+    :param ansi_settings: Capsule returned by create_ansi_settings.
+    :param coords: Capsule returned by create_coordinates.
+    :return: Capsule wrapping the Pawn handler.
+    """
+    ...
+def create_coordinates(y: int, x: int) -> Capsule:
+    """
+    Create a Coordinates object and return it as a Capsule.
+
+    Coordinates are small value objects (y,row and x,column) used by pawn
+    creation and movement functions. Caller is responsible for freeing the
+    capsule when no longer needed (the extension provides destructors).
+
+    :param y: Row index (unsigned short).
+    :param x: Column index (unsigned short).
+    :return: Capsule wrapping a Coordinates struct.
+    """
+    ...
+def move_pawn(field: Capsule, pawn: Capsule, dx: int, dy: int) -> int:
+    """
+    Move a pawn inside a Field by the given delta and return a status code.
+
+    The meaning of the returned integer follows the library's convention
+    (0 for success, non-zero for various errors such as out-of-bounds or
+    occupied destination).
+
+    :param field: Capsule for the Field containing the pawn.
+    :param pawn: Capsule for the Pawn to move.
+    :param dx: Delta in the x (column) direction.
+    :param dy: Delta in the y (row) direction.
+    :return: Integer status code (0 == success).
+    """
+    ...
+def add_pawn_to_swap(field: Capsule, pawn: Capsule, coords: Capsule) -> int:
+    """
+    Schedule a pawn to be moved (swapped) later in a SwappableField.
+
+    The function adds the pawn and its destination coordinates to the swap
+    list managed by the SwappableField. Call sista.apply swaps (or the
+    equivalent) to execute scheduled swaps.
+
+    :param field: Capsule for the SwappableField.
+    :param pawn: Capsule for the Pawn to schedule.
+    :param coords: Capsule with the destination coordinates.
+    :param coords: Capsule with the destination coordinates.
+    :return: Integer status code (0 == added successfully).
+    """
+    ...
+def create_pawn_in_field(field: Capsule, symbol: str, ansi_settings: Capsule, coords: Capsule) -> Capsule:
+    """
+    Create a Pawn inside a non-swappable Field and return a Pawn capsule.
+
+    Pawns created in plain Fields are managed by the Field object.
+
+    :param field: Capsule returned by the Field creation function.
+    :param symbol: Single character string representing the pawn.
+    :param ansi_settings: Capsule returned by create_ansi_settings.
+    :param coords: Capsule returned by create_coordinates.
+    :return: Capsule wrapping the Pawn handler.
+    """
+    ...
+def print_swappable_field_with_border(field: Capsule, border: Capsule) -> None:
+    """
+    Render a SwappableField to the terminal using the given Border object.
+
+    :param field: Capsule for the SwappableField to print.
+    :param border: Capsule for the Border to draw around the field.
+    """
+    ...
+def print_field_with_border(field: Capsule, border: Capsule) -> None:
+    """
+    Render a Field to the terminal using the given Border object.
+
+    :param field: Capsule for the Field to print.
+    :param border: Capsule for the Border to draw around the field.
+    """
+    ...
+def create_cursor() -> Capsule:
+    """
+    Create and return a Cursor object as a Capsule.
+
+    The cursor object can be used to emit cursor movement ANSI sequences.
+
+    :return: Capsule wrapping the Cursor handler.
+    """
+    ...
+def move_cursor(cursor: Capsule, direction: int, amount: int) -> None:
+    """
+    Move the cursor in the specified direction by the given amount.
+
+    :param cursor: Capsule returned by create_cursor.
+    :param direction: One of the DIRECTION_* constants (or equivalent).
+    :param amount: Number of positions to move the cursor.
+    """
+    ...
+def cursor_go_to(cursor: Capsule, y: int, x: int) -> None:
+    """
+    Move the cursor to the absolute (y, x) position.
+
+    :param cursor: Capsule returned by create_cursor.
+    :param y: Row index to move to.
+    :param x: Column index to move to.
+    """
+    ...
+def cursor_go_to_coordinates(cursor: Capsule, coords: Capsule) -> None:
+    """
+    Move the cursor to the position described by a Coordinates capsule.
+
+    :param cursor: Capsule returned by create_cursor.
+    :param coords: Capsule returned by create_coordinates.
+    """
+    ...

@@ -1,3 +1,4 @@
+"""Memory-safe and OS-agnostic library for making terminal videogames and animations"""
 __version__ = '3.0.0'
 
 # Do NOT import the compiled extension at import-time (keeps metadata reads safe).
