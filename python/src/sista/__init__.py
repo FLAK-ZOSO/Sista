@@ -1,4 +1,5 @@
-__version__ = '3.0.0'
+"""Memory-safe and OS-agnostic library for making terminal videogames and animations"""
+__version__ = '3.0.0-alpha.16'
 
 # Do NOT import the compiled extension at import-time (keeps metadata reads safe).
 # Lazy-load the private extension module on attribute access.

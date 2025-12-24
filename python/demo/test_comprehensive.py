@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Comprehensive test script for sista Python C extension module"""
+"""Comprehensive (not actually) test script for sista Python C extension module"""
 
 import sys
 import traceback
 import time
+import typing
 
 try:
     import sista
@@ -81,6 +82,12 @@ def test_swappable_field():
         print("ERROR: Should have failed with multi-character symbol")
     except ValueError:
         print("Correctly rejected multi-character symbol")
+    
+    sista.add_pawn_to_swap(field, pawn, sista.create_coordinates(3, 3))
+    print("Scheduled pawn for swap")
+
+    sista.apply_swaps(field)
+    print("Applied swaps in swappable field")
 
 def test_border_functionality():
     """Test Border creation and usage"""
@@ -181,6 +188,35 @@ def test_enum_exposure():
     for i, attr in enumerate(attrs):
         print(f"Attribute {i}: {attr}")
 
+def test_cursor_functions():
+    """Test cursor creation and movement"""
+    print("=== Testing Cursor Functions ===")
+    
+    # Create cursor
+    cursor = sista.create_cursor()
+    print(f"Created cursor: {cursor}")
+    
+    # Create coordinates
+    coords = sista.create_coordinates(3, 4)
+    print(f"Created coordinates for movement: {coords}")
+    
+    # Move cursor to coordinates
+    sista.cursor_go_to_coordinates(cursor, coords)
+    print("Moved cursor to specified coordinates")
+    
+    # Test invalid move
+    try:
+        sista.cursor_go_to_coordinates(None, coords)
+        print("ERROR: Should have failed with None cursor")
+    except ValueError:
+        print("Correctly rejected None cursor in move_cursor_to_coordinates")
+    
+    try:
+        sista.cursor_go_to_coordinates(cursor, None)
+        print("ERROR: Should have failed with None coordinates")
+    except ValueError:
+        print("Correctly rejected None coordinates in move_cursor_to_coordinates")
+
 def test_version():
     """Test version retrieval"""
     print("=== Testing Version Retrieval ===")
@@ -195,21 +231,21 @@ def main():
     """Run all tests"""
     print("Running comprehensive tests for sista Python C extension...")
     
+    tests: list[typing.Callable] = [
+        test_basic_functionality,
+        test_swappable_field,
+        test_border_functionality,
+        test_coordinates,
+        test_pawn_operations,
+        test_enum_exposure,
+        test_cursor_functions,
+        test_version,
+    ]
+
     try:
-        test_basic_functionality()
-        time.sleep(1)
-        test_swappable_field()
-        time.sleep(1)
-        test_border_functionality()
-        time.sleep(1)
-        test_coordinates()
-        time.sleep(1)
-        test_pawn_operations()
-        time.sleep(1)
-        test_enum_exposure()
-        time.sleep(1)
-        test_version()
-        time.sleep(1)
+        for test in tests:
+            test()
+            time.sleep(1)
         
         print("=== All Tests Completed Successfully ===")
         return 0

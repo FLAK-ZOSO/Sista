@@ -66,7 +66,13 @@ py_sista_reset_attribute(PyObject* self, PyObject* arg) {
     Py_RETURN_NONE;
 }
 
-// Just a function printing a string using the same stream settings as sista
+/** \brief Prints a message
+ *
+ *  Prints a message using Sista's ANSI settings,
+ *  using the same stream as printf.
+ *
+ *  \param message The message to print.
+ */
 static PyObject*
 py_sista_print(PyObject* self, PyObject* args) {
     const char* message;
@@ -81,6 +87,8 @@ py_sista_print(PyObject* self, PyObject* args) {
     Py_RETURN_NONE;
 }
 
+/** \brief Resets ANSI settings to default.
+ */
 static PyObject*
 py_sista_reset_ansi(PyObject* self, PyObject* Py_UNUSED(ignored)) {
     sista_resetAnsi();
@@ -674,6 +682,45 @@ py_sista_add_pawn_to_swap(PyObject* self, PyObject* args) {
     return PyLong_FromLong((long)result);
 }
 
+/** \brief Applies all scheduled swaps in the SwappableField.
+ *  \param field_capsule Capsule containing SwappableFieldHandler_t.
+ *
+ *  This function processes all scheduled swaps in the specified
+ *  SwappableField, updating the field state accordingly.
+*/
+static PyObject*
+py_sista_apply_swaps(PyObject* self, PyObject* args) {
+    PyObject* field_capsule;
+    if (!PyArg_ParseTuple(args, "O", &field_capsule)) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_TypeError,
+                            "Invalid arguments: expected (SwappableFieldHandler_t capsule)");
+        }
+        return NULL;
+    }
+
+    SwappableFieldHandler_t field = (SwappableFieldHandler_t)PyCapsule_GetPointer(
+        field_capsule, "SwappableFieldHandler_t"
+    );
+    if (field == NULL) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_ValueError,
+                            "Invalid SwappableFieldHandler_t capsule");
+        }
+        return NULL;
+    }
+
+    int result = sista_applySwaps(field);
+    if (result != 0) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_RuntimeError,
+                            "Failed to apply swaps in SwappableField");
+        }
+        return NULL;
+    }
+    Py_RETURN_NONE;
+}
+
 static void py_sista_destroy_cursor_capsule_destructor(PyObject*);
 
 /** \brief Creates a Cursor object.
@@ -915,6 +962,8 @@ static PyMethodDef sista_module_methods[] = {
      "Moves the Pawn by the specified deltas."},
     {"add_pawn_to_swap", (PyCFunction)py_sista_add_pawn_to_swap, METH_VARARGS,
      "Adds a Pawn to the SwappableField's swap list at given coordinates."},
+    {"apply_swaps", (PyCFunction)py_sista_apply_swaps, METH_VARARGS,
+     "Applies all scheduled swaps in the SwappableField."},
     {"create_pawn_in_field", (PyCFunction)py_sista_create_pawn_in_field, METH_VARARGS,
      "Creates a Pawn in the specified Field at given coordinates with ANSI settings."},
 
