@@ -66,27 +66,20 @@ def test_swappable_field():
     print(f"Created coordinates: {coords}")
     
     # Create pawn
-    pawn = sista.create_pawn_in_swappable_field(field, "P", settings, coords)
+    pawn = field.create_pawn("P", settings, coords)
     print(f"Created pawn: {pawn}")
-    
-    # Test invalid pawn creation
-    try:
-        sista.create_pawn_in_swappable_field(None, "P", settings, coords)
-        print("ERROR: Should have failed with None field")
-    except ValueError:
-        print("Correctly rejected None field")
     
     # Test invalid symbol length
     try:
-        sista.create_pawn_in_swappable_field(field, "PP", settings, coords)
+        field.create_pawn("PP", settings, coords)
         print("ERROR: Should have failed with multi-character symbol")
     except ValueError:
         print("Correctly rejected multi-character symbol")
     
-    sista.add_pawn_to_swap(field, pawn, sista.create_coordinates(3, 3))
+    field.add_pawn_to_swap(pawn, sista.create_coordinates(3, 3))
     print("Scheduled pawn for swap")
 
-    sista.apply_swaps(field)
+    field.apply_swaps()
     print("Applied swaps in swappable field")
 
 def test_border_functionality():
@@ -117,6 +110,9 @@ def test_border_functionality():
     except ValueError:
         print("Correctly rejected None settings")
 
+    field.print_with_border(border)
+    print("Printed field with border")
+
 def test_coordinates():
     """Test Coordinates creation and handling"""
     print("=== Testing Coordinates ===")
@@ -137,21 +133,14 @@ def test_pawn_operations():
     field = sista.create_swappable_field(10, 10)
     settings = sista.create_ansi_settings(sista.F_WHITE, sista.B_BLACK, sista.A_RESET)
     coords = sista.create_coordinates(5, 5)
-    pawn = sista.create_pawn_in_swappable_field(field, "P", settings, coords)
+    pawn = field.create_pawn("P", settings, coords)
     
     # Test adding pawn to swap
-    result = sista.add_pawn_to_swap(field, pawn, coords)
+    result = field.add_pawn_to_swap(pawn, coords)
     print(f"Add pawn to swap result: {result}")
     
-    # Test invalid add operation
     try:
-        sista.add_pawn_to_swap(None, pawn, coords)
-        print("ERROR: Should have failed with None field")
-    except ValueError:
-        print("Correctly rejected None field in add_pawn_to_swap")
-    
-    try:
-        sista.add_pawn_to_swap(field, None, coords)
+        field.add_pawn_to_swap(None, coords)
         print("ERROR: Should have failed with None pawn")
     except ValueError:
         print("Correctly rejected None pawn in add_pawn_to_swap")
@@ -201,21 +190,24 @@ def test_cursor_functions():
     print(f"Created coordinates for movement: {coords}")
     
     # Move cursor to coordinates
-    sista.cursor_go_to_coordinates(cursor, coords)
+    cursor.go_to_coordinates(coords)
     print("Moved cursor to specified coordinates")
     
     # Test invalid move
     try:
-        sista.cursor_go_to_coordinates(None, coords)
+        sista.Cursor.go_to_coordinates(None, coords)
         print("ERROR: Should have failed with None cursor")
-    except ValueError:
+    except TypeError:
         print("Correctly rejected None cursor in move_cursor_to_coordinates")
     
     try:
-        sista.cursor_go_to_coordinates(cursor, None)
+        cursor.go_to_coordinates(None)
         print("ERROR: Should have failed with None coordinates")
     except ValueError:
         print("Correctly rejected None coordinates in move_cursor_to_coordinates")
+
+    cursor.go_to(2, 2)
+    print("Moved cursor to (2, 2)")
 
 def test_version():
     """Test version retrieval"""
@@ -231,7 +223,8 @@ def main():
     """Run all tests"""
     print("Running comprehensive tests for sista Python C extension...")
     
-    tests: list[typing.Callable] = [
+    # https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html#decorators
+    tests: list[typing.Callable[..., typing.Any]] = [
         test_basic_functionality,
         test_swappable_field,
         test_border_functionality,
