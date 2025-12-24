@@ -66,7 +66,13 @@ py_sista_reset_attribute(PyObject* self, PyObject* arg) {
     Py_RETURN_NONE;
 }
 
-// Just a function printing a string using the same stream settings as sista
+/** \brief Prints a message 
+ *
+ *  Prints a message using Sista's ANSI settings,
+ *  using the same stream as printf.
+ *
+ *  \param message The message to print.
+ */
 static PyObject*
 py_sista_print(PyObject* self, PyObject* args) {
     const char* message;
@@ -81,6 +87,8 @@ py_sista_print(PyObject* self, PyObject* args) {
     Py_RETURN_NONE;
 }
 
+/** \brief Resets ANSI settings to default.
+ */
 static PyObject*
 py_sista_reset_ansi(PyObject* self, PyObject* Py_UNUSED(ignored)) {
     sista_resetAnsi();
