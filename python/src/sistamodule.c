@@ -721,147 +721,149 @@ py_sista_apply_swaps(PyObject* self, PyObject* args) {
     Py_RETURN_NONE;
 }
 
-static void py_sista_destroy_cursor_capsule_destructor(PyObject*);
+/* New Python type that wraps CursorHandler_t */
+typedef struct {
+    PyObject_HEAD
+    CursorHandler_t cursor;
+} CursorObject;
 
-/** \brief Creates a Cursor object.
- *  \return A capsule containing the CursorHandler_t.
-*/
-static PyObject*
-py_sista_create_cursor(PyObject* self, PyObject* Py_UNUSED(ignored)) {
-    return PyCapsule_New((void*)sista_createCursor(), "CursorHandler_t",
-                          (PyCapsule_Destructor)py_sista_destroy_cursor_capsule_destructor);
-}
+static PyTypeObject CursorType;
 
-/** \brief Destructor for CursorHandler_t capsule.
- *  \param capsule The capsule object.
- *
- *  This function is called when the CursorHandler_t capsule is
- *  deallocated. It retrieves the CursorHandler_t pointer from
- *  the capsule and calls the appropriate destructor to free the memory.
-*/
+/* dealloc */
 static void
-py_sista_destroy_cursor_capsule_destructor(PyObject* capsule) {
-    CursorHandler_t cursor = (CursorHandler_t)PyCapsule_GetPointer(
-        capsule, "CursorHandler_t"
-    );
-    if (cursor != NULL) {
-        sista_destroyCursor(cursor);
+Cursor_dealloc(PyObject *self)
+{
+    CursorObject *obj = (CursorObject*)self;
+    if (obj->cursor) {
+        sista_destroyCursor(obj->cursor);
+        obj->cursor = NULL;
     }
+    Py_TYPE(self)->tp_free(self);
 }
 
-/** \brief Moves the cursor in the specified direction by the given amount.
- *  \param cursor_capsule Capsule containing CursorHandler_t.
- *  \param direction The direction to move the cursor.
- *  \param amount The amount to move the cursor.
+/** \brief Cursor.go_to(self, y, x)
  *
- *  This function moves the specified cursor in the given direction by
- *  the specified amount.
+ *  Moves the cursor to the specified (y, x) coordinates.
+ *
+ *  \param y The y coordinate.
+ *  \param x The x coordinate.
 */
 static PyObject*
-py_sista_move_cursor(PyObject* self, PyObject* args) {
-    PyObject* cursor_capsule;
-    Py_ssize_t direction, amount;
-    if (!PyArg_ParseTuple(args, "Onn", &cursor_capsule, &direction, &amount)) {
-        if (!PyErr_Occurred()) {
-            PyErr_SetString(PyExc_TypeError,
-                            "Invalid arguments: expected (CursorHandler_t capsule, direction: int, amount: int)");
-        }
-        return NULL;
-    }
-    CursorHandler_t cursor = (CursorHandler_t)PyCapsule_GetPointer(
-        cursor_capsule, "CursorHandler_t"
-    );
-    if (cursor == NULL) {
-        if (!PyErr_Occurred()) {
-            PyErr_SetString(PyExc_ValueError,
-                            "Invalid CursorHandler_t capsule");
-        }
-        return NULL;
-    }
-    sista_moveCursor(cursor, (enum sista_MoveCursor)direction, (unsigned short)amount);
-    Py_RETURN_NONE;
-}
-
-/** \brief Moves the cursor to the specified coordinates.
- *  \param cursor_capsule Capsule containing CursorHandler_t.
- *  \param y The y coordinate to move the cursor to.
- *  \param x The x coordinate to move the cursor to.
- *
- *  This function moves the specified cursor to the given (y, x) coordinates.
-*/
-static PyObject*
-py_sista_cursor_go_to(PyObject* self, PyObject* args) {
-    PyObject* cursor_capsule;
+Cursor_go_to(PyObject *self, PyObject *args)
+{
     Py_ssize_t y, x;
-    if (!PyArg_ParseTuple(args, "Onn", &cursor_capsule, &y, &x)) {
+    if (!PyArg_ParseTuple(args, "nn", &y, &x)) {
         if (!PyErr_Occurred()) {
-            PyErr_SetString(PyExc_TypeError,
-                            "Invalid arguments: expected (CursorHandler_t capsule, y: int, x: int)");
+            PyErr_SetString(PyExc_TypeError, "Expected (y: int, x: int)");
         }
         return NULL;
     }
-    CursorHandler_t cursor = (CursorHandler_t)PyCapsule_GetPointer(
-        cursor_capsule, "CursorHandler_t"
-    );
+    CursorHandler_t cursor = ((CursorObject*)self)->cursor;
     if (cursor == NULL) {
-        if (!PyErr_Occurred()) {
-            PyErr_SetString(PyExc_ValueError,
-                            "Invalid CursorHandler_t capsule");
-        }
+        PyErr_SetString(PyExc_ValueError, "Cursor object already destroyed");
         return NULL;
     }
     sista_cursorGoTo(cursor, (unsigned short)y, (unsigned short)x);
     Py_RETURN_NONE;
 }
 
-/** \brief Moves the cursor to the specified coordinates.
- *  \param cursor_capsule Capsule containing CursorHandler_t.
- *  \param coords_capsule Capsule containing Coordinates.
+/** \brief Cursor.go_to_coordinates(self, coords_capsule)
  *
- *  This function moves the specified cursor to the given Coordinates.
+ *  Moves the cursor to the specified coordinates.
+ *
+ *  \param coords_capsule Capsule containing Coordinates.
 */
 static PyObject*
-py_sista_cursor_go_to_coordinates(PyObject* self, PyObject* args) {
-    PyObject* cursor_capsule;
-    PyObject* coords_capsule;
-    if (!PyArg_ParseTuple(args, "OO", &cursor_capsule, &coords_capsule)) {
+Cursor_go_to_coordinates(PyObject *self, PyObject *args)
+{
+    PyObject *coords_capsule;
+    if (!PyArg_ParseTuple(args, "O", &coords_capsule)) {
         if (!PyErr_Occurred()) {
-            PyErr_SetString(PyExc_TypeError,
-                            "Invalid arguments: expected (CursorHandler_t capsule, Coordinates capsule)");
+            PyErr_SetString(PyExc_TypeError, "Expected (coords_capsule)");
         }
         return NULL;
     }
-    CursorHandler_t cursor = (CursorHandler_t)PyCapsule_GetPointer(
-        cursor_capsule, "CursorHandler_t"
-    );
+    CursorHandler_t cursor = ((CursorObject*)self)->cursor;
     if (cursor == NULL) {
-        if (!PyErr_Occurred()) {
-            PyErr_SetString(PyExc_ValueError,
-                            "Invalid CursorHandler_t capsule");
-        }
+        PyErr_SetString(PyExc_ValueError, "Cursor object already destroyed");
         return NULL;
     }
     struct sista_Coordinates* coords = (struct sista_Coordinates*)PyCapsule_GetPointer(
         coords_capsule, "sista_Coordinates"
     );
     if (coords == NULL) {
-        if (!PyErr_Occurred()) {
-            PyErr_SetString(PyExc_ValueError,
-                            "Invalid Coordinates capsule");
-        }
+        PyErr_SetString(PyExc_ValueError, "Invalid Coordinates capsule");
         return NULL;
     }
     sista_cursorGoToCoordinates(cursor, *coords);
     Py_RETURN_NONE;
 }
 
-/** \brief Module execution function.
- *  \param module The module object.
- *  \return 0 on success, -1 on failure.
+/** \brief Cursor.move(self, direction, amount)
  *
- *  This function is called when the module is initialized. It can be used
- *  to perform any necessary setup or initialization tasks.
+ *  Moves the cursor in the specified direction by the given amount.
+ *
+ *  \param direction The direction to move the cursor.
+ *  \param amount The amount to move the cursor.
 */
+static PyObject*
+Cursor_move(PyObject *self, PyObject *args)
+{
+    Py_ssize_t direction, amount;
+    if (!PyArg_ParseTuple(args, "nn", &direction, &amount)) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_TypeError, "Expected (direction: int, amount: int)");
+        }
+        return NULL;
+    }
+    CursorHandler_t cursor = ((CursorObject*)self)->cursor;
+    if (cursor == NULL) {
+        PyErr_SetString(PyExc_ValueError, "Cursor object already destroyed");
+        return NULL;
+    }
+    sista_moveCursor(cursor, (enum sista_MoveCursor)direction, (unsigned short)amount);
+    Py_RETURN_NONE;
+}
+
+/* methods table */
+static PyMethodDef Cursor_methods[] = {
+    {"go_to", (PyCFunction)Cursor_go_to, METH_VARARGS, "Move cursor to absolute (y,x)"},
+    {"go_to_coordinates", (PyCFunction)Cursor_go_to_coordinates, METH_VARARGS, "Move cursor to Coordinates capsule"},
+    {"move", (PyCFunction)Cursor_move, METH_VARARGS, "Move cursor by direction and amount"},
+    {NULL, NULL, 0, NULL}
+};
+
+/* type object */
+static PyTypeObject CursorType = {
+    PyVarObject_HEAD_INIT(NULL, 0)
+    .tp_name = "sista.Cursor",
+    .tp_basicsize = sizeof(CursorObject),
+    .tp_flags = Py_TPFLAGS_DEFAULT,
+    .tp_doc = "Cursor wrapper",
+    .tp_methods = Cursor_methods,
+    .tp_dealloc = (destructor)Cursor_dealloc,
+};
+
+/** \brief Creates a Cursor object.
+ *  \return A new CursorObject instance.
+*/
+static PyObject*
+py_sista_create_cursor(PyObject* self, PyObject* Py_UNUSED(ignored)) {
+    CursorObject *obj = (CursorObject*)CursorType.tp_alloc(&CursorType, 0);
+    if (obj == NULL) {
+        PyErr_SetString(PyExc_MemoryError, "Failed to allocate Cursor object");
+        return NULL;
+    }
+    obj->cursor = sista_createCursor();
+    if (obj->cursor == NULL) {
+        Py_DECREF(obj);
+        PyErr_SetString(PyExc_RuntimeError, "Failed to create Cursor");
+        return NULL;
+    }
+    return (PyObject*)obj;
+}
+
+/* In sista_module_exec(...) add registration of the type */
 static int
 sista_module_exec(PyObject* module)
 {
@@ -908,6 +910,13 @@ sista_module_exec(PyObject* module)
     PyModule_AddIntConstant(module, "DIRECTION_LEFT", LEFT);
     PyModule_AddIntConstant(module, "BEGINNING_OF_NEXT_LINE", BEGINNING_OF_NEXT_LINE);
     PyModule_AddIntConstant(module, "BEGINNING_OF_PREVIOUS_LINE", BEGINNING_OF_PREVIOUS_LINE);
+
+    if (PyType_Ready(&CursorType) < 0) return -1;
+    Py_INCREF(&CursorType);
+    if (PyModule_AddObject(module, "Cursor", (PyObject*)&CursorType) < 0) {
+        Py_DECREF(&CursorType);
+        return -1;
+    }
 
     // PyModule_AddStringConstant(module, "__version__", version);
     // printf("Sista C API Module - Version: %s\n", version);
@@ -970,15 +979,6 @@ static PyMethodDef sista_module_methods[] = {
     {"create_cursor", (PyCFunction)py_sista_create_cursor,
      METH_NOARGS,
      "Creates a Cursor object."},
-    {"move_cursor", (PyCFunction)py_sista_move_cursor,
-     METH_VARARGS,
-     "Moves the cursor in the specified direction by the given amount."},
-    {"cursor_go_to", (PyCFunction)py_sista_cursor_go_to,
-     METH_VARARGS,
-     "Moves the cursor to the specified coordinates."},
-    {"cursor_go_to_coordinates", (PyCFunction)py_sista_cursor_go_to_coordinates,
-     METH_VARARGS,
-     "Moves the cursor to the specified Coordinates."},
 
     {NULL, NULL, 0, NULL}  // Sentinel
 };

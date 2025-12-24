@@ -201,21 +201,24 @@ def test_cursor_functions():
     print(f"Created coordinates for movement: {coords}")
     
     # Move cursor to coordinates
-    sista.cursor_go_to_coordinates(cursor, coords)
+    cursor.go_to_coordinates(coords)
     print("Moved cursor to specified coordinates")
     
     # Test invalid move
     try:
-        sista.cursor_go_to_coordinates(None, coords)
+        sista.Cursor.go_to_coordinates(None, coords)
         print("ERROR: Should have failed with None cursor")
-    except ValueError:
+    except TypeError:
         print("Correctly rejected None cursor in move_cursor_to_coordinates")
     
     try:
-        sista.cursor_go_to_coordinates(cursor, None)
+        cursor.go_to_coordinates(None)
         print("ERROR: Should have failed with None coordinates")
     except ValueError:
         print("Correctly rejected None coordinates in move_cursor_to_coordinates")
+
+    cursor.go_to(2, 2)
+    print("Moved cursor to (2, 2)")
 
 def test_version():
     """Test version retrieval"""

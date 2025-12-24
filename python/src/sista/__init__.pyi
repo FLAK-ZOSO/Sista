@@ -222,38 +222,77 @@ def print_field_with_border(field: Capsule, border: Capsule) -> None:
     :param border: Capsule for the Border to draw around the field.
     """
     ...
-def create_cursor() -> Capsule:
+# def create_cursor() -> Capsule:
+#     """
+#     Create and return a Cursor object as a Capsule.
+
+#     The cursor object can be used to emit cursor movement ANSI sequences.
+
+#     :return: Capsule wrapping the Cursor handler.
+#     """
+#     ...
+# def move_cursor(cursor: Capsule, direction: int, amount: int) -> None:
+#     """
+#     Move the cursor in the specified direction by the given amount.
+
+#     :param cursor: Capsule returned by create_cursor.
+#     :param direction: One of the DIRECTION_* constants (or equivalent).
+#     :param amount: Number of positions to move the cursor.
+#     """
+#     ...
+# def cursor_go_to(cursor: Capsule, y: int, x: int) -> None:
+#     """
+#     Move the cursor to the absolute (y, x) position.
+
+#     :param cursor: Capsule returned by create_cursor.
+#     :param y: Row index to move to.
+#     :param x: Column index to move to.
+#     """
+#     ...
+# def cursor_go_to_coordinates(cursor: Capsule, coords: Capsule) -> None:
+#     """
+#     Move the cursor to the position described by a Coordinates capsule.
+
+#     :param cursor: Capsule returned by create_cursor.
+#     :param coords: Capsule returned by create_coordinates.
+#     """
+#     ...
+class Cursor:
     """
-    Create and return a Cursor object as a Capsule.
+    Class representing a terminal cursor for movement operations.
+    """
+
+    def move(self, direction: int, amount: int) -> None:
+        """
+        Move the cursor in the specified direction by the given amount.
+
+        :param direction: One of the DIRECTION_* constants (or equivalent).
+        :param amount: Number of positions to move the cursor.
+        """
+        ...
+
+    def go_to(self, y: int, x: int) -> None:
+        """
+        Move the cursor to the absolute (y, x) position.
+
+        :param y: Row index to move to.
+        :param x: Column index to move to.
+        """
+        ...
+
+    def go_to_coordinates(self, coords: Capsule) -> None:
+        """
+        Move the cursor to the position described by a Coordinates capsule.
+
+        :param coords: Capsule returned by create_coordinates.
+        """
+        ...
+def create_cursor() -> Cursor:
+    """
+    Create and return a Cursor object.
 
     The cursor object can be used to emit cursor movement ANSI sequences.
 
-    :return: Capsule wrapping the Cursor handler.
-    """
-    ...
-def move_cursor(cursor: Capsule, direction: int, amount: int) -> None:
-    """
-    Move the cursor in the specified direction by the given amount.
-
-    :param cursor: Capsule returned by create_cursor.
-    :param direction: One of the DIRECTION_* constants (or equivalent).
-    :param amount: Number of positions to move the cursor.
-    """
-    ...
-def cursor_go_to(cursor: Capsule, y: int, x: int) -> None:
-    """
-    Move the cursor to the absolute (y, x) position.
-
-    :param cursor: Capsule returned by create_cursor.
-    :param y: Row index to move to.
-    :param x: Column index to move to.
-    """
-    ...
-def cursor_go_to_coordinates(cursor: Capsule, coords: Capsule) -> None:
-    """
-    Move the cursor to the position described by a Coordinates capsule.
-
-    :param cursor: Capsule returned by create_cursor.
-    :param coords: Capsule returned by create_coordinates.
+    :return: Cursor object.
     """
     ...
