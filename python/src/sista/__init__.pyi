@@ -173,14 +173,24 @@ def add_pawn_to_swap(field: Capsule, pawn: Capsule, coords: Capsule) -> int:
     Schedule a pawn to be moved (swapped) later in a SwappableField.
 
     The function adds the pawn and its destination coordinates to the swap
-    list managed by the SwappableField. Call sista.apply swaps (or the
+    list managed by the SwappableField. Call sista.apply_swaps (or the
     equivalent) to execute scheduled swaps.
 
     :param field: Capsule for the SwappableField.
     :param pawn: Capsule for the Pawn to schedule.
     :param coords: Capsule with the destination coordinates.
-    :param coords: Capsule with the destination coordinates.
     :return: Integer status code (0 == added successfully).
+    """
+    ...
+def apply_swaps(field: Capsule) -> int:
+    """
+    Execute all scheduled pawn swaps in the given SwappableField.
+
+    The function processes all pawns previously added to the swap list
+    using add_pawn_to_swap, moving them to their target coordinates.
+
+    :param field: Capsule for the SwappableField.
+    :return: Integer status code (0 == success).
     """
     ...
 def create_pawn_in_field(field: Capsule, symbol: str, ansi_settings: Capsule, coords: Capsule) -> Capsule:
