@@ -82,6 +82,12 @@ def test_swappable_field():
         print("ERROR: Should have failed with multi-character symbol")
     except ValueError:
         print("Correctly rejected multi-character symbol")
+    
+    sista.add_pawn_to_swap(field, pawn, sista.create_coordinates(3, 3))
+    print("Scheduled pawn for swap")
+
+    sista.apply_swaps(field)
+    print("Applied swaps in swappable field")
 
 def test_border_functionality():
     """Test Border creation and usage"""

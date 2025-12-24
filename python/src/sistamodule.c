@@ -688,7 +688,7 @@ py_sista_add_pawn_to_swap(PyObject* self, PyObject* args) {
  *  This function processes all scheduled swaps in the specified
  *  SwappableField, updating the field state accordingly.
 */
-static int
+static PyObject*
 py_sista_apply_swaps(PyObject* self, PyObject* args) {
     PyObject* field_capsule;
     if (!PyArg_ParseTuple(args, "O", &field_capsule)) {
@@ -696,7 +696,7 @@ py_sista_apply_swaps(PyObject* self, PyObject* args) {
             PyErr_SetString(PyExc_TypeError,
                             "Invalid arguments: expected (SwappableFieldHandler_t capsule)");
         }
-        return -1;
+        return NULL;
     }
 
     SwappableFieldHandler_t field = (SwappableFieldHandler_t)PyCapsule_GetPointer(
@@ -707,7 +707,7 @@ py_sista_apply_swaps(PyObject* self, PyObject* args) {
             PyErr_SetString(PyExc_ValueError,
                             "Invalid SwappableFieldHandler_t capsule");
         }
-        return -1;
+        return NULL;
     }
 
     int result = sista_applySwaps(field);
@@ -716,9 +716,9 @@ py_sista_apply_swaps(PyObject* self, PyObject* args) {
             PyErr_SetString(PyExc_RuntimeError,
                             "Failed to apply swaps in SwappableField");
         }
-        return -1;
+        return NULL;
     }
-    return 0;
+    Py_RETURN_NONE;
 }
 
 static void py_sista_destroy_cursor_capsule_destructor(PyObject*);
