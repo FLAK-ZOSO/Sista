@@ -41,18 +41,18 @@ def test_swappable_field():
     print("=== Testing SwappableField ===")
     
     # Create a swappable field
-    field = sista.create_swappable_field(10, 5)
+    field = sista.SwappableField(10, 5)
     print(f"Created swappable field: {field}")
     
     # Test invalid dimensions
     try:
-        sista.create_swappable_field(-1, 5)
+        sista.SwappableField(-1, 5)
         print("ERROR: Should have failed with negative width")
     except ValueError:
         print("Correctly rejected negative width")
     
     try:
-        sista.create_swappable_field(5, -1)
+        sista.SwappableField(5, -1)
         print("ERROR: Should have failed with negative height")
     except ValueError:
         print("Correctly rejected negative height")
@@ -87,7 +87,7 @@ def test_border_functionality():
     print("=== Testing Border Functionality ===")
     
     # Create a swappable field
-    field = sista.create_swappable_field(15, 8)
+    field = sista.SwappableField(15, 8)
     
     # Create ANSI settings for border
     border_settings = sista.create_ansi_settings(sista.F_CYAN, sista.B_BLACK, sista.A_BRIGHT)
@@ -130,7 +130,7 @@ def test_pawn_operations():
     print("=== Testing Pawn Operations ===")
     
     # Create field, settings, and pawn
-    field = sista.create_swappable_field(10, 10)
+    field = sista.SwappableField(10, 10)
     settings = sista.create_ansi_settings(sista.F_WHITE, sista.B_BLACK, sista.A_RESET)
     coords = sista.create_coordinates(5, 5)
     pawn = field.create_pawn("P", settings, coords)

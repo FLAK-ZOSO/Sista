@@ -553,31 +553,19 @@ static PyMethodDef SwappableField_methods[] = {
     {NULL, NULL, 0, NULL}
 };
 
-/* type object */
-static PyTypeObject SwappableFieldType = {
-    PyVarObject_HEAD_INIT(NULL, 0)
-    .tp_name = "sista.SwappableField",
-    .tp_basicsize = sizeof(SwappableFieldObject),
-    .tp_flags = Py_TPFLAGS_DEFAULT,
-    .tp_doc = "SwappableField wrapper",
-    .tp_methods = SwappableField_methods,
-    .tp_dealloc = (destructor)SwappableField_dealloc,
-};
-
-/* modify factory: return SwappableField instance instead of raw capsule */
-static PyObject*
-py_sista_create_SwappableField(PyObject* self, PyObject* args) {
+static int
+SwappableField_init(PyObject* self, PyObject* args, PyObject* kwds) {
     Py_ssize_t w, h;
     if (!PyArg_ParseTuple(args, "nn", &w, &h)) {
         if (!PyErr_Occurred()) {
             PyErr_SetString(PyExc_TypeError,
                             "Invalid arguments: expected two integers (width, height)");
         }
-        return NULL;
+        return -1;
     }
     if (w < 0 || h < 0) {
         PyErr_SetString(PyExc_ValueError, "width and height must be non-negative");
-        return NULL;
+        return -1;
     }
     size_t width = (size_t)w;
     size_t height = (size_t)h;
@@ -587,18 +575,27 @@ py_sista_create_SwappableField(PyObject* self, PyObject* args) {
         if (!PyErr_Occurred()) {
             PyErr_SetString(PyExc_MemoryError, "Failed to create SwappableField");
         }
-        return NULL;
+        return -1;
     }
 
-    SwappableFieldObject *obj = (SwappableFieldObject*)SwappableFieldType.tp_alloc(&SwappableFieldType, 0);
-    if (obj == NULL) {
-        sista_destroySwappableField(field);
-        PyErr_SetString(PyExc_MemoryError, "Failed to allocate SwappableField Python object");
-        return NULL;
-    }
+    // object already allocated by tp_new
+    SwappableFieldObject *obj = (SwappableFieldObject*)self;
     obj->field = field;
-    return (PyObject*)obj;
+    return 0;
 }
+
+/* type object */
+static PyTypeObject SwappableFieldType = {
+    PyVarObject_HEAD_INIT(NULL, 0)
+    .tp_name = "sista.SwappableField",
+    .tp_basicsize = sizeof(SwappableFieldObject),
+    .tp_flags = Py_TPFLAGS_DEFAULT,
+    .tp_doc = "SwappableField wrapper",
+    .tp_methods = SwappableField_methods,
+    .tp_dealloc = (destructor)SwappableField_dealloc,
+    .tp_new = PyType_GenericNew,
+    .tp_init = SwappableField_init,
+};
 
 /* New Python type that wraps FieldHandler_t */
 typedef struct {
@@ -862,8 +859,8 @@ sista_module_exec(PyObject* module)
 /** \brief Module methods definition.
 */
 static PyMethodDef sista_module_methods[] = {
-    {"create_swappable_field", py_sista_create_SwappableField, METH_VARARGS,
-     "Creates a SwappableField with the specified width and height."},
+    // {"create_swappable_field", py_sista_create_SwappableField, METH_VARARGS,
+    //  "Creates a SwappableField with the specified width and height."},
     // {"create_field", (PyCFunction)py_sista_create_field, METH_VARARGS,
     //  "Creates a Field with the specified width and height."},
 

@@ -92,22 +92,6 @@ def print(message: str) -> None:
     """
     ...
 
-def create_swappable_field(width: int, height: int) -> SwappableField:
-    """
-    Create and return a SwappableField wrapper object.
-
-    The returned object is a Python wrapper that owns the underlying C
-    SwappableField handler. The wrapper exposes instance methods
-    (create_pawn, add_pawn_to_swap, apply_swaps, print_with_border)
-    that operate on the underlying field. The wrapper manages the
-    C-side lifetime (it will destroy the C handler when the Python
-    object is deallocated).
-
-    :param width: Field width (number of columns).
-    :param height: Field height (number of rows).
-    :return: A SwappableField Python object wrapping the C handler.
-    """
-    ...
 def create_ansi_settings(fgcolor: int = ..., bgcolor: int = ..., attribute: int = ...) -> Capsule:
     """
     Create an ANSI settings object and return it as a Capsule.
@@ -189,6 +173,21 @@ class SwappableField:
     """
     Class representing a terminal SwappableField for pawns and borders.
     """
+
+    def __init__(self, width: int, height: int) -> None:
+        """
+        Create and return a SwappableField wrapper object.
+
+        The returned object is a Python wrapper that owns the underlying C
+        SwappableField handler. Use the instance methods (create_pawn,
+        print_with_border, add_pawn_to_swap, apply_swaps) on the returned
+        SwappableField object. The wrapper manages the C-side lifetime (it
+        will destroy the C handler when the Python object is deallocated).
+
+        :param width: Field width (number of columns).
+        :param height: Field height (number of rows).
+        """
+        ...
 
     def create_pawn(self, symbol: str, ansi_settings: Capsule, coords: Capsule) -> Capsule:
         """
