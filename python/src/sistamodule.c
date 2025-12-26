@@ -367,6 +367,21 @@ static PyMethodDef Cursor_methods[] = {
     {NULL, NULL, 0, NULL}
 };
 
+static int
+Cursor_init(PyObject* self, PyObject* args, PyObject* kwds) {
+    CursorHandler_t cursor = sista_createCursor();
+    if (cursor == NULL) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_MemoryError, "Failed to create Cursor");
+        }
+        return -1;
+    }
+
+    CursorObject *obj = (CursorObject*)self;  /* object already allocated by tp_new */
+    obj->cursor = cursor;
+    return 0;
+}
+
 /* type object */
 static PyTypeObject CursorType = {
     PyVarObject_HEAD_INIT(NULL, 0)
@@ -376,26 +391,9 @@ static PyTypeObject CursorType = {
     .tp_doc = "Cursor wrapper",
     .tp_methods = Cursor_methods,
     .tp_dealloc = (destructor)Cursor_dealloc,
+    .tp_new = PyType_GenericNew,
+    .tp_init = Cursor_init,
 };
-
-/** \brief Creates a Cursor object.
- *  \return A new CursorObject instance.
-*/
-static PyObject*
-py_sista_create_cursor(PyObject* self, PyObject* Py_UNUSED(ignored)) {
-    CursorObject *obj = (CursorObject*)CursorType.tp_alloc(&CursorType, 0);
-    if (obj == NULL) {
-        PyErr_SetString(PyExc_MemoryError, "Failed to allocate Cursor object");
-        return NULL;
-    }
-    obj->cursor = sista_createCursor();
-    if (obj->cursor == NULL) {
-        Py_DECREF(obj);
-        PyErr_SetString(PyExc_RuntimeError, "Failed to create Cursor");
-        return NULL;
-    }
-    return (PyObject*)obj;
-}
 
 /* New Python type that wraps SwappableFieldHandler_t */
 typedef struct {
@@ -553,31 +551,21 @@ static PyMethodDef SwappableField_methods[] = {
     {NULL, NULL, 0, NULL}
 };
 
-/* type object */
-static PyTypeObject SwappableFieldType = {
-    PyVarObject_HEAD_INIT(NULL, 0)
-    .tp_name = "sista.SwappableField",
-    .tp_basicsize = sizeof(SwappableFieldObject),
-    .tp_flags = Py_TPFLAGS_DEFAULT,
-    .tp_doc = "SwappableField wrapper",
-    .tp_methods = SwappableField_methods,
-    .tp_dealloc = (destructor)SwappableField_dealloc,
-};
-
-/* modify factory: return SwappableField instance instead of raw capsule */
-static PyObject*
-py_sista_create_SwappableField(PyObject* self, PyObject* args) {
+static int
+SwappableField_init(PyObject* self, PyObject* args, PyObject* kwds) {
     Py_ssize_t w, h;
-    if (!PyArg_ParseTuple(args, "nn", &w, &h)) {
+    static char *kwlist[] = {"width", "height", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwds, "nn", kwlist, &w, &h)) {
         if (!PyErr_Occurred()) {
             PyErr_SetString(PyExc_TypeError,
-                            "Invalid arguments: expected two integers (width, height)");
+                            "SwappableField(width:int, height:int) expected");
         }
-        return NULL;
+        return -1;
     }
     if (w < 0 || h < 0) {
         PyErr_SetString(PyExc_ValueError, "width and height must be non-negative");
-        return NULL;
+        return -1;
     }
     size_t width = (size_t)w;
     size_t height = (size_t)h;
@@ -587,18 +575,27 @@ py_sista_create_SwappableField(PyObject* self, PyObject* args) {
         if (!PyErr_Occurred()) {
             PyErr_SetString(PyExc_MemoryError, "Failed to create SwappableField");
         }
-        return NULL;
+        return -1;
     }
 
-    SwappableFieldObject *obj = (SwappableFieldObject*)SwappableFieldType.tp_alloc(&SwappableFieldType, 0);
-    if (obj == NULL) {
-        sista_destroySwappableField(field);
-        PyErr_SetString(PyExc_MemoryError, "Failed to allocate SwappableField Python object");
-        return NULL;
-    }
+    // object already allocated by tp_new
+    SwappableFieldObject *obj = (SwappableFieldObject*)self;
     obj->field = field;
-    return (PyObject*)obj;
+    return 0;
 }
+
+/* type object */
+static PyTypeObject SwappableFieldType = {
+    PyVarObject_HEAD_INIT(NULL, 0)
+    .tp_name = "sista.SwappableField",
+    .tp_basicsize = sizeof(SwappableFieldObject),
+    .tp_flags = Py_TPFLAGS_DEFAULT,
+    .tp_doc = "SwappableField wrapper",
+    .tp_methods = SwappableField_methods,
+    .tp_dealloc = (destructor)SwappableField_dealloc,
+    .tp_new = PyType_GenericNew,
+    .tp_init = SwappableField_init,
+};
 
 /* New Python type that wraps FieldHandler_t */
 typedef struct {
@@ -736,6 +733,42 @@ static PyMethodDef Field_methods[] = {
     {NULL, NULL, 0, NULL}
 };
 
+/** \brief Initializes a Field object.
+ *  \param w The width of the field.
+ *  \param h The height of the field.
+ *  \return 0 on success, -1 on failure.
+ *
+ *  This function is called during the creation of a Field object.
+*/
+static int
+Field_init(PyObject* self, PyObject* args, PyObject *kwds) {
+    Py_ssize_t w, h;
+    static char *kwlist[] = {"width", "height", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwds, "nn", kwlist, &w, &h)) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_TypeError, "Field(width:int, height:int) expected");
+        }
+        return -1;
+    }
+    if (w < 0 || h < 0) {
+        PyErr_SetString(PyExc_ValueError, "width and height must be non-negative");
+        return -1;
+    }
+
+    FieldHandler_t field = sista_createField((size_t)w, (size_t)h);
+    if (field == NULL) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_MemoryError, "Failed to create Field");
+        }
+        return -1;
+    }
+
+    FieldObject *obj = (FieldObject*)self;  /* object already allocated by tp_new */
+    obj->field = field;
+    return 0;
+}
+
 /* type object */
 static PyTypeObject FieldType = {
     PyVarObject_HEAD_INIT(NULL, 0)
@@ -745,42 +778,9 @@ static PyTypeObject FieldType = {
     .tp_doc = "Field wrapper",
     .tp_methods = Field_methods,
     .tp_dealloc = (destructor)Field_dealloc,
+    .tp_new = PyType_GenericNew,
+    .tp_init = Field_init,
 };
-
-/** \brief Creates a Field object.
- *  \return A new Field instance.
-*/
-static PyObject*
-py_sista_create_field(PyObject* self, PyObject* args) {
-    Py_ssize_t w, h;
-    if (!PyArg_ParseTuple(args, "nn", &w, &h)) {
-        if (!PyErr_Occurred()) {
-            PyErr_SetString(PyExc_TypeError, "Invalid arguments: expected two integers (width, height)");
-        }
-        return NULL;
-    }
-    if (w < 0 || h < 0) {
-        PyErr_SetString(PyExc_ValueError, "width and height must be non-negative");
-        return NULL;
-    }
-
-    FieldHandler_t field = sista_createField((size_t)w, (size_t)h);
-    if (field == NULL) {
-        if (!PyErr_Occurred()) {
-            PyErr_SetString(PyExc_MemoryError, "Failed to create Field");
-        }
-        return NULL;
-    }
-
-    FieldObject *obj = (FieldObject*)FieldType.tp_alloc(&FieldType, 0);
-    if (obj == NULL) {
-        sista_destroyField(field);
-        PyErr_SetString(PyExc_MemoryError, "Failed to allocate Field Python object");
-        return NULL;
-    }
-    obj->field = field;
-    return (PyObject*)obj;
-}
 
 /* In sista_module_exec(...) add registration of the SwappableField and Field types */
 static int
@@ -851,19 +851,12 @@ sista_module_exec(PyObject* module)
         return -1;
     }
 
-    // PyModule_AddStringConstant(module, "__version__", version);
-    // printf("Sista C API Module - Version: %s\n", version);
     return 0;
 }
 
 /** \brief Module methods definition.
 */
 static PyMethodDef sista_module_methods[] = {
-    {"create_swappable_field", py_sista_create_SwappableField, METH_VARARGS,
-     "Creates a SwappableField with the specified width and height."},
-    {"create_field", (PyCFunction)py_sista_create_field, METH_VARARGS,
-     "Creates a Field with the specified width and height."},
-
     {"reset_ansi", (PyCFunction)py_sista_reset_ansi,
      METH_NOARGS,
      "Resets ANSI settings to default."},
@@ -883,14 +876,6 @@ static PyMethodDef sista_module_methods[] = {
 
     {"create_border", (PyCFunction)py_sista_create_border, METH_VARARGS,
      "Creates a Border object."},
-    // {"print_swappable_field_with_border",
-    //  (PyCFunction)py_sista_print_swappable_field_with_border,
-    //  METH_VARARGS,
-    //  "Prints the SwappableField with the specified Border."},
-    // {"print_field_with_border",
-    //  (PyCFunction)py_sista_print_field_with_border,
-    //  METH_VARARGS,
-    //  "Prints the Field with the specified Border."},
     {"create_ansi_settings", (PyCFunction)py_sista_create_ansi_settings,
      METH_VARARGS | METH_KEYWORDS,
      "create_ansi_settings(fgcolor=F_WHITE, bgcolor=B_BLACK, attribute=A_RESET) -> ANSISettingsHandler_t capsule"},
@@ -898,22 +883,8 @@ static PyMethodDef sista_module_methods[] = {
      METH_VARARGS,
      "Prints a message using Sista's ANSI settings."},
 
-    // {"create_pawn_in_swappable_field", (PyCFunction)py_sista_create_pawn_in_swappable_field, METH_VARARGS,
-    //  "Creates a Pawn in the specified SwappableField at given coordinates with ANSI settings."},
     {"create_coordinates", (PyCFunction)py_sista_create_coordinates, METH_VARARGS,
      "Creates a Coordinates object."},
-    // {"move_pawn", (PyCFunction)py_sista_move_pawn, METH_VARARGS,
-    //  "Moves the Pawn by the specified deltas."},
-    // {"add_pawn_to_swap", (PyCFunction)py_sista_add_pawn_to_swap, METH_VARARGS,
-    //  "Adds a Pawn to the SwappableField's swap list at given coordinates."},
-    // {"apply_swaps", (PyCFunction)py_sista_apply_swaps, METH_VARARGS,
-    //  "Applies all scheduled swaps in the SwappableField."},
-    // {"create_pawn_in_field", (PyCFunction)py_sista_create_pawn_in_field, METH_VARARGS,
-    //  "Creates a Pawn in the specified Field at given coordinates with ANSI settings."},
-
-    {"create_cursor", (PyCFunction)py_sista_create_cursor,
-     METH_NOARGS,
-     "Creates a Cursor object."},
 
     {NULL, NULL, 0, NULL}  // Sentinel
 };

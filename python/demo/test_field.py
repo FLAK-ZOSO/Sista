@@ -1,7 +1,7 @@
 import sista
 import time
 
-field = sista.create_swappable_field(30, 5)
+field = sista.Field(30, 5)
 settings = sista.create_ansi_settings(sista.F_RED, sista.B_BLACK, sista.A_BLINK)
 coordinates = sista.create_coordinates(0, 0)
 pawn = field.create_pawn('P', settings, coordinates)
