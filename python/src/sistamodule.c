@@ -556,7 +556,7 @@ SwappableField_init(PyObject* self, PyObject* args, PyObject* kwds) {
     Py_ssize_t w, h;
     static char *kwlist[] = {"width", "height", NULL};
 
-    if (!PyArg_ParseTupleAndKeywords(args, "nn", kwlist, &w, &h)) {
+    if (!PyArg_ParseTupleAndKeywords(args, kwds, "nn", kwlist, &w, &h)) {
         if (!PyErr_Occurred()) {
             PyErr_SetString(PyExc_TypeError,
                             "SwappableField(width:int, height:int) expected");
