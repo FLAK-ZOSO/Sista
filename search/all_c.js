@@ -1,13 +1,14 @@
 var searchData=
 [
-  ['operator_21_3d_0',['operator!=',['../structsista_1_1Coordinates.html#a75bc6d5ed87ee020f993c3e67f2ad699',1,'sista::Coordinates']]],
-  ['operator_28_29_1',['operator()',['../structstd_1_1hash_3_01sista_1_1Coordinates_01_4.html#a9b4df1df6c53c427bed71dd79a048f09',1,'std::hash&lt; sista::Coordinates &gt;::operator()()'],['../structstd_1_1hash_3_01sista_1_1Path_01_4.html#a7b2cec6e4bb37cfa818a300cc0e6e2ff',1,'std::hash&lt; sista::Path &gt;::operator()()']]],
-  ['operator_2a_2',['operator*',['../structsista_1_1Coordinates.html#a41b6db4b67881176b1c37da599fb92b0',1,'sista::Coordinates']]],
-  ['operator_2b_3',['operator+',['../structsista_1_1Coordinates.html#a5e5e7a17287b6da2957dc2235997dc5c',1,'sista::Coordinates']]],
-  ['operator_2b_3d_4',['operator+=',['../structsista_1_1Coordinates.html#a4a145c4b06c61534a27c308ba53044cf',1,'sista::Coordinates']]],
-  ['operator_2d_5',['operator-',['../structsista_1_1Coordinates.html#af874ca59ebf29ea48a328bdea469cf1c',1,'sista::Coordinates']]],
-  ['operator_2d_3d_6',['operator-=',['../structsista_1_1Coordinates.html#ae86fb229b71e5662ec64ece4ae7757a8',1,'sista::Coordinates']]],
-  ['operator_3c_7',['operator&lt;',['../structsista_1_1Coordinates.html#a626ec532db2dff34583d012b9deb0634',1,'sista::Coordinates::operator&lt;()'],['../structsista_1_1Path.html#aabccbac06ffa70d8a55e2a2737977a1e',1,'sista::Path::operator&lt;()']]],
-  ['operator_3d_3d_8',['operator==',['../structsista_1_1Coordinates.html#ab2e8df10b0eedb833a8c0943070c3335',1,'sista::Coordinates::operator==()'],['../structsista_1_1Path.html#a0109cb18c630ea5f742a833cbd18b388',1,'sista::Path::operator==(const Path &amp;) const']]],
-  ['operator_7c_9',['operator|',['../structsista_1_1Path.html#a34e9b23a377f024a3f57ebf574529a50',1,'sista::Path']]]
+  ['pacman_0',['PACMAN',['../namespacesista.html#a08036e71b88be0e177eec4ef2a24adc9a1da57b2bd62ddc95d1e91830646a196b',1,'sista']]],
+  ['path_1',['Path',['../structsista_1_1Path.html#a1aeb935624ef571774b552eaee8e67d4',1,'sista::Path::Path()'],['../structsista_1_1Path.html',1,'sista::Path']]],
+  ['pawn_2',['Pawn',['../classsista_1_1Pawn.html#af03b8108686bb3f40d701b0b6b26cafb',1,'sista::Pawn']]],
+  ['pawn_3',['pawn',['../structsista_1_1Path.html#aad4758060bab6fc2815ad15b320dc163',1,'sista::Path']]],
+  ['pawn_4',['Pawn',['../classsista_1_1Pawn.html',1,'sista']]],
+  ['pawn_2ecpp_5',['pawn.cpp',['../pawn_8cpp.html',1,'']]],
+  ['pawn_2ehpp_6',['pawn.hpp',['../pawn_8hpp.html',1,'']]],
+  ['pawnhandler_5ft_7',['PawnHandler_t',['../api_8h.html#a6f04683e8866acbfa86279ddc3f1b7db',1,'api.h']]],
+  ['pawns_8',['pawns',['../classsista_1_1Field.html#a60e33bb565443ff6d1b7838aeb7a68d9',1,'sista::Field']]],
+  ['print_9',['print',['../classsista_1_1Border.html#a625c393138da01011d1d5f302a955578',1,'sista::Border::print()'],['../classsista_1_1Field.html#abd343354ef7cbdc78ee4019aab000c0e',1,'sista::Field::print() const'],['../classsista_1_1Field.html#a818d1f75772fda0e52859c206a607659',1,'sista::Field::print(char) const'],['../classsista_1_1Field.html#a1d6bddf80ec105766e9c159d3300ffe6',1,'sista::Field::print(Border &amp;) const'],['../classsista_1_1Pawn.html#a063a3586e938c3e4e8537271fa460b85',1,'sista::Pawn::print()']]],
+  ['priority_10',['priority',['../structsista_1_1Path.html#a22b195605f6ef7d7cbeb54b7a9a8d237',1,'sista::Path']]]
 ];

@@ -1,14 +1,20 @@
 var searchData=
 [
-  ['pacman_0',['PACMAN',['../namespacesista.html#a08036e71b88be0e177eec4ef2a24adc9a1da57b2bd62ddc95d1e91830646a196b',1,'sista']]],
-  ['path_1',['Path',['../structsista_1_1Path.html#a1aeb935624ef571774b552eaee8e67d4',1,'sista::Path::Path()'],['../structsista_1_1Path.html',1,'sista::Path']]],
-  ['pawn_2',['Pawn',['../classsista_1_1Pawn.html#af03b8108686bb3f40d701b0b6b26cafb',1,'sista::Pawn']]],
-  ['pawn_3',['pawn',['../structsista_1_1Path.html#aad4758060bab6fc2815ad15b320dc163',1,'sista::Path']]],
-  ['pawn_4',['Pawn',['../classsista_1_1Pawn.html',1,'sista']]],
-  ['pawn_2ecpp_5',['pawn.cpp',['../pawn_8cpp.html',1,'']]],
-  ['pawn_2ehpp_6',['pawn.hpp',['../pawn_8hpp.html',1,'']]],
-  ['pawnhandler_5ft_7',['PawnHandler_t',['../api_8h.html#a6f04683e8866acbfa86279ddc3f1b7db',1,'api.h']]],
-  ['pawns_8',['pawns',['../classsista_1_1Field.html#a60e33bb565443ff6d1b7838aeb7a68d9',1,'sista::Field']]],
-  ['print_9',['print',['../classsista_1_1Border.html#a625c393138da01011d1d5f302a955578',1,'sista::Border::print()'],['../classsista_1_1Field.html#abd343354ef7cbdc78ee4019aab000c0e',1,'sista::Field::print() const'],['../classsista_1_1Field.html#a818d1f75772fda0e52859c206a607659',1,'sista::Field::print(char) const'],['../classsista_1_1Field.html#a1d6bddf80ec105766e9c159d3300ffe6',1,'sista::Field::print(Border &amp;) const'],['../classsista_1_1Pawn.html#a063a3586e938c3e4e8537271fa460b85',1,'sista::Pawn::print()']]],
-  ['priority_10',['priority',['../structsista_1_1Path.html#a22b195605f6ef7d7cbeb54b7a9a8d237',1,'sista::Path']]]
+  ['rapid_5fblink_0',['RAPID_BLINK',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2fa37124ad1fc66e68535d0bebba57f414b',1,'sista']]],
+  ['readme_2emd_1',['README.md',['../python_2README_8md.html',1,'(Global Namespace)'],['../README_8md.html',1,'(Global Namespace)']]],
+  ['red_2',['RED',['../namespacesista.html#ade2b5834bc07e347f46027a10a06d1caaa2d9547b5d3dd9f05984475f7c926da0',1,'sista']]],
+  ['red_3',['red',['../structsista_1_1RGBColor.html#ab58e0f2654ee79c82b36e8056cd60c49',1,'sista::RGBColor::red()'],['../structsista__RGBColor.html#a52f5b1ff7b44f77d708d343298edbc00',1,'sista_RGBColor::red()']]],
+  ['red_4',['RED',['../namespacesista.html#a72a9a13a3fd5aa83f5852d073bcdbe28aa2d9547b5d3dd9f05984475f7c926da0',1,'sista']]],
+  ['release_20notes_5',['Release Notes',['../md_ReleaseNotes.html',1,'']]],
+  ['releasenotes_2emd_6',['ReleaseNotes.md',['../ReleaseNotes_8md.html',1,'']]],
+  ['removepawn_7',['removePawn',['../classsista_1_1SwappableField.html#abfe055739090c33966a736be1c020b11',1,'sista::SwappableField::removePawn()'],['../classsista_1_1Field.html#a57145101adecb9c9855df01f69e5c167',1,'sista::Field::removePawn(const Coordinates &amp;)'],['../classsista_1_1Field.html#ab1d0a24261d8e595ff5f719fd6e28d5c',1,'sista::Field::removePawn(Pawn *)']]],
+  ['reprintpawn_8',['rePrintPawn',['../classsista_1_1Field.html#af3ee2d7fc112ba03a697f4fe5ae2ea7e',1,'sista::Field']]],
+  ['reset_9',['reset',['../structsista_1_1ANSISettings.html#ace267a8d0b222f8322eae1f5a40f4652',1,'sista::ANSISettings']]],
+  ['reset_10',['RESET',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2fab5859d8721cfdc0312b2838b9c985bc1',1,'sista']]],
+  ['resetansi_11',['resetAnsi',['../namespacesista.html#a01b6f49cb4ab2bca5aa726b576a6f3ad',1,'sista']]],
+  ['resetattribute_12',['resetAttribute',['../namespacesista.html#a175e0b48e9f62f849e02dc4cefdd394a',1,'sista']]],
+  ['restore_5fcursor_5fposition_13',['RESTORE_CURSOR_POSITION',['../namespacesista.html#af3bc6f60c5d75fa9fa275946c516ee51a62684cb7aa31e0d521228313ef65bb7b',1,'sista']]],
+  ['reverse_14',['REVERSE',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2fa642e0b6684e6165e142c074f1cd8d55c',1,'sista']]],
+  ['rgbcolor_15',['RGBColor',['../structsista_1_1RGBColor.html#a6fefbc7d8ec4427f2a783bf7e89c24fe',1,'sista::RGBColor::RGBColor()'],['../structsista_1_1RGBColor.html#a80f1b3240c6678b7da86e476c5c2663e',1,'sista::RGBColor::RGBColor(unsigned char, unsigned char, unsigned char)'],['../structsista_1_1RGBColor.html',1,'sista::RGBColor']]],
+  ['right_16',['RIGHT',['../api_8h.html#acf93245807642a551415bb6eaeb1bca4aec8379af7490bb9eaaf579cf17876f38',1,'RIGHT():&#160;api.h'],['../namespacesista.html#a7aced27e09de586e7565fcad8f5459e4a21507b40c80068eda19865706fdc2403',1,'sista::RIGHT()']]]
 ];

@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['hash_3c_20sista_3a_3acoordinates_20_3e_0',['hash&lt; sista::Coordinates &gt;',['../structstd_1_1hash_3_01sista_1_1Coordinates_01_4.html',1,'std']]],
-  ['hash_3c_20sista_3a_3apath_20_3e_1',['hash&lt; sista::Path &gt;',['../structstd_1_1hash_3_01sista_1_1Path_01_4.html',1,'std']]],
-  ['height_2',['height',['../classsista_1_1Field.html#a27184484af521ba9a0dfe1b7453b5813',1,'sista::Field']]],
-  ['hidden_3',['HIDDEN',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2fa347e628a8f72626a0611ef842fe9d304',1,'sista']]],
-  ['hide_5fcursor_4',['HIDE_CURSOR',['../ansi_8hpp.html#ad40305115a1eba76faa49995740aec80',1,'ansi.hpp']]],
-  ['horizontal_5fabsolute_5',['HORIZONTAL_ABSOLUTE',['../api_8h.html#acf93245807642a551415bb6eaeb1bca4a1c47acf91139ae964615d55e56ef2d55',1,'HORIZONTAL_ABSOLUTE():&#160;api.h'],['../namespacesista.html#a7aced27e09de586e7565fcad8f5459e4a0d04409190bb79cc7898a9336e9a4629',1,'sista::HORIZONTAL_ABSOLUTE()']]]
+  ['isfree_0',['isFree',['../classsista_1_1Field.html#a9c54d0c1f43a0bc294cda1e368335259',1,'sista::Field::isFree(const Coordinates &amp;) const'],['../classsista_1_1Field.html#afd364d3beaca99718c28784a2a87232d',1,'sista::Field::isFree(unsigned short, unsigned short) const'],['../classsista_1_1Field.html#a2a909b73396abbc04b01fe4e5a3c6fab',1,'sista::Field::isFree(short int, short int) const']]],
+  ['isoccupied_1',['isOccupied',['../classsista_1_1Field.html#ae53319a7cc224212e7fd46186ecc86f0',1,'sista::Field::isOccupied(const Coordinates &amp;) const'],['../classsista_1_1Field.html#a6387f6dd1c839e552068719d2426f007',1,'sista::Field::isOccupied(unsigned short, unsigned short) const'],['../classsista_1_1Field.html#a48f79a7608334469f00326a3e1c76797',1,'sista::Field::isOccupied(short int, short int) const']]],
+  ['isoutofbounds_2',['isOutOfBounds',['../classsista_1_1Field.html#ae4acd2049e4175f9de45a4081ed45689',1,'sista::Field::isOutOfBounds(const Coordinates &amp;) const'],['../classsista_1_1Field.html#a90ac03bc857d5680390f002119d4c50d',1,'sista::Field::isOutOfBounds(unsigned short, unsigned short) const'],['../classsista_1_1Field.html#ab21e2bb5971df54b91def9aa13924529',1,'sista::Field::isOutOfBounds(short int, short int) const']]],
+  ['italic_3',['ITALIC',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2fa25093123b8943308104129e1d762f3b7',1,'sista']]]
 ];

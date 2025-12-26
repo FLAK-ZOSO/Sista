@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['underscore_0',['UNDERSCORE',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2faa058c5dc734e54ff3d93b96acac339f4',1,'sista']]],
-  ['unsetscreenmode_1',['unsetScreenMode',['../namespacesista.html#ac1d0f710dead79a74b4a4f5aeb0002b3',1,'sista']]],
-  ['up_2',['UP',['../api_8h.html#acf93245807642a551415bb6eaeb1bca4aba595d8bca8bc5e67c37c0a9d89becfa',1,'UP():&#160;api.h'],['../namespacesista.html#a7aced27e09de586e7565fcad8f5459e4afbaedde498cdead4f2780217646e9ba1',1,'sista::UP()']]]
+  ['validatecoordinates_0',['validateCoordinates',['../classsista_1_1Field.html#a74d0ab2eb8cb342962e1f840772c63e3',1,'sista::Field::validateCoordinates(const Coordinates &amp;) const'],['../classsista_1_1Field.html#aa131d3fd21185827dc05af416027e4a4',1,'sista::Field::validateCoordinates(unsigned short, unsigned short) const']]],
+  ['version_2ehpp_1',['version.hpp',['../version_8hpp.html',1,'']]],
+  ['vpa_2',['VPA',['../cursor_8hpp.html#a529dc251de8aef81ab55c45b2ef47fab',1,'cursor.hpp']]]
 ];
