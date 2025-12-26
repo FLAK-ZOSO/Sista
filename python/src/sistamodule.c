@@ -554,10 +554,12 @@ static PyMethodDef SwappableField_methods[] = {
 static int
 SwappableField_init(PyObject* self, PyObject* args, PyObject* kwds) {
     Py_ssize_t w, h;
-    if (!PyArg_ParseTuple(args, "nn", &w, &h)) {
+    static char *kwlist[] = {"width", "height", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, "nn", kwlist, &w, &h)) {
         if (!PyErr_Occurred()) {
             PyErr_SetString(PyExc_TypeError,
-                            "Invalid arguments: expected two integers (width, height)");
+                            "SwappableField(width:int, height:int) expected");
         }
         return -1;
     }
@@ -734,8 +736,8 @@ static PyMethodDef Field_methods[] = {
 /** \brief Initializes a Field object.
  *  \param w The width of the field.
  *  \param h The height of the field.
- *  \return A new initialized Field instance.
- * 
+ *  \return 0 on success, -1 on failure.
+ *
  *  This function is called during the creation of a Field object.
 */
 static int
