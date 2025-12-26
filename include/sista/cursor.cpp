@@ -29,12 +29,9 @@ namespace sista {
 
     Cursor::Cursor() {
         std::cout << HIDE_CURSOR;
-        clearScreen();
     }
     Cursor::~Cursor() {
-        resetAnsi();
         std::cout << SHOW_CURSOR;
-        clearScreen();
     }
 
     void Cursor::goTo(unsigned short int y_, unsigned short int x_) const {
