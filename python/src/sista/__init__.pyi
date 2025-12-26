@@ -5,7 +5,7 @@ from typing import Any
 # Type alias used for opaque Python capsules returned by the C extension.
 Capsule = Any
 
-__version__ = '3.0.0-alpha.19'
+__version__ = '3.0.0-alpha.20'
 
 # constants
 F_BLACK: int
