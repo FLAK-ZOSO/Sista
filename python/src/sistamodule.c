@@ -849,19 +849,12 @@ sista_module_exec(PyObject* module)
         return -1;
     }
 
-    // PyModule_AddStringConstant(module, "__version__", version);
-    // printf("Sista C API Module - Version: %s\n", version);
     return 0;
 }
 
 /** \brief Module methods definition.
 */
 static PyMethodDef sista_module_methods[] = {
-    // {"create_swappable_field", py_sista_create_SwappableField, METH_VARARGS,
-    //  "Creates a SwappableField with the specified width and height."},
-    // {"create_field", (PyCFunction)py_sista_create_field, METH_VARARGS,
-    //  "Creates a Field with the specified width and height."},
-
     {"reset_ansi", (PyCFunction)py_sista_reset_ansi,
      METH_NOARGS,
      "Resets ANSI settings to default."},
@@ -890,10 +883,6 @@ static PyMethodDef sista_module_methods[] = {
 
     {"create_coordinates", (PyCFunction)py_sista_create_coordinates, METH_VARARGS,
      "Creates a Coordinates object."},
-
-    // {"create_cursor", (PyCFunction)py_sista_create_cursor,
-    //  METH_NOARGS,
-    //  "Creates a Cursor object."},
 
     {NULL, NULL, 0, NULL}  // Sentinel
 };
