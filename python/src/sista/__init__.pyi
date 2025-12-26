@@ -4,7 +4,7 @@ from typing import Any
 # Type alias used for opaque Python capsules returned by the C extension.
 Capsule = Any
 
-__version__ = '3.0.0-alpha.17'
+__version__ = '3.0.0-alpha.18'
 
 # constants
 F_BLACK: int
@@ -108,21 +108,6 @@ def create_swappable_field(width: int, height: int) -> SwappableField:
     :return: A SwappableField Python object wrapping the C handler.
     """
     ...
-def create_field(width: int, height: int) -> Field:
-    """
-    Create and return a Field wrapper object.
-
-    The returned object is a Python wrapper that owns the underlying C
-    Field handler. Use the instance methods (create_pawn, move_pawn,
-    print_with_border) on the returned Field object. The wrapper
-    manages the C-side lifetime (it will destroy the C handler when the
-    Python object is deallocated).
-
-    :param width: Field width (number of columns).
-    :param height: Field height (number of rows).
-    :return: A Field Python object wrapping the C handler.
-    """
-    ...
 def create_ansi_settings(fgcolor: int = ..., bgcolor: int = ..., attribute: int = ...) -> Capsule:
     """
     Create an ANSI settings object and return it as a Capsule.
@@ -150,6 +135,21 @@ class Field:
     """
     Class representing a terminal Field for pawns and borders.
     """
+
+    def __init__(self, width: int, height: int) -> None:
+        """
+        Create and return a Field wrapper object.
+
+        The returned object is a Python wrapper that owns the underlying C
+        Field handler. Use the instance methods (create_pawn, move_pawn,
+        print_with_border) on the returned Field object. The wrapper
+        manages the C-side lifetime (it will destroy the C handler when the
+        Python object is deallocated).
+
+        :param width: Field width (number of columns).
+        :param height: Field height (number of rows).
+        """
+        ...
 
     def create_pawn(self, symbol: str, ansi_settings: Capsule, coords: Capsule) -> Capsule:
         """
