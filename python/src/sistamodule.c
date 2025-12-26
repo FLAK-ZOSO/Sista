@@ -367,6 +367,21 @@ static PyMethodDef Cursor_methods[] = {
     {NULL, NULL, 0, NULL}
 };
 
+static int
+Cursor_init(PyObject* self, PyObject* args, PyObject* kwds) {
+    CursorHandler_t cursor = sista_createCursor();
+    if (cursor == NULL) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_MemoryError, "Failed to create Cursor");
+        }
+        return -1;
+    }
+
+    CursorObject *obj = (CursorObject*)self;  /* object already allocated by tp_new */
+    obj->cursor = cursor;
+    return 0;
+}
+
 /* type object */
 static PyTypeObject CursorType = {
     PyVarObject_HEAD_INIT(NULL, 0)
@@ -376,26 +391,9 @@ static PyTypeObject CursorType = {
     .tp_doc = "Cursor wrapper",
     .tp_methods = Cursor_methods,
     .tp_dealloc = (destructor)Cursor_dealloc,
+    .tp_new = PyType_GenericNew,
+    .tp_init = Cursor_init,
 };
-
-/** \brief Creates a Cursor object.
- *  \return A new CursorObject instance.
-*/
-static PyObject*
-py_sista_create_cursor(PyObject* self, PyObject* Py_UNUSED(ignored)) {
-    CursorObject *obj = (CursorObject*)CursorType.tp_alloc(&CursorType, 0);
-    if (obj == NULL) {
-        PyErr_SetString(PyExc_MemoryError, "Failed to allocate Cursor object");
-        return NULL;
-    }
-    obj->cursor = sista_createCursor();
-    if (obj->cursor == NULL) {
-        Py_DECREF(obj);
-        PyErr_SetString(PyExc_RuntimeError, "Failed to create Cursor");
-        return NULL;
-    }
-    return (PyObject*)obj;
-}
 
 /* New Python type that wraps SwappableFieldHandler_t */
 typedef struct {
@@ -893,9 +891,9 @@ static PyMethodDef sista_module_methods[] = {
     {"create_coordinates", (PyCFunction)py_sista_create_coordinates, METH_VARARGS,
      "Creates a Coordinates object."},
 
-    {"create_cursor", (PyCFunction)py_sista_create_cursor,
-     METH_NOARGS,
-     "Creates a Cursor object."},
+    // {"create_cursor", (PyCFunction)py_sista_create_cursor,
+    //  METH_NOARGS,
+    //  "Creates a Cursor object."},
 
     {NULL, NULL, 0, NULL}  // Sentinel
 };

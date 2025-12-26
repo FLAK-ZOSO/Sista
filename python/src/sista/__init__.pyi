@@ -322,6 +322,18 @@ class Cursor:
     Class representing a terminal cursor for movement operations.
     """
 
+    def __init__(self) -> None:
+        """
+        Create and return a Cursor wrapper object.
+
+        The returned object is a Python wrapper that owns the underlying C
+        Cursor handler. Use the instance methods (move, go_to,
+        go_to_coordinates) on the returned Cursor object. The wrapper
+        manages the C-side lifetime (it will destroy the C handler when the
+        Python object is deallocated).
+        """
+        ...
+
     def move(self, direction: int, amount: int) -> None:
         """
         Move the cursor in the specified direction by the given amount.
@@ -347,12 +359,3 @@ class Cursor:
         :param coords: Capsule returned by create_coordinates.
         """
         ...
-def create_cursor() -> Cursor:
-    """
-    Create and return a Cursor object.
-
-    The cursor object can be used to emit cursor movement ANSI sequences.
-
-    :return: Cursor object.
-    """
-    ...

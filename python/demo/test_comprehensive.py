@@ -182,7 +182,7 @@ def test_cursor_functions():
     print("=== Testing Cursor Functions ===")
     
     # Create cursor
-    cursor = sista.create_cursor()
+    cursor = sista.Cursor()
     print(f"Created cursor: {cursor}")
     
     # Create coordinates
