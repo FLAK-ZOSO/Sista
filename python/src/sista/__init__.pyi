@@ -1,10 +1,11 @@
 """Python type hints and pydocstrings for the Sista C extension module."""
+from __future__ import annotations
 from typing import Any
 
 # Type alias used for opaque Python capsules returned by the C extension.
 Capsule = Any
 
-__version__ = '3.0.0-alpha.18'
+__version__ = '3.0.0-alpha.19'
 
 # constants
 F_BLACK: int
@@ -120,6 +121,8 @@ class Field:
     Class representing a terminal Field for pawns and borders.
     """
 
+    def __new__(cls, width: int, height: int) -> Field: ...
+
     def __init__(self, width: int, height: int) -> None:
         """
         Create and return a Field wrapper object.
@@ -173,6 +176,8 @@ class SwappableField:
     """
     Class representing a terminal SwappableField for pawns and borders.
     """
+
+    def __new__(cls, width: int, height: int) -> SwappableField: ...
 
     def __init__(self, width: int, height: int) -> None:
         """
@@ -321,6 +326,8 @@ class Cursor:
     """
     Class representing a terminal cursor for movement operations.
     """
+
+    def __new__(cls) -> Cursor: ...
 
     def __init__(self) -> None:
         """
