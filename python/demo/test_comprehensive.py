@@ -209,6 +209,12 @@ def test_cursor_functions():
     cursor.go_to(2, 2)
     print("Moved cursor to (2, 2)")
 
+    for y in range(5):
+        for x in range(5):
+            cursor.go_to(y, x)
+            sista.print(f"Z")
+            time.sleep(0.1)
+
 def test_version():
     """Test version retrieval"""
     print("=== Testing Version Retrieval ===")
@@ -225,9 +231,9 @@ def main():
 
     # https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html#decorators
     tests: list[typing.Callable[..., typing.Any]] = [
-        test_basic_functionality,
-        test_swappable_field,
         test_border_functionality,
+        test_swappable_field,
+        test_basic_functionality,
         test_coordinates,
         test_pawn_operations,
         test_enum_exposure,

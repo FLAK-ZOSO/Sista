@@ -135,9 +135,9 @@ namespace sista {
         const static unsigned short int offset_x;
 
     public:
-        /** \brief Constructor that hides the cursor and clears the screen. */
+        /** \brief Constructor that hides the cursor. */
         Cursor();
-        /** \brief Destructor that shows the cursor and resets ANSI settings. */
+        /** \brief Destructor that shows the cursor. */
         ~Cursor();
 
         /** \brief Moves the cursor to the specified (y, x) coordinates.

@@ -1,3 +1,9 @@
+sista (3.0.0-alpha.20-1) stretch; urgency=medium
+
+  * Cursor constructor and destructor only hides/shows cursor
+
+ -- FLAK-ZOSO <mattia.marchese.2006@gmail.com>  Fri, 26 Dec 2025 23:27:58 +0200
+
 sista (3.0.0-alpha.14-1) stretch; urgency=medium
 
   * Adding Python C extension module
