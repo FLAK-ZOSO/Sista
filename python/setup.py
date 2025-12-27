@@ -15,10 +15,11 @@ sista_ext = Extension(
         "/usr/lib"
     ] if not is_windows else [],
     language="c",
-    libraries=["Sista_api", "Sista"],
+    libraries=["Sista_api"],
     extra_link_args=[
         "-Wl,-rpath,/usr/local/lib",
         "-Wl,-rpath,/usr/lib",
+        "-lstdc++"
     ] if not is_windows else []
 )
 
