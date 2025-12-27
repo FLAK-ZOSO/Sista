@@ -127,35 +127,35 @@ PyDoc_STRVAR(py_Field_print_with_border_doc,
 PyDoc_STRVAR(py_SwappableField_create_pawn_doc,
 "create_pawn(self, symbol: str, ansi_settings: Capsule, coords: Capsule) -> Capsule\n\n"
 "Create a Pawn inside this SwappableField and return a Pawn capsule.\n\n"
-"Parameters\n\n"
+"### Parameters\n\n"
 "- `symbol` (str): Single character string used to represent the pawn.\n"
 "- `ansi_settings` (Capsule): Capsule returned by create_ansi_settings().\n"
 "- `coords` (Capsule): Capsule returned by create_coordinates().\n\n"
-"Returns\n\n"
+"### Returns\n\n"
 "- `Capsule` wrapping the Pawn handler.\n"
 );
 
 PyDoc_STRVAR(py_SwappableField_add_pawn_to_swap_doc,
 "add_pawn_to_swap(self, pawn: Capsule, coords: Capsule) -> int\n\n"
 "Schedule a pawn to be swapped to the given coordinates in the next swap operation.\n\n"
-"Parameters\n\n"
+"### Parameters\n\n"
 "- `pawn` (Capsule): Capsule for the Pawn to schedule for swapping.\n"
 "- `coords` (Capsule): Capsule for the target Coordinates.\n\n"
-"Returns\n\n"
+"### Returns\n\n"
 "- `int`: status code (0 == success).\n"
 );
 
 PyDoc_STRVAR(py_SwappableField_apply_swaps_doc,
 "apply_swaps(self) -> int\n\n"
 "Execute all scheduled pawn swaps in this SwappableField.\n\n"
-"Returns\n\n"
+"### Returns\n\n"
 "- `int`: status code (0 == success).\n"
 );
 
 PyDoc_STRVAR(py_SwappableField_print_with_border_doc,
 "print_with_border(self, border: Capsule) -> None\n\n"
 "Render this SwappableField to the terminal using the given Border object.\n\n"
-"Parameters\n\n"
+"### Parameters\n\n"
 "- `border` (Capsule): Capsule for the Border to draw around the field.\n"
 );
 

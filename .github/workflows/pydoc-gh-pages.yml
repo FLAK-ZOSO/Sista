@@ -25,6 +25,7 @@ jobs:
         python -m pip install pdoc3
         sudo make install
         cd python
+        python -m build
         python -m pip install -e .
 
     - name: Generate API documentation with pydoc (pdoc3)
