@@ -19,7 +19,6 @@ sista_ext = Extension(
     extra_link_args=[
         "-Wl,-rpath,/usr/local/lib",
         "-Wl,-rpath,/usr/lib",
-        "-lstdc++"
     ] if not is_windows else []
 )
 
