@@ -23,7 +23,7 @@
   <td id="projectalign">
    <div id="projectname">Sista<span id="projectnumber">&#160;v3.0.0-alpha.21</span>
    </div>
-   <div id="projectbrief">Sista is a C++ lightweight OS-agnostic library for terminal animations and videogames</div>
+   <div id="projectbrief">C++ lightweight OS-agnostic library for terminal animations and videogames</div>
   </td>
  </tr>
  </tbody>
@@ -77,7 +77,8 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">sistamodule.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -161,9 +162,102 @@ Functions</h2></td></tr>
 <tr class="separator:ad74a6074715be8c10ebe2c299b71d805"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60014423dc1f8aa7356226b32b9ce829" id="r_a60014423dc1f8aa7356226b32b9ce829"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a60014423dc1f8aa7356226b32b9ce829">PyDoc_STRVAR</a> (py_Cursor_go_to_coordinates_doc, &quot;Move the cursor to the position described by a Coordinates capsule.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `coords` (Capsule): Capsule returned by `create_coordinates`.\n&quot;)</td></tr>
 <tr class="separator:a60014423dc1f8aa7356226b32b9ce829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf4ec50ca4fb14bbe94bef4ba894ad78" id="r_acf4ec50ca4fb14bbe94bef4ba894ad78"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#acf4ec50ca4fb14bbe94bef4ba894ad78">py_sista_set_foreground_color</a> (PyObject *self, PyObject *arg)</td></tr>
+<tr class="memdesc:acf4ec50ca4fb14bbe94bef4ba894ad78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the foreground color.  <br /></td></tr>
+<tr class="separator:acf4ec50ca4fb14bbe94bef4ba894ad78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b509dce7a3dcebe11490c760c9515fd" id="r_a6b509dce7a3dcebe11490c760c9515fd"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a6b509dce7a3dcebe11490c760c9515fd">py_sista_set_background_color</a> (PyObject *self, PyObject *arg)</td></tr>
+<tr class="memdesc:a6b509dce7a3dcebe11490c760c9515fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the background color.  <br /></td></tr>
+<tr class="separator:a6b509dce7a3dcebe11490c760c9515fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a764bd068756d74b07b24c84e9b955ca4" id="r_a764bd068756d74b07b24c84e9b955ca4"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a764bd068756d74b07b24c84e9b955ca4">py_sista_set_attribute</a> (PyObject *self, PyObject *arg)</td></tr>
+<tr class="memdesc:a764bd068756d74b07b24c84e9b955ca4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the text attribute.  <br /></td></tr>
+<tr class="separator:a764bd068756d74b07b24c84e9b955ca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e8c2185b94a0f72cf88a64ccd22e52a" id="r_a2e8c2185b94a0f72cf88a64ccd22e52a"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a2e8c2185b94a0f72cf88a64ccd22e52a">py_sista_reset_attribute</a> (PyObject *self, PyObject *arg)</td></tr>
+<tr class="memdesc:a2e8c2185b94a0f72cf88a64ccd22e52a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the text attribute.  <br /></td></tr>
+<tr class="separator:a2e8c2185b94a0f72cf88a64ccd22e52a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dc4b25b1fbe7db05a52e73d4e786792" id="r_a5dc4b25b1fbe7db05a52e73d4e786792"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a5dc4b25b1fbe7db05a52e73d4e786792">py_sista_print</a> (PyObject *self, PyObject *args)</td></tr>
+<tr class="memdesc:a5dc4b25b1fbe7db05a52e73d4e786792"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a message.  <br /></td></tr>
+<tr class="separator:a5dc4b25b1fbe7db05a52e73d4e786792"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeccac2f9c32503331c442ed19ee28beb" id="r_aeccac2f9c32503331c442ed19ee28beb"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#aeccac2f9c32503331c442ed19ee28beb">py_sista_reset_ansi</a> (PyObject *self, PyObject *Py_UNUSED(ignored))</td></tr>
+<tr class="memdesc:aeccac2f9c32503331c442ed19ee28beb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets ANSI settings to default.  <br /></td></tr>
+<tr class="separator:aeccac2f9c32503331c442ed19ee28beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb04ce276db2560c96d5209a0daa75e9" id="r_abb04ce276db2560c96d5209a0daa75e9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#abb04ce276db2560c96d5209a0daa75e9">py_sista_destroy_ansi_settings_capsule_destructor</a> (PyObject *)</td></tr>
+<tr class="separator:abb04ce276db2560c96d5209a0daa75e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17c14a91034f8d9de9577f9dc8c4d68b" id="r_a17c14a91034f8d9de9577f9dc8c4d68b"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a17c14a91034f8d9de9577f9dc8c4d68b">py_sista_create_ansi_settings</a> (PyObject *self, PyObject *args, PyObject *kwargs)</td></tr>
+<tr class="separator:a17c14a91034f8d9de9577f9dc8c4d68b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea282d4fc622cd83d2912598073915af" id="r_aea282d4fc622cd83d2912598073915af"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#aea282d4fc622cd83d2912598073915af">py_sista_destroy_border_capsule_destructor</a> (PyObject *capsule)</td></tr>
+<tr class="memdesc:aea282d4fc622cd83d2912598073915af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for BorderHandler_t capsule.  <br /></td></tr>
+<tr class="separator:aea282d4fc622cd83d2912598073915af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2454f546eb11369dd684e00e3def77a1" id="r_a2454f546eb11369dd684e00e3def77a1"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a2454f546eb11369dd684e00e3def77a1">py_sista_create_border</a> (PyObject *self, PyObject *args)</td></tr>
+<tr class="memdesc:a2454f546eb11369dd684e00e3def77a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a Border object.  <br /></td></tr>
+<tr class="separator:a2454f546eb11369dd684e00e3def77a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68cf4dd2cbf38f9156934ef3e4b43f3e" id="r_a68cf4dd2cbf38f9156934ef3e4b43f3e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a68cf4dd2cbf38f9156934ef3e4b43f3e">py_sista_destroy_coordinates_capsule_destructor</a> (PyObject *)</td></tr>
+<tr class="separator:a68cf4dd2cbf38f9156934ef3e4b43f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd244fa07d405411d8474135f8e44923" id="r_abd244fa07d405411d8474135f8e44923"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#abd244fa07d405411d8474135f8e44923">py_sista_create_coordinates</a> (PyObject *self, PyObject *args)</td></tr>
+<tr class="memdesc:abd244fa07d405411d8474135f8e44923"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a Coordinates object.  <br /></td></tr>
+<tr class="separator:abd244fa07d405411d8474135f8e44923"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dd2ebc3367dc8d4def021e3db17d5fe" id="r_a3dd2ebc3367dc8d4def021e3db17d5fe"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a3dd2ebc3367dc8d4def021e3db17d5fe">Cursor_dealloc</a> (PyObject *self)</td></tr>
+<tr class="separator:a3dd2ebc3367dc8d4def021e3db17d5fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af547fbb5495f3893585968f383f3d96b" id="r_af547fbb5495f3893585968f383f3d96b"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#af547fbb5495f3893585968f383f3d96b">Cursor_go_to</a> (PyObject *self, PyObject *args)</td></tr>
+<tr class="memdesc:af547fbb5495f3893585968f383f3d96b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cursor.go_to(self, y, x)  <br /></td></tr>
+<tr class="separator:af547fbb5495f3893585968f383f3d96b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad44dd0ce6232f80679cdecd9951671c0" id="r_ad44dd0ce6232f80679cdecd9951671c0"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#ad44dd0ce6232f80679cdecd9951671c0">Cursor_go_to_coordinates</a> (PyObject *self, PyObject *args)</td></tr>
+<tr class="memdesc:ad44dd0ce6232f80679cdecd9951671c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cursor.go_to_coordinates(self, coords_capsule)  <br /></td></tr>
+<tr class="separator:ad44dd0ce6232f80679cdecd9951671c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cbdce11db98425ccaab414483d4944c" id="r_a3cbdce11db98425ccaab414483d4944c"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a3cbdce11db98425ccaab414483d4944c">Cursor_move</a> (PyObject *self, PyObject *args)</td></tr>
+<tr class="memdesc:a3cbdce11db98425ccaab414483d4944c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cursor.move(self, direction, amount)  <br /></td></tr>
+<tr class="separator:a3cbdce11db98425ccaab414483d4944c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaaa94aa134cbaa393c02c336d9ef039" id="r_aaaaa94aa134cbaa393c02c336d9ef039"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#aaaaa94aa134cbaa393c02c336d9ef039">Cursor_init</a> (PyObject *self, PyObject *args, PyObject *kwds)</td></tr>
+<tr class="separator:aaaaa94aa134cbaa393c02c336d9ef039"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d3374703b31394c6b893357a36b2c20" id="r_a7d3374703b31394c6b893357a36b2c20"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a7d3374703b31394c6b893357a36b2c20">SwappableField_dealloc</a> (PyObject *self)</td></tr>
+<tr class="separator:a7d3374703b31394c6b893357a36b2c20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a961814691d7c680a09e467144c8f1fa3" id="r_a961814691d7c680a09e467144c8f1fa3"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a961814691d7c680a09e467144c8f1fa3">SwappableField_create_pawn</a> (PyObject *self, PyObject *args)</td></tr>
+<tr class="separator:a961814691d7c680a09e467144c8f1fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32161d343fbfe89c94ba316b404669d4" id="r_a32161d343fbfe89c94ba316b404669d4"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a32161d343fbfe89c94ba316b404669d4">SwappableField_add_pawn_to_swap</a> (PyObject *self, PyObject *args)</td></tr>
+<tr class="separator:a32161d343fbfe89c94ba316b404669d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8527343b4bd2e796fb46e3b2aec5e6e" id="r_aa8527343b4bd2e796fb46e3b2aec5e6e"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#aa8527343b4bd2e796fb46e3b2aec5e6e">SwappableField_apply_swaps</a> (PyObject *self, PyObject *Py_UNUSED(ignored))</td></tr>
+<tr class="separator:aa8527343b4bd2e796fb46e3b2aec5e6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83893096dce0554b780ff5b247573030" id="r_a83893096dce0554b780ff5b247573030"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a83893096dce0554b780ff5b247573030">SwappableField_print_with_border</a> (PyObject *self, PyObject *args)</td></tr>
+<tr class="separator:a83893096dce0554b780ff5b247573030"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1df06403c38402ab51c4c5b5976b272c" id="r_a1df06403c38402ab51c4c5b5976b272c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a1df06403c38402ab51c4c5b5976b272c">SwappableField_init</a> (PyObject *self, PyObject *args, PyObject *kwds)</td></tr>
+<tr class="separator:a1df06403c38402ab51c4c5b5976b272c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0422c662e860a4ce4ac174cd325476e8" id="r_a0422c662e860a4ce4ac174cd325476e8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a0422c662e860a4ce4ac174cd325476e8">Field_dealloc</a> (PyObject *self)</td></tr>
+<tr class="separator:a0422c662e860a4ce4ac174cd325476e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63992e40d22faeac3ca5edb5f8707765" id="r_a63992e40d22faeac3ca5edb5f8707765"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a63992e40d22faeac3ca5edb5f8707765">Field_create_pawn</a> (PyObject *self, PyObject *args)</td></tr>
+<tr class="separator:a63992e40d22faeac3ca5edb5f8707765"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f56989ac366e9b7c0d40ce34138f220" id="r_a6f56989ac366e9b7c0d40ce34138f220"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a6f56989ac366e9b7c0d40ce34138f220">Field_move_pawn</a> (PyObject *self, PyObject *args)</td></tr>
+<tr class="separator:a6f56989ac366e9b7c0d40ce34138f220"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb60cca9ebd37dd90b5250c7c42ed816" id="r_afb60cca9ebd37dd90b5250c7c42ed816"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#afb60cca9ebd37dd90b5250c7c42ed816">Field_print_with_border</a> (PyObject *self, PyObject *args)</td></tr>
+<tr class="separator:afb60cca9ebd37dd90b5250c7c42ed816"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c423fb6fa6a3c32e161b822d54a3642" id="r_a3c423fb6fa6a3c32e161b822d54a3642"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a3c423fb6fa6a3c32e161b822d54a3642">Field_init</a> (PyObject *self, PyObject *args, PyObject *kwds)</td></tr>
+<tr class="memdesc:a3c423fb6fa6a3c32e161b822d54a3642"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a Field object.  <br /></td></tr>
+<tr class="separator:a3c423fb6fa6a3c32e161b822d54a3642"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ecfc910058a9b5a3e471e0eb7b472f2" id="r_a1ecfc910058a9b5a3e471e0eb7b472f2"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a1ecfc910058a9b5a3e471e0eb7b472f2">sista_module_exec</a> (PyObject *module)</td></tr>
+<tr class="separator:a1ecfc910058a9b5a3e471e0eb7b472f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec8b29c7b09a348e36f60c11b7bf5adf" id="r_aec8b29c7b09a348e36f60c11b7bf5adf"><td class="memItemLeft" align="right" valign="top">PyMODINIT_FUNC&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#aec8b29c7b09a348e36f60c11b7bf5adf">PyInit__sista</a> (void)</td></tr>
 <tr class="memdesc:aec8b29c7b09a348e36f60c11b7bf5adf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module initialization function.  <br /></td></tr>
 <tr class="separator:aec8b29c7b09a348e36f60c11b7bf5adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:acc5b6bb9114fdf9bc479ac5f9e7d7e71" id="r_acc5b6bb9114fdf9bc479ac5f9e7d7e71"><td class="memItemLeft" align="right" valign="top">static PyTypeObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#acc5b6bb9114fdf9bc479ac5f9e7d7e71">CursorType</a></td></tr>
+<tr class="separator:acc5b6bb9114fdf9bc479ac5f9e7d7e71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cf4dc4e472901a803e138e82d659498" id="r_a5cf4dc4e472901a803e138e82d659498"><td class="memItemLeft" align="right" valign="top">static PyMethodDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a5cf4dc4e472901a803e138e82d659498">Cursor_methods</a> []</td></tr>
+<tr class="separator:a5cf4dc4e472901a803e138e82d659498"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb62ff97b483a804bfab89924fa7de3d" id="r_acb62ff97b483a804bfab89924fa7de3d"><td class="memItemLeft" align="right" valign="top">static PyTypeObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#acb62ff97b483a804bfab89924fa7de3d">SwappableFieldType</a></td></tr>
+<tr class="separator:acb62ff97b483a804bfab89924fa7de3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14fd8c596cc255b87beda7fde0e64069" id="r_a14fd8c596cc255b87beda7fde0e64069"><td class="memItemLeft" align="right" valign="top">static PyMethodDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a14fd8c596cc255b87beda7fde0e64069">SwappableField_methods</a> []</td></tr>
+<tr class="separator:a14fd8c596cc255b87beda7fde0e64069"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb2c0c2c6be9790660499e3beed2ab1b" id="r_adb2c0c2c6be9790660499e3beed2ab1b"><td class="memItemLeft" align="right" valign="top">static PyTypeObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#adb2c0c2c6be9790660499e3beed2ab1b">FieldType</a></td></tr>
+<tr class="separator:adb2c0c2c6be9790660499e3beed2ab1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12e79c76e9522ac7380bbb4f438c07e3" id="r_a12e79c76e9522ac7380bbb4f438c07e3"><td class="memItemLeft" align="right" valign="top">static PyMethodDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a12e79c76e9522ac7380bbb4f438c07e3">Field_methods</a> []</td></tr>
+<tr class="separator:a12e79c76e9522ac7380bbb4f438c07e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac155536feb4e0938ea7da93825a0348d" id="r_ac155536feb4e0938ea7da93825a0348d"><td class="memItemLeft" align="right" valign="top">static PyMethodDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#ac155536feb4e0938ea7da93825a0348d">sista_module_methods</a> []</td></tr>
+<tr class="separator:ac155536feb4e0938ea7da93825a0348d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84fc77e2b5e20cc60f294e1ae60c4ea3" id="r_a84fc77e2b5e20cc60f294e1ae60c4ea3"><td class="memItemLeft" align="right" valign="top">static PyModuleDef_Slot&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a84fc77e2b5e20cc60f294e1ae60c4ea3">sista_module_slots</a> []</td></tr>
+<tr class="separator:a84fc77e2b5e20cc60f294e1ae60c4ea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac71179f3eda8a73a83bf439c188c38d7" id="r_ac71179f3eda8a73a83bf439c188c38d7"><td class="memItemLeft" align="right" valign="top">static struct PyModuleDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#ac71179f3eda8a73a83bf439c188c38d7">sista_module</a></td></tr>
+<tr class="memdesc:ac71179f3eda8a73a83bf439c188c38d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module definition.  <br /></td></tr>
+<tr class="separator:ac71179f3eda8a73a83bf439c188c38d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Python C extension module for Sista C API. </p>
@@ -189,6 +283,877 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a3dd2ebc3367dc8d4def021e3db17d5fe" name="a3dd2ebc3367dc8d4def021e3db17d5fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dd2ebc3367dc8d4def021e3db17d5fe">&#9670;&#160;</a></span>Cursor_dealloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Cursor_dealloc </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af547fbb5495f3893585968f383f3d96b" name="af547fbb5495f3893585968f383f3d96b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af547fbb5495f3893585968f383f3d96b">&#9670;&#160;</a></span>Cursor_go_to()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyObject * Cursor_go_to </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cursor.go_to(self, y, x) </p>
+<p>Moves the cursor to the specified (y, x) coordinates.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">y</td><td>The y coordinate. </td></tr>
+    <tr><td class="paramname">x</td><td>The x coordinate. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad44dd0ce6232f80679cdecd9951671c0" name="ad44dd0ce6232f80679cdecd9951671c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad44dd0ce6232f80679cdecd9951671c0">&#9670;&#160;</a></span>Cursor_go_to_coordinates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyObject * Cursor_go_to_coordinates </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cursor.go_to_coordinates(self, coords_capsule) </p>
+<p>Moves the cursor to the specified coordinates.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coords_capsule</td><td>Capsule containing Coordinates. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aaaaa94aa134cbaa393c02c336d9ef039" name="aaaaa94aa134cbaa393c02c336d9ef039"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaaa94aa134cbaa393c02c336d9ef039">&#9670;&#160;</a></span>Cursor_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int Cursor_init </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>args</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>kwds</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3cbdce11db98425ccaab414483d4944c" name="a3cbdce11db98425ccaab414483d4944c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cbdce11db98425ccaab414483d4944c">&#9670;&#160;</a></span>Cursor_move()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyObject * Cursor_move </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cursor.move(self, direction, amount) </p>
+<p>Moves the cursor in the specified direction by the given amount.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">direction</td><td>The direction to move the cursor. </td></tr>
+    <tr><td class="paramname">amount</td><td>The amount to move the cursor. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a63992e40d22faeac3ca5edb5f8707765" name="a63992e40d22faeac3ca5edb5f8707765"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63992e40d22faeac3ca5edb5f8707765">&#9670;&#160;</a></span>Field_create_pawn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyObject * Field_create_pawn </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0422c662e860a4ce4ac174cd325476e8" name="a0422c662e860a4ce4ac174cd325476e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0422c662e860a4ce4ac174cd325476e8">&#9670;&#160;</a></span>Field_dealloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Field_dealloc </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3c423fb6fa6a3c32e161b822d54a3642" name="a3c423fb6fa6a3c32e161b822d54a3642"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c423fb6fa6a3c32e161b822d54a3642">&#9670;&#160;</a></span>Field_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int Field_init </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>args</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>kwds</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes a Field object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">w</td><td>The width of the field. </td></tr>
+    <tr><td class="paramname">h</td><td>The height of the field. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure.</dd></dl>
+<p>This function is called during the creation of a Field object. </p>
+
+</div>
+</div>
+<a id="a6f56989ac366e9b7c0d40ce34138f220" name="a6f56989ac366e9b7c0d40ce34138f220"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f56989ac366e9b7c0d40ce34138f220">&#9670;&#160;</a></span>Field_move_pawn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyObject * Field_move_pawn </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afb60cca9ebd37dd90b5250c7c42ed816" name="afb60cca9ebd37dd90b5250c7c42ed816"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb60cca9ebd37dd90b5250c7c42ed816">&#9670;&#160;</a></span>Field_print_with_border()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyObject * Field_print_with_border </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a17c14a91034f8d9de9577f9dc8c4d68b" name="a17c14a91034f8d9de9577f9dc8c4d68b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17c14a91034f8d9de9577f9dc8c4d68b">&#9670;&#160;</a></span>py_sista_create_ansi_settings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyObject * py_sista_create_ansi_settings </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>args</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>kwargs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2454f546eb11369dd684e00e3def77a1" name="a2454f546eb11369dd684e00e3def77a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2454f546eb11369dd684e00e3def77a1">&#9670;&#160;</a></span>py_sista_create_border()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyObject * py_sista_create_border </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a Border object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">border</td><td>The BorderHandler_t to wrap. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A capsule containing the BorderHandler_t. </dd></dl>
+
+</div>
+</div>
+<a id="abd244fa07d405411d8474135f8e44923" name="abd244fa07d405411d8474135f8e44923"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd244fa07d405411d8474135f8e44923">&#9670;&#160;</a></span>py_sista_create_coordinates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyObject * py_sista_create_coordinates </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a Coordinates object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">y</td><td>The y coordinate. </td></tr>
+    <tr><td class="paramname">x</td><td>The x coordinate. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A capsule containing the Coordinates object. </dd></dl>
+
+</div>
+</div>
+<a id="abb04ce276db2560c96d5209a0daa75e9" name="abb04ce276db2560c96d5209a0daa75e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb04ce276db2560c96d5209a0daa75e9">&#9670;&#160;</a></span>py_sista_destroy_ansi_settings_capsule_destructor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void py_sista_destroy_ansi_settings_capsule_destructor </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>capsule</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aea282d4fc622cd83d2912598073915af" name="aea282d4fc622cd83d2912598073915af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea282d4fc622cd83d2912598073915af">&#9670;&#160;</a></span>py_sista_destroy_border_capsule_destructor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void py_sista_destroy_border_capsule_destructor </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>capsule</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor for BorderHandler_t capsule. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">capsule</td><td>The capsule object.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function is called when the BorderHandler_t capsule is deallocated. It retrieves the BorderHandler_t pointer from the capsule and calls the appropriate destructor to free the memory. </p>
+
+</div>
+</div>
+<a id="a68cf4dd2cbf38f9156934ef3e4b43f3e" name="a68cf4dd2cbf38f9156934ef3e4b43f3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68cf4dd2cbf38f9156934ef3e4b43f3e">&#9670;&#160;</a></span>py_sista_destroy_coordinates_capsule_destructor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void py_sista_destroy_coordinates_capsule_destructor </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>capsule</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5dc4b25b1fbe7db05a52e73d4e786792" name="a5dc4b25b1fbe7db05a52e73d4e786792"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dc4b25b1fbe7db05a52e73d4e786792">&#9670;&#160;</a></span>py_sista_print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyObject * py_sista_print </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prints a message. </p>
+<p>Prints a message using Sista's ANSI settings, using the same stream as printf.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message to print. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aeccac2f9c32503331c442ed19ee28beb" name="aeccac2f9c32503331c442ed19ee28beb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeccac2f9c32503331c442ed19ee28beb">&#9670;&#160;</a></span>py_sista_reset_ansi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyObject * py_sista_reset_ansi </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>Py_UNUSED</em>ignored&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resets ANSI settings to default. </p>
+
+</div>
+</div>
+<a id="a2e8c2185b94a0f72cf88a64ccd22e52a" name="a2e8c2185b94a0f72cf88a64ccd22e52a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e8c2185b94a0f72cf88a64ccd22e52a">&#9670;&#160;</a></span>py_sista_reset_attribute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyObject * py_sista_reset_attribute </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>arg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resets the text attribute. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">attribute</td><td>The text attribute to reset. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a764bd068756d74b07b24c84e9b955ca4" name="a764bd068756d74b07b24c84e9b955ca4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a764bd068756d74b07b24c84e9b955ca4">&#9670;&#160;</a></span>py_sista_set_attribute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyObject * py_sista_set_attribute </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>arg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the text attribute. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">attribute</td><td>The text attribute to set. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6b509dce7a3dcebe11490c760c9515fd" name="a6b509dce7a3dcebe11490c760c9515fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b509dce7a3dcebe11490c760c9515fd">&#9670;&#160;</a></span>py_sista_set_background_color()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyObject * py_sista_set_background_color </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>arg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the background color. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td>The background color to set. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acf4ec50ca4fb14bbe94bef4ba894ad78" name="acf4ec50ca4fb14bbe94bef4ba894ad78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf4ec50ca4fb14bbe94bef4ba894ad78">&#9670;&#160;</a></span>py_sista_set_foreground_color()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyObject * py_sista_set_foreground_color </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>arg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the foreground color. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td>The foreground color to set. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a60014423dc1f8aa7356226b32b9ce829" name="a60014423dc1f8aa7356226b32b9ce829"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a60014423dc1f8aa7356226b32b9ce829">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[1/22]</span></h2>
 
@@ -869,10 +1834,537 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a1ecfc910058a9b5a3e471e0eb7b472f2" name="a1ecfc910058a9b5a3e471e0eb7b472f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ecfc910058a9b5a3e471e0eb7b472f2">&#9670;&#160;</a></span>sista_module_exec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int sista_module_exec </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>module</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a32161d343fbfe89c94ba316b404669d4" name="a32161d343fbfe89c94ba316b404669d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32161d343fbfe89c94ba316b404669d4">&#9670;&#160;</a></span>SwappableField_add_pawn_to_swap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyObject * SwappableField_add_pawn_to_swap </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa8527343b4bd2e796fb46e3b2aec5e6e" name="aa8527343b4bd2e796fb46e3b2aec5e6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8527343b4bd2e796fb46e3b2aec5e6e">&#9670;&#160;</a></span>SwappableField_apply_swaps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyObject * SwappableField_apply_swaps </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>Py_UNUSED</em>ignored&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a961814691d7c680a09e467144c8f1fa3" name="a961814691d7c680a09e467144c8f1fa3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a961814691d7c680a09e467144c8f1fa3">&#9670;&#160;</a></span>SwappableField_create_pawn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyObject * SwappableField_create_pawn </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7d3374703b31394c6b893357a36b2c20" name="a7d3374703b31394c6b893357a36b2c20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d3374703b31394c6b893357a36b2c20">&#9670;&#160;</a></span>SwappableField_dealloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void SwappableField_dealloc </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1df06403c38402ab51c4c5b5976b272c" name="a1df06403c38402ab51c4c5b5976b272c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1df06403c38402ab51c4c5b5976b272c">&#9670;&#160;</a></span>SwappableField_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int SwappableField_init </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>args</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>kwds</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a83893096dce0554b780ff5b247573030" name="a83893096dce0554b780ff5b247573030"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83893096dce0554b780ff5b247573030">&#9670;&#160;</a></span>SwappableField_print_with_border()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyObject * SwappableField_print_with_border </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a5cf4dc4e472901a803e138e82d659498" name="a5cf4dc4e472901a803e138e82d659498"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cf4dc4e472901a803e138e82d659498">&#9670;&#160;</a></span>Cursor_methods</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">PyMethodDef Cursor_methods[]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {<span class="stringliteral">&quot;go_to&quot;</span>, (PyCFunction)<a class="code hl_function" href="sistamodule_8c.html#af547fbb5495f3893585968f383f3d96b">Cursor_go_to</a>, METH_VARARGS, py_Cursor_go_to_doc},</div>
+<div class="line">    {<span class="stringliteral">&quot;go_to_coordinates&quot;</span>, (PyCFunction)<a class="code hl_function" href="sistamodule_8c.html#ad44dd0ce6232f80679cdecd9951671c0">Cursor_go_to_coordinates</a>, METH_VARARGS, py_Cursor_go_to_coordinates_doc},</div>
+<div class="line">    {<span class="stringliteral">&quot;move&quot;</span>, (PyCFunction)<a class="code hl_function" href="sistamodule_8c.html#a3cbdce11db98425ccaab414483d4944c">Cursor_move</a>, METH_VARARGS, py_Cursor_move_doc},</div>
+<div class="line">    {NULL, NULL, 0, NULL}</div>
+<div class="line">}</div>
+<div class="ttc" id="asistamodule_8c_html_a3cbdce11db98425ccaab414483d4944c"><div class="ttname"><a href="sistamodule_8c.html#a3cbdce11db98425ccaab414483d4944c">Cursor_move</a></div><div class="ttdeci">static PyObject * Cursor_move(PyObject *self, PyObject *args)</div><div class="ttdoc">Cursor.move(self, direction, amount)</div><div class="ttdef"><b>Definition</b> sistamodule.c:501</div></div>
+<div class="ttc" id="asistamodule_8c_html_ad44dd0ce6232f80679cdecd9951671c0"><div class="ttname"><a href="sistamodule_8c.html#ad44dd0ce6232f80679cdecd9951671c0">Cursor_go_to_coordinates</a></div><div class="ttdeci">static PyObject * Cursor_go_to_coordinates(PyObject *self, PyObject *args)</div><div class="ttdoc">Cursor.go_to_coordinates(self, coords_capsule)</div><div class="ttdef"><b>Definition</b> sistamodule.c:468</div></div>
+<div class="ttc" id="asistamodule_8c_html_af547fbb5495f3893585968f383f3d96b"><div class="ttname"><a href="sistamodule_8c.html#af547fbb5495f3893585968f383f3d96b">Cursor_go_to</a></div><div class="ttdeci">static PyObject * Cursor_go_to(PyObject *self, PyObject *args)</div><div class="ttdoc">Cursor.go_to(self, y, x)</div><div class="ttdef"><b>Definition</b> sistamodule.c:443</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="acc5b6bb9114fdf9bc479ac5f9e7d7e71" name="acc5b6bb9114fdf9bc479ac5f9e7d7e71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc5b6bb9114fdf9bc479ac5f9e7d7e71">&#9670;&#160;</a></span>CursorType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyTypeObject CursorType</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    PyVarObject_HEAD_INIT(NULL, 0)</div>
+<div class="line">    .tp_name = <span class="stringliteral">&quot;sista.Cursor&quot;</span>,</div>
+<div class="line">    .tp_basicsize = <span class="keyword">sizeof</span>(<a class="code hl_struct" href="structCursorObject.html">CursorObject</a>),</div>
+<div class="line">    .tp_flags = Py_TPFLAGS_DEFAULT,</div>
+<div class="line">    .tp_doc = py_doc_Cursor,</div>
+<div class="line">    .tp_methods = <a class="code hl_variable" href="sistamodule_8c.html#a5cf4dc4e472901a803e138e82d659498">Cursor_methods</a>,</div>
+<div class="line">    .tp_dealloc = (destructor)<a class="code hl_function" href="sistamodule_8c.html#a3dd2ebc3367dc8d4def021e3db17d5fe">Cursor_dealloc</a>,</div>
+<div class="line">    .tp_new = PyType_GenericNew,</div>
+<div class="line">    .tp_init = <a class="code hl_function" href="sistamodule_8c.html#aaaaa94aa134cbaa393c02c336d9ef039">Cursor_init</a>,</div>
+<div class="line">}</div>
+<div class="ttc" id="asistamodule_8c_html_a3dd2ebc3367dc8d4def021e3db17d5fe"><div class="ttname"><a href="sistamodule_8c.html#a3dd2ebc3367dc8d4def021e3db17d5fe">Cursor_dealloc</a></div><div class="ttdeci">static void Cursor_dealloc(PyObject *self)</div><div class="ttdef"><b>Definition</b> sistamodule.c:425</div></div>
+<div class="ttc" id="asistamodule_8c_html_a5cf4dc4e472901a803e138e82d659498"><div class="ttname"><a href="sistamodule_8c.html#a5cf4dc4e472901a803e138e82d659498">Cursor_methods</a></div><div class="ttdeci">static PyMethodDef Cursor_methods[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:520</div></div>
+<div class="ttc" id="asistamodule_8c_html_aaaaa94aa134cbaa393c02c336d9ef039"><div class="ttname"><a href="sistamodule_8c.html#aaaaa94aa134cbaa393c02c336d9ef039">Cursor_init</a></div><div class="ttdeci">static int Cursor_init(PyObject *self, PyObject *args, PyObject *kwds)</div><div class="ttdef"><b>Definition</b> sistamodule.c:528</div></div>
+<div class="ttc" id="astructCursorObject_html"><div class="ttname"><a href="structCursorObject.html">CursorObject</a></div><div class="ttdef"><b>Definition</b> sistamodule.c:416</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a12e79c76e9522ac7380bbb4f438c07e3" name="a12e79c76e9522ac7380bbb4f438c07e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12e79c76e9522ac7380bbb4f438c07e3">&#9670;&#160;</a></span>Field_methods</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">PyMethodDef Field_methods[]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {<span class="stringliteral">&quot;create_pawn&quot;</span>, (PyCFunction)<a class="code hl_function" href="sistamodule_8c.html#a63992e40d22faeac3ca5edb5f8707765">Field_create_pawn</a>, METH_VARARGS, py_Field_create_pawn_doc},</div>
+<div class="line">    {<span class="stringliteral">&quot;move_pawn&quot;</span>, (PyCFunction)<a class="code hl_function" href="sistamodule_8c.html#a6f56989ac366e9b7c0d40ce34138f220">Field_move_pawn</a>, METH_VARARGS, py_Field_move_pawn_doc},</div>
+<div class="line">    {<span class="stringliteral">&quot;print_with_border&quot;</span>, (PyCFunction)<a class="code hl_function" href="sistamodule_8c.html#afb60cca9ebd37dd90b5250c7c42ed816">Field_print_with_border</a>, METH_VARARGS, py_Field_print_with_border_doc},</div>
+<div class="line">    {NULL, NULL, 0, NULL}</div>
+<div class="line">}</div>
+<div class="ttc" id="asistamodule_8c_html_a63992e40d22faeac3ca5edb5f8707765"><div class="ttname"><a href="sistamodule_8c.html#a63992e40d22faeac3ca5edb5f8707765">Field_create_pawn</a></div><div class="ttdeci">static PyObject * Field_create_pawn(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:779</div></div>
+<div class="ttc" id="asistamodule_8c_html_a6f56989ac366e9b7c0d40ce34138f220"><div class="ttname"><a href="sistamodule_8c.html#a6f56989ac366e9b7c0d40ce34138f220">Field_move_pawn</a></div><div class="ttdeci">static PyObject * Field_move_pawn(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:828</div></div>
+<div class="ttc" id="asistamodule_8c_html_afb60cca9ebd37dd90b5250c7c42ed816"><div class="ttname"><a href="sistamodule_8c.html#afb60cca9ebd37dd90b5250c7c42ed816">Field_print_with_border</a></div><div class="ttdeci">static PyObject * Field_print_with_border(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:860</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="adb2c0c2c6be9790660499e3beed2ab1b" name="adb2c0c2c6be9790660499e3beed2ab1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb2c0c2c6be9790660499e3beed2ab1b">&#9670;&#160;</a></span>FieldType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyTypeObject FieldType</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    PyVarObject_HEAD_INIT(NULL, 0)</div>
+<div class="line">    .tp_name = <span class="stringliteral">&quot;sista.Field&quot;</span>,</div>
+<div class="line">    .tp_basicsize = <span class="keyword">sizeof</span>(<a class="code hl_struct" href="structFieldObject.html">FieldObject</a>),</div>
+<div class="line">    .tp_flags = Py_TPFLAGS_DEFAULT,</div>
+<div class="line">    .tp_doc = py_doc_Field,</div>
+<div class="line">    .tp_methods = <a class="code hl_variable" href="sistamodule_8c.html#a12e79c76e9522ac7380bbb4f438c07e3">Field_methods</a>,</div>
+<div class="line">    .tp_dealloc = (destructor)<a class="code hl_function" href="sistamodule_8c.html#a0422c662e860a4ce4ac174cd325476e8">Field_dealloc</a>,</div>
+<div class="line">    .tp_new = PyType_GenericNew,</div>
+<div class="line">    .tp_init = <a class="code hl_function" href="sistamodule_8c.html#a3c423fb6fa6a3c32e161b822d54a3642">Field_init</a>,</div>
+<div class="line">}</div>
+<div class="ttc" id="asistamodule_8c_html_a0422c662e860a4ce4ac174cd325476e8"><div class="ttname"><a href="sistamodule_8c.html#a0422c662e860a4ce4ac174cd325476e8">Field_dealloc</a></div><div class="ttdeci">static void Field_dealloc(PyObject *self)</div><div class="ttdef"><b>Definition</b> sistamodule.c:767</div></div>
+<div class="ttc" id="asistamodule_8c_html_a12e79c76e9522ac7380bbb4f438c07e3"><div class="ttname"><a href="sistamodule_8c.html#a12e79c76e9522ac7380bbb4f438c07e3">Field_methods</a></div><div class="ttdeci">static PyMethodDef Field_methods[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:886</div></div>
+<div class="ttc" id="asistamodule_8c_html_a3c423fb6fa6a3c32e161b822d54a3642"><div class="ttname"><a href="sistamodule_8c.html#a3c423fb6fa6a3c32e161b822d54a3642">Field_init</a></div><div class="ttdeci">static int Field_init(PyObject *self, PyObject *args, PyObject *kwds)</div><div class="ttdoc">Initializes a Field object.</div><div class="ttdef"><b>Definition</b> sistamodule.c:901</div></div>
+<div class="ttc" id="astructFieldObject_html"><div class="ttname"><a href="structFieldObject.html">FieldObject</a></div><div class="ttdef"><b>Definition</b> sistamodule.c:758</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac71179f3eda8a73a83bf439c188c38d7" name="ac71179f3eda8a73a83bf439c188c38d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac71179f3eda8a73a83bf439c188c38d7">&#9670;&#160;</a></span>sista_module</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct PyModuleDef sista_module</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    .m_base = PyModuleDef_HEAD_INIT,</div>
+<div class="line">    .m_name = <span class="stringliteral">&quot;sista._sista&quot;</span>,</div>
+<div class="line">    .m_size = 0,  </div>
+<div class="line">    .m_methods = <a class="code hl_variable" href="sistamodule_8c.html#ac155536feb4e0938ea7da93825a0348d">sista_module_methods</a>,</div>
+<div class="line">    .m_slots = <a class="code hl_variable" href="sistamodule_8c.html#a84fc77e2b5e20cc60f294e1ae60c4ea3">sista_module_slots</a>,</div>
+<div class="line">}</div>
+<div class="ttc" id="asistamodule_8c_html_a84fc77e2b5e20cc60f294e1ae60c4ea3"><div class="ttname"><a href="sistamodule_8c.html#a84fc77e2b5e20cc60f294e1ae60c4ea3">sista_module_slots</a></div><div class="ttdeci">static PyModuleDef_Slot sista_module_slots[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:1049</div></div>
+<div class="ttc" id="asistamodule_8c_html_ac155536feb4e0938ea7da93825a0348d"><div class="ttname"><a href="sistamodule_8c.html#ac155536feb4e0938ea7da93825a0348d">sista_module_methods</a></div><div class="ttdeci">static PyMethodDef sista_module_methods[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:1015</div></div>
+</div><!-- fragment -->
+<p>Module definition. </p>
+
+</div>
+</div>
+<a id="ac155536feb4e0938ea7da93825a0348d" name="ac155536feb4e0938ea7da93825a0348d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac155536feb4e0938ea7da93825a0348d">&#9670;&#160;</a></span>sista_module_methods</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">PyMethodDef sista_module_methods[]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a84fc77e2b5e20cc60f294e1ae60c4ea3" name="a84fc77e2b5e20cc60f294e1ae60c4ea3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84fc77e2b5e20cc60f294e1ae60c4ea3">&#9670;&#160;</a></span>sista_module_slots</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">PyModuleDef_Slot sista_module_slots[]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {Py_mod_exec, (<span class="keywordtype">void</span>*)<a class="code hl_function" href="sistamodule_8c.html#a1ecfc910058a9b5a3e471e0eb7b472f2">sista_module_exec</a>},</div>
+<div class="line">    {0, NULL}</div>
+<div class="line">}</div>
+<div class="ttc" id="asistamodule_8c_html_a1ecfc910058a9b5a3e471e0eb7b472f2"><div class="ttname"><a href="sistamodule_8c.html#a1ecfc910058a9b5a3e471e0eb7b472f2">sista_module_exec</a></div><div class="ttdeci">static int sista_module_exec(PyObject *module)</div><div class="ttdef"><b>Definition</b> sistamodule.c:944</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a14fd8c596cc255b87beda7fde0e64069" name="a14fd8c596cc255b87beda7fde0e64069"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14fd8c596cc255b87beda7fde0e64069">&#9670;&#160;</a></span>SwappableField_methods</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">PyMethodDef SwappableField_methods[]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {<span class="stringliteral">&quot;create_pawn&quot;</span>, (PyCFunction)<a class="code hl_function" href="sistamodule_8c.html#a961814691d7c680a09e467144c8f1fa3">SwappableField_create_pawn</a>, METH_VARARGS, py_SwappableField_create_pawn_doc},</div>
+<div class="line">    {<span class="stringliteral">&quot;add_pawn_to_swap&quot;</span>, (PyCFunction)<a class="code hl_function" href="sistamodule_8c.html#a32161d343fbfe89c94ba316b404669d4">SwappableField_add_pawn_to_swap</a>, METH_VARARGS, py_SwappableField_add_pawn_to_swap_doc},</div>
+<div class="line">    {<span class="stringliteral">&quot;apply_swaps&quot;</span>, (PyCFunction)<a class="code hl_function" href="sistamodule_8c.html#aa8527343b4bd2e796fb46e3b2aec5e6e">SwappableField_apply_swaps</a>, METH_NOARGS, py_SwappableField_apply_swaps_doc},</div>
+<div class="line">    {<span class="stringliteral">&quot;print_with_border&quot;</span>, (PyCFunction)<a class="code hl_function" href="sistamodule_8c.html#a83893096dce0554b780ff5b247573030">SwappableField_print_with_border</a>, METH_VARARGS, py_SwappableField_print_with_border_doc},</div>
+<div class="line">    {NULL, NULL, 0, NULL}</div>
+<div class="line">}</div>
+<div class="ttc" id="asistamodule_8c_html_a32161d343fbfe89c94ba316b404669d4"><div class="ttname"><a href="sistamodule_8c.html#a32161d343fbfe89c94ba316b404669d4">SwappableField_add_pawn_to_swap</a></div><div class="ttdeci">static PyObject * SwappableField_add_pawn_to_swap(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:626</div></div>
+<div class="ttc" id="asistamodule_8c_html_a83893096dce0554b780ff5b247573030"><div class="ttname"><a href="sistamodule_8c.html#a83893096dce0554b780ff5b247573030">SwappableField_print_with_border</a></div><div class="ttdeci">static PyObject * SwappableField_print_with_border(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:677</div></div>
+<div class="ttc" id="asistamodule_8c_html_a961814691d7c680a09e467144c8f1fa3"><div class="ttname"><a href="sistamodule_8c.html#a961814691d7c680a09e467144c8f1fa3">SwappableField_create_pawn</a></div><div class="ttdeci">static PyObject * SwappableField_create_pawn(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:577</div></div>
+<div class="ttc" id="asistamodule_8c_html_aa8527343b4bd2e796fb46e3b2aec5e6e"><div class="ttname"><a href="sistamodule_8c.html#aa8527343b4bd2e796fb46e3b2aec5e6e">SwappableField_apply_swaps</a></div><div class="ttdeci">static PyObject * SwappableField_apply_swaps(PyObject *self, PyObject *Py_UNUSED(ignored))</div><div class="ttdef"><b>Definition</b> sistamodule.c:660</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="acb62ff97b483a804bfab89924fa7de3d" name="acb62ff97b483a804bfab89924fa7de3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb62ff97b483a804bfab89924fa7de3d">&#9670;&#160;</a></span>SwappableFieldType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyTypeObject SwappableFieldType</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    PyVarObject_HEAD_INIT(NULL, 0)</div>
+<div class="line">    .tp_name = <span class="stringliteral">&quot;sista.SwappableField&quot;</span>,</div>
+<div class="line">    .tp_basicsize = <span class="keyword">sizeof</span>(<a class="code hl_struct" href="structSwappableFieldObject.html">SwappableFieldObject</a>),</div>
+<div class="line">    .tp_flags = Py_TPFLAGS_DEFAULT,</div>
+<div class="line">    .tp_doc = py_doc_SwappableField,</div>
+<div class="line">    .tp_methods = <a class="code hl_variable" href="sistamodule_8c.html#a14fd8c596cc255b87beda7fde0e64069">SwappableField_methods</a>,</div>
+<div class="line">    .tp_dealloc = (destructor)<a class="code hl_function" href="sistamodule_8c.html#a7d3374703b31394c6b893357a36b2c20">SwappableField_dealloc</a>,</div>
+<div class="line">    .tp_new = PyType_GenericNew,</div>
+<div class="line">    .tp_init = <a class="code hl_function" href="sistamodule_8c.html#a1df06403c38402ab51c4c5b5976b272c">SwappableField_init</a>,</div>
+<div class="line">}</div>
+<div class="ttc" id="asistamodule_8c_html_a14fd8c596cc255b87beda7fde0e64069"><div class="ttname"><a href="sistamodule_8c.html#a14fd8c596cc255b87beda7fde0e64069">SwappableField_methods</a></div><div class="ttdeci">static PyMethodDef SwappableField_methods[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:703</div></div>
+<div class="ttc" id="asistamodule_8c_html_a1df06403c38402ab51c4c5b5976b272c"><div class="ttname"><a href="sistamodule_8c.html#a1df06403c38402ab51c4c5b5976b272c">SwappableField_init</a></div><div class="ttdeci">static int SwappableField_init(PyObject *self, PyObject *args, PyObject *kwds)</div><div class="ttdef"><b>Definition</b> sistamodule.c:712</div></div>
+<div class="ttc" id="asistamodule_8c_html_a7d3374703b31394c6b893357a36b2c20"><div class="ttname"><a href="sistamodule_8c.html#a7d3374703b31394c6b893357a36b2c20">SwappableField_dealloc</a></div><div class="ttdeci">static void SwappableField_dealloc(PyObject *self)</div><div class="ttdef"><b>Definition</b> sistamodule.c:565</div></div>
+<div class="ttc" id="astructSwappableFieldObject_html"><div class="ttname"><a href="structSwappableFieldObject.html">SwappableFieldObject</a></div><div class="ttdef"><b>Definition</b> sistamodule.c:556</div></div>
+</div><!-- fragment -->
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 27 2025 19:10:30 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sat Dec 27 2025 19:33:39 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
