@@ -21,7 +21,7 @@ jobs:
 
     - name: Install requirements for documentation generation
       run: |
-        python -m pip install --upgrade pip setuptools wheel
+        python -m pip install --upgrade pip setuptools wheel build
         python -m pip install pdoc3
         sudo make install
         cd python
