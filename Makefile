@@ -89,7 +89,7 @@ libSista.so: $(OBJECTS)
 	g++ -std=c++17 -Wall -fPIC -shared -o libSista.so.$(FULL_VERSION) $(OBJECTS) -Wl,-soname,libSista.so.$(MAJOR_VERSION)
 
 libSista_api.so: api.o
-	g++ -Wall -fPIC -shared -o libSista_api.so.$(FULL_VERSION) api.o libSista.so.$(FULL_VERSION) -Wl,-soname,libSista_api.so.$(MAJOR_VERSION)
+	g++ -Wall -fPIC -shared -o libSista_api.so.$(FULL_VERSION) api.o libSista.so.$(FULL_VERSION) -lstdc++ -Wl,-soname,libSista_api.so.$(MAJOR_VERSION)
 
 ifeq "$(shell uname -s)" "Darwin"
 libSista.dylib: $(OBJECTS)

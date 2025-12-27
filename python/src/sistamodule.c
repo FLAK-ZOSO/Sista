@@ -15,6 +15,169 @@
 #include <Python.h>
 #include <sista/api.h>
 
+PyDoc_STRVAR(py_sista_set_foreground_color_doc,
+"Set the terminal foreground color using one of the `F_*` constants.\n\n"
+"### Parameters\n\n"
+"- `color` (int): One of the `F_*` constants (e.g. `F_RED`).\n"
+);
+
+PyDoc_STRVAR(py_sista_set_background_color_doc,
+"Set the terminal background color using one of the `B_*` constants.\n\n"
+"### Parameters\n\n"
+"- `color` (int): One of the `B_*` constants (e.g. `B_BLUE`).\n"
+);
+
+PyDoc_STRVAR(py_sista_set_attribute_doc,
+"Enable a terminal text attribute using one of the `A_*` constants.\n\n"
+"### Parameters\n\n"
+"- `attribute` (int): One of the `A_*` constants (e.g. `A_UNDERLINE`).\n"
+);
+
+PyDoc_STRVAR(py_sista_reset_attribute_doc,
+"Disable/reset a terminal text attribute using one of the `A_*` constants.\n\n"
+"### Parameters\n\n"
+"- `attribute` (int): One of the `A_*` constants (e.g. `A_RESET`).\n"
+);
+
+PyDoc_STRVAR(py_sista_reset_ansi_doc,
+"Reset all ANSI text attributes and colors to the terminal defaults.\n"
+);
+
+PyDoc_STRVAR(py_sista_print_doc,
+"Print a message to the terminal using Sista's configured output stream.\n\n"
+"### Parameters\n\n"
+"- `message` (str): Message to print (a single text line).\n"
+);
+
+PyDoc_STRVAR(py_sista_create_ansi_settings_doc,
+"Create an ANSI settings object and return it as a capsule.\n\n"
+"```py\n"
+"create_ansi_settings(fgcolor=F_WHITE, bgcolor=B_BLACK, attribute=A_RESET) -> Capsule\n"
+"```\n\n"
+"### Parameters\n\n"
+"- `fgcolor` (int): Foreground color (one of the `F_*` constants).\n"
+"- `bgcolor` (int): Background color (one of the `B_*` constants).\n"
+"- `attribute` (int): Text attribute (one of the `A_*` constants).\n\n"
+"### Returns\n\n"
+"- Capsule wrapping the ANSISettings handler.\n"
+);
+
+PyDoc_STRVAR(py_sista_create_border_doc,
+"Create a Border object that uses a single-character symbol and ANSI settings.\n\n"
+"### Parameters\n\n"
+"- `symbol` (str): Single character string used to draw border bricks.\n"
+"- `ansi_settings` (Capsule): Capsule returned by `create_ansi_settings`.\n\n"
+"### Returns\n\n"
+"- Capsule wrapping the Border handler.\n"
+);
+
+PyDoc_STRVAR(py_sista_create_coordinates_doc,
+"Create a Coordinates object and return it as a capsule.\n\n"
+"### Parameters\n\n"
+"- `y` (int): Row index.\n"
+"- `x` (int): Column index.\n\n"
+"### Returns\n\n"
+"- Capsule wrapping a Coordinates struct.\n"
+);
+
+PyDoc_STRVAR(py_doc_Field,
+"Class representing a terminal Field for pawns and borders.\n\n"
+"Create with `Field(width: int, height: int)`.\n\n"
+"Provides: `create_pawn`, `move_pawn`, `print_with_border`.\n"
+);
+
+PyDoc_STRVAR(py_doc_SwappableField,
+"Class representing a terminal SwappableField for pawns and borders.\n\n"
+"Create with `SwappableField(width: int, height: int)`.\n\n"
+"Provides: `create_pawn`, `print_with_border`, `add_pawn_to_swap`, `apply_swaps`.\n"
+);
+
+PyDoc_STRVAR(py_doc_Cursor,
+"Class representing a terminal cursor for movement operations.\n\n"
+"Create with `Cursor()`.\n\n"
+"Provides: `move`, `go_to`, `go_to_coordinates`.\n"
+);
+
+PyDoc_STRVAR(py_Field_create_pawn_doc,
+"Create a Pawn inside this Field and return a Pawn capsule.\n\n"
+"### Parameters\n\n"
+"- `symbol` (str): Single character string representing the pawn.\n"
+"- `ansi_settings` (Capsule): Capsule returned by `create_ansi_settings`.\n"
+"- `coords` (Capsule): Capsule returned by `create_coordinates`.\n\n"
+"### Returns\n\n"
+"- Capsule wrapping the Pawn handler.\n"
+);
+
+PyDoc_STRVAR(py_Field_move_pawn_doc,
+"Move a pawn inside this Field and return a status code.\n\n"
+"### Parameters\n\n"
+"- `pawn` (Capsule): Capsule for the Pawn to move.\n"
+"- `y` (int): Y coordinate of the destination.\n"
+"- `x` (int): X coordinate of the destination.\n\n"
+"### Returns\n\n"
+"- `int`: status code (0 == success).\n"
+);
+
+PyDoc_STRVAR(py_Field_print_with_border_doc,
+"Render this Field to the terminal using the given Border object.\n\n"
+"### Parameters\n\n"
+"- `border` (Capsule): Capsule for the Border to draw around the field.\n"
+);
+
+PyDoc_STRVAR(py_SwappableField_create_pawn_doc,
+"create_pawn(self, symbol: str, ansi_settings: Capsule, coords: Capsule) -> Capsule\n\n"
+"Create a Pawn inside this SwappableField and return a Pawn capsule.\n\n"
+"### Parameters\n\n"
+"- `symbol` (str): Single character string used to represent the pawn.\n"
+"- `ansi_settings` (Capsule): Capsule returned by create_ansi_settings().\n"
+"- `coords` (Capsule): Capsule returned by create_coordinates().\n\n"
+"### Returns\n\n"
+"- `Capsule` wrapping the Pawn handler.\n"
+);
+
+PyDoc_STRVAR(py_SwappableField_add_pawn_to_swap_doc,
+"add_pawn_to_swap(self, pawn: Capsule, coords: Capsule) -> int\n\n"
+"Schedule a pawn to be swapped to the given coordinates in the next swap operation.\n\n"
+"### Parameters\n\n"
+"- `pawn` (Capsule): Capsule for the Pawn to schedule for swapping.\n"
+"- `coords` (Capsule): Capsule for the target Coordinates.\n\n"
+"### Returns\n\n"
+"- `int`: status code (0 == success).\n"
+);
+
+PyDoc_STRVAR(py_SwappableField_apply_swaps_doc,
+"apply_swaps(self) -> int\n\n"
+"Execute all scheduled pawn swaps in this SwappableField.\n\n"
+"### Returns\n\n"
+"- `int`: status code (0 == success).\n"
+);
+
+PyDoc_STRVAR(py_SwappableField_print_with_border_doc,
+"print_with_border(self, border: Capsule) -> None\n\n"
+"Render this SwappableField to the terminal using the given Border object.\n\n"
+"### Parameters\n\n"
+"- `border` (Capsule): Capsule for the Border to draw around the field.\n"
+);
+
+PyDoc_STRVAR(py_Cursor_go_to_doc,
+"Move the cursor to the absolute `(y, x)` position.\n\n"
+"### Parameters\n\n"
+"- `y` (int): Row index to move to.\n"
+"- `x` (int): Column index to move to.\n"
+);
+
+PyDoc_STRVAR(py_Cursor_move_doc,
+"Move the cursor in the specified direction by the given amount.\n\n"
+"### Parameters\n\n"
+"- `direction` (int): One of the `DIRECTION_*` constants.\n"
+"- `amount` (int): Number of positions to move the cursor.\n"
+);
+
+PyDoc_STRVAR(py_Cursor_go_to_coordinates_doc,
+"Move the cursor to the position described by a Coordinates capsule.\n\n"
+"### Parameters\n\n"
+"- `coords` (Capsule): Capsule returned by `create_coordinates`.\n"
+);
 
 /** \brief Sets the foreground color.
  *  \param color The foreground color to set.
@@ -26,12 +189,6 @@ py_sista_set_foreground_color(PyObject* self, PyObject* arg) {
     sista_setForegroundColor((enum sista_ForegroundColor)val);
     Py_RETURN_NONE;
 }
-PyDoc_STRVAR(py_sista_set_foreground_color_doc,
-"Sets the foreground color.\n"
-"\n"
-"Parameters:\n"
-"  color (int): The foreground color to set.\n"
-);
 
 /** \brief Sets the background color.
  *  \param color The background color to set.
@@ -361,9 +518,9 @@ Cursor_move(PyObject *self, PyObject *args)
 
 /* methods table */
 static PyMethodDef Cursor_methods[] = {
-    {"go_to", (PyCFunction)Cursor_go_to, METH_VARARGS, "Move cursor to absolute (y,x)"},
-    {"go_to_coordinates", (PyCFunction)Cursor_go_to_coordinates, METH_VARARGS, "Move cursor to Coordinates capsule"},
-    {"move", (PyCFunction)Cursor_move, METH_VARARGS, "Move cursor by direction and amount"},
+    {"go_to", (PyCFunction)Cursor_go_to, METH_VARARGS, py_Cursor_go_to_doc},
+    {"go_to_coordinates", (PyCFunction)Cursor_go_to_coordinates, METH_VARARGS, py_Cursor_go_to_coordinates_doc},
+    {"move", (PyCFunction)Cursor_move, METH_VARARGS, py_Cursor_move_doc},
     {NULL, NULL, 0, NULL}
 };
 
@@ -388,7 +545,7 @@ static PyTypeObject CursorType = {
     .tp_name = "sista.Cursor",
     .tp_basicsize = sizeof(CursorObject),
     .tp_flags = Py_TPFLAGS_DEFAULT,
-    .tp_doc = "Cursor wrapper",
+    .tp_doc = py_doc_Cursor,
     .tp_methods = Cursor_methods,
     .tp_dealloc = (destructor)Cursor_dealloc,
     .tp_new = PyType_GenericNew,
@@ -544,10 +701,10 @@ SwappableField_print_with_border(PyObject *self, PyObject *args)
 
 /* methods table */
 static PyMethodDef SwappableField_methods[] = {
-    {"create_pawn", (PyCFunction)SwappableField_create_pawn, METH_VARARGS, "Create a pawn inside this SwappableField: (symbol, ansi_settings_capsule, coords_capsule) -> Pawn capsule"},
-    {"add_pawn_to_swap", (PyCFunction)SwappableField_add_pawn_to_swap, METH_VARARGS, "Schedule a pawn to be swapped later: (pawn_capsule, coords_capsule) -> int"},
-    {"apply_swaps", (PyCFunction)SwappableField_apply_swaps, METH_NOARGS, "Apply scheduled swaps"},
-    {"print_with_border", (PyCFunction)SwappableField_print_with_border, METH_VARARGS, "Print field with Border capsule"},
+    {"create_pawn", (PyCFunction)SwappableField_create_pawn, METH_VARARGS, py_SwappableField_create_pawn_doc},
+    {"add_pawn_to_swap", (PyCFunction)SwappableField_add_pawn_to_swap, METH_VARARGS, py_SwappableField_add_pawn_to_swap_doc},
+    {"apply_swaps", (PyCFunction)SwappableField_apply_swaps, METH_NOARGS, py_SwappableField_apply_swaps_doc},
+    {"print_with_border", (PyCFunction)SwappableField_print_with_border, METH_VARARGS, py_SwappableField_print_with_border_doc},
     {NULL, NULL, 0, NULL}
 };
 
@@ -590,7 +747,7 @@ static PyTypeObject SwappableFieldType = {
     .tp_name = "sista.SwappableField",
     .tp_basicsize = sizeof(SwappableFieldObject),
     .tp_flags = Py_TPFLAGS_DEFAULT,
-    .tp_doc = "SwappableField wrapper",
+    .tp_doc = py_doc_SwappableField,
     .tp_methods = SwappableField_methods,
     .tp_dealloc = (destructor)SwappableField_dealloc,
     .tp_new = PyType_GenericNew,
@@ -727,9 +884,9 @@ Field_print_with_border(PyObject *self, PyObject *args)
 
 /* methods table */
 static PyMethodDef Field_methods[] = {
-    {"create_pawn", (PyCFunction)Field_create_pawn, METH_VARARGS, "Create a pawn inside this Field: (symbol, ansi_settings_capsule, coords_capsule) -> Pawn capsule"},
-    {"move_pawn", (PyCFunction)Field_move_pawn, METH_VARARGS, "Move pawn in this Field: (pawn_capsule, y, x) -> int"},
-    {"print_with_border", (PyCFunction)Field_print_with_border, METH_VARARGS, "Print field with Border capsule"},
+    {"create_pawn", (PyCFunction)Field_create_pawn, METH_VARARGS, py_Field_create_pawn_doc},
+    {"move_pawn", (PyCFunction)Field_move_pawn, METH_VARARGS, py_Field_move_pawn_doc},
+    {"print_with_border", (PyCFunction)Field_print_with_border, METH_VARARGS, py_Field_print_with_border_doc},
     {NULL, NULL, 0, NULL}
 };
 
@@ -775,7 +932,7 @@ static PyTypeObject FieldType = {
     .tp_name = "sista.Field",
     .tp_basicsize = sizeof(FieldObject),
     .tp_flags = Py_TPFLAGS_DEFAULT,
-    .tp_doc = "Field wrapper",
+    .tp_doc = py_doc_Field,
     .tp_methods = Field_methods,
     .tp_dealloc = (destructor)Field_dealloc,
     .tp_new = PyType_GenericNew,
@@ -854,37 +1011,36 @@ sista_module_exec(PyObject* module)
     return 0;
 }
 
-/** \brief Module methods definition.
-*/
+/* Module methods definition. */
 static PyMethodDef sista_module_methods[] = {
     {"reset_ansi", (PyCFunction)py_sista_reset_ansi,
      METH_NOARGS,
-     "Resets ANSI settings to default."},
+     py_sista_reset_ansi_doc},
 
     {"set_foreground_color", (PyCFunction)py_sista_set_foreground_color,
      METH_O,
      py_sista_set_foreground_color_doc},
     {"set_background_color", (PyCFunction)py_sista_set_background_color,
      METH_O,
-     "Sets the background color."},
+     py_sista_set_background_color_doc},
     {"set_attribute", (PyCFunction)py_sista_set_attribute,
      METH_O,
-     "Sets the text attribute."},
+     py_sista_set_attribute_doc},
     {"reset_attribute", (PyCFunction)py_sista_reset_attribute,
      METH_O,
-     "Resets the text attribute."},
+     py_sista_reset_attribute_doc},
 
     {"create_border", (PyCFunction)py_sista_create_border, METH_VARARGS,
-     "Creates a Border object."},
+     py_sista_create_border_doc},
     {"create_ansi_settings", (PyCFunction)py_sista_create_ansi_settings,
      METH_VARARGS | METH_KEYWORDS,
-     "create_ansi_settings(fgcolor=F_WHITE, bgcolor=B_BLACK, attribute=A_RESET) -> ANSISettingsHandler_t capsule"},
+     py_sista_create_ansi_settings_doc},
     {"print", (PyCFunction)py_sista_print,
      METH_VARARGS,
-     "Prints a message using Sista's ANSI settings."},
+     py_sista_print_doc},
 
     {"create_coordinates", (PyCFunction)py_sista_create_coordinates, METH_VARARGS,
-     "Creates a Coordinates object."},
+     py_sista_create_coordinates_doc},
 
     {NULL, NULL, 0, NULL}  // Sentinel
 };
