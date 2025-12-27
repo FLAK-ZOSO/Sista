@@ -6,7 +6,15 @@ This directory contains the Python C extension module for the Sista library, whi
 
 - Full access to Sista C API functions
 - Enum values exposed for foreground colors, background colors, and text attributes
-- Automatic memory management through Python capsules
+- Automatic memory management through Python capsules and objects
+
+## Installation
+
+### Just use pip to install [from PyPI](https://pypi.org/project/sista/)
+
+```bash
+pip install sista
+```
 
 ## Building the Extension
 

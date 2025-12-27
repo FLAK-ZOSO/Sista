@@ -25,7 +25,7 @@ description = "Sista is a memory-safe and OS-agnostic library for making termina
 authors = [
     {name = "FLAK-ZOSO", email = "mattia.marchese.2006@gmail.com"},
 ]
-readme = "README.md"
+readme = "PyPI-README.md"
 keywords = [
     "ansi",
     "graphics",
