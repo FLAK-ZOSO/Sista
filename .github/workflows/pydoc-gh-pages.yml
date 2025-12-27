@@ -30,7 +30,7 @@ jobs:
 
     - name: Generate API documentation with pydoc (pdoc3)
       run: |
-
+        export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
         python -m pdoc --html sista --output-dir docs --force
 
     - name: Push API documentation to GitHub Pages (if on main branch)
