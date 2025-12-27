@@ -141,8 +141,11 @@ You can likely find a good example of a Makefile that dynamically links to the S
 Most of the documentation can be found here on Read the Docs: `Sista Documentation <https://sista.readthedocs.io/en/latest/>`_.
 
 - `Doxygen documentation <https://flak-zoso.github.io/Sista/>`_ - auto-generated API reference
+- `Sista Python API <https://flak-zoso.github.io/Sista/sista-python>`_ - PyDoc for the Python module
 - `Old Sista reference <sista.html>`_ - old library documentation
 - `Introduction <intro.html>`_ - documented example
+
+The present documentation focuses on a legacy unmaintained release of Sista, which is version `2.y.z`.
 
 Some additional documentation for Sista can be found in the `Release Notes <https://github.com/FLAK-ZOSO/Sista/blob/main/ReleaseNotes.md>`_ on GitHub.
 

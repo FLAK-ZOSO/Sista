@@ -82,6 +82,8 @@ Under the `demo/` directory, you can find many minimal demos that showcase the f
 
 Additional information about versions can be found in the [`Release Notes`](ReleaseNotes.md).
 
+The documentation for the Python module can be found at [`flak-zoso.github.io/Sista/sista-python/`](https://flak-zoso.github.io/Sista/sista-python).
+
 
 ## Sista-based works
 

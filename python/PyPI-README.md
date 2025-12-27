@@ -31,6 +31,8 @@ import sista
 
 ## Documentation
 
+- https://flak-zoso.github.io/Sista/sista-python
+
 The documentation is generated with...
 
 ```bash
