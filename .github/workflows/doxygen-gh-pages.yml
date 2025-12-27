@@ -20,12 +20,12 @@ jobs:
         run: doxygen Doxyfile
 
       - name: Create .nojekyll file
-        run: touch html/.nojekyll
+        run: touch docs/html/.nojekyll
       
       - name: Deploy Doxygen HTML to GitHub Pages
         if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./html
+          publish_dir: ./docs/html
           keep_files: true
