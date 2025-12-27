@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['release_20notes_0',['Release Notes',['../md_ReleaseNotes.html',1,'']]]
+  ['_3ctt_3esista_3c_2ftt_3e_0',['&lt;tt&gt;Sista&lt;/tt&gt;',['../index.html',1,'']]]
 ];

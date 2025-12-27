@@ -7,5 +7,6 @@ var searchData=
   ['sista_5fpawn_4',['sista_Pawn',['../structsista__Pawn.html',1,'']]],
   ['sista_5frgbcolor_5',['sista_RGBColor',['../structsista__RGBColor.html',1,'']]],
   ['sista_5fswappablefield_6',['sista_SwappableField',['../structsista__SwappableField.html',1,'']]],
-  ['swappablefield_7',['SwappableField',['../classsista_1_1SwappableField.html',1,'sista']]]
+  ['swappablefield_7',['SwappableField',['../classsista_1_1SwappableField.html',1,'sista']]],
+  ['swappablefieldobject_8',['SwappableFieldObject',['../structSwappableFieldObject.html',1,'']]]
 ];

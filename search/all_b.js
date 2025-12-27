@@ -1,13 +1,21 @@
 var searchData=
 [
-  ['operator_21_3d_0',['operator!=',['../structsista_1_1Coordinates.html#a75bc6d5ed87ee020f993c3e67f2ad699',1,'sista::Coordinates']]],
-  ['operator_28_29_1',['operator()',['../structstd_1_1hash_3_01sista_1_1Coordinates_01_4.html#a9b4df1df6c53c427bed71dd79a048f09',1,'std::hash&lt; sista::Coordinates &gt;::operator()()'],['../structstd_1_1hash_3_01sista_1_1Path_01_4.html#a7b2cec6e4bb37cfa818a300cc0e6e2ff',1,'std::hash&lt; sista::Path &gt;::operator()()']]],
-  ['operator_2a_2',['operator*',['../structsista_1_1Coordinates.html#a41b6db4b67881176b1c37da599fb92b0',1,'sista::Coordinates']]],
-  ['operator_2b_3',['operator+',['../structsista_1_1Coordinates.html#a5e5e7a17287b6da2957dc2235997dc5c',1,'sista::Coordinates']]],
-  ['operator_2b_3d_4',['operator+=',['../structsista_1_1Coordinates.html#a4a145c4b06c61534a27c308ba53044cf',1,'sista::Coordinates']]],
-  ['operator_2d_5',['operator-',['../structsista_1_1Coordinates.html#af874ca59ebf29ea48a328bdea469cf1c',1,'sista::Coordinates']]],
-  ['operator_2d_3d_6',['operator-=',['../structsista_1_1Coordinates.html#ae86fb229b71e5662ec64ece4ae7757a8',1,'sista::Coordinates']]],
-  ['operator_3c_7',['operator&lt;',['../structsista_1_1Coordinates.html#a626ec532db2dff34583d012b9deb0634',1,'sista::Coordinates::operator&lt;()'],['../structsista_1_1Path.html#aabccbac06ffa70d8a55e2a2737977a1e',1,'sista::Path::operator&lt;()']]],
-  ['operator_3d_3d_8',['operator==',['../structsista_1_1Coordinates.html#ab2e8df10b0eedb833a8c0943070c3335',1,'sista::Coordinates::operator==()'],['../structsista_1_1Path.html#a0109cb18c630ea5f742a833cbd18b388',1,'sista::Path::operator==(const Path &amp;) const']]],
-  ['operator_7c_9',['operator|',['../structsista_1_1Path.html#a34e9b23a377f024a3f57ebf574529a50',1,'sista::Path']]]
+  ['magenta_0',['MAGENTA',['../namespacesista.html#ade2b5834bc07e347f46027a10a06d1caac634ffea7195608364671ac52ee59a61',1,'sista::MAGENTA()'],['../namespacesista.html#a72a9a13a3fd5aa83f5852d073bcdbe28ac634ffea7195608364671ac52ee59a61',1,'sista::MAGENTA()']]],
+  ['main_1',['main',['../sista_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'sista.cpp']]],
+  ['make_5fattr_5fbitset_2',['make_attr_bitset',['../namespacesista.html#a17788919e6baa754d322be521ba47833',1,'sista']]],
+  ['matrix_3',['MATRIX',['../namespacesista.html#a08036e71b88be0e177eec4ef2a24adc9a38ef5fe49a654647519ee8c498c49664',1,'sista']]],
+  ['monocrome_5f2_5fcolors_5fgraphics_5f640_5f350_4',['MONOCROME_2_COLORS_GRAPHICS_640_350',['../namespacesista.html#a9630b668dd6f74adc69788f13da9da8ea7619ea219aeb42488da362d2cf5881bc',1,'sista']]],
+  ['monocrome_5f2_5fcolors_5fgraphics_5f640_5f480_5',['MONOCROME_2_COLORS_GRAPHICS_640_480',['../namespacesista.html#a9630b668dd6f74adc69788f13da9da8ea54a8d3bdb34482da586fb31cc4d7976f',1,'sista']]],
+  ['monocrome_5fgraphics_5f320_5f200_6',['MONOCROME_GRAPHICS_320_200',['../namespacesista.html#a9630b668dd6f74adc69788f13da9da8ea2cfdfa394c0b4b2ccb485a0eee5b4efe',1,'sista']]],
+  ['monocrome_5fgraphics_5f640_5f200_7',['MONOCROME_GRAPHICS_640_200',['../namespacesista.html#a9630b668dd6f74adc69788f13da9da8ea18da399b78efa3bd90da77ca9790836a',1,'sista']]],
+  ['monocrome_5ftext_5f40_5f25_8',['MONOCROME_TEXT_40_25',['../namespacesista.html#a9630b668dd6f74adc69788f13da9da8eaf41fdec4f98476cc5cc8d1e2a538f1f5',1,'sista']]],
+  ['monocrome_5ftext_5f80_5f25_9',['MONOCROME_TEXT_80_25',['../namespacesista.html#a9630b668dd6f74adc69788f13da9da8ead102c79ca0d7d6184eaa574162c2b809',1,'sista']]],
+  ['move_10',['move',['../structsista_1_1Cursor.html#a28b28cc36d1da945d5a3b3ceca103928',1,'sista::Cursor::move(MoveCursor, unsigned short int) const'],['../structsista_1_1Cursor.html#a61a9436543a6c23b23046e8af436f6cf',1,'sista::Cursor::move(MoveCursorSCO) const'],['../structsista_1_1Cursor.html#a78bec1227ac00bd3c0bd618e2fd4eb79',1,'sista::Cursor::move(MoveCursorDEC) const']]],
+  ['movecursor_11',['MoveCursor',['../namespacesista.html#a7aced27e09de586e7565fcad8f5459e4',1,'sista']]],
+  ['movecursordec_12',['MoveCursorDEC',['../namespacesista.html#af3bc6f60c5d75fa9fa275946c516ee51',1,'sista']]],
+  ['movecursorsco_13',['MoveCursorSCO',['../namespacesista.html#aa75360a85012722dea448c7fb5c4e35e',1,'sista']]],
+  ['movepawn_14',['movePawn',['../classsista_1_1SwappableField.html#af7a2084105b58363dd4b4e0943ff0236',1,'sista::SwappableField::movePawn(Pawn *, unsigned short, unsigned short)'],['../classsista_1_1SwappableField.html#a930d407604bbeffbcb7cce1a8cc7f189',1,'sista::SwappableField::movePawn(Pawn *, const Coordinates &amp;)'],['../classsista_1_1Field.html#a6d4aaea380a5602889c718c8046b905b',1,'sista::Field::movePawn(Pawn *, unsigned short, unsigned short)'],['../classsista_1_1Field.html#a008c504583d57fc0ff207f7ae71fe5ce',1,'sista::Field::movePawn(Pawn *, const Coordinates &amp;)']]],
+  ['movepawnby_15',['movePawnBy',['../classsista_1_1Field.html#a3bea619592d6da48e2c910d7805ff6f4',1,'sista::Field::movePawnBy(Pawn *, short int, short int, Effect)'],['../classsista_1_1Field.html#acc42fb4da3a2220c32485b6147229fae',1,'sista::Field::movePawnBy(Pawn *, const Coordinates &amp;, Effect)'],['../classsista_1_1Field.html#aa9d2de99642b7d910ec87cb816e996d0',1,'sista::Field::movePawnBy(Pawn *, unsigned short, unsigned short)'],['../classsista_1_1Field.html#a9571250cd552cd8cb2c5e9fa767590b6',1,'sista::Field::movePawnBy(Pawn *, const Coordinates &amp;)']]],
+  ['movepawnfromto_16',['movePawnFromTo',['../classsista_1_1Field.html#a030c9a2aa83baf4e48ff4f60a8491da2',1,'sista::Field::movePawnFromTo(unsigned short, unsigned short, unsigned short, unsigned short)'],['../classsista_1_1Field.html#a99015766753cbf335f01101b9680cbfe',1,'sista::Field::movePawnFromTo(const Coordinates &amp;, const Coordinates &amp;)']]],
+  ['movingbycoordinates_17',['movingByCoordinates',['../classsista_1_1Field.html#a0918d5f9831b35e3a762743882f502f9',1,'sista::Field::movingByCoordinates(Pawn *, short int, short int, Effect) const'],['../classsista_1_1Field.html#a47340b18af79b1877808fc276f9397a4',1,'sista::Field::movingByCoordinates(Pawn *, short int, short int) const']]]
 ];
