@@ -11,7 +11,21 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: DenverCoder1/doxygen-github-pages-action@v2.0.0
+      - uses: actions/checkout@v4
+
+      - name: Install Doxygen
+        run: sudo apt-get update && sudo apt-get install -y doxygen graphviz
+
+      - name: Build Doxygen HTML
+        run: doxygen Doxyfile
+
+      - name: Create .nojekyll file
+        run: touch docs/html/.nojekyll
+      
+      - name: Deploy Doxygen HTML to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          config_file: Doxyfile
+          publish_dir: ./docs/html
+          keep_files: true
