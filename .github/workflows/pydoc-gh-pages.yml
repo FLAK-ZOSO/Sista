@@ -22,7 +22,9 @@ jobs:
     - name: Install requirements for documentation generation
       run: |
         python -m pip install --upgrade pip setuptools wheel
-        python -m pip install pdoc3 sista
+        python -m pip install pdoc3
+        cd python
+        python -m pip install -e .
 
     - name: Generate API documentation with pydoctor
       run: |
