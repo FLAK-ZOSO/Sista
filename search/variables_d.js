@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['try_0',['try',['../namespacesista.html#ae2d3f3fd7d76a6ea9e7a52b5b43e43fd',1,'sista']]]
+  ['width_0',['width',['../classsista_1_1Field.html#aaad4529ed32272f455816ac2bca3ab77',1,'sista::Field']]]
 ];

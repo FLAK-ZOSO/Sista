@@ -12,5 +12,5 @@ var searchData=
   ['begin_9',['begin',['../structsista_1_1Path.html#ab7f95f9cb2be170983743ff4127da51d',1,'sista::Path']]],
   ['beginning_5fof_5fnext_5fline_10',['BEGINNING_OF_NEXT_LINE',['../namespacesista.html#a4d57a9d954bfbf9c473ade68b535461e',1,'sista']]],
   ['beginning_5fof_5fprevious_5fline_11',['BEGINNING_OF_PREVIOUS_LINE',['../namespacesista.html#a0957b275a09a0018637a3a92af8306ba',1,'sista']]],
-  ['blue_12',['blue',['../structsista_1_1RGBColor.html#ae81c3207438d3c3fba24ab56a7c34266',1,'sista::RGBColor::blue()'],['../structsista__RGBColor.html#a4eb692c6654f7b89d3ac9076eaa1f842',1,'sista_RGBColor::blue()']]]
+  ['blue_12',['blue',['../structsista_1_1RGBColor.html#ae81c3207438d3c3fba24ab56a7c34266',1,'sista::RGBColor::blue'],['../structsista__RGBColor.html#a4eb692c6654f7b89d3ac9076eaa1f842',1,'sista_RGBColor::blue']]]
 ];

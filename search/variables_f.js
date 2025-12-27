@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['x_0',['x',['../structsista__Coordinates.html#add53af2f54638fcdf04627eb18d2d3c4',1,'sista_Coordinates::x()'],['../structsista_1_1Coordinates.html#aa501ace118e68b25f2a2691452519d2c',1,'sista::Coordinates::x()']]]
+  ['y_0',['y',['../structsista__Coordinates.html#a4c298a964db4f77cce827404f7a45d28',1,'sista_Coordinates::y'],['../structsista_1_1Coordinates.html#aa255e9f5aa31dd3943798ffaf2fb004b',1,'sista::Coordinates::y']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['white_0',['WHITE',['../namespacesista.html#a72a9a13a3fd5aa83f5852d073bcdbe28ab5bf627e448384cf3a4c35121ca6008d',1,'sista::WHITE()'],['../namespacesista.html#ade2b5834bc07e347f46027a10a06d1caab5bf627e448384cf3a4c35121ca6008d',1,'sista::WHITE()']]],
-  ['width_1',['width',['../classsista_1_1Field.html#aaad4529ed32272f455816ac2bca3ab77',1,'sista::Field']]]
+  ['just_20use_20pip_20to_20install_20a_20href_20https_3a_20pypi_20org_20project_20sista_20from_20pypi_20a_0',['Just use pip to install &lt;a href=&quot;https://pypi.org/project/sista/&quot; &gt;from PyPI&lt;/a&gt;',['../md_python_2README.html#autotoc_md3',1,'']]]
 ];

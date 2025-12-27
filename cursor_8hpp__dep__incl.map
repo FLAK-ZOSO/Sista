@@ -1,9 +1,16 @@
 <map id="include/sista/cursor.hpp" name="include/sista/cursor.hpp">
-<area shape="rect" id="node1" title="Cursor manipulation header file." alt="" coords="199,5,373,31"/>
-<area shape="rect" id="node2" href="$cursor_8cpp.html" title="Implementation of the Cursor class for representing and manipulating the terminal cursor." alt="" coords="5,79,180,104"/>
-<area shape="rect" id="node3" href="$field_8hpp.html" title="This file contains the Field class and related structures." alt="" coords="204,79,368,104"/>
-<area shape="rect" id="node5" href="$sista_8hpp.html" title="Main include file for the Sista library." alt="" coords="323,152,489,177"/>
-<area shape="rect" id="node4" href="$field_8cpp.html" title="Implementation of the field management functionalities of the Sista library." alt="" coords="135,152,298,177"/>
-<area shape="rect" id="node6" href="$api_8cpp.html" title="Implementation of the C API for Sista." alt="" coords="258,225,413,251"/>
-<area shape="rect" id="node7" href="$sista_8cpp.html" title="A demo of the SwappableField class from the Sista library." alt="" coords="437,225,517,251"/>
+<area shape="rect" id="Node000001" title="Cursor manipulation header file." alt="" coords="199,5,373,31"/>
+<area shape="rect" id="Node000002" href="$cursor_8cpp.html" title="Implementation of the Cursor class for representing and manipulating the terminal cursor." alt="" coords="5,79,180,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="243,38,125,81,123,76,241,33"/>
+<area shape="rect" id="Node000003" href="$field_8hpp.html" title="This file contains the Field class and related structures." alt="" coords="204,79,368,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="289,44,289,79,283,79,283,44"/>
+<area shape="rect" id="Node000005" href="$sista_8hpp.html" title="Main include file for the Sista library." alt="" coords="323,152,489,177"/>
+<area shape="poly" id="edge7_Node000001_Node000005" title=" " alt="" coords="328,35,356,53,381,77,393,96,400,116,407,151,402,152,395,118,388,98,377,80,353,57,325,39"/>
+<area shape="rect" id="Node000004" href="$field_8cpp.html" title="Implementation of the field management functionalities of the Sista library." alt="" coords="135,152,298,177"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="267,116,230,154,226,150,263,112"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="319,109,388,149,385,154,316,113"/>
+<area shape="rect" id="Node000006" href="$api_8cpp.html" title="Implementation of the C API for Sista." alt="" coords="258,225,413,251"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="387,189,349,227,345,223,383,185"/>
+<area shape="rect" id="Node000007" href="$sista_8cpp.html" title="A demo of the SwappableField class from the Sista library." alt="" coords="437,225,517,251"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="429,185,467,223,463,227,425,189"/>
 </map>

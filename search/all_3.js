@@ -1,27 +1,5 @@
 var searchData=
 [
-  ['b_5fblack_0',['B_BLACK',['../api_8h.html#abaa49c9c9bc123c79f6df443beca25c2a316562dfcfe1f54d41d97cc8b60114d8',1,'B_BLACK():&#160;api.h'],['../namespacesista.html#aa03a2005102003d2d4e646dd7f8752ae',1,'sista.B_BLACK()']]],
-  ['b_5fblue_1',['B_BLUE',['../api_8h.html#abaa49c9c9bc123c79f6df443beca25c2ac5799f31d847f011e7ae979d3f48e9a9',1,'B_BLUE():&#160;api.h'],['../namespacesista.html#a03471b3bd5b1999cb0047d588d33e1ea',1,'sista.B_BLUE()']]],
-  ['b_5fcyan_2',['B_CYAN',['../namespacesista.html#ad253efd2352cbab99d3e579b53e37080',1,'sista.B_CYAN()'],['../api_8h.html#abaa49c9c9bc123c79f6df443beca25c2addd638bf9b9b4fd79a90910533f3df30',1,'B_CYAN():&#160;api.h']]],
-  ['b_5fgreen_3',['B_GREEN',['../namespacesista.html#a2fdfe7d01c20bcf5eef419c2202dafe6',1,'sista.B_GREEN()'],['../api_8h.html#abaa49c9c9bc123c79f6df443beca25c2abf5eda022ff41c929f69001705e9c8e5',1,'B_GREEN():&#160;api.h']]],
-  ['b_5fmagenta_4',['B_MAGENTA',['../namespacesista.html#a759afd659ec0520d5914082b3c5e0afc',1,'sista.B_MAGENTA()'],['../api_8h.html#abaa49c9c9bc123c79f6df443beca25c2ab4ea00180b409d997ee5f53630b0f887',1,'B_MAGENTA():&#160;api.h']]],
-  ['b_5fred_5',['B_RED',['../namespacesista.html#aec89f539930768ef03879c5f9bbbf6a2',1,'sista.B_RED()'],['../api_8h.html#abaa49c9c9bc123c79f6df443beca25c2a4e3850bbf34010cbea6cf7da5501df5f',1,'B_RED():&#160;api.h']]],
-  ['b_5fwhite_6',['B_WHITE',['../api_8h.html#abaa49c9c9bc123c79f6df443beca25c2a959fb399a6d98c92c99c24b8a83cf80a',1,'B_WHITE():&#160;api.h'],['../namespacesista.html#a4cce74258f0662df4aae6ea8577f992c',1,'sista.B_WHITE()']]],
-  ['b_5fyellow_7',['B_YELLOW',['../api_8h.html#abaa49c9c9bc123c79f6df443beca25c2ad55928bbf5452ce21d2a5a05b4340242',1,'B_YELLOW():&#160;api.h'],['../namespacesista.html#a455dcbfcfbb3bcb927a04797d0d4168e',1,'sista.B_YELLOW()']]],
-  ['backgroundcolor_8',['backgroundColor',['../structsista_1_1ANSISettings.html#a9052dacfe15eda05bd923fee19638990',1,'sista::ANSISettings']]],
-  ['backgroundcolor_9',['BackgroundColor',['../namespacesista.html#ade2b5834bc07e347f46027a10a06d1ca',1,'sista']]],
-  ['begin_10',['begin',['../structsista_1_1Path.html#ab7f95f9cb2be170983743ff4127da51d',1,'sista::Path']]],
-  ['beginning_5fof_5fnext_5fline_11',['BEGINNING_OF_NEXT_LINE',['../api_8h.html#acf93245807642a551415bb6eaeb1bca4a0c96f8e634947f2235c525c34384ca08',1,'BEGINNING_OF_NEXT_LINE():&#160;api.h'],['../namespacesista.html#a4d57a9d954bfbf9c473ade68b535461e',1,'sista.BEGINNING_OF_NEXT_LINE()'],['../namespacesista.html#a7aced27e09de586e7565fcad8f5459e4aaf7e77f42ff14538ce59c3cf629f186c',1,'sista::BEGINNING_OF_NEXT_LINE()']]],
-  ['beginning_5fof_5fprevious_5fline_12',['BEGINNING_OF_PREVIOUS_LINE',['../api_8h.html#acf93245807642a551415bb6eaeb1bca4afbc52c5d9432b5150c0ce57545b65eff',1,'BEGINNING_OF_PREVIOUS_LINE():&#160;api.h'],['../namespacesista.html#a0957b275a09a0018637a3a92af8306ba',1,'sista.BEGINNING_OF_PREVIOUS_LINE()'],['../namespacesista.html#a7aced27e09de586e7565fcad8f5459e4a02a0e67cd564d9a08b47de65d890c4ba',1,'sista::BEGINNING_OF_PREVIOUS_LINE()']]],
-  ['bgcolorstr_13',['bgColorStr',['../namespacesista.html#aa02fe9e406add1ee51a67968dfdd0a3e',1,'sista::bgColorStr(BackgroundColor)'],['../namespacesista.html#a3a8111229f1a0d69ea09d58595432cad',1,'sista::bgColorStr(const RGBColor &amp;)'],['../namespacesista.html#a6af17320ac5ad66e1684faa66a7b9fb3',1,'sista::bgColorStr(unsigned char, unsigned char, unsigned char)']]],
-  ['black_14',['BLACK',['../namespacesista.html#a72a9a13a3fd5aa83f5852d073bcdbe28a08d0012388564e95c3b4a7407cf04965',1,'sista::BLACK()'],['../namespacesista.html#ade2b5834bc07e347f46027a10a06d1caa08d0012388564e95c3b4a7407cf04965',1,'sista::BLACK()']]],
-  ['blink_15',['BLINK',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2fad810ed8e97088a3c987f179dfb88cefc',1,'sista']]],
-  ['blue_16',['BLUE',['../namespacesista.html#a72a9a13a3fd5aa83f5852d073bcdbe28a1b3e1ee9bff86431dea6b181365ba65f',1,'sista']]],
-  ['blue_17',['blue',['../structsista__RGBColor.html#a4eb692c6654f7b89d3ac9076eaa1f842',1,'sista_RGBColor::blue()'],['../structsista_1_1RGBColor.html#ae81c3207438d3c3fba24ab56a7c34266',1,'sista::RGBColor::blue()']]],
-  ['blue_18',['BLUE',['../namespacesista.html#ade2b5834bc07e347f46027a10a06d1caa1b3e1ee9bff86431dea6b181365ba65f',1,'sista']]],
-  ['border_19',['Border',['../classsista_1_1Border.html#aae5dad867ba825a47cbb85e30f260b38',1,'sista::Border::Border()'],['../classsista_1_1Border.html',1,'sista::Border']]],
-  ['border_2ecpp_20',['border.cpp',['../border_8cpp.html',1,'']]],
-  ['border_2ehpp_21',['border.hpp',['../border_8hpp.html',1,'']]],
-  ['borderhandler_5ft_22',['BorderHandler_t',['../api_8h.html#a3f4fff393723c61865b05482c653bf3a',1,'api.h']]],
-  ['bright_23',['BRIGHT',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2faca78b38b9fe41e51b331abe6999a1040',1,'sista']]]
+  ['3_200_200_20tt_0',['Unreleased v&lt;tt&gt;3.0.0&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md25',1,'']]],
+  ['3_20tt_1',['3 tt',['../md_ReleaseNotes.html#autotoc_md42',1,'v&lt;tt&gt;0.9.3&lt;/tt&gt;'],['../md_ReleaseNotes.html#autotoc_md37',1,'v&lt;tt&gt;1.1.3&lt;/tt&gt;']]]
 ];

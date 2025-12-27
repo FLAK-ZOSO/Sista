@@ -1,4 +1,5 @@
 <map id="FieldObject" name="FieldObject">
-<area shape="rect" id="node1" title=" " alt="" coords="5,145,100,223"/>
-<area shape="rect" id="node2" href="$structsista__Field.html" title="Opaque struct representing a Field object." alt="" coords="7,5,98,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,133,92,199"/>
+<area shape="rect" id="Node000002" href="$structsista__Field.html" title="Opaque struct representing a Field object." alt="" coords="7,5,90,71"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="51,71,51,117,46,117,46,71"/>
 </map>

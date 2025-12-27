@@ -1,6 +1,10 @@
 <map id="sista::Path" name="sista::Path">
-<area shape="rect" id="node1" title="Represents a movement path for a Pawn, including priority handling." alt="" coords="27,608,165,744"/>
-<area shape="rect" id="node2" href="$structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values." alt="" coords="5,5,144,259"/>
-<area shape="rect" id="node3" href="$classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings." alt="" coords="151,321,297,545"/>
-<area shape="rect" id="node4" href="$structsista_1_1ANSISettings.html" title="Represents a set of ANSI settings including colors and attributes." alt="" coords="168,5,315,259"/>
+<area shape="rect" id="Node000001" title="Represents a movement path for a Pawn, including priority handling." alt="" coords="23,701,153,847"/>
+<area shape="rect" id="Node000002" href="$structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values." alt="" coords="5,5,136,311"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,311,81,639,84,685,79,685,76,639,68,311"/>
+<area shape="rect" id="Node000003" href="$classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings." alt="" coords="143,373,281,639"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="112,310,126,348,138,375,133,377,122,350,107,312"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="153,640,131,687,126,685,148,638"/>
+<area shape="rect" id="Node000004" href="$structsista_1_1ANSISettings.html" title="Represents a set of ANSI settings including colors and attributes." alt="" coords="164,5,303,311"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="227,311,224,357,218,356,221,311"/>
 </map>

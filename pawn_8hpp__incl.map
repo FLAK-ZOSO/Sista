@@ -1,10 +1,17 @@
 <map id="include/sista/pawn.hpp" name="include/sista/pawn.hpp">
-<area shape="rect" id="node1" title="Pawn class header file." alt="" coords="125,5,295,31"/>
-<area shape="rect" id="node2" href="$ansi_8hpp.html" title="ANSI escape code utilities and types for terminal formatting." alt="" coords="109,79,186,104"/>
-<area shape="rect" id="node6" href="$coordinates_8hpp.html" title="Coordinates struct header file." alt="" coords="231,79,357,104"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,152,73,177"/>
-<area shape="rect" id="node4" title=" " alt="" coords="98,152,157,177"/>
-<area shape="rect" id="node5" title=" " alt="" coords="181,152,239,177"/>
-<area shape="rect" id="node7" title=" " alt="" coords="264,152,324,177"/>
-<area shape="rect" id="node8" title=" " alt="" coords="348,152,435,177"/>
+<area shape="rect" id="Node000001" title="Pawn class header file." alt="" coords="125,5,295,31"/>
+<area shape="rect" id="Node000002" href="$ansi_8hpp.html" title="ANSI escape code utilities and types for terminal formatting." alt="" coords="109,79,186,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,33,169,70,165,66,198,29"/>
+<area shape="rect" id="Node000006" href="$coordinates_8hpp.html" title="Coordinates struct header file." alt="" coords="231,79,357,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="225,29,271,67,268,72,222,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,73,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="131,106,70,147,67,142,129,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="98,152,157,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="147,105,137,140,132,138,141,104"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="181,152,239,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="160,103,193,140,189,143,156,106"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="264,152,324,177"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="297,104,297,138,291,138,291,104"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="348,152,435,177"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="311,102,366,141,363,146,308,106"/>
 </map>

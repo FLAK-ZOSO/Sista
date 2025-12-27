@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['release_20notes_0',['Release Notes',['../md_ReleaseNotes.html',1,'']]]
+  ['extension_0',['Sista Python C Extension',['../md_python_2README.html',1,'']]]
 ];

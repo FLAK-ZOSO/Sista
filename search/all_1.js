@@ -1,12 +1,17 @@
 var searchData=
 [
-  ['_5f_5fdir_5f_5f_0',['__dir__',['../namespacesista.html#a887968437ee09335c99180ec7f2b068f',1,'sista']]],
-  ['_5f_5fgetattr_5f_5f_1',['__getattr__',['../namespacesista.html#ae23d9935fbc0ef4b135a31405654311e',1,'sista']]],
-  ['_5f_5finit_5f_5f_2',['__init__',['../classsista_1_1Field.html#a6f369ccfc6a6c44203f60ac618331a2c',1,'sista::Field.__init__()'],['../classsista_1_1SwappableField.html#a3382be6f8d71bae0dd194830effe7e3f',1,'sista::SwappableField.__init__()'],['../structsista_1_1Cursor.html#a1091c1971b0bca414411929405867dd3',1,'sista::Cursor.__init__()']]],
-  ['_5f_5finit_5f_5f_2epy_3',['__init__.py',['../____init_____8py.html',1,'']]],
-  ['_5f_5finit_5f_5f_2epyi_4',['__init__.pyi',['../____init_____8pyi.html',1,'']]],
-  ['_5f_5fnew_5f_5f_5',['__new__',['../classsista_1_1Field.html#aad18fe7d5c0b6d4cd85353c8cc94daed',1,'sista::Field.__new__()'],['../classsista_1_1SwappableField.html#aed727cf3f857c66f75bde0280e498936',1,'sista::SwappableField.__new__()'],['../structsista_1_1Cursor.html#a066986651e7c188accddf78455abfefd',1,'sista::Cursor.__new__()']]],
-  ['_5fext_6',['_ext',['../namespacesista.html#a9e209d6e19fca244ed5242e099a30f40',1,'sista']]],
-  ['_5fext_5fnames_7',['_ext_names',['../namespacesista.html#ad311dd8f2f782833324e3eadbec24012',1,'sista']]],
-  ['_5fload_5fext_8',['_load_ext',['../namespacesista.html#a949ceac49c97ebeba8f2f54deff23c56',1,'sista']]]
+  ['1_200_200_20tt_0',['v&lt;tt&gt;1.0.0&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md40',1,'']]],
+  ['1_200_20tt_1',['1 0 tt',['../md_ReleaseNotes.html#autotoc_md47',1,'v&lt;tt&gt;0.1.0&lt;/tt&gt;'],['../md_ReleaseNotes.html#autotoc_md30',1,'v&lt;tt&gt;2.1.0&lt;/tt&gt;']]],
+  ['1_201_201_20tt_2',['v&lt;tt&gt;1.1.1&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md39',1,'']]],
+  ['1_201_202_20tt_3',['v&lt;tt&gt;1.1.2&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md38',1,'']]],
+  ['1_201_203_20tt_4',['v&lt;tt&gt;1.1.3&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md37',1,'']]],
+  ['1_201_204_20tt_5',['v&lt;tt&gt;1.1.4&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md36',1,'']]],
+  ['1_201_205_20tt_6',['v&lt;tt&gt;1.1.5&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md35',1,'']]],
+  ['1_201_206_20tt_7',['v&lt;tt&gt;1.1.6&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md34',1,'']]],
+  ['1_201_207_20tt_8',['v&lt;tt&gt;1.1.7&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md33',1,'']]],
+  ['1_201_208_20tt_9',['v&lt;tt&gt;1.1.8&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md32',1,'']]],
+  ['1_201_20tt_10',['v&lt;tt&gt;2.1.1&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md29',1,'']]],
+  ['1_202_20tt_11',['v&lt;tt&gt;2.1.2&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md28',1,'']]],
+  ['1_20tt_12',['1 tt',['../md_ReleaseNotes.html#autotoc_md46',1,'v&lt;tt&gt;0.7.1&lt;/tt&gt;'],['../md_ReleaseNotes.html#autotoc_md26',1,'v&lt;tt&gt;2.2.1&lt;/tt&gt;']]],
+  ['1_3a_20using_20setup_20py_20recommended_13',['Option 1: Using setup.py (Recommended)',['../md_python_2README.html#autotoc_md7',1,'']]]
 ];

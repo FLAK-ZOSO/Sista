@@ -1,26 +1,5 @@
 var searchData=
 [
-  ['f_5fblack_0',['F_BLACK',['../namespacesista.html#af92f89ab43fcde317f0f08b59fef94ed',1,'sista.F_BLACK()'],['../api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5efab4b139c6b148e976bb5947f456548447',1,'F_BLACK():&#160;api.h']]],
-  ['f_5fblue_1',['F_BLUE',['../namespacesista.html#a58bd9ec321e0b64f9f0218591fac3ee8',1,'sista.F_BLUE()'],['../api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5efaf482d9feaaf35fd980737a7b8f1cce15',1,'F_BLUE():&#160;api.h']]],
-  ['f_5fcyan_2',['F_CYAN',['../namespacesista.html#adad108cbbab85dcf52ab59977d5d298a',1,'sista.F_CYAN()'],['../api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5efa23dbe4ac0ff9bd8df5c1a76c7821095c',1,'F_CYAN():&#160;api.h']]],
-  ['f_5fgreen_3',['F_GREEN',['../namespacesista.html#aa150476bbd47ccaee788d0f3b8cb7cf2',1,'sista.F_GREEN()'],['../api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5efa190505a743927691f1a10275d182f361',1,'F_GREEN():&#160;api.h']]],
-  ['f_5fmagenta_4',['F_MAGENTA',['../namespacesista.html#a1e9ee567982fef32c06761374008dcd2',1,'sista.F_MAGENTA()'],['../api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5efa8056e0824cdcb3b355ce5dd9b5939fe4',1,'F_MAGENTA():&#160;api.h']]],
-  ['f_5fred_5',['F_RED',['../api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5efa12ed4e98a9c49121b86dab3f2aa20ecd',1,'F_RED():&#160;api.h'],['../namespacesista.html#a7ca670c09b9f8d17e81fb4980ab82e6f',1,'sista.F_RED()']]],
-  ['f_5fwhite_6',['F_WHITE',['../api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5efa7c35328901e819a1f46a67ca907da8e8',1,'F_WHITE():&#160;api.h'],['../namespacesista.html#a9ea625c93d928f7b3286f35254beea3e',1,'sista.F_WHITE()']]],
-  ['f_5fyellow_7',['F_YELLOW',['../api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5efac94a55a9b1b494c8087623cf8ddab2a0',1,'F_YELLOW():&#160;api.h'],['../namespacesista.html#ae6bf4fa137c59de570008e7a92f13af7',1,'sista.F_YELLOW()']]],
-  ['faint_8',['FAINT',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2fa509b5416bf705c10f9812317852300db',1,'sista']]],
-  ['fgcolorstr_9',['fgColorStr',['../namespacesista.html#ad9056dcc89d8852520b790608821a109',1,'sista::fgColorStr(ForegroundColor)'],['../namespacesista.html#ae6c1e15767787eafbe9eeeea2dce4655',1,'sista::fgColorStr(const RGBColor &amp;)'],['../namespacesista.html#a967e5156819f2f3b0144a99fdabefa11',1,'sista::fgColorStr(unsigned char, unsigned char, unsigned char)']]],
-  ['field_10',['Field',['../classsista_1_1Field.html#a2665f87dea436220db3beb224248b904',1,'sista::Field']]],
-  ['field_11',['field',['../structFieldObject.html#a16085572e3e6a431718600e279bfb5c6',1,'FieldObject::field()'],['../structSwappableFieldObject.html#a2f30c6dbb4016e7f31836928aad8577b',1,'SwappableFieldObject::field()']]],
-  ['field_12',['Field',['../classsista_1_1Field.html',1,'sista']]],
-  ['field_2ecpp_13',['field.cpp',['../field_8cpp.html',1,'']]],
-  ['field_2ehpp_14',['field.hpp',['../field_8hpp.html',1,'']]],
-  ['fieldhandler_5ft_15',['FieldHandler_t',['../api_8h.html#a3797b9bc22d413638fa0bd580844aa9d',1,'api.h']]],
-  ['fieldobject_16',['FieldObject',['../structFieldObject.html',1,'']]],
-  ['foregroundcolor_17',['foregroundColor',['../structsista_1_1ANSISettings.html#a670db1312b4b9a5a548f78e0fcf75591',1,'sista::ANSISettings']]],
-  ['foregroundcolor_18',['ForegroundColor',['../namespacesista.html#a72a9a13a3fd5aa83f5852d073bcdbe28',1,'sista']]],
-  ['four_5fcolors_5fgraphics_5f320_5f200_19',['FOUR_COLORS_GRAPHICS_320_200',['../namespacesista.html#a9630b668dd6f74adc69788f13da9da8eaa525ea11551d6b38a1fc33c3bad3dba1',1,'sista']]],
-  ['from_5fcursor_5fto_5fbeginning_20',['FROM_CURSOR_TO_BEGINNING',['../namespacesista.html#a70ce4a80cec5f70ff58a4566ae546da6a1c241f3eb712c1ec3e7281ec946e7908',1,'sista']]],
-  ['from_5fcursor_5fto_5fend_21',['FROM_CURSOR_TO_END',['../namespacesista.html#a70ce4a80cec5f70ff58a4566ae546da6a5e0c193110d5e2f1ad30f0efd6294941',1,'sista']]],
-  ['frompair_22',['fromPair',['../structsista_1_1Coordinates.html#a05cc302276d3aaac90d8fc1abe384a29',1,'sista::Coordinates']]]
+  ['7_201_20tt_0',['v&lt;tt&gt;0.7.1&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md46',1,'']]],
+  ['7_20tt_1',['v&lt;tt&gt;1.1.7&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md33',1,'']]]
 ];

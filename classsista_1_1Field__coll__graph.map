@@ -1,4 +1,5 @@
 <map id="sista::Field" name="sista::Field">
-<area shape="rect" id="node1" title="Class representing a terminal Field for pawns and borders." alt="" coords="9,336,169,619"/>
-<area shape="rect" id="node2" href="$structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations." alt="" coords="5,5,172,273"/>
+<area shape="rect" id="Node000001" title="Class representing a terminal Field for pawns and borders." alt="" coords="8,393,160,739"/>
+<area shape="rect" id="Node000002" href="$structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations." alt="" coords="5,5,163,331"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,331,87,377,81,377,81,331"/>
 </map>

@@ -1,6 +1,9 @@
 <map id="include/sista/ansi.hpp" name="include/sista/ansi.hpp">
-<area shape="rect" id="node1" title="ANSI escape code utilities and types for terminal formatting." alt="" coords="46,5,209,31"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,79,73,104"/>
-<area shape="rect" id="node3" title=" " alt="" coords="98,79,157,104"/>
-<area shape="rect" id="node4" title=" " alt="" coords="181,79,239,104"/>
+<area shape="rect" id="Node000001" title="ANSI escape code utilities and types for terminal formatting." alt="" coords="46,5,209,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,73,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,33,66,72,63,68,112,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="98,79,157,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="130,31,130,65,125,65,125,31"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="181,79,239,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="142,29,188,67,184,72,139,33"/>
 </map>

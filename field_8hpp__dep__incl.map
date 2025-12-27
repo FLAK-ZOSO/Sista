@@ -1,7 +1,11 @@
 <map id="include/sista/field.hpp" name="include/sista/field.hpp">
-<area shape="rect" id="node1" title="This file contains the Field class and related structures." alt="" coords="99,5,263,31"/>
-<area shape="rect" id="node2" href="$field_8cpp.html" title="Implementation of the field management functionalities of the Sista library." alt="" coords="5,79,168,104"/>
-<area shape="rect" id="node3" href="$sista_8hpp.html" title="Main include file for the Sista library." alt="" coords="193,79,359,104"/>
-<area shape="rect" id="node4" href="$api_8cpp.html" title="Implementation of the C API for Sista." alt="" coords="128,152,283,177"/>
-<area shape="rect" id="node5" href="$sista_8cpp.html" title="A demo of the SwappableField class from the Sista library." alt="" coords="307,152,387,177"/>
+<area shape="rect" id="Node000001" title="This file contains the Field class and related structures." alt="" coords="99,5,263,31"/>
+<area shape="rect" id="Node000002" href="$field_8cpp.html" title="Implementation of the field management functionalities of the Sista library." alt="" coords="5,79,168,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,41,104,81,101,76,154,37"/>
+<area shape="rect" id="Node000003" href="$sista_8hpp.html" title="Main include file for the Sista library." alt="" coords="193,79,359,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="209,37,262,76,259,81,206,41"/>
+<area shape="rect" id="Node000004" href="$api_8cpp.html" title="Implementation of the C API for Sista." alt="" coords="128,152,283,177"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="257,116,219,154,215,150,253,112"/>
+<area shape="rect" id="Node000005" href="$sista_8cpp.html" title="A demo of the SwappableField class from the Sista library." alt="" coords="307,152,387,177"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="299,112,337,150,333,154,295,116"/>
 </map>

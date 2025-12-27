@@ -1,12 +1,21 @@
 <map id="include/sista/pawn.cpp" name="include/sista/pawn.cpp">
-<area shape="rect" id="node1" title="Implementation of the Pawn class." alt="" coords="178,5,349,31"/>
-<area shape="rect" id="node2" href="$pawn_8hpp.html" title="Pawn class header file." alt="" coords="167,79,253,104"/>
-<area shape="rect" id="node10" title=" " alt="" coords="277,79,357,104"/>
-<area shape="rect" id="node3" href="$ansi_8hpp.html" title="ANSI escape code utilities and types for terminal formatting." alt="" coords="109,152,186,177"/>
-<area shape="rect" id="node7" href="$coordinates_8hpp.html" title="Coordinates struct header file." alt="" coords="231,152,357,177"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,225,73,251"/>
-<area shape="rect" id="node5" title=" " alt="" coords="98,225,157,251"/>
-<area shape="rect" id="node6" title=" " alt="" coords="181,225,239,251"/>
-<area shape="rect" id="node8" title=" " alt="" coords="264,225,324,251"/>
-<area shape="rect" id="node9" title=" " alt="" coords="348,225,435,251"/>
+<area shape="rect" id="Node000001" title="Implementation of the Pawn class." alt="" coords="178,5,349,31"/>
+<area shape="rect" id="Node000002" href="$pawn_8hpp.html" title="Pawn class header file." alt="" coords="167,79,253,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="257,33,229,69,225,66,252,29"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="277,79,357,104"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="274,29,302,66,298,69,270,33"/>
+<area shape="rect" id="Node000003" href="$ansi_8hpp.html" title="ANSI escape code utilities and types for terminal formatting." alt="" coords="109,152,186,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="202,106,169,143,165,140,198,103"/>
+<area shape="rect" id="Node000007" href="$coordinates_8hpp.html" title="Coordinates struct header file." alt="" coords="231,152,357,177"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="225,102,271,141,268,145,222,106"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,225,73,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="131,180,70,220,67,215,129,175"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="98,225,157,251"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="147,178,137,213,132,211,141,177"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="181,225,239,251"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="160,176,193,213,189,217,156,179"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="264,225,324,251"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="297,178,297,212,291,212,291,178"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="348,225,435,251"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="311,175,366,215,363,219,308,180"/>
 </map>

@@ -1,21 +1,13 @@
 var searchData=
 [
-  ['rapid_5fblink_0',['RAPID_BLINK',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2fa37124ad1fc66e68535d0bebba57f414b',1,'sista']]],
-  ['readme_2emd_1',['README.md',['../python_2README_8md.html',1,'(Global Namespace)'],['../README_8md.html',1,'(Global Namespace)']]],
-  ['red_2',['red',['../structsista_1_1RGBColor.html#ab58e0f2654ee79c82b36e8056cd60c49',1,'sista::RGBColor::red()'],['../structsista__RGBColor.html#a52f5b1ff7b44f77d708d343298edbc00',1,'sista_RGBColor::red()']]],
-  ['red_3',['RED',['../namespacesista.html#ade2b5834bc07e347f46027a10a06d1caaa2d9547b5d3dd9f05984475f7c926da0',1,'sista::RED()'],['../namespacesista.html#a72a9a13a3fd5aa83f5852d073bcdbe28aa2d9547b5d3dd9f05984475f7c926da0',1,'sista::RED()']]],
-  ['release_20notes_4',['Release Notes',['../md_ReleaseNotes.html',1,'']]],
-  ['releasenotes_2emd_5',['ReleaseNotes.md',['../ReleaseNotes_8md.html',1,'']]],
-  ['removepawn_6',['removePawn',['../classsista_1_1SwappableField.html#abfe055739090c33966a736be1c020b11',1,'sista::SwappableField::removePawn()'],['../classsista_1_1Field.html#ab1d0a24261d8e595ff5f719fd6e28d5c',1,'sista::Field::removePawn(Pawn *)'],['../classsista_1_1Field.html#a57145101adecb9c9855df01f69e5c167',1,'sista::Field::removePawn(const Coordinates &amp;)']]],
-  ['reprintpawn_7',['rePrintPawn',['../classsista_1_1Field.html#af3ee2d7fc112ba03a697f4fe5ae2ea7e',1,'sista::Field']]],
-  ['reset_8',['RESET',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2fab5859d8721cfdc0312b2838b9c985bc1',1,'sista']]],
-  ['reset_9',['reset',['../structsista_1_1ANSISettings.html#ace267a8d0b222f8322eae1f5a40f4652',1,'sista::ANSISettings']]],
-  ['reset_5fansi_10',['reset_ansi',['../namespacesista.html#abf076e169eab4674c7f2c46dcc896bf6',1,'sista']]],
-  ['reset_5fattribute_11',['reset_attribute',['../namespacesista.html#a948b7ce93587fd89c743413a432b64c0',1,'sista']]],
-  ['resetansi_12',['resetAnsi',['../namespacesista.html#a01b6f49cb4ab2bca5aa726b576a6f3ad',1,'sista']]],
-  ['resetattribute_13',['resetAttribute',['../namespacesista.html#a175e0b48e9f62f849e02dc4cefdd394a',1,'sista']]],
-  ['restore_5fcursor_5fposition_14',['RESTORE_CURSOR_POSITION',['../namespacesista.html#af3bc6f60c5d75fa9fa275946c516ee51a62684cb7aa31e0d521228313ef65bb7b',1,'sista']]],
-  ['reverse_15',['REVERSE',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2fa642e0b6684e6165e142c074f1cd8d55c',1,'sista']]],
-  ['rgbcolor_16',['RGBColor',['../structsista_1_1RGBColor.html#a80f1b3240c6678b7da86e476c5c2663e',1,'sista::RGBColor::RGBColor(unsigned char, unsigned char, unsigned char)'],['../structsista_1_1RGBColor.html#a6fefbc7d8ec4427f2a783bf7e89c24fe',1,'sista::RGBColor::RGBColor()'],['../structsista_1_1RGBColor.html',1,'sista::RGBColor']]],
-  ['right_17',['RIGHT',['../api_8h.html#acf93245807642a551415bb6eaeb1bca4aec8379af7490bb9eaaf579cf17876f38',1,'RIGHT():&#160;api.h'],['../namespacesista.html#a7aced27e09de586e7565fcad8f5459e4a21507b40c80068eda19865706fdc2403',1,'sista::RIGHT()']]]
+  ['effect_0',['Effect',['../namespacesista.html#a08036e71b88be0e177eec4ef2a24adc9',1,'sista']]],
+  ['end_1',['end',['../structsista_1_1Path.html#a30658797573ff9b0d6ea113efa183fcc',1,'sista::Path']]],
+  ['entire_5fline_2',['ENTIRE_LINE',['../namespacesista.html#ad89734e70ebd8e6794b08a5cb56274cea4131bc4160d676394e11d1431452ba57',1,'sista']]],
+  ['entire_5fscreen_3',['ENTIRE_SCREEN',['../namespacesista.html#a70ce4a80cec5f70ff58a4566ae546da6a4d173c671235e28db83609a6a8ed6954',1,'sista']]],
+  ['erase_5fsaved_5flines_4',['ERASE_SAVED_LINES',['../namespacesista.html#a70ce4a80cec5f70ff58a4566ae546da6a86da4b3984c1a1141ef7a5682ccd529a',1,'sista']]],
+  ['eraseline_5',['eraseline',['../structsista_1_1Cursor.html#a400bb037ae7ee8984a453e13a63e5601',1,'sista::Cursor::eraseLine()'],['../namespacesista.html#ad89734e70ebd8e6794b08a5cb56274ce',1,'sista::EraseLine']]],
+  ['erasepawn_6',['erasepawn',['../classsista_1_1Field.html#a900f4baab9a1acbf90a8b133bb90b8ac',1,'sista::Field::erasePawn(Pawn *)'],['../classsista_1_1Field.html#a5ba7e3f46bcf217916877f77961f4cc2',1,'sista::Field::erasePawn(const Coordinates &amp;)']]],
+  ['erasescreen_7',['erasescreen',['../structsista_1_1Cursor.html#a8eccc56fcac81e2e4b104b2814930a35',1,'sista::Cursor::eraseScreen()'],['../namespacesista.html#a70ce4a80cec5f70ff58a4566ae546da6',1,'sista::EraseScreen']]],
+  ['esc_8',['ESC',['../ansi_8hpp.html#a4af1b6159e447ba72652bb7fcdfa726e',1,'ansi.hpp']]],
+  ['extension_9',['extension',['../md_python_2README.html#autotoc_md4',1,'Building the Extension'],['../md_python_2README.html#autotoc_md8',1,'Installing the Extension'],['../md_python_2README.html',1,'Sista Python C Extension'],['../md_python_2README.html#autotoc_md9',1,'Using the Extension']]]
 ];

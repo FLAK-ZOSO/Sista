@@ -1,5 +1,7 @@
 <map id="sista::Pawn" name="sista::Pawn">
-<area shape="rect" id="node1" title="Represents an object on the field with a symbol, coordinates, and ANSI settings." alt="" coords="84,321,231,545"/>
-<area shape="rect" id="node2" href="$structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values." alt="" coords="5,5,144,259"/>
-<area shape="rect" id="node3" href="$structsista_1_1ANSISettings.html" title="Represents a set of ANSI settings including colors and attributes." alt="" coords="168,5,315,259"/>
+<area shape="rect" id="Node000001" title="Represents an object on the field with a symbol, coordinates, and ANSI settings." alt="" coords="81,373,218,639"/>
+<area shape="rect" id="Node000002" href="$structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values." alt="" coords="5,5,136,311"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,310,111,349,112,357,107,358,105,350,97,312"/>
+<area shape="rect" id="Node000003" href="$structsista_1_1ANSISettings.html" title="Represents a set of ANSI settings including colors and attributes." alt="" coords="160,5,299,311"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="211,311,203,350,201,358,195,357,197,349,206,310"/>
 </map>

@@ -8,6 +8,6 @@ var searchData=
   ['f_5fred_5',['F_RED',['../namespacesista.html#a7ca670c09b9f8d17e81fb4980ab82e6f',1,'sista']]],
   ['f_5fwhite_6',['F_WHITE',['../namespacesista.html#a9ea625c93d928f7b3286f35254beea3e',1,'sista']]],
   ['f_5fyellow_7',['F_YELLOW',['../namespacesista.html#ae6bf4fa137c59de570008e7a92f13af7',1,'sista']]],
-  ['field_8',['field',['../structSwappableFieldObject.html#a2f30c6dbb4016e7f31836928aad8577b',1,'SwappableFieldObject::field()'],['../structFieldObject.html#a16085572e3e6a431718600e279bfb5c6',1,'FieldObject::field()']]],
+  ['field_8',['field',['../structSwappableFieldObject.html#a2f30c6dbb4016e7f31836928aad8577b',1,'SwappableFieldObject::field'],['../structFieldObject.html#a16085572e3e6a431718600e279bfb5c6',1,'FieldObject::field']]],
   ['foregroundcolor_9',['foregroundColor',['../structsista_1_1ANSISettings.html#a670db1312b4b9a5a548f78e0fcf75591',1,'sista::ANSISettings']]]
 ];

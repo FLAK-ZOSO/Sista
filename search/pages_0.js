@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_3ctt_3esista_3c_2ftt_3e_0',['&lt;tt&gt;Sista&lt;/tt&gt;',['../index.html',1,'']]]
+  ['c_20extension_0',['Sista Python C Extension',['../md_python_2README.html',1,'']]]
 ];
