@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['is_5fwindows_0',['is_windows',['../namespacesetup.html#a370210aace2a8d58c5786dcfdd8c6f3f',1,'setup']]]
+  ['green_0',['green',['../structsista_1_1RGBColor.html#a44808d025b101191d96ebfa01f46db29',1,'sista::RGBColor::green()'],['../structsista__RGBColor.html#ad4eea68431bd92bb0b4600a969a6b99b',1,'sista_RGBColor::green()']]]
 ];

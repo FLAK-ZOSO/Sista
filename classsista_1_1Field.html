@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Represents a 2D grid where Pawns can be placed, moved, and managed.  
+<p>Class representing a terminal <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> for pawns and borders.  
  <a href="classsista_1_1Field.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="field_8hpp_source.html">field.hpp</a>&gt;</code></p>
@@ -93,8 +93,8 @@ Inheritance diagram for sista::Field:</div>
 <div class="dyncontent">
 <div class="center"><img src="classsista_1_1Field__inherit__graph.png" border="0" usemap="#asista_1_1Field_inherit__map" alt="Inheritance graph"/></div>
 <map name="asista_1_1Field_inherit__map" id="asista_1_1Field_inherit__map">
-<area shape="rect" title="Represents a 2D grid where Pawns can be placed, moved, and managed." alt="" coords="7,5,167,303"/>
-<area shape="rect" href="classsista_1_1SwappableField.html" title="A specialized Field that handles Pawn swaps without conflicts." alt="" coords="5,351,168,589"/>
+<area shape="rect" title="Class representing a terminal Field for pawns and borders." alt="" coords="7,5,167,303"/>
+<area shape="rect" href="classsista_1_1SwappableField.html" title="Class representing a terminal SwappableField for pawns and borders." alt="" coords="5,351,168,575"/>
 </map>
 </div>
 <div class="dynheader">
@@ -102,8 +102,8 @@ Collaboration diagram for sista::Field:</div>
 <div class="dyncontent">
 <div class="center"><img src="classsista_1_1Field__coll__graph.png" border="0" usemap="#asista_1_1Field_coll__map" alt="Collaboration graph"/></div>
 <map name="asista_1_1Field_coll__map" id="asista_1_1Field_coll__map">
-<area shape="rect" title="Represents a 2D grid where Pawns can be placed, moved, and managed." alt="" coords="5,263,165,545"/>
-<area shape="rect" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations." alt="" coords="22,5,149,200"/>
+<area shape="rect" title="Class representing a terminal Field for pawns and borders." alt="" coords="9,336,169,619"/>
+<area shape="rect" href="structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations." alt="" coords="5,5,172,273"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -217,6 +217,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa131d3fd21185827dc05af416027e4a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Field.html#aa131d3fd21185827dc05af416027e4a4">validateCoordinates</a> (unsigned short, unsigned short) const</td></tr>
 <tr class="memdesc:aa131d3fd21185827dc05af416027e4a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validates that the given coordinates are within bounds and not occupied.  <br /></td></tr>
 <tr class="separator:aa131d3fd21185827dc05af416027e4a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad18fe7d5c0b6d4cd85353c8cc94daed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsista_1_1Field.html">Field</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Field.html#aad18fe7d5c0b6d4cd85353c8cc94daed">__new__</a> (cls, int <a class="el" href="classsista_1_1Field.html#aaad4529ed32272f455816ac2bca3ab77">width</a>, int <a class="el" href="classsista_1_1Field.html#a27184484af521ba9a0dfe1b7453b5813">height</a>)</td></tr>
+<tr class="separator:aad18fe7d5c0b6d4cd85353c8cc94daed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f369ccfc6a6c44203f60ac618331a2c"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Field.html#a6f369ccfc6a6c44203f60ac618331a2c">__init__</a> (self, int <a class="el" href="classsista_1_1Field.html#aaad4529ed32272f455816ac2bca3ab77">width</a>, int <a class="el" href="classsista_1_1Field.html#a27184484af521ba9a0dfe1b7453b5813">height</a>)</td></tr>
+<tr class="memdesc:a6f369ccfc6a6c44203f60ac618331a2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and return a <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> wrapper object.  <br /></td></tr>
+<tr class="separator:a6f369ccfc6a6c44203f60ac618331a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae83a1c11c8f87f790cf3e65391a046f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Field.html#ae83a1c11c8f87f790cf3e65391a046f5">create_pawn</a> (self, str symbol, <a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> ansi_settings, <a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> coords)</td></tr>
+<tr class="memdesc:ae83a1c11c8f87f790cf3e65391a046f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> inside this <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> and return a <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> capsule.  <br /></td></tr>
+<tr class="separator:ae83a1c11c8f87f790cf3e65391a046f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad265c1019635ecd1e38a0a99a607eba2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Field.html#ad265c1019635ecd1e38a0a99a607eba2">move_pawn</a> (self, <a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> pawn, int y, int x)</td></tr>
+<tr class="memdesc:ad265c1019635ecd1e38a0a99a607eba2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move a pawn inside this <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> by the given delta and return a status code.  <br /></td></tr>
+<tr class="separator:ad265c1019635ecd1e38a0a99a607eba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7053a28ec53140d8824acaa2aac4dc70"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Field.html#a7053a28ec53140d8824acaa2aac4dc70">print_with_border</a> (self, <a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> border)</td></tr>
+<tr class="memdesc:a7053a28ec53140d8824acaa2aac4dc70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render this <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> to the terminal using the given <a class="el" href="classsista_1_1Border.html" title="Represents a brick of the border with a symbol and ANSI settings.">Border</a> object.  <br /></td></tr>
+<tr class="separator:a7053a28ec53140d8824acaa2aac4dc70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -240,18 +254,19 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a27184484af521ba9a0dfe1b7453b5813"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Represents a 2D grid where Pawns can be placed, moved, and managed. </p>
-<p>The <a class="el" href="classsista_1_1Field.html" title="Represents a 2D grid where Pawns can be placed, moved, and managed.">Field</a> class encapsulates a 2D grid structure using a vector of vectors to hold shared pointers to <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> objects. It provides methods to add, remove, move, and print Pawns on the field. The class also includes functionality to check if specific coordinates are occupied, free, or out of bounds, and to validate coordinates.</p>
-<p>The <a class="el" href="classsista_1_1Field.html" title="Represents a 2D grid where Pawns can be placed, moved, and managed.">Field</a> class is designed to be extended for more specialized behavior, such as in the <a class="el" href="classsista_1_1SwappableField.html" title="A specialized Field that handles Pawn swaps without conflicts.">SwappableField</a> subclass, which handles scenarios where multiple Pawns may need to swap positions without conflicts.</p>
+<div class="textblock"><p>Class representing a terminal <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> for pawns and borders. </p>
+<p>Represents a 2D grid where Pawns can be placed, moved, and managed.</p>
+<p>The <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> class encapsulates a 2D grid structure using a vector of vectors to hold shared pointers to <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> objects. It provides methods to add, remove, move, and print Pawns on the field. The class also includes functionality to check if specific coordinates are occupied, free, or out of bounds, and to validate coordinates.</p>
+<p>The <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> class is designed to be extended for more specialized behavior, such as in the <a class="el" href="classsista_1_1SwappableField.html" title="Class representing a terminal SwappableField for pawns and borders.">SwappableField</a> subclass, which handles scenarios where multiple Pawns may need to swap positions without conflicts.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> </dd>
 <dd>
 <a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">Coordinates</a> </dd>
 <dd>
 <a class="el" href="classsista_1_1Border.html" title="Represents a brick of the border with a symbol and ANSI settings.">Border</a> </dd>
 <dd>
-<a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">Cursor</a> </dd>
+<a class="el" href="structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations.">Cursor</a> </dd>
 <dd>
-<a class="el" href="classsista_1_1SwappableField.html" title="A specialized Field that handles Pawn swaps without conflicts.">SwappableField</a> </dd></dl>
+<a class="el" href="classsista_1_1SwappableField.html" title="Class representing a terminal SwappableField for pawns and borders.">SwappableField</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2665f87dea436220db3beb224248b904" name="a2665f87dea436220db3beb224248b904"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2665f87dea436220db3beb224248b904">&#9670;&#160;</a></span>Field()</h2>
@@ -287,8 +302,8 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>This constructor initializes a <a class="el" href="classsista_1_1Field.html" title="Represents a 2D grid where Pawns can be placed, moved, and managed.">Field</a> object with the given dimensions. It sets up a 2D grid (vector of vectors) to hold shared pointers to <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> objects, and initializes the <a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">Cursor</a> for terminal operations.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">Cursor</a> </dd></dl>
+<p>This constructor initializes a <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> object with the given dimensions. It sets up a 2D grid (vector of vectors) to hold shared pointers to <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> objects, and initializes the <a class="el" href="structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations.">Cursor</a> for terminal operations.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations.">Cursor</a> </dd></dl>
 
 </div>
 </div>
@@ -319,7 +334,83 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a6f369ccfc6a6c44203f60ac618331a2c" name="a6f369ccfc6a6c44203f60ac618331a2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f369ccfc6a6c44203f60ac618331a2c">&#9670;&#160;</a></span>__init__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None sista.Field.__init__ </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create and return a <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> wrapper object. </p>
+<p>The returned object is a Python wrapper that owns the underlying C <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> handler. Use the instance methods (create_pawn, move_pawn, print_with_border) on the returned <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> object. The wrapper manages the C-side lifetime (it will destroy the C handler when the Python object is deallocated).</p>
+<p>:param width: <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> width (number of columns). :param height: <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> height (number of rows). </p>
+
+<p>Reimplemented in <a class="el" href="classsista_1_1SwappableField.html#a3382be6f8d71bae0dd194830effe7e3f">sista::SwappableField</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aad18fe7d5c0b6d4cd85353c8cc94daed" name="aad18fe7d5c0b6d4cd85353c8cc94daed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad18fe7d5c0b6d4cd85353c8cc94daed">&#9670;&#160;</a></span>__new__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> <a class="el" href="classsista_1_1Field.html">Field</a> sista.Field.__new__ </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>cls</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classsista_1_1SwappableField.html#aed727cf3f857c66f75bde0280e498936">sista::SwappableField</a>.</p>
+
+</div>
+</div>
 <a id="aa4729a662bfa94eed3b5684d989189e1" name="aa4729a662bfa94eed3b5684d989189e1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa4729a662bfa94eed3b5684d989189e1">&#9670;&#160;</a></span>addPawn()</h2>
 
@@ -492,6 +583,52 @@ Protected Attributes</h2></td></tr>
 
 <p>Clears the field by removing all Pawns and resetting the grid. </p>
 <dl class="section note"><dt>Note</dt><dd>This does not delete the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> objects, it only removes them from the field. </dd></dl>
+
+</div>
+</div>
+<a id="ae83a1c11c8f87f790cf3e65391a046f5" name="ae83a1c11c8f87f790cf3e65391a046f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae83a1c11c8f87f790cf3e65391a046f5">&#9670;&#160;</a></span>create_pawn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> <a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> sista.Field.create_pawn </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str&#160;</td>
+          <td class="paramname"><em>symbol</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td>
+          <td class="paramname"><em>ansi_settings</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td>
+          <td class="paramname"><em>coords</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> inside this <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> and return a <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> capsule. </p>
+<p>Pawns created in plain Fields are managed by the <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> object.</p>
+<p>:param symbol: Single character string representing the pawn. :param ansi_settings: Capsule returned by create_ansi_settings. :param coords: Capsule returned by create_coordinates. :return: Capsule wrapping the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> handler. </p>
+
+<p>Reimplemented in <a class="el" href="classsista_1_1SwappableField.html#a420141cf714f449c3ed365e49f6764e0">sista::SwappableField</a>.</p>
 
 </div>
 </div>
@@ -1030,6 +1167,50 @@ This is a negation of isOccupied provided that isOutOfBounds returns false. Read
 <a class="el" href="classsista_1_1Field.html#ae53319a7cc224212e7fd46186ecc86f0" title="Checks if specified coordinates are occupied by a Pawn.">isOccupied</a> </dd>
 <dd>
 <a class="el" href="classsista_1_1Field.html#a9c54d0c1f43a0bc294cda1e368335259" title="Checks if specified coordinates are free (not occupied by a Pawn).">isFree</a> </dd></dl>
+
+</div>
+</div>
+<a id="ad265c1019635ecd1e38a0a99a607eba2" name="ad265c1019635ecd1e38a0a99a607eba2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad265c1019635ecd1e38a0a99a607eba2">&#9670;&#160;</a></span>move_pawn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> int sista.Field.move_pawn </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td>
+          <td class="paramname"><em>pawn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Move a pawn inside this <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> by the given delta and return a status code. </p>
+<p>The meaning of the returned integer follows the library's convention (0 for success, non-zero for various errors such as out-of-bounds or occupied destination).</p>
+<p>:param pawn: Capsule for the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> to move. :param y: y coordinate of the destination. :param x: x coordinate of the destination. :return: Integer status code (0 == success). </p>
 
 </div>
 </div>
@@ -1631,10 +1812,10 @@ This is a negation of isOccupied provided that isOutOfBounds returns false. Read
 </div><div class="memdoc">
 
 <p>Prints the entire field to the terminal. </p>
-<p>This method iterates through the 2D grid of Pawns and prints each <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>'s symbol at its respective coordinates. The method uses the <a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">Cursor</a> object to manage terminal cursor positioning.</p>
+<p>This method iterates through the 2D grid of Pawns and prints each <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>'s symbol at its respective coordinates. The method uses the <a class="el" href="structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations.">Cursor</a> object to manage terminal cursor positioning.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Pawn.html#a063a3586e938c3e4e8537271fa460b85" title="Prints the pawn to the terminal with its associated ANSI settings.">Pawn::print</a> </dd>
 <dd>
-<a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">Cursor</a> </dd></dl>
+<a class="el" href="structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations.">Cursor</a> </dd></dl>
 
 </div>
 </div>
@@ -1661,12 +1842,12 @@ This is a negation of isOccupied provided that isOutOfBounds returns false. Read
   </table>
   </dd>
 </dl>
-<p>This method iterates through the 2D grid of Pawns and prints each <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>'s symbol at its respective coordinates. It also prints a border around the field using the specified <a class="el" href="classsista_1_1Border.html" title="Represents a brick of the border with a symbol and ANSI settings.">Border</a> object. The method uses the <a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">Cursor</a> object to manage terminal cursor positioning.</p>
+<p>This method iterates through the 2D grid of Pawns and prints each <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>'s symbol at its respective coordinates. It also prints a border around the field using the specified <a class="el" href="classsista_1_1Border.html" title="Represents a brick of the border with a symbol and ANSI settings.">Border</a> object. The method uses the <a class="el" href="structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations.">Cursor</a> object to manage terminal cursor positioning.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Pawn.html#a063a3586e938c3e4e8537271fa460b85" title="Prints the pawn to the terminal with its associated ANSI settings.">Pawn::print</a> </dd>
 <dd>
 <a class="el" href="classsista_1_1Border.html#a625c393138da01011d1d5f302a955578" title="Prints the border symbol to the terminal, applying ANSI settings if specified.">Border::print</a> </dd>
 <dd>
-<a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">Cursor</a> </dd></dl>
+<a class="el" href="structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations.">Cursor</a> </dd></dl>
 
 </div>
 </div>
@@ -1693,10 +1874,43 @@ This is a negation of isOccupied provided that isOutOfBounds returns false. Read
   </table>
   </dd>
 </dl>
-<p>This method iterates through the 2D grid of Pawns and prints each <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>'s symbol at its respective coordinates. It also prints a border around the field using the specified character. The method uses the <a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">Cursor</a> object to manage terminal cursor positioning.</p>
+<p>This method iterates through the 2D grid of Pawns and prints each <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>'s symbol at its respective coordinates. It also prints a border around the field using the specified character. The method uses the <a class="el" href="structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations.">Cursor</a> object to manage terminal cursor positioning.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Pawn.html#a063a3586e938c3e4e8537271fa460b85" title="Prints the pawn to the terminal with its associated ANSI settings.">Pawn::print</a> </dd>
 <dd>
-<a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">Cursor</a> </dd></dl>
+<a class="el" href="structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations.">Cursor</a> </dd></dl>
+
+</div>
+</div>
+<a id="a7053a28ec53140d8824acaa2aac4dc70" name="a7053a28ec53140d8824acaa2aac4dc70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7053a28ec53140d8824acaa2aac4dc70">&#9670;&#160;</a></span>print_with_border()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None sista.Field.print_with_border </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td>
+          <td class="paramname"><em>border</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Render this <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> to the terminal using the given <a class="el" href="classsista_1_1Border.html" title="Represents a brick of the border with a symbol and ANSI settings.">Border</a> object. </p>
+<p>:param border: Capsule for the <a class="el" href="classsista_1_1Border.html" title="Represents a brick of the border with a symbol and ANSI settings.">Border</a> to draw around the field. </p>
+
+<p>Reimplemented in <a class="el" href="classsista_1_1SwappableField.html#aaad801a3fc9a454d1b1c6d18371f55bd">sista::SwappableField</a>.</p>
 
 </div>
 </div>
@@ -1985,18 +2199,19 @@ This is a negation of isOccupied provided that isOutOfBounds returns false. Read
   </tr>
 </table>
 </div><div class="memdoc">
-<p><a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">Cursor</a> object for terminal operations. </p>
+<p><a class="el" href="structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations.">Cursor</a> object for terminal operations. </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/sista/<a class="el" href="field_8hpp_source.html">field.hpp</a></li>
+<li>python/src/sista/<a class="el" href="____init_____8pyi.html">__init__.pyi</a></li>
 <li>include/sista/<a class="el" href="field_8cpp.html">field.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 27 2025 17:57:11 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generated on Sat Dec 27 2025 18:31:27 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>

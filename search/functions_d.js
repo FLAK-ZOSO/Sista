@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['unsetscreenmode_0',['unsetScreenMode',['../namespacesista.html#ac1d0f710dead79a74b4a4f5aeb0002b3',1,'sista']]]
+  ['topair_0',['toPair',['../structsista_1_1Coordinates.html#abc02b6f51f4cc6981d6f36ac10971ed7',1,'sista::Coordinates']]]
 ];

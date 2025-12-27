@@ -82,7 +82,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Manages terminal cursor operations.  
+<p>Class representing a terminal cursor for movement operations.  
  <a href="structsista_1_1Cursor.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="cursor_8hpp_source.html">cursor.hpp</a>&gt;</code></p>
@@ -91,7 +91,7 @@ Collaboration diagram for sista::Cursor:</div>
 <div class="dyncontent">
 <div class="center"><img src="structsista_1_1Cursor__coll__graph.png" border="0" usemap="#asista_1_1Cursor_coll__map" alt="Collaboration graph"/></div>
 <map name="asista_1_1Cursor_coll__map" id="asista_1_1Cursor_coll__map">
-<area shape="rect" title="Manages terminal cursor operations." alt="" coords="5,5,132,200"/>
+<area shape="rect" title="Class representing a terminal cursor for movement operations." alt="" coords="5,5,172,273"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -124,10 +124,25 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a61a9436543a6c23b23046e8af436f6cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsista_1_1Cursor.html#a61a9436543a6c23b23046e8af436f6cf">move</a> (<a class="el" href="namespacesista.html#aa75360a85012722dea448c7fb5c4e35e">MoveCursorSCO</a>) const</td></tr>
 <tr class="memdesc:a61a9436543a6c23b23046e8af436f6cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the cursor using SCO-specific commands.  <br /></td></tr>
 <tr class="separator:a61a9436543a6c23b23046e8af436f6cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a066986651e7c188accddf78455abfefd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsista_1_1Cursor.html">Cursor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsista_1_1Cursor.html#a066986651e7c188accddf78455abfefd">__new__</a> (cls)</td></tr>
+<tr class="separator:a066986651e7c188accddf78455abfefd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1091c1971b0bca414411929405867dd3"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsista_1_1Cursor.html#a1091c1971b0bca414411929405867dd3">__init__</a> (self)</td></tr>
+<tr class="memdesc:a1091c1971b0bca414411929405867dd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and return a <a class="el" href="structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations.">Cursor</a> wrapper object.  <br /></td></tr>
+<tr class="separator:a1091c1971b0bca414411929405867dd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75c719f33141ae07a4de7afd25540080"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsista_1_1Cursor.html#a75c719f33141ae07a4de7afd25540080">move</a> (self, int direction, int amount)</td></tr>
+<tr class="memdesc:a75c719f33141ae07a4de7afd25540080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move the cursor in the specified direction by the given amount.  <br /></td></tr>
+<tr class="separator:a75c719f33141ae07a4de7afd25540080"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4fc505dfba821a0bd9d6c1ecc9b268c"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsista_1_1Cursor.html#ab4fc505dfba821a0bd9d6c1ecc9b268c">go_to</a> (self, int y, int x)</td></tr>
+<tr class="memdesc:ab4fc505dfba821a0bd9d6c1ecc9b268c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move the cursor to the absolute (y, x) position.  <br /></td></tr>
+<tr class="separator:ab4fc505dfba821a0bd9d6c1ecc9b268c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23ebb5ec07bbf6258401f14af052d126"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsista_1_1Cursor.html#a23ebb5ec07bbf6258401f14af052d126">go_to_coordinates</a> (self, <a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> coords)</td></tr>
+<tr class="memdesc:a23ebb5ec07bbf6258401f14af052d126"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move the cursor to the position described by a <a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">Coordinates</a> capsule.  <br /></td></tr>
+<tr class="separator:a23ebb5ec07bbf6258401f14af052d126"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Manages terminal cursor operations. </p>
-<p>The <a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">Cursor</a> struct provides methods to manipulate the terminal cursor, including moving to specific coordinates, erasing parts of the screen or line, and moving the cursor in various directions. It also handles hiding and showing the cursor upon creation and destruction.</p>
+<div class="textblock"><p>Class representing a terminal cursor for movement operations. </p>
+<p>Manages terminal cursor operations.</p>
+<p>The <a class="el" href="structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations.">Cursor</a> struct provides methods to manipulate the terminal cursor, including moving to specific coordinates, erasing parts of the screen or line, and moving the cursor in various directions. It also handles hiding and showing the cursor upon creation and destruction.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacesista.html#a70ce4a80cec5f70ff58a4566ae546da6" title="Enumeration for screen erasure options in ANSI escape codes.">EraseScreen</a> </dd>
 <dd>
 <a class="el" href="namespacesista.html#ad89734e70ebd8e6794b08a5cb56274ce" title="Enumeration for line erasure options in ANSI escape codes.">EraseLine</a> </dd>
@@ -176,7 +191,46 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a1091c1971b0bca414411929405867dd3" name="a1091c1971b0bca414411929405867dd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1091c1971b0bca414411929405867dd3">&#9670;&#160;</a></span>__init__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None sista.Cursor.__init__ </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create and return a <a class="el" href="structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations.">Cursor</a> wrapper object. </p>
+<p>The returned object is a Python wrapper that owns the underlying C <a class="el" href="structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations.">Cursor</a> handler. Use the instance methods (move, go_to, go_to_coordinates) on the returned <a class="el" href="structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations.">Cursor</a> object. The wrapper manages the C-side lifetime (it will destroy the C handler when the Python object is deallocated). </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a066986651e7c188accddf78455abfefd" name="a066986651e7c188accddf78455abfefd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a066986651e7c188accddf78455abfefd">&#9670;&#160;</a></span>__new__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> <a class="el" href="structsista_1_1Cursor.html">Cursor</a> sista.Cursor.__new__ </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>cls</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a400bb037ae7ee8984a453e13a63e5601" name="a400bb037ae7ee8984a453e13a63e5601"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a400bb037ae7ee8984a453e13a63e5601">&#9670;&#160;</a></span>eraseLine()</h2>
 
@@ -241,6 +295,74 @@ Public Member Functions</h2></td></tr>
 </dl>
 <p>This method outputs the appropriate ANSI escape code to erase parts of the terminal screen according to the selected option from the EraseScreen enum.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacesista.html#a70ce4a80cec5f70ff58a4566ae546da6" title="Enumeration for screen erasure options in ANSI escape codes.">EraseScreen</a> </dd></dl>
+
+</div>
+</div>
+<a id="ab4fc505dfba821a0bd9d6c1ecc9b268c" name="ab4fc505dfba821a0bd9d6c1ecc9b268c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4fc505dfba821a0bd9d6c1ecc9b268c">&#9670;&#160;</a></span>go_to()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None sista.Cursor.go_to </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Move the cursor to the absolute (y, x) position. </p>
+<p>:param y: Row index to move to. :param x: Column index to move to. </p>
+
+</div>
+</div>
+<a id="a23ebb5ec07bbf6258401f14af052d126" name="a23ebb5ec07bbf6258401f14af052d126"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23ebb5ec07bbf6258401f14af052d126">&#9670;&#160;</a></span>go_to_coordinates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None sista.Cursor.go_to_coordinates </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td>
+          <td class="paramname"><em>coords</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Move the cursor to the position described by a <a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">Coordinates</a> capsule. </p>
+<p>:param coords: Capsule returned by create_coordinates. </p>
 
 </div>
 </div>
@@ -311,7 +433,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a28b28cc36d1da945d5a3b3ceca103928" name="a28b28cc36d1da945d5a3b3ceca103928"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28b28cc36d1da945d5a3b3ceca103928">&#9670;&#160;</a></span>move() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a28b28cc36d1da945d5a3b3ceca103928">&#9670;&#160;</a></span>move() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -350,7 +472,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a78bec1227ac00bd3c0bd618e2fd4eb79" name="a78bec1227ac00bd3c0bd618e2fd4eb79"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78bec1227ac00bd3c0bd618e2fd4eb79">&#9670;&#160;</a></span>move() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a78bec1227ac00bd3c0bd618e2fd4eb79">&#9670;&#160;</a></span>move() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -378,7 +500,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a61a9436543a6c23b23046e8af436f6cf" name="a61a9436543a6c23b23046e8af436f6cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61a9436543a6c23b23046e8af436f6cf">&#9670;&#160;</a></span>move() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a61a9436543a6c23b23046e8af436f6cf">&#9670;&#160;</a></span>move() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -405,14 +527,52 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a75c719f33141ae07a4de7afd25540080" name="a75c719f33141ae07a4de7afd25540080"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75c719f33141ae07a4de7afd25540080">&#9670;&#160;</a></span>move() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None sista.Cursor.move </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>direction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>amount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Move the cursor in the specified direction by the given amount. </p>
+<p>:param direction: One of the DIRECTION_* constants (or equivalent). :param amount: Number of positions to move the cursor. </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following files:<ul>
 <li>include/sista/<a class="el" href="cursor_8hpp_source.html">cursor.hpp</a></li>
+<li>python/src/sista/<a class="el" href="____init_____8pyi.html">__init__.pyi</a></li>
 <li>include/sista/<a class="el" href="cursor_8cpp.html">cursor.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 27 2025 17:57:11 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generated on Sat Dec 27 2025 18:31:27 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>

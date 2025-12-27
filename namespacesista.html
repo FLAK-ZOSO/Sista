@@ -74,7 +74,8 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">sista Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -94,10 +95,10 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents 2D coordinates with x and y values.  <a href="structsista_1_1Coordinates.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsista_1_1Cursor.html">Cursor</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages terminal cursor operations.  <a href="structsista_1_1Cursor.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class representing a terminal cursor for movement operations.  <a href="structsista_1_1Cursor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1Field.html">Field</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a 2D grid where Pawns can be placed, moved, and managed.  <a href="classsista_1_1Field.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class representing a terminal <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> for pawns and borders.  <a href="classsista_1_1Field.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsista_1_1Path.html">Path</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a movement path for a <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>, including priority handling.  <a href="structsista_1_1Path.html#details">More...</a><br /></td></tr>
@@ -109,7 +110,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents an RGB color with red, green, and blue components in True Color (24-bit).  <a href="structsista_1_1RGBColor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsista_1_1SwappableField.html">SwappableField</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A specialized <a class="el" href="classsista_1_1Field.html" title="Represents a 2D grid where Pawns can be placed, moved, and managed.">Field</a> that handles <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> swaps without conflicts.  <a href="classsista_1_1SwappableField.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class representing a terminal <a class="el" href="classsista_1_1SwappableField.html" title="Class representing a terminal SwappableField for pawns and borders.">SwappableField</a> for pawns and borders.  <a href="classsista_1_1SwappableField.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
@@ -304,9 +305,139 @@ Functions</h2></td></tr>
 <tr class="memitem:ad827ed9a4f765ef61e50cb28393f127e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#ad827ed9a4f765ef61e50cb28393f127e">getVersionPatch</a> ()</td></tr>
 <tr class="memdesc:ad827ed9a4f765ef61e50cb28393f127e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the patch version number of the Sista library.  <br /></td></tr>
 <tr class="separator:ad827ed9a4f765ef61e50cb28393f127e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a949ceac49c97ebeba8f2f54deff23c56"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a949ceac49c97ebeba8f2f54deff23c56">_load_ext</a> ()</td></tr>
+<tr class="separator:a949ceac49c97ebeba8f2f54deff23c56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae23d9935fbc0ef4b135a31405654311e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#ae23d9935fbc0ef4b135a31405654311e">__getattr__</a> (str name)</td></tr>
+<tr class="separator:ae23d9935fbc0ef4b135a31405654311e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a887968437ee09335c99180ec7f2b068f"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a887968437ee09335c99180ec7f2b068f">__dir__</a> ()</td></tr>
+<tr class="separator:a887968437ee09335c99180ec7f2b068f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50b9cbdd31ba71460a8ba48c4c56ccd8"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a50b9cbdd31ba71460a8ba48c4c56ccd8">set_foreground_color</a> (int color)</td></tr>
+<tr class="memdesc:a50b9cbdd31ba71460a8ba48c4c56ccd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the terminal foreground color using one of the F_* constants.  <br /></td></tr>
+<tr class="separator:a50b9cbdd31ba71460a8ba48c4c56ccd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a456e0330510acc7b986a7a8ff937138a"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a456e0330510acc7b986a7a8ff937138a">set_background_color</a> (int color)</td></tr>
+<tr class="memdesc:a456e0330510acc7b986a7a8ff937138a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the terminal background color using one of the B_* constants.  <br /></td></tr>
+<tr class="separator:a456e0330510acc7b986a7a8ff937138a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06ee983ca96dd86f4bfda9136c924e00"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a06ee983ca96dd86f4bfda9136c924e00">set_attribute</a> (int attribute)</td></tr>
+<tr class="memdesc:a06ee983ca96dd86f4bfda9136c924e00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable a terminal text attribute using one of the A_* constants.  <br /></td></tr>
+<tr class="separator:a06ee983ca96dd86f4bfda9136c924e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a948b7ce93587fd89c743413a432b64c0"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a948b7ce93587fd89c743413a432b64c0">reset_attribute</a> (int attribute)</td></tr>
+<tr class="memdesc:a948b7ce93587fd89c743413a432b64c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable/reset a terminal text attribute using one of the A_* constants.  <br /></td></tr>
+<tr class="separator:a948b7ce93587fd89c743413a432b64c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf076e169eab4674c7f2c46dcc896bf6"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#abf076e169eab4674c7f2c46dcc896bf6">reset_ansi</a> ()</td></tr>
+<tr class="memdesc:abf076e169eab4674c7f2c46dcc896bf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset all ANSI text attributes and colors to the terminal defaults.  <br /></td></tr>
+<tr class="separator:abf076e169eab4674c7f2c46dcc896bf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d11ecc627b872556b8d0477c8c7bace"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a3d11ecc627b872556b8d0477c8c7bace">print</a> (str message)</td></tr>
+<tr class="memdesc:a3d11ecc627b872556b8d0477c8c7bace"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print a message to the terminal using Sista's configured output stream.  <br /></td></tr>
+<tr class="separator:a3d11ecc627b872556b8d0477c8c7bace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7ea280bcbb2e75d646980de640a3cdb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#af7ea280bcbb2e75d646980de640a3cdb">create_ansi_settings</a> (int fgcolor=..., int bgcolor=..., int attribute=...)</td></tr>
+<tr class="memdesc:af7ea280bcbb2e75d646980de640a3cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an ANSI settings object and return it as a Capsule.  <br /></td></tr>
+<tr class="separator:af7ea280bcbb2e75d646980de640a3cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ca373f0906f4bdfdc3613cfdf06953a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a4ca373f0906f4bdfdc3613cfdf06953a">create_border</a> (str symbol, <a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> ansi_settings)</td></tr>
+<tr class="memdesc:a4ca373f0906f4bdfdc3613cfdf06953a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="classsista_1_1Border.html" title="Represents a brick of the border with a symbol and ANSI settings.">Border</a> object that uses a single-character symbol and ANSI settings.  <br /></td></tr>
+<tr class="separator:a4ca373f0906f4bdfdc3613cfdf06953a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07e48cce76729ca373904acad9be1d4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a07e48cce76729ca373904acad9be1d4c">create_coordinates</a> (int y, int x)</td></tr>
+<tr class="memdesc:a07e48cce76729ca373904acad9be1d4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">Coordinates</a> object and return it as a Capsule.  <br /></td></tr>
+<tr class="separator:a07e48cce76729ca373904acad9be1d4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac544fa11de7fdca5cb45288c68d1490d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#ac544fa11de7fdca5cb45288c68d1490d">move_pawn</a> (<a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> field, <a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> pawn, int dx, int dy)</td></tr>
+<tr class="memdesc:ac544fa11de7fdca5cb45288c68d1490d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move a pawn inside a <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> by the given delta and return a status code.  <br /></td></tr>
+<tr class="separator:ac544fa11de7fdca5cb45288c68d1490d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a101583d303f85cf7b4b325eb6918c4b5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a101583d303f85cf7b4b325eb6918c4b5">add_pawn_to_swap</a> (<a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> field, <a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> pawn, <a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> coords)</td></tr>
+<tr class="memdesc:a101583d303f85cf7b4b325eb6918c4b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Schedule a pawn to be moved (swapped) later in a <a class="el" href="classsista_1_1SwappableField.html" title="Class representing a terminal SwappableField for pawns and borders.">SwappableField</a>.  <br /></td></tr>
+<tr class="separator:a101583d303f85cf7b4b325eb6918c4b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e1bf06bcb7da01500961e6d6aa3aa27"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a8e1bf06bcb7da01500961e6d6aa3aa27">apply_swaps</a> (<a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> field)</td></tr>
+<tr class="memdesc:a8e1bf06bcb7da01500961e6d6aa3aa27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute all scheduled pawn swaps in the given <a class="el" href="classsista_1_1SwappableField.html" title="Class representing a terminal SwappableField for pawns and borders.">SwappableField</a>.  <br /></td></tr>
+<tr class="separator:a8e1bf06bcb7da01500961e6d6aa3aa27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52e651220126debb0d253ebba25bcb52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a52e651220126debb0d253ebba25bcb52">create_pawn_in_field</a> (<a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> field, str symbol, <a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> ansi_settings, <a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> coords)</td></tr>
+<tr class="memdesc:a52e651220126debb0d253ebba25bcb52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> inside a non-swappable <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> and return a <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> capsule.  <br /></td></tr>
+<tr class="separator:a52e651220126debb0d253ebba25bcb52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94d7ccea3b801388ca3cb5cc1134b518"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a94d7ccea3b801388ca3cb5cc1134b518">print_swappable_field_with_border</a> (<a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> field, <a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> border)</td></tr>
+<tr class="memdesc:a94d7ccea3b801388ca3cb5cc1134b518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render a <a class="el" href="classsista_1_1SwappableField.html" title="Class representing a terminal SwappableField for pawns and borders.">SwappableField</a> to the terminal using the given <a class="el" href="classsista_1_1Border.html" title="Represents a brick of the border with a symbol and ANSI settings.">Border</a> object.  <br /></td></tr>
+<tr class="separator:a94d7ccea3b801388ca3cb5cc1134b518"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac15b6b6eb20433a3aee46f1d55ee40e3"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#ac15b6b6eb20433a3aee46f1d55ee40e3">print_field_with_border</a> (<a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> field, <a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> border)</td></tr>
+<tr class="memdesc:ac15b6b6eb20433a3aee46f1d55ee40e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render a <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> to the terminal using the given <a class="el" href="classsista_1_1Border.html" title="Represents a brick of the border with a symbol and ANSI settings.">Border</a> object.  <br /></td></tr>
+<tr class="separator:ac15b6b6eb20433a3aee46f1d55ee40e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a458982b3c49bc7b5dde09e1d80c4f793"><td class="memItemLeft" align="right" valign="top">f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a458982b3c49bc7b5dde09e1d80c4f793">MODULE_NAME</a> = f&quot;{__name__}._sista&quot;</td></tr>
+<tr class="separator:a458982b3c49bc7b5dde09e1d80c4f793"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2d3f3fd7d76a6ea9e7a52b5b43e43fd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#ae2d3f3fd7d76a6ea9e7a52b5b43e43fd">try</a> :</td></tr>
+<tr class="separator:ae2d3f3fd7d76a6ea9e7a52b5b43e43fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e209d6e19fca244ed5242e099a30f40"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a9e209d6e19fca244ed5242e099a30f40">_ext</a> = <a class="el" href="namespacesista.html#a949ceac49c97ebeba8f2f54deff23c56">_load_ext</a>()</td></tr>
+<tr class="separator:a9e209d6e19fca244ed5242e099a30f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad311dd8f2f782833324e3eadbec24012"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#ad311dd8f2f782833324e3eadbec24012">_ext_names</a> = [n for n in dir(<a class="el" href="namespacesista.html#a9e209d6e19fca244ed5242e099a30f40">_ext</a>) if not n.startswith(&quot;_&quot;)]</td></tr>
+<tr class="separator:ad311dd8f2f782833324e3eadbec24012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a133faacc53892375ea63733f1f165a70"><td class="memItemLeft" align="right" valign="top">Any&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> = Any</td></tr>
+<tr class="separator:a133faacc53892375ea63733f1f165a70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af92f89ab43fcde317f0f08b59fef94ed"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#af92f89ab43fcde317f0f08b59fef94ed">F_BLACK</a></td></tr>
+<tr class="separator:af92f89ab43fcde317f0f08b59fef94ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ca670c09b9f8d17e81fb4980ab82e6f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a7ca670c09b9f8d17e81fb4980ab82e6f">F_RED</a></td></tr>
+<tr class="separator:a7ca670c09b9f8d17e81fb4980ab82e6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa150476bbd47ccaee788d0f3b8cb7cf2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#aa150476bbd47ccaee788d0f3b8cb7cf2">F_GREEN</a></td></tr>
+<tr class="separator:aa150476bbd47ccaee788d0f3b8cb7cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6bf4fa137c59de570008e7a92f13af7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#ae6bf4fa137c59de570008e7a92f13af7">F_YELLOW</a></td></tr>
+<tr class="separator:ae6bf4fa137c59de570008e7a92f13af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58bd9ec321e0b64f9f0218591fac3ee8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a58bd9ec321e0b64f9f0218591fac3ee8">F_BLUE</a></td></tr>
+<tr class="separator:a58bd9ec321e0b64f9f0218591fac3ee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e9ee567982fef32c06761374008dcd2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a1e9ee567982fef32c06761374008dcd2">F_MAGENTA</a></td></tr>
+<tr class="separator:a1e9ee567982fef32c06761374008dcd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adad108cbbab85dcf52ab59977d5d298a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#adad108cbbab85dcf52ab59977d5d298a">F_CYAN</a></td></tr>
+<tr class="separator:adad108cbbab85dcf52ab59977d5d298a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ea625c93d928f7b3286f35254beea3e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a9ea625c93d928f7b3286f35254beea3e">F_WHITE</a></td></tr>
+<tr class="separator:a9ea625c93d928f7b3286f35254beea3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa03a2005102003d2d4e646dd7f8752ae"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#aa03a2005102003d2d4e646dd7f8752ae">B_BLACK</a></td></tr>
+<tr class="separator:aa03a2005102003d2d4e646dd7f8752ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec89f539930768ef03879c5f9bbbf6a2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#aec89f539930768ef03879c5f9bbbf6a2">B_RED</a></td></tr>
+<tr class="separator:aec89f539930768ef03879c5f9bbbf6a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fdfe7d01c20bcf5eef419c2202dafe6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a2fdfe7d01c20bcf5eef419c2202dafe6">B_GREEN</a></td></tr>
+<tr class="separator:a2fdfe7d01c20bcf5eef419c2202dafe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a455dcbfcfbb3bcb927a04797d0d4168e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a455dcbfcfbb3bcb927a04797d0d4168e">B_YELLOW</a></td></tr>
+<tr class="separator:a455dcbfcfbb3bcb927a04797d0d4168e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03471b3bd5b1999cb0047d588d33e1ea"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a03471b3bd5b1999cb0047d588d33e1ea">B_BLUE</a></td></tr>
+<tr class="separator:a03471b3bd5b1999cb0047d588d33e1ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a759afd659ec0520d5914082b3c5e0afc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a759afd659ec0520d5914082b3c5e0afc">B_MAGENTA</a></td></tr>
+<tr class="separator:a759afd659ec0520d5914082b3c5e0afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad253efd2352cbab99d3e579b53e37080"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#ad253efd2352cbab99d3e579b53e37080">B_CYAN</a></td></tr>
+<tr class="separator:ad253efd2352cbab99d3e579b53e37080"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cce74258f0662df4aae6ea8577f992c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a4cce74258f0662df4aae6ea8577f992c">B_WHITE</a></td></tr>
+<tr class="separator:a4cce74258f0662df4aae6ea8577f992c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7e720a70f18e14815b52d03d586b7df"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#af7e720a70f18e14815b52d03d586b7df">A_RESET</a></td></tr>
+<tr class="separator:af7e720a70f18e14815b52d03d586b7df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cecfb4372f456e871714924685a3081"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a5cecfb4372f456e871714924685a3081">A_BRIGHT</a></td></tr>
+<tr class="separator:a5cecfb4372f456e871714924685a3081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c470959f204a91b2dbb0217a8d2de35"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a0c470959f204a91b2dbb0217a8d2de35">A_FAINT</a></td></tr>
+<tr class="separator:a0c470959f204a91b2dbb0217a8d2de35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4eabc6394821b2125c0bad1892d5261e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a4eabc6394821b2125c0bad1892d5261e">A_ITALIC</a></td></tr>
+<tr class="separator:a4eabc6394821b2125c0bad1892d5261e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf72f97021dd9581e2b2b25657831b69"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#aaf72f97021dd9581e2b2b25657831b69">A_UNDERLINE</a></td></tr>
+<tr class="separator:aaf72f97021dd9581e2b2b25657831b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02d27529abf5510c1c36c58d2eaca983"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a02d27529abf5510c1c36c58d2eaca983">A_BLINK</a></td></tr>
+<tr class="separator:a02d27529abf5510c1c36c58d2eaca983"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af39b1ca344f48853801aa0587c5120c5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#af39b1ca344f48853801aa0587c5120c5">A_BLINK_FAST</a></td></tr>
+<tr class="separator:af39b1ca344f48853801aa0587c5120c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af539d98a065678c9333b3f3eea04cc5d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#af539d98a065678c9333b3f3eea04cc5d">A_REVERSE</a></td></tr>
+<tr class="separator:af539d98a065678c9333b3f3eea04cc5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cbae4ab63b61b502e6d9ecb3e93f8cd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a5cbae4ab63b61b502e6d9ecb3e93f8cd">A_HIDDEN</a></td></tr>
+<tr class="separator:a5cbae4ab63b61b502e6d9ecb3e93f8cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e55308fd4d0b49b1904db470ace6781"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a9e55308fd4d0b49b1904db470ace6781">A_STRIKETHROUGH</a></td></tr>
+<tr class="separator:a9e55308fd4d0b49b1904db470ace6781"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a803f93ef68fcc0f2bf7148d73c7859dd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a803f93ef68fcc0f2bf7148d73c7859dd">DIRECTION_UP</a></td></tr>
+<tr class="separator:a803f93ef68fcc0f2bf7148d73c7859dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50d684c0c00c0b6f8aa1bcd1d9b5600d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a50d684c0c00c0b6f8aa1bcd1d9b5600d">DIRECTION_DOWN</a></td></tr>
+<tr class="separator:a50d684c0c00c0b6f8aa1bcd1d9b5600d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a149c98e80c6227db0e90c70b25a161ce"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a149c98e80c6227db0e90c70b25a161ce">DIRECTION_RIGHT</a></td></tr>
+<tr class="separator:a149c98e80c6227db0e90c70b25a161ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4250edf648d7d908c66d900cb9c82db6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a4250edf648d7d908c66d900cb9c82db6">DIRECTION_LEFT</a></td></tr>
+<tr class="separator:a4250edf648d7d908c66d900cb9c82db6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d57a9d954bfbf9c473ade68b535461e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a4d57a9d954bfbf9c473ade68b535461e">BEGINNING_OF_NEXT_LINE</a></td></tr>
+<tr class="separator:a4d57a9d954bfbf9c473ade68b535461e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0957b275a09a0018637a3a92af8306ba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesista.html#a0957b275a09a0018637a3a92af8306ba">BEGINNING_OF_PREVIOUS_LINE</a></td></tr>
+<tr class="separator:a0957b275a09a0018637a3a92af8306ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Sista library namespace. </p>
+<p>Python type hints and pydocstrings for the Sista C extension module.</p>
+<p>Memory-safe and OS-agnostic library for making terminal videogames and animations.</p>
 <p>This namespace encapsulates all components of the Sista library.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1ANSISettings.html" title="Represents a set of ANSI settings including colors and attributes.">ANSISettings</a> </dd>
 <dd>
@@ -409,7 +540,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Enumeration for handling out-of-bounds coordinates. </p>
-<p>This enum class defines different effects that can be applied when a <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>'s coordinates go out of the bounds of the <a class="el" href="classsista_1_1Field.html" title="Represents a 2D grid where Pawns can be placed, moved, and managed.">Field</a>. The effects determine how the coordinates are adjusted to bring them back within valid limits.</p>
+<p>This enum class defines different effects that can be applied when a <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>'s coordinates go out of the bounds of the <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a>. The effects determine how the coordinates are adjusted to bring them back within valid limits.</p>
 <ul>
 <li>PACMAN: Wraps around to the opposite side of the field (like in the PacMan game).</li>
 <li>MATRIX: Wraps to the beginning of the next line (like in classic C-style arrays).</li>
@@ -666,6 +797,126 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a887968437ee09335c99180ec7f2b068f" name="a887968437ee09335c99180ec7f2b068f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a887968437ee09335c99180ec7f2b068f">&#9670;&#160;</a></span>__dir__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def sista.__dir__ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae23d9935fbc0ef4b135a31405654311e" name="ae23d9935fbc0ef4b135a31405654311e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae23d9935fbc0ef4b135a31405654311e">&#9670;&#160;</a></span>__getattr__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def sista.__getattr__ </td>
+          <td>(</td>
+          <td class="paramtype">str&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a949ceac49c97ebeba8f2f54deff23c56" name="a949ceac49c97ebeba8f2f54deff23c56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a949ceac49c97ebeba8f2f54deff23c56">&#9670;&#160;</a></span>_load_ext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">def sista._load_ext </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a101583d303f85cf7b4b325eb6918c4b5" name="a101583d303f85cf7b4b325eb6918c4b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a101583d303f85cf7b4b325eb6918c4b5">&#9670;&#160;</a></span>add_pawn_to_swap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> int sista.add_pawn_to_swap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td>
+          <td class="paramname"><em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td>
+          <td class="paramname"><em>pawn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td>
+          <td class="paramname"><em>coords</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Schedule a pawn to be moved (swapped) later in a <a class="el" href="classsista_1_1SwappableField.html" title="Class representing a terminal SwappableField for pawns and borders.">SwappableField</a>. </p>
+<p>The function adds the pawn and its destination coordinates to the swap list managed by the <a class="el" href="classsista_1_1SwappableField.html" title="Class representing a terminal SwappableField for pawns and borders.">SwappableField</a>. Call <a class="el" href="namespacesista.html#a8e1bf06bcb7da01500961e6d6aa3aa27" title="Execute all scheduled pawn swaps in the given SwappableField.">sista.apply_swaps</a> (or the equivalent) to execute scheduled swaps.</p>
+<p>:param field: Capsule for the <a class="el" href="classsista_1_1SwappableField.html" title="Class representing a terminal SwappableField for pawns and borders.">SwappableField</a>. :param pawn: Capsule for the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> to schedule. :param coords: Capsule with the destination coordinates. :return: Integer status code (0 == added successfully). </p>
+
+</div>
+</div>
+<a id="a8e1bf06bcb7da01500961e6d6aa3aa27" name="a8e1bf06bcb7da01500961e6d6aa3aa27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e1bf06bcb7da01500961e6d6aa3aa27">&#9670;&#160;</a></span>apply_swaps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> int sista.apply_swaps </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td>
+          <td class="paramname"><em>field</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Execute all scheduled pawn swaps in the given <a class="el" href="classsista_1_1SwappableField.html" title="Class representing a terminal SwappableField for pawns and borders.">SwappableField</a>. </p>
+<p>The function processes all pawns previously added to the swap list using add_pawn_to_swap, moving them to their target coordinates.</p>
+<p>:param field: Capsule for the <a class="el" href="classsista_1_1SwappableField.html" title="Class representing a terminal SwappableField for pawns and borders.">SwappableField</a>. :return: Integer status code (0 == success). </p>
+
+</div>
+</div>
 <a id="a687185cf5802d0217bac5e9e5f0e020a" name="a687185cf5802d0217bac5e9e5f0e020a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a687185cf5802d0217bac5e9e5f0e020a">&#9670;&#160;</a></span>attrStr()</h2>
 
@@ -832,6 +1083,151 @@ Functions</h2></td></tr>
 <a class="el" href="ansi_8hpp.html#a7cfa144d4795a4c35d31854db46ab405" title="Erase Scrollback Buffer ANSI escape code.">SSB</a> </dd>
 <dd>
 <a class="el" href="ansi_8hpp.html#a34332585ce6b88358cabf90092fbbb8d" title="Top Left ANSI escape code.">TL</a> </dd></dl>
+
+</div>
+</div>
+<a id="af7ea280bcbb2e75d646980de640a3cdb" name="af7ea280bcbb2e75d646980de640a3cdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7ea280bcbb2e75d646980de640a3cdb">&#9670;&#160;</a></span>create_ansi_settings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> <a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> sista.create_ansi_settings </td>
+          <td>(</td>
+          <td class="paramtype">int &#160;</td>
+          <td class="paramname"><em>fgcolor</em> = <code>...</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &#160;</td>
+          <td class="paramname"><em>bgcolor</em> = <code>...</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &#160;</td>
+          <td class="paramname"><em>attribute</em> = <code>...</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create an ANSI settings object and return it as a Capsule. </p>
+<p>The settings object describes foreground/background colors and a text attribute to be applied when rendering borders, pawns, etc.</p>
+<p>:param fgcolor: Foreground color (one of the F_* constants). :param bgcolor: Background color (one of the B_* constants). :param attribute: Text attribute (one of the A_* constants). :return: Capsule wrapping the <a class="el" href="structsista_1_1ANSISettings.html" title="Represents a set of ANSI settings including colors and attributes.">ANSISettings</a> handler. </p>
+
+</div>
+</div>
+<a id="a4ca373f0906f4bdfdc3613cfdf06953a" name="a4ca373f0906f4bdfdc3613cfdf06953a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ca373f0906f4bdfdc3613cfdf06953a">&#9670;&#160;</a></span>create_border()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> <a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> sista.create_border </td>
+          <td>(</td>
+          <td class="paramtype">str&#160;</td>
+          <td class="paramname"><em>symbol</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td>
+          <td class="paramname"><em>ansi_settings</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a <a class="el" href="classsista_1_1Border.html" title="Represents a brick of the border with a symbol and ANSI settings.">Border</a> object that uses a single-character symbol and ANSI settings. </p>
+<p>:param symbol: Single character string used to draw border bricks. :param ansi_settings: Capsule returned by create_ansi_settings. :return: Capsule wrapping the <a class="el" href="classsista_1_1Border.html" title="Represents a brick of the border with a symbol and ANSI settings.">Border</a> handler. </p>
+
+</div>
+</div>
+<a id="a07e48cce76729ca373904acad9be1d4c" name="a07e48cce76729ca373904acad9be1d4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07e48cce76729ca373904acad9be1d4c">&#9670;&#160;</a></span>create_coordinates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> <a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> sista.create_coordinates </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a <a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">Coordinates</a> object and return it as a Capsule. </p>
+<p><a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">Coordinates</a> are small value objects (y,row and x,column) used by pawn creation and movement functions. Caller is responsible for freeing the capsule when no longer needed (the extension provides destructors).</p>
+<p>:param y: Row index (unsigned short). :param x: Column index (unsigned short). :return: Capsule wrapping a <a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">Coordinates</a> struct. </p>
+
+</div>
+</div>
+<a id="a52e651220126debb0d253ebba25bcb52" name="a52e651220126debb0d253ebba25bcb52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52e651220126debb0d253ebba25bcb52">&#9670;&#160;</a></span>create_pawn_in_field()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> <a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a> sista.create_pawn_in_field </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td>
+          <td class="paramname"><em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str&#160;</td>
+          <td class="paramname"><em>symbol</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td>
+          <td class="paramname"><em>ansi_settings</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td>
+          <td class="paramname"><em>coords</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> inside a non-swappable <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> and return a <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> capsule. </p>
+<p>Pawns created in plain Fields are managed by the <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> object.</p>
+<p>:param field: Capsule returned by the <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> creation function. :param symbol: Single character string representing the pawn. :param ansi_settings: Capsule returned by create_ansi_settings. :param coords: Capsule returned by create_coordinates. :return: Capsule wrapping the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> handler. </p>
 
 </div>
 </div>
@@ -1097,6 +1493,174 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ac544fa11de7fdca5cb45288c68d1490d" name="ac544fa11de7fdca5cb45288c68d1490d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac544fa11de7fdca5cb45288c68d1490d">&#9670;&#160;</a></span>move_pawn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> int sista.move_pawn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td>
+          <td class="paramname"><em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td>
+          <td class="paramname"><em>pawn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dy</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Move a pawn inside a <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> by the given delta and return a status code. </p>
+<p>The meaning of the returned integer follows the library's convention (0 for success, non-zero for various errors such as out-of-bounds or occupied destination).</p>
+<p>:param field: Capsule for the <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> containing the pawn. :param pawn: Capsule for the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> to move. :param dx: Delta in the x (column) direction. :param dy: Delta in the y (row) direction. :return: Integer status code (0 == success). </p>
+
+</div>
+</div>
+<a id="a3d11ecc627b872556b8d0477c8c7bace" name="a3d11ecc627b872556b8d0477c8c7bace"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d11ecc627b872556b8d0477c8c7bace">&#9670;&#160;</a></span>print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None sista.print </td>
+          <td>(</td>
+          <td class="paramtype">str&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print a message to the terminal using Sista's configured output stream. </p>
+<p>The function respects Sista's current ANSI settings (colors/attributes) as managed by the extension.</p>
+<p>:param message: Message to print (a single text line). :type message: str </p>
+
+</div>
+</div>
+<a id="ac15b6b6eb20433a3aee46f1d55ee40e3" name="ac15b6b6eb20433a3aee46f1d55ee40e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac15b6b6eb20433a3aee46f1d55ee40e3">&#9670;&#160;</a></span>print_field_with_border()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None sista.print_field_with_border </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td>
+          <td class="paramname"><em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td>
+          <td class="paramname"><em>border</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Render a <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> to the terminal using the given <a class="el" href="classsista_1_1Border.html" title="Represents a brick of the border with a symbol and ANSI settings.">Border</a> object. </p>
+<p>:param field: Capsule for the <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> to print. :param border: Capsule for the <a class="el" href="classsista_1_1Border.html" title="Represents a brick of the border with a symbol and ANSI settings.">Border</a> to draw around the field. </p>
+
+</div>
+</div>
+<a id="a94d7ccea3b801388ca3cb5cc1134b518" name="a94d7ccea3b801388ca3cb5cc1134b518"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94d7ccea3b801388ca3cb5cc1134b518">&#9670;&#160;</a></span>print_swappable_field_with_border()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None sista.print_swappable_field_with_border </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td>
+          <td class="paramname"><em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacesista.html#a133faacc53892375ea63733f1f165a70">Capsule</a>&#160;</td>
+          <td class="paramname"><em>border</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Render a <a class="el" href="classsista_1_1SwappableField.html" title="Class representing a terminal SwappableField for pawns and borders.">SwappableField</a> to the terminal using the given <a class="el" href="classsista_1_1Border.html" title="Represents a brick of the border with a symbol and ANSI settings.">Border</a> object. </p>
+<p>:param field: Capsule for the <a class="el" href="classsista_1_1SwappableField.html" title="Class representing a terminal SwappableField for pawns and borders.">SwappableField</a> to print. :param border: Capsule for the <a class="el" href="classsista_1_1Border.html" title="Represents a brick of the border with a symbol and ANSI settings.">Border</a> to draw around the field. </p>
+
+</div>
+</div>
+<a id="abf076e169eab4674c7f2c46dcc896bf6" name="abf076e169eab4674c7f2c46dcc896bf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf076e169eab4674c7f2c46dcc896bf6">&#9670;&#160;</a></span>reset_ansi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None sista.reset_ansi </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reset all ANSI text attributes and colors to the terminal defaults. </p>
+
+</div>
+</div>
+<a id="a948b7ce93587fd89c743413a432b64c0" name="a948b7ce93587fd89c743413a432b64c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a948b7ce93587fd89c743413a432b64c0">&#9670;&#160;</a></span>reset_attribute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None sista.reset_attribute </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>attribute</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Disable/reset a terminal text attribute using one of the A_* constants. </p>
+<p>:param attribute: One of the A_* constants (e.g. A_RESET). :type attribute: int </p>
+
+</div>
+</div>
 <a id="a01b6f49cb4ab2bca5aa726b576a6f3ad" name="a01b6f49cb4ab2bca5aa726b576a6f3ad"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a01b6f49cb4ab2bca5aa726b576a6f3ad">&#9670;&#160;</a></span>resetAnsi()</h2>
 
@@ -1152,6 +1716,69 @@ Functions</h2></td></tr>
 </dl>
 <p>This function resets the terminal's text attribute based on the provided Attribute enum value. It outputs the corresponding ANSI escape code to standard output.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2f" title="Enumeration of text attributes for ANSI escape codes.">Attribute</a> </dd></dl>
+
+</div>
+</div>
+<a id="a06ee983ca96dd86f4bfda9136c924e00" name="a06ee983ca96dd86f4bfda9136c924e00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06ee983ca96dd86f4bfda9136c924e00">&#9670;&#160;</a></span>set_attribute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None sista.set_attribute </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>attribute</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable a terminal text attribute using one of the A_* constants. </p>
+<p>:param attribute: One of the A_* constants (e.g. A_UNDERLINE). :type attribute: int </p>
+
+</div>
+</div>
+<a id="a456e0330510acc7b986a7a8ff937138a" name="a456e0330510acc7b986a7a8ff937138a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a456e0330510acc7b986a7a8ff937138a">&#9670;&#160;</a></span>set_background_color()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None sista.set_background_color </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the terminal background color using one of the B_* constants. </p>
+<p>:param color: One of the B_* constants (e.g. B_BLUE). :type color: int </p>
+
+</div>
+</div>
+<a id="a50b9cbdd31ba71460a8ba48c4c56ccd8" name="a50b9cbdd31ba71460a8ba48c4c56ccd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50b9cbdd31ba71460a8ba48c4c56ccd8">&#9670;&#160;</a></span>set_foreground_color()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None sista.set_foreground_color </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the terminal foreground color using one of the F_* constants. </p>
+<p>:param color: One of the F_* constants (e.g. F_RED). :type color: int </p>
 
 </div>
 </div>
@@ -1499,10 +2126,545 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a9e209d6e19fca244ed5242e099a30f40" name="a9e209d6e19fca244ed5242e099a30f40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e209d6e19fca244ed5242e099a30f40">&#9670;&#160;</a></span>_ext</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">def sista._ext = <a class="el" href="namespacesista.html#a949ceac49c97ebeba8f2f54deff23c56">_load_ext</a>()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad311dd8f2f782833324e3eadbec24012" name="ad311dd8f2f782833324e3eadbec24012"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad311dd8f2f782833324e3eadbec24012">&#9670;&#160;</a></span>_ext_names</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">list sista._ext_names = [n for n in dir(<a class="el" href="namespacesista.html#a9e209d6e19fca244ed5242e099a30f40">_ext</a>) if not n.startswith(&quot;_&quot;)]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a02d27529abf5510c1c36c58d2eaca983" name="a02d27529abf5510c1c36c58d2eaca983"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02d27529abf5510c1c36c58d2eaca983">&#9670;&#160;</a></span>A_BLINK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.A_BLINK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af39b1ca344f48853801aa0587c5120c5" name="af39b1ca344f48853801aa0587c5120c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af39b1ca344f48853801aa0587c5120c5">&#9670;&#160;</a></span>A_BLINK_FAST</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.A_BLINK_FAST</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5cecfb4372f456e871714924685a3081" name="a5cecfb4372f456e871714924685a3081"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cecfb4372f456e871714924685a3081">&#9670;&#160;</a></span>A_BRIGHT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.A_BRIGHT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0c470959f204a91b2dbb0217a8d2de35" name="a0c470959f204a91b2dbb0217a8d2de35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c470959f204a91b2dbb0217a8d2de35">&#9670;&#160;</a></span>A_FAINT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.A_FAINT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5cbae4ab63b61b502e6d9ecb3e93f8cd" name="a5cbae4ab63b61b502e6d9ecb3e93f8cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cbae4ab63b61b502e6d9ecb3e93f8cd">&#9670;&#160;</a></span>A_HIDDEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.A_HIDDEN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4eabc6394821b2125c0bad1892d5261e" name="a4eabc6394821b2125c0bad1892d5261e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4eabc6394821b2125c0bad1892d5261e">&#9670;&#160;</a></span>A_ITALIC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.A_ITALIC</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af7e720a70f18e14815b52d03d586b7df" name="af7e720a70f18e14815b52d03d586b7df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7e720a70f18e14815b52d03d586b7df">&#9670;&#160;</a></span>A_RESET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.A_RESET</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af539d98a065678c9333b3f3eea04cc5d" name="af539d98a065678c9333b3f3eea04cc5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af539d98a065678c9333b3f3eea04cc5d">&#9670;&#160;</a></span>A_REVERSE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.A_REVERSE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e55308fd4d0b49b1904db470ace6781" name="a9e55308fd4d0b49b1904db470ace6781"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e55308fd4d0b49b1904db470ace6781">&#9670;&#160;</a></span>A_STRIKETHROUGH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.A_STRIKETHROUGH</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaf72f97021dd9581e2b2b25657831b69" name="aaf72f97021dd9581e2b2b25657831b69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf72f97021dd9581e2b2b25657831b69">&#9670;&#160;</a></span>A_UNDERLINE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.A_UNDERLINE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa03a2005102003d2d4e646dd7f8752ae" name="aa03a2005102003d2d4e646dd7f8752ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa03a2005102003d2d4e646dd7f8752ae">&#9670;&#160;</a></span>B_BLACK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.B_BLACK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a03471b3bd5b1999cb0047d588d33e1ea" name="a03471b3bd5b1999cb0047d588d33e1ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03471b3bd5b1999cb0047d588d33e1ea">&#9670;&#160;</a></span>B_BLUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.B_BLUE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad253efd2352cbab99d3e579b53e37080" name="ad253efd2352cbab99d3e579b53e37080"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad253efd2352cbab99d3e579b53e37080">&#9670;&#160;</a></span>B_CYAN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.B_CYAN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2fdfe7d01c20bcf5eef419c2202dafe6" name="a2fdfe7d01c20bcf5eef419c2202dafe6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fdfe7d01c20bcf5eef419c2202dafe6">&#9670;&#160;</a></span>B_GREEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.B_GREEN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a759afd659ec0520d5914082b3c5e0afc" name="a759afd659ec0520d5914082b3c5e0afc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a759afd659ec0520d5914082b3c5e0afc">&#9670;&#160;</a></span>B_MAGENTA</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.B_MAGENTA</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aec89f539930768ef03879c5f9bbbf6a2" name="aec89f539930768ef03879c5f9bbbf6a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec89f539930768ef03879c5f9bbbf6a2">&#9670;&#160;</a></span>B_RED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.B_RED</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4cce74258f0662df4aae6ea8577f992c" name="a4cce74258f0662df4aae6ea8577f992c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cce74258f0662df4aae6ea8577f992c">&#9670;&#160;</a></span>B_WHITE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.B_WHITE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a455dcbfcfbb3bcb927a04797d0d4168e" name="a455dcbfcfbb3bcb927a04797d0d4168e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a455dcbfcfbb3bcb927a04797d0d4168e">&#9670;&#160;</a></span>B_YELLOW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.B_YELLOW</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4d57a9d954bfbf9c473ade68b535461e" name="a4d57a9d954bfbf9c473ade68b535461e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d57a9d954bfbf9c473ade68b535461e">&#9670;&#160;</a></span>BEGINNING_OF_NEXT_LINE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.BEGINNING_OF_NEXT_LINE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0957b275a09a0018637a3a92af8306ba" name="a0957b275a09a0018637a3a92af8306ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0957b275a09a0018637a3a92af8306ba">&#9670;&#160;</a></span>BEGINNING_OF_PREVIOUS_LINE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.BEGINNING_OF_PREVIOUS_LINE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a133faacc53892375ea63733f1f165a70" name="a133faacc53892375ea63733f1f165a70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a133faacc53892375ea63733f1f165a70">&#9670;&#160;</a></span>Capsule</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Any sista.Capsule = Any</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a50d684c0c00c0b6f8aa1bcd1d9b5600d" name="a50d684c0c00c0b6f8aa1bcd1d9b5600d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50d684c0c00c0b6f8aa1bcd1d9b5600d">&#9670;&#160;</a></span>DIRECTION_DOWN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.DIRECTION_DOWN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4250edf648d7d908c66d900cb9c82db6" name="a4250edf648d7d908c66d900cb9c82db6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4250edf648d7d908c66d900cb9c82db6">&#9670;&#160;</a></span>DIRECTION_LEFT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.DIRECTION_LEFT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a149c98e80c6227db0e90c70b25a161ce" name="a149c98e80c6227db0e90c70b25a161ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a149c98e80c6227db0e90c70b25a161ce">&#9670;&#160;</a></span>DIRECTION_RIGHT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.DIRECTION_RIGHT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a803f93ef68fcc0f2bf7148d73c7859dd" name="a803f93ef68fcc0f2bf7148d73c7859dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a803f93ef68fcc0f2bf7148d73c7859dd">&#9670;&#160;</a></span>DIRECTION_UP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.DIRECTION_UP</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af92f89ab43fcde317f0f08b59fef94ed" name="af92f89ab43fcde317f0f08b59fef94ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af92f89ab43fcde317f0f08b59fef94ed">&#9670;&#160;</a></span>F_BLACK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.F_BLACK</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a58bd9ec321e0b64f9f0218591fac3ee8" name="a58bd9ec321e0b64f9f0218591fac3ee8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58bd9ec321e0b64f9f0218591fac3ee8">&#9670;&#160;</a></span>F_BLUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.F_BLUE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adad108cbbab85dcf52ab59977d5d298a" name="adad108cbbab85dcf52ab59977d5d298a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adad108cbbab85dcf52ab59977d5d298a">&#9670;&#160;</a></span>F_CYAN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.F_CYAN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa150476bbd47ccaee788d0f3b8cb7cf2" name="aa150476bbd47ccaee788d0f3b8cb7cf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa150476bbd47ccaee788d0f3b8cb7cf2">&#9670;&#160;</a></span>F_GREEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.F_GREEN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e9ee567982fef32c06761374008dcd2" name="a1e9ee567982fef32c06761374008dcd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e9ee567982fef32c06761374008dcd2">&#9670;&#160;</a></span>F_MAGENTA</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.F_MAGENTA</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ca670c09b9f8d17e81fb4980ab82e6f" name="a7ca670c09b9f8d17e81fb4980ab82e6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ca670c09b9f8d17e81fb4980ab82e6f">&#9670;&#160;</a></span>F_RED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.F_RED</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9ea625c93d928f7b3286f35254beea3e" name="a9ea625c93d928f7b3286f35254beea3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ea625c93d928f7b3286f35254beea3e">&#9670;&#160;</a></span>F_WHITE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.F_WHITE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae6bf4fa137c59de570008e7a92f13af7" name="ae6bf4fa137c59de570008e7a92f13af7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6bf4fa137c59de570008e7a92f13af7">&#9670;&#160;</a></span>F_YELLOW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista.F_YELLOW</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a458982b3c49bc7b5dde09e1d80c4f793" name="a458982b3c49bc7b5dde09e1d80c4f793"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a458982b3c49bc7b5dde09e1d80c4f793">&#9670;&#160;</a></span>MODULE_NAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">f sista.MODULE_NAME = f&quot;{__name__}._sista&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae2d3f3fd7d76a6ea9e7a52b5b43e43fd" name="ae2d3f3fd7d76a6ea9e7a52b5b43e43fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2d3f3fd7d76a6ea9e7a52b5b43e43fd">&#9670;&#160;</a></span>try</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sista.try :</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 27 2025 17:57:11 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generated on Sat Dec 27 2025 18:31:27 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>

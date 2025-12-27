@@ -79,12 +79,12 @@ $(function() {
 Unreleased v&lt;tt&gt;3.0.0&lt;/tt&gt;</h1>
 <p>Major release.</p>
 <ul>
-<li>Changed <code><a class="el" href="classsista_1_1Field.html" title="Represents a 2D grid where Pawns can be placed, moved, and managed.">sista::Field</a></code> to use <code>std::shared_ptr&lt;<a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">sista::Pawn</a>&gt;</code> instead of raw pointers for memory safety and easier memory management<ul>
+<li>Changed <code><a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">sista::Field</a></code> to use <code>std::shared_ptr&lt;<a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">sista::Pawn</a>&gt;</code> instead of raw pointers for memory safety and easier memory management<ul>
 <li>Removed <code>Field::reset</code> method as it is redundant with <code>Field::clear</code> in this context</li>
 </ul>
 </li>
 <li>Updated demos to use <code>std::shared_ptr&lt;<a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">sista::Pawn</a>&gt;</code> and <code>std::make_shared&lt;<a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">sista::Pawn</a>&gt;</code> for creating and managing pawns</li>
-<li>Updated documentation to reflect changes in <code><a class="el" href="classsista_1_1Field.html" title="Represents a 2D grid where Pawns can be placed, moved, and managed.">sista::Field</a></code> and <code><a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">sista::Pawn</a></code> usage</li>
+<li>Updated documentation to reflect changes in <code><a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">sista::Field</a></code> and <code><a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">sista::Pawn</a></code> usage</li>
 <li>Removed <code>ANSI</code> namespace and moved all ANSI-related functionality to <code>sista::</code>, among which <code>ANSI::Settings</code>-&gt;<code><a class="el" href="structsista_1_1ANSISettings.html" title="Represents a set of ANSI settings including colors and attributes.">sista::ANSISettings</a></code></li>
 <li>Wrapped former <code>_EFFECT</code> constants into a scoped <code>enum class Effect</code> inside the <code>sista</code> namespace</li>
 <li>Changed <code>enum</code> types to <code>enum class</code> for better type safety and to avoid name clashes<ul>
@@ -99,15 +99,15 @@ Unreleased v&lt;tt&gt;3.0.0&lt;/tt&gt;</h1>
 <li>Created static methods in <code><a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">sista::Coordinates</a></code> to convert from and to <code>std::pair&lt;unsigned short, unsigned short&gt;</code></li>
 </ul>
 </li>
-<li>Removed <code>y</code> and <code>x</code> attributes from <code><a class="el" href="structsista_1_1Cursor.html" title="Manages terminal cursor operations.">sista::Cursor</a></code>, as they were not used outside the struct nor necessary for its functionality</li>
+<li>Removed <code>y</code> and <code>x</code> attributes from <code><a class="el" href="structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations.">sista::Cursor</a></code>, as they were not used outside the struct nor necessary for its functionality</li>
 <li>Renamed <code>sista::Coordinates::set</code> to <code>goTo</code> for better clarity (it moves the cursor to the coordinates)</li>
 <li>Using <code>const</code> qualifier for references where appropriate for better performance and semantics</li>
 <li>Added <code>const</code> qualifier to methods that do not modify the state of the object for better semantics and to allow calling them on <code>const</code> instances</li>
-<li>Moving <code><a class="el" href="classsista_1_1Field.html#a47340b18af79b1877808fc276f9397a4" title="Calculates the new coordinates of a Pawn after moving by a relative offset.">sista::SwappableField::movingByCoordinates</a></code> to <code><a class="el" href="classsista_1_1Field.html" title="Represents a 2D grid where Pawns can be placed, moved, and managed.">sista::Field</a></code> as it does not depend on <code>SwappableField</code> functionality</li>
+<li>Moving <code><a class="el" href="classsista_1_1Field.html#a47340b18af79b1877808fc276f9397a4" title="Calculates the new coordinates of a Pawn after moving by a relative offset.">sista::SwappableField::movingByCoordinates</a></code> to <code><a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">sista::Field</a></code> as it does not depend on <code>SwappableField</code> functionality</li>
 <li>Minimized includes in header files to reduce compilation dependencies and improve build times</li>
 <li>Added <code>std::hash</code> specialization for <code><a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">sista::Coordinates</a></code> to allow its use in hash-based containers like <code>std::unordered_map</code> and <code>std::unordered_set</code></li>
-<li>Optimized <code><a class="el" href="classsista_1_1SwappableField.html" title="A specialized Field that handles Pawn swaps without conflicts.">sista::SwappableField</a></code> internal logic for better performance</li>
-<li>Improved encapsulation of <code><a class="el" href="classsista_1_1SwappableField.html" title="A specialized Field that handles Pawn swaps without conflicts.">sista::SwappableField</a></code> by making internal methods private and exposing only necessary public methods</li>
+<li>Optimized <code><a class="el" href="classsista_1_1SwappableField.html" title="Class representing a terminal SwappableField for pawns and borders.">sista::SwappableField</a></code> internal logic for better performance</li>
+<li>Improved encapsulation of <code><a class="el" href="classsista_1_1SwappableField.html" title="Class representing a terminal SwappableField for pawns and borders.">sista::SwappableField</a></code> by making internal methods private and exposing only necessary public methods</li>
 <li>Exposed C API for stable ABI that allows FFI bindings and easier integration with other programming languages<ul>
 <li>Added <code><a class="el" href="api_8h.html" title="C API for Sista library.">api.h</a></code> header file with C API declarations</li>
 <li>Added <code><a class="el" href="api_8cpp.html" title="Implementation of the C API for Sista.">api.cpp</a></code> implementation file with C API definitions</li>
@@ -328,7 +328,7 @@ v&lt;tt&gt;0.9.2&lt;/tt&gt;</h1>
 <div class="line">    std::cout &lt;&lt; CSI &lt;&lt; &#39;=&#39; &lt;&lt; mode &lt;&lt; &#39;l&#39;;</div>
 <div class="line">}</div>
 </div><!-- fragment --><ul>
-<li>Added resetter for <code><a class="el" href="classsista_1_1Field.html" title="Represents a 2D grid where Pawns can be placed, moved, and managed.">sista::Field</a></code> instances, to empty the field from the <code><a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">sista::Pawn</a></code>s</li>
+<li>Added resetter for <code><a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">sista::Field</a></code> instances, to empty the field from the <code><a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">sista::Pawn</a></code>s</li>
 </ul>
 <div class="fragment"><div class="line"> {c++}</div>
 <div class="line">void reset() {</div>
@@ -440,7 +440,7 @@ v&lt;tt&gt;0.1.0&lt;/tt&gt;</h1>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 27 2025 17:57:11 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+Generated on Sat Dec 27 2025 18:31:27 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
 </small></address>
 </body>
 </html>

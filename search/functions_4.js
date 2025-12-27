@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['fgcolorstr_0',['fgColorStr',['../namespacesista.html#ad9056dcc89d8852520b790608821a109',1,'sista::fgColorStr(ForegroundColor)'],['../namespacesista.html#ae6c1e15767787eafbe9eeeea2dce4655',1,'sista::fgColorStr(const RGBColor &amp;)'],['../namespacesista.html#a967e5156819f2f3b0144a99fdabefa11',1,'sista::fgColorStr(unsigned char, unsigned char, unsigned char)']]],
-  ['field_1',['Field',['../classsista_1_1Field.html#a2665f87dea436220db3beb224248b904',1,'sista::Field']]],
-  ['frompair_2',['fromPair',['../structsista_1_1Coordinates.html#a05cc302276d3aaac90d8fc1abe384a29',1,'sista::Coordinates']]]
+  ['eraseline_0',['eraseLine',['../structsista_1_1Cursor.html#a400bb037ae7ee8984a453e13a63e5601',1,'sista::Cursor']]],
+  ['erasepawn_1',['erasePawn',['../classsista_1_1Field.html#a900f4baab9a1acbf90a8b133bb90b8ac',1,'sista::Field::erasePawn(Pawn *)'],['../classsista_1_1Field.html#a5ba7e3f46bcf217916877f77961f4cc2',1,'sista::Field::erasePawn(const Coordinates &amp;)']]],
+  ['erasescreen_2',['eraseScreen',['../structsista_1_1Cursor.html#a8eccc56fcac81e2e4b104b2814930a35',1,'sista::Cursor']]]
 ];

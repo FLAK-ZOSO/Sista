@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['ansi_2ecpp_0',['ansi.cpp',['../ansi_8cpp.html',1,'']]],
-  ['ansi_2ehpp_1',['ansi.hpp',['../ansi_8hpp.html',1,'']]],
-  ['api_2ecpp_2',['api.cpp',['../api_8cpp.html',1,'']]],
-  ['api_2eh_3',['api.h',['../api_8h.html',1,'']]]
+  ['_5f_5finit_5f_5f_2epy_0',['__init__.py',['../____init_____8py.html',1,'']]],
+  ['_5f_5finit_5f_5f_2epyi_1',['__init__.pyi',['../____init_____8pyi.html',1,'']]]
 ];

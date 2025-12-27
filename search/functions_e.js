@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['validatecoordinates_0',['validateCoordinates',['../classsista_1_1Field.html#a74d0ab2eb8cb342962e1f840772c63e3',1,'sista::Field::validateCoordinates(const Coordinates &amp;) const'],['../classsista_1_1Field.html#aa131d3fd21185827dc05af416027e4a4',1,'sista::Field::validateCoordinates(unsigned short, unsigned short) const']]]
+  ['unsetscreenmode_0',['unsetScreenMode',['../namespacesista.html#ac1d0f710dead79a74b4a4f5aeb0002b3',1,'sista']]]
 ];
