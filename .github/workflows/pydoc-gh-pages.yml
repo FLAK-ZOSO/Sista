@@ -41,3 +41,4 @@ jobs:
         publish_dir: ./docs/sista
         commit_message: "Generate API documentation"
         destination_dir: sista-python
+        keep_files: true
