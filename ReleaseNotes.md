@@ -35,12 +35,18 @@ Major release.
     - Updated `Makefile` to build the C API and link it with the C++ library
 - Updated CI workflows to build and test the C API
 
+- Added Python C extension module `sista._sista` loaded in the `sista` Python module
+    - Added `python/` directory with the C extension source code and `setup.py` for building and installing the Python module
+    - Updated CI workflows to build and test the Python module
+
 - Updated `Makefile` for hardcoding the rpath of the MacOS shared library to avoid issues with `DYLD_LIBRARY_PATH`
 - Updated `Makefile` to reflect the new filenames and ensure correct compilation and linking
 
 - Added files for `.deb` packaging under `packageroot`
 
 - Testing on memory safety with `valgrind`, detected no memory leaks or invalid accesses
+
+- Constructor and destructor of `sista::Cursor` only hide/show the cursor, but do not alter the ANSI settings nor clear the screen anymore
 
 ## v`2.2.1`
 

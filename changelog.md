@@ -52,6 +52,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 - Optimized `sista::SwappableField` internal logic for better performance
 - Improved encapsulation of `sista::SwappableField` by making internal methods private and exposing only necessary public methods
 
+- Constructor and destructor of `sista::Cursor` only hide/show the cursor, but do not alter the ANSI settings nor clear the screen anymore
+
 ### Removed
 
 - Removed `ANSI` namespace and moved all ANSI-related functionality to `sista::`, among which `ANSI::Settings`->`sista::ANSISettings`
