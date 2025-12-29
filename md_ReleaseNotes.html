@@ -114,10 +114,16 @@ Unreleased v&lt;tt&gt;3.0.0&lt;/tt&gt;</h1>
 </ul>
 </li>
 <li>Updated CI workflows to build and test the C API</li>
+<li>Added Python C extension module <code>sista._sista</code> loaded in the <code>sista</code> Python module<ul>
+<li>Added <code>python/</code> directory with the C extension source code and <code>setup.py</code> for building and installing the Python module</li>
+<li>Updated CI workflows to build and test the Python module</li>
+</ul>
+</li>
 <li>Updated <code>Makefile</code> for hardcoding the rpath of the MacOS shared library to avoid issues with <code>DYLD_LIBRARY_PATH</code></li>
 <li>Updated <code>Makefile</code> to reflect the new filenames and ensure correct compilation and linking</li>
 <li>Added files for <code>.deb</code> packaging under <code>packageroot</code></li>
 <li>Testing on memory safety with <code>valgrind</code>, detected no memory leaks or invalid accesses</li>
+<li>Constructor and destructor of <code><a class="el" href="structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations.">sista::Cursor</a></code> only hide/show the cursor, but do not alter the ANSI settings nor clear the screen anymore</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md26"></a>
 v&lt;tt&gt;2.2.1&lt;/tt&gt;</h1>
@@ -455,7 +461,7 @@ v&lt;tt&gt;0.1.0&lt;/tt&gt;</h1>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 29 2025 12:32:04 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Mon Dec 29 2025 13:04:23 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
