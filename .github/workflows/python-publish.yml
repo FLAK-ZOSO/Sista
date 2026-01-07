@@ -75,6 +75,7 @@ jobs:
       - name: Build wheels
         # https://cibuildwheel.pypa.io/en/stable/configuration/#environment-variables
         run: |
+          cd python
           cibuildwheel --output-dir wheelhouse
 
       - name: Upload wheels (windows)
@@ -103,6 +104,7 @@ jobs:
 
       - name: Build wheels
         run: |
+          cd python
           cibuildwheel --output-dir wheelhouse
 
       - name: Upload wheels (macos)
