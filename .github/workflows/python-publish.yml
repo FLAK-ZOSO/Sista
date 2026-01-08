@@ -21,10 +21,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-    
-      - name: Install the sista library
+
+      - name: Create local install prefix
+        run: mkdir -p python/_install
+
+      - name: Install the sista library into local prefix
         run: |
-          sudo PREFIX=/usr/local make install
+          make install PREFIX=${{ github.workspace }}/python/_install
 
       - uses: actions/setup-python@v5
         with:
@@ -32,18 +35,23 @@ jobs:
 
       - name: Build release distributions
         run: |
-          # NOTE: put your own distribution build steps here.
           cd python
           python -m pip install build
           python -m build
-    
+
       - name: Install cibuildwheel
         run: |
           cd python
           python -m pip install cibuildwheel
 
       - name: Build wheels
-        # https://cibuildwheel.pypa.io/en/stable/configuration/#environment-variables
+        env:
+          PREFIX: ${{ github.workspace }}/python/_install
+          CPPFLAGS: -I${{ github.workspace }}/python/_install/include
+          CFLAGS: -I${{ github.workspace }}/python/_install/include
+          LDFLAGS: -L${{ github.workspace }}/python/_install/lib -Wl,-rpath,${{ github.workspace }}/python/_install/lib
+          PKG_CONFIG_PATH: ${{ github.workspace }}/python/_install/lib/pkgconfig
+          LD_LIBRARY_PATH: ${{ github.workspace }}/python/_install/lib
         run: |
           cd python
           cibuildwheel --output-dir wheelhouse
@@ -59,10 +67,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-    
-      - name: Install the sista library
+
+      - name: Create local install prefix
+        shell: pwsh
         run: |
-          make install
+          New-Item -ItemType Directory -Force -Path "$env:GITHUB_WORKSPACE\python\_install"
+
+      - name: Install the sista library into local prefix
+        run: |
+          make install PREFIX=${{ github.workspace }}\\python\\_install
 
       - uses: actions/setup-python@v5
         with:
@@ -73,7 +86,10 @@ jobs:
           python -m pip install cibuildwheel
 
       - name: Build wheels
-        # https://cibuildwheel.pypa.io/en/stable/configuration/#environment-variables
+        env:
+          PREFIX: ${{ github.workspace }}\\python\\_install
+          INCLUDE: ${{ github.workspace }}\\python\\_install\\include
+          LIB: ${{ github.workspace }}\\python\\_install\\lib
         run: |
           cd python
           cibuildwheel --output-dir wheelhouse
@@ -90,9 +106,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # - name: Install the sista library
-      #   run: |
-      #     sudo PREFIX=/usr/local make install
+      - name: Create local install prefix
+        run: mkdir -p python/_install
+
+      - name: Install the sista library into local prefix
+        run: |
+          make install PREFIX=${{ github.workspace }}/python/_install
 
       - uses: actions/setup-python@v5
         with:
@@ -103,6 +122,13 @@ jobs:
           python -m pip install cibuildwheel
 
       - name: Build wheels
+        env:
+          PREFIX: ${{ github.workspace }}/python/_install
+          CPPFLAGS: -I${{ github.workspace }}/python/_install/include
+          CFLAGS: -I${{ github.workspace }}/python/_install/include
+          LDFLAGS: -L${{ github.workspace }}/python/_install/lib -Wl,-rpath,${{ github.workspace }}/python/_install/lib
+          PKG_CONFIG_PATH: ${{ github.workspace }}/python/_install/lib/pkgconfig
+          DYLD_LIBRARY_PATH: ${{ github.workspace }}/python/_install/lib
         run: |
           cd python
           cibuildwheel --output-dir wheelhouse
