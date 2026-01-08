@@ -161,11 +161,11 @@ jobs:
           name: release-wheels-linux
           path: python/wheelhouse/
 
-      - name: Retrieve wheels (windows)
-        uses: actions/download-artifact@v4
-        with:
-          name: release-wheels-windows
-          path: python/wheelhouse/
+      # - name: Retrieve wheels (windows)
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: release-wheels-windows
+      #     path: python/wheelhouse/
 
       - name: Retrieve wheels (macos)
         uses: actions/download-artifact@v4
