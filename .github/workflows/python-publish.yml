@@ -54,6 +54,13 @@ jobs:
           name: release-wheels-linux
           path: python/wheelhouse/
 
+      - name: Upload source and wheel distributions
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-dists
+          path: |
+            python/dist/
+
   # release-build-windows:
   #   runs-on: windows-latest
 
@@ -165,6 +172,16 @@ jobs:
         with:
           name: release-wheels-macos
           path: python/wheelhouse/
+
+      - name: Retrieve dists
+        uses: actions/download-artifact@v4
+        with:
+          name: release-dists
+          path: python/dist/
+
+      - name: Move dists to wheelhouse
+        run: |
+          mv python/dist/* python/wheelhouse/
 
       - name: Publish wheels to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
