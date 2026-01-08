@@ -9,11 +9,15 @@ sista_ext = Extension(
     include_dirs=[
         "/usr/local/include", 
         "/usr/include"
-    ] if not is_windows else [],
+    ] if not is_windows else [
+        r"C:\Program Files\Sista\include"
+    ],
     library_dirs=[
         "/usr/local/lib", 
         "/usr/lib"
-    ] if not is_windows else [],
+    ] if not is_windows else [
+        r"C:\Program Files\Sista\lib"
+    ],
     language="c",
     libraries=["Sista_api", "Sista"],
     extra_link_args=[

@@ -132,6 +132,9 @@ install: libSista.dll libSista.a libSista_api.dll libSista_api.a
 	copy libSista_api.dll "$(PREFIX)\lib\"
 	copy libSista_api.lib "$(PREFIX)\lib\"
 	copy libSista_api.a "$(PREFIX)\lib\"
+	REM Provide MSVC-friendly import library names (without "lib" prefix)
+	copy libSista.lib "$(PREFIX)\lib\Sista.lib"
+	copy libSista_api.lib "$(PREFIX)\lib\Sista_api.lib"
 	copy include\sista\*.hpp "$(PREFIX)\include\sista\"
 	copy include\sista\*.h "$(PREFIX)\include\sista\"
 	@echo "Library and headers installed to $(PREFIX)."
@@ -141,9 +144,10 @@ uninstall:
 	del "$(PREFIX)\lib\libSista.dll"
 	del "$(PREFIX)\lib\libSista.lib"
 	del "$(PREFIX)\lib\libSista.a"
-	del "$(PREFIX)\lib\libSista_api.dll"
-	del "$(PREFIX)\lib\libSista_api.lib"
 	@if exist "$(PREFIX)\include\sista" rmdir /S /Q "$(PREFIX)\include\sista"
+	REM remove MSVC-friendly names as well
+	del "$(PREFIX)\lib\Sista.lib" || @rem
+	del "$(PREFIX)\lib\Sista_api.lib" || @rem
 else ifeq "$(shell uname -s)" "Darwin"
 install: libSista.dylib libSista.a libSista_api.dylib libSista_api.a
 	@echo "Installing Sista version $(FULL_VERSION) to $(PREFIX)..."
