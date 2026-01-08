@@ -14,7 +14,7 @@ version = {attr = "sista.__version__"}
 [tool.cibuildwheel]
 # https://cibuildwheel.pypa.io/en/stable/options/#before-build
 before-build = [
-    "git clone https://github.com/FLAK-ZOSO/Sista",
+    "git clone https://github.com/FLAK-ZOSO/Sista || true",
     "cd Sista",
     "ls",
     "make install PREFIX=/usr/local",
