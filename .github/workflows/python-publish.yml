@@ -82,6 +82,7 @@ jobs:
           PREFIX: ${{ github.workspace }}\\python\\_install
           INCLUDE: ${{ github.workspace }}\\python\\_install\\include
           LIB: ${{ github.workspace }}\\python\\_install\\lib
+          CIBW_BEFORE_BUILD_WINDOWS: "" # To prevent cibuildwheel from trying to install Sista again
         run: |
           cd python
           cibuildwheel --output-dir wheelhouse
@@ -121,6 +122,7 @@ jobs:
           LDFLAGS: -L${{ github.workspace }}/python/_install/lib -Wl,-rpath,${{ github.workspace }}/python/_install/lib
           PKG_CONFIG_PATH: ${{ github.workspace }}/python/_install/lib/pkgconfig
           DYLD_LIBRARY_PATH: ${{ github.workspace }}/python/_install/lib
+          CIBW_BEFORE_BUILD_MACOS: "" # To prevent cibuildwheel from trying to install Sista again
         run: |
           cd python
           cibuildwheel --output-dir wheelhouse
