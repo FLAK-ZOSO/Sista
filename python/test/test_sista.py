@@ -62,16 +62,21 @@ def test_swappable_field_swap_paths():
     dest = sista.create_coordinates(2, 2)
 
     added = None
+    used_path = False
     try:
         added = sw.add_pawn_to_swap(pawn, dest)
+        used_path = True
     except Exception:
         added = None
 
     if added is None and hasattr(sista, "add_pawn_to_swap"):
         added = sista.add_pawn_to_swap(sw, pawn, dest)
-    if isinstance(added, int):
-        assert added >= 0
+        used_path = True
 
+    # Ensure that at least one add_pawn_to_swap path succeeded
+    assert used_path, "Expected either SwappableField.add_pawn_to_swap or module-level add_pawn_to_swap to succeed"
+    assert isinstance(added, int), "add_pawn_to_swap should return an int status code"
+    assert added >= 0
     # apply swaps via method or module API
     try:
         res = sw.apply_swaps()
