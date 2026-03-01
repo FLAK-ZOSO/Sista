@@ -2,10 +2,13 @@
 """Test script to verify enum exposure in sista module"""
 
 import sys
-
 try:
     import sista
-    
+except ImportError as e:
+    print(f"Failed to import sista module: {e}", file=sys.stderr)
+    sys.exit(1)
+
+def test_enum_exposure():
     print("Testing enum exposure...")
     
     # Test foreground colors
@@ -76,9 +79,3 @@ try:
     sista.set_attribute(sista.A_RESET)
     
     sista.print("\nAll enums successfully exposed!")
-except ImportError as e:
-    print(f"Failed to import sista module: {e}", file=sys.stderr)
-    sys.exit(1)
-except Exception as e:
-    print(f"Error testing enums: {e}")
-    sys.exit(1)
