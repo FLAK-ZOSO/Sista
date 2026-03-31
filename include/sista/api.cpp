@@ -165,6 +165,8 @@ extern "C" {
             return reinterpret_cast<PawnHandler_t>(f->getPawn(pos));
         } catch (const std::bad_alloc&) {
             return NULL;
+        } catch (const std::exception&) {
+            return NULL;
         }
     }
     PawnHandler_t sista_createPawnInField(
@@ -183,6 +185,8 @@ extern "C" {
             f->addPawn(p);
             return reinterpret_cast<PawnHandler_t>(f->getPawn(pos));
         } catch (const std::bad_alloc&) {
+            return NULL;
+        } catch (const std::exception&) {
             return NULL;
         }
     }
