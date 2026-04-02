@@ -4,34 +4,47 @@
 #include <thread>
 #include <stdio.h>
 
+static int fail_call(const char* name) {
+    fprintf(stderr, "%s failed: code=%d message=%s\n", name,
+            sista_getLastErrorCode(), sista_getLastErrorMessage());
+    return 1;
+}
+
 
 int main(int argc, char* argv[]) {
     SwappableFieldHandler_t field = sista_createSwappableField(42, 42/2);
-    sista_printSwappableField(field, '#');
+    if (field == nullptr) {
+        return fail_call("sista_createSwappableField");
+    }
+    if (sista_printSwappableField(field, '#') != SISTA_OK) {
+        return fail_call("sista_printSwappableField");
+    }
     std::this_thread::sleep_for(std::chrono::seconds(2));
-    sista_destroySwappableField(field);
+    if (sista_destroySwappableField(field) != SISTA_OK) {
+        return fail_call("sista_destroySwappableField");
+    }
 
-    sista_resetAnsi();
-    sista_setForegroundColor(sista_ForegroundColor::F_RED);
+    if (sista_resetAnsi() != SISTA_OK) return fail_call("sista_resetAnsi");
+    if (sista_setForegroundColor(sista_ForegroundColor::F_RED) != SISTA_OK) return fail_call("sista_setForegroundColor");
     printf("This text is red on default background.\n");
-    sista_setBackgroundColor(sista_BackgroundColor::B_GREEN);
+    if (sista_setBackgroundColor(sista_BackgroundColor::B_GREEN) != SISTA_OK) return fail_call("sista_setBackgroundColor");
     printf("This text is red on green background.\n");
-    sista_setForegroundColor(sista_ForegroundColor::F_WHITE);
+    if (sista_setForegroundColor(sista_ForegroundColor::F_WHITE) != SISTA_OK) return fail_call("sista_setForegroundColor");
     printf("This text is white on green background.\n");
-    sista_setBackgroundColor(sista_BackgroundColor::B_BLACK);
+    if (sista_setBackgroundColor(sista_BackgroundColor::B_BLACK) != SISTA_OK) return fail_call("sista_setBackgroundColor");
     printf("This text is white on default background.\n");
-    sista_setAttribute(sista_Attribute::A_BRIGHT);
+    if (sista_setAttribute(sista_Attribute::A_BRIGHT) != SISTA_OK) return fail_call("sista_setAttribute");
     printf("This text is bright white on default background.\n");
-    sista_resetAttribute(sista_Attribute::A_BRIGHT);
+    if (sista_resetAttribute(sista_Attribute::A_BRIGHT) != SISTA_OK) return fail_call("sista_resetAttribute");
     printf("This text is normal white on default background.\n");
     sista_RGBColor color { 255, 165, 0 };
-    sista_setForegroundColorRGB(&color);
+    if (sista_setForegroundColorRGB(&color) != SISTA_OK) return fail_call("sista_setForegroundColorRGB");
     printf("This text is orange (RGB 255,165,0) on default background.\n");
     color = { 0, 0, 255 };
-    sista_setBackgroundColorRGB(&color);
+    if (sista_setBackgroundColorRGB(&color) != SISTA_OK) return fail_call("sista_setBackgroundColorRGB");
     printf("This text is orange (RGB 255,165,0) on blue (RGB 0,0,255) background.\n");
-    sista_setForegroundColorRGB(nullptr); // This call has no effect
-    sista_setBackgroundColorRGB(nullptr); // This call has no effect
+    if (sista_setForegroundColorRGB(nullptr) != SISTA_ERR_NULL_COLOR) return fail_call("sista_setForegroundColorRGB(nullptr)");
+    if (sista_setBackgroundColorRGB(nullptr) != SISTA_ERR_NULL_COLOR) return fail_call("sista_setBackgroundColorRGB(nullptr)");
     printf("This text is still orange (RGB 255,165,0) on blue (RGB 0,0,255) background.\n");
     std::this_thread::sleep_for(std::chrono::seconds(2));
     
@@ -41,9 +54,11 @@ int main(int argc, char* argv[]) {
         sista_Attribute::A_UNDERLINE
     );
     if (settings != nullptr) {
-        sista_applyANSISettings(settings);
+        if (sista_applyANSISettings(settings) != SISTA_OK) return fail_call("sista_applyANSISettings");
         printf("This text is cyan on black background and underlined.\n");
-        sista_destroyANSISettings(settings);
+        if (sista_destroyANSISettings(settings) != SISTA_OK) return fail_call("sista_destroyANSISettings");
+    } else {
+        return fail_call("sista_createANSISettings");
     }
     settings = sista_createANSISettingsRGB(
         { 255, 20, 147 }, // Deep Pink
@@ -51,10 +66,12 @@ int main(int argc, char* argv[]) {
         sista_Attribute::A_ITALIC
     );
     if (settings != nullptr) {
-        sista_applyANSISettings(settings);
+        if (sista_applyANSISettings(settings) != SISTA_OK) return fail_call("sista_applyANSISettings");
         printf("This text is deep pink (RGB 255,20,147) on black background and italic.\n");
-        sista_destroyANSISettings(settings);
+        if (sista_destroyANSISettings(settings) != SISTA_OK) return fail_call("sista_destroyANSISettings");
+    } else {
+        return fail_call("sista_createANSISettingsRGB");
     }
-    sista_resetAnsi();
+    if (sista_resetAnsi() != SISTA_OK) return fail_call("sista_resetAnsi");
     return 0;
 }

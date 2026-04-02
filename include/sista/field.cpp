@@ -124,6 +124,12 @@ namespace sista {
     }
 
     void Field::addPawn(std::shared_ptr<Pawn> pawn) { // Add a pawn to the matrix
+        if (pawn == nullptr) {
+            throw std::invalid_argument("Cannot add pawn: pawn is null");
+        }
+        if (isOutOfBounds(pawn->getCoordinates())) {
+            throw std::out_of_range("Cannot add pawn: coordinates are out of bounds");
+        }
         // Check if the coordinates are already occupied by another pawn
         if (isOccupied(pawn->getCoordinates())) {
             throw std::invalid_argument("Cannot add pawn: coordinates are already occupied");
@@ -131,9 +137,15 @@ namespace sista {
         pawns[pawn->getCoordinates().y][pawn->getCoordinates().x] = pawn; // Set the pawn to the coordinates
     }
     void Field::removePawn(Pawn* pawn) { // Remove a pawn from the matrix
+        if (pawn == nullptr || isOutOfBounds(pawn->getCoordinates())) {
+            return;
+        }
         pawns[pawn->getCoordinates().y][pawn->getCoordinates().x].reset(); // Release the reference to the pointer
     }
     void Field::removePawn(const Coordinates& coordinates) { // Remove a pawn from the matrix
+        if (isOutOfBounds(coordinates)) {
+            return;
+        }
         pawns[coordinates.y][coordinates.x].reset(); // Release the reference to the pointer
     }
     void Field::erasePawn(Pawn* pawn) { // Erase a pawn from the matrix
@@ -256,9 +268,15 @@ namespace sista {
     }
 
     Pawn* Field::getPawn(const Coordinates& coordinates) const { // Get the pawn at the coordinates
+        if (isOutOfBounds(coordinates)) {
+            return nullptr;
+        }
         return pawns[coordinates.y][coordinates.x].get(); // Return the pawn at the coordinates
     }
     Pawn* Field::getPawn(unsigned short y, unsigned short x) const {
+        if (isOutOfBounds(y, x)) {
+            return nullptr;
+        }
         return pawns[y][x].get();
     }
 

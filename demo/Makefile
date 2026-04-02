@@ -113,12 +113,18 @@ api-test-cursor.o: api-test-cursor.c
 api-test-cursor: api-test-cursor.o
 	g++ -Wall -g -o api-test-cursor api-test-cursor.o -lSista_api -lSista $(LD_LIBRARY_PATH_DIRECTIVE) $(DYLD_LIBRARY_PATH_DIRECTIVE)
 
+api-test-errors.o: api-test-errors.c
+	gcc -std=c89 -Wall -g -c api-test-errors.c $(INCLUDE_PATH_DIRECTIVE)
+
+api-test-errors: api-test-errors.o
+	g++ -Wall -g -o api-test-errors api-test-errors.o -lSista_api -lSista $(LD_LIBRARY_PATH_DIRECTIVE) $(DYLD_LIBRARY_PATH_DIRECTIVE)
+
 clean_objects:
 	rm -f *.o
 
 clean: clean_objects
 	rm -f colors24-bit colors256 conflictTest resetAttribute screen-mode swapTest verticalTest pawnsCountTest
 	rm -f header-test shared-test shared-test-static
-	rm -f api-test api-test-border api-test-multiple-styles api-test-swap api-test-cursor attributes
+	rm -f api-test api-test-border api-test-multiple-styles api-test-swap api-test-cursor api-test-errors attributes
 
 .PHONY: all clean_objects clean

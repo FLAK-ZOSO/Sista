@@ -54,23 +54,29 @@ FieldHandler_t sista_createField(size_t, size_t);
 /** \brief Prints the specified Field with a given border
  *  \param field The Field.
  *  \param border The border character to use.
+ *  \return Status code from `enum sista_ErrorCode`.
  *
  *  This function prints the entire field to the terminal, using the specified
  *  character as the border around the field.
  *
  *  \see Field
  *  \see Border
+ *  \retval SISTA_OK On success.
+ *  \retval SISTA_ERR_NULL_FIELD If `field` is `NULL`.
 */
-void sista_printField(FieldHandler_t, char);
+int sista_printField(FieldHandler_t, char);
 /** \brief Deallocates the Field from memory
  *  \param field The Field to delete
+ *  \return Status code from `enum sista_ErrorCode`.
  *
  *  This function deallocates the Field from memory through the opaque
  *  handler pointing to it.
  *
  *  \see Field
+ *  \retval SISTA_OK On success.
+ *  \retval SISTA_ERR_NULL_FIELD If `field` is `NULL`.
  */
-void sista_destroyField(FieldHandler_t);
+int sista_destroyField(FieldHandler_t);
 
 /** \struct sista_SwappableField
  *  \brief Opaque struct representing a SwappableField object.
@@ -104,32 +110,40 @@ SwappableFieldHandler_t sista_createSwappableField(size_t, size_t);
 /** \brief Prints the specified Field with a given border
  *  \param field The SwappableField.
  *  \param border The border character to use.
+ *  \return Status code from `enum sista_ErrorCode`.
  *
  *  This function prints the entire field to the terminal, using the specified
  *  character as the border around the field.
  *
  *  \see Field
  *  \see Border
+ *  \retval SISTA_OK On success.
+ *  \retval SISTA_ERR_NULL_FIELD If `field` is `NULL`.
 */
-void sista_printSwappableField(SwappableFieldHandler_t, char);
+int sista_printSwappableField(SwappableFieldHandler_t, char);
 /** \brief Deallocates the SwappableField from memory
  *  \param field The SwappableField to delete
+ *  \return Status code from `enum sista_ErrorCode`.
  *
  *  This function deallocates the SwappableField from memory through the opaque
  *  handler pointing to it.
  *
  *  \see SwappableField
+ *  \retval SISTA_OK On success.
+ *  \retval SISTA_ERR_NULL_FIELD If `field` is `NULL`.
  */
-void sista_destroySwappableField(SwappableFieldHandler_t);
+int sista_destroySwappableField(SwappableFieldHandler_t);
 
 /** \brief Resets ANSI settings to default.
+ *  \return Status code from `enum sista_ErrorCode`.
  *
  *  This function resets the terminal's ANSI settings, including colors
  *  and attributes, to their default values.
  *
  *  \see sista::resetAnsi
+ *  \retval SISTA_OK On success.
 */
-void sista_resetAnsi();
+int sista_resetAnsi();
 
 /** \enum sista_ForegroundColor
  *  \brief Predefined foreground colors for terminal text.
@@ -213,6 +227,7 @@ struct sista_RGBColor {
 
 /** \brief Sets the foreground color using a predefined color.
  *  \param color The predefined foreground color to set.
+ *  \return Status code from `enum sista_ErrorCode`.
  *
  *  This function sets the terminal's foreground color to one of the
  *  predefined colors specified in the sista_ForegroundColor enumeration.
@@ -220,10 +235,12 @@ struct sista_RGBColor {
  *
  *  \see sista_ForegroundColor
  *  \see sista::setForegroundColor
+ *  \retval SISTA_OK On success.
 */
-void sista_setForegroundColor(enum sista_ForegroundColor);
+int sista_setForegroundColor(enum sista_ForegroundColor);
 /** \brief Sets the background color using a predefined color.
  *  \param color The predefined background color to set.
+ *  \return Status code from `enum sista_ErrorCode`.
  *
  *  This function sets the terminal's background color to one of the
  *  predefined colors specified in the sista_BackgroundColor enumeration.
@@ -231,10 +248,12 @@ void sista_setForegroundColor(enum sista_ForegroundColor);
  *
  *  \see sista_BackgroundColor
  *  \see sista::setBackgroundColor
+ *  \retval SISTA_OK On success.
 */
-void sista_setBackgroundColor(enum sista_BackgroundColor);
+int sista_setBackgroundColor(enum sista_BackgroundColor);
 /** \brief Sets a text attribute.
  *  \param attribute The text attribute to set.
+ *  \return Status code from `enum sista_ErrorCode`.
  *
  *  This function sets a text attribute, such as bold or underline,
  *  specified in the sista_Attribute enumeration. It outputs the
@@ -242,10 +261,12 @@ void sista_setBackgroundColor(enum sista_BackgroundColor);
  *
  *  \see sista_Attribute
  *  \see sista::setAttribute
+ *  \retval SISTA_OK On success.
 */
-void sista_setAttribute(enum sista_Attribute);
+int sista_setAttribute(enum sista_Attribute);
 /** \brief Resets a text attribute.
  *  \param attribute The text attribute to reset.
+ *  \return Status code from `enum sista_ErrorCode`.
  *
  *  This function resets a text attribute, such as bold or underline,
  *  specified in the sista_Attribute enumeration. It outputs the
@@ -253,34 +274,39 @@ void sista_setAttribute(enum sista_Attribute);
  *
  *  \see sista_Attribute
  *  \see sista::resetAttribute
+ *  \retval SISTA_OK On success.
 */
-void sista_resetAttribute(enum sista_Attribute);
+int sista_resetAttribute(enum sista_Attribute);
 /** \brief Sets the foreground color using an RGB color.
  *  \param color A pointer to a sista_RGBColor struct defining the color.
+ *  \return Status code from `enum sista_ErrorCode`.
  *
  *  This function sets the terminal's foreground color using the RGB
  *  components specified in the provided sista_RGBColor struct. It outputs
  *  the corresponding ANSI escape code to standard output.
  *
- *  \note The function takes no effect if the pointer is nullptr.
+ *  \retval SISTA_OK On success.
+ *  \retval SISTA_ERR_NULL_COLOR If `color` is `NULL`.
  *
  *  \see sista_RGBColor
  *  \see sista::setForegroundColor
 */
-void sista_setForegroundColorRGB(const struct sista_RGBColor*);
+int sista_setForegroundColorRGB(const struct sista_RGBColor*);
 /** \brief Sets the background color using an RGB color.
  *  \param color A pointer to a sista_RGBColor struct defining the color.
+ *  \return Status code from `enum sista_ErrorCode`.
  *
  *  This function sets the terminal's background color using the RGB
  *  components specified in the provided sista_RGBColor struct. It outputs
  *  the corresponding ANSI escape code to standard output.
  *
- *  \note The function takes no effect if the pointer is nullptr.
+ *  \retval SISTA_OK On success.
+ *  \retval SISTA_ERR_NULL_COLOR If `color` is `NULL`.
  *
  *  \see sista_RGBColor
  *  \see sista::setBackgroundColor
 */
-void sista_setBackgroundColorRGB(const struct sista_RGBColor*);
+int sista_setBackgroundColorRGB(const struct sista_RGBColor*);
 
 /** \struct sista_ANSISettings
  *  \brief Opaque struct representing ANSI settings.
@@ -343,23 +369,29 @@ ANSISettingsHandler_t sista_createANSISettingsRGB(struct sista_RGBColor,
                                                   enum sista_Attribute);
 /** \brief Applies the ANSI settings to the terminal.
  *  \param settings The ANSISettings to apply.
+ *  \return Status code from `enum sista_ErrorCode`.
  *
  *  This function applies the specified ANSI settings to the terminal by
  *  outputting the corresponding ANSI escape codes to standard output.
  *
  *  \see sista::ANSISettings::apply
+ *  \retval SISTA_OK On success.
+ *  \retval SISTA_ERR_NULL_SETTINGS If `settings` is `NULL`.
 */
-void sista_applyANSISettings(ANSISettingsHandler_t);
+int sista_applyANSISettings(ANSISettingsHandler_t);
 /** \brief Deallocates the ANSISettings from memory.
  *  \param settings The ANSISettings to delete.
+ *  \return Status code from `enum sista_ErrorCode`.
  *
  *  This function deallocates the ANSISettings from memory through the opaque
  *  handler pointing to it.
  *
  *  \see sista::ANSISettings
  *  \see sista_createANSISettings
+ *  \retval SISTA_OK On success.
+ *  \retval SISTA_ERR_NULL_SETTINGS If `settings` is `NULL`.
 */
-void sista_destroyANSISettings(ANSISettingsHandler_t);
+int sista_destroyANSISettings(ANSISettingsHandler_t);
 
 /** \struct sista_Border
  *  \brief Opaque struct representing a Border object.
@@ -393,37 +425,48 @@ typedef struct sista_Border* BorderHandler_t;
 BorderHandler_t sista_createBorder(char, ANSISettingsHandler_t);
 /** \brief Deallocates the Border from memory.
  *  \param border The Border to delete.
+ *  \return Status code from `enum sista_ErrorCode`.
  *
  *  This function deallocates the Border from memory through the opaque
  *  handler pointing to it.
  *
  *  \see sista::Border
  *  \see sista_createBorder
+ *  \retval SISTA_OK On success.
+ *  \retval SISTA_ERR_NULL_BORDER If `border` is `NULL`.
 */
-void sista_destroyBorder(BorderHandler_t);
+int sista_destroyBorder(BorderHandler_t);
 
 /** \brief Prints the field with the specified border.
  *  \param field The Field to print.
  *  \param border The Border to print.
+ *  \return Status code from `enum sista_ErrorCode`.
  *
  *  This function prints the entire field to the terminal, using the specified
  *  Border object to draw the border around the field.
  *
  *  \see sista::Border::print
  *  \see sista::Field::print
+ *  \retval SISTA_OK On success.
+ *  \retval SISTA_ERR_NULL_FIELD If `field` is `NULL`.
+ *  \retval SISTA_ERR_NULL_BORDER If `border` is `NULL`.
 */
-void sista_printFieldWithBorder(FieldHandler_t, BorderHandler_t);
+int sista_printFieldWithBorder(FieldHandler_t, BorderHandler_t);
 /** \brief Prints the field with the specified border.
  *  \param field The SwappableField to print.
  *  \param border The Border to print.
+ *  \return Status code from `enum sista_ErrorCode`.
  *
  *  This function prints the entire field to the terminal, using the specified
  *  Border object to draw the border around the field.
  *
  *  \see sista::Border::print
  *  \see sista::Field::print
+ *  \retval SISTA_OK On success.
+ *  \retval SISTA_ERR_NULL_FIELD If `field` is `NULL`.
+ *  \retval SISTA_ERR_NULL_BORDER If `border` is `NULL`.
 */
-void sista_printSwappableFieldWithBorder(SwappableFieldHandler_t, BorderHandler_t);
+int sista_printSwappableFieldWithBorder(SwappableFieldHandler_t, BorderHandler_t);
 
 /** \struct sista_Coordinates
  *  \brief Represents a pair of coordinates (y, x).
@@ -451,6 +494,27 @@ struct sista_Coordinates {
 struct sista_Pawn;
 typedef struct sista_Pawn* PawnHandler_t;
 
+/** \enum sista_ErrorCode
+ *  \brief Error codes exposed by the C API for detailed diagnostics.
+ *
+ *  Functions that return opaque handlers may fail with `NULL`. In those cases,
+ *  callers can use `sista_getLastErrorCode()` and `sista_getLastErrorMessage()`
+ *  to retrieve the specific reason for the most recent failure on the current thread.
+ */
+enum sista_ErrorCode {
+    SISTA_OK = 0,
+    SISTA_ERR_NULL_FIELD = 1001,
+    SISTA_ERR_NULL_SETTINGS = 1002,
+    SISTA_ERR_OUT_OF_BOUNDS = 1003,
+    SISTA_ERR_OCCUPIED = 1004,
+    SISTA_ERR_BAD_ALLOC = 1005,
+    SISTA_ERR_NULL_PAWN = 1006,
+    SISTA_ERR_NULL_BORDER = 1007,
+    SISTA_ERR_NULL_CURSOR = 1008,
+    SISTA_ERR_NULL_COLOR = 1009,
+    SISTA_ERR_UNKNOWN = 1099
+};
+
 /** \brief Creates a Pawn object in a given field.
  *  \param field The SwappableField to add the pawn to.
  *  \param symbol The character symbol for the pawn.
@@ -462,12 +526,15 @@ typedef struct sista_Pawn* PawnHandler_t;
  *  specified symbol, ANSI settings, and initial position. It returns a
  *  pointer that can be used to reference the Pawn in subsequent API calls.
  *
- *  \retval NULL If memory allocation fails.
+ *  \retval NULL If creation fails for any reason.
  *
  *  \warning Unlike with other objects, the caller is NOT responsible for
  *           managing the lifetime of the returned Pawn object. Pawns are
  *           managed by the SwappableField they are added to, and will be
  *           deallocated when the SwappableField is destroyed.
+ *
+ *  \note On failure, call `sista_getLastErrorCode()` and
+ *        `sista_getLastErrorMessage()` for details.
  *
  *  \see sista::Pawn
  *  \see sista_destroyPawn
@@ -486,12 +553,15 @@ PawnHandler_t sista_createPawnInSwappableField(SwappableFieldHandler_t,
  *  specified symbol, ANSI settings, and initial position. It returns a
  *  pointer that can be used to reference the Pawn in subsequent API calls.
  *
- *  \retval NULL If memory allocation fails.
+ *  \retval NULL If creation fails for any reason.
  *
  *  \warning Unlike with other objects, the caller is NOT responsible for
  *           managing the lifetime of the returned Pawn object. Pawns are
  *           managed by the Field they are added to, and will be deallocated
  *           when the Field is destroyed.
+ *
+ *  \note On failure, call `sista_getLastErrorCode()` and
+ *        `sista_getLastErrorMessage()` for details.
  *
  *  \see sista::Pawn
  *  \see sista_destroyPawn
@@ -500,18 +570,45 @@ PawnHandler_t sista_createPawnInField(FieldHandler_t, char,
                                       ANSISettingsHandler_t,
                                       struct sista_Coordinates);
 
+/** \brief Returns the last API error code for the current thread.
+ *
+ *  This value is updated by API functions that expose failure diagnostics,
+ *  including functions that return `NULL` and functions that return a
+ *  status code from `enum sista_ErrorCode`.
+ *
+ *  Successful calls participating in this model reset the value to `SISTA_OK`.
+ *
+ *  \return One value from `enum sista_ErrorCode`.
+ */
+int sista_getLastErrorCode();
+
+/** \brief Returns the last API error message for the current thread.
+ *
+ *  The returned pointer remains valid until the next API call on the same thread
+ *  that updates the last-error state.
+ *
+ *  Successful calls participating in this model reset the message to `"ok"`.
+ *  Call this function immediately after a failing API call to read diagnostics.
+ *
+ *  \return A static, null-terminated message string.
+ */
+const char* sista_getLastErrorMessage();
+
 /** \brief Moves the pawn to a new position.
  *  \param field The Field containing the Pawn.
  *  \param pawn The Pawn to move.
  *  \param destination The destination coordinates.
- *  \return Status code
+ *  \return Status code from `enum sista_ErrorCode`.
  *
- *  \retval 0 If the move was successful.
- *  \retval 1 If the move failed for any other reason.
- *  \retval 2 If the destination is out of bounds.
- *  \retval 3 If the destination is occupied by another pawn.
- *  \retval 4 If the field is a nullptr.
- *  \retval 5 If the pawn is a nullptr.
+ *  On failure, this function also updates the per-thread last-error state
+ *  accessible with `sista_getLastErrorCode()` and `sista_getLastErrorMessage()`.
+ *
+ *  \retval SISTA_OK If the move was successful.
+ *  \retval SISTA_ERR_NULL_FIELD If `field` is `NULL`.
+ *  \retval SISTA_ERR_NULL_PAWN If `pawn` is `NULL`.
+ *  \retval SISTA_ERR_OUT_OF_BOUNDS If the destination is out of bounds.
+ *  \retval SISTA_ERR_OCCUPIED If the destination is occupied or invalid.
+ *  \retval SISTA_ERR_UNKNOWN If the move failed for another reason.
  *
  *  \see sista::Field::movePawn
 */
@@ -521,25 +618,28 @@ int sista_movePawn(FieldHandler_t, PawnHandler_t, struct sista_Coordinates);
  *  \param field The SwappableField containing the Pawn.
  *  \param pawn The Pawn to add to the swap list.
  *  \param destination The destination coordinates.
- *  \return Status code
+ *  \return Status code from `enum sista_ErrorCode`.
  *
  *  This function adds the specified Pawn to a list of pawns that will be
  *  moved (swapped) when sista_executeSwaps is called. The pawn will be moved
  *  to the specified destination coordinates.
  *
- *  \retval 0 If the pawn was successfully added to the swap list.
- *  \retval 1 If adding the pawn to the swap list failed for any other reason.
- *  \retval 2 If the destination is out of bounds.
- *  \retval 3 If the destination is occupied by another pawn.
- *  \retval 4 If the field is a nullptr.
- *  \retval 5 If the pawn is a nullptr.
+ *  On failure, this function also updates the per-thread last-error state
+ *  accessible with `sista_getLastErrorCode()` and `sista_getLastErrorMessage()`.
+ *
+ *  \retval SISTA_OK If the pawn was successfully added to the swap list.
+ *  \retval SISTA_ERR_NULL_FIELD If `field` is `NULL`.
+ *  \retval SISTA_ERR_NULL_PAWN If `pawn` is `NULL`.
+ *  \retval SISTA_ERR_OUT_OF_BOUNDS If the destination is out of bounds.
+ *  \retval SISTA_ERR_OCCUPIED If the destination is occupied or invalid.
+ *  \retval SISTA_ERR_UNKNOWN If adding the pawn to the swap list failed for another reason.
  *
  *  \see sista::SwappableField::addPawnToSwap
 */
 int sista_addPawnToSwap(SwappableFieldHandler_t, PawnHandler_t, struct sista_Coordinates);
 /** \brief Executes all pending pawn swaps.
  *  \param field The SwappableField containing the pawns to swap.
- *  \return Status code
+ *  \return Status code from `enum sista_ErrorCode`.
  *
  *  This function executes all pending pawn swaps that have been added
  *  using sista_addPawnToSwap. It attempts to move each pawn to its
@@ -551,12 +651,28 @@ int sista_addPawnToSwap(SwappableFieldHandler_t, PawnHandler_t, struct sista_Coo
  *  \todo In future versions, the function may return a list of the
  *        swaps that could not be applied.
  *
- *  \retval 0 If all possible (read note) swaps were successful.
- *  \retval 1 If executing the swaps failed for any other reason.
+ *  On failure, this function also updates the per-thread last-error state
+ *  accessible with `sista_getLastErrorCode()` and `sista_getLastErrorMessage()`.
+ *
+ *  \retval SISTA_OK If all possible (read note) swaps were successful.
+ *  \retval SISTA_ERR_NULL_FIELD If `field` is `NULL`.
+ *  \retval SISTA_ERR_UNKNOWN If executing swaps failed for another reason.
  *
  *  \see sista::SwappableField::applySwaps
 */
 int sista_applySwaps(SwappableFieldHandler_t);
+
+/** \brief Clears the terminal screen and repositions the cursor.
+ *  \param spaces Non-zero to clear visible content and scrollback buffer;
+ *                zero to only move the cursor to the top-left corner.
+ *  \return Status code from `enum sista_ErrorCode`.
+ *
+ *  This is the C API counterpart of `sista::clearScreen(bool)`.
+ *
+ *  \see sista::clearScreen
+ *  \retval SISTA_OK On success.
+*/
+int sista_clearScreen(int spaces);
 
 /** \enum sista_MoveCursor
  *  \brief Enumeration for cursor movement directions in ANSI escape codes.
@@ -598,44 +714,56 @@ CursorHandler_t sista_createCursor();
  *  \param cursor The Cursor handler.
  *  \param direction The direction to move the cursor.
  *  \param amount The number of positions to move the cursor.
+ *  \return Status code from `enum sista_ErrorCode`.
  *
  *  This function moves the terminal cursor in the specified direction
  *  by the given amount using ANSI escape codes.
  *
  *  \see sista::Cursor::move
+ *  \retval SISTA_OK On success.
+ *  \retval SISTA_ERR_NULL_CURSOR If `cursor` is `NULL`.
 */
-void sista_moveCursor(CursorHandler_t, enum sista_MoveCursor, unsigned short);
+int sista_moveCursor(CursorHandler_t, enum sista_MoveCursor, unsigned short);
 /** \brief Moves the cursor to the specified coordinates.
  *  \param cursor The Cursor handler.
  *  \param y The y coordinate (row).
  *  \param x The x coordinate (column).
+ *  \return Status code from `enum sista_ErrorCode`.
  *
  *  This function moves the terminal cursor to the specified (y, x)
  *  coordinates using ANSI escape codes.
  *
  *  \see sista::Cursor::goTo
+ *  \retval SISTA_OK On success.
+ *  \retval SISTA_ERR_NULL_CURSOR If `cursor` is `NULL`.
 */
-void sista_cursorGoTo(CursorHandler_t, unsigned short, unsigned short);
+int sista_cursorGoTo(CursorHandler_t, unsigned short, unsigned short);
 /** \brief Moves the cursor to the specified coordinates.
  *  \param cursor The Cursor handler.
  *  \param coords The coordinates struct containing y and x.
+ *  \return Status code from `enum sista_ErrorCode`.
  *
  *  This function moves the terminal cursor to the specified (y, x)
  *  coordinates using ANSI escape codes.
  *
  *  \see sista::Cursor::goTo
+ *  \retval SISTA_OK On success.
+ *  \retval SISTA_ERR_NULL_CURSOR If `cursor` is `NULL`.
 */
-void sista_cursorGoToCoordinates(CursorHandler_t, struct sista_Coordinates);
+int sista_cursorGoToCoordinates(CursorHandler_t, struct sista_Coordinates);
 /** \brief Deallocates the Cursor from memory.
  *  \param cursor The Cursor to delete.
+ *  \return Status code from `enum sista_ErrorCode`.
  *
  *  This function deallocates the Cursor from memory through the opaque
  *  handler pointing to it.
  *
  *  \see sista::Cursor
  *  \see sista_createCursor
+ *  \retval SISTA_OK On success.
+ *  \retval SISTA_ERR_NULL_CURSOR If `cursor` is `NULL`.
 */
-void sista_destroyCursor(CursorHandler_t);
+int sista_destroyCursor(CursorHandler_t);
 
 const char* sista_getVersion();
 int sista_getVersionMajor();

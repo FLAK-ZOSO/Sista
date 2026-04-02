@@ -13,6 +13,18 @@ except ImportError as e:
     print(f"Failed to import sista module: {e}", file=sys.stderr)
     sys.exit(1)
 
+print(f"Using interpreter: {sys.executable}")
+print(f"Loaded sista from: {getattr(sista, '__file__', '<unknown>')}")
+
+
+def ensure_expected_runtime_api() -> None:
+    """Fail fast with actionable hints if an old extension is imported."""
+    if getattr(sista, "Pawn", None) is None:
+        raise RuntimeError(
+            "sista.Pawn is missing. You are likely running against a stale build or a different interpreter. "
+            "Reinstall with: python3 -m pip install -e . and rerun with python3."
+        )
+
 def test_basic_functionality():
     """Test basic functionality of the module"""
     print("=== Testing Basic Functionality ===")
@@ -68,6 +80,11 @@ def test_swappable_field():
     # Create pawn
     pawn = field.create_pawn("P", settings, coords)
     print(f"Created pawn: {pawn}")
+    pawn_type = getattr(sista, "Pawn", None)
+    if pawn_type is None:
+        raise AssertionError("sista.Pawn type must be exported")
+    if not isinstance(pawn, pawn_type):
+        raise AssertionError("create_pawn must return a Pawn object")
 
     # Test invalid symbol length
     try:
@@ -134,16 +151,51 @@ def test_pawn_operations():
     settings = sista.create_ansi_settings(sista.F_WHITE, sista.B_BLACK, sista.A_RESET)
     coords = sista.create_coordinates(5, 5)
     pawn = field.create_pawn("P", settings, coords)
+    pawn_type = getattr(sista, "Pawn", None)
+    if pawn_type is None:
+        raise AssertionError("sista.Pawn type must be exported")
+    if not isinstance(pawn, pawn_type):
+        raise AssertionError("create_pawn must return a Pawn object")
 
     # Test adding pawn to swap
-    result = field.add_pawn_to_swap(pawn, coords)
-    print(f"Add pawn to swap result: {result}")
+    field.add_pawn_to_swap(pawn, coords)
+    print("Add pawn to swap succeeded")
 
     try:
         field.add_pawn_to_swap(None, coords)
         print("ERROR: Should have failed with None pawn")
-    except ValueError:
+    except TypeError:
         print("Correctly rejected None pawn in add_pawn_to_swap")
+
+    # Pawn should not be directly instantiable.
+    try:
+        pawn_type()
+        print("ERROR: Should have failed with direct Pawn() construction")
+    except TypeError:
+        print("Correctly rejected direct Pawn() construction")
+
+def test_exception_paths():
+    """Test that API failures are surfaced as Python exceptions."""
+    print("=== Testing Exception Paths ===")
+
+    field = sista.Field(2, 2)
+    settings = sista.create_ansi_settings(sista.F_WHITE, sista.B_BLACK, sista.A_RESET)
+    pawn = field.create_pawn("P", settings, sista.create_coordinates(0, 0))
+
+    try:
+        field.move_pawn(pawn, 10, 10)
+        print("ERROR: Should have failed with out-of-bounds move")
+    except IndexError as exc:
+        print(f"Correctly raised IndexError for move_pawn: {exc}")
+
+    swap_field = sista.SwappableField(2, 2)
+    pawn_a = swap_field.create_pawn("A", settings, sista.create_coordinates(0, 0))
+
+    try:
+        swap_field.add_pawn_to_swap(pawn_a, sista.create_coordinates(5, 5))
+        print("ERROR: Should have failed with out-of-bounds swap destination")
+    except IndexError as exc:
+        print(f"Correctly raised IndexError for add_pawn_to_swap: {exc}")
 
 def test_enum_exposure():
     """Test that all enums are properly exposed"""
@@ -195,7 +247,7 @@ def test_cursor_functions():
 
     # Test invalid move
     try:
-        sista.Cursor.go_to_coordinates(None, coords)
+        sista.Cursor.go_to_coordinates(None, coords)  # type: ignore[arg-type]
         print("ERROR: Should have failed with None cursor")
     except TypeError:
         print("Correctly rejected None cursor in move_cursor_to_coordinates")
@@ -229,6 +281,8 @@ def main():
     """Run all tests"""
     print("Running comprehensive tests for sista Python C extension...")
 
+    ensure_expected_runtime_api()
+
     # https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html#decorators
     tests: list[typing.Callable[..., typing.Any]] = [
         test_border_functionality,
@@ -236,6 +290,7 @@ def main():
         test_basic_functionality,
         test_coordinates,
         test_pawn_operations,
+        test_exception_paths,
         test_enum_exposure,
         test_cursor_functions,
         test_version,

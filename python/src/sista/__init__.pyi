@@ -5,7 +5,7 @@ from typing import Any
 # Type alias used for opaque Python capsules returned by the C extension.
 Capsule = Any
 
-__version__ = '3.0.0-beta.3'
+__version__ = '3.0.0-beta.4'
 
 # constants
 F_BLACK: int
@@ -81,6 +81,16 @@ def reset_ansi() -> None:
     Reset all ANSI text attributes and colors to the terminal defaults.
     """
     ...
+def clear_screen(spaces: bool = True) -> None:
+    """
+    Clear the terminal and reposition the cursor to top-left.
+
+    :param spaces:
+        - True (default): clear visible content and scrollback buffer.
+        - False: only reposition cursor to top-left.
+    :raises RuntimeError: If the underlying API reports a failure.
+    """
+    ...
 def print(message: str) -> None:
     """
     Print a message to the terminal using Sista's configured output stream.
@@ -138,30 +148,27 @@ class Field:
         """
         ...
 
-    def create_pawn(self, symbol: str, ansi_settings: Capsule, coords: Capsule) -> Capsule:
+    def create_pawn(self, symbol: str, ansi_settings: Capsule, coords: Capsule) -> Pawn:
         """
-        Create a Pawn inside this Field and return a Pawn capsule.
+        Create a Pawn inside this Field and return a Pawn object.
 
         Pawns created in plain Fields are managed by the Field object.
 
         :param symbol: Single character string representing the pawn.
         :param ansi_settings: Capsule returned by create_ansi_settings.
         :param coords: Capsule returned by create_coordinates.
-        :return: Capsule wrapping the Pawn handler.
+        :return: Pawn object.
         """
         ...
-    def move_pawn(self, pawn: Capsule, y: int, x: int) -> int:
+    def move_pawn(self, pawn: Pawn, y: int, x: int) -> None:
         """
-        Move a pawn inside this Field by the given delta and return a status code.
+        Move a pawn inside this Field by the given delta.
 
-        The meaning of the returned integer follows the library's convention
-        (0 for success, non-zero for various errors such as out-of-bounds or
-        occupied destination).
-
-        :param pawn: Capsule for the Pawn to move.
+        :param pawn: Pawn object to move.
         :param y: y coordinate of the destination.
         :param x: x coordinate of the destination.
-        :return: Integer status code (0 == success).
+        :raises IndexError: If destination is out of bounds.
+        :raises RuntimeError: If destination is occupied or another API error occurs.
         """
         ...
     def print_with_border(self, border: Capsule) -> None:
@@ -194,9 +201,9 @@ class SwappableField:
         """
         ...
 
-    def create_pawn(self, symbol: str, ansi_settings: Capsule, coords: Capsule) -> Capsule:
+    def create_pawn(self, symbol: str, ansi_settings: Capsule, coords: Capsule) -> Pawn:
         """
-        Create a Pawn inside this SwappableField and return a Pawn capsule.
+        Create a Pawn inside this SwappableField and return a Pawn object.
 
         The pawn is created at the specified coordinates and rendered using the
         provided ANSI settings. Pawns created in swappable fields are managed by
@@ -205,7 +212,7 @@ class SwappableField:
         :param symbol: Single character string used to represent the pawn.
         :param ansi_settings: Capsule returned by create_ansi_settings.
         :param coords: Capsule returned by create_coordinates.
-        :return: Capsule wrapping the Pawn handler.
+        :return: Pawn object.
         """
         ...
     def print_with_border(self, border: Capsule) -> None:
@@ -215,7 +222,7 @@ class SwappableField:
         :param border: Capsule for the Border to draw around the field.
         """
         ...
-    def add_pawn_to_swap(self, pawn: Capsule, coords: Capsule) -> int:
+    def add_pawn_to_swap(self, pawn: Pawn, coords: Capsule) -> None:
         """
         Schedule a pawn to be moved (swapped) later in this SwappableField.
 
@@ -223,9 +230,10 @@ class SwappableField:
         list managed by the SwappableField. Call apply_swaps (or the
         equivalent) to execute scheduled swaps.
 
-        :param pawn: Capsule for the Pawn to schedule.
+        :param pawn: Pawn object to schedule.
         :param coords: Capsule with the destination coordinates.
-        :return: Integer status code (0 == added successfully).
+        :raises IndexError: If destination is out of bounds.
+        :raises RuntimeError: If destination is occupied or another API error occurs.
         """
         ...
     def apply_swaps(self) -> None:
@@ -238,6 +246,15 @@ class SwappableField:
         :return: None. Raises an exception on error.
         """
         ...
+
+class Pawn:
+    """
+    Class representing a Pawn owned by a Field or SwappableField.
+
+    Pawn instances are created by Field.create_pawn and
+    SwappableField.create_pawn and should not be instantiated directly.
+    """
+    ...
 
 def create_coordinates(y: int, x: int) -> Capsule:
     """
@@ -252,76 +269,6 @@ def create_coordinates(y: int, x: int) -> Capsule:
     :return: Capsule wrapping a Coordinates struct.
     """
     ...
-def move_pawn(field: Capsule, pawn: Capsule, dx: int, dy: int) -> int:
-    """
-    Move a pawn inside a Field by the given delta and return a status code.
-
-    The meaning of the returned integer follows the library's convention
-    (0 for success, non-zero for various errors such as out-of-bounds or
-    occupied destination).
-
-    :param field: Capsule for the Field containing the pawn.
-    :param pawn: Capsule for the Pawn to move.
-    :param dx: Delta in the x (column) direction.
-    :param dy: Delta in the y (row) direction.
-    :return: Integer status code (0 == success).
-    """
-    ...
-def add_pawn_to_swap(field: Capsule, pawn: Capsule, coords: Capsule) -> int:
-    """
-    Schedule a pawn to be moved (swapped) later in a SwappableField.
-
-    The function adds the pawn and its destination coordinates to the swap
-    list managed by the SwappableField. Call sista.apply_swaps (or the
-    equivalent) to execute scheduled swaps.
-
-    :param field: Capsule for the SwappableField.
-    :param pawn: Capsule for the Pawn to schedule.
-    :param coords: Capsule with the destination coordinates.
-    :return: Integer status code (0 == added successfully).
-    """
-    ...
-def apply_swaps(field: Capsule) -> int:
-    """
-    Execute all scheduled pawn swaps in the given SwappableField.
-
-    The function processes all pawns previously added to the swap list
-    using add_pawn_to_swap, moving them to their target coordinates.
-
-    :param field: Capsule for the SwappableField.
-    :return: Integer status code (0 == success).
-    """
-    ...
-def create_pawn_in_field(field: Capsule, symbol: str, ansi_settings: Capsule, coords: Capsule) -> Capsule:
-    """
-    Create a Pawn inside a non-swappable Field and return a Pawn capsule.
-
-    Pawns created in plain Fields are managed by the Field object.
-
-    :param field: Capsule returned by the Field creation function.
-    :param symbol: Single character string representing the pawn.
-    :param ansi_settings: Capsule returned by create_ansi_settings.
-    :param coords: Capsule returned by create_coordinates.
-    :return: Capsule wrapping the Pawn handler.
-    """
-    ...
-def print_swappable_field_with_border(field: Capsule, border: Capsule) -> None:
-    """
-    Render a SwappableField to the terminal using the given Border object.
-
-    :param field: Capsule for the SwappableField to print.
-    :param border: Capsule for the Border to draw around the field.
-    """
-    ...
-def print_field_with_border(field: Capsule, border: Capsule) -> None:
-    """
-    Render a Field to the terminal using the given Border object.
-
-    :param field: Capsule for the Field to print.
-    :param border: Capsule for the Border to draw around the field.
-    """
-    ...
-
 class Cursor:
     """
     Class representing a terminal cursor for movement operations.
