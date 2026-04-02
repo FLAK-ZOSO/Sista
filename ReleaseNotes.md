@@ -48,6 +48,17 @@ Major release.
 
 - Constructor and destructor of `sista::Cursor` only hide/show the cursor, but do not alter the ANSI settings nor clear the screen anymore
 
+### v`3.0.0-beta.4`
+
+- Improved Python exception behavior in the C extension:
+  - API failures now raise clearer Python exceptions with better diagnostic messages.
+- Stub/type hint synchronization:
+  - `__init__.pyi` now matches the effective runtime API and class methods.
+- Documentation consistency:
+  - extension docstrings and public type hints now reflect the class-oriented API.
+- Swapped `(x, y)` pairs fixed
+- Some bounds checks added to `Field`'s `Pawn` getters
+
 ## v`2.2.1`
 
 Patch release.

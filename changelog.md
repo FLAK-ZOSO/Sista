@@ -26,6 +26,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 - Added Python C extension module `sista._sista` loaded in the `sista` Python module
     - Added `python/` directory with the C extension source code and `setup.py` for building and installing the Python module
     - Updated CI workflows to build and test the Python module
+    - Pythonic exception handling, bubbling exceptions up from C
 
 ### Changed
 
