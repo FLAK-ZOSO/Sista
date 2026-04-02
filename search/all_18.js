@@ -11,5 +11,6 @@ var searchData=
   ['operator_3d_3d_8',['operator==',['../structsista_1_1Coordinates.html#ab2e8df10b0eedb833a8c0943070c3335',1,'sista::Coordinates::operator==()'],['../structsista_1_1Path.html#a0109cb18c630ea5f742a833cbd18b388',1,'sista::Path::operator==(const Path &amp;) const']]],
   ['operator_7c_9',['operator|',['../structsista_1_1Path.html#a34e9b23a377f024a3f57ebf574529a50',1,'sista::Path']]],
   ['option_201_3a_20using_20setup_20py_20recommended_10',['Option 1: Using setup.py (Recommended)',['../md_python_2README.html#autotoc_md7',1,'']]],
-  ['org_20project_20sista_20from_20pypi_20a_11',['Just use pip to install &lt;a href=&quot;https://pypi.org/project/sista/&quot; &gt;from PyPI&lt;/a&gt;',['../md_python_2README.html#autotoc_md3',1,'']]]
+  ['org_20project_20sista_20from_20pypi_20a_11',['Just use pip to install &lt;a href=&quot;https://pypi.org/project/sista/&quot; &gt;from PyPI&lt;/a&gt;',['../md_python_2README.html#autotoc_md3',1,'']]],
+  ['owner_12',['owner',['../structPawnObject.html#ad55aa45dd09878ff1e6a743f9e9a1893',1,'PawnObject']]]
 ];

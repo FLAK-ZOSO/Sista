@@ -6,8 +6,10 @@ var searchData=
   ['entire_5fscreen_3',['ENTIRE_SCREEN',['../namespacesista.html#a70ce4a80cec5f70ff58a4566ae546da6a4d173c671235e28db83609a6a8ed6954',1,'sista']]],
   ['erase_5fsaved_5flines_4',['ERASE_SAVED_LINES',['../namespacesista.html#a70ce4a80cec5f70ff58a4566ae546da6a86da4b3984c1a1141ef7a5682ccd529a',1,'sista']]],
   ['eraseline_5',['eraseline',['../structsista_1_1Cursor.html#a400bb037ae7ee8984a453e13a63e5601',1,'sista::Cursor::eraseLine()'],['../namespacesista.html#ad89734e70ebd8e6794b08a5cb56274ce',1,'sista::EraseLine']]],
-  ['erasepawn_6',['erasepawn',['../classsista_1_1Field.html#a900f4baab9a1acbf90a8b133bb90b8ac',1,'sista::Field::erasePawn(Pawn *)'],['../classsista_1_1Field.html#a5ba7e3f46bcf217916877f77961f4cc2',1,'sista::Field::erasePawn(const Coordinates &amp;)']]],
+  ['erasepawn_6',['erasepawn',['../classsista_1_1Field.html#a5ba7e3f46bcf217916877f77961f4cc2',1,'sista::Field::erasePawn(const Coordinates &amp;)'],['../classsista_1_1Field.html#a900f4baab9a1acbf90a8b133bb90b8ac',1,'sista::Field::erasePawn(Pawn *)']]],
   ['erasescreen_7',['erasescreen',['../structsista_1_1Cursor.html#a8eccc56fcac81e2e4b104b2814930a35',1,'sista::Cursor::eraseScreen()'],['../namespacesista.html#a70ce4a80cec5f70ff58a4566ae546da6',1,'sista::EraseScreen']]],
-  ['esc_8',['ESC',['../ansi_8hpp.html#a4af1b6159e447ba72652bb7fcdfa726e',1,'ansi.hpp']]],
-  ['extension_9',['extension',['../md_python_2README.html#autotoc_md4',1,'Building the Extension'],['../md_python_2README.html#autotoc_md8',1,'Installing the Extension'],['../md_python_2README.html',1,'Sista Python C Extension'],['../md_python_2README.html#autotoc_md9',1,'Using the Extension']]]
+  ['error_20handling_20exceptions_8',['Error Handling (Exceptions)',['../md_python_2README.html#autotoc_md10',1,'']]],
+  ['esc_9',['ESC',['../ansi_8hpp.html#a4af1b6159e447ba72652bb7fcdfa726e',1,'ansi.hpp']]],
+  ['exceptions_10',['Error Handling (Exceptions)',['../md_python_2README.html#autotoc_md10',1,'']]],
+  ['extension_11',['extension',['../md_python_2README.html#autotoc_md4',1,'Building the Extension'],['../md_python_2README.html#autotoc_md8',1,'Installing the Extension'],['../md_python_2README.html',1,'Sista Python C Extension'],['../md_python_2README.html#autotoc_md9',1,'Using the Extension']]]
 ];

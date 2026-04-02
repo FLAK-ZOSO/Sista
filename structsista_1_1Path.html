@@ -83,7 +83,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Represents a movement path for a <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>, including priority handling.  
+<p>Represents a movement path for a <a class="el" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField.">Pawn</a>, including priority handling.  
  <a href="structsista_1_1Path.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="field_8hpp_source.html">field.hpp</a>&gt;</code></p>
@@ -95,7 +95,7 @@ Collaboration diagram for sista::Path:</div>
 <area shape="rect" title="Represents a movement path for a Pawn, including priority handling." alt="" coords="23,701,153,847"/>
 <area shape="rect" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values." alt="" coords="5,5,136,311"/>
 <area shape="poly" title=" " alt="" coords="74,311,81,639,84,685,79,685,76,639,68,311"/>
-<area shape="rect" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings." alt="" coords="143,373,281,639"/>
+<area shape="rect" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField." alt="" coords="143,373,281,639"/>
 <area shape="poly" title=" " alt="" coords="112,310,126,348,138,375,133,377,122,350,107,312"/>
 <area shape="poly" title=" " alt="" coords="153,640,131,687,126,685,148,638"/>
 <area shape="rect" href="structsista_1_1ANSISettings.html" title="Represents a set of ANSI settings including colors and attributes." alt="" coords="164,5,303,311"/>
@@ -106,7 +106,7 @@ Collaboration diagram for sista::Path:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1aeb935624ef571774b552eaee8e67d4" id="r_a1aeb935624ef571774b552eaee8e67d4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsista_1_1Path.html#a1aeb935624ef571774b552eaee8e67d4">Path</a> (<a class="el" href="structsista_1_1Coordinates.html">Coordinates</a>, <a class="el" href="structsista_1_1Coordinates.html">Coordinates</a>, <a class="el" href="classsista_1_1Pawn.html">Pawn</a> *)</td></tr>
-<tr class="memdesc:a1aeb935624ef571774b552eaee8e67d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor to initialize a <a class="el" href="structsista_1_1Path.html" title="Represents a movement path for a Pawn, including priority handling.">Path</a> with begin and end coordinates and associated <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>.  <br /></td></tr>
+<tr class="memdesc:a1aeb935624ef571774b552eaee8e67d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor to initialize a <a class="el" href="structsista_1_1Path.html" title="Represents a movement path for a Pawn, including priority handling.">Path</a> with begin and end coordinates and associated <a class="el" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField.">Pawn</a>.  <br /></td></tr>
 <tr class="separator:a1aeb935624ef571774b552eaee8e67d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34e9b23a377f024a3f57ebf574529a50" id="r_a34e9b23a377f024a3f57ebf574529a50"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsista_1_1Path.html#a34e9b23a377f024a3f57ebf574529a50">operator|</a> (const <a class="el" href="structsista_1_1Path.html">Path</a> &amp;) const</td></tr>
 <tr class="memdesc:a34e9b23a377f024a3f57ebf574529a50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloaded operator to check if two paths are opposite (reverse of each other).  <br /></td></tr>
@@ -135,13 +135,13 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a7766a8fe47bc8bb53640e6208a1d2616"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Represents a movement path for a <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>, including priority handling. </p>
-<p>The <a class="el" href="structsista_1_1Path.html" title="Represents a movement path for a Pawn, including priority handling.">Path</a> struct encapsulates the beginning and end coordinates of a movement path for a <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>. It includes a priority attribute to determine the order of processing paths, as well as a static current_priority counter to assign unique priorities to new paths.</p>
+<div class="textblock"><p>Represents a movement path for a <a class="el" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField.">Pawn</a>, including priority handling. </p>
+<p>The <a class="el" href="structsista_1_1Path.html" title="Represents a movement path for a Pawn, including priority handling.">Path</a> struct encapsulates the beginning and end coordinates of a movement path for a <a class="el" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField.">Pawn</a>. It includes a priority attribute to determine the order of processing paths, as well as a static current_priority counter to assign unique priorities to new paths.</p>
 <p>The struct provides operator overloads to compare paths based on priority, check for equality, and determine if two paths are opposite (i.e., one is the reverse of the other).</p>
 <dl class="section note"><dt>Note</dt><dd>The way this struct is handled assumes that no two identical paths (same begin and end coordinates) will be created, as no two pawns can occupy the same coordinates at the same time.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">Coordinates</a> </dd>
 <dd>
-<a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> </dd></dl>
+<a class="el" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField.">Pawn</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1aeb935624ef571774b552eaee8e67d4" name="a1aeb935624ef571774b552eaee8e67d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1aeb935624ef571774b552eaee8e67d4">&#9670;&#160;</a></span>Path()</h2>
@@ -175,19 +175,19 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor to initialize a <a class="el" href="structsista_1_1Path.html" title="Represents a movement path for a Pawn, including priority handling.">Path</a> with begin and end coordinates and associated <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>. </p>
+<p>Constructor to initialize a <a class="el" href="structsista_1_1Path.html" title="Represents a movement path for a Pawn, including priority handling.">Path</a> with begin and end coordinates and associated <a class="el" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField.">Pawn</a>. </p>
 <p>pawn - the pawn that is moving along the path </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">begin_</td><td>The starting <a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">Coordinates</a> of the path. </td></tr>
     <tr><td class="paramname">end_</td><td>The ending <a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">Coordinates</a> of the path. </td></tr>
-    <tr><td class="paramname">pawn_</td><td>A pointer to the <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> associated with this path.</td></tr>
+    <tr><td class="paramname">pawn_</td><td>A pointer to the <a class="el" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField.">Pawn</a> associated with this path.</td></tr>
   </table>
   </dd>
 </dl>
-<p>This constructor initializes a <a class="el" href="structsista_1_1Path.html" title="Represents a movement path for a Pawn, including priority handling.">Path</a> object with the specified begin and end coordinates, assigns a unique priority based on the static current_priority counter, and associates it with the given <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>.</p>
+<p>This constructor initializes a <a class="el" href="structsista_1_1Path.html" title="Represents a movement path for a Pawn, including priority handling.">Path</a> object with the specified begin and end coordinates, assigns a unique priority based on the static current_priority counter, and associates it with the given <a class="el" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField.">Pawn</a>.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">Coordinates</a> </dd>
 <dd>
-<a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> </dd></dl>
+<a class="el" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField.">Pawn</a> </dd></dl>
 
 </div>
 </div>
@@ -245,7 +245,7 @@ Static Public Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if both paths have the same begin and end coordinates, <code>false</code> otherwise.</dd></dl>
-<p>This operator checks if two <a class="el" href="structsista_1_1Path.html" title="Represents a movement path for a Pawn, including priority handling.">Path</a> objects represent the same movement path, ignoring the priority and associated <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a>.</p>
+<p>This operator checks if two <a class="el" href="structsista_1_1Path.html" title="Represents a movement path for a Pawn, including priority handling.">Path</a> objects represent the same movement path, ignoring the priority and associated <a class="el" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField.">Pawn</a>.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1Path.html#ab7f95f9cb2be170983743ff4127da51d">begin</a> </dd>
 <dd>
 <a class="el" href="structsista_1_1Path.html#a30658797573ff9b0d6ea113efa183fcc">end</a> </dd></dl>
@@ -373,7 +373,7 @@ Static Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 8 2026 16:16:44 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Apr 2 2026 14:50:34 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

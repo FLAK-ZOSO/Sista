@@ -82,7 +82,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Represents an object on the field with a symbol, coordinates, and ANSI settings.  
+<p>Class representing a <a class="el" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField.">Pawn</a> owned by a <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> or <a class="el" href="classsista_1_1SwappableField.html" title="Class representing a terminal SwappableField for pawns and borders.">SwappableField</a>.  
  <a href="classsista_1_1Pawn.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="pawn_8hpp_source.html">pawn.hpp</a>&gt;</code></p>
@@ -91,7 +91,7 @@ Collaboration diagram for sista::Pawn:</div>
 <div class="dyncontent">
 <div class="center"><img src="classsista_1_1Pawn__coll__graph.png" border="0" usemap="#asista_1_1Pawn_coll__map" alt="Collaboration graph"/></div>
 <map name="asista_1_1Pawn_coll__map" id="asista_1_1Pawn_coll__map">
-<area shape="rect" title="Represents an object on the field with a symbol, coordinates, and ANSI settings." alt="" coords="81,373,218,639"/>
+<area shape="rect" title="Class representing a Pawn owned by a Field or SwappableField." alt="" coords="81,373,218,639"/>
 <area shape="rect" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values." alt="" coords="5,5,136,311"/>
 <area shape="poly" title=" " alt="" coords="102,310,111,349,112,357,107,358,105,350,97,312"/>
 <area shape="rect" href="structsista_1_1ANSISettings.html" title="Represents a set of ANSI settings including colors and attributes." alt="" coords="160,5,299,311"/>
@@ -145,9 +145,11 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:aa232193b27341a76e02d6f90b24959c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Represents an object on the field with a symbol, coordinates, and ANSI settings. </p>
-<p>The <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> class encapsulates a character symbol, its position on the field using <a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">Coordinates</a>, and its appearance using <a class="el" href="structsista_1_1ANSISettings.html" title="Represents a set of ANSI settings including colors and attributes.">ANSISettings</a>. It provides methods to set and get these properties, as well as a method to print the pawn to the terminal with its associated ANSI settings.</p>
-<p>The <a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">Pawn</a> class is designed to be subclassed for specific types of pawns with additional behavior. Examples of subclasses could include players, enemies, or items in a videogame.</p>
+<div class="textblock"><p>Class representing a <a class="el" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField.">Pawn</a> owned by a <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> or <a class="el" href="classsista_1_1SwappableField.html" title="Class representing a terminal SwappableField for pawns and borders.">SwappableField</a>. </p>
+<p>Represents an object on the field with a symbol, coordinates, and ANSI settings.</p>
+<p><a class="el" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField.">Pawn</a> instances are created by <a class="el" href="classsista_1_1Field.html#ab6a7ba66ec84cb0343560bc1bf04536c" title="Create a Pawn inside this Field and return a Pawn object.">Field.create_pawn</a> and <a class="el" href="classsista_1_1SwappableField.html#a2a79e14901557b40975f32206655d883" title="Create a Pawn inside this SwappableField and return a Pawn object.">SwappableField.create_pawn</a> and should not be instantiated directly.</p>
+<p>The <a class="el" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField.">Pawn</a> class encapsulates a character symbol, its position on the field using <a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">Coordinates</a>, and its appearance using <a class="el" href="structsista_1_1ANSISettings.html" title="Represents a set of ANSI settings including colors and attributes.">ANSISettings</a>. It provides methods to set and get these properties, as well as a method to print the pawn to the terminal with its associated ANSI settings.</p>
+<p>The <a class="el" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField.">Pawn</a> class is designed to be subclassed for specific types of pawns with additional behavior. Examples of subclasses could include players, enemies, or items in a videogame.</p>
 <dl class="section note"><dt>Note</dt><dd>Pawns do not manage their own movement; this is handled by the <a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">Field</a> class. </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">Coordinates</a> </dd>
 <dd>
@@ -526,7 +528,7 @@ This method is a sheer setter, it does not handle reprinting the pawn on the fie
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 8 2026 16:16:44 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Apr 2 2026 14:50:34 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

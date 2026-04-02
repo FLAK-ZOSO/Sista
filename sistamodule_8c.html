@@ -106,6 +106,8 @@ Include dependency graph for sistamodule.c:</div>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCursorObject.html">CursorObject</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structPawnObject.html">PawnObject</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSwappableFieldObject.html">SwappableFieldObject</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFieldObject.html">FieldObject</a></td></tr>
@@ -118,6 +120,10 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ad09e6acd34ff17242d4d795a51515dd9" id="r_ad09e6acd34ff17242d4d795a51515dd9"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#ad09e6acd34ff17242d4d795a51515dd9">py_sista_raise_from_status</a> (int status_code, const char *fallback_message)</td></tr>
+<tr class="separator:ad09e6acd34ff17242d4d795a51515dd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc6025aed2d8a94fe52fd33f7d1db9d2" id="r_acc6025aed2d8a94fe52fd33f7d1db9d2"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#acc6025aed2d8a94fe52fd33f7d1db9d2">py_sista_raise_from_last_error</a> (const char *fallback_message)</td></tr>
+<tr class="separator:acc6025aed2d8a94fe52fd33f7d1db9d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39508f8a159bfe5eb6488edbd7f07878" id="r_a39508f8a159bfe5eb6488edbd7f07878"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a39508f8a159bfe5eb6488edbd7f07878">PyDoc_STRVAR</a> (py_sista_set_foreground_color_doc, &quot;Set the terminal foreground color using one of the `F_*` constants.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `color` (int): One of the `F_*` constants (e.g. `<a class="el" href="api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5efa12ed4e98a9c49121b86dab3f2aa20ecd">F_RED</a>`).\n&quot;)</td></tr>
 <tr class="separator:a39508f8a159bfe5eb6488edbd7f07878"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4752fc052e78d9aa7486793a0ba3c1b4" id="r_a4752fc052e78d9aa7486793a0ba3c1b4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a4752fc052e78d9aa7486793a0ba3c1b4">PyDoc_STRVAR</a> (py_sista_set_background_color_doc, &quot;Set the terminal background color using one of the `B_*` constants.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `color` (int): One of the `B_*` constants (e.g. `<a class="el" href="api_8h.html#abaa49c9c9bc123c79f6df443beca25c2ac5799f31d847f011e7ae979d3f48e9a9">B_BLUE</a>`).\n&quot;)</td></tr>
@@ -126,8 +132,10 @@ Functions</h2></td></tr>
 <tr class="separator:a07149ca054d6b69dc0683636b315b81b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd0d2ec7dcf7e3a5b8b29f0206ca297f" id="r_afd0d2ec7dcf7e3a5b8b29f0206ca297f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#afd0d2ec7dcf7e3a5b8b29f0206ca297f">PyDoc_STRVAR</a> (py_sista_reset_attribute_doc, &quot;Disable/reset a terminal text attribute using one of the `A_*` constants.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `attribute` (int): One of the `A_*` constants (e.g. `<a class="el" href="api_8h.html#a2e1c40f571e82f2df5cbb8e8f966af07a344b1f4f02d3b37f8497fd7f4250055a">A_RESET</a>`).\n&quot;)</td></tr>
 <tr class="separator:afd0d2ec7dcf7e3a5b8b29f0206ca297f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96dc37139e3edae05324437852f433f5" id="r_a96dc37139e3edae05324437852f433f5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a96dc37139e3edae05324437852f433f5">PyDoc_STRVAR</a> (py_sista_reset_ansi_doc, &quot;Reset all ANSI text attributes and colors to the terminal defaults.\n&quot;)</td></tr>
-<tr class="separator:a96dc37139e3edae05324437852f433f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6934221ed23aa74555fce8b2121a947b" id="r_a6934221ed23aa74555fce8b2121a947b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a6934221ed23aa74555fce8b2121a947b">PyDoc_STRVAR</a> (py_sista_reset_ansi_doc, &quot;Reset all ANSI text attributes and colors to the terminal defaults.\n\n&quot; &quot;Raises `RuntimeError` if the underlying API reports a failure.\n&quot;)</td></tr>
+<tr class="separator:a6934221ed23aa74555fce8b2121a947b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0608c7165e5e3636d499d212af2424d" id="r_ab0608c7165e5e3636d499d212af2424d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#ab0608c7165e5e3636d499d212af2424d">PyDoc_STRVAR</a> (py_sista_clear_screen_doc, &quot;Clear the terminal and reposition the cursor to top-left.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `spaces` (bool, optional):\n&quot; &quot;  - `True` (default): clear visible content and scrollback buffer.\n&quot; &quot;  - `False`: only reposition cursor to top-left.\n\n&quot; &quot;### Raises\n\n&quot; &quot;- `RuntimeError`: if the underlying API reports a failure.\n&quot;)</td></tr>
+<tr class="separator:ab0608c7165e5e3636d499d212af2424d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3976bc4f808e33436c28eab6336125f" id="r_ad3976bc4f808e33436c28eab6336125f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#ad3976bc4f808e33436c28eab6336125f">PyDoc_STRVAR</a> (py_sista_print_doc, &quot;Print a message to the terminal using Sista's configured output stream.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `message` (str): Message to print (a single text line).\n&quot;)</td></tr>
 <tr class="separator:ad3976bc4f808e33436c28eab6336125f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01a01d0b3fb53124c5ea25234ba80355" id="r_a01a01d0b3fb53124c5ea25234ba80355"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a01a01d0b3fb53124c5ea25234ba80355">PyDoc_STRVAR</a> (py_sista_create_ansi_settings_doc, &quot;Create an ANSI settings object and return it as a capsule.\n\n&quot; &quot;```py\n&quot; &quot;create_ansi_settings(fgcolor=<a class="el" href="api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5efa7c35328901e819a1f46a67ca907da8e8">F_WHITE</a>, bgcolor=<a class="el" href="api_8h.html#abaa49c9c9bc123c79f6df443beca25c2a316562dfcfe1f54d41d97cc8b60114d8">B_BLACK</a>, attribute=<a class="el" href="api_8h.html#a2e1c40f571e82f2df5cbb8e8f966af07a344b1f4f02d3b37f8497fd7f4250055a">A_RESET</a>) -&gt; Capsule\n&quot; &quot;```\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `fgcolor` (int): Foreground color (one of the `F_*` constants).\n&quot; &quot;- `bgcolor` (int): Background color (one of the `B_*` constants).\n&quot; &quot;- `attribute` (int): Text attribute (one of the `A_*` constants).\n\n&quot; &quot;### Returns\n\n&quot; &quot;- Capsule wrapping the ANSISettings handler.\n&quot;)</td></tr>
@@ -142,18 +150,20 @@ Functions</h2></td></tr>
 <tr class="separator:a679622b68d1351211443fca95dc82f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0db26449f233936d02c2b0baefbb649b" id="r_a0db26449f233936d02c2b0baefbb649b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a0db26449f233936d02c2b0baefbb649b">PyDoc_STRVAR</a> (py_doc_Cursor, &quot;Class representing a terminal cursor for movement operations.\n\n&quot; &quot;Create with `Cursor()`.\n\n&quot; &quot;Provides: `move`, `go_to`, `go_to_coordinates`.\n&quot;)</td></tr>
 <tr class="separator:a0db26449f233936d02c2b0baefbb649b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b16db3ca89ca5b8d0fab9830d46b5be" id="r_a6b16db3ca89ca5b8d0fab9830d46b5be"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a6b16db3ca89ca5b8d0fab9830d46b5be">PyDoc_STRVAR</a> (py_Field_create_pawn_doc, &quot;Create a Pawn inside this Field and return a Pawn capsule.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `symbol` (str): Single character string representing the pawn.\n&quot; &quot;- `ansi_settings` (Capsule): Capsule returned by `create_ansi_settings`.\n&quot; &quot;- `coords` (Capsule): Capsule returned by `create_coordinates`.\n\n&quot; &quot;### Returns\n\n&quot; &quot;- Capsule wrapping the Pawn handler.\n&quot;)</td></tr>
-<tr class="separator:a6b16db3ca89ca5b8d0fab9830d46b5be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad571383a3cb3fa4f20ffa17276f8b0a3" id="r_ad571383a3cb3fa4f20ffa17276f8b0a3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#ad571383a3cb3fa4f20ffa17276f8b0a3">PyDoc_STRVAR</a> (py_Field_move_pawn_doc, &quot;Move a pawn inside this Field and return a status code.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `pawn` (Capsule): Capsule for the Pawn to move.\n&quot; &quot;- `y` (int): Y coordinate of the destination.\n&quot; &quot;- `x` (int): X coordinate of the destination.\n\n&quot; &quot;### Returns\n\n&quot; &quot;- `int`: status code (0 == success).\n&quot;)</td></tr>
-<tr class="separator:ad571383a3cb3fa4f20ffa17276f8b0a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fd61dcbecfefa63dc381b9648f6c802" id="r_a4fd61dcbecfefa63dc381b9648f6c802"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a4fd61dcbecfefa63dc381b9648f6c802">PyDoc_STRVAR</a> (py_doc_Pawn, &quot;Class representing a Pawn owned by a Field or SwappableField.\n\n&quot; &quot;Instances are created by `Field.create_pawn(...)` and\n&quot; &quot;`SwappableField.create_pawn(...)`.\n&quot;)</td></tr>
+<tr class="separator:a4fd61dcbecfefa63dc381b9648f6c802"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a514a4478c6b7b2e7eba60cf2d5be9084" id="r_a514a4478c6b7b2e7eba60cf2d5be9084"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a514a4478c6b7b2e7eba60cf2d5be9084">PyDoc_STRVAR</a> (py_Field_create_pawn_doc, &quot;Create a Pawn inside this Field and return a Pawn object.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `symbol` (str): Single character string representing the pawn.\n&quot; &quot;- `ansi_settings` (Capsule): Capsule returned by `create_ansi_settings`.\n&quot; &quot;- `coords` (Capsule): Capsule returned by `create_coordinates`.\n\n&quot; &quot;### Returns\n\n&quot; &quot;- A `Pawn` object.\n&quot;)</td></tr>
+<tr class="separator:a514a4478c6b7b2e7eba60cf2d5be9084"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0b79c3307fb82e2361829c18807b9ff" id="r_af0b79c3307fb82e2361829c18807b9ff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#af0b79c3307fb82e2361829c18807b9ff">PyDoc_STRVAR</a> (py_Field_move_pawn_doc, &quot;Move a pawn inside this Field.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `pawn` (Pawn): Pawn object to move.\n&quot; &quot;- `y` (int): Y coordinate of the destination.\n&quot; &quot;- `x` (int): X coordinate of the destination.\n\n&quot; &quot;### Raises\n\n&quot; &quot;- `IndexError`: destination is out of bounds.\n&quot; &quot;- `RuntimeError`: destination is occupied or another API error occurs.\n&quot;)</td></tr>
+<tr class="separator:af0b79c3307fb82e2361829c18807b9ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9117096df7fbfb6ae62562e67d995b3a" id="r_a9117096df7fbfb6ae62562e67d995b3a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a9117096df7fbfb6ae62562e67d995b3a">PyDoc_STRVAR</a> (py_Field_print_with_border_doc, &quot;Render this Field to the terminal using the given Border object.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `border` (Capsule): Capsule for the Border to draw around the field.\n&quot;)</td></tr>
 <tr class="separator:a9117096df7fbfb6ae62562e67d995b3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab42ebecbd1a7977794f5baafb278f2f" id="r_aab42ebecbd1a7977794f5baafb278f2f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#aab42ebecbd1a7977794f5baafb278f2f">PyDoc_STRVAR</a> (py_SwappableField_create_pawn_doc, &quot;create_pawn(self, symbol: str, ansi_settings: Capsule, coords: Capsule) -&gt; Capsule\n\n&quot; &quot;Create a Pawn inside this SwappableField and return a Pawn capsule.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `symbol` (str): Single character string used to represent the pawn.\n&quot; &quot;- `ansi_settings` (Capsule): Capsule returned by create_ansi_settings().\n&quot; &quot;- `coords` (Capsule): Capsule returned by create_coordinates().\n\n&quot; &quot;### Returns\n\n&quot; &quot;- `Capsule` wrapping the Pawn handler.\n&quot;)</td></tr>
-<tr class="separator:aab42ebecbd1a7977794f5baafb278f2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a593a819cb27dd759474f4a8b4d6e3f82" id="r_a593a819cb27dd759474f4a8b4d6e3f82"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a593a819cb27dd759474f4a8b4d6e3f82">PyDoc_STRVAR</a> (py_SwappableField_add_pawn_to_swap_doc, &quot;add_pawn_to_swap(self, pawn: Capsule, coords: Capsule) -&gt; int\n\n&quot; &quot;Schedule a pawn to be swapped to the given coordinates in the next swap operation.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `pawn` (Capsule): Capsule for the Pawn to schedule for swapping.\n&quot; &quot;- `coords` (Capsule): Capsule for the target Coordinates.\n\n&quot; &quot;### Returns\n\n&quot; &quot;- `int`: status code (0 == success).\n&quot;)</td></tr>
-<tr class="separator:a593a819cb27dd759474f4a8b4d6e3f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79ba8804eab43e97346a238a10404537" id="r_a79ba8804eab43e97346a238a10404537"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a79ba8804eab43e97346a238a10404537">PyDoc_STRVAR</a> (py_SwappableField_apply_swaps_doc, &quot;apply_swaps(self) -&gt; int\n\n&quot; &quot;Execute all scheduled pawn swaps in this SwappableField.\n\n&quot; &quot;### Returns\n\n&quot; &quot;- `int`: status code (0 == success).\n&quot;)</td></tr>
-<tr class="separator:a79ba8804eab43e97346a238a10404537"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90f427b8c87d1cc6527f18e006df0a6a" id="r_a90f427b8c87d1cc6527f18e006df0a6a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a90f427b8c87d1cc6527f18e006df0a6a">PyDoc_STRVAR</a> (py_SwappableField_create_pawn_doc, &quot;create_pawn(self, symbol: str, ansi_settings: Capsule, coords: Capsule) -&gt; Pawn\n\n&quot; &quot;Create a Pawn inside this SwappableField and return a Pawn object.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `symbol` (str): Single character string used to represent the pawn.\n&quot; &quot;- `ansi_settings` (Capsule): Capsule returned by create_ansi_settings().\n&quot; &quot;- `coords` (Capsule): Capsule returned by create_coordinates().\n\n&quot; &quot;### Returns\n\n&quot; &quot;- A `Pawn` object.\n&quot;)</td></tr>
+<tr class="separator:a90f427b8c87d1cc6527f18e006df0a6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a211fb7c82075e54831e003305e48c1d8" id="r_a211fb7c82075e54831e003305e48c1d8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a211fb7c82075e54831e003305e48c1d8">PyDoc_STRVAR</a> (py_SwappableField_add_pawn_to_swap_doc, &quot;add_pawn_to_swap(self, pawn: Pawn, coords: Capsule) -&gt; None\n\n&quot; &quot;Schedule a pawn to be swapped to the given coordinates in the next swap operation.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `pawn` (Pawn): Pawn object to schedule for swapping.\n&quot; &quot;- `coords` (Capsule): Capsule for the target Coordinates.\n\n&quot; &quot;### Raises\n\n&quot; &quot;- `IndexError`: destination is out of bounds.\n&quot; &quot;- `RuntimeError`: destination is occupied or another API error occurs.\n&quot;)</td></tr>
+<tr class="separator:a211fb7c82075e54831e003305e48c1d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff91939833105486f13732ade025c13c" id="r_aff91939833105486f13732ade025c13c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#aff91939833105486f13732ade025c13c">PyDoc_STRVAR</a> (py_SwappableField_apply_swaps_doc, &quot;apply_swaps(self) -&gt; None\n\n&quot; &quot;Execute all scheduled pawn swaps in this SwappableField.\n\n&quot; &quot;### Raises\n\n&quot; &quot;- `RuntimeError`: if applying swaps fails.\n&quot;)</td></tr>
+<tr class="separator:aff91939833105486f13732ade025c13c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a082b79d8ccdeb67c932dc11a5a1f8a98" id="r_a082b79d8ccdeb67c932dc11a5a1f8a98"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a082b79d8ccdeb67c932dc11a5a1f8a98">PyDoc_STRVAR</a> (py_SwappableField_print_with_border_doc, &quot;print_with_border(self, border: Capsule) -&gt; None\n\n&quot; &quot;Render this SwappableField to the terminal using the given Border object.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `border` (Capsule): Capsule for the Border to draw around the field.\n&quot;)</td></tr>
 <tr class="separator:a082b79d8ccdeb67c932dc11a5a1f8a98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fe53061af602d00e95b333455fe82b3" id="r_a5fe53061af602d00e95b333455fe82b3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a5fe53061af602d00e95b333455fe82b3">PyDoc_STRVAR</a> (py_Cursor_go_to_doc, &quot;Move the cursor to the absolute `(y, x)` position.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `y` (int): Row index to move to.\n&quot; &quot;- `x` (int): Column index to move to.\n&quot;)</td></tr>
@@ -180,6 +190,9 @@ Functions</h2></td></tr>
 <tr class="memitem:aeccac2f9c32503331c442ed19ee28beb" id="r_aeccac2f9c32503331c442ed19ee28beb"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#aeccac2f9c32503331c442ed19ee28beb">py_sista_reset_ansi</a> (PyObject *self, PyObject *Py_UNUSED(ignored))</td></tr>
 <tr class="memdesc:aeccac2f9c32503331c442ed19ee28beb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets ANSI settings to default.  <br /></td></tr>
 <tr class="separator:aeccac2f9c32503331c442ed19ee28beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00e69ee89d19018b750d1e7a3bf87e35" id="r_a00e69ee89d19018b750d1e7a3bf87e35"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a00e69ee89d19018b750d1e7a3bf87e35">py_sista_clear_screen</a> (PyObject *self, PyObject *args, PyObject *kwargs)</td></tr>
+<tr class="memdesc:a00e69ee89d19018b750d1e7a3bf87e35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the terminal and repositions the cursor.  <br /></td></tr>
+<tr class="separator:a00e69ee89d19018b750d1e7a3bf87e35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb04ce276db2560c96d5209a0daa75e9" id="r_abb04ce276db2560c96d5209a0daa75e9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#abb04ce276db2560c96d5209a0daa75e9">py_sista_destroy_ansi_settings_capsule_destructor</a> (PyObject *)</td></tr>
 <tr class="separator:abb04ce276db2560c96d5209a0daa75e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17c14a91034f8d9de9577f9dc8c4d68b" id="r_a17c14a91034f8d9de9577f9dc8c4d68b"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a17c14a91034f8d9de9577f9dc8c4d68b">py_sista_create_ansi_settings</a> (PyObject *self, PyObject *args, PyObject *kwargs)</td></tr>
@@ -195,6 +208,14 @@ Functions</h2></td></tr>
 <tr class="memitem:abd244fa07d405411d8474135f8e44923" id="r_abd244fa07d405411d8474135f8e44923"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#abd244fa07d405411d8474135f8e44923">py_sista_create_coordinates</a> (PyObject *self, PyObject *args)</td></tr>
 <tr class="memdesc:abd244fa07d405411d8474135f8e44923"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a Coordinates object.  <br /></td></tr>
 <tr class="separator:abd244fa07d405411d8474135f8e44923"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56113023a3c3a9a398aa7a5dab00174a" id="r_a56113023a3c3a9a398aa7a5dab00174a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a56113023a3c3a9a398aa7a5dab00174a">Pawn_dealloc</a> (PyObject *self)</td></tr>
+<tr class="separator:a56113023a3c3a9a398aa7a5dab00174a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add90fff177745a9bec1a6ef8c4025d06" id="r_add90fff177745a9bec1a6ef8c4025d06"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#add90fff177745a9bec1a6ef8c4025d06">Pawn_init</a> (PyObject *self, PyObject *args, PyObject *kwds)</td></tr>
+<tr class="separator:add90fff177745a9bec1a6ef8c4025d06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b1dba166128decc0950c034be627d9e" id="r_a3b1dba166128decc0950c034be627d9e"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a3b1dba166128decc0950c034be627d9e">py_sista_create_pawn_object</a> (<a class="el" href="api_8h.html#a6f04683e8866acbfa86279ddc3f1b7db">PawnHandler_t</a> pawn, PyObject *owner)</td></tr>
+<tr class="separator:a3b1dba166128decc0950c034be627d9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ae197852a51fe5bb5e89f550596162b" id="r_a5ae197852a51fe5bb5e89f550596162b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="api_8h.html#a6f04683e8866acbfa86279ddc3f1b7db">PawnHandler_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a5ae197852a51fe5bb5e89f550596162b">py_sista_get_pawn_from_object</a> (PyObject *pawn_obj)</td></tr>
+<tr class="separator:a5ae197852a51fe5bb5e89f550596162b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3dd2ebc3367dc8d4def021e3db17d5fe" id="r_a3dd2ebc3367dc8d4def021e3db17d5fe"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a3dd2ebc3367dc8d4def021e3db17d5fe">Cursor_dealloc</a> (PyObject *self)</td></tr>
 <tr class="separator:a3dd2ebc3367dc8d4def021e3db17d5fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af547fbb5495f3893585968f383f3d96b" id="r_af547fbb5495f3893585968f383f3d96b"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#af547fbb5495f3893585968f383f3d96b">Cursor_go_to</a> (PyObject *self, PyObject *args)</td></tr>
@@ -241,6 +262,8 @@ Functions</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:acc5b6bb9114fdf9bc479ac5f9e7d7e71" id="r_acc5b6bb9114fdf9bc479ac5f9e7d7e71"><td class="memItemLeft" align="right" valign="top">static PyTypeObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#acc5b6bb9114fdf9bc479ac5f9e7d7e71">CursorType</a></td></tr>
 <tr class="separator:acc5b6bb9114fdf9bc479ac5f9e7d7e71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17aae7f36cbb3dca7724b49156923144" id="r_a17aae7f36cbb3dca7724b49156923144"><td class="memItemLeft" align="right" valign="top">static PyTypeObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a17aae7f36cbb3dca7724b49156923144">PawnType</a></td></tr>
+<tr class="separator:a17aae7f36cbb3dca7724b49156923144"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cf4dc4e472901a803e138e82d659498" id="r_a5cf4dc4e472901a803e138e82d659498"><td class="memItemLeft" align="right" valign="top">static PyMethodDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a5cf4dc4e472901a803e138e82d659498">Cursor_methods</a> []</td></tr>
 <tr class="separator:a5cf4dc4e472901a803e138e82d659498"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb62ff97b483a804bfab89924fa7de3d" id="r_acb62ff97b483a804bfab89924fa7de3d"><td class="memItemLeft" align="right" valign="top">static PyTypeObject&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#acb62ff97b483a804bfab89924fa7de3d">SwappableFieldType</a></td></tr>
@@ -675,6 +698,124 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a56113023a3c3a9a398aa7a5dab00174a" name="a56113023a3c3a9a398aa7a5dab00174a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56113023a3c3a9a398aa7a5dab00174a">&#9670;&#160;</a></span>Pawn_dealloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Pawn_dealloc </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="add90fff177745a9bec1a6ef8c4025d06" name="add90fff177745a9bec1a6ef8c4025d06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add90fff177745a9bec1a6ef8c4025d06">&#9670;&#160;</a></span>Pawn_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int Pawn_init </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>args</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>kwds</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a00e69ee89d19018b750d1e7a3bf87e35" name="a00e69ee89d19018b750d1e7a3bf87e35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00e69ee89d19018b750d1e7a3bf87e35">&#9670;&#160;</a></span>py_sista_clear_screen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyObject * py_sista_clear_screen </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>args</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>kwargs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clears the terminal and repositions the cursor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spaces</td><td>Whether to clear visible content and scrollback buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a17c14a91034f8d9de9577f9dc8c4d68b" name="a17c14a91034f8d9de9577f9dc8c4d68b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a17c14a91034f8d9de9577f9dc8c4d68b">&#9670;&#160;</a></span>py_sista_create_ansi_settings()</h2>
 
@@ -808,6 +949,42 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a3b1dba166128decc0950c034be627d9e" name="a3b1dba166128decc0950c034be627d9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b1dba166128decc0950c034be627d9e">&#9670;&#160;</a></span>py_sista_create_pawn_object()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyObject * py_sista_create_pawn_object </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="api_8h.html#a6f04683e8866acbfa86279ddc3f1b7db">PawnHandler_t</a>&#160;</td>
+          <td class="paramname"><em>pawn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>owner</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="abb04ce276db2560c96d5209a0daa75e9" name="abb04ce276db2560c96d5209a0daa75e9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abb04ce276db2560c96d5209a0daa75e9">&#9670;&#160;</a></span>py_sista_destroy_ansi_settings_capsule_destructor()</h2>
 
@@ -895,6 +1072,32 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a5ae197852a51fe5bb5e89f550596162b" name="a5ae197852a51fe5bb5e89f550596162b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ae197852a51fe5bb5e89f550596162b">&#9670;&#160;</a></span>py_sista_get_pawn_from_object()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="api_8h.html#a6f04683e8866acbfa86279ddc3f1b7db">PawnHandler_t</a> py_sista_get_pawn_from_object </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>pawn_obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a5dc4b25b1fbe7db05a52e73d4e786792" name="a5dc4b25b1fbe7db05a52e73d4e786792"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5dc4b25b1fbe7db05a52e73d4e786792">&#9670;&#160;</a></span>py_sista_print()</h2>
 
@@ -937,6 +1140,68 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="acc6025aed2d8a94fe52fd33f7d1db9d2" name="acc6025aed2d8a94fe52fd33f7d1db9d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc6025aed2d8a94fe52fd33f7d1db9d2">&#9670;&#160;</a></span>py_sista_raise_from_last_error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int py_sista_raise_from_last_error </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>fallback_message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad09e6acd34ff17242d4d795a51515dd9" name="ad09e6acd34ff17242d4d795a51515dd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad09e6acd34ff17242d4d795a51515dd9">&#9670;&#160;</a></span>py_sista_raise_from_status()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int py_sista_raise_from_status </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>status_code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>fallback_message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -1155,7 +1420,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a60014423dc1f8aa7356226b32b9ce829" name="a60014423dc1f8aa7356226b32b9ce829"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60014423dc1f8aa7356226b32b9ce829">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[1/22]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a60014423dc1f8aa7356226b32b9ce829">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[1/24]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1183,7 +1448,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a5fe53061af602d00e95b333455fe82b3" name="a5fe53061af602d00e95b333455fe82b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5fe53061af602d00e95b333455fe82b3">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[2/22]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fe53061af602d00e95b333455fe82b3">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[2/24]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1211,7 +1476,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="ad74a6074715be8c10ebe2c299b71d805" name="ad74a6074715be8c10ebe2c299b71d805"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad74a6074715be8c10ebe2c299b71d805">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[3/22]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad74a6074715be8c10ebe2c299b71d805">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[3/24]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1239,7 +1504,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a0db26449f233936d02c2b0baefbb649b" name="a0db26449f233936d02c2b0baefbb649b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0db26449f233936d02c2b0baefbb649b">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[4/22]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0db26449f233936d02c2b0baefbb649b">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[4/24]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1279,7 +1544,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a06681a55513f6ea6310193b531e8204c" name="a06681a55513f6ea6310193b531e8204c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06681a55513f6ea6310193b531e8204c">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[5/22]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a06681a55513f6ea6310193b531e8204c">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[5/24]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1318,8 +1583,36 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a4fd61dcbecfefa63dc381b9648f6c802" name="a4fd61dcbecfefa63dc381b9648f6c802"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fd61dcbecfefa63dc381b9648f6c802">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[6/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PyDoc_STRVAR </td>
+          <td>(</td>
+          <td class="paramtype">py_doc_Pawn&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;Class representing a Pawn owned by a Field or SwappableField.\n\n&quot; &quot;Instances are created by `Field.create_pawn(...)` and\n&quot; &quot;`SwappableField.create_pawn(...)`.\n&quot;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a679622b68d1351211443fca95dc82f63" name="a679622b68d1351211443fca95dc82f63"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a679622b68d1351211443fca95dc82f63">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[6/22]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a679622b68d1351211443fca95dc82f63">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[7/24]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1364,8 +1657,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a6b16db3ca89ca5b8d0fab9830d46b5be" name="a6b16db3ca89ca5b8d0fab9830d46b5be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b16db3ca89ca5b8d0fab9830d46b5be">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[7/22]</span></h2>
+<a id="a514a4478c6b7b2e7eba60cf2d5be9084" name="a514a4478c6b7b2e7eba60cf2d5be9084"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a514a4478c6b7b2e7eba60cf2d5be9084">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[8/24]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1379,7 +1672,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&quot;Create a Pawn inside this Field and return a Pawn capsule.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `symbol` (str): Single character string representing the pawn.\n&quot; &quot;- `ansi_settings` (Capsule): Capsule returned by `create_ansi_settings`.\n&quot; &quot;- `coords` (Capsule): Capsule returned by `create_coordinates`.\n\n&quot; &quot;### Returns\n\n&quot; &quot;- Capsule wrapping the Pawn handler.\n&quot;&#160;</td>
+          <td class="paramtype">&quot;Create a Pawn inside this Field and return a Pawn object.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `symbol` (str): Single character string representing the pawn.\n&quot; &quot;- `ansi_settings` (Capsule): Capsule returned by `create_ansi_settings`.\n&quot; &quot;- `coords` (Capsule): Capsule returned by `create_coordinates`.\n\n&quot; &quot;### Returns\n\n&quot; &quot;- A `Pawn` object.\n&quot;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -1392,8 +1685,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ad571383a3cb3fa4f20ffa17276f8b0a3" name="ad571383a3cb3fa4f20ffa17276f8b0a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad571383a3cb3fa4f20ffa17276f8b0a3">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[8/22]</span></h2>
+<a id="af0b79c3307fb82e2361829c18807b9ff" name="af0b79c3307fb82e2361829c18807b9ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0b79c3307fb82e2361829c18807b9ff">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[9/24]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1407,7 +1700,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&quot;Move a pawn inside this Field and return a status code.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `pawn` (Capsule): Capsule for the Pawn to move.\n&quot; &quot;- `y` (int): Y coordinate of the destination.\n&quot; &quot;- `x` (int): X coordinate of the destination.\n\n&quot; &quot;### Returns\n\n&quot; &quot;- `int`: status code (0 == success).\n&quot;&#160;</td>
+          <td class="paramtype">&quot;Move a pawn inside this Field.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `pawn` (Pawn): Pawn object to move.\n&quot; &quot;- `y` (int): Y coordinate of the destination.\n&quot; &quot;- `x` (int): X coordinate of the destination.\n\n&quot; &quot;### Raises\n\n&quot; &quot;- `IndexError`: destination is out of bounds.\n&quot; &quot;- `RuntimeError`: destination is occupied or another API error occurs.\n&quot;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -1421,7 +1714,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a9117096df7fbfb6ae62562e67d995b3a" name="a9117096df7fbfb6ae62562e67d995b3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9117096df7fbfb6ae62562e67d995b3a">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[9/22]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9117096df7fbfb6ae62562e67d995b3a">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[10/24]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1448,8 +1741,36 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="ab0608c7165e5e3636d499d212af2424d" name="ab0608c7165e5e3636d499d212af2424d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0608c7165e5e3636d499d212af2424d">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[11/24]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PyDoc_STRVAR </td>
+          <td>(</td>
+          <td class="paramtype">py_sista_clear_screen_doc&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;Clear the terminal and reposition the cursor to top-left.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `spaces` (bool, optional):\n&quot; &quot; - `True` (default): clear visible content and scrollback buffer.\n&quot; &quot; - `False`: only reposition cursor to top-left.\n\n&quot; &quot;### Raises\n\n&quot; &quot;- `RuntimeError`: if the underlying API reports a failure.\n&quot;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a01a01d0b3fb53124c5ea25234ba80355" name="a01a01d0b3fb53124c5ea25234ba80355"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01a01d0b3fb53124c5ea25234ba80355">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[10/22]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a01a01d0b3fb53124c5ea25234ba80355">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[12/24]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1477,7 +1798,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a0498f4b73ecbe4603de2f4385987e917" name="a0498f4b73ecbe4603de2f4385987e917"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0498f4b73ecbe4603de2f4385987e917">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[11/22]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0498f4b73ecbe4603de2f4385987e917">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[13/24]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1505,7 +1826,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="ae5674d428313b66d3d105d667b65580f" name="ae5674d428313b66d3d105d667b65580f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5674d428313b66d3d105d667b65580f">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[12/22]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5674d428313b66d3d105d667b65580f">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[14/24]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1533,7 +1854,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="ad3976bc4f808e33436c28eab6336125f" name="ad3976bc4f808e33436c28eab6336125f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3976bc4f808e33436c28eab6336125f">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[13/22]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3976bc4f808e33436c28eab6336125f">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[15/24]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1560,8 +1881,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a96dc37139e3edae05324437852f433f5" name="a96dc37139e3edae05324437852f433f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96dc37139e3edae05324437852f433f5">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[14/22]</span></h2>
+<a id="a6934221ed23aa74555fce8b2121a947b" name="a6934221ed23aa74555fce8b2121a947b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6934221ed23aa74555fce8b2121a947b">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[16/24]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1575,7 +1896,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&quot;Reset all ANSI text attributes and colors to the terminal defaults.\n&quot;&#160;</td>
+          <td class="paramtype">&quot;Reset all ANSI text attributes and colors to the terminal defaults.\n\n&quot; &quot;Raises `RuntimeError` if the underlying API reports a failure.\n&quot;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -1589,7 +1910,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="afd0d2ec7dcf7e3a5b8b29f0206ca297f" name="afd0d2ec7dcf7e3a5b8b29f0206ca297f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd0d2ec7dcf7e3a5b8b29f0206ca297f">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[15/22]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afd0d2ec7dcf7e3a5b8b29f0206ca297f">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[17/24]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1617,7 +1938,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a07149ca054d6b69dc0683636b315b81b" name="a07149ca054d6b69dc0683636b315b81b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07149ca054d6b69dc0683636b315b81b">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[16/22]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a07149ca054d6b69dc0683636b315b81b">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[18/24]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1645,7 +1966,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a4752fc052e78d9aa7486793a0ba3c1b4" name="a4752fc052e78d9aa7486793a0ba3c1b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4752fc052e78d9aa7486793a0ba3c1b4">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[17/22]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4752fc052e78d9aa7486793a0ba3c1b4">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[19/24]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1673,7 +1994,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a39508f8a159bfe5eb6488edbd7f07878" name="a39508f8a159bfe5eb6488edbd7f07878"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39508f8a159bfe5eb6488edbd7f07878">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[18/22]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a39508f8a159bfe5eb6488edbd7f07878">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[20/24]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1700,8 +2021,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a593a819cb27dd759474f4a8b4d6e3f82" name="a593a819cb27dd759474f4a8b4d6e3f82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a593a819cb27dd759474f4a8b4d6e3f82">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[19/22]</span></h2>
+<a id="a211fb7c82075e54831e003305e48c1d8" name="a211fb7c82075e54831e003305e48c1d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a211fb7c82075e54831e003305e48c1d8">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[21/24]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1715,7 +2036,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&quot;add_pawn_to_swap(self, pawn: Capsule, coords: Capsule) -&gt; int\n\n&quot; &quot;Schedule a pawn to be swapped to the given coordinates in the next swap operation.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `pawn` (Capsule): Capsule for the Pawn to schedule for swapping.\n&quot; &quot;- `coords` (Capsule): Capsule for the target Coordinates.\n\n&quot; &quot;### Returns\n\n&quot; &quot;- `int`: status code (0 == success).\n&quot;&#160;</td>
+          <td class="paramtype">&quot;add_pawn_to_swap(self, pawn: Pawn, coords: Capsule) -&gt; None\n\n&quot; &quot;Schedule a pawn to be swapped to the given coordinates in the next swap operation.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `pawn` (Pawn): Pawn object to schedule for swapping.\n&quot; &quot;- `coords` (Capsule): Capsule for the target Coordinates.\n\n&quot; &quot;### Raises\n\n&quot; &quot;- `IndexError`: destination is out of bounds.\n&quot; &quot;- `RuntimeError`: destination is occupied or another API error occurs.\n&quot;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -1728,8 +2049,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a79ba8804eab43e97346a238a10404537" name="a79ba8804eab43e97346a238a10404537"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79ba8804eab43e97346a238a10404537">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[20/22]</span></h2>
+<a id="aff91939833105486f13732ade025c13c" name="aff91939833105486f13732ade025c13c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff91939833105486f13732ade025c13c">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[22/24]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1743,7 +2064,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&quot;apply_swaps(self) -&gt; int\n\n&quot; &quot;Execute all scheduled pawn swaps in this SwappableField.\n\n&quot; &quot;### Returns\n\n&quot; &quot;- `int`: status code (0 == success).\n&quot;&#160;</td>
+          <td class="paramtype">&quot;apply_swaps(self) -&gt; None\n\n&quot; &quot;Execute all scheduled pawn swaps in this SwappableField.\n\n&quot; &quot;### Raises\n\n&quot; &quot;- `RuntimeError`: if applying swaps fails.\n&quot;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -1756,8 +2077,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="aab42ebecbd1a7977794f5baafb278f2f" name="aab42ebecbd1a7977794f5baafb278f2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab42ebecbd1a7977794f5baafb278f2f">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[21/22]</span></h2>
+<a id="a90f427b8c87d1cc6527f18e006df0a6a" name="a90f427b8c87d1cc6527f18e006df0a6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90f427b8c87d1cc6527f18e006df0a6a">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[23/24]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1771,7 +2092,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&quot;create_pawn(self, symbol: str, ansi_settings: Capsule, coords: Capsule) -&gt; Capsule\n\n&quot; &quot;Create a Pawn inside this SwappableField and return a Pawn capsule.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `symbol` (str): Single character string used to represent the pawn.\n&quot; &quot;- `ansi_settings` (Capsule): Capsule returned by create_ansi_settings().\n&quot; &quot;- `coords` (Capsule): Capsule returned by create_coordinates().\n\n&quot; &quot;### Returns\n\n&quot; &quot;- `Capsule` wrapping the Pawn handler.\n&quot;&#160;</td>
+          <td class="paramtype">&quot;create_pawn(self, symbol: str, ansi_settings: Capsule, coords: Capsule) -&gt; Pawn\n\n&quot; &quot;Create a Pawn inside this SwappableField and return a Pawn object.\n\n&quot; &quot;### Parameters\n\n&quot; &quot;- `symbol` (str): Single character string used to represent the pawn.\n&quot; &quot;- `ansi_settings` (Capsule): Capsule returned by create_ansi_settings().\n&quot; &quot;- `coords` (Capsule): Capsule returned by create_coordinates().\n\n&quot; &quot;### Returns\n\n&quot; &quot;- A `Pawn` object.\n&quot;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -1785,7 +2106,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a082b79d8ccdeb67c932dc11a5a1f8a98" name="a082b79d8ccdeb67c932dc11a5a1f8a98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a082b79d8ccdeb67c932dc11a5a1f8a98">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[22/22]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a082b79d8ccdeb67c932dc11a5a1f8a98">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[24/24]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2098,9 +2419,9 @@ Variables</h2></td></tr>
 <div class="line">    {<span class="stringliteral">&quot;move&quot;</span>, (PyCFunction)<a class="code hl_function" href="sistamodule_8c.html#a3cbdce11db98425ccaab414483d4944c">Cursor_move</a>, METH_VARARGS, py_Cursor_move_doc},</div>
 <div class="line">    {NULL, NULL, 0, NULL}</div>
 <div class="line">}</div>
-<div class="ttc" id="asistamodule_8c_html_a3cbdce11db98425ccaab414483d4944c"><div class="ttname"><a href="sistamodule_8c.html#a3cbdce11db98425ccaab414483d4944c">Cursor_move</a></div><div class="ttdeci">static PyObject * Cursor_move(PyObject *self, PyObject *args)</div><div class="ttdoc">Cursor.move(self, direction, amount)</div><div class="ttdef"><b>Definition</b> sistamodule.c:501</div></div>
-<div class="ttc" id="asistamodule_8c_html_ad44dd0ce6232f80679cdecd9951671c0"><div class="ttname"><a href="sistamodule_8c.html#ad44dd0ce6232f80679cdecd9951671c0">Cursor_go_to_coordinates</a></div><div class="ttdeci">static PyObject * Cursor_go_to_coordinates(PyObject *self, PyObject *args)</div><div class="ttdoc">Cursor.go_to_coordinates(self, coords_capsule)</div><div class="ttdef"><b>Definition</b> sistamodule.c:468</div></div>
-<div class="ttc" id="asistamodule_8c_html_af547fbb5495f3893585968f383f3d96b"><div class="ttname"><a href="sistamodule_8c.html#af547fbb5495f3893585968f383f3d96b">Cursor_go_to</a></div><div class="ttdeci">static PyObject * Cursor_go_to(PyObject *self, PyObject *args)</div><div class="ttdoc">Cursor.go_to(self, y, x)</div><div class="ttdef"><b>Definition</b> sistamodule.c:443</div></div>
+<div class="ttc" id="asistamodule_8c_html_a3cbdce11db98425ccaab414483d4944c"><div class="ttname"><a href="sistamodule_8c.html#a3cbdce11db98425ccaab414483d4944c">Cursor_move</a></div><div class="ttdeci">static PyObject * Cursor_move(PyObject *self, PyObject *args)</div><div class="ttdoc">Cursor.move(self, direction, amount)</div><div class="ttdef"><b>Definition</b> sistamodule.c:688</div></div>
+<div class="ttc" id="asistamodule_8c_html_ad44dd0ce6232f80679cdecd9951671c0"><div class="ttname"><a href="sistamodule_8c.html#ad44dd0ce6232f80679cdecd9951671c0">Cursor_go_to_coordinates</a></div><div class="ttdeci">static PyObject * Cursor_go_to_coordinates(PyObject *self, PyObject *args)</div><div class="ttdoc">Cursor.go_to_coordinates(self, coords_capsule)</div><div class="ttdef"><b>Definition</b> sistamodule.c:651</div></div>
+<div class="ttc" id="asistamodule_8c_html_af547fbb5495f3893585968f383f3d96b"><div class="ttname"><a href="sistamodule_8c.html#af547fbb5495f3893585968f383f3d96b">Cursor_go_to</a></div><div class="ttdeci">static PyObject * Cursor_go_to(PyObject *self, PyObject *args)</div><div class="ttdoc">Cursor.go_to(self, y, x)</div><div class="ttdef"><b>Definition</b> sistamodule.c:622</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2134,10 +2455,10 @@ Variables</h2></td></tr>
 <div class="line">    .tp_new = PyType_GenericNew,</div>
 <div class="line">    .tp_init = <a class="code hl_function" href="sistamodule_8c.html#aaaaa94aa134cbaa393c02c336d9ef039">Cursor_init</a>,</div>
 <div class="line">}</div>
-<div class="ttc" id="asistamodule_8c_html_a3dd2ebc3367dc8d4def021e3db17d5fe"><div class="ttname"><a href="sistamodule_8c.html#a3dd2ebc3367dc8d4def021e3db17d5fe">Cursor_dealloc</a></div><div class="ttdeci">static void Cursor_dealloc(PyObject *self)</div><div class="ttdef"><b>Definition</b> sistamodule.c:425</div></div>
-<div class="ttc" id="asistamodule_8c_html_a5cf4dc4e472901a803e138e82d659498"><div class="ttname"><a href="sistamodule_8c.html#a5cf4dc4e472901a803e138e82d659498">Cursor_methods</a></div><div class="ttdeci">static PyMethodDef Cursor_methods[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:520</div></div>
-<div class="ttc" id="asistamodule_8c_html_aaaaa94aa134cbaa393c02c336d9ef039"><div class="ttname"><a href="sistamodule_8c.html#aaaaa94aa134cbaa393c02c336d9ef039">Cursor_init</a></div><div class="ttdeci">static int Cursor_init(PyObject *self, PyObject *args, PyObject *kwds)</div><div class="ttdef"><b>Definition</b> sistamodule.c:528</div></div>
-<div class="ttc" id="astructCursorObject_html"><div class="ttname"><a href="structCursorObject.html">CursorObject</a></div><div class="ttdef"><b>Definition</b> sistamodule.c:416</div></div>
+<div class="ttc" id="asistamodule_8c_html_a3dd2ebc3367dc8d4def021e3db17d5fe"><div class="ttname"><a href="sistamodule_8c.html#a3dd2ebc3367dc8d4def021e3db17d5fe">Cursor_dealloc</a></div><div class="ttdeci">static void Cursor_dealloc(PyObject *self)</div><div class="ttdef"><b>Definition</b> sistamodule.c:604</div></div>
+<div class="ttc" id="asistamodule_8c_html_a5cf4dc4e472901a803e138e82d659498"><div class="ttname"><a href="sistamodule_8c.html#a5cf4dc4e472901a803e138e82d659498">Cursor_methods</a></div><div class="ttdeci">static PyMethodDef Cursor_methods[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:711</div></div>
+<div class="ttc" id="asistamodule_8c_html_aaaaa94aa134cbaa393c02c336d9ef039"><div class="ttname"><a href="sistamodule_8c.html#aaaaa94aa134cbaa393c02c336d9ef039">Cursor_init</a></div><div class="ttdeci">static int Cursor_init(PyObject *self, PyObject *args, PyObject *kwds)</div><div class="ttdef"><b>Definition</b> sistamodule.c:719</div></div>
+<div class="ttc" id="astructCursorObject_html"><div class="ttname"><a href="structCursorObject.html">CursorObject</a></div><div class="ttdef"><b>Definition</b> sistamodule.c:526</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2166,9 +2487,9 @@ Variables</h2></td></tr>
 <div class="line">    {<span class="stringliteral">&quot;print_with_border&quot;</span>, (PyCFunction)<a class="code hl_function" href="sistamodule_8c.html#afb60cca9ebd37dd90b5250c7c42ed816">Field_print_with_border</a>, METH_VARARGS, py_Field_print_with_border_doc},</div>
 <div class="line">    {NULL, NULL, 0, NULL}</div>
 <div class="line">}</div>
-<div class="ttc" id="asistamodule_8c_html_a63992e40d22faeac3ca5edb5f8707765"><div class="ttname"><a href="sistamodule_8c.html#a63992e40d22faeac3ca5edb5f8707765">Field_create_pawn</a></div><div class="ttdeci">static PyObject * Field_create_pawn(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:779</div></div>
-<div class="ttc" id="asistamodule_8c_html_a6f56989ac366e9b7c0d40ce34138f220"><div class="ttname"><a href="sistamodule_8c.html#a6f56989ac366e9b7c0d40ce34138f220">Field_move_pawn</a></div><div class="ttdeci">static PyObject * Field_move_pawn(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:828</div></div>
-<div class="ttc" id="asistamodule_8c_html_afb60cca9ebd37dd90b5250c7c42ed816"><div class="ttname"><a href="sistamodule_8c.html#afb60cca9ebd37dd90b5250c7c42ed816">Field_print_with_border</a></div><div class="ttdeci">static PyObject * Field_print_with_border(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:860</div></div>
+<div class="ttc" id="asistamodule_8c_html_a63992e40d22faeac3ca5edb5f8707765"><div class="ttname"><a href="sistamodule_8c.html#a63992e40d22faeac3ca5edb5f8707765">Field_create_pawn</a></div><div class="ttdeci">static PyObject * Field_create_pawn(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:981</div></div>
+<div class="ttc" id="asistamodule_8c_html_a6f56989ac366e9b7c0d40ce34138f220"><div class="ttname"><a href="sistamodule_8c.html#a6f56989ac366e9b7c0d40ce34138f220">Field_move_pawn</a></div><div class="ttdeci">static PyObject * Field_move_pawn(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:1030</div></div>
+<div class="ttc" id="asistamodule_8c_html_afb60cca9ebd37dd90b5250c7c42ed816"><div class="ttname"><a href="sistamodule_8c.html#afb60cca9ebd37dd90b5250c7c42ed816">Field_print_with_border</a></div><div class="ttdeci">static PyObject * Field_print_with_border(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:1063</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2202,10 +2523,45 @@ Variables</h2></td></tr>
 <div class="line">    .tp_new = PyType_GenericNew,</div>
 <div class="line">    .tp_init = <a class="code hl_function" href="sistamodule_8c.html#a3c423fb6fa6a3c32e161b822d54a3642">Field_init</a>,</div>
 <div class="line">}</div>
-<div class="ttc" id="asistamodule_8c_html_a0422c662e860a4ce4ac174cd325476e8"><div class="ttname"><a href="sistamodule_8c.html#a0422c662e860a4ce4ac174cd325476e8">Field_dealloc</a></div><div class="ttdeci">static void Field_dealloc(PyObject *self)</div><div class="ttdef"><b>Definition</b> sistamodule.c:767</div></div>
-<div class="ttc" id="asistamodule_8c_html_a12e79c76e9522ac7380bbb4f438c07e3"><div class="ttname"><a href="sistamodule_8c.html#a12e79c76e9522ac7380bbb4f438c07e3">Field_methods</a></div><div class="ttdeci">static PyMethodDef Field_methods[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:886</div></div>
-<div class="ttc" id="asistamodule_8c_html_a3c423fb6fa6a3c32e161b822d54a3642"><div class="ttname"><a href="sistamodule_8c.html#a3c423fb6fa6a3c32e161b822d54a3642">Field_init</a></div><div class="ttdeci">static int Field_init(PyObject *self, PyObject *args, PyObject *kwds)</div><div class="ttdoc">Initializes a Field object.</div><div class="ttdef"><b>Definition</b> sistamodule.c:901</div></div>
-<div class="ttc" id="astructFieldObject_html"><div class="ttname"><a href="structFieldObject.html">FieldObject</a></div><div class="ttdef"><b>Definition</b> sistamodule.c:758</div></div>
+<div class="ttc" id="asistamodule_8c_html_a0422c662e860a4ce4ac174cd325476e8"><div class="ttname"><a href="sistamodule_8c.html#a0422c662e860a4ce4ac174cd325476e8">Field_dealloc</a></div><div class="ttdeci">static void Field_dealloc(PyObject *self)</div><div class="ttdef"><b>Definition</b> sistamodule.c:969</div></div>
+<div class="ttc" id="asistamodule_8c_html_a12e79c76e9522ac7380bbb4f438c07e3"><div class="ttname"><a href="sistamodule_8c.html#a12e79c76e9522ac7380bbb4f438c07e3">Field_methods</a></div><div class="ttdeci">static PyMethodDef Field_methods[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:1093</div></div>
+<div class="ttc" id="asistamodule_8c_html_a3c423fb6fa6a3c32e161b822d54a3642"><div class="ttname"><a href="sistamodule_8c.html#a3c423fb6fa6a3c32e161b822d54a3642">Field_init</a></div><div class="ttdeci">static int Field_init(PyObject *self, PyObject *args, PyObject *kwds)</div><div class="ttdoc">Initializes a Field object.</div><div class="ttdef"><b>Definition</b> sistamodule.c:1108</div></div>
+<div class="ttc" id="astructFieldObject_html"><div class="ttname"><a href="structFieldObject.html">FieldObject</a></div><div class="ttdef"><b>Definition</b> sistamodule.c:960</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a17aae7f36cbb3dca7724b49156923144" name="a17aae7f36cbb3dca7724b49156923144"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17aae7f36cbb3dca7724b49156923144">&#9670;&#160;</a></span>PawnType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyTypeObject PawnType</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    PyVarObject_HEAD_INIT(NULL, 0)</div>
+<div class="line">    .tp_name = <span class="stringliteral">&quot;sista.Pawn&quot;</span>,</div>
+<div class="line">    .tp_basicsize = <span class="keyword">sizeof</span>(<a class="code hl_struct" href="structPawnObject.html">PawnObject</a>),</div>
+<div class="line">    .tp_flags = Py_TPFLAGS_DEFAULT,</div>
+<div class="line">    .tp_doc = py_doc_Pawn,</div>
+<div class="line">    .tp_dealloc = (destructor)<a class="code hl_function" href="sistamodule_8c.html#a56113023a3c3a9a398aa7a5dab00174a">Pawn_dealloc</a>,</div>
+<div class="line">    .tp_new = PyType_GenericNew,</div>
+<div class="line">    .tp_init = <a class="code hl_function" href="sistamodule_8c.html#add90fff177745a9bec1a6ef8c4025d06">Pawn_init</a>,</div>
+<div class="line">}</div>
+<div class="ttc" id="asistamodule_8c_html_a56113023a3c3a9a398aa7a5dab00174a"><div class="ttname"><a href="sistamodule_8c.html#a56113023a3c3a9a398aa7a5dab00174a">Pawn_dealloc</a></div><div class="ttdeci">static void Pawn_dealloc(PyObject *self)</div><div class="ttdef"><b>Definition</b> sistamodule.c:543</div></div>
+<div class="ttc" id="asistamodule_8c_html_add90fff177745a9bec1a6ef8c4025d06"><div class="ttname"><a href="sistamodule_8c.html#add90fff177745a9bec1a6ef8c4025d06">Pawn_init</a></div><div class="ttdeci">static int Pawn_init(PyObject *self, PyObject *args, PyObject *kwds)</div><div class="ttdef"><b>Definition</b> sistamodule.c:553</div></div>
+<div class="ttc" id="astructPawnObject_html"><div class="ttname"><a href="structPawnObject.html">PawnObject</a></div><div class="ttdef"><b>Definition</b> sistamodule.c:534</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2235,8 +2591,8 @@ Variables</h2></td></tr>
 <div class="line">    .m_methods = <a class="code hl_variable" href="sistamodule_8c.html#ac155536feb4e0938ea7da93825a0348d">sista_module_methods</a>,</div>
 <div class="line">    .m_slots = <a class="code hl_variable" href="sistamodule_8c.html#a84fc77e2b5e20cc60f294e1ae60c4ea3">sista_module_slots</a>,</div>
 <div class="line">}</div>
-<div class="ttc" id="asistamodule_8c_html_a84fc77e2b5e20cc60f294e1ae60c4ea3"><div class="ttname"><a href="sistamodule_8c.html#a84fc77e2b5e20cc60f294e1ae60c4ea3">sista_module_slots</a></div><div class="ttdeci">static PyModuleDef_Slot sista_module_slots[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:1049</div></div>
-<div class="ttc" id="asistamodule_8c_html_ac155536feb4e0938ea7da93825a0348d"><div class="ttname"><a href="sistamodule_8c.html#ac155536feb4e0938ea7da93825a0348d">sista_module_methods</a></div><div class="ttdeci">static PyMethodDef sista_module_methods[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:1015</div></div>
+<div class="ttc" id="asistamodule_8c_html_a84fc77e2b5e20cc60f294e1ae60c4ea3"><div class="ttname"><a href="sistamodule_8c.html#a84fc77e2b5e20cc60f294e1ae60c4ea3">sista_module_slots</a></div><div class="ttdeci">static PyModuleDef_Slot sista_module_slots[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:1267</div></div>
+<div class="ttc" id="asistamodule_8c_html_ac155536feb4e0938ea7da93825a0348d"><div class="ttname"><a href="sistamodule_8c.html#ac155536feb4e0938ea7da93825a0348d">sista_module_methods</a></div><div class="ttdeci">static PyMethodDef sista_module_methods[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:1229</div></div>
 </div><!-- fragment -->
 <p>Module definition. </p>
 
@@ -2287,7 +2643,7 @@ Variables</h2></td></tr>
 <div class="line">    {Py_mod_exec, (<span class="keywordtype">void</span>*)<a class="code hl_function" href="sistamodule_8c.html#a1ecfc910058a9b5a3e471e0eb7b472f2">sista_module_exec</a>},</div>
 <div class="line">    {0, NULL}</div>
 <div class="line">}</div>
-<div class="ttc" id="asistamodule_8c_html_a1ecfc910058a9b5a3e471e0eb7b472f2"><div class="ttname"><a href="sistamodule_8c.html#a1ecfc910058a9b5a3e471e0eb7b472f2">sista_module_exec</a></div><div class="ttdeci">static int sista_module_exec(PyObject *module)</div><div class="ttdef"><b>Definition</b> sistamodule.c:944</div></div>
+<div class="ttc" id="asistamodule_8c_html_a1ecfc910058a9b5a3e471e0eb7b472f2"><div class="ttname"><a href="sistamodule_8c.html#a1ecfc910058a9b5a3e471e0eb7b472f2">sista_module_exec</a></div><div class="ttdeci">static int sista_module_exec(PyObject *module)</div><div class="ttdef"><b>Definition</b> sistamodule.c:1151</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2317,10 +2673,10 @@ Variables</h2></td></tr>
 <div class="line">    {<span class="stringliteral">&quot;print_with_border&quot;</span>, (PyCFunction)<a class="code hl_function" href="sistamodule_8c.html#a83893096dce0554b780ff5b247573030">SwappableField_print_with_border</a>, METH_VARARGS, py_SwappableField_print_with_border_doc},</div>
 <div class="line">    {NULL, NULL, 0, NULL}</div>
 <div class="line">}</div>
-<div class="ttc" id="asistamodule_8c_html_a32161d343fbfe89c94ba316b404669d4"><div class="ttname"><a href="sistamodule_8c.html#a32161d343fbfe89c94ba316b404669d4">SwappableField_add_pawn_to_swap</a></div><div class="ttdeci">static PyObject * SwappableField_add_pawn_to_swap(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:626</div></div>
-<div class="ttc" id="asistamodule_8c_html_a83893096dce0554b780ff5b247573030"><div class="ttname"><a href="sistamodule_8c.html#a83893096dce0554b780ff5b247573030">SwappableField_print_with_border</a></div><div class="ttdeci">static PyObject * SwappableField_print_with_border(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:677</div></div>
-<div class="ttc" id="asistamodule_8c_html_a961814691d7c680a09e467144c8f1fa3"><div class="ttname"><a href="sistamodule_8c.html#a961814691d7c680a09e467144c8f1fa3">SwappableField_create_pawn</a></div><div class="ttdeci">static PyObject * SwappableField_create_pawn(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:577</div></div>
-<div class="ttc" id="asistamodule_8c_html_aa8527343b4bd2e796fb46e3b2aec5e6e"><div class="ttname"><a href="sistamodule_8c.html#aa8527343b4bd2e796fb46e3b2aec5e6e">SwappableField_apply_swaps</a></div><div class="ttdeci">static PyObject * SwappableField_apply_swaps(PyObject *self, PyObject *Py_UNUSED(ignored))</div><div class="ttdef"><b>Definition</b> sistamodule.c:660</div></div>
+<div class="ttc" id="asistamodule_8c_html_a32161d343fbfe89c94ba316b404669d4"><div class="ttname"><a href="sistamodule_8c.html#a32161d343fbfe89c94ba316b404669d4">SwappableField_add_pawn_to_swap</a></div><div class="ttdeci">static PyObject * SwappableField_add_pawn_to_swap(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:817</div></div>
+<div class="ttc" id="asistamodule_8c_html_a83893096dce0554b780ff5b247573030"><div class="ttname"><a href="sistamodule_8c.html#a83893096dce0554b780ff5b247573030">SwappableField_print_with_border</a></div><div class="ttdeci">static PyObject * SwappableField_print_with_border(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:875</div></div>
+<div class="ttc" id="asistamodule_8c_html_a961814691d7c680a09e467144c8f1fa3"><div class="ttname"><a href="sistamodule_8c.html#a961814691d7c680a09e467144c8f1fa3">SwappableField_create_pawn</a></div><div class="ttdeci">static PyObject * SwappableField_create_pawn(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:768</div></div>
+<div class="ttc" id="asistamodule_8c_html_aa8527343b4bd2e796fb46e3b2aec5e6e"><div class="ttname"><a href="sistamodule_8c.html#aa8527343b4bd2e796fb46e3b2aec5e6e">SwappableField_apply_swaps</a></div><div class="ttdeci">static PyObject * SwappableField_apply_swaps(PyObject *self, PyObject *Py_UNUSED(ignored))</div><div class="ttdef"><b>Definition</b> sistamodule.c:860</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2354,17 +2710,17 @@ Variables</h2></td></tr>
 <div class="line">    .tp_new = PyType_GenericNew,</div>
 <div class="line">    .tp_init = <a class="code hl_function" href="sistamodule_8c.html#a1df06403c38402ab51c4c5b5976b272c">SwappableField_init</a>,</div>
 <div class="line">}</div>
-<div class="ttc" id="asistamodule_8c_html_a14fd8c596cc255b87beda7fde0e64069"><div class="ttname"><a href="sistamodule_8c.html#a14fd8c596cc255b87beda7fde0e64069">SwappableField_methods</a></div><div class="ttdeci">static PyMethodDef SwappableField_methods[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:703</div></div>
-<div class="ttc" id="asistamodule_8c_html_a1df06403c38402ab51c4c5b5976b272c"><div class="ttname"><a href="sistamodule_8c.html#a1df06403c38402ab51c4c5b5976b272c">SwappableField_init</a></div><div class="ttdeci">static int SwappableField_init(PyObject *self, PyObject *args, PyObject *kwds)</div><div class="ttdef"><b>Definition</b> sistamodule.c:712</div></div>
-<div class="ttc" id="asistamodule_8c_html_a7d3374703b31394c6b893357a36b2c20"><div class="ttname"><a href="sistamodule_8c.html#a7d3374703b31394c6b893357a36b2c20">SwappableField_dealloc</a></div><div class="ttdeci">static void SwappableField_dealloc(PyObject *self)</div><div class="ttdef"><b>Definition</b> sistamodule.c:565</div></div>
-<div class="ttc" id="astructSwappableFieldObject_html"><div class="ttname"><a href="structSwappableFieldObject.html">SwappableFieldObject</a></div><div class="ttdef"><b>Definition</b> sistamodule.c:556</div></div>
+<div class="ttc" id="asistamodule_8c_html_a14fd8c596cc255b87beda7fde0e64069"><div class="ttname"><a href="sistamodule_8c.html#a14fd8c596cc255b87beda7fde0e64069">SwappableField_methods</a></div><div class="ttdeci">static PyMethodDef SwappableField_methods[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:905</div></div>
+<div class="ttc" id="asistamodule_8c_html_a1df06403c38402ab51c4c5b5976b272c"><div class="ttname"><a href="sistamodule_8c.html#a1df06403c38402ab51c4c5b5976b272c">SwappableField_init</a></div><div class="ttdeci">static int SwappableField_init(PyObject *self, PyObject *args, PyObject *kwds)</div><div class="ttdef"><b>Definition</b> sistamodule.c:914</div></div>
+<div class="ttc" id="asistamodule_8c_html_a7d3374703b31394c6b893357a36b2c20"><div class="ttname"><a href="sistamodule_8c.html#a7d3374703b31394c6b893357a36b2c20">SwappableField_dealloc</a></div><div class="ttdeci">static void SwappableField_dealloc(PyObject *self)</div><div class="ttdef"><b>Definition</b> sistamodule.c:756</div></div>
+<div class="ttc" id="astructSwappableFieldObject_html"><div class="ttname"><a href="structSwappableFieldObject.html">SwappableFieldObject</a></div><div class="ttdef"><b>Definition</b> sistamodule.c:747</div></div>
 </div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 8 2026 16:16:44 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Apr 2 2026 14:50:34 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

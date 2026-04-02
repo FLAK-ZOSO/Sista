@@ -80,6 +80,7 @@ Features</h1>
 <li>Full access to Sista C API functions</li>
 <li>Enum values exposed for foreground colors, background colors, and text attributes</li>
 <li>Automatic memory management through Python capsules and objects</li>
+<li>Pythonic exception-based error handling (no status-code checking on success paths)</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Installation</h1>
@@ -124,31 +125,52 @@ Using the Extension</h1>
 <div class="line">print(sista.F_BLACK)    <span class="comment"># 30</span></div>
 <div class="line">print(sista.F_RED)      <span class="comment"># 31</span></div>
 <div class="line">print(sista.B_WHITE)    <span class="comment"># 47</span></div>
-<div class="line">print(sista.A_BRIGHT)     <span class="comment"># 1</span></div>
+<div class="line">print(sista.A_BRIGHT)  <span class="comment"># 1</span></div>
 <div class="line"> </div>
-<div class="line"><span class="comment"># Use the API functions</span></div>
-<div class="line">field = sista.create_swappable_field(10, 10)</div>
-<div class="line">pawn = <a class="code hl_function" href="namespacesista.html#a52e651220126debb0d253ebba25bcb52">sista.create_pawn_in_field</a>(</div>
-<div class="line">    field, <span class="stringliteral">&#39;P&#39;</span>,</div>
-<div class="line">    <a class="code hl_function" href="namespacesista.html#af7ea280bcbb2e75d646980de640a3cdb">sista.create_ansi_settings</a>(</div>
-<div class="line">        sista.F_RED,</div>
-<div class="line">        sista.B_BLACK,</div>
-<div class="line">        sista.A_BLINK</div>
-<div class="line">    ),</div>
-<div class="line">    <a class="code hl_function" href="namespacesista.html#a07e48cce76729ca373904acad9be1d4c">sista.create_coordinates</a>(0, 0)</div>
-<div class="line">)</div>
-<div class="ttc" id="anamespacesista_html_a07e48cce76729ca373904acad9be1d4c"><div class="ttname"><a href="namespacesista.html#a07e48cce76729ca373904acad9be1d4c">sista.create_coordinates</a></div><div class="ttdeci">Capsule create_coordinates(int y, int x)</div><div class="ttdoc">Create a Coordinates object and return it as a Capsule.</div><div class="ttdef"><b>Definition</b> __init__.pyi:242</div></div>
-<div class="ttc" id="anamespacesista_html_a52e651220126debb0d253ebba25bcb52"><div class="ttname"><a href="namespacesista.html#a52e651220126debb0d253ebba25bcb52">sista.create_pawn_in_field</a></div><div class="ttdeci">Capsule create_pawn_in_field(Capsule field, str symbol, Capsule ansi_settings, Capsule coords)</div><div class="ttdoc">Create a Pawn inside a non-swappable Field and return a Pawn capsule.</div><div class="ttdef"><b>Definition</b> __init__.pyi:295</div></div>
-<div class="ttc" id="anamespacesista_html_af7ea280bcbb2e75d646980de640a3cdb"><div class="ttname"><a href="namespacesista.html#af7ea280bcbb2e75d646980de640a3cdb">sista.create_ansi_settings</a></div><div class="ttdeci">Capsule create_ansi_settings(int fgcolor=..., int bgcolor=..., int attribute=...)</div><div class="ttdoc">Create an ANSI settings object and return it as a Capsule.</div><div class="ttdef"><b>Definition</b> __init__.pyi:96</div></div>
+<div class="line">field = <a class="code hl_class" href="classsista_1_1Field.html">sista.Field</a>(10, 5)</div>
+<div class="line">settings = <a class="code hl_function" href="namespacesista.html#af7ea280bcbb2e75d646980de640a3cdb">sista.create_ansi_settings</a>(sista.F_RED, sista.B_BLACK, sista.A_BLINK)</div>
+<div class="line">pawn = field.create_pawn(<span class="stringliteral">&#39;P&#39;</span>, settings, <a class="code hl_function" href="namespacesista.html#a07e48cce76729ca373904acad9be1d4c">sista.create_coordinates</a>(0, 0))</div>
+<div class="line">border = <a class="code hl_function" href="namespacesista.html#a4ca373f0906f4bdfdc3613cfdf06953a">sista.create_border</a>(<span class="stringliteral">&#39;#&#39;</span>, <a class="code hl_function" href="namespacesista.html#af7ea280bcbb2e75d646980de640a3cdb">sista.create_ansi_settings</a>(sista.F_CYAN, sista.B_BLACK, sista.A_BRIGHT))</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_function" href="namespacesista.html#ae104860b862007055387a5af478d7433">sista.clear_screen</a>(<span class="keyword">True</span>)</div>
+<div class="line">field.print_with_border(border)</div>
+<div class="line"> </div>
+<div class="line">field.move_pawn(pawn, 1, 1)</div>
+<div class="line">field.print_with_border(border)</div>
+<div class="ttc" id="aclasssista_1_1Field_html"><div class="ttname"><a href="classsista_1_1Field.html">sista::Field</a></div><div class="ttdoc">Class representing a terminal Field for pawns and borders.</div><div class="ttdef"><b>Definition</b> field.hpp:71</div></div>
+<div class="ttc" id="anamespacesista_html_a07e48cce76729ca373904acad9be1d4c"><div class="ttname"><a href="namespacesista.html#a07e48cce76729ca373904acad9be1d4c">sista.create_coordinates</a></div><div class="ttdeci">Capsule create_coordinates(int y, int x)</div><div class="ttdoc">Create a Coordinates object and return it as a Capsule.</div><div class="ttdef"><b>Definition</b> __init__.pyi:259</div></div>
+<div class="ttc" id="anamespacesista_html_a4ca373f0906f4bdfdc3613cfdf06953a"><div class="ttname"><a href="namespacesista.html#a4ca373f0906f4bdfdc3613cfdf06953a">sista.create_border</a></div><div class="ttdeci">Capsule create_border(str symbol, Capsule ansi_settings)</div><div class="ttdoc">Create a Border object that uses a single-character symbol and ANSI settings.</div><div class="ttdef"><b>Definition</b> __init__.pyi:119</div></div>
+<div class="ttc" id="anamespacesista_html_ae104860b862007055387a5af478d7433"><div class="ttname"><a href="namespacesista.html#ae104860b862007055387a5af478d7433">sista.clear_screen</a></div><div class="ttdeci">None clear_screen(bool spaces=True)</div><div class="ttdoc">Clear the terminal and reposition the cursor to top-left.</div><div class="ttdef"><b>Definition</b> __init__.pyi:84</div></div>
+<div class="ttc" id="anamespacesista_html_af7ea280bcbb2e75d646980de640a3cdb"><div class="ttname"><a href="namespacesista.html#af7ea280bcbb2e75d646980de640a3cdb">sista.create_ansi_settings</a></div><div class="ttdeci">Capsule create_ansi_settings(int fgcolor=..., int bgcolor=..., int attribute=...)</div><div class="ttdoc">Create an ANSI settings object and return it as a Capsule.</div><div class="ttdef"><b>Definition</b> __init__.pyi:106</div></div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md10"></a>
+Error Handling (Exceptions)</h1>
+<p>The Python API raises exceptions for failures reported by the C layer.</p>
+<ul>
+<li><code>ValueError</code>: invalid handles or invalid user-provided objects.</li>
+<li><code>IndexError</code>: out-of-bounds coordinates.</li>
+<li><code>MemoryError</code>: allocation failures.</li>
+<li><code>RuntimeError</code>: other Sista API errors.</li>
+</ul>
+<p>Example:</p>
+<div class="fragment"><div class="line"><span class="keyword">import</span> sista</div>
+<div class="line"> </div>
+<div class="line">field = <a class="code hl_class" href="classsista_1_1Field.html">sista.Field</a>(2, 2)</div>
+<div class="line">settings = <a class="code hl_function" href="namespacesista.html#af7ea280bcbb2e75d646980de640a3cdb">sista.create_ansi_settings</a>(sista.F_WHITE, sista.B_BLACK, sista.A_RESET)</div>
+<div class="line">pawn = field.create_pawn(<span class="stringliteral">&#39;P&#39;</span>, settings, <a class="code hl_function" href="namespacesista.html#a07e48cce76729ca373904acad9be1d4c">sista.create_coordinates</a>(0, 0))</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">try</span>:</div>
+<div class="line">    field.move_pawn(pawn, 99, 99)</div>
+<div class="line"><span class="keywordflow">except</span> IndexError <span class="keyword">as</span> exc:</div>
+<div class="line">    print(f<span class="stringliteral">&quot;Move failed as expected: {exc}&quot;</span>)</div>
 </div><!-- fragment --><p>See the demos in <a href="demo/"><code>demo/</code></a> for more examples.</p>
-<h1><a class="anchor" id="autotoc_md10"></a>
+<h1><a class="anchor" id="autotoc_md11"></a>
 Testing</h1>
 <p>You can test the extension with the provided test script:</p>
-<div class="fragment"><div class="line">python demo/test_enums.py</div>
-</div><!-- fragment --><p>This should output all the enum values that were successfully exposed.</p>
-<h1><a class="anchor" id="autotoc_md11"></a>
+<div class="fragment"><div class="line">python demo/test_comprehensive.py</div>
+</div><!-- fragment --><p>This verifies core API behavior, including exception paths.</p>
+<h1><a class="anchor" id="autotoc_md12"></a>
 Troubleshooting</h1>
-<h2><a class="anchor" id="autotoc_md12"></a>
+<h2><a class="anchor" id="autotoc_md13"></a>
 Common Issues</h2>
 <ol type="1">
 <li><b>Python.h not found</b>: Install Python development headers<ul>
@@ -160,14 +182,14 @@ Common Issues</h2>
 <li><b>Library linking errors</b>: Make sure the Sista libraries are built and in your library path</li>
 <li><b>Permission denied</b>: Run with appropriate permissions or use virtual environments</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md13"></a>
+<h1><a class="anchor" id="autotoc_md14"></a>
 License</h1>
 <p>This Python extension is licensed under the same license as the Sista project (GNU General Public License v3.0). </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 8 2026 16:16:44 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Apr 2 2026 14:50:34 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

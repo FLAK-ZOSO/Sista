@@ -182,6 +182,24 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:a2e1c40f571e82f2df5cbb8e8f966af07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Text attributes for terminal text.  <a href="api_8h.html#a2e1c40f571e82f2df5cbb8e8f966af07">More...</a><br /></td></tr>
 <tr class="separator:a2e1c40f571e82f2df5cbb8e8f966af07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27e7f9747cbd25bc0265d483ec45d572" id="r_a27e7f9747cbd25bc0265d483ec45d572"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a27e7f9747cbd25bc0265d483ec45d572">sista_ErrorCode</a> { <br />
+&#160;&#160;<a class="el" href="api_8h.html#a27e7f9747cbd25bc0265d483ec45d572a823620575688aa12fd6ba6dddd2fd5af">SISTA_OK</a> = 0
+, <a class="el" href="api_8h.html#a27e7f9747cbd25bc0265d483ec45d572a150be6b4f212df7c75fde263985ca8a8">SISTA_ERR_NULL_FIELD</a> = 1001
+, <a class="el" href="api_8h.html#a27e7f9747cbd25bc0265d483ec45d572a14ba931909ae917aed1fb86a84ac6c6f">SISTA_ERR_NULL_SETTINGS</a> = 1002
+, <a class="el" href="api_8h.html#a27e7f9747cbd25bc0265d483ec45d572a71bc7d8893ec36477f85d24462e959a0">SISTA_ERR_OUT_OF_BOUNDS</a> = 1003
+, <br />
+&#160;&#160;<a class="el" href="api_8h.html#a27e7f9747cbd25bc0265d483ec45d572a3037ec6dc8c9a5acaa2ce9b28d993646">SISTA_ERR_OCCUPIED</a> = 1004
+, <a class="el" href="api_8h.html#a27e7f9747cbd25bc0265d483ec45d572a744ea185760f80efb51b6bacae70d468">SISTA_ERR_BAD_ALLOC</a> = 1005
+, <a class="el" href="api_8h.html#a27e7f9747cbd25bc0265d483ec45d572a2005e9053b4bdbb63a234eb0a2c5322d">SISTA_ERR_NULL_PAWN</a> = 1006
+, <a class="el" href="api_8h.html#a27e7f9747cbd25bc0265d483ec45d572a631c53229336412735b22411d07ea97a">SISTA_ERR_NULL_BORDER</a> = 1007
+, <br />
+&#160;&#160;<a class="el" href="api_8h.html#a27e7f9747cbd25bc0265d483ec45d572a3193a4a34dfa65d754d2b3e925c4df96">SISTA_ERR_NULL_CURSOR</a> = 1008
+, <a class="el" href="api_8h.html#a27e7f9747cbd25bc0265d483ec45d572a73e57d87904ff5e58d0dd4d0d5584bf5">SISTA_ERR_NULL_COLOR</a> = 1009
+, <a class="el" href="api_8h.html#a27e7f9747cbd25bc0265d483ec45d572abc987ada834466c7248b43fcaea42d1c">SISTA_ERR_UNKNOWN</a> = 1099
+<br />
+ }</td></tr>
+<tr class="memdesc:a27e7f9747cbd25bc0265d483ec45d572"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error codes exposed by the C API for detailed diagnostics.  <a href="api_8h.html#a27e7f9747cbd25bc0265d483ec45d572">More...</a><br /></td></tr>
+<tr class="separator:a27e7f9747cbd25bc0265d483ec45d572"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf93245807642a551415bb6eaeb1bca4" id="r_acf93245807642a551415bb6eaeb1bca4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#acf93245807642a551415bb6eaeb1bca4">sista_MoveCursor</a> { <br />
 &#160;&#160;<a class="el" href="api_8h.html#acf93245807642a551415bb6eaeb1bca4aba595d8bca8bc5e67c37c0a9d89becfa">UP</a> = 'A'
 , <a class="el" href="api_8h.html#acf93245807642a551415bb6eaeb1bca4a9b0b4a95b99523966e0e34ffdadac9da">DOWN</a> = 'B'
@@ -201,72 +219,78 @@ Functions</h2></td></tr>
 <tr class="memitem:a8d155b491481acf0f4c9a28f822d48c0" id="r_a8d155b491481acf0f4c9a28f822d48c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="api_8h.html#a3797b9bc22d413638fa0bd580844aa9d">FieldHandler_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a8d155b491481acf0f4c9a28f822d48c0">sista_createField</a> (size_t, size_t)</td></tr>
 <tr class="memdesc:a8d155b491481acf0f4c9a28f822d48c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a Field with the specified width and height.  <br /></td></tr>
 <tr class="separator:a8d155b491481acf0f4c9a28f822d48c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaeb3a7b5f014e243505c4a5a7e8155a1" id="r_aaeb3a7b5f014e243505c4a5a7e8155a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#aaeb3a7b5f014e243505c4a5a7e8155a1">sista_printField</a> (<a class="el" href="api_8h.html#a3797b9bc22d413638fa0bd580844aa9d">FieldHandler_t</a>, char)</td></tr>
-<tr class="memdesc:aaeb3a7b5f014e243505c4a5a7e8155a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the specified Field with a given border.  <br /></td></tr>
-<tr class="separator:aaeb3a7b5f014e243505c4a5a7e8155a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14cbbcaa95394e5c0c749109311aff4f" id="r_a14cbbcaa95394e5c0c749109311aff4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a14cbbcaa95394e5c0c749109311aff4f">sista_destroyField</a> (<a class="el" href="api_8h.html#a3797b9bc22d413638fa0bd580844aa9d">FieldHandler_t</a>)</td></tr>
-<tr class="memdesc:a14cbbcaa95394e5c0c749109311aff4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates the Field from memory.  <br /></td></tr>
-<tr class="separator:a14cbbcaa95394e5c0c749109311aff4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a292a2e92ce77299431db935cb967ea51" id="r_a292a2e92ce77299431db935cb967ea51"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a292a2e92ce77299431db935cb967ea51">sista_printField</a> (<a class="el" href="api_8h.html#a3797b9bc22d413638fa0bd580844aa9d">FieldHandler_t</a>, char)</td></tr>
+<tr class="memdesc:a292a2e92ce77299431db935cb967ea51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the specified Field with a given border.  <br /></td></tr>
+<tr class="separator:a292a2e92ce77299431db935cb967ea51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69765c058b83020831c558bc3585997f" id="r_a69765c058b83020831c558bc3585997f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a69765c058b83020831c558bc3585997f">sista_destroyField</a> (<a class="el" href="api_8h.html#a3797b9bc22d413638fa0bd580844aa9d">FieldHandler_t</a>)</td></tr>
+<tr class="memdesc:a69765c058b83020831c558bc3585997f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates the Field from memory.  <br /></td></tr>
+<tr class="separator:a69765c058b83020831c558bc3585997f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc237bda83c56870af84715faa8b5d6b" id="r_afc237bda83c56870af84715faa8b5d6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="api_8h.html#aad51f8d970d4b608c39c1d8c6b9b4f88">SwappableFieldHandler_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#afc237bda83c56870af84715faa8b5d6b">sista_createSwappableField</a> (size_t, size_t)</td></tr>
 <tr class="memdesc:afc237bda83c56870af84715faa8b5d6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a SwappableField with the specified width and height.  <br /></td></tr>
 <tr class="separator:afc237bda83c56870af84715faa8b5d6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f864b481bc79441d4202d3ac7542b8e" id="r_a7f864b481bc79441d4202d3ac7542b8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a7f864b481bc79441d4202d3ac7542b8e">sista_printSwappableField</a> (<a class="el" href="api_8h.html#aad51f8d970d4b608c39c1d8c6b9b4f88">SwappableFieldHandler_t</a>, char)</td></tr>
-<tr class="memdesc:a7f864b481bc79441d4202d3ac7542b8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the specified Field with a given border.  <br /></td></tr>
-<tr class="separator:a7f864b481bc79441d4202d3ac7542b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8327409de42ed5b597228defab8e654" id="r_ab8327409de42ed5b597228defab8e654"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#ab8327409de42ed5b597228defab8e654">sista_destroySwappableField</a> (<a class="el" href="api_8h.html#aad51f8d970d4b608c39c1d8c6b9b4f88">SwappableFieldHandler_t</a>)</td></tr>
-<tr class="memdesc:ab8327409de42ed5b597228defab8e654"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates the SwappableField from memory.  <br /></td></tr>
-<tr class="separator:ab8327409de42ed5b597228defab8e654"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f47e2b56139e3e3e5cb0826af502c93" id="r_a6f47e2b56139e3e3e5cb0826af502c93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a6f47e2b56139e3e3e5cb0826af502c93">sista_resetAnsi</a> ()</td></tr>
-<tr class="memdesc:a6f47e2b56139e3e3e5cb0826af502c93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets ANSI settings to default.  <br /></td></tr>
-<tr class="separator:a6f47e2b56139e3e3e5cb0826af502c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bf3d0258b8893d710b6842a21147b9d" id="r_a3bf3d0258b8893d710b6842a21147b9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a3bf3d0258b8893d710b6842a21147b9d">sista_setForegroundColor</a> (enum <a class="el" href="api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5ef">sista_ForegroundColor</a>)</td></tr>
-<tr class="memdesc:a3bf3d0258b8893d710b6842a21147b9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the foreground color using a predefined color.  <br /></td></tr>
-<tr class="separator:a3bf3d0258b8893d710b6842a21147b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9eb0bdad2cb982ccdf913cd1abd7781c" id="r_a9eb0bdad2cb982ccdf913cd1abd7781c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a9eb0bdad2cb982ccdf913cd1abd7781c">sista_setBackgroundColor</a> (enum <a class="el" href="api_8h.html#abaa49c9c9bc123c79f6df443beca25c2">sista_BackgroundColor</a>)</td></tr>
-<tr class="memdesc:a9eb0bdad2cb982ccdf913cd1abd7781c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the background color using a predefined color.  <br /></td></tr>
-<tr class="separator:a9eb0bdad2cb982ccdf913cd1abd7781c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa33b8aeb690a061ef5a9aae6cbabb321" id="r_aa33b8aeb690a061ef5a9aae6cbabb321"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#aa33b8aeb690a061ef5a9aae6cbabb321">sista_setAttribute</a> (enum <a class="el" href="api_8h.html#a2e1c40f571e82f2df5cbb8e8f966af07">sista_Attribute</a>)</td></tr>
-<tr class="memdesc:aa33b8aeb690a061ef5a9aae6cbabb321"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a text attribute.  <br /></td></tr>
-<tr class="separator:aa33b8aeb690a061ef5a9aae6cbabb321"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52c7a7555962ce22ebf1f572a8fcfd87" id="r_a52c7a7555962ce22ebf1f572a8fcfd87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a52c7a7555962ce22ebf1f572a8fcfd87">sista_resetAttribute</a> (enum <a class="el" href="api_8h.html#a2e1c40f571e82f2df5cbb8e8f966af07">sista_Attribute</a>)</td></tr>
-<tr class="memdesc:a52c7a7555962ce22ebf1f572a8fcfd87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets a text attribute.  <br /></td></tr>
-<tr class="separator:a52c7a7555962ce22ebf1f572a8fcfd87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af58d37c520160df97ad3da0cc50483c6" id="r_af58d37c520160df97ad3da0cc50483c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#af58d37c520160df97ad3da0cc50483c6">sista_setForegroundColorRGB</a> (const struct <a class="el" href="structsista__RGBColor.html">sista_RGBColor</a> *)</td></tr>
-<tr class="memdesc:af58d37c520160df97ad3da0cc50483c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the foreground color using an RGB color.  <br /></td></tr>
-<tr class="separator:af58d37c520160df97ad3da0cc50483c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c1239bc04186aab3cffbd0543996db2" id="r_a2c1239bc04186aab3cffbd0543996db2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a2c1239bc04186aab3cffbd0543996db2">sista_setBackgroundColorRGB</a> (const struct <a class="el" href="structsista__RGBColor.html">sista_RGBColor</a> *)</td></tr>
-<tr class="memdesc:a2c1239bc04186aab3cffbd0543996db2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the background color using an RGB color.  <br /></td></tr>
-<tr class="separator:a2c1239bc04186aab3cffbd0543996db2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c57afcfffee4dd2f5132c456240af21" id="r_a0c57afcfffee4dd2f5132c456240af21"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a0c57afcfffee4dd2f5132c456240af21">sista_printSwappableField</a> (<a class="el" href="api_8h.html#aad51f8d970d4b608c39c1d8c6b9b4f88">SwappableFieldHandler_t</a>, char)</td></tr>
+<tr class="memdesc:a0c57afcfffee4dd2f5132c456240af21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the specified Field with a given border.  <br /></td></tr>
+<tr class="separator:a0c57afcfffee4dd2f5132c456240af21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80bda811e9e3fd4291a6acef92c5b85c" id="r_a80bda811e9e3fd4291a6acef92c5b85c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a80bda811e9e3fd4291a6acef92c5b85c">sista_destroySwappableField</a> (<a class="el" href="api_8h.html#aad51f8d970d4b608c39c1d8c6b9b4f88">SwappableFieldHandler_t</a>)</td></tr>
+<tr class="memdesc:a80bda811e9e3fd4291a6acef92c5b85c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates the SwappableField from memory.  <br /></td></tr>
+<tr class="separator:a80bda811e9e3fd4291a6acef92c5b85c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b3414af796239468247c8668b3dfa22" id="r_a8b3414af796239468247c8668b3dfa22"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a8b3414af796239468247c8668b3dfa22">sista_resetAnsi</a> ()</td></tr>
+<tr class="memdesc:a8b3414af796239468247c8668b3dfa22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets ANSI settings to default.  <br /></td></tr>
+<tr class="separator:a8b3414af796239468247c8668b3dfa22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a822b99ffb35c1ba4ab371f0694517815" id="r_a822b99ffb35c1ba4ab371f0694517815"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a822b99ffb35c1ba4ab371f0694517815">sista_setForegroundColor</a> (enum <a class="el" href="api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5ef">sista_ForegroundColor</a>)</td></tr>
+<tr class="memdesc:a822b99ffb35c1ba4ab371f0694517815"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the foreground color using a predefined color.  <br /></td></tr>
+<tr class="separator:a822b99ffb35c1ba4ab371f0694517815"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3b4c058ae89199d83cc21050317d391" id="r_af3b4c058ae89199d83cc21050317d391"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#af3b4c058ae89199d83cc21050317d391">sista_setBackgroundColor</a> (enum <a class="el" href="api_8h.html#abaa49c9c9bc123c79f6df443beca25c2">sista_BackgroundColor</a>)</td></tr>
+<tr class="memdesc:af3b4c058ae89199d83cc21050317d391"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the background color using a predefined color.  <br /></td></tr>
+<tr class="separator:af3b4c058ae89199d83cc21050317d391"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a345653119de2feeab2d0e8083a77581c" id="r_a345653119de2feeab2d0e8083a77581c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a345653119de2feeab2d0e8083a77581c">sista_setAttribute</a> (enum <a class="el" href="api_8h.html#a2e1c40f571e82f2df5cbb8e8f966af07">sista_Attribute</a>)</td></tr>
+<tr class="memdesc:a345653119de2feeab2d0e8083a77581c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a text attribute.  <br /></td></tr>
+<tr class="separator:a345653119de2feeab2d0e8083a77581c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3f832055f0445b72f583808e94dc40a" id="r_aa3f832055f0445b72f583808e94dc40a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#aa3f832055f0445b72f583808e94dc40a">sista_resetAttribute</a> (enum <a class="el" href="api_8h.html#a2e1c40f571e82f2df5cbb8e8f966af07">sista_Attribute</a>)</td></tr>
+<tr class="memdesc:aa3f832055f0445b72f583808e94dc40a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets a text attribute.  <br /></td></tr>
+<tr class="separator:aa3f832055f0445b72f583808e94dc40a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34637375697e334c554dcffa34223f23" id="r_a34637375697e334c554dcffa34223f23"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a34637375697e334c554dcffa34223f23">sista_setForegroundColorRGB</a> (const struct <a class="el" href="structsista__RGBColor.html">sista_RGBColor</a> *)</td></tr>
+<tr class="memdesc:a34637375697e334c554dcffa34223f23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the foreground color using an RGB color.  <br /></td></tr>
+<tr class="separator:a34637375697e334c554dcffa34223f23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c0bb5d7c8e2be01371fb76ab2a090a1" id="r_a6c0bb5d7c8e2be01371fb76ab2a090a1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a6c0bb5d7c8e2be01371fb76ab2a090a1">sista_setBackgroundColorRGB</a> (const struct <a class="el" href="structsista__RGBColor.html">sista_RGBColor</a> *)</td></tr>
+<tr class="memdesc:a6c0bb5d7c8e2be01371fb76ab2a090a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the background color using an RGB color.  <br /></td></tr>
+<tr class="separator:a6c0bb5d7c8e2be01371fb76ab2a090a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06cc2b98cbe8634328b3a4baa78a2f24" id="r_a06cc2b98cbe8634328b3a4baa78a2f24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="api_8h.html#a5f122993a3961ca32d4cefc5726625c7">ANSISettingsHandler_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a06cc2b98cbe8634328b3a4baa78a2f24">sista_createANSISettings</a> (enum <a class="el" href="api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5ef">sista_ForegroundColor</a>, enum <a class="el" href="api_8h.html#abaa49c9c9bc123c79f6df443beca25c2">sista_BackgroundColor</a>, enum <a class="el" href="api_8h.html#a2e1c40f571e82f2df5cbb8e8f966af07">sista_Attribute</a>)</td></tr>
 <tr class="memdesc:a06cc2b98cbe8634328b3a4baa78a2f24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an ANSISettings object.  <br /></td></tr>
 <tr class="separator:a06cc2b98cbe8634328b3a4baa78a2f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a625f674b653681318153a51d0ae728b5" id="r_a625f674b653681318153a51d0ae728b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="api_8h.html#a5f122993a3961ca32d4cefc5726625c7">ANSISettingsHandler_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a625f674b653681318153a51d0ae728b5">sista_createANSISettingsRGB</a> (struct <a class="el" href="structsista__RGBColor.html">sista_RGBColor</a>, struct <a class="el" href="structsista__RGBColor.html">sista_RGBColor</a>, enum <a class="el" href="api_8h.html#a2e1c40f571e82f2df5cbb8e8f966af07">sista_Attribute</a>)</td></tr>
 <tr class="memdesc:a625f674b653681318153a51d0ae728b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an ANSISettings object.  <br /></td></tr>
 <tr class="separator:a625f674b653681318153a51d0ae728b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5707dc508218d4630bf14a515be1659" id="r_ae5707dc508218d4630bf14a515be1659"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#ae5707dc508218d4630bf14a515be1659">sista_applyANSISettings</a> (<a class="el" href="api_8h.html#a5f122993a3961ca32d4cefc5726625c7">ANSISettingsHandler_t</a>)</td></tr>
-<tr class="memdesc:ae5707dc508218d4630bf14a515be1659"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the ANSI settings to the terminal.  <br /></td></tr>
-<tr class="separator:ae5707dc508218d4630bf14a515be1659"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bf0f892610023810009beb4683b5609" id="r_a1bf0f892610023810009beb4683b5609"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a1bf0f892610023810009beb4683b5609">sista_destroyANSISettings</a> (<a class="el" href="api_8h.html#a5f122993a3961ca32d4cefc5726625c7">ANSISettingsHandler_t</a>)</td></tr>
-<tr class="memdesc:a1bf0f892610023810009beb4683b5609"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates the ANSISettings from memory.  <br /></td></tr>
-<tr class="separator:a1bf0f892610023810009beb4683b5609"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae887bc211336170e1e6613e77e7b5f8a" id="r_ae887bc211336170e1e6613e77e7b5f8a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#ae887bc211336170e1e6613e77e7b5f8a">sista_applyANSISettings</a> (<a class="el" href="api_8h.html#a5f122993a3961ca32d4cefc5726625c7">ANSISettingsHandler_t</a>)</td></tr>
+<tr class="memdesc:ae887bc211336170e1e6613e77e7b5f8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the ANSI settings to the terminal.  <br /></td></tr>
+<tr class="separator:ae887bc211336170e1e6613e77e7b5f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bc6f846dafdda6ea5b6bf1a58fc0507" id="r_a4bc6f846dafdda6ea5b6bf1a58fc0507"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a4bc6f846dafdda6ea5b6bf1a58fc0507">sista_destroyANSISettings</a> (<a class="el" href="api_8h.html#a5f122993a3961ca32d4cefc5726625c7">ANSISettingsHandler_t</a>)</td></tr>
+<tr class="memdesc:a4bc6f846dafdda6ea5b6bf1a58fc0507"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates the ANSISettings from memory.  <br /></td></tr>
+<tr class="separator:a4bc6f846dafdda6ea5b6bf1a58fc0507"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3e1e1ef7f2f849b5899d28081278219" id="r_ae3e1e1ef7f2f849b5899d28081278219"><td class="memItemLeft" align="right" valign="top"><a class="el" href="api_8h.html#a3f4fff393723c61865b05482c653bf3a">BorderHandler_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#ae3e1e1ef7f2f849b5899d28081278219">sista_createBorder</a> (char, <a class="el" href="api_8h.html#a5f122993a3961ca32d4cefc5726625c7">ANSISettingsHandler_t</a>)</td></tr>
 <tr class="memdesc:ae3e1e1ef7f2f849b5899d28081278219"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a Border object.  <br /></td></tr>
 <tr class="separator:ae3e1e1ef7f2f849b5899d28081278219"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3134e507cb1a032777b8beb90a16aaef" id="r_a3134e507cb1a032777b8beb90a16aaef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a3134e507cb1a032777b8beb90a16aaef">sista_destroyBorder</a> (<a class="el" href="api_8h.html#a3f4fff393723c61865b05482c653bf3a">BorderHandler_t</a>)</td></tr>
-<tr class="memdesc:a3134e507cb1a032777b8beb90a16aaef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates the Border from memory.  <br /></td></tr>
-<tr class="separator:a3134e507cb1a032777b8beb90a16aaef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae040276f33dd4bee688267bb840bb806" id="r_ae040276f33dd4bee688267bb840bb806"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#ae040276f33dd4bee688267bb840bb806">sista_printFieldWithBorder</a> (<a class="el" href="api_8h.html#a3797b9bc22d413638fa0bd580844aa9d">FieldHandler_t</a>, <a class="el" href="api_8h.html#a3f4fff393723c61865b05482c653bf3a">BorderHandler_t</a>)</td></tr>
-<tr class="memdesc:ae040276f33dd4bee688267bb840bb806"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the field with the specified border.  <br /></td></tr>
-<tr class="separator:ae040276f33dd4bee688267bb840bb806"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a852d25484a53dc72f23849adca9b2eb9" id="r_a852d25484a53dc72f23849adca9b2eb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a852d25484a53dc72f23849adca9b2eb9">sista_printSwappableFieldWithBorder</a> (<a class="el" href="api_8h.html#aad51f8d970d4b608c39c1d8c6b9b4f88">SwappableFieldHandler_t</a>, <a class="el" href="api_8h.html#a3f4fff393723c61865b05482c653bf3a">BorderHandler_t</a>)</td></tr>
-<tr class="memdesc:a852d25484a53dc72f23849adca9b2eb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the field with the specified border.  <br /></td></tr>
-<tr class="separator:a852d25484a53dc72f23849adca9b2eb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c94701478eb865295dd067ab9cfac63" id="r_a8c94701478eb865295dd067ab9cfac63"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a8c94701478eb865295dd067ab9cfac63">sista_destroyBorder</a> (<a class="el" href="api_8h.html#a3f4fff393723c61865b05482c653bf3a">BorderHandler_t</a>)</td></tr>
+<tr class="memdesc:a8c94701478eb865295dd067ab9cfac63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates the Border from memory.  <br /></td></tr>
+<tr class="separator:a8c94701478eb865295dd067ab9cfac63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a450d6fca9d66f0334ec87a0712ee3a5b" id="r_a450d6fca9d66f0334ec87a0712ee3a5b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a450d6fca9d66f0334ec87a0712ee3a5b">sista_printFieldWithBorder</a> (<a class="el" href="api_8h.html#a3797b9bc22d413638fa0bd580844aa9d">FieldHandler_t</a>, <a class="el" href="api_8h.html#a3f4fff393723c61865b05482c653bf3a">BorderHandler_t</a>)</td></tr>
+<tr class="memdesc:a450d6fca9d66f0334ec87a0712ee3a5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the field with the specified border.  <br /></td></tr>
+<tr class="separator:a450d6fca9d66f0334ec87a0712ee3a5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9812a573ceb335d8de5e07fc524dc9cf" id="r_a9812a573ceb335d8de5e07fc524dc9cf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a9812a573ceb335d8de5e07fc524dc9cf">sista_printSwappableFieldWithBorder</a> (<a class="el" href="api_8h.html#aad51f8d970d4b608c39c1d8c6b9b4f88">SwappableFieldHandler_t</a>, <a class="el" href="api_8h.html#a3f4fff393723c61865b05482c653bf3a">BorderHandler_t</a>)</td></tr>
+<tr class="memdesc:a9812a573ceb335d8de5e07fc524dc9cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the field with the specified border.  <br /></td></tr>
+<tr class="separator:a9812a573ceb335d8de5e07fc524dc9cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad57c7f62d9acca24a40ee362ad4a6db7" id="r_ad57c7f62d9acca24a40ee362ad4a6db7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="api_8h.html#a6f04683e8866acbfa86279ddc3f1b7db">PawnHandler_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#ad57c7f62d9acca24a40ee362ad4a6db7">sista_createPawnInSwappableField</a> (<a class="el" href="api_8h.html#aad51f8d970d4b608c39c1d8c6b9b4f88">SwappableFieldHandler_t</a>, char, <a class="el" href="api_8h.html#a5f122993a3961ca32d4cefc5726625c7">ANSISettingsHandler_t</a>, struct <a class="el" href="structsista__Coordinates.html">sista_Coordinates</a>)</td></tr>
 <tr class="memdesc:ad57c7f62d9acca24a40ee362ad4a6db7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a Pawn object in a given field.  <br /></td></tr>
 <tr class="separator:ad57c7f62d9acca24a40ee362ad4a6db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7184616b6eb5068d6caa567b7f99514" id="r_ad7184616b6eb5068d6caa567b7f99514"><td class="memItemLeft" align="right" valign="top"><a class="el" href="api_8h.html#a6f04683e8866acbfa86279ddc3f1b7db">PawnHandler_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#ad7184616b6eb5068d6caa567b7f99514">sista_createPawnInField</a> (<a class="el" href="api_8h.html#a3797b9bc22d413638fa0bd580844aa9d">FieldHandler_t</a>, char, <a class="el" href="api_8h.html#a5f122993a3961ca32d4cefc5726625c7">ANSISettingsHandler_t</a>, struct <a class="el" href="structsista__Coordinates.html">sista_Coordinates</a>)</td></tr>
 <tr class="memdesc:ad7184616b6eb5068d6caa567b7f99514"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a Pawn object in a given field.  <br /></td></tr>
 <tr class="separator:ad7184616b6eb5068d6caa567b7f99514"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cfe4e3fadd7c21db32f88003b294c02" id="r_a5cfe4e3fadd7c21db32f88003b294c02"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a5cfe4e3fadd7c21db32f88003b294c02">sista_getLastErrorCode</a> ()</td></tr>
+<tr class="memdesc:a5cfe4e3fadd7c21db32f88003b294c02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last API error code for the current thread.  <br /></td></tr>
+<tr class="separator:a5cfe4e3fadd7c21db32f88003b294c02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0f8240a602ec67279b023db6deb8cd3" id="r_af0f8240a602ec67279b023db6deb8cd3"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#af0f8240a602ec67279b023db6deb8cd3">sista_getLastErrorMessage</a> ()</td></tr>
+<tr class="memdesc:af0f8240a602ec67279b023db6deb8cd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last API error message for the current thread.  <br /></td></tr>
+<tr class="separator:af0f8240a602ec67279b023db6deb8cd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6cb45e7437e336f4c625aa341eab052d" id="r_a6cb45e7437e336f4c625aa341eab052d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a6cb45e7437e336f4c625aa341eab052d">sista_movePawn</a> (<a class="el" href="api_8h.html#a3797b9bc22d413638fa0bd580844aa9d">FieldHandler_t</a>, <a class="el" href="api_8h.html#a6f04683e8866acbfa86279ddc3f1b7db">PawnHandler_t</a>, struct <a class="el" href="structsista__Coordinates.html">sista_Coordinates</a>)</td></tr>
 <tr class="memdesc:a6cb45e7437e336f4c625aa341eab052d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the pawn to a new position.  <br /></td></tr>
 <tr class="separator:a6cb45e7437e336f4c625aa341eab052d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -276,21 +300,24 @@ Functions</h2></td></tr>
 <tr class="memitem:ab6394669ecea9aa6c83e0eb9fbbbdec1" id="r_ab6394669ecea9aa6c83e0eb9fbbbdec1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#ab6394669ecea9aa6c83e0eb9fbbbdec1">sista_applySwaps</a> (<a class="el" href="api_8h.html#aad51f8d970d4b608c39c1d8c6b9b4f88">SwappableFieldHandler_t</a>)</td></tr>
 <tr class="memdesc:ab6394669ecea9aa6c83e0eb9fbbbdec1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes all pending pawn swaps.  <br /></td></tr>
 <tr class="separator:ab6394669ecea9aa6c83e0eb9fbbbdec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac10ca78fadb873a24ffd675ac7f17a8c" id="r_ac10ca78fadb873a24ffd675ac7f17a8c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#ac10ca78fadb873a24ffd675ac7f17a8c">sista_clearScreen</a> (int spaces)</td></tr>
+<tr class="memdesc:ac10ca78fadb873a24ffd675ac7f17a8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the terminal screen and repositions the cursor.  <br /></td></tr>
+<tr class="separator:ac10ca78fadb873a24ffd675ac7f17a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8d0f573303bb327a793696c7ebdb0e0" id="r_ac8d0f573303bb327a793696c7ebdb0e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#ac8d0f573303bb327a793696c7ebdb0e0">sista_createCursor</a> ()</td></tr>
 <tr class="memdesc:ac8d0f573303bb327a793696c7ebdb0e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a cursor handler.  <br /></td></tr>
 <tr class="separator:ac8d0f573303bb327a793696c7ebdb0e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69e6c6505c5448582401c528559fe7ac" id="r_a69e6c6505c5448582401c528559fe7ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a69e6c6505c5448582401c528559fe7ac">sista_moveCursor</a> (<a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a>, enum <a class="el" href="api_8h.html#acf93245807642a551415bb6eaeb1bca4">sista_MoveCursor</a>, unsigned short)</td></tr>
-<tr class="memdesc:a69e6c6505c5448582401c528559fe7ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the cursor in the specified direction by a given amount.  <br /></td></tr>
-<tr class="separator:a69e6c6505c5448582401c528559fe7ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade8dde06b9f31f5cb1d2fe34bd48239a" id="r_ade8dde06b9f31f5cb1d2fe34bd48239a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#ade8dde06b9f31f5cb1d2fe34bd48239a">sista_cursorGoTo</a> (<a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a>, unsigned short, unsigned short)</td></tr>
-<tr class="memdesc:ade8dde06b9f31f5cb1d2fe34bd48239a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the cursor to the specified coordinates.  <br /></td></tr>
-<tr class="separator:ade8dde06b9f31f5cb1d2fe34bd48239a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4cc9938f8e4dfa2ab51bb7c9f063859" id="r_ad4cc9938f8e4dfa2ab51bb7c9f063859"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#ad4cc9938f8e4dfa2ab51bb7c9f063859">sista_cursorGoToCoordinates</a> (<a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a>, struct <a class="el" href="structsista__Coordinates.html">sista_Coordinates</a>)</td></tr>
-<tr class="memdesc:ad4cc9938f8e4dfa2ab51bb7c9f063859"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the cursor to the specified coordinates.  <br /></td></tr>
-<tr class="separator:ad4cc9938f8e4dfa2ab51bb7c9f063859"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16cead8805fb3810a64dde741cd5102c" id="r_a16cead8805fb3810a64dde741cd5102c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a16cead8805fb3810a64dde741cd5102c">sista_destroyCursor</a> (<a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a>)</td></tr>
-<tr class="memdesc:a16cead8805fb3810a64dde741cd5102c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates the Cursor from memory.  <br /></td></tr>
-<tr class="separator:a16cead8805fb3810a64dde741cd5102c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a810da1f9b3b5682f4aefaeaa1a31ac64" id="r_a810da1f9b3b5682f4aefaeaa1a31ac64"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a810da1f9b3b5682f4aefaeaa1a31ac64">sista_moveCursor</a> (<a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a>, enum <a class="el" href="api_8h.html#acf93245807642a551415bb6eaeb1bca4">sista_MoveCursor</a>, unsigned short)</td></tr>
+<tr class="memdesc:a810da1f9b3b5682f4aefaeaa1a31ac64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the cursor in the specified direction by a given amount.  <br /></td></tr>
+<tr class="separator:a810da1f9b3b5682f4aefaeaa1a31ac64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60b4e3f9a2a5418d9320857f03843985" id="r_a60b4e3f9a2a5418d9320857f03843985"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a60b4e3f9a2a5418d9320857f03843985">sista_cursorGoTo</a> (<a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a>, unsigned short, unsigned short)</td></tr>
+<tr class="memdesc:a60b4e3f9a2a5418d9320857f03843985"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the cursor to the specified coordinates.  <br /></td></tr>
+<tr class="separator:a60b4e3f9a2a5418d9320857f03843985"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdbe06581574d5216ba146503774f589" id="r_acdbe06581574d5216ba146503774f589"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#acdbe06581574d5216ba146503774f589">sista_cursorGoToCoordinates</a> (<a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a>, struct <a class="el" href="structsista__Coordinates.html">sista_Coordinates</a>)</td></tr>
+<tr class="memdesc:acdbe06581574d5216ba146503774f589"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the cursor to the specified coordinates.  <br /></td></tr>
+<tr class="separator:acdbe06581574d5216ba146503774f589"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af267dd9c7e29eb8f9bdd4f179bed822c" id="r_af267dd9c7e29eb8f9bdd4f179bed822c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#af267dd9c7e29eb8f9bdd4f179bed822c">sista_destroyCursor</a> (<a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a>)</td></tr>
+<tr class="memdesc:af267dd9c7e29eb8f9bdd4f179bed822c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates the Cursor from memory.  <br /></td></tr>
+<tr class="separator:af267dd9c7e29eb8f9bdd4f179bed822c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05f0932ced08d5b0cbc973b44d3ea1f3" id="r_a05f0932ced08d5b0cbc973b44d3ea1f3"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a05f0932ced08d5b0cbc973b44d3ea1f3">sista_getVersion</a> ()</td></tr>
 <tr class="separator:a05f0932ced08d5b0cbc973b44d3ea1f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d0755bca2c721f27477aa63277982a3" id="r_a1d0755bca2c721f27477aa63277982a3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a1d0755bca2c721f27477aa63277982a3">sista_getVersionMajor</a> ()</td></tr>
@@ -408,9 +435,9 @@ Functions</h2></td></tr>
 
 <p>Text attributes for terminal text. </p>
 <p>This enumeration defines a set of text attributes that can be used to modify the appearance of text in terminal applications using ANSI escape codes. Attributes include styles such as bold, italic, underline, and more.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="api_8h.html#aa33b8aeb690a061ef5a9aae6cbabb321" title="Sets a text attribute.">sista_setAttribute</a> </dd>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="api_8h.html#a345653119de2feeab2d0e8083a77581c" title="Sets a text attribute.">sista_setAttribute</a> </dd>
 <dd>
-<a class="el" href="api_8h.html#a52c7a7555962ce22ebf1f572a8fcfd87" title="Resets a text attribute.">sista_resetAttribute</a> </dd>
+<a class="el" href="api_8h.html#aa3f832055f0445b72f583808e94dc40a" title="Resets a text attribute.">sista_resetAttribute</a> </dd>
 <dd>
 <a class="el" href="namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2f" title="Enumeration of text attributes for ANSI escape codes.">sista::Attribute</a> </dd></dl>
 <table class="fieldtable">
@@ -442,7 +469,7 @@ Functions</h2></td></tr>
 
 <p>Predefined background colors for terminal text. </p>
 <p>This enumeration defines a set of standard background colors that can be used to change the background color of text in terminal applications using ANSI escape codes.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="api_8h.html#a9eb0bdad2cb982ccdf913cd1abd7781c" title="Sets the background color using a predefined color.">sista_setBackgroundColor</a> </dd>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="api_8h.html#af3b4c058ae89199d83cc21050317d391" title="Sets the background color using a predefined color.">sista_setBackgroundColor</a> </dd>
 <dd>
 <a class="el" href="namespacesista.html#ade2b5834bc07e347f46027a10a06d1ca" title="Enumeration of background colors for ANSI escape codes.">sista::BackgroundColor</a> </dd></dl>
 <table class="fieldtable">
@@ -454,6 +481,36 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="abaa49c9c9bc123c79f6df443beca25c2ab4ea00180b409d997ee5f53630b0f887" name="abaa49c9c9bc123c79f6df443beca25c2ab4ea00180b409d997ee5f53630b0f887"></a>B_MAGENTA&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="abaa49c9c9bc123c79f6df443beca25c2addd638bf9b9b4fd79a90910533f3df30" name="abaa49c9c9bc123c79f6df443beca25c2addd638bf9b9b4fd79a90910533f3df30"></a>B_CYAN&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="abaa49c9c9bc123c79f6df443beca25c2a959fb399a6d98c92c99c24b8a83cf80a" name="abaa49c9c9bc123c79f6df443beca25c2a959fb399a6d98c92c99c24b8a83cf80a"></a>B_WHITE&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a27e7f9747cbd25bc0265d483ec45d572" name="a27e7f9747cbd25bc0265d483ec45d572"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27e7f9747cbd25bc0265d483ec45d572">&#9670;&#160;</a></span>sista_ErrorCode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="api_8h.html#a27e7f9747cbd25bc0265d483ec45d572">sista_ErrorCode</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Error codes exposed by the C API for detailed diagnostics. </p>
+<p>Functions that return opaque handlers may fail with <code>NULL</code>. In those cases, callers can use <code><a class="el" href="api_8h.html#a5cfe4e3fadd7c21db32f88003b294c02" title="Returns the last API error code for the current thread.">sista_getLastErrorCode()</a></code> and <code><a class="el" href="api_8h.html#af0f8240a602ec67279b023db6deb8cd3" title="Returns the last API error message for the current thread.">sista_getLastErrorMessage()</a></code> to retrieve the specific reason for the most recent failure on the current thread. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a27e7f9747cbd25bc0265d483ec45d572a823620575688aa12fd6ba6dddd2fd5af" name="a27e7f9747cbd25bc0265d483ec45d572a823620575688aa12fd6ba6dddd2fd5af"></a>SISTA_OK&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a27e7f9747cbd25bc0265d483ec45d572a150be6b4f212df7c75fde263985ca8a8" name="a27e7f9747cbd25bc0265d483ec45d572a150be6b4f212df7c75fde263985ca8a8"></a>SISTA_ERR_NULL_FIELD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a27e7f9747cbd25bc0265d483ec45d572a14ba931909ae917aed1fb86a84ac6c6f" name="a27e7f9747cbd25bc0265d483ec45d572a14ba931909ae917aed1fb86a84ac6c6f"></a>SISTA_ERR_NULL_SETTINGS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a27e7f9747cbd25bc0265d483ec45d572a71bc7d8893ec36477f85d24462e959a0" name="a27e7f9747cbd25bc0265d483ec45d572a71bc7d8893ec36477f85d24462e959a0"></a>SISTA_ERR_OUT_OF_BOUNDS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a27e7f9747cbd25bc0265d483ec45d572a3037ec6dc8c9a5acaa2ce9b28d993646" name="a27e7f9747cbd25bc0265d483ec45d572a3037ec6dc8c9a5acaa2ce9b28d993646"></a>SISTA_ERR_OCCUPIED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a27e7f9747cbd25bc0265d483ec45d572a744ea185760f80efb51b6bacae70d468" name="a27e7f9747cbd25bc0265d483ec45d572a744ea185760f80efb51b6bacae70d468"></a>SISTA_ERR_BAD_ALLOC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a27e7f9747cbd25bc0265d483ec45d572a2005e9053b4bdbb63a234eb0a2c5322d" name="a27e7f9747cbd25bc0265d483ec45d572a2005e9053b4bdbb63a234eb0a2c5322d"></a>SISTA_ERR_NULL_PAWN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a27e7f9747cbd25bc0265d483ec45d572a631c53229336412735b22411d07ea97a" name="a27e7f9747cbd25bc0265d483ec45d572a631c53229336412735b22411d07ea97a"></a>SISTA_ERR_NULL_BORDER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a27e7f9747cbd25bc0265d483ec45d572a3193a4a34dfa65d754d2b3e925c4df96" name="a27e7f9747cbd25bc0265d483ec45d572a3193a4a34dfa65d754d2b3e925c4df96"></a>SISTA_ERR_NULL_CURSOR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a27e7f9747cbd25bc0265d483ec45d572a73e57d87904ff5e58d0dd4d0d5584bf5" name="a27e7f9747cbd25bc0265d483ec45d572a73e57d87904ff5e58d0dd4d0d5584bf5"></a>SISTA_ERR_NULL_COLOR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a27e7f9747cbd25bc0265d483ec45d572abc987ada834466c7248b43fcaea42d1c" name="a27e7f9747cbd25bc0265d483ec45d572abc987ada834466c7248b43fcaea42d1c"></a>SISTA_ERR_UNKNOWN&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -472,7 +529,7 @@ Functions</h2></td></tr>
 
 <p>Predefined foreground colors for terminal text. </p>
 <p>This enumeration defines a set of standard foreground colors that can be used to change the color of text in terminal applications using ANSI escape codes.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="api_8h.html#a3bf3d0258b8893d710b6842a21147b9d" title="Sets the foreground color using a predefined color.">sista_setForegroundColor</a> </dd>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="api_8h.html#a822b99ffb35c1ba4ab371f0694517815" title="Sets the foreground color using a predefined color.">sista_setForegroundColor</a> </dd>
 <dd>
 <a class="el" href="namespacesista.html#a72a9a13a3fd5aa83f5852d073bcdbe28" title="Enumeration of foreground colors for ANSI escape codes.">sista::ForegroundColor</a> </dd></dl>
 <table class="fieldtable">
@@ -557,16 +614,17 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Status code</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
 <p>This function adds the specified Pawn to a list of pawns that will be moved (swapped) when sista_executeSwaps is called. The pawn will be moved to the specified destination coordinates.</p>
+<p>On failure, this function also updates the per-thread last-error state accessible with <code><a class="el" href="api_8h.html#a5cfe4e3fadd7c21db32f88003b294c02" title="Returns the last API error code for the current thread.">sista_getLastErrorCode()</a></code> and <code><a class="el" href="api_8h.html#af0f8240a602ec67279b023db6deb8cd3" title="Returns the last API error message for the current thread.">sista_getLastErrorMessage()</a></code>.</p>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">0</td><td>If the pawn was successfully added to the swap list. </td></tr>
-    <tr><td class="paramname">1</td><td>If adding the pawn to the swap list failed for any other reason. </td></tr>
-    <tr><td class="paramname">2</td><td>If the destination is out of bounds. </td></tr>
-    <tr><td class="paramname">3</td><td>If the destination is occupied by another pawn. </td></tr>
-    <tr><td class="paramname">4</td><td>If the field is a nullptr. </td></tr>
-    <tr><td class="paramname">5</td><td>If the pawn is a nullptr.</td></tr>
+    <tr><td class="paramname">SISTA_OK</td><td>If the pawn was successfully added to the swap list. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_FIELD</td><td>If <code>field</code> is <code>NULL</code>. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_PAWN</td><td>If <code>pawn</code> is <code>NULL</code>. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_OUT_OF_BOUNDS</td><td>If the destination is out of bounds. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_OCCUPIED</td><td>If the destination is occupied or invalid. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_UNKNOWN</td><td>If adding the pawn to the swap list failed for another reason.</td></tr>
   </table>
   </dd>
 </dl>
@@ -574,14 +632,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae5707dc508218d4630bf14a515be1659" name="ae5707dc508218d4630bf14a515be1659"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5707dc508218d4630bf14a515be1659">&#9670;&#160;</a></span>sista_applyANSISettings()</h2>
+<a id="ae887bc211336170e1e6613e77e7b5f8a" name="ae887bc211336170e1e6613e77e7b5f8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae887bc211336170e1e6613e77e7b5f8a">&#9670;&#160;</a></span>sista_applyANSISettings()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sista_applyANSISettings </td>
+          <td class="memname">int sista_applyANSISettings </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="api_8h.html#a5f122993a3961ca32d4cefc5726625c7">ANSISettingsHandler_t</a>&#160;</td>
           <td class="paramname"><em>settings</em></td><td>)</td>
@@ -593,12 +651,20 @@ Functions</h2></td></tr>
 <p>Applies the ANSI settings to the terminal. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">settings</td><td>The ANSISettings to apply.</td></tr>
+    <tr><td class="paramname">settings</td><td>The ANSISettings to apply. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
 <p>This function applies the specified ANSI settings to the terminal by outputting the corresponding ANSI escape codes to standard output.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1ANSISettings.html#a41f1181ac07aa60b90358bdc0fbf011e" title="Applies the ANSI settings to the terminal.">sista::ANSISettings::apply</a> </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SISTA_OK</td><td>On success. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_SETTINGS</td><td>If <code>settings</code> is <code>NULL</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -625,18 +691,55 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Status code</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
 <p>This function executes all pending pawn swaps that have been added using sista_addPawnToSwap. It attempts to move each pawn to its specified destination, handling any conflicts or errors that arise.</p>
 <dl class="section note"><dt>Note</dt><dd>The swaps that cannot be applied (due to more than one pawn trying to move to the same destination, generally) are skipped.</dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>In future versions, the function may return a list of the swaps that could not be applied.</dd></dl>
+<p>On failure, this function also updates the per-thread last-error state accessible with <code><a class="el" href="api_8h.html#a5cfe4e3fadd7c21db32f88003b294c02" title="Returns the last API error code for the current thread.">sista_getLastErrorCode()</a></code> and <code><a class="el" href="api_8h.html#af0f8240a602ec67279b023db6deb8cd3" title="Returns the last API error message for the current thread.">sista_getLastErrorMessage()</a></code>.</p>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">0</td><td>If all possible (read note) swaps were successful. </td></tr>
-    <tr><td class="paramname">1</td><td>If executing the swaps failed for any other reason.</td></tr>
+    <tr><td class="paramname">SISTA_OK</td><td>If all possible (read note) swaps were successful. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_FIELD</td><td>If <code>field</code> is <code>NULL</code>. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_UNKNOWN</td><td>If executing swaps failed for another reason.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1SwappableField.html#a935206fd3813b742efb6fc1720f71376" title="Applies the swaps of the pawnsToSwap to the field.">sista::SwappableField::applySwaps</a> </dd></dl>
+
+</div>
+</div>
+<a id="ac10ca78fadb873a24ffd675ac7f17a8c" name="ac10ca78fadb873a24ffd675ac7f17a8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac10ca78fadb873a24ffd675ac7f17a8c">&#9670;&#160;</a></span>sista_clearScreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista_clearScreen </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>spaces</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clears the terminal screen and repositions the cursor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spaces</td><td>Non-zero to clear visible content and scrollback buffer; zero to only move the cursor to the top-left corner. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
+<p>This is the C API counterpart of <code><a class="el" href="namespacesista.html#ab565ece8b1fc80fb01f6ab41951b42ce" title="Clears the terminal screen and optionally the scrollback buffer.">sista::clearScreen(bool)</a></code>.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacesista.html#ab565ece8b1fc80fb01f6ab41951b42ce" title="Clears the terminal screen and optionally the scrollback buffer.">sista::clearScreen</a> </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SISTA_OK</td><td>On success. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -692,7 +795,7 @@ Functions</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>The caller is responsible for managing the lifetime of the returned ANSISettings object, including deallocation if necessary.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1ANSISettings.html" title="Represents a set of ANSI settings including colors and attributes.">sista::ANSISettings</a> </dd>
 <dd>
-<a class="el" href="api_8h.html#a1bf0f892610023810009beb4683b5609" title="Deallocates the ANSISettings from memory.">sista_destroyANSISettings</a> </dd></dl>
+<a class="el" href="api_8h.html#a4bc6f846dafdda6ea5b6bf1a58fc0507" title="Deallocates the ANSISettings from memory.">sista_destroyANSISettings</a> </dd></dl>
 
 </div>
 </div>
@@ -749,7 +852,7 @@ Functions</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>While the API only accepts either predefined colors or RGB colors, the underlying implementation supports mixing both types. This would require two more functions to be exposed in the API.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1ANSISettings.html" title="Represents a set of ANSI settings including colors and attributes.">sista::ANSISettings</a> </dd>
 <dd>
-<a class="el" href="api_8h.html#a1bf0f892610023810009beb4683b5609" title="Deallocates the ANSISettings from memory.">sista_destroyANSISettings</a> </dd></dl>
+<a class="el" href="api_8h.html#a4bc6f846dafdda6ea5b6bf1a58fc0507" title="Deallocates the ANSISettings from memory.">sista_destroyANSISettings</a> </dd></dl>
 
 </div>
 </div>
@@ -798,7 +901,7 @@ Functions</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>The caller is responsible for managing the lifetime of the returned Border object, including deallocation if necessary.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Border.html" title="Represents a brick of the border with a symbol and ANSI settings.">sista::Border</a> </dd>
 <dd>
-<a class="el" href="api_8h.html#a3134e507cb1a032777b8beb90a16aaef" title="Deallocates the Border from memory.">sista_destroyBorder</a> </dd></dl>
+<a class="el" href="api_8h.html#a8c94701478eb865295dd067ab9cfac63" title="Deallocates the Border from memory.">sista_destroyBorder</a> </dd></dl>
 
 </div>
 </div>
@@ -930,12 +1033,13 @@ Functions</h2></td></tr>
 <p>This function allocates and initializes a new Pawn object with the specified symbol, ANSI settings, and initial position. It returns a pointer that can be used to reference the Pawn in subsequent API calls.</p>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">NULL</td><td>If memory allocation fails.</td></tr>
+    <tr><td class="paramname">NULL</td><td>If creation fails for any reason.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>Unlike with other objects, the caller is NOT responsible for managing the lifetime of the returned Pawn object. Pawns are managed by the Field they are added to, and will be deallocated when the Field is destroyed.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">sista::Pawn</a> </dd>
+<dl class="section note"><dt>Note</dt><dd>On failure, call <code><a class="el" href="api_8h.html#a5cfe4e3fadd7c21db32f88003b294c02" title="Returns the last API error code for the current thread.">sista_getLastErrorCode()</a></code> and <code><a class="el" href="api_8h.html#af0f8240a602ec67279b023db6deb8cd3" title="Returns the last API error message for the current thread.">sista_getLastErrorMessage()</a></code> for details.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField.">sista::Pawn</a> </dd>
 <dd>
 sista_destroyPawn </dd></dl>
 
@@ -993,12 +1097,13 @@ sista_destroyPawn </dd></dl>
 <p>This function allocates and initializes a new Pawn object with the specified symbol, ANSI settings, and initial position. It returns a pointer that can be used to reference the Pawn in subsequent API calls.</p>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">NULL</td><td>If memory allocation fails.</td></tr>
+    <tr><td class="paramname">NULL</td><td>If creation fails for any reason.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>Unlike with other objects, the caller is NOT responsible for managing the lifetime of the returned Pawn object. Pawns are managed by the SwappableField they are added to, and will be deallocated when the SwappableField is destroyed.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">sista::Pawn</a> </dd>
+<dl class="section note"><dt>Note</dt><dd>On failure, call <code><a class="el" href="api_8h.html#a5cfe4e3fadd7c21db32f88003b294c02" title="Returns the last API error code for the current thread.">sista_getLastErrorCode()</a></code> and <code><a class="el" href="api_8h.html#af0f8240a602ec67279b023db6deb8cd3" title="Returns the last API error message for the current thread.">sista_getLastErrorMessage()</a></code> for details.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField.">sista::Pawn</a> </dd>
 <dd>
 sista_destroyPawn </dd></dl>
 
@@ -1051,14 +1156,14 @@ sista_destroyPawn </dd></dl>
 
 </div>
 </div>
-<a id="ade8dde06b9f31f5cb1d2fe34bd48239a" name="ade8dde06b9f31f5cb1d2fe34bd48239a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade8dde06b9f31f5cb1d2fe34bd48239a">&#9670;&#160;</a></span>sista_cursorGoTo()</h2>
+<a id="a60b4e3f9a2a5418d9320857f03843985" name="a60b4e3f9a2a5418d9320857f03843985"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60b4e3f9a2a5418d9320857f03843985">&#9670;&#160;</a></span>sista_cursorGoTo()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sista_cursorGoTo </td>
+          <td class="memname">int sista_cursorGoTo </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a>&#160;</td>
           <td class="paramname"><em>cursor</em>, </td>
@@ -1088,23 +1193,31 @@ sista_destroyPawn </dd></dl>
   <table class="params">
     <tr><td class="paramname">cursor</td><td>The Cursor handler. </td></tr>
     <tr><td class="paramname">y</td><td>The y coordinate (row). </td></tr>
-    <tr><td class="paramname">x</td><td>The x coordinate (column).</td></tr>
+    <tr><td class="paramname">x</td><td>The x coordinate (column). </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
 <p>This function moves the terminal cursor to the specified (y, x) coordinates using ANSI escape codes.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1Cursor.html#a8108bca18a010e5376d51a441c463855" title="Moves the cursor to the specified (y, x) coordinates.">sista::Cursor::goTo</a> </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SISTA_OK</td><td>On success. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_CURSOR</td><td>If <code>cursor</code> is <code>NULL</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="ad4cc9938f8e4dfa2ab51bb7c9f063859" name="ad4cc9938f8e4dfa2ab51bb7c9f063859"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4cc9938f8e4dfa2ab51bb7c9f063859">&#9670;&#160;</a></span>sista_cursorGoToCoordinates()</h2>
+<a id="acdbe06581574d5216ba146503774f589" name="acdbe06581574d5216ba146503774f589"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdbe06581574d5216ba146503774f589">&#9670;&#160;</a></span>sista_cursorGoToCoordinates()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sista_cursorGoToCoordinates </td>
+          <td class="memname">int sista_cursorGoToCoordinates </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a>&#160;</td>
           <td class="paramname"><em>cursor</em>, </td>
@@ -1127,23 +1240,31 @@ sista_destroyPawn </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cursor</td><td>The Cursor handler. </td></tr>
-    <tr><td class="paramname">coords</td><td>The coordinates struct containing y and x.</td></tr>
+    <tr><td class="paramname">coords</td><td>The coordinates struct containing y and x. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
 <p>This function moves the terminal cursor to the specified (y, x) coordinates using ANSI escape codes.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1Cursor.html#a8108bca18a010e5376d51a441c463855" title="Moves the cursor to the specified (y, x) coordinates.">sista::Cursor::goTo</a> </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SISTA_OK</td><td>On success. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_CURSOR</td><td>If <code>cursor</code> is <code>NULL</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a1bf0f892610023810009beb4683b5609" name="a1bf0f892610023810009beb4683b5609"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1bf0f892610023810009beb4683b5609">&#9670;&#160;</a></span>sista_destroyANSISettings()</h2>
+<a id="a4bc6f846dafdda6ea5b6bf1a58fc0507" name="a4bc6f846dafdda6ea5b6bf1a58fc0507"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bc6f846dafdda6ea5b6bf1a58fc0507">&#9670;&#160;</a></span>sista_destroyANSISettings()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sista_destroyANSISettings </td>
+          <td class="memname">int sista_destroyANSISettings </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="api_8h.html#a5f122993a3961ca32d4cefc5726625c7">ANSISettingsHandler_t</a>&#160;</td>
           <td class="paramname"><em>settings</em></td><td>)</td>
@@ -1155,25 +1276,33 @@ sista_destroyPawn </dd></dl>
 <p>Deallocates the ANSISettings from memory. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">settings</td><td>The ANSISettings to delete.</td></tr>
+    <tr><td class="paramname">settings</td><td>The ANSISettings to delete. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
 <p>This function deallocates the ANSISettings from memory through the opaque handler pointing to it.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1ANSISettings.html" title="Represents a set of ANSI settings including colors and attributes.">sista::ANSISettings</a> </dd>
 <dd>
 <a class="el" href="api_8h.html#a06cc2b98cbe8634328b3a4baa78a2f24" title="Creates an ANSISettings object.">sista_createANSISettings</a> </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SISTA_OK</td><td>On success. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_SETTINGS</td><td>If <code>settings</code> is <code>NULL</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a3134e507cb1a032777b8beb90a16aaef" name="a3134e507cb1a032777b8beb90a16aaef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3134e507cb1a032777b8beb90a16aaef">&#9670;&#160;</a></span>sista_destroyBorder()</h2>
+<a id="a8c94701478eb865295dd067ab9cfac63" name="a8c94701478eb865295dd067ab9cfac63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c94701478eb865295dd067ab9cfac63">&#9670;&#160;</a></span>sista_destroyBorder()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sista_destroyBorder </td>
+          <td class="memname">int sista_destroyBorder </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="api_8h.html#a3f4fff393723c61865b05482c653bf3a">BorderHandler_t</a>&#160;</td>
           <td class="paramname"><em>border</em></td><td>)</td>
@@ -1185,25 +1314,33 @@ sista_destroyPawn </dd></dl>
 <p>Deallocates the Border from memory. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">border</td><td>The Border to delete.</td></tr>
+    <tr><td class="paramname">border</td><td>The Border to delete. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
 <p>This function deallocates the Border from memory through the opaque handler pointing to it.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Border.html" title="Represents a brick of the border with a symbol and ANSI settings.">sista::Border</a> </dd>
 <dd>
 <a class="el" href="api_8h.html#ae3e1e1ef7f2f849b5899d28081278219" title="Creates a Border object.">sista_createBorder</a> </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SISTA_OK</td><td>On success. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_BORDER</td><td>If <code>border</code> is <code>NULL</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a16cead8805fb3810a64dde741cd5102c" name="a16cead8805fb3810a64dde741cd5102c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16cead8805fb3810a64dde741cd5102c">&#9670;&#160;</a></span>sista_destroyCursor()</h2>
+<a id="af267dd9c7e29eb8f9bdd4f179bed822c" name="af267dd9c7e29eb8f9bdd4f179bed822c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af267dd9c7e29eb8f9bdd4f179bed822c">&#9670;&#160;</a></span>sista_destroyCursor()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sista_destroyCursor </td>
+          <td class="memname">int sista_destroyCursor </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a>&#160;</td>
           <td class="paramname"><em>cursor</em></td><td>)</td>
@@ -1215,25 +1352,33 @@ sista_destroyPawn </dd></dl>
 <p>Deallocates the Cursor from memory. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cursor</td><td>The Cursor to delete.</td></tr>
+    <tr><td class="paramname">cursor</td><td>The Cursor to delete. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
 <p>This function deallocates the Cursor from memory through the opaque handler pointing to it.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations.">sista::Cursor</a> </dd>
 <dd>
 <a class="el" href="api_8h.html#ac8d0f573303bb327a793696c7ebdb0e0" title="Creates a cursor handler.">sista_createCursor</a> </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SISTA_OK</td><td>On success. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_CURSOR</td><td>If <code>cursor</code> is <code>NULL</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a14cbbcaa95394e5c0c749109311aff4f" name="a14cbbcaa95394e5c0c749109311aff4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14cbbcaa95394e5c0c749109311aff4f">&#9670;&#160;</a></span>sista_destroyField()</h2>
+<a id="a69765c058b83020831c558bc3585997f" name="a69765c058b83020831c558bc3585997f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69765c058b83020831c558bc3585997f">&#9670;&#160;</a></span>sista_destroyField()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sista_destroyField </td>
+          <td class="memname">int sista_destroyField </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="api_8h.html#a3797b9bc22d413638fa0bd580844aa9d">FieldHandler_t</a>&#160;</td>
           <td class="paramname"><em>field</em></td><td>)</td>
@@ -1245,23 +1390,31 @@ sista_destroyPawn </dd></dl>
 <p>Deallocates the Field from memory. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">field</td><td>The Field to delete</td></tr>
+    <tr><td class="paramname">field</td><td>The Field to delete </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
 <p>This function deallocates the Field from memory through the opaque handler pointing to it.</p>
 <dl class="section see"><dt>See also</dt><dd>Field </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SISTA_OK</td><td>On success. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_FIELD</td><td>If <code>field</code> is <code>NULL</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="ab8327409de42ed5b597228defab8e654" name="ab8327409de42ed5b597228defab8e654"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8327409de42ed5b597228defab8e654">&#9670;&#160;</a></span>sista_destroySwappableField()</h2>
+<a id="a80bda811e9e3fd4291a6acef92c5b85c" name="a80bda811e9e3fd4291a6acef92c5b85c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80bda811e9e3fd4291a6acef92c5b85c">&#9670;&#160;</a></span>sista_destroySwappableField()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sista_destroySwappableField </td>
+          <td class="memname">int sista_destroySwappableField </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="api_8h.html#aad51f8d970d4b608c39c1d8c6b9b4f88">SwappableFieldHandler_t</a>&#160;</td>
           <td class="paramname"><em>field</em></td><td>)</td>
@@ -1273,12 +1426,64 @@ sista_destroyPawn </dd></dl>
 <p>Deallocates the SwappableField from memory. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">field</td><td>The SwappableField to delete</td></tr>
+    <tr><td class="paramname">field</td><td>The SwappableField to delete </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
 <p>This function deallocates the SwappableField from memory through the opaque handler pointing to it.</p>
 <dl class="section see"><dt>See also</dt><dd>SwappableField </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SISTA_OK</td><td>On success. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_FIELD</td><td>If <code>field</code> is <code>NULL</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5cfe4e3fadd7c21db32f88003b294c02" name="a5cfe4e3fadd7c21db32f88003b294c02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cfe4e3fadd7c21db32f88003b294c02">&#9670;&#160;</a></span>sista_getLastErrorCode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista_getLastErrorCode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the last API error code for the current thread. </p>
+<p>This value is updated by API functions that expose failure diagnostics, including functions that return <code>NULL</code> and functions that return a status code from <code>enum sista_ErrorCode</code>.</p>
+<p>Successful calls participating in this model reset the value to <code>SISTA_OK</code>.</p>
+<dl class="section return"><dt>Returns</dt><dd>One value from <code>enum sista_ErrorCode</code>. </dd></dl>
+
+</div>
+</div>
+<a id="af0f8240a602ec67279b023db6deb8cd3" name="af0f8240a602ec67279b023db6deb8cd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0f8240a602ec67279b023db6deb8cd3">&#9670;&#160;</a></span>sista_getLastErrorMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * sista_getLastErrorMessage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the last API error message for the current thread. </p>
+<p>The returned pointer remains valid until the next API call on the same thread that updates the last-error state.</p>
+<p>Successful calls participating in this model reset the message to <code>"ok"</code>. Call this function immediately after a failing API call to read diagnostics.</p>
+<dl class="section return"><dt>Returns</dt><dd>A static, null-terminated message string. </dd></dl>
 
 </div>
 </div>
@@ -1350,14 +1555,14 @@ sista_destroyPawn </dd></dl>
 
 </div>
 </div>
-<a id="a69e6c6505c5448582401c528559fe7ac" name="a69e6c6505c5448582401c528559fe7ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69e6c6505c5448582401c528559fe7ac">&#9670;&#160;</a></span>sista_moveCursor()</h2>
+<a id="a810da1f9b3b5682f4aefaeaa1a31ac64" name="a810da1f9b3b5682f4aefaeaa1a31ac64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a810da1f9b3b5682f4aefaeaa1a31ac64">&#9670;&#160;</a></span>sista_moveCursor()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sista_moveCursor </td>
+          <td class="memname">int sista_moveCursor </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="api_8h.html#a205c5ba279e6b3e4dc4837bb56ec06c8">CursorHandler_t</a>&#160;</td>
           <td class="paramname"><em>cursor</em>, </td>
@@ -1387,12 +1592,20 @@ sista_destroyPawn </dd></dl>
   <table class="params">
     <tr><td class="paramname">cursor</td><td>The Cursor handler. </td></tr>
     <tr><td class="paramname">direction</td><td>The direction to move the cursor. </td></tr>
-    <tr><td class="paramname">amount</td><td>The number of positions to move the cursor.</td></tr>
+    <tr><td class="paramname">amount</td><td>The number of positions to move the cursor. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
 <p>This function moves the terminal cursor in the specified direction by the given amount using ANSI escape codes.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista_1_1Cursor.html#a28b28cc36d1da945d5a3b3ceca103928" title="Moves the cursor in the specified direction by a given number of positions.">sista::Cursor::move</a> </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SISTA_OK</td><td>On success. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_CURSOR</td><td>If <code>cursor</code> is <code>NULL</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1437,15 +1650,16 @@ sista_destroyPawn </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Status code</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
+<p>On failure, this function also updates the per-thread last-error state accessible with <code><a class="el" href="api_8h.html#a5cfe4e3fadd7c21db32f88003b294c02" title="Returns the last API error code for the current thread.">sista_getLastErrorCode()</a></code> and <code><a class="el" href="api_8h.html#af0f8240a602ec67279b023db6deb8cd3" title="Returns the last API error message for the current thread.">sista_getLastErrorMessage()</a></code>.</p>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">0</td><td>If the move was successful. </td></tr>
-    <tr><td class="paramname">1</td><td>If the move failed for any other reason. </td></tr>
-    <tr><td class="paramname">2</td><td>If the destination is out of bounds. </td></tr>
-    <tr><td class="paramname">3</td><td>If the destination is occupied by another pawn. </td></tr>
-    <tr><td class="paramname">4</td><td>If the field is a nullptr. </td></tr>
-    <tr><td class="paramname">5</td><td>If the pawn is a nullptr.</td></tr>
+    <tr><td class="paramname">SISTA_OK</td><td>If the move was successful. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_FIELD</td><td>If <code>field</code> is <code>NULL</code>. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_PAWN</td><td>If <code>pawn</code> is <code>NULL</code>. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_OUT_OF_BOUNDS</td><td>If the destination is out of bounds. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_OCCUPIED</td><td>If the destination is occupied or invalid. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_UNKNOWN</td><td>If the move failed for another reason.</td></tr>
   </table>
   </dd>
 </dl>
@@ -1453,14 +1667,14 @@ sista_destroyPawn </dd></dl>
 
 </div>
 </div>
-<a id="aaeb3a7b5f014e243505c4a5a7e8155a1" name="aaeb3a7b5f014e243505c4a5a7e8155a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaeb3a7b5f014e243505c4a5a7e8155a1">&#9670;&#160;</a></span>sista_printField()</h2>
+<a id="a292a2e92ce77299431db935cb967ea51" name="a292a2e92ce77299431db935cb967ea51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a292a2e92ce77299431db935cb967ea51">&#9670;&#160;</a></span>sista_printField()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sista_printField </td>
+          <td class="memname">int sista_printField </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="api_8h.html#a3797b9bc22d413638fa0bd580844aa9d">FieldHandler_t</a>&#160;</td>
           <td class="paramname"><em>field</em>, </td>
@@ -1483,25 +1697,33 @@ sista_destroyPawn </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">field</td><td>The Field. </td></tr>
-    <tr><td class="paramname">border</td><td>The border character to use.</td></tr>
+    <tr><td class="paramname">border</td><td>The border character to use. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
 <p>This function prints the entire field to the terminal, using the specified character as the border around the field.</p>
 <dl class="section see"><dt>See also</dt><dd>Field </dd>
 <dd>
 Border </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SISTA_OK</td><td>On success. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_FIELD</td><td>If <code>field</code> is <code>NULL</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="ae040276f33dd4bee688267bb840bb806" name="ae040276f33dd4bee688267bb840bb806"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae040276f33dd4bee688267bb840bb806">&#9670;&#160;</a></span>sista_printFieldWithBorder()</h2>
+<a id="a450d6fca9d66f0334ec87a0712ee3a5b" name="a450d6fca9d66f0334ec87a0712ee3a5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a450d6fca9d66f0334ec87a0712ee3a5b">&#9670;&#160;</a></span>sista_printFieldWithBorder()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sista_printFieldWithBorder </td>
+          <td class="memname">int sista_printFieldWithBorder </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="api_8h.html#a3797b9bc22d413638fa0bd580844aa9d">FieldHandler_t</a>&#160;</td>
           <td class="paramname"><em>field</em>, </td>
@@ -1524,25 +1746,34 @@ Border </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">field</td><td>The Field to print. </td></tr>
-    <tr><td class="paramname">border</td><td>The Border to print.</td></tr>
+    <tr><td class="paramname">border</td><td>The Border to print. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
 <p>This function prints the entire field to the terminal, using the specified Border object to draw the border around the field.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Border.html#a625c393138da01011d1d5f302a955578" title="Prints the border symbol to the terminal, applying ANSI settings if specified.">sista::Border::print</a> </dd>
 <dd>
 <a class="el" href="classsista_1_1Field.html#abd343354ef7cbdc78ee4019aab000c0e" title="Prints the entire field to the terminal.">sista::Field::print</a> </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SISTA_OK</td><td>On success. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_FIELD</td><td>If <code>field</code> is <code>NULL</code>. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_BORDER</td><td>If <code>border</code> is <code>NULL</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a7f864b481bc79441d4202d3ac7542b8e" name="a7f864b481bc79441d4202d3ac7542b8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f864b481bc79441d4202d3ac7542b8e">&#9670;&#160;</a></span>sista_printSwappableField()</h2>
+<a id="a0c57afcfffee4dd2f5132c456240af21" name="a0c57afcfffee4dd2f5132c456240af21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c57afcfffee4dd2f5132c456240af21">&#9670;&#160;</a></span>sista_printSwappableField()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sista_printSwappableField </td>
+          <td class="memname">int sista_printSwappableField </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="api_8h.html#aad51f8d970d4b608c39c1d8c6b9b4f88">SwappableFieldHandler_t</a>&#160;</td>
           <td class="paramname"><em>field</em>, </td>
@@ -1565,25 +1796,33 @@ Border </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">field</td><td>The SwappableField. </td></tr>
-    <tr><td class="paramname">border</td><td>The border character to use.</td></tr>
+    <tr><td class="paramname">border</td><td>The border character to use. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
 <p>This function prints the entire field to the terminal, using the specified character as the border around the field.</p>
 <dl class="section see"><dt>See also</dt><dd>Field </dd>
 <dd>
 Border </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SISTA_OK</td><td>On success. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_FIELD</td><td>If <code>field</code> is <code>NULL</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a852d25484a53dc72f23849adca9b2eb9" name="a852d25484a53dc72f23849adca9b2eb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a852d25484a53dc72f23849adca9b2eb9">&#9670;&#160;</a></span>sista_printSwappableFieldWithBorder()</h2>
+<a id="a9812a573ceb335d8de5e07fc524dc9cf" name="a9812a573ceb335d8de5e07fc524dc9cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9812a573ceb335d8de5e07fc524dc9cf">&#9670;&#160;</a></span>sista_printSwappableFieldWithBorder()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sista_printSwappableFieldWithBorder </td>
+          <td class="memname">int sista_printSwappableFieldWithBorder </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="api_8h.html#aad51f8d970d4b608c39c1d8c6b9b4f88">SwappableFieldHandler_t</a>&#160;</td>
           <td class="paramname"><em>field</em>, </td>
@@ -1606,25 +1845,34 @@ Border </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">field</td><td>The SwappableField to print. </td></tr>
-    <tr><td class="paramname">border</td><td>The Border to print.</td></tr>
+    <tr><td class="paramname">border</td><td>The Border to print. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
 <p>This function prints the entire field to the terminal, using the specified Border object to draw the border around the field.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classsista_1_1Border.html#a625c393138da01011d1d5f302a955578" title="Prints the border symbol to the terminal, applying ANSI settings if specified.">sista::Border::print</a> </dd>
 <dd>
 <a class="el" href="classsista_1_1Field.html#abd343354ef7cbdc78ee4019aab000c0e" title="Prints the entire field to the terminal.">sista::Field::print</a> </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SISTA_OK</td><td>On success. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_FIELD</td><td>If <code>field</code> is <code>NULL</code>. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_BORDER</td><td>If <code>border</code> is <code>NULL</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a6f47e2b56139e3e3e5cb0826af502c93" name="a6f47e2b56139e3e3e5cb0826af502c93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f47e2b56139e3e3e5cb0826af502c93">&#9670;&#160;</a></span>sista_resetAnsi()</h2>
+<a id="a8b3414af796239468247c8668b3dfa22" name="a8b3414af796239468247c8668b3dfa22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b3414af796239468247c8668b3dfa22">&#9670;&#160;</a></span>sista_resetAnsi()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sista_resetAnsi </td>
+          <td class="memname">int sista_resetAnsi </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1633,19 +1881,26 @@ Border </dd></dl>
 </div><div class="memdoc">
 
 <p>Resets ANSI settings to default. </p>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
 <p>This function resets the terminal's ANSI settings, including colors and attributes, to their default values.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacesista.html#a01b6f49cb4ab2bca5aa726b576a6f3ad" title="Resets all ANSI settings to default values.">sista::resetAnsi</a> </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SISTA_OK</td><td>On success. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a52c7a7555962ce22ebf1f572a8fcfd87" name="a52c7a7555962ce22ebf1f572a8fcfd87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52c7a7555962ce22ebf1f572a8fcfd87">&#9670;&#160;</a></span>sista_resetAttribute()</h2>
+<a id="aa3f832055f0445b72f583808e94dc40a" name="aa3f832055f0445b72f583808e94dc40a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3f832055f0445b72f583808e94dc40a">&#9670;&#160;</a></span>sista_resetAttribute()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sista_resetAttribute </td>
+          <td class="memname">int sista_resetAttribute </td>
           <td>(</td>
           <td class="paramtype">enum&#160;</td>
           <td class="paramname"><em>sista_Attribute</em></td><td>)</td>
@@ -1657,25 +1912,32 @@ Border </dd></dl>
 <p>Resets a text attribute. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">attribute</td><td>The text attribute to reset.</td></tr>
+    <tr><td class="paramname">attribute</td><td>The text attribute to reset. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
 <p>This function resets a text attribute, such as bold or underline, specified in the sista_Attribute enumeration. It outputs the corresponding ANSI escape code to standard output.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="api_8h.html#a2e1c40f571e82f2df5cbb8e8f966af07" title="Text attributes for terminal text.">sista_Attribute</a> </dd>
 <dd>
 <a class="el" href="namespacesista.html#a175e0b48e9f62f849e02dc4cefdd394a" title="Resets a text attribute using a predefined Attribute enum.">sista::resetAttribute</a> </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SISTA_OK</td><td>On success. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="aa33b8aeb690a061ef5a9aae6cbabb321" name="aa33b8aeb690a061ef5a9aae6cbabb321"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa33b8aeb690a061ef5a9aae6cbabb321">&#9670;&#160;</a></span>sista_setAttribute()</h2>
+<a id="a345653119de2feeab2d0e8083a77581c" name="a345653119de2feeab2d0e8083a77581c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a345653119de2feeab2d0e8083a77581c">&#9670;&#160;</a></span>sista_setAttribute()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sista_setAttribute </td>
+          <td class="memname">int sista_setAttribute </td>
           <td>(</td>
           <td class="paramtype">enum&#160;</td>
           <td class="paramname"><em>sista_Attribute</em></td><td>)</td>
@@ -1687,25 +1949,32 @@ Border </dd></dl>
 <p>Sets a text attribute. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">attribute</td><td>The text attribute to set.</td></tr>
+    <tr><td class="paramname">attribute</td><td>The text attribute to set. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
 <p>This function sets a text attribute, such as bold or underline, specified in the sista_Attribute enumeration. It outputs the corresponding ANSI escape code to standard output.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="api_8h.html#a2e1c40f571e82f2df5cbb8e8f966af07" title="Text attributes for terminal text.">sista_Attribute</a> </dd>
 <dd>
 <a class="el" href="namespacesista.html#aff52c1acd042b6c4fb31519fe5b9acb3" title="Sets a text attribute using a predefined Attribute enum.">sista::setAttribute</a> </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SISTA_OK</td><td>On success. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a9eb0bdad2cb982ccdf913cd1abd7781c" name="a9eb0bdad2cb982ccdf913cd1abd7781c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9eb0bdad2cb982ccdf913cd1abd7781c">&#9670;&#160;</a></span>sista_setBackgroundColor()</h2>
+<a id="af3b4c058ae89199d83cc21050317d391" name="af3b4c058ae89199d83cc21050317d391"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3b4c058ae89199d83cc21050317d391">&#9670;&#160;</a></span>sista_setBackgroundColor()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sista_setBackgroundColor </td>
+          <td class="memname">int sista_setBackgroundColor </td>
           <td>(</td>
           <td class="paramtype">enum&#160;</td>
           <td class="paramname"><em>sista_BackgroundColor</em></td><td>)</td>
@@ -1717,25 +1986,32 @@ Border </dd></dl>
 <p>Sets the background color using a predefined color. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">color</td><td>The predefined background color to set.</td></tr>
+    <tr><td class="paramname">color</td><td>The predefined background color to set. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
 <p>This function sets the terminal's background color to one of the predefined colors specified in the sista_BackgroundColor enumeration. It outputs the corresponding ANSI escape code to standard output.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="api_8h.html#abaa49c9c9bc123c79f6df443beca25c2" title="Predefined background colors for terminal text.">sista_BackgroundColor</a> </dd>
 <dd>
 <a class="el" href="namespacesista.html#ad011a35d3ede3fe280762670df9929d4" title="Sets the background color using a predefined BackgroundColor enum.">sista::setBackgroundColor</a> </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SISTA_OK</td><td>On success. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a2c1239bc04186aab3cffbd0543996db2" name="a2c1239bc04186aab3cffbd0543996db2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c1239bc04186aab3cffbd0543996db2">&#9670;&#160;</a></span>sista_setBackgroundColorRGB()</h2>
+<a id="a6c0bb5d7c8e2be01371fb76ab2a090a1" name="a6c0bb5d7c8e2be01371fb76ab2a090a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c0bb5d7c8e2be01371fb76ab2a090a1">&#9670;&#160;</a></span>sista_setBackgroundColorRGB()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sista_setBackgroundColorRGB </td>
+          <td class="memname">int sista_setBackgroundColorRGB </td>
           <td>(</td>
           <td class="paramtype">const struct <a class="el" href="structsista__RGBColor.html">sista_RGBColor</a> *&#160;</td>
           <td class="paramname"><em>color</em></td><td>)</td>
@@ -1747,26 +2023,33 @@ Border </dd></dl>
 <p>Sets the background color using an RGB color. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">color</td><td>A pointer to a <a class="el" href="structsista__RGBColor.html" title="Represents an RGB color with red, green, and blue components.">sista_RGBColor</a> struct defining the color.</td></tr>
+    <tr><td class="paramname">color</td><td>A pointer to a <a class="el" href="structsista__RGBColor.html" title="Represents an RGB color with red, green, and blue components.">sista_RGBColor</a> struct defining the color. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
 <p>This function sets the terminal's background color using the RGB components specified in the provided <a class="el" href="structsista__RGBColor.html" title="Represents an RGB color with red, green, and blue components.">sista_RGBColor</a> struct. It outputs the corresponding ANSI escape code to standard output.</p>
-<dl class="section note"><dt>Note</dt><dd>The function takes no effect if the pointer is nullptr.</dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SISTA_OK</td><td>On success. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_COLOR</td><td>If <code>color</code> is <code>NULL</code>.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista__RGBColor.html" title="Represents an RGB color with red, green, and blue components.">sista_RGBColor</a> </dd>
 <dd>
 <a class="el" href="namespacesista.html#ad011a35d3ede3fe280762670df9929d4" title="Sets the background color using a predefined BackgroundColor enum.">sista::setBackgroundColor</a> </dd></dl>
 
 </div>
 </div>
-<a id="a3bf3d0258b8893d710b6842a21147b9d" name="a3bf3d0258b8893d710b6842a21147b9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bf3d0258b8893d710b6842a21147b9d">&#9670;&#160;</a></span>sista_setForegroundColor()</h2>
+<a id="a822b99ffb35c1ba4ab371f0694517815" name="a822b99ffb35c1ba4ab371f0694517815"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a822b99ffb35c1ba4ab371f0694517815">&#9670;&#160;</a></span>sista_setForegroundColor()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sista_setForegroundColor </td>
+          <td class="memname">int sista_setForegroundColor </td>
           <td>(</td>
           <td class="paramtype">enum&#160;</td>
           <td class="paramname"><em>sista_ForegroundColor</em></td><td>)</td>
@@ -1778,25 +2061,32 @@ Border </dd></dl>
 <p>Sets the foreground color using a predefined color. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">color</td><td>The predefined foreground color to set.</td></tr>
+    <tr><td class="paramname">color</td><td>The predefined foreground color to set. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
 <p>This function sets the terminal's foreground color to one of the predefined colors specified in the sista_ForegroundColor enumeration. It outputs the corresponding ANSI escape code to standard output.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5ef" title="Predefined foreground colors for terminal text.">sista_ForegroundColor</a> </dd>
 <dd>
 <a class="el" href="namespacesista.html#adb5ea9331c533139582edf8e2c6225c0" title="Sets the foreground color using a predefined ForegroundColor enum.">sista::setForegroundColor</a> </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SISTA_OK</td><td>On success. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="af58d37c520160df97ad3da0cc50483c6" name="af58d37c520160df97ad3da0cc50483c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af58d37c520160df97ad3da0cc50483c6">&#9670;&#160;</a></span>sista_setForegroundColorRGB()</h2>
+<a id="a34637375697e334c554dcffa34223f23" name="a34637375697e334c554dcffa34223f23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34637375697e334c554dcffa34223f23">&#9670;&#160;</a></span>sista_setForegroundColorRGB()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sista_setForegroundColorRGB </td>
+          <td class="memname">int sista_setForegroundColorRGB </td>
           <td>(</td>
           <td class="paramtype">const struct <a class="el" href="structsista__RGBColor.html">sista_RGBColor</a> *&#160;</td>
           <td class="paramname"><em>color</em></td><td>)</td>
@@ -1808,12 +2098,19 @@ Border </dd></dl>
 <p>Sets the foreground color using an RGB color. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">color</td><td>A pointer to a <a class="el" href="structsista__RGBColor.html" title="Represents an RGB color with red, green, and blue components.">sista_RGBColor</a> struct defining the color.</td></tr>
+    <tr><td class="paramname">color</td><td>A pointer to a <a class="el" href="structsista__RGBColor.html" title="Represents an RGB color with red, green, and blue components.">sista_RGBColor</a> struct defining the color. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Status code from <code>enum sista_ErrorCode</code>.</dd></dl>
 <p>This function sets the terminal's foreground color using the RGB components specified in the provided <a class="el" href="structsista__RGBColor.html" title="Represents an RGB color with red, green, and blue components.">sista_RGBColor</a> struct. It outputs the corresponding ANSI escape code to standard output.</p>
-<dl class="section note"><dt>Note</dt><dd>The function takes no effect if the pointer is nullptr.</dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SISTA_OK</td><td>On success. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_COLOR</td><td>If <code>color</code> is <code>NULL</code>.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structsista__RGBColor.html" title="Represents an RGB color with red, green, and blue components.">sista_RGBColor</a> </dd>
 <dd>
 <a class="el" href="namespacesista.html#adb5ea9331c533139582edf8e2c6225c0" title="Sets the foreground color using a predefined ForegroundColor enum.">sista::setForegroundColor</a> </dd></dl>
@@ -1823,7 +2120,7 @@ Border </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 8 2026 16:16:44 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Apr 2 2026 14:50:34 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

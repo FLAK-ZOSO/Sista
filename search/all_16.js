@@ -12,7 +12,7 @@ var searchData=
   ['monocrome_5ftext_5f40_5f25_9',['MONOCROME_TEXT_40_25',['../namespacesista.html#a9630b668dd6f74adc69788f13da9da8eaf41fdec4f98476cc5cc8d1e2a538f1f5',1,'sista']]],
   ['monocrome_5ftext_5f80_5f25_10',['MONOCROME_TEXT_80_25',['../namespacesista.html#a9630b668dd6f74adc69788f13da9da8ead102c79ca0d7d6184eaa574162c2b809',1,'sista']]],
   ['move_11',['move',['../structsista_1_1Cursor.html#a28b28cc36d1da945d5a3b3ceca103928',1,'sista::Cursor::move(MoveCursor, unsigned short int) const'],['../structsista_1_1Cursor.html#a75c719f33141ae07a4de7afd25540080',1,'sista::Cursor.move(self, int direction, int amount)'],['../structsista_1_1Cursor.html#a61a9436543a6c23b23046e8af436f6cf',1,'sista::Cursor::move(MoveCursorSCO) const'],['../structsista_1_1Cursor.html#a78bec1227ac00bd3c0bd618e2fd4eb79',1,'sista::Cursor::move(MoveCursorDEC) const']]],
-  ['move_5fpawn_12',['move_pawn',['../namespacesista.html#ac544fa11de7fdca5cb45288c68d1490d',1,'sista.move_pawn()'],['../classsista_1_1Field.html#ad265c1019635ecd1e38a0a99a607eba2',1,'sista::Field.move_pawn()']]],
+  ['move_5fpawn_12',['move_pawn',['../classsista_1_1Field.html#a2702ac5323f0a30075ed6480c6adbd58',1,'sista::Field']]],
   ['movecursor_13',['MoveCursor',['../namespacesista.html#a7aced27e09de586e7565fcad8f5459e4',1,'sista']]],
   ['movecursordec_14',['MoveCursorDEC',['../namespacesista.html#af3bc6f60c5d75fa9fa275946c516ee51',1,'sista']]],
   ['movecursorsco_15',['MoveCursorSCO',['../namespacesista.html#aa75360a85012722dea448c7fb5c4e35e',1,'sista']]],

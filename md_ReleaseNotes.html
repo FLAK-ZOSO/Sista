@@ -73,17 +73,17 @@ $(function() {
   <div class="headertitle"><div class="title">Release Notes</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md24"></a> Here you can find the release notes for each version of <code>Sista</code> since <code>v0.1.0</code>, with changelog since v<code>0.7.0</code>; these are listed in a bottom-up order.</p>
-<h1><a class="anchor" id="autotoc_md25"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md25"></a> Here you can find the release notes for each version of <code>Sista</code> since <code>v0.1.0</code>, with changelog since v<code>0.7.0</code>; these are listed in a bottom-up order.</p>
+<h1><a class="anchor" id="autotoc_md26"></a>
 Unreleased v&lt;tt&gt;3.0.0&lt;/tt&gt;</h1>
 <p>Major release.</p>
 <ul>
-<li>Changed <code><a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">sista::Field</a></code> to use <code>std::shared_ptr&lt;<a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">sista::Pawn</a>&gt;</code> instead of raw pointers for memory safety and easier memory management<ul>
+<li>Changed <code><a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">sista::Field</a></code> to use <code>std::shared_ptr&lt;<a class="el" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField.">sista::Pawn</a>&gt;</code> instead of raw pointers for memory safety and easier memory management<ul>
 <li>Removed <code>Field::reset</code> method as it is redundant with <code>Field::clear</code> in this context</li>
 </ul>
 </li>
-<li>Updated demos to use <code>std::shared_ptr&lt;<a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">sista::Pawn</a>&gt;</code> and <code>std::make_shared&lt;<a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">sista::Pawn</a>&gt;</code> for creating and managing pawns</li>
-<li>Updated documentation to reflect changes in <code><a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">sista::Field</a></code> and <code><a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">sista::Pawn</a></code> usage</li>
+<li>Updated demos to use <code>std::shared_ptr&lt;<a class="el" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField.">sista::Pawn</a>&gt;</code> and <code>std::make_shared&lt;<a class="el" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField.">sista::Pawn</a>&gt;</code> for creating and managing pawns</li>
+<li>Updated documentation to reflect changes in <code><a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">sista::Field</a></code> and <code><a class="el" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField.">sista::Pawn</a></code> usage</li>
 <li>Removed <code>ANSI</code> namespace and moved all ANSI-related functionality to <code>sista::</code>, among which <code>ANSI::Settings</code>-&gt;<code><a class="el" href="structsista_1_1ANSISettings.html" title="Represents a set of ANSI settings including colors and attributes.">sista::ANSISettings</a></code></li>
 <li>Wrapped former <code>_EFFECT</code> constants into a scoped <code>enum class Effect</code> inside the <code>sista</code> namespace</li>
 <li>Changed <code>enum</code> types to <code>enum class</code> for better type safety and to avoid name clashes<ul>
@@ -125,13 +125,31 @@ Unreleased v&lt;tt&gt;3.0.0&lt;/tt&gt;</h1>
 <li>Testing on memory safety with <code>valgrind</code>, detected no memory leaks or invalid accesses</li>
 <li>Constructor and destructor of <code><a class="el" href="structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations.">sista::Cursor</a></code> only hide/show the cursor, but do not alter the ANSI settings nor clear the screen anymore</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md26"></a>
+<h2><a class="anchor" id="autotoc_md27"></a>
+v&lt;tt&gt;3.0.0-beta.4&lt;/tt&gt;</h2>
+<ul>
+<li>Improved Python exception behavior in the C extension:<ul>
+<li>API failures now raise clearer Python exceptions with better diagnostic messages.</li>
+</ul>
+</li>
+<li>Stub/type hint synchronization:<ul>
+<li><code><a class="el" href="____init_____8pyi.html">__init__.pyi</a></code> now matches the effective runtime API and class methods.</li>
+</ul>
+</li>
+<li>Documentation consistency:<ul>
+<li>extension docstrings and public type hints now reflect the class-oriented API.</li>
+</ul>
+</li>
+<li>Swapped <code>(x, y)</code> pairs fixed</li>
+<li>Some bounds checks added to <code>Field</code>'s <code>Pawn</code> getters</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md28"></a>
 v&lt;tt&gt;2.2.1&lt;/tt&gt;</h1>
 <p>Patch release.</p>
 <ul>
 <li>Adapted <code>Makefile</code> for MacOS install</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md27"></a>
+<h1><a class="anchor" id="autotoc_md29"></a>
 v&lt;tt&gt;2.2.0&lt;/tt&gt;</h1>
 <p>Minor release.</p>
 <ul>
@@ -139,21 +157,21 @@ v&lt;tt&gt;2.2.0&lt;/tt&gt;</h1>
 </ul>
 <p>The previous state was that <code>Sista</code> was only available in source format on Windows, but now it can be installed on the system as a shared library.</p>
 <p>MSVC support is not available, and it won't for the foreseeable future unless there is a demand for it and a volunteer to test it.</p>
-<h1><a class="anchor" id="autotoc_md28"></a>
+<h1><a class="anchor" id="autotoc_md30"></a>
 v&lt;tt&gt;2.1.2&lt;/tt&gt;</h1>
 <ul>
 <li>Added new demo <code>shared-test-static</code> to test static linking against the <code>Sista</code> library</li>
 <li>Updated <code>demo/Makefile</code> to include the new demo and to build it correctly</li>
 <li>Updated Makefile CI workflow to build all demos, including the new <code>shared-test-static</code> demo</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md29"></a>
+<h1><a class="anchor" id="autotoc_md31"></a>
 v&lt;tt&gt;2.1.1&lt;/tt&gt;</h1>
 <ul>
 <li>Fixed the <code>Makefile</code> to correctly build the demos without the need for <code>Sista</code> to be installed</li>
 <li>Added documentation in the <code>demo/README.md</code> file</li>
 <li>Updated and refreshed the documentation on ReadTheDocs, under <code>docs/</code></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md30"></a>
+<h1><a class="anchor" id="autotoc_md32"></a>
 v&lt;tt&gt;2.1.0&lt;/tt&gt;</h1>
 <p>Minor release.</p>
 <ul>
@@ -161,13 +179,13 @@ v&lt;tt&gt;2.1.0&lt;/tt&gt;</h1>
 <li>Added <code>uninstall</code> target to the <code>Makefile</code> to remove the installed files</li>
 <li>Added <code>demo/shared-test.cpp</code> and related <code>Makefile</code> target to test the shared library installation</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md31"></a>
+<h1><a class="anchor" id="autotoc_md33"></a>
 v&lt;tt&gt;2.0.0&lt;/tt&gt;</h1>
 <p>Major release.</p>
 <ul>
 <li>Sista now available as a shared library, <code>libSista.so</code>, which can be installed in the system library path</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md32"></a>
+<h1><a class="anchor" id="autotoc_md34"></a>
 v&lt;tt&gt;1.1.8&lt;/tt&gt;</h1>
 <p>Bug fix release.</p>
 <ul>
@@ -181,7 +199,7 @@ v&lt;tt&gt;1.1.8&lt;/tt&gt;</h1>
 <div class="line">}</div>
 </div><!-- fragment --><p>This change is necessary to ensure that constructs such as <code>std::set&lt;<a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">sista::Coordinates</a>&gt;</code> work correctly, as it requires a strict weak ordering relation.</p>
 <p>We don't plan to implement an hash function for <code><a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">sista::Coordinates</a></code> at the moment as the direct comparison is more efficient and straightforward for the intended use cases.</p>
-<h1><a class="anchor" id="autotoc_md33"></a>
+<h1><a class="anchor" id="autotoc_md35"></a>
 v&lt;tt&gt;1.1.7&lt;/tt&gt;</h1>
 <ul>
 <li>Allow <code>ANSI::Settings</code> to be initialized with mixed <code>ForegroundColor</code> and <code>RGBColor</code> or <code>RGBColor</code> and <code>BackgroundColor</code></li>
@@ -193,7 +211,7 @@ v&lt;tt&gt;1.1.7&lt;/tt&gt;</h1>
 <div class="line">    ANSI::BackgroundColor::B_BLACK,</div>
 <div class="line">    ANSI::Attribute::BRIGHT</div>
 <div class="line">};</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md34"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md36"></a>
 v&lt;tt&gt;1.1.6&lt;/tt&gt;</h1>
 <ul>
 <li>Added <code>&lt;</code> comparison operator to <code><a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">sista::Coordinates</a></code></li>
@@ -203,7 +221,7 @@ v&lt;tt&gt;1.1.6&lt;/tt&gt;</h1>
 <div class="line"><span class="keywordtype">bool</span> Coordinates::operator&lt;(<span class="keyword">const</span> Coordinates&amp; other)<span class="keyword"> const </span>{</div>
 <div class="line">    <span class="keywordflow">return</span> (y + x) &lt; (other.y + other.x);</div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md35"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md37"></a>
 v&lt;tt&gt;1.1.5&lt;/tt&gt;</h1>
 <ul>
 <li>Added <code>RGBColor</code> and support for it in the <code>ANSI::Settings</code> struct</li>
@@ -217,7 +235,7 @@ v&lt;tt&gt;1.1.5&lt;/tt&gt;</h1>
 <div class="line">};</div>
 </div><!-- fragment --><p>The library does not enforce consistency across foreground and background indications, as in one of the two can be an <code>RGBColor</code> and the other one a <code>ForegroundColor</code>, for instance.</p>
 <p>This change is backwards compatible, so the <code>ForegroundColor</code>/<code>BackgroundColor</code> based initialization is still functional and will always be supported.</p>
-<h1><a class="anchor" id="autotoc_md36"></a>
+<h1><a class="anchor" id="autotoc_md38"></a>
 v&lt;tt&gt;1.1.4&lt;/tt&gt;</h1>
 <ul>
 <li>Added <code><a class="el" href="classsista_1_1Field.html#ab1d0a24261d8e595ff5f719fd6e28d5c" title="Removes a Pawn from the field.">sista::Field::removePawn</a>(<a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">sista::Coordinates</a>&amp;)</code> to remove a pawn from the field by coordinates without the need of a pointer to the pawn</li>
@@ -236,7 +254,7 @@ v&lt;tt&gt;1.1.4&lt;/tt&gt;</h1>
 <div class="line">    ANSI::reset(); <span class="comment">// Reset the settings for that cell</span></div>
 <div class="line">    std::cout &lt;&lt; <span class="charliteral">&#39; &#39;</span>; <span class="comment">// Print a space to clear the cell</span></div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md37"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md39"></a>
 v&lt;tt&gt;1.1.3&lt;/tt&gt;</h1>
 <ul>
 <li>Added <code><a class="el" href="classsista_1_1Field.html#af3ee2d7fc112ba03a697f4fe5ae2ea7e" title="Reprints a Pawn at its current coordinates.">sista::Field::rePrintPawn()</a></code></li>
@@ -249,7 +267,7 @@ v&lt;tt&gt;1.1.3&lt;/tt&gt;</h1>
 <div class="line">}</div>
 </div><!-- fragment --><div class="fragment"><div class="line"> ++</div>
 <div class="line">Coordinates operator*(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>) <span class="keyword">const</span>;</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md38"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md40"></a>
 v&lt;tt&gt;1.1.2&lt;/tt&gt;</h1>
 <ul>
 <li>Added more operators for <code><a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">sista::Coordinates</a></code> struct</li>
@@ -258,7 +276,7 @@ v&lt;tt&gt;1.1.2&lt;/tt&gt;</h1>
 <div class="line">Coordinates operator-(<span class="keyword">const</span> Coordinates&amp;) <span class="keyword">const</span>;</div>
 <div class="line">Coordinates operator+=(<span class="keyword">const</span> Coordinates&amp;);</div>
 <div class="line">Coordinates operator-=(<span class="keyword">const</span> Coordinates&amp;);</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md39"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md41"></a>
 v&lt;tt&gt;1.1.1&lt;/tt&gt;</h1>
 <ul>
 <li>Added <code><a class="el" href="classsista_1_1Field.html#a900f4baab9a1acbf90a8b133bb90b8ac" title="Removes a Pawn from the field at specified coordinates.">sista::Field::erasePawn()</a></code> to remove and erase Pawn from the screen</li>
@@ -270,13 +288,13 @@ v&lt;tt&gt;1.1.1&lt;/tt&gt;</h1>
 <div class="line">    ANSI::reset(); <span class="comment">// Reset the settings for that cell</span></div>
 <div class="line">    std::cout &lt;&lt; <span class="charliteral">&#39; &#39;</span>; <span class="comment">// Print a space to clear the cell</span></div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md40"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md42"></a>
 v&lt;tt&gt;1.0.0&lt;/tt&gt;</h1>
 <ul>
 <li>Divided Sista in <code>.hpp</code> headers and <code>.cpp</code> sources</li>
 </ul>
 <p>This should make it possible to use Sista in projects with multiple source files.</p>
-<h1><a class="anchor" id="autotoc_md41"></a>
+<h1><a class="anchor" id="autotoc_md43"></a>
 v&lt;tt&gt;0.9.4&lt;/tt&gt;</h1>
 <ul>
 <li>Added <code><a class="el" href="classsista_1_1Field.html#a1a98bca7c067d5d72c9c1d1329ad5474" title="Adds a Pawn to the field at its specified coordinates and prints it.">sista::Field::addPrintPawn()</a></code> to add and print Pawn without reprint</li>
@@ -287,7 +305,7 @@ v&lt;tt&gt;0.9.4&lt;/tt&gt;</h1>
 <div class="line">    this-&gt;cursor.set(pawn-&gt;getCoordinates()); <span class="comment">// Set the cursor to the pawn&#39;s coordinates</span></div>
 <div class="line">    pawn-&gt;print(); <span class="comment">// Print the pawn</span></div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md42"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md44"></a>
 v&lt;tt&gt;0.9.3&lt;/tt&gt;</h1>
 <ul>
 <li>Fixed <code>sista::Field::reset()</code> which was resizing the field to 0x0</li>
@@ -302,7 +320,7 @@ v&lt;tt&gt;0.9.3&lt;/tt&gt;</h1>
 <div class="line">        }</div>
 <div class="line">    }        </div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md43"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md45"></a>
 v&lt;tt&gt;0.9.2&lt;/tt&gt;</h1>
 <ul>
 <li>Added ScreenMode management</li>
@@ -335,7 +353,7 @@ v&lt;tt&gt;0.9.2&lt;/tt&gt;</h1>
 <div class="ttc" id="aansi_8hpp_html_abc85bb07f8fa1e7c2eba467b6c8e8624"><div class="ttname"><a href="ansi_8hpp.html#abc85bb07f8fa1e7c2eba467b6c8e8624">CSI</a></div><div class="ttdeci">#define CSI</div><div class="ttdoc">Control Sequence Introducer for ANSI escape codes.</div><div class="ttdef"><b>Definition</b> ansi.hpp:52</div></div>
 <div class="ttc" id="anamespacesista_html_ac1d0f710dead79a74b4a4f5aeb0002b3"><div class="ttname"><a href="namespacesista.html#ac1d0f710dead79a74b4a4f5aeb0002b3">sista::unsetScreenMode</a></div><div class="ttdeci">void unsetScreenMode(ScreenMode mode)</div><div class="ttdoc">Unsets a specific screen mode.</div><div class="ttdef"><b>Definition</b> ansi.cpp:117</div></div>
 </div><!-- fragment --><ul>
-<li>Added resetter for <code><a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">sista::Field</a></code> instances, to empty the field from the <code><a class="el" href="classsista_1_1Pawn.html" title="Represents an object on the field with a symbol, coordinates, and ANSI settings.">sista::Pawn</a></code>s</li>
+<li>Added resetter for <code><a class="el" href="classsista_1_1Field.html" title="Class representing a terminal Field for pawns and borders.">sista::Field</a></code> instances, to empty the field from the <code><a class="el" href="classsista_1_1Pawn.html" title="Class representing a Pawn owned by a Field or SwappableField.">sista::Pawn</a></code>s</li>
 </ul>
 <div class="fragment"><div class="line"> ++</div>
 <div class="line"><span class="keywordtype">void</span> reset() {</div>
@@ -345,7 +363,7 @@ v&lt;tt&gt;0.9.2&lt;/tt&gt;</h1>
 <div class="line">                delete pawn; <span class="comment">// Delete the pawn</span></div>
 <div class="line">    pawns.clear(); <span class="comment">// Clear the pawns</span></div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md44"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md46"></a>
 v&lt;tt&gt;0.9.0&lt;/tt&gt;</h1>
 <ul>
 <li>Added 256 color support</li>
@@ -367,7 +385,7 @@ v&lt;tt&gt;0.9.0&lt;/tt&gt;</h1>
 <div class="line"><span class="keywordtype">void</span> setBackgroundColor(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> red, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> green, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> blue) {</div>
 <div class="line">    std::cout &lt;&lt; <a class="code hl_define" href="ansi_8hpp.html#abc85bb07f8fa1e7c2eba467b6c8e8624">CSI</a> &lt;&lt; <span class="stringliteral">&quot;48;2;&quot;</span> &lt;&lt; red &lt;&lt; <span class="stringliteral">&quot;;&quot;</span> &lt;&lt; green &lt;&lt; <span class="stringliteral">&quot;;&quot;</span> &lt;&lt; blue &lt;&lt; <span class="stringliteral">&quot;m&quot;</span>;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md45"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md47"></a>
 v&lt;tt&gt;0.8.0&lt;/tt&gt;</h1>
 <ul>
 <li>Added <a href="https://github.com/FLAK-ZOSO/Sista/blob/3f861a7e1f61609f4d8f9cf03aaaf3c056db1278/include/sista/cursor.hpp#L70-L89">more ANSI cursor commands</a></li>
@@ -424,13 +442,13 @@ v&lt;tt&gt;0.8.0&lt;/tt&gt;</h1>
 <div class="line">    std::cout &lt;&lt; <a class="code hl_define" href="ansi_8hpp.html#a4af1b6159e447ba72652bb7fcdfa726e">ESC</a> &lt;&lt; <span class="charliteral">&#39; &#39;</span> &lt;&lt; moveCursorSCO_;</div>
 <div class="line">}</div>
 <div class="ttc" id="aansi_8hpp_html_a4af1b6159e447ba72652bb7fcdfa726e"><div class="ttname"><a href="ansi_8hpp.html#a4af1b6159e447ba72652bb7fcdfa726e">ESC</a></div><div class="ttdeci">#define ESC</div><div class="ttdoc">Escape character for ANSI escape codes.</div><div class="ttdef"><b>Definition</b> ansi.hpp:39</div></div>
-<div class="ttc" id="aapi_8h_html_acf93245807642a551415bb6eaeb1bca4a0c96f8e634947f2235c525c34384ca08"><div class="ttname"><a href="api_8h.html#acf93245807642a551415bb6eaeb1bca4a0c96f8e634947f2235c525c34384ca08">BEGINNING_OF_NEXT_LINE</a></div><div class="ttdeci">@ BEGINNING_OF_NEXT_LINE</div><div class="ttdef"><b>Definition</b> api.h:574</div></div>
-<div class="ttc" id="aapi_8h_html_acf93245807642a551415bb6eaeb1bca4a1c47acf91139ae964615d55e56ef2d55"><div class="ttname"><a href="api_8h.html#acf93245807642a551415bb6eaeb1bca4a1c47acf91139ae964615d55e56ef2d55">HORIZONTAL_ABSOLUTE</a></div><div class="ttdeci">@ HORIZONTAL_ABSOLUTE</div><div class="ttdef"><b>Definition</b> api.h:576</div></div>
-<div class="ttc" id="aapi_8h_html_acf93245807642a551415bb6eaeb1bca4a9b0b4a95b99523966e0e34ffdadac9da"><div class="ttname"><a href="api_8h.html#acf93245807642a551415bb6eaeb1bca4a9b0b4a95b99523966e0e34ffdadac9da">DOWN</a></div><div class="ttdeci">@ DOWN</div><div class="ttdef"><b>Definition</b> api.h:571</div></div>
-<div class="ttc" id="aapi_8h_html_acf93245807642a551415bb6eaeb1bca4aba595d8bca8bc5e67c37c0a9d89becfa"><div class="ttname"><a href="api_8h.html#acf93245807642a551415bb6eaeb1bca4aba595d8bca8bc5e67c37c0a9d89becfa">UP</a></div><div class="ttdeci">@ UP</div><div class="ttdef"><b>Definition</b> api.h:570</div></div>
-<div class="ttc" id="aapi_8h_html_acf93245807642a551415bb6eaeb1bca4adb45120aafd37a973140edee24708065"><div class="ttname"><a href="api_8h.html#acf93245807642a551415bb6eaeb1bca4adb45120aafd37a973140edee24708065">LEFT</a></div><div class="ttdeci">@ LEFT</div><div class="ttdef"><b>Definition</b> api.h:573</div></div>
-<div class="ttc" id="aapi_8h_html_acf93245807642a551415bb6eaeb1bca4aec8379af7490bb9eaaf579cf17876f38"><div class="ttname"><a href="api_8h.html#acf93245807642a551415bb6eaeb1bca4aec8379af7490bb9eaaf579cf17876f38">RIGHT</a></div><div class="ttdeci">@ RIGHT</div><div class="ttdef"><b>Definition</b> api.h:572</div></div>
-<div class="ttc" id="aapi_8h_html_acf93245807642a551415bb6eaeb1bca4afbc52c5d9432b5150c0ce57545b65eff"><div class="ttname"><a href="api_8h.html#acf93245807642a551415bb6eaeb1bca4afbc52c5d9432b5150c0ce57545b65eff">BEGINNING_OF_PREVIOUS_LINE</a></div><div class="ttdeci">@ BEGINNING_OF_PREVIOUS_LINE</div><div class="ttdef"><b>Definition</b> api.h:575</div></div>
+<div class="ttc" id="aapi_8h_html_acf93245807642a551415bb6eaeb1bca4a0c96f8e634947f2235c525c34384ca08"><div class="ttname"><a href="api_8h.html#acf93245807642a551415bb6eaeb1bca4a0c96f8e634947f2235c525c34384ca08">BEGINNING_OF_NEXT_LINE</a></div><div class="ttdeci">@ BEGINNING_OF_NEXT_LINE</div><div class="ttdef"><b>Definition</b> api.h:690</div></div>
+<div class="ttc" id="aapi_8h_html_acf93245807642a551415bb6eaeb1bca4a1c47acf91139ae964615d55e56ef2d55"><div class="ttname"><a href="api_8h.html#acf93245807642a551415bb6eaeb1bca4a1c47acf91139ae964615d55e56ef2d55">HORIZONTAL_ABSOLUTE</a></div><div class="ttdeci">@ HORIZONTAL_ABSOLUTE</div><div class="ttdef"><b>Definition</b> api.h:692</div></div>
+<div class="ttc" id="aapi_8h_html_acf93245807642a551415bb6eaeb1bca4a9b0b4a95b99523966e0e34ffdadac9da"><div class="ttname"><a href="api_8h.html#acf93245807642a551415bb6eaeb1bca4a9b0b4a95b99523966e0e34ffdadac9da">DOWN</a></div><div class="ttdeci">@ DOWN</div><div class="ttdef"><b>Definition</b> api.h:687</div></div>
+<div class="ttc" id="aapi_8h_html_acf93245807642a551415bb6eaeb1bca4aba595d8bca8bc5e67c37c0a9d89becfa"><div class="ttname"><a href="api_8h.html#acf93245807642a551415bb6eaeb1bca4aba595d8bca8bc5e67c37c0a9d89becfa">UP</a></div><div class="ttdeci">@ UP</div><div class="ttdef"><b>Definition</b> api.h:686</div></div>
+<div class="ttc" id="aapi_8h_html_acf93245807642a551415bb6eaeb1bca4adb45120aafd37a973140edee24708065"><div class="ttname"><a href="api_8h.html#acf93245807642a551415bb6eaeb1bca4adb45120aafd37a973140edee24708065">LEFT</a></div><div class="ttdeci">@ LEFT</div><div class="ttdef"><b>Definition</b> api.h:689</div></div>
+<div class="ttc" id="aapi_8h_html_acf93245807642a551415bb6eaeb1bca4aec8379af7490bb9eaaf579cf17876f38"><div class="ttname"><a href="api_8h.html#acf93245807642a551415bb6eaeb1bca4aec8379af7490bb9eaaf579cf17876f38">RIGHT</a></div><div class="ttdeci">@ RIGHT</div><div class="ttdef"><b>Definition</b> api.h:688</div></div>
+<div class="ttc" id="aapi_8h_html_acf93245807642a551415bb6eaeb1bca4afbc52c5d9432b5150c0ce57545b65eff"><div class="ttname"><a href="api_8h.html#acf93245807642a551415bb6eaeb1bca4afbc52c5d9432b5150c0ce57545b65eff">BEGINNING_OF_PREVIOUS_LINE</a></div><div class="ttdeci">@ BEGINNING_OF_PREVIOUS_LINE</div><div class="ttdef"><b>Definition</b> api.h:691</div></div>
 <div class="ttc" id="anamespacesista_html_a7aced27e09de586e7565fcad8f5459e4"><div class="ttname"><a href="namespacesista.html#a7aced27e09de586e7565fcad8f5459e4">sista::MoveCursor</a></div><div class="ttdeci">MoveCursor</div><div class="ttdoc">Enumeration for cursor movement directions in ANSI escape codes.</div><div class="ttdef"><b>Definition</b> cursor.hpp:85</div></div>
 <div class="ttc" id="anamespacesista_html_aa75360a85012722dea448c7fb5c4e35e"><div class="ttname"><a href="namespacesista.html#aa75360a85012722dea448c7fb5c4e35e">sista::MoveCursorSCO</a></div><div class="ttdeci">MoveCursorSCO</div><div class="ttdoc">Enumeration for SCO-specific cursor movement commands in ANSI escape codes.</div><div class="ttdef"><b>Definition</b> cursor.hpp:114</div></div>
 <div class="ttc" id="anamespacesista_html_aa75360a85012722dea448c7fb5c4e35ea0a83a6790ffdca9d07adc7ddb963883a"><div class="ttname"><a href="namespacesista.html#aa75360a85012722dea448c7fb5c4e35ea0a83a6790ffdca9d07adc7ddb963883a">sista::MoveCursorSCO::SCO_SAVE_CURSOR_POSITION</a></div><div class="ttdeci">@ SCO_SAVE_CURSOR_POSITION</div></div>
@@ -440,7 +458,7 @@ v&lt;tt&gt;0.8.0&lt;/tt&gt;</h1>
 </div><!-- fragment --><ul>
 <li>Added <code>ESC</code> constant to <code>ANSI-Settings.hpp</code></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md46"></a>
+<h1><a class="anchor" id="autotoc_md48"></a>
 v&lt;tt&gt;0.7.1&lt;/tt&gt;</h1>
 <ul>
 <li>Added <a href="https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/ANSI-Settings.hpp#L57-L60">condition</a> over the attribute reset function</li>
@@ -454,14 +472,14 @@ v&lt;tt&gt;0.7.1&lt;/tt&gt;</h1>
 <div class="line">    std::cout &lt;&lt; <a class="code hl_define" href="ansi_8hpp.html#abc85bb07f8fa1e7c2eba467b6c8e8624">CSI</a> &lt;&lt; attribute + 20 &lt;&lt; <span class="stringliteral">&quot;m&quot;</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>I added the if statement to check if the attribute is <code>BRIGHT</code> or not, because the <code>BRIGHT</code> reset code is <code>+21</code> (from set code) and the rest are <code>+20</code>.</p>
-<h1><a class="anchor" id="autotoc_md47"></a>
+<h1><a class="anchor" id="autotoc_md49"></a>
 v&lt;tt&gt;0.1.0&lt;/tt&gt;</h1>
 <p>This is the first version of <code>Sista</code> and it is still in development. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 8 2026 16:16:44 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Thu Apr 2 2026 14:50:34 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
