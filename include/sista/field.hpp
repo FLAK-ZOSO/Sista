@@ -146,10 +146,11 @@ namespace sista {
          *  This method places the given Pawn on the field at its current coordinates.
          *  If the coordinates are already occupied, the existing Pawn will be replaced.
          *
-         *  \warning The Pawn's coordinates must be valid (within the field bounds) as they are not validated here.
+         *  The Pawn's coordinates are validated for bounds.
          *  \note The method takes a shared pointer to manage the Pawn's memory automatically.
          * 
          *  \throws `std::invalid_argument` if the coordinates are occupied by another Pawn.
+         *  \throws `std::out_of_range` if the Pawn's coordinates are out of bounds.
          *
          *  \see Pawn
         */
@@ -160,7 +161,8 @@ namespace sista {
          *  This method removes the specified Pawn from the field.
          *  If the Pawn is not found at its coordinates, no action is taken.
          *
-         *  \warning The Pawn's coordinates must be valid (within the field bounds) as they are not validated here.
+         *  \note If `pawn` is `nullptr` or its coordinates are out of bounds, no action is taken.
+         *  \warning The coordinates should therefore be validated beforehand by the caller.
          *  \note The method does not delete the Pawn object, it only removes it from the field.
          *
          *  \see Pawn
@@ -172,7 +174,8 @@ namespace sista {
          *  This method removes the Pawn located at the given coordinates from the field.
          *  If no Pawn is found at the specified coordinates, no action is taken.
          *
-         *  \warning The coordinates must be valid (within the field bounds) as they are not validated here.
+         *  \note If `coordinates` are out of bounds, no action is taken.
+         *  \warning The coordinates should therefore be validated beforehand by the caller.
          *  \note The method does not delete the Pawn object, it only removes it from the field.
          *
          *  \see Pawn
@@ -409,9 +412,12 @@ namespace sista {
          *  \return A pointer to the Pawn at the given coordinates, or nullptr if no Pawn is found.
          *
          *  This method retrieves the Pawn located at the specified coordinates on the field.
-         *  If no Pawn is found at those coordinates, the method returns nullptr.
          *
-         *  \warning The coordinates must be valid (within the field bounds) as they are not validated here.
+         *  If no Pawn is found at those coordinates, the method returns nullptr.
+         *  If the coordinates are out of bounds, the method returns `nullptr`.
+         *  \retval nullptr if the coordinates are out of bounds or if no Pawn is found at those coordinates.
+         *
+         *  \warning The coordinates should therefore be validated beforehand by the caller.
          *  \note The method returns a raw pointer to the Pawn that is managed by a shared pointer in the field and thus must not be deleted.
          *
          *  \see Pawn
@@ -426,7 +432,7 @@ namespace sista {
          *  This method retrieves the Pawn located at the specified coordinates on the field.
          *  If no Pawn is found at those coordinates, the method returns nullptr.
          *
-         *  \warning The coordinates must be valid (within the field bounds) as they are not validated here.
+         *  If the coordinates are out of bounds, the method returns `nullptr`.
          *  \note The method returns a raw pointer to the Pawn that is managed by a shared pointer in the field and thus must not be deleted.
          *
          *  \see Pawn
@@ -440,7 +446,7 @@ namespace sista {
          *
          *  This method checks if there is a Pawn located at the specified coordinates on the field.
          *
-         *  \warning The coordinates must be valid (within the field bounds) as they are not validated here
+         *  \note Out-of-bounds coordinates are treated as not occupied.
          *
          *  \see Pawn
          *  \see Coordinates
@@ -455,7 +461,7 @@ namespace sista {
          *
          *  This method checks if there is a Pawn located at the specified coordinates on the field.
          *
-         *  \warning The coordinates must be valid (within the field bounds) as they are not validated here
+         *  \note Out-of-bounds coordinates are treated as not occupied.
          *
          *  \see Pawn
          *  \see Coordinates
@@ -470,8 +476,7 @@ namespace sista {
          *
          *  This method checks if there is a Pawn located at the specified coordinates on the field.
          *
-         *  \note This overload uses signed integers to allow checking for negative coordinates.
-         *  \warning The coordinates must be valid (within the field bounds) as they are not validated here
+         *  \note Out-of-bounds coordinates are treated as not occupied.
          *
          *  \see Pawn
          *  \see Coordinates
@@ -510,7 +515,6 @@ namespace sista {
          *
          *  This method checks if the given coordinates are outside the valid range of the field.
          *
-         *  \note This overload uses signed integers to allow checking for negative coordinates.
          *
          *  \see Coordinates
          *  \see isOccupied
@@ -554,7 +558,6 @@ namespace sista {
          *
          *  This method checks if there is no Pawn located at the specified coordinates on the field.
          *
-         *  \note This overload uses signed integers to allow checking for negative coordinates.
          *  \note This is a negation of isOccupied provided that isOutOfBounds returns false. Read implementation for more details.
          *
          *  \see Pawn
