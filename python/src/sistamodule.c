@@ -828,6 +828,12 @@ SwappableField_add_pawn_to_swap(PyObject *self, PyObject *args)
     if (pawn == NULL) {
         return NULL;
     }
+    /* py_sista_get_pawn_from_object already verified pawn_obj is a PawnObject */
+    PawnObject *pawn_typed = (PawnObject*)pawn_obj;
+    if (pawn_typed->owner != self) {
+        PyErr_SetString(PyExc_ValueError, "Pawn does not belong to this SwappableField");
+        return NULL;
+    }
 
     struct sista_Coordinates *coords = (struct sista_Coordinates*)PyCapsule_GetPointer(coords_capsule, "sista_Coordinates");
     if (coords == NULL) {
