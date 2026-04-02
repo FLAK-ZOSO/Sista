@@ -1,3 +1,12 @@
+sista (3.0.0-beta.10-1) unstable; urgency=medium
+
+  * Introducing robust error handling in the C API
+  * Adding sista_get_last_error() to retrieve error messages from the library
+  * Fixing some potential bugs
+  * Improving getters to check boundaries of coordinates
+
+ -- FLAK-ZOSO <mattia.marchese.2006@gmail.com>  Mon, 2 Apr 2026 18:10:58 +0300
+ 
 sista (3.0.0-beta.1-1) unstable; urgency=medium
 
   * Preparing for the first beta release
