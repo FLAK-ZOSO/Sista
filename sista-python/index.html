@@ -45,6 +45,22 @@ el.replaceWith(d);
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
+<dt id="sista.clear_screen"><code class="name flex">
+<span>def <span class="ident">clear_screen</span></span>(<span>...)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Clear the terminal and reposition the cursor to top-left.</p>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li><code>spaces</code> (bool, optional):</li>
+<li><code>True</code> (default): clear visible content and scrollback buffer.</li>
+<li><code>False</code>: only reposition cursor to top-left.</li>
+</ul>
+<h3 id="raises">Raises</h3>
+<ul>
+<li><code>RuntimeError</code>: if the underlying API reports a failure.</li>
+</ul></div>
+</dd>
 <dt id="sista.create_ansi_settings"><code class="name flex">
 <span>def <span class="ident">create_ansi_settings</span></span>(<span>...)</span>
 </code></dt>
@@ -107,7 +123,8 @@ el.replaceWith(d);
 <span>def <span class="ident">reset_ansi</span></span>(<span>...)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Reset all ANSI text attributes and colors to the terminal defaults.</p></div>
+<div class="desc"><p>Reset all ANSI text attributes and colors to the terminal defaults.</p>
+<p>Raises <code>RuntimeError</code> if the underlying API reports a failure.</p></div>
 </dd>
 <dt id="sista.reset_attribute"><code class="name flex">
 <span>def <span class="ident">reset_attribute</span></span>(<span>...)</span>
@@ -212,7 +229,7 @@ el.replaceWith(d);
 <span>def <span class="ident">create_pawn</span></span>(<span>...)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Create a Pawn inside this Field and return a Pawn capsule.</p>
+<div class="desc"><p>Create a Pawn inside this Field and return a Pawn object.</p>
 <h3 id="parameters">Parameters</h3>
 <ul>
 <li><code>symbol</code> (str): Single character string representing the pawn.</li>
@@ -221,23 +238,24 @@ el.replaceWith(d);
 </ul>
 <h3 id="returns">Returns</h3>
 <ul>
-<li>Capsule wrapping the Pawn handler.</li>
+<li>A <code><a title="sista.Pawn" href="#sista.Pawn">Pawn</a></code> object.</li>
 </ul></div>
 </dd>
 <dt id="sista.Field.move_pawn"><code class="name flex">
 <span>def <span class="ident">move_pawn</span></span>(<span>...)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Move a pawn inside this Field and return a status code.</p>
+<div class="desc"><p>Move a pawn inside this Field.</p>
 <h3 id="parameters">Parameters</h3>
 <ul>
-<li><code>pawn</code> (Capsule): Capsule for the Pawn to move.</li>
+<li><code>pawn</code> (Pawn): Pawn object to move.</li>
 <li><code>y</code> (int): Y coordinate of the destination.</li>
 <li><code>x</code> (int): X coordinate of the destination.</li>
 </ul>
-<h3 id="returns">Returns</h3>
+<h3 id="raises">Raises</h3>
 <ul>
-<li><code>int</code>: status code (0 == success).</li>
+<li><code>IndexError</code>: destination is out of bounds.</li>
+<li><code>RuntimeError</code>: destination is occupied or another API error occurs.</li>
 </ul></div>
 </dd>
 <dt id="sista.Field.print_with_border"><code class="name flex">
@@ -251,6 +269,15 @@ el.replaceWith(d);
 </ul></div>
 </dd>
 </dl>
+</dd>
+<dt id="sista.Pawn"><code class="flex name class">
+<span>class <span class="ident">Pawn</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class representing a Pawn owned by a Field or SwappableField.</p>
+<p>Instances are created by <code><a title="sista.Field.create_pawn" href="#sista.Field.create_pawn">Field.create_pawn()</a>(&hellip;)</code> and
+<code><a title="sista.SwappableField.create_pawn" href="#sista.SwappableField.create_pawn">SwappableField.create_pawn()</a>(&hellip;)</code>.</p></div>
 </dd>
 <dt id="sista.SwappableField"><code class="flex name class">
 <span>class <span class="ident">SwappableField</span></span>
@@ -266,16 +293,17 @@ el.replaceWith(d);
 <span>def <span class="ident">add_pawn_to_swap</span></span>(<span>...)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>add_pawn_to_swap(self, pawn: Capsule, coords: Capsule) -&gt; int</p>
+<div class="desc"><p>add_pawn_to_swap(self, pawn: Pawn, coords: Capsule) -&gt; None</p>
 <p>Schedule a pawn to be swapped to the given coordinates in the next swap operation.</p>
 <h3 id="parameters">Parameters</h3>
 <ul>
-<li><code>pawn</code> (Capsule): Capsule for the Pawn to schedule for swapping.</li>
+<li><code>pawn</code> (Pawn): Pawn object to schedule for swapping.</li>
 <li><code>coords</code> (Capsule): Capsule for the target Coordinates.</li>
 </ul>
-<h3 id="returns">Returns</h3>
+<h3 id="raises">Raises</h3>
 <ul>
-<li><code>int</code>: status code (0 == success).</li>
+<li><code>IndexError</code>: destination is out of bounds.</li>
+<li><code>RuntimeError</code>: destination is occupied or another API error occurs.</li>
 </ul></div>
 </dd>
 <dt id="sista.SwappableField.apply_swaps"><code class="name flex">
@@ -283,17 +311,17 @@ el.replaceWith(d);
 </code></dt>
 <dd>
 <div class="desc"><p>Execute all scheduled pawn swaps in this SwappableField.</p>
-<h3 id="returns">Returns</h3>
+<h3 id="raises">Raises</h3>
 <ul>
-<li><code>int</code>: status code (0 == success).</li>
+<li><code>RuntimeError</code>: if applying swaps fails.</li>
 </ul></div>
 </dd>
 <dt id="sista.SwappableField.create_pawn"><code class="name flex">
 <span>def <span class="ident">create_pawn</span></span>(<span>...)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>create_pawn(self, symbol: str, ansi_settings: Capsule, coords: Capsule) -&gt; Capsule</p>
-<p>Create a Pawn inside this SwappableField and return a Pawn capsule.</p>
+<div class="desc"><p>create_pawn(self, symbol: str, ansi_settings: Capsule, coords: Capsule) -&gt; Pawn</p>
+<p>Create a Pawn inside this SwappableField and return a Pawn object.</p>
 <h3 id="parameters">Parameters</h3>
 <ul>
 <li><code>symbol</code> (str): Single character string used to represent the pawn.</li>
@@ -302,7 +330,7 @@ el.replaceWith(d);
 </ul>
 <h3 id="returns">Returns</h3>
 <ul>
-<li><code>Capsule</code> wrapping the Pawn handler.</li>
+<li>A <code><a title="sista.Pawn" href="#sista.Pawn">Pawn</a></code> object.</li>
 </ul></div>
 </dd>
 <dt id="sista.SwappableField.print_with_border"><code class="name flex">
@@ -328,6 +356,7 @@ el.replaceWith(d);
 <ul id="index">
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
+<li><code><a title="sista.clear_screen" href="#sista.clear_screen">clear_screen</a></code></li>
 <li><code><a title="sista.create_ansi_settings" href="#sista.create_ansi_settings">create_ansi_settings</a></code></li>
 <li><code><a title="sista.create_border" href="#sista.create_border">create_border</a></code></li>
 <li><code><a title="sista.create_coordinates" href="#sista.create_coordinates">create_coordinates</a></code></li>
@@ -356,6 +385,9 @@ el.replaceWith(d);
 <li><code><a title="sista.Field.move_pawn" href="#sista.Field.move_pawn">move_pawn</a></code></li>
 <li><code><a title="sista.Field.print_with_border" href="#sista.Field.print_with_border">print_with_border</a></code></li>
 </ul>
+</li>
+<li>
+<h4><code><a title="sista.Pawn" href="#sista.Pawn">Pawn</a></code></h4>
 </li>
 <li>
 <h4><code><a title="sista.SwappableField" href="#sista.SwappableField">SwappableField</a></code></h4>
