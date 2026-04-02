@@ -43,6 +43,16 @@ PyDoc_STRVAR(py_sista_reset_ansi_doc,
 "Reset all ANSI text attributes and colors to the terminal defaults.\n"
 );
 
+PyDoc_STRVAR(py_sista_clear_screen_doc,
+"Clear the terminal and reposition the cursor to top-left.\n\n"
+"### Parameters\n\n"
+"- `spaces` (bool, optional):\n"
+"  - `True` (default): clear visible content and scrollback buffer.\n"
+"  - `False`: only reposition cursor to top-left.\n\n"
+"### Returns\n\n"
+"- `int`: status code (0 == success).\n"
+);
+
 PyDoc_STRVAR(py_sista_print_doc,
 "Print a message to the terminal using Sista's configured output stream.\n\n"
 "### Parameters\n\n"
@@ -98,20 +108,26 @@ PyDoc_STRVAR(py_doc_Cursor,
 "Provides: `move`, `go_to`, `go_to_coordinates`.\n"
 );
 
+PyDoc_STRVAR(py_doc_Pawn,
+"Class representing a Pawn owned by a Field or SwappableField.\n\n"
+"Instances are created by `Field.create_pawn(...)` and\n"
+"`SwappableField.create_pawn(...)`.\n"
+);
+
 PyDoc_STRVAR(py_Field_create_pawn_doc,
-"Create a Pawn inside this Field and return a Pawn capsule.\n\n"
+"Create a Pawn inside this Field and return a Pawn object.\n\n"
 "### Parameters\n\n"
 "- `symbol` (str): Single character string representing the pawn.\n"
 "- `ansi_settings` (Capsule): Capsule returned by `create_ansi_settings`.\n"
 "- `coords` (Capsule): Capsule returned by `create_coordinates`.\n\n"
 "### Returns\n\n"
-"- Capsule wrapping the Pawn handler.\n"
+"- A `Pawn` object.\n"
 );
 
 PyDoc_STRVAR(py_Field_move_pawn_doc,
 "Move a pawn inside this Field and return a status code.\n\n"
 "### Parameters\n\n"
-"- `pawn` (Capsule): Capsule for the Pawn to move.\n"
+"- `pawn` (Pawn): Pawn object to move.\n"
 "- `y` (int): Y coordinate of the destination.\n"
 "- `x` (int): X coordinate of the destination.\n\n"
 "### Returns\n\n"
@@ -125,21 +141,21 @@ PyDoc_STRVAR(py_Field_print_with_border_doc,
 );
 
 PyDoc_STRVAR(py_SwappableField_create_pawn_doc,
-"create_pawn(self, symbol: str, ansi_settings: Capsule, coords: Capsule) -> Capsule\n\n"
-"Create a Pawn inside this SwappableField and return a Pawn capsule.\n\n"
+"create_pawn(self, symbol: str, ansi_settings: Capsule, coords: Capsule) -> Pawn\n\n"
+"Create a Pawn inside this SwappableField and return a Pawn object.\n\n"
 "### Parameters\n\n"
 "- `symbol` (str): Single character string used to represent the pawn.\n"
 "- `ansi_settings` (Capsule): Capsule returned by create_ansi_settings().\n"
 "- `coords` (Capsule): Capsule returned by create_coordinates().\n\n"
 "### Returns\n\n"
-"- `Capsule` wrapping the Pawn handler.\n"
+"- A `Pawn` object.\n"
 );
 
 PyDoc_STRVAR(py_SwappableField_add_pawn_to_swap_doc,
-"add_pawn_to_swap(self, pawn: Capsule, coords: Capsule) -> int\n\n"
+"add_pawn_to_swap(self, pawn: Pawn, coords: Capsule) -> int\n\n"
 "Schedule a pawn to be swapped to the given coordinates in the next swap operation.\n\n"
 "### Parameters\n\n"
-"- `pawn` (Capsule): Capsule for the Pawn to schedule for swapping.\n"
+"- `pawn` (Pawn): Pawn object to schedule for swapping.\n"
 "- `coords` (Capsule): Capsule for the target Coordinates.\n\n"
 "### Returns\n\n"
 "- `int`: status code (0 == success).\n"
@@ -250,6 +266,25 @@ static PyObject*
 py_sista_reset_ansi(PyObject* self, PyObject* Py_UNUSED(ignored)) {
     sista_resetAnsi();
     Py_RETURN_NONE;
+}
+
+/** \brief Clears the terminal and repositions the cursor.
+ *  \param spaces Whether to clear visible content and scrollback buffer.
+ */
+static PyObject*
+py_sista_clear_screen(PyObject* self, PyObject* args, PyObject* kwargs) {
+    int spaces = 1;
+    static char *kwlist[] = {"spaces", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "|p", kwlist, &spaces)) {
+        if (!PyErr_Occurred()) {
+            PyErr_SetString(PyExc_TypeError,
+                            "Invalid arguments: expected optional bool (spaces=True)");
+        }
+        return NULL;
+    }
+
+    return PyLong_FromLong((long)sista_clearScreen(spaces != 0));
 }
 
 static void
@@ -419,6 +454,75 @@ typedef struct {
 } CursorObject;
 
 static PyTypeObject CursorType;
+
+/* Python type that wraps PawnHandler_t; lifetime is owned by its field object. */
+typedef struct {
+    PyObject_HEAD
+    PawnHandler_t pawn;
+    PyObject* owner;
+} PawnObject;
+
+static PyTypeObject PawnType;
+
+static void
+Pawn_dealloc(PyObject* self)
+{
+    PawnObject* obj = (PawnObject*)self;
+    obj->pawn = NULL;
+    Py_XDECREF(obj->owner);
+    obj->owner = NULL;
+    Py_TYPE(self)->tp_free(self);
+}
+
+static int
+Pawn_init(PyObject* self, PyObject* args, PyObject* kwds) {
+    (void)self;
+    (void)args;
+    (void)kwds;
+    PyErr_SetString(PyExc_TypeError,
+                    "Pawn objects cannot be created directly; use Field.create_pawn or SwappableField.create_pawn");
+    return -1;
+}
+
+static PyTypeObject PawnType = {
+    PyVarObject_HEAD_INIT(NULL, 0)
+    .tp_name = "sista.Pawn",
+    .tp_basicsize = sizeof(PawnObject),
+    .tp_flags = Py_TPFLAGS_DEFAULT,
+    .tp_doc = py_doc_Pawn,
+    .tp_dealloc = (destructor)Pawn_dealloc,
+    .tp_new = PyType_GenericNew,
+    .tp_init = Pawn_init,
+};
+
+static PyObject*
+py_sista_create_pawn_object(PawnHandler_t pawn, PyObject* owner) {
+    PawnObject* obj = PyObject_New(PawnObject, &PawnType);
+    if (obj == NULL) {
+        return NULL;
+    }
+
+    obj->pawn = pawn;
+    Py_INCREF(owner);
+    obj->owner = owner;
+    return (PyObject*)obj;
+}
+
+static PawnHandler_t
+py_sista_get_pawn_from_object(PyObject* pawn_obj) {
+    if (!PyObject_TypeCheck(pawn_obj, &PawnType)) {
+        PyErr_SetString(PyExc_TypeError, "Expected a Pawn object");
+        return NULL;
+    }
+
+    PawnObject* obj = (PawnObject*)pawn_obj;
+    if (obj->pawn == NULL || obj->owner == NULL) {
+        PyErr_SetString(PyExc_ValueError, "Invalid or released Pawn object");
+        return NULL;
+    }
+
+    return obj->pawn;
+}
 
 /* dealloc */
 static void
@@ -618,24 +722,23 @@ SwappableField_create_pawn(PyObject *self, PyObject *args)
         }
         return NULL;
     }
-    return PyCapsule_New((void*)pawn, "PawnHandler_t", NULL);
+    return py_sista_create_pawn_object(pawn, self);
 }
 
-/* SwappableField.add_pawn_to_swap(self, pawn_capsule, coords_capsule) */
+/* SwappableField.add_pawn_to_swap(self, pawn, coords_capsule) */
 static PyObject*
 SwappableField_add_pawn_to_swap(PyObject *self, PyObject *args)
 {
-    PyObject *pawn_capsule;
+    PyObject *pawn_obj;
     PyObject *coords_capsule;
-    if (!PyArg_ParseTuple(args, "OO", &pawn_capsule, &coords_capsule)) {
+    if (!PyArg_ParseTuple(args, "OO", &pawn_obj, &coords_capsule)) {
         if (!PyErr_Occurred()) {
-            PyErr_SetString(PyExc_TypeError, "Expected (pawn_capsule, coords_capsule)");
+            PyErr_SetString(PyExc_TypeError, "Expected (pawn, coords_capsule)");
         }
         return NULL;
     }
-    PawnHandler_t pawn = (PawnHandler_t)PyCapsule_GetPointer(pawn_capsule, "PawnHandler_t");
+    PawnHandler_t pawn = py_sista_get_pawn_from_object(pawn_obj);
     if (pawn == NULL) {
-        PyErr_SetString(PyExc_ValueError, "Invalid PawnHandler_t capsule");
         return NULL;
     }
 
@@ -820,24 +923,23 @@ Field_create_pawn(PyObject *self, PyObject *args)
         }
         return NULL;
     }
-    return PyCapsule_New((void*)pawn, "PawnHandler_t", NULL);
+    return py_sista_create_pawn_object(pawn, self);
 }
 
-/* Field.move_pawn(self, pawn_capsule, y, x) */
+/* Field.move_pawn(self, pawn, y, x) */
 static PyObject*
 Field_move_pawn(PyObject *self, PyObject *args)
 {
-    PyObject *pawn_capsule;
+    PyObject *pawn_obj;
     Py_ssize_t y, x;
-    if (!PyArg_ParseTuple(args, "Onn", &pawn_capsule, &y, &x)) {
+    if (!PyArg_ParseTuple(args, "Onn", &pawn_obj, &y, &x)) {
         if (!PyErr_Occurred()) {
-            PyErr_SetString(PyExc_TypeError, "Expected (pawn_capsule, y: int, x: int)");
+            PyErr_SetString(PyExc_TypeError, "Expected (pawn, y: int, x: int)");
         }
         return NULL;
     }
-    PawnHandler_t pawn = (PawnHandler_t)PyCapsule_GetPointer(pawn_capsule, "PawnHandler_t");
+    PawnHandler_t pawn = py_sista_get_pawn_from_object(pawn_obj);
     if (pawn == NULL) {
-        PyErr_SetString(PyExc_ValueError, "Invalid PawnHandler_t capsule");
         return NULL;
     }
 
@@ -987,6 +1089,13 @@ sista_module_exec(PyObject* module)
     PyModule_AddIntConstant(module, "BEGINNING_OF_NEXT_LINE", BEGINNING_OF_NEXT_LINE);
     PyModule_AddIntConstant(module, "BEGINNING_OF_PREVIOUS_LINE", BEGINNING_OF_PREVIOUS_LINE);
 
+    if (PyType_Ready(&PawnType) < 0) return -1;
+    Py_INCREF(&PawnType);
+    if (PyModule_AddObject(module, "Pawn", (PyObject*)&PawnType) < 0) {
+        Py_DECREF(&PawnType);
+        return -1;
+    }
+
     if (PyType_Ready(&CursorType) < 0) return -1;
     Py_INCREF(&CursorType);
     if (PyModule_AddObject(module, "Cursor", (PyObject*)&CursorType) < 0) {
@@ -1016,6 +1125,10 @@ static PyMethodDef sista_module_methods[] = {
     {"reset_ansi", (PyCFunction)py_sista_reset_ansi,
      METH_NOARGS,
      py_sista_reset_ansi_doc},
+
+    {"clear_screen", (PyCFunction)py_sista_clear_screen,
+     METH_VARARGS | METH_KEYWORDS,
+     py_sista_clear_screen_doc},
 
     {"set_foreground_color", (PyCFunction)py_sista_set_foreground_color,
      METH_O,

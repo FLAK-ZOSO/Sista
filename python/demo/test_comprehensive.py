@@ -13,6 +13,18 @@ except ImportError as e:
     print(f"Failed to import sista module: {e}", file=sys.stderr)
     sys.exit(1)
 
+print(f"Using interpreter: {sys.executable}")
+print(f"Loaded sista from: {getattr(sista, '__file__', '<unknown>')}")
+
+
+def ensure_expected_runtime_api() -> None:
+    """Fail fast with actionable hints if an old extension is imported."""
+    if getattr(sista, "Pawn", None) is None:
+        raise RuntimeError(
+            "sista.Pawn is missing. You are likely running against a stale build or a different interpreter. "
+            "Reinstall with: python3 -m pip install -e . and rerun with python3."
+        )
+
 def test_basic_functionality():
     """Test basic functionality of the module"""
     print("=== Testing Basic Functionality ===")
@@ -68,6 +80,11 @@ def test_swappable_field():
     # Create pawn
     pawn = field.create_pawn("P", settings, coords)
     print(f"Created pawn: {pawn}")
+    pawn_type = getattr(sista, "Pawn", None)
+    if pawn_type is None:
+        raise AssertionError("sista.Pawn type must be exported")
+    if not isinstance(pawn, pawn_type):
+        raise AssertionError("create_pawn must return a Pawn object")
 
     # Test invalid symbol length
     try:
@@ -134,6 +151,11 @@ def test_pawn_operations():
     settings = sista.create_ansi_settings(sista.F_WHITE, sista.B_BLACK, sista.A_RESET)
     coords = sista.create_coordinates(5, 5)
     pawn = field.create_pawn("P", settings, coords)
+    pawn_type = getattr(sista, "Pawn", None)
+    if pawn_type is None:
+        raise AssertionError("sista.Pawn type must be exported")
+    if not isinstance(pawn, pawn_type):
+        raise AssertionError("create_pawn must return a Pawn object")
 
     # Test adding pawn to swap
     result = field.add_pawn_to_swap(pawn, coords)
@@ -142,8 +164,15 @@ def test_pawn_operations():
     try:
         field.add_pawn_to_swap(None, coords)
         print("ERROR: Should have failed with None pawn")
-    except ValueError:
+    except TypeError:
         print("Correctly rejected None pawn in add_pawn_to_swap")
+
+    # Pawn should not be directly instantiable.
+    try:
+        pawn_type()
+        print("ERROR: Should have failed with direct Pawn() construction")
+    except TypeError:
+        print("Correctly rejected direct Pawn() construction")
 
 def test_enum_exposure():
     """Test that all enums are properly exposed"""
@@ -195,7 +224,7 @@ def test_cursor_functions():
 
     # Test invalid move
     try:
-        sista.Cursor.go_to_coordinates(None, coords)
+        sista.Cursor.go_to_coordinates(None, coords)  # type: ignore[arg-type]
         print("ERROR: Should have failed with None cursor")
     except TypeError:
         print("Correctly rejected None cursor in move_cursor_to_coordinates")
@@ -228,6 +257,8 @@ def test_version():
 def main():
     """Run all tests"""
     print("Running comprehensive tests for sista Python C extension...")
+
+    ensure_expected_runtime_api()
 
     # https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html#decorators
     tests: list[typing.Callable[..., typing.Any]] = [
