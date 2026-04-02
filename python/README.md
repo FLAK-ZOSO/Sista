@@ -7,6 +7,7 @@ This directory contains the Python C extension module for the Sista library, whi
 - Full access to Sista C API functions
 - Enum values exposed for foreground colors, background colors, and text attributes
 - Automatic memory management through Python capsules and objects
+- Pythonic exception-based error handling (no status-code checking on success paths)
 
 ## Installation
 
@@ -63,19 +64,42 @@ import sista
 print(sista.F_BLACK)    # 30
 print(sista.F_RED)      # 31
 print(sista.B_WHITE)    # 47
-print(sista.A_BRIGHT)     # 1
+print(sista.A_BRIGHT)  # 1
 
-# Use the API functions
-field = sista.create_swappable_field(10, 10)
-pawn = sista.create_pawn_in_field(
-    field, 'P',
-    sista.create_ansi_settings(
-        sista.F_RED,
-        sista.B_BLACK,
-        sista.A_BLINK
-    ),
-    sista.create_coordinates(0, 0)
-)
+field = sista.Field(10, 5)
+settings = sista.create_ansi_settings(sista.F_RED, sista.B_BLACK, sista.A_BLINK)
+pawn = field.create_pawn('P', settings, sista.create_coordinates(0, 0))
+border = sista.create_border('#', sista.create_ansi_settings(sista.F_CYAN, sista.B_BLACK, sista.A_BRIGHT))
+
+sista.clear_screen(True)
+field.print_with_border(border)
+
+field.move_pawn(pawn, 1, 1)
+field.print_with_border(border)
+```
+
+## Error Handling (Exceptions)
+
+The Python API raises exceptions for failures reported by the C layer.
+
+- `ValueError`: invalid handles or invalid user-provided objects.
+- `IndexError`: out-of-bounds coordinates.
+- `MemoryError`: allocation failures.
+- `RuntimeError`: other Sista API errors.
+
+Example:
+
+```python
+import sista
+
+field = sista.Field(2, 2)
+settings = sista.create_ansi_settings(sista.F_WHITE, sista.B_BLACK, sista.A_RESET)
+pawn = field.create_pawn('P', settings, sista.create_coordinates(0, 0))
+
+try:
+    field.move_pawn(pawn, 99, 99)
+except IndexError as exc:
+    print(f"Move failed as expected: {exc}")
 ```
 
 See the demos in [`demo/`](demo/) for more examples.
@@ -85,10 +109,10 @@ See the demos in [`demo/`](demo/) for more examples.
 You can test the extension with the provided test script:
 
 ```bash
-python demo/test_enums.py
+python demo/test_comprehensive.py
 ```
 
-This should output all the enum values that were successfully exposed.
+This verifies core API behavior, including exception paths.
 
 ## Troubleshooting
 

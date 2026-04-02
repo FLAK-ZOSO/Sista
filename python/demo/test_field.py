@@ -15,13 +15,23 @@ border = sista.create_border(
     )
 )
 
-sista.clear_screen(True)
-field.print_with_border(border)
-time.sleep(2)
+try:
+    sista.clear_screen(True)
+    field.print_with_border(border)
+    time.sleep(2)
 
-status = field.move_pawn(pawn, 1, 1)
-assert status == 0, f"move_pawn failed with status {status}"
+    field.move_pawn(pawn, 1, 1)
 
-sista.clear_screen(True)
-field.print_with_border(border)
-time.sleep(2)
+    sista.clear_screen(True)
+    field.print_with_border(border)
+    time.sleep(2)
+
+    # Explicit negative-path example for the new exception model.
+    try:
+        field.move_pawn(pawn, 999, 999)
+    except IndexError as exc:
+        print()
+        print(f"Expected move_pawn error: {exc}")
+finally:
+    sista.reset_ansi()
+    print()

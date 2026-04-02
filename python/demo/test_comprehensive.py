@@ -158,8 +158,8 @@ def test_pawn_operations():
         raise AssertionError("create_pawn must return a Pawn object")
 
     # Test adding pawn to swap
-    result = field.add_pawn_to_swap(pawn, coords)
-    print(f"Add pawn to swap result: {result}")
+    field.add_pawn_to_swap(pawn, coords)
+    print("Add pawn to swap succeeded")
 
     try:
         field.add_pawn_to_swap(None, coords)
@@ -173,6 +173,29 @@ def test_pawn_operations():
         print("ERROR: Should have failed with direct Pawn() construction")
     except TypeError:
         print("Correctly rejected direct Pawn() construction")
+
+def test_exception_paths():
+    """Test that API failures are surfaced as Python exceptions."""
+    print("=== Testing Exception Paths ===")
+
+    field = sista.Field(2, 2)
+    settings = sista.create_ansi_settings(sista.F_WHITE, sista.B_BLACK, sista.A_RESET)
+    pawn = field.create_pawn("P", settings, sista.create_coordinates(0, 0))
+
+    try:
+        field.move_pawn(pawn, 10, 10)
+        print("ERROR: Should have failed with out-of-bounds move")
+    except IndexError as exc:
+        print(f"Correctly raised IndexError for move_pawn: {exc}")
+
+    swap_field = sista.SwappableField(2, 2)
+    pawn_a = swap_field.create_pawn("A", settings, sista.create_coordinates(0, 0))
+
+    try:
+        swap_field.add_pawn_to_swap(pawn_a, sista.create_coordinates(5, 5))
+        print("ERROR: Should have failed with out-of-bounds swap destination")
+    except IndexError as exc:
+        print(f"Correctly raised IndexError for add_pawn_to_swap: {exc}")
 
 def test_enum_exposure():
     """Test that all enums are properly exposed"""
@@ -267,6 +290,7 @@ def main():
         test_basic_functionality,
         test_coordinates,
         test_pawn_operations,
+        test_exception_paths,
         test_enum_exposure,
         test_cursor_functions,
         test_version,

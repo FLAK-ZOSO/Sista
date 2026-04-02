@@ -81,14 +81,14 @@ def reset_ansi() -> None:
     Reset all ANSI text attributes and colors to the terminal defaults.
     """
     ...
-def clear_screen(spaces: bool = True) -> int:
+def clear_screen(spaces: bool = True) -> None:
     """
     Clear the terminal and reposition the cursor to top-left.
 
     :param spaces:
         - True (default): clear visible content and scrollback buffer.
         - False: only reposition cursor to top-left.
-    :return: Integer status code (0 == success).
+    :raises RuntimeError: If the underlying API reports a failure.
     """
     ...
 def print(message: str) -> None:
@@ -160,18 +160,15 @@ class Field:
         :return: Pawn object.
         """
         ...
-    def move_pawn(self, pawn: Pawn, y: int, x: int) -> int:
+    def move_pawn(self, pawn: Pawn, y: int, x: int) -> None:
         """
-        Move a pawn inside this Field by the given delta and return a status code.
-
-        The meaning of the returned integer follows the library's convention
-        (0 for success, non-zero for various errors such as out-of-bounds or
-        occupied destination).
+        Move a pawn inside this Field by the given delta.
 
         :param pawn: Pawn object to move.
         :param y: y coordinate of the destination.
         :param x: x coordinate of the destination.
-        :return: Integer status code (0 == success).
+        :raises IndexError: If destination is out of bounds.
+        :raises RuntimeError: If destination is occupied or another API error occurs.
         """
         ...
     def print_with_border(self, border: Capsule) -> None:
@@ -225,7 +222,7 @@ class SwappableField:
         :param border: Capsule for the Border to draw around the field.
         """
         ...
-    def add_pawn_to_swap(self, pawn: Pawn, coords: Capsule) -> int:
+    def add_pawn_to_swap(self, pawn: Pawn, coords: Capsule) -> None:
         """
         Schedule a pawn to be moved (swapped) later in this SwappableField.
 
@@ -235,7 +232,8 @@ class SwappableField:
 
         :param pawn: Pawn object to schedule.
         :param coords: Capsule with the destination coordinates.
-        :return: Integer status code (0 == added successfully).
+        :raises IndexError: If destination is out of bounds.
+        :raises RuntimeError: If destination is occupied or another API error occurs.
         """
         ...
     def apply_swaps(self) -> None:
@@ -271,22 +269,19 @@ def create_coordinates(y: int, x: int) -> Capsule:
     :return: Capsule wrapping a Coordinates struct.
     """
     ...
-def move_pawn(field: Capsule, pawn: Pawn, dx: int, dy: int) -> int:
+def move_pawn(field: Capsule, pawn: Pawn, dx: int, dy: int) -> None:
     """
-    Move a pawn inside a Field by the given delta and return a status code.
-
-    The meaning of the returned integer follows the library's convention
-    (0 for success, non-zero for various errors such as out-of-bounds or
-    occupied destination).
+    Move a pawn inside a Field by the given delta.
 
     :param field: Capsule for the Field containing the pawn.
     :param pawn: Pawn object to move.
     :param dx: Delta in the x (column) direction.
     :param dy: Delta in the y (row) direction.
-    :return: Integer status code (0 == success).
+    :raises IndexError: If destination is out of bounds.
+    :raises RuntimeError: If destination is occupied or another API error occurs.
     """
     ...
-def add_pawn_to_swap(field: Capsule, pawn: Pawn, coords: Capsule) -> int:
+def add_pawn_to_swap(field: Capsule, pawn: Pawn, coords: Capsule) -> None:
     """
     Schedule a pawn to be moved (swapped) later in a SwappableField.
 
@@ -297,10 +292,11 @@ def add_pawn_to_swap(field: Capsule, pawn: Pawn, coords: Capsule) -> int:
     :param field: Capsule for the SwappableField.
     :param pawn: Pawn object to schedule.
     :param coords: Capsule with the destination coordinates.
-    :return: Integer status code (0 == added successfully).
+    :raises IndexError: If destination is out of bounds.
+    :raises RuntimeError: If destination is occupied or another API error occurs.
     """
     ...
-def apply_swaps(field: Capsule) -> int:
+def apply_swaps(field: Capsule) -> None:
     """
     Execute all scheduled pawn swaps in the given SwappableField.
 
@@ -308,7 +304,7 @@ def apply_swaps(field: Capsule) -> int:
     using add_pawn_to_swap, moving them to their target coordinates.
 
     :param field: Capsule for the SwappableField.
-    :return: Integer status code (0 == success).
+    :raises RuntimeError: If applying swaps fails.
     """
     ...
 def create_pawn_in_field(field: Capsule, symbol: str, ansi_settings: Capsule, coords: Capsule) -> Pawn:

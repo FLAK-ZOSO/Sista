@@ -15,6 +15,56 @@
 #include <Python.h>
 #include <sista/api.h>
 
+static int
+py_sista_raise_from_status(int status_code, const char* fallback_message) {
+    PyObject* exc_type = PyExc_RuntimeError;
+    const char* message = sista_getLastErrorMessage();
+
+    if (status_code == SISTA_OK) {
+        return 0;
+    }
+
+    if (message == NULL || message[0] == '\0') {
+        message = fallback_message;
+    }
+
+    switch (status_code) {
+        case SISTA_ERR_NULL_FIELD:
+        case SISTA_ERR_NULL_SETTINGS:
+        case SISTA_ERR_NULL_PAWN:
+        case SISTA_ERR_NULL_BORDER:
+        case SISTA_ERR_NULL_CURSOR:
+        case SISTA_ERR_NULL_COLOR:
+            exc_type = PyExc_ValueError;
+            break;
+        case SISTA_ERR_OUT_OF_BOUNDS:
+            exc_type = PyExc_IndexError;
+            break;
+        case SISTA_ERR_OCCUPIED:
+            exc_type = PyExc_RuntimeError;
+            break;
+        case SISTA_ERR_BAD_ALLOC:
+            exc_type = PyExc_MemoryError;
+            break;
+        case SISTA_ERR_UNKNOWN:
+        default:
+            exc_type = PyExc_RuntimeError;
+            break;
+    }
+
+    PyErr_Format(exc_type, "Sista error %d: %s", status_code, message);
+    return -1;
+}
+
+static int
+py_sista_raise_from_last_error(const char* fallback_message) {
+    int code = sista_getLastErrorCode();
+    if (code == SISTA_OK) {
+        code = SISTA_ERR_UNKNOWN;
+    }
+    return py_sista_raise_from_status(code, fallback_message);
+}
+
 PyDoc_STRVAR(py_sista_set_foreground_color_doc,
 "Set the terminal foreground color using one of the `F_*` constants.\n\n"
 "### Parameters\n\n"
@@ -40,7 +90,8 @@ PyDoc_STRVAR(py_sista_reset_attribute_doc,
 );
 
 PyDoc_STRVAR(py_sista_reset_ansi_doc,
-"Reset all ANSI text attributes and colors to the terminal defaults.\n"
+"Reset all ANSI text attributes and colors to the terminal defaults.\n\n"
+"Raises `RuntimeError` if the underlying API reports a failure.\n"
 );
 
 PyDoc_STRVAR(py_sista_clear_screen_doc,
@@ -49,8 +100,8 @@ PyDoc_STRVAR(py_sista_clear_screen_doc,
 "- `spaces` (bool, optional):\n"
 "  - `True` (default): clear visible content and scrollback buffer.\n"
 "  - `False`: only reposition cursor to top-left.\n\n"
-"### Returns\n\n"
-"- `int`: status code (0 == success).\n"
+"### Raises\n\n"
+"- `RuntimeError`: if the underlying API reports a failure.\n"
 );
 
 PyDoc_STRVAR(py_sista_print_doc,
@@ -125,13 +176,14 @@ PyDoc_STRVAR(py_Field_create_pawn_doc,
 );
 
 PyDoc_STRVAR(py_Field_move_pawn_doc,
-"Move a pawn inside this Field and return a status code.\n\n"
+"Move a pawn inside this Field.\n\n"
 "### Parameters\n\n"
 "- `pawn` (Pawn): Pawn object to move.\n"
 "- `y` (int): Y coordinate of the destination.\n"
 "- `x` (int): X coordinate of the destination.\n\n"
-"### Returns\n\n"
-"- `int`: status code (0 == success).\n"
+"### Raises\n\n"
+"- `IndexError`: destination is out of bounds.\n"
+"- `RuntimeError`: destination is occupied or another API error occurs.\n"
 );
 
 PyDoc_STRVAR(py_Field_print_with_border_doc,
@@ -152,20 +204,21 @@ PyDoc_STRVAR(py_SwappableField_create_pawn_doc,
 );
 
 PyDoc_STRVAR(py_SwappableField_add_pawn_to_swap_doc,
-"add_pawn_to_swap(self, pawn: Pawn, coords: Capsule) -> int\n\n"
+"add_pawn_to_swap(self, pawn: Pawn, coords: Capsule) -> None\n\n"
 "Schedule a pawn to be swapped to the given coordinates in the next swap operation.\n\n"
 "### Parameters\n\n"
 "- `pawn` (Pawn): Pawn object to schedule for swapping.\n"
 "- `coords` (Capsule): Capsule for the target Coordinates.\n\n"
-"### Returns\n\n"
-"- `int`: status code (0 == success).\n"
+"### Raises\n\n"
+"- `IndexError`: destination is out of bounds.\n"
+"- `RuntimeError`: destination is occupied or another API error occurs.\n"
 );
 
 PyDoc_STRVAR(py_SwappableField_apply_swaps_doc,
-"apply_swaps(self) -> int\n\n"
+"apply_swaps(self) -> None\n\n"
 "Execute all scheduled pawn swaps in this SwappableField.\n\n"
-"### Returns\n\n"
-"- `int`: status code (0 == success).\n"
+"### Raises\n\n"
+"- `RuntimeError`: if applying swaps fails.\n"
 );
 
 PyDoc_STRVAR(py_SwappableField_print_with_border_doc,
@@ -202,7 +255,11 @@ static PyObject*
 py_sista_set_foreground_color(PyObject* self, PyObject* arg) {
     long val = PyLong_AsLong(arg);
     if (PyErr_Occurred()) return NULL;
-    sista_setForegroundColor((enum sista_ForegroundColor)val);
+    if (py_sista_raise_from_status(
+            sista_setForegroundColor((enum sista_ForegroundColor)val),
+            "Failed to set foreground color") < 0) {
+        return NULL;
+    }
     Py_RETURN_NONE;
 }
 
@@ -213,7 +270,11 @@ static PyObject*
 py_sista_set_background_color(PyObject* self, PyObject* arg) {
     long val = PyLong_AsLong(arg);
     if (PyErr_Occurred()) return NULL;
-    sista_setBackgroundColor((enum sista_BackgroundColor)val);
+    if (py_sista_raise_from_status(
+            sista_setBackgroundColor((enum sista_BackgroundColor)val),
+            "Failed to set background color") < 0) {
+        return NULL;
+    }
     Py_RETURN_NONE;
 }
 
@@ -224,7 +285,11 @@ static PyObject*
 py_sista_set_attribute(PyObject* self, PyObject* arg) {
     long val = PyLong_AsLong(arg);
     if (PyErr_Occurred()) return NULL;
-    sista_setAttribute((enum sista_Attribute)val);
+    if (py_sista_raise_from_status(
+            sista_setAttribute((enum sista_Attribute)val),
+            "Failed to set attribute") < 0) {
+        return NULL;
+    }
     Py_RETURN_NONE;
 }
 
@@ -235,7 +300,11 @@ static PyObject*
 py_sista_reset_attribute(PyObject* self, PyObject* arg) {
     long val = PyLong_AsLong(arg);
     if (PyErr_Occurred()) return NULL;
-    sista_resetAttribute((enum sista_Attribute)val);
+    if (py_sista_raise_from_status(
+            sista_resetAttribute((enum sista_Attribute)val),
+            "Failed to reset attribute") < 0) {
+        return NULL;
+    }
     Py_RETURN_NONE;
 }
 
@@ -264,7 +333,9 @@ py_sista_print(PyObject* self, PyObject* args) {
  */
 static PyObject*
 py_sista_reset_ansi(PyObject* self, PyObject* Py_UNUSED(ignored)) {
-    sista_resetAnsi();
+    if (py_sista_raise_from_status(sista_resetAnsi(), "Failed to reset ANSI settings") < 0) {
+        return NULL;
+    }
     Py_RETURN_NONE;
 }
 
@@ -284,7 +355,13 @@ py_sista_clear_screen(PyObject* self, PyObject* args, PyObject* kwargs) {
         return NULL;
     }
 
-    return PyLong_FromLong((long)sista_clearScreen(spaces != 0));
+    if (py_sista_raise_from_status(
+            sista_clearScreen(spaces != 0),
+            "Failed to clear screen") < 0) {
+        return NULL;
+    }
+
+    Py_RETURN_NONE;
 }
 
 static void
@@ -312,9 +389,8 @@ py_sista_create_ansi_settings(PyObject* self, PyObject* args, PyObject* kwargs) 
     );
 
     if (settings == NULL) {
-        if (!PyErr_Occurred()) {
-            PyErr_SetString(PyExc_MemoryError,
-                            "Failed to create ANSISettings");
+        if (!PyErr_Occurred() && py_sista_raise_from_last_error("Failed to create ANSISettings") < 0) {
+            return NULL;
         }
         return NULL;
     }
@@ -374,9 +450,8 @@ py_sista_create_border(PyObject* self, PyObject* args) {
 
     BorderHandler_t border = sista_createBorder(symbol, settings);
     if (border == NULL) {
-        if (!PyErr_Occurred()) {
-            PyErr_SetString(PyExc_MemoryError,
-                            "Failed to create Border");
+        if (!PyErr_Occurred() && py_sista_raise_from_last_error("Failed to create Border") < 0) {
+            return NULL;
         }
         return NULL;
     }
@@ -558,7 +633,11 @@ Cursor_go_to(PyObject *self, PyObject *args)
         PyErr_SetString(PyExc_ValueError, "Cursor object already destroyed");
         return NULL;
     }
-    sista_cursorGoTo(cursor, (unsigned short)y, (unsigned short)x);
+    if (py_sista_raise_from_status(
+            sista_cursorGoTo(cursor, (unsigned short)y, (unsigned short)x),
+            "Failed to move cursor") < 0) {
+        return NULL;
+    }
     Py_RETURN_NONE;
 }
 
@@ -590,7 +669,11 @@ Cursor_go_to_coordinates(PyObject *self, PyObject *args)
         PyErr_SetString(PyExc_ValueError, "Invalid Coordinates capsule");
         return NULL;
     }
-    sista_cursorGoToCoordinates(cursor, *coords);
+    if (py_sista_raise_from_status(
+            sista_cursorGoToCoordinates(cursor, *coords),
+            "Failed to move cursor to coordinates") < 0) {
+        return NULL;
+    }
     Py_RETURN_NONE;
 }
 
@@ -616,7 +699,11 @@ Cursor_move(PyObject *self, PyObject *args)
         PyErr_SetString(PyExc_ValueError, "Cursor object already destroyed");
         return NULL;
     }
-    sista_moveCursor(cursor, (enum sista_MoveCursor)direction, (unsigned short)amount);
+    if (py_sista_raise_from_status(
+            sista_moveCursor(cursor, (enum sista_MoveCursor)direction, (unsigned short)amount),
+            "Failed to move cursor") < 0) {
+        return NULL;
+    }
     Py_RETURN_NONE;
 }
 
@@ -632,8 +719,8 @@ static int
 Cursor_init(PyObject* self, PyObject* args, PyObject* kwds) {
     CursorHandler_t cursor = sista_createCursor();
     if (cursor == NULL) {
-        if (!PyErr_Occurred()) {
-            PyErr_SetString(PyExc_MemoryError, "Failed to create Cursor");
+        if (!PyErr_Occurred() && py_sista_raise_from_last_error("Failed to create Cursor") < 0) {
+            return -1;
         }
         return -1;
     }
@@ -717,8 +804,8 @@ SwappableField_create_pawn(PyObject *self, PyObject *args)
 
     PawnHandler_t pawn = sista_createPawnInSwappableField(field, symbol, settings, *coords);
     if (pawn == NULL) {
-        if (!PyErr_Occurred()) {
-            PyErr_SetString(PyExc_MemoryError, "Failed to create Pawn in SwappableField");
+        if (!PyErr_Occurred() && py_sista_raise_from_last_error("Failed to create Pawn in SwappableField") < 0) {
+            return NULL;
         }
         return NULL;
     }
@@ -754,8 +841,12 @@ SwappableField_add_pawn_to_swap(PyObject *self, PyObject *args)
         return NULL;
     }
 
-    int result = sista_addPawnToSwap(field, pawn, *coords);
-    return PyLong_FromLong((long)result);
+    if (py_sista_raise_from_status(
+            sista_addPawnToSwap(field, pawn, *coords),
+            "Failed to add pawn to swap") < 0) {
+        return NULL;
+    }
+    Py_RETURN_NONE;
 }
 
 /* SwappableField.apply_swaps(self) */
@@ -767,9 +858,7 @@ SwappableField_apply_swaps(PyObject *self, PyObject *Py_UNUSED(ignored))
         PyErr_SetString(PyExc_ValueError, "SwappableField object already destroyed");
         return NULL;
     }
-    int result = sista_applySwaps(field);
-    if (result != 0) {
-        PyErr_SetString(PyExc_RuntimeError, "Failed to apply swaps in SwappableField");
+    if (py_sista_raise_from_status(sista_applySwaps(field), "Failed to apply swaps") < 0) {
         return NULL;
     }
     Py_RETURN_NONE;
@@ -798,7 +887,11 @@ SwappableField_print_with_border(PyObject *self, PyObject *args)
         return NULL;
     }
 
-    sista_printSwappableFieldWithBorder(field, border);
+    if (py_sista_raise_from_status(
+            sista_printSwappableFieldWithBorder(field, border),
+            "Failed to print swappable field with border") < 0) {
+        return NULL;
+    }
     Py_RETURN_NONE;
 }
 
@@ -832,8 +925,8 @@ SwappableField_init(PyObject* self, PyObject* args, PyObject* kwds) {
 
     SwappableFieldHandler_t field = sista_createSwappableField(width, height);
     if (field == NULL) {
-        if (!PyErr_Occurred()) {
-            PyErr_SetString(PyExc_MemoryError, "Failed to create SwappableField");
+        if (!PyErr_Occurred() && py_sista_raise_from_last_error("Failed to create SwappableField") < 0) {
+            return -1;
         }
         return -1;
     }
@@ -918,8 +1011,8 @@ Field_create_pawn(PyObject *self, PyObject *args)
 
     PawnHandler_t pawn = sista_createPawnInField(field, symbol, settings, *coords);
     if (pawn == NULL) {
-        if (!PyErr_Occurred()) {
-            PyErr_SetString(PyExc_MemoryError, "Failed to create Pawn in Field");
+        if (!PyErr_Occurred() && py_sista_raise_from_last_error("Failed to create Pawn in Field") < 0) {
+            return NULL;
         }
         return NULL;
     }
@@ -953,8 +1046,10 @@ Field_move_pawn(PyObject *self, PyObject *args)
         .y = (unsigned short)y,
         .x = (unsigned short)x
     };
-    int result = sista_movePawn(field, pawn, destination);
-    return PyLong_FromLong((long)result);
+    if (py_sista_raise_from_status(sista_movePawn(field, pawn, destination), "Failed to move pawn") < 0) {
+        return NULL;
+    }
+    Py_RETURN_NONE;
 }
 
 /* Field.print_with_border(self, border_capsule) */
@@ -980,7 +1075,11 @@ Field_print_with_border(PyObject *self, PyObject *args)
         return NULL;
     }
 
-    sista_printFieldWithBorder(field, border);
+    if (py_sista_raise_from_status(
+            sista_printFieldWithBorder(field, border),
+            "Failed to print field with border") < 0) {
+        return NULL;
+    }
     Py_RETURN_NONE;
 }
 
@@ -1017,8 +1116,8 @@ Field_init(PyObject* self, PyObject* args, PyObject *kwds) {
 
     FieldHandler_t field = sista_createField((size_t)w, (size_t)h);
     if (field == NULL) {
-        if (!PyErr_Occurred()) {
-            PyErr_SetString(PyExc_MemoryError, "Failed to create Field");
+        if (!PyErr_Occurred() && py_sista_raise_from_last_error("Failed to create Field") < 0) {
+            return -1;
         }
         return -1;
     }
