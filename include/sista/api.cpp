@@ -265,7 +265,7 @@ extern "C" {
             sista_set_last_error(SISTA_ERR_NULL_SETTINGS, "settings is null");
             return NULL;
         }
-        sista::Coordinates pos(position.x, position.y);
+        sista::Coordinates pos(position.y, position.x);
         sista::SwappableField* f = reinterpret_cast<sista::SwappableField*>(field);
         try {
             std::shared_ptr<sista::Pawn> p = std::make_shared<sista::Pawn>(
@@ -302,7 +302,7 @@ extern "C" {
             sista_set_last_error(SISTA_ERR_NULL_SETTINGS, "settings is null");
             return NULL;
         }
-        sista::Coordinates pos(position.x, position.y);
+        sista::Coordinates pos(position.y, position.x);
         sista::Field* f = reinterpret_cast<sista::Field*>(field);
         try {
             std::shared_ptr<sista::Pawn> p = std::make_shared<sista::Pawn>(
@@ -335,7 +335,7 @@ extern "C" {
             sista_set_last_error(SISTA_ERR_NULL_PAWN, "pawn is null");
             return SISTA_ERR_NULL_PAWN;
         }
-        sista::Coordinates newPos(destination.x, destination.y);
+        sista::Coordinates newPos(destination.y, destination.x);
         sista::Field* f = reinterpret_cast<sista::Field*>(field);
         try {
             f->validateCoordinates(newPos);
@@ -376,7 +376,7 @@ extern "C" {
             sista_set_last_error(SISTA_ERR_NULL_PAWN, "pawn is null");
             return SISTA_ERR_NULL_PAWN;
         }
-        sista::Coordinates newPos(destination.x, destination.y);
+        sista::Coordinates newPos(destination.y, destination.x);
         sista::SwappableField* f = reinterpret_cast<sista::SwappableField*>(field);
         try {
             f->addPawnToSwap(
