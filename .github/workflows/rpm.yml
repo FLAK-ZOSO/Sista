@@ -1,0 +1,23 @@
+name: Build RPM package
+
+on: push
+
+jobs:
+  build-rpm:
+    runs-on: ubuntu-latest
+    container: fedora:latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install RPM build tools
+        run: dnf install -y gcc-c++ git make rpm-build
+
+      - name: Build RPM package
+        run: packageroot/rpm/build-rpm.sh
+
+      - name: Upload RPM package
+        uses: actions/upload-artifact@v4
+        with:
+          name: rpm-packages
+          path: rpmbuild/RPMS/**/*.rpm
+          if-no-files-found: error

@@ -42,6 +42,25 @@ cd packageroot
 debuild -us -uc -a arm64 -b # Specify your architecture, such as "i386", "arm64", "amd64"
 ```
 
+### Sista as a shared library - `.rpm` package
+
+We also publish an RPM package for Fedora, RHEL-derived distributions, and
+other RPM-based systems. Download the `sista-<VERSION>-<RELEASE>.<ARCH>.rpm`
+asset from the [latest release](https://github.com/FLAK-ZOSO/Sista/releases),
+then install it with your package manager, for example:
+
+```bash
+sudo dnf install ~/Downloads/sista-3.0.1-1.x86_64.rpm
+```
+
+To build an RPM locally, install `rpm-build` and run:
+
+```bash
+packageroot/rpm/build-rpm.sh
+```
+
+The resulting package is placed under `rpmbuild/RPMS/`.
+
 ## Usage
 
 ### Using Sista as a source library

@@ -203,3 +203,23 @@ jobs:
             ${{ env.DEB_PACKAGE }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  release-rpm:
+    runs-on: ubuntu-latest
+    container: fedora:latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install RPM build tools
+        run: dnf install -y gcc-c++ git make rpm-build
+
+      - name: Build RPM package
+        run: packageroot/rpm/build-rpm.sh
+
+      - name: Upload RPM release asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: rpmbuild/RPMS/**/*.rpm
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
