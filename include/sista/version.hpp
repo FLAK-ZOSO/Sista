@@ -2,9 +2,9 @@
  *  \brief Sista version information.
  *  \author FLAK-ZOSO
  *  \date 2022-2026
- *  \version 3.0.1
+ *  \version 3.0.2
  */
-#define SISTA_VERSION "3.0.1"
+#define SISTA_VERSION "3.0.2"
 #define SISTA_VERSION_MAJOR 3
 #define SISTA_VERSION_MINOR 0
 #define SISTA_VERSION_PATCH 1

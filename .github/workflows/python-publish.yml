@@ -101,6 +101,11 @@ jobs:
 
   release-build-macos:
     runs-on: macos-latest
+    # macos-latest currently uses a newer SDK than the wheel's deployment
+    # target. This must apply while building Sista itself, not only while
+    # cibuildwheel compiles the Python extension.
+    env:
+      MACOSX_DEPLOYMENT_TARGET: "15.0"
 
     steps:
       - uses: actions/checkout@v4
@@ -129,7 +134,6 @@ jobs:
           PKG_CONFIG_PATH: ${{ github.workspace }}/python/_install/lib/pkgconfig
           DYLD_LIBRARY_PATH: ${{ github.workspace }}/python/_install/lib
           CIBW_BEFORE_BUILD_MACOS: "" # To prevent cibuildwheel from trying to install Sista again
-          MACOSX_DEPLOYMENT_TARGET: 15.0 # delocate.libsana.DelocationError: Library dependencies do not satisfy target MacOS version 11.0
         run: |
           cd python
           cibuildwheel --output-dir wheelhouse
