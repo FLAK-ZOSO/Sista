@@ -4,8 +4,8 @@
  *  This file contains the declaration of the Border class, which represents a brick of the border.
  * 
  *  \author FLAK-ZOSO
- *  \date 2022-2025
- *  \version 3.0.0
+ *  \date 2022-2026
+ *  \version 3.0.1
  *  \see Border
  *  \copyright GNU General Public License v3.0
  */

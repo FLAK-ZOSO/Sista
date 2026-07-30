@@ -7,8 +7,8 @@
  *  handles hiding and showing the cursor upon creation and destruction.
  * 
  *  \author FLAK-ZOSO
- *  \date 2022-2025
- *  \version 3.0.0
+ *  \date 2022-2026
+ *  \version 3.0.1
  *  \see Border
  *  \copyright GNU General Public License v3.0
  */

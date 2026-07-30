@@ -10,8 +10,8 @@
  *  scenarios where multiple Pawns may need to swap positions.
  *
  * \author FLAK-ZOSO
- * \date 2022-2025
- * \version 3.0.0
+ * \date 2022-2026
+ * \version 3.0.1
  * \see Field
  * \see SwappableField
  * \see Path

@@ -7,8 +7,8 @@
  *  it provides a specialization of std::hash for using Coordinates in hash-based containers.
  * 
  *  \author FLAK-ZOSO
- *  \date 2022-2025
- *  \version 3.0.0
+ *  \date 2022-2026
+ *  \version 3.0.1
  *  \see Border
  *  \copyright GNU General Public License v3.0
  */

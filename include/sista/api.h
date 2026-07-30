@@ -11,7 +11,7 @@
  *
  *  \author FLAK-ZOSO
  *  \date 2025
- *  \version 3.0.0
+ *  \version 3.0.1
  *  \copyright GNU General Public License v3.0
  */
 #pragma once

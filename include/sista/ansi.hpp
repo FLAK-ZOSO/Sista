@@ -8,8 +8,8 @@
  * applications requiring advanced text formatting and control.
  *
  * \author FLAK-ZOSO
- * \date 2022-2025
- * \version 3.0.0
+ * \date 2022-2026
+ * \version 3.0.1
  * \note Many niche features are not implemented, see references for more details.
  * \note Not all terminals support all ANSI features.
  * \see https://en.wikipedia.org/wiki/ANSI_escape_code

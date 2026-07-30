@@ -19,8 +19,8 @@
  *  \see Cursor
  *
  *  \author FLAK-ZOSO
- *  \date 2022-2025
- *  \version 3.0.0
+ *  \date 2022-2026
+ *  \version 3.0.1
  *  \copyright GNU General Public License v3.0
  */
 #pragma once
