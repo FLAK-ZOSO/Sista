@@ -31,7 +31,7 @@ var searchData=
   ['tt_202_202_200_20tt_28',['v&lt;tt&gt;2.2.0&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md29',1,'']]],
   ['tt_202_202_201_20tt_29',['v&lt;tt&gt;2.2.1&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md28',1,'']]],
   ['tt_203_200_200_20beta_204_20tt_30',['v&lt;tt&gt;3.0.0-beta.4&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md27',1,'']]],
-  ['tt_203_200_200_20tt_31',['Unreleased v&lt;tt&gt;3.0.0&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md26',1,'']]],
+  ['tt_203_200_200_20tt_31',['v&lt;tt&gt;3.0.0&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md26',1,'']]],
   ['tt_20deb_20tt_20package_32',['Sista as a shared library - &lt;tt&gt;.deb&lt;/tt&gt; package',['../index.html#autotoc_md19',1,'']]],
   ['tt_20sista_20tt_33',['&lt;tt&gt;Sista&lt;/tt&gt;',['../index.html',1,'']]]
 ];
