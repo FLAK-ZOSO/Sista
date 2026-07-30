@@ -58,6 +58,10 @@ packageroot/debian/*.log
 packageroot/debian/*.substvars
 packageroot/debian/files
 
+# RPM build output
+rpmbuild/
+*.rpm
+
 # Other files
 .vscode/
 .vscode/*

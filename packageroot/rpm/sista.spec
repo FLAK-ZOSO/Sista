@@ -1,6 +1,9 @@
 Name:           sista
 Version:        %{?sista_version}%{!?sista_version:3.0.1}
 Release:        %{?sista_release}%{!?sista_release:1}%{?dist}
+# The upstream build does not emit debug information. Disable automatic debug
+# subpackage generation rather than failing on an empty debugsource file.
+%global debug_package %{nil}
 Summary:        Lightweight C++ library for terminal games and animations
 License:        MIT
 URL:            https://github.com/FLAK-ZOSO/Sista
@@ -23,6 +26,9 @@ make build FULL_VERSION=%{?sista_full_version}%{!?sista_full_version:%{version}}
 %install
 rm -rf %{buildroot}
 make install FULL_VERSION=%{?sista_full_version}%{!?sista_full_version:%{version}} PREFIX=/usr DESTDIR=%{buildroot}
+# RPM's dependency generator scans executable shared objects. The libraries
+# themselves need this mode too, so their SONAME Provides are recorded.
+find %{buildroot}%{_prefix}/lib -type f -name '*.so.*' -exec chmod 755 {} +
 rm -f %{buildroot}%{_sysconfdir}/ld.so.conf.d/sista.conf
 rmdir --ignore-fail-on-non-empty %{buildroot}%{_sysconfdir}/ld.so.conf.d 2>/dev/null || :
 rmdir --ignore-fail-on-non-empty %{buildroot}%{_sysconfdir} 2>/dev/null || :
