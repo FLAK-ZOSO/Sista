@@ -3,7 +3,7 @@ var searchData=
   ['rapid_5fblink_0',['RAPID_BLINK',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2fa37124ad1fc66e68535d0bebba57f414b',1,'sista']]],
   ['readme_2emd_1',['readme.md',['../python_2README_8md.html',1,'(Global Namespace)'],['../README_8md.html',1,'(Global Namespace)']]],
   ['recommended_2',['Option 1: Using setup.py (Recommended)',['../md_python_2README.html#autotoc_md7',1,'']]],
-  ['red_3',['red',['../namespacesista.html#a72a9a13a3fd5aa83f5852d073bcdbe28aa2d9547b5d3dd9f05984475f7c926da0',1,'sista::RED'],['../namespacesista.html#ade2b5834bc07e347f46027a10a06d1caaa2d9547b5d3dd9f05984475f7c926da0',1,'sista::RED'],['../structsista_1_1RGBColor.html#ab58e0f2654ee79c82b36e8056cd60c49',1,'sista::RGBColor::red'],['../structsista__RGBColor.html#a52f5b1ff7b44f77d708d343298edbc00',1,'sista_RGBColor::red']]],
+  ['red_3',['red',['../namespacesista.html#a72a9a13a3fd5aa83f5852d073bcdbe28aa2d9547b5d3dd9f05984475f7c926da0',1,'sista::RED'],['../namespacesista.html#ade2b5834bc07e347f46027a10a06d1caaa2d9547b5d3dd9f05984475f7c926da0',1,'sista::RED'],['../structsista__RGBColor.html#a52f5b1ff7b44f77d708d343298edbc00',1,'sista_RGBColor::red'],['../structsista_1_1RGBColor.html#ab58e0f2654ee79c82b36e8056cd60c49',1,'sista::RGBColor::red']]],
   ['release_20notes_4',['Release Notes',['../md_ReleaseNotes.html',1,'']]],
   ['releasenotes_2emd_5',['ReleaseNotes.md',['../ReleaseNotes_8md.html',1,'']]],
   ['removepawn_6',['removepawn',['../classsista_1_1Field.html#a57145101adecb9c9855df01f69e5c167',1,'sista::Field::removePawn()'],['../classsista_1_1SwappableField.html#abfe055739090c33966a736be1c020b11',1,'sista::SwappableField::removePawn()'],['../classsista_1_1Field.html#ab1d0a24261d8e595ff5f719fd6e28d5c',1,'sista::Field::removePawn(Pawn *)']]],
@@ -15,6 +15,7 @@ var searchData=
   ['resetattribute_12',['resetAttribute',['../namespacesista.html#a175e0b48e9f62f849e02dc4cefdd394a',1,'sista']]],
   ['restore_5fcursor_5fposition_13',['RESTORE_CURSOR_POSITION',['../namespacesista.html#af3bc6f60c5d75fa9fa275946c516ee51a62684cb7aa31e0d521228313ef65bb7b',1,'sista']]],
   ['reverse_14',['REVERSE',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2fa642e0b6684e6165e142c074f1cd8d55c',1,'sista']]],
-  ['rgbcolor_15',['rgbcolor',['../structsista_1_1RGBColor.html#a6fefbc7d8ec4427f2a783bf7e89c24fe',1,'sista::RGBColor::RGBColor()'],['../structsista_1_1RGBColor.html#a80f1b3240c6678b7da86e476c5c2663e',1,'sista::RGBColor::RGBColor(unsigned char, unsigned char, unsigned char)'],['../structsista_1_1RGBColor.html',1,'sista::RGBColor']]],
-  ['right_16',['right',['../api_8h.html#acf93245807642a551415bb6eaeb1bca4aec8379af7490bb9eaaf579cf17876f38',1,'RIGHT:&#160;api.h'],['../namespacesista.html#a7aced27e09de586e7565fcad8f5459e4a21507b40c80068eda19865706fdc2403',1,'sista::RIGHT']]]
+  ['rgbcolor_15',['rgbcolor',['../structsista_1_1RGBColor.html',1,'sista::RGBColor'],['../structsista_1_1RGBColor.html#a80f1b3240c6678b7da86e476c5c2663e',1,'sista::RGBColor::RGBColor(unsigned char, unsigned char, unsigned char)'],['../structsista_1_1RGBColor.html#a6fefbc7d8ec4427f2a783bf7e89c24fe',1,'sista::RGBColor::RGBColor()']]],
+  ['right_16',['right',['../api_8h.html#acf93245807642a551415bb6eaeb1bca4aec8379af7490bb9eaaf579cf17876f38',1,'RIGHT:&#160;api.h'],['../namespacesista.html#a7aced27e09de586e7565fcad8f5459e4a21507b40c80068eda19865706fdc2403',1,'sista::RIGHT']]],
+  ['rpm_20tt_20package_17',['Sista as a shared library - &lt;tt&gt;.rpm&lt;/tt&gt; package',['../index.html#autotoc_md20',1,'']]]
 ];
