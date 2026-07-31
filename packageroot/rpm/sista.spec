@@ -1,5 +1,5 @@
 Name:           sista
-Version:        %{?sista_version}%{!?sista_version:3.0.1}
+Version:        %{?sista_version}%{!?sista_version:3.0.3}
 Release:        %{?sista_release}%{!?sista_release:1}%{?dist}
 # The upstream build does not emit debug information. Disable automatic debug
 # subpackage generation rather than failing on an empty debugsource file.
@@ -45,5 +45,9 @@ rmdir --ignore-fail-on-non-empty %{buildroot}%{_sysconfdir} 2>/dev/null || :
 %{_libdir}/libSista_api.a
 
 %changelog
+* Fri Jul 31 2026 FLAK-ZOSO <mattia.marchese.2006@gmail.com> - 3.0.3-1
+- Add EL9-compatible RPM distribution packaging.
+- Correct the RPM license metadata to GPL-3.0-only.
+
 * Thu Jul 30 2026 FLAK-ZOSO <mattia.marchese.2006@gmail.com> - 3.0.1-1
 - Initial RPM package
