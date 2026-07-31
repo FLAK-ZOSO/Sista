@@ -18,7 +18,9 @@ fi
 topdir=${RPM_TOPDIR:-"$repository_root/rpmbuild"}
 mkdir -p "$topdir/SOURCES" "$topdir/SPECS"
 
-git -C "$repository_root" archive --format=tar --prefix="sista-$rpm_version/" HEAD \
+# GitHub mounts the checkout in a container with a different owner. Trust only
+# this known repository for the archive command; do not change global config.
+git -c safe.directory="$repository_root" -C "$repository_root" archive --format=tar --prefix="sista-$rpm_version/" HEAD \
   | gzip -n > "$topdir/SOURCES/sista-$rpm_version.tar.gz"
 cp "$repository_root/packageroot/rpm/sista.spec" "$topdir/SPECS/sista.spec"
 
