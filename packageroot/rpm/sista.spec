@@ -5,7 +5,7 @@ Release:        %{?sista_release}%{!?sista_release:1}%{?dist}
 # subpackage generation rather than failing on an empty debugsource file.
 %global debug_package %{nil}
 Summary:        Lightweight C++ library for terminal games and animations
-License:        MIT
+License:        GPL-3.0-only
 URL:            https://github.com/FLAK-ZOSO/Sista
 Source0:        %{name}-%{version}.tar.gz
 
@@ -25,10 +25,10 @@ make build FULL_VERSION=%{?sista_full_version}%{!?sista_full_version:%{version}}
 
 %install
 rm -rf %{buildroot}
-make install FULL_VERSION=%{?sista_full_version}%{!?sista_full_version:%{version}} PREFIX=/usr DESTDIR=%{buildroot}
+make install FULL_VERSION=%{?sista_full_version}%{!?sista_full_version:%{version}} PREFIX=%{_prefix} LIBDIR=%{_libdir} DESTDIR=%{buildroot}
 # RPM's dependency generator scans executable shared objects. The libraries
 # themselves need this mode too, so their SONAME Provides are recorded.
-find %{buildroot}%{_prefix}/lib -type f -name '*.so.*' -exec chmod 755 {} +
+find %{buildroot}%{_libdir} -type f -name '*.so.*' -exec chmod 755 {} +
 rm -f %{buildroot}%{_sysconfdir}/ld.so.conf.d/sista.conf
 rmdir --ignore-fail-on-non-empty %{buildroot}%{_sysconfdir}/ld.so.conf.d 2>/dev/null || :
 rmdir --ignore-fail-on-non-empty %{buildroot}%{_sysconfdir} 2>/dev/null || :
@@ -37,12 +37,12 @@ rmdir --ignore-fail-on-non-empty %{buildroot}%{_sysconfdir} 2>/dev/null || :
 %license LICENSE.md
 %doc README.md ReleaseNotes.md changelog.md
 %{_includedir}/sista/
-%{_prefix}/lib/libSista.so
-%{_prefix}/lib/libSista.so.*
-%{_prefix}/lib/libSista.a
-%{_prefix}/lib/libSista_api.so
-%{_prefix}/lib/libSista_api.so.*
-%{_prefix}/lib/libSista_api.a
+%{_libdir}/libSista.so
+%{_libdir}/libSista.so.*
+%{_libdir}/libSista.a
+%{_libdir}/libSista_api.so
+%{_libdir}/libSista_api.so.*
+%{_libdir}/libSista_api.a
 
 %changelog
 * Thu Jul 30 2026 FLAK-ZOSO <mattia.marchese.2006@gmail.com> - 3.0.1-1
