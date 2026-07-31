@@ -16,8 +16,37 @@ permissions:
   contents: read
 
 jobs:
+  check-pypi-version:
+    runs-on: ubuntu-latest
+    outputs:
+      version_exists: ${{ steps.check.outputs.version_exists }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: check
+        name: Check whether this version is already on PyPI
+        shell: bash
+        run: |
+          version=$(sed -n "s/^__version__ = ['\"]\([^'\"]*\)['\"]$/\1/p" python/src/sista/__init__.py)
+          test -n "$version"
+          status=$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' "https://pypi.org/pypi/sista/$version/json")
+
+          if [ "$status" = 200 ]; then
+            echo "Sista $version is already published on PyPI; skipping build and upload."
+            echo "version_exists=true" >> "$GITHUB_OUTPUT"
+          elif [ "$status" = 404 ]; then
+            echo "Sista $version is not yet published on PyPI."
+            echo "version_exists=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Could not check PyPI for Sista $version (HTTP $status)." >&2
+            exit 1
+          fi
+
   release-build:
     runs-on: ubuntu-latest
+    needs: check-pypi-version
+    if: needs.check-pypi-version.outputs.version_exists != 'true'
 
     steps:
       - uses: actions/checkout@v4
@@ -101,6 +130,8 @@ jobs:
 
   release-build-macos:
     runs-on: macos-latest
+    needs: check-pypi-version
+    if: needs.check-pypi-version.outputs.version_exists != 'true'
     # macos-latest currently uses a newer SDK than the wheel's deployment
     # target. This must apply while building Sista itself, not only while
     # cibuildwheel compiles the Python extension.
@@ -147,8 +178,10 @@ jobs:
   pypi-publish:
     runs-on: ubuntu-latest
     needs:
+      - check-pypi-version
       - release-build
       - release-build-macos
+    if: always() && needs.check-pypi-version.outputs.version_exists != 'true'
     permissions:
       # IMPORTANT: this permission is mandatory for trusted publishing
       id-token: write
@@ -190,3 +223,6 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           packages-dir: python/wheelhouse/
+          # A concurrent publish between the check above and this step is not
+          # an error; leave the existing distributions untouched.
+          skip-existing: true
