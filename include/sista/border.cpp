@@ -7,7 +7,7 @@
  * 
  *  \author FLAK-ZOSO
  *  \date 2022-2026
- *  \version 3.0.2
+ *  \version 3.0.3
  *  \see Border
  *  \copyright GNU General Public License v3.0
  */
