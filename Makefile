@@ -35,6 +35,10 @@ else
     SHARED_EXT=.so
 endif
 
+# May be overridden by distribution packaging (for example, /usr/lib64 on
+# 64-bit RPM systems). Keep the conventional /lib subdirectory by default.
+LIBDIR ?= $(PREFIX)/lib
+
 # Use cmd.exe for recipes on Windows
 ifeq ($(OS),Windows_NT)
 	SHELL := cmd.exe
@@ -175,39 +179,39 @@ uninstall:
 else
 install: libSista.so libSista.a libSista_api.so libSista_api.a
 	@echo "Staged install to '$(DESTDIR)$(PREFIX)' (use DESTDIR for packaging)"
-	install -d $(DESTDIR)$(PREFIX)/lib
-	install -m 644 libSista.so.$(FULL_VERSION) $(DESTDIR)$(PREFIX)/lib/
-	install -m 644 libSista_api.so.$(FULL_VERSION) $(DESTDIR)$(PREFIX)/lib/
-	ln -sf libSista_api.so.$(FULL_VERSION) $(DESTDIR)$(PREFIX)/lib/libSista_api.so.$(MAJOR_VERSION)
-	ln -sf libSista_api.so.$(MAJOR_VERSION) $(DESTDIR)$(PREFIX)/lib/libSista_api.so
-	ln -sf libSista.so.$(FULL_VERSION) $(DESTDIR)$(PREFIX)/lib/libSista.so.$(MAJOR_VERSION)
-	ln -sf libSista.so.$(MAJOR_VERSION) $(DESTDIR)$(PREFIX)/lib/libSista.so
-	install -m 644 libSista.a $(DESTDIR)$(PREFIX)/lib/
-	install -m 644 libSista_api.a $(DESTDIR)$(PREFIX)/lib/
+	install -d $(DESTDIR)$(LIBDIR)
+	install -m 644 libSista.so.$(FULL_VERSION) $(DESTDIR)$(LIBDIR)/
+	install -m 644 libSista_api.so.$(FULL_VERSION) $(DESTDIR)$(LIBDIR)/
+	ln -sf libSista_api.so.$(FULL_VERSION) $(DESTDIR)$(LIBDIR)/libSista_api.so.$(MAJOR_VERSION)
+	ln -sf libSista_api.so.$(MAJOR_VERSION) $(DESTDIR)$(LIBDIR)/libSista_api.so
+	ln -sf libSista.so.$(FULL_VERSION) $(DESTDIR)$(LIBDIR)/libSista.so.$(MAJOR_VERSION)
+	ln -sf libSista.so.$(MAJOR_VERSION) $(DESTDIR)$(LIBDIR)/libSista.so
+	install -m 644 libSista.a $(DESTDIR)$(LIBDIR)/
+	install -m 644 libSista_api.a $(DESTDIR)$(LIBDIR)/
 	install -d $(DESTDIR)$(PREFIX)/include/sista
 	install -m 644 include/sista/*.hpp $(DESTDIR)$(PREFIX)/include/sista/ || true
 	install -m 644 include/sista/*.h $(DESTDIR)$(PREFIX)/include/sista/ || true
 	# write ld.so config into the package tree (do not modify the real system)
 	install -d $(DESTDIR)/etc/ld.so.conf.d
-	printf '%s\n' '$(PREFIX)/lib' > $(DESTDIR)/etc/ld.so.conf.d/sista.conf
+	printf '%s\n' '$(LIBDIR)' > $(DESTDIR)/etc/ld.so.conf.d/sista.conf
 	# only update the real system if DESTDIR is empty (interactive install)
 	if [ -z "$(DESTDIR)" ]; then \
 	  if command -v sudo >/dev/null 2>&1; then \
-	    echo "$(PREFIX)/lib" | sudo tee /etc/ld.so.conf.d/sista.conf; \
+	    echo "$(LIBDIR)" | sudo tee /etc/ld.so.conf.d/sista.conf; \
 	    sudo ldconfig || true; \
 	  else \
-	    echo "$(PREFIX)/lib" | tee /etc/ld.so.conf.d/sista.conf; \
+	    echo "$(LIBDIR)" | tee /etc/ld.so.conf.d/sista.conf; \
 	    ldconfig || true; \
 	  fi \
 	fi
 
 uninstall:
-	rm -f $(DESTDIR)$(PREFIX)/lib/libSista.so
-	rm -f $(DESTDIR)$(PREFIX)/lib/libSista.so.*
-	rm -f $(DESTDIR)$(PREFIX)/lib/libSista_api.so
-	rm -f $(DESTDIR)$(PREFIX)/lib/libSista_api.so.*
-	rm -f $(DESTDIR)$(PREFIX)/lib/libSista.a
-	rm -f $(DESTDIR)$(PREFIX)/lib/libSista_api.a
+	rm -f $(DESTDIR)$(LIBDIR)/libSista.so
+	rm -f $(DESTDIR)$(LIBDIR)/libSista.so.*
+	rm -f $(DESTDIR)$(LIBDIR)/libSista_api.so
+	rm -f $(DESTDIR)$(LIBDIR)/libSista_api.so.*
+	rm -f $(DESTDIR)$(LIBDIR)/libSista.a
+	rm -f $(DESTDIR)$(LIBDIR)/libSista_api.a
 	rm -rf $(DESTDIR)$(PREFIX)/include/sista
 	rm -f $(DESTDIR)/etc/ld.so.conf.d/sista.conf
 	if [ -z "$(DESTDIR)" ]; then \

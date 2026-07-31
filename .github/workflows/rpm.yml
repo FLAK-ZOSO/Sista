@@ -5,7 +5,8 @@ on: push
 jobs:
   build-rpm:
     runs-on: ubuntu-latest
-    container: fedora:latest
+    # Build against EL9's older ABI so the RPM installs on EL9 and newer Fedora.
+    container: almalinux:9
     steps:
       - name: Install RPM build tools
         run: dnf install -y gcc-c++ git make rpm-build
