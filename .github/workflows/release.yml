@@ -208,11 +208,11 @@ jobs:
     runs-on: ubuntu-latest
     container: fedora:latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
       - name: Install RPM build tools
         run: dnf install -y gcc-c++ git make rpm-build
+
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Build RPM package
         run: packageroot/rpm/build-rpm.sh
