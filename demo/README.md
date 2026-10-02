@@ -6,7 +6,7 @@ This directory contains a set of demo programs that showcase the features of the
 
 - `header-test`: A simple program that tests the usage from source of `Sista`
 - `shared-test`: A program that tests the shared library usage of `Sista` for dynamic linking
-- `shared-test-static`: A program that tests the shared library usage of `Sista` for static linking
+- `shared-test-static`: A program that links the Sista static archive while keeping system dependencies dynamic
 - `colors24-bit`: showcases the 24-bit color support
 - `colors256`: showcases the 256-color support
 - `conflictTest`: tests the conflict resolution features of `sista::SwappableField`
@@ -76,7 +76,7 @@ You can also verify if you can link statically against the library.
 make shared-test-static
 ```
 
-This will create the `shared-test-static` executable, which you can [also after uninstalling the library](https://stackoverflow.com/questions/311882/what-do-statically-linked-and-dynamically-linked-mean).
+This creates `shared-test-static` using the installed `libSista.a` archive. It does not need a Sista shared library at runtime; system dependencies such as the C++ runtime remain dynamically linked.
 
 ### Uninstalling the library
 

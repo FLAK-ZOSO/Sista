@@ -10,15 +10,20 @@
 
 To install Sista, simply download the latest release from [`GitHub`](https://github.com/FLAK-ZOSO/Sista/releases), and extract the contents of the archive to your project's source directory.
 
-### Sista as a shared library
+### Sista as a compiled library
 
-If you want to use Sista as a shared library, you can use the provided `Makefile` in the repository. Simply run the following command in your terminal *with administrative privileges*.
+If you want to use Sista as a compiled library, use the provided `Makefile`. Build the libraries first, then install them with administrative privileges.
 
 ```bash
+make
 sudo make install
 ```
 
-This will install the `libSista.so` shared library in the system library path, and the headers in the system include path. This is the preferred inclusion method for versions v`3.0.0` and later. More on this in the [documentation](https://sista.readthedocs.io/en/latest/).
+`make` (equivalently, `make all` or `make build`) builds the core and C API libraries in both shared and static forms, using the platform's shared-library format. Shared libraries dynamically link system dependencies. Static archives contain only Sista objects.
+
+The terminal demo is optional and can be built with `make sista`. It embeds Sista while dynamically linking system dependencies. `make sista_against_static_lib_local` explicitly links the local Sista archive with the same dependency policy.
+
+`make install` installs the libraries in the system library path and the headers in the system include path. This is the preferred inclusion method for versions v`3.0.0` and later. More on this in the [documentation](https://sista.readthedocs.io/en/latest/).
 
 ```bash
 sudo make uninstall
