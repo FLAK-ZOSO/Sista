@@ -2,13 +2,17 @@ IMPLEMENTATIONS = include/sista/ansi.cpp include/sista/border.cpp include/sista/
 OBJECTS = ansi.o border.o coordinates.o cursor.o field.o pawn.o
 
 RAW_TAG := $(shell git describe --tags --abbrev=0 2>/dev/null)
-TAG := $(subst v,,$(RAW_TAG))
-FULL_VERSION ?= $(TAG)
-FULL_VERSION ?= 3.0.0-beta.42 # Fallback version if no tag is found
+TAG := $(patsubst v%,%,$(RAW_TAG))
+HEADER_VERSION := $(shell sed -n 's/^\#define SISTA_VERSION "\([^"]*\)"/\1/p' include/sista/version.hpp)
+FULL_VERSION ?= $(if $(strip $(TAG)),$(TAG),$(HEADER_VERSION))
 
 MAJOR_VERSION := $(word 1,$(subst ., ,$(FULL_VERSION)))
 MINOR_VERSION := $(word 2,$(subst ., ,$(FULL_VERSION)))
 PATCH_AND_PR := $(word 3,$(subst ., ,$(FULL_VERSION)))
+
+ifeq ($(strip $(PATCH_AND_PR)),)
+$(error FULL_VERSION must contain at least MAJOR.MINOR.PATCH; got '$(FULL_VERSION)')
+endif
 
 
 # Set default PREFIX and variables based on OS
