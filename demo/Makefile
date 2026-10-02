@@ -16,7 +16,7 @@ endif
 all: header-test color-string colors24-bit \
 	colors256 conflictTest resetAttribute \
 	screen-mode swapTest verticalTest pawnsCountTest \
-	attributes clean_objects
+	attributes mostlyclean
 
 attributes.o: attributes.cpp
 	g++ -std=c++17 -Wall -g -c attributes.cpp
@@ -119,12 +119,21 @@ api-test-errors.o: api-test-errors.c
 api-test-errors: api-test-errors.o
 	g++ -Wall -g -o api-test-errors api-test-errors.o -lSista_api -lSista $(LD_LIBRARY_PATH_DIRECTIVE) $(DYLD_LIBRARY_PATH_DIRECTIVE)
 
-clean_objects:
+mostlyclean:
 	rm -f *.o
 
-clean: clean_objects
+clean_objects: mostlyclean
+
+clean: mostlyclean
 	rm -f colors24-bit colors256 conflictTest resetAttribute screen-mode swapTest verticalTest pawnsCountTest
 	rm -f header-test shared-test shared-test-static
 	rm -f api-test api-test-border api-test-multiple-styles api-test-swap api-test-cursor api-test-errors attributes
 
-.PHONY: all clean_objects clean
+distclean: clean
+
+maintainer-clean:
+	@echo 'This command is intended for maintainers to use; it'
+	@echo 'deletes files that may need special tools to rebuild.'
+	$(MAKE) distclean
+
+.PHONY: all mostlyclean clean_objects clean distclean maintainer-clean

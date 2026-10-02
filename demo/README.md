@@ -35,13 +35,19 @@ make
 
 All demos are compiled with debugging symbols enabled, which allows you to run them in a debugger if needed.
 
-To clean up the compiled objects and executables, you can run:
+To remove intermediate object files while keeping the demo executables, run:
+
+```bash
+make mostlyclean
+```
+
+To remove both object files and demo executables, run:
 
 ```bash
 make clean
 ```
 
-This will remove all object files and executables created during the build process, keeping the directory clean.
+`make distclean` and `make maintainer-clean` are also available as conventional cleanup targets; this directory has no additional generated configuration or maintainer files for them to remove.
 
 ### `shared-test`
 
@@ -49,6 +55,7 @@ The `shared-test` demo is built similarly, but it links against the `Sista` shar
 
 ```bash
 # Go to the main Sista/ directory, root of this repository
+make
 sudo make install
 ```
 

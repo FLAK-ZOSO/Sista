@@ -23,6 +23,13 @@ sudo make install
 
 The terminal demo is optional and can be built with `make sista`. It embeds Sista while dynamically linking system dependencies. `make sista_against_static_lib_local` explicitly links the local Sista archive with the same dependency policy.
 
+The Makefile follows the conventional cleanup target hierarchy:
+
+- `make mostlyclean` removes intermediate object files while preserving built libraries and the optional `sista` executable.
+- `make clean` removes every normal build output, including libraries and `sista`.
+- `make distclean` currently has the same effect as `clean` because Sista has no generated configuration files.
+- `make maintainer-clean` currently has the same file scope as `distclean`; it is provided for GNU Make compatibility.
+
 `make install` installs the libraries in the system library path and the headers in the system include path. This is the preferred inclusion method for versions v`3.0.0` and later. More on this in the [documentation](https://sista.readthedocs.io/en/latest/).
 
 ```bash

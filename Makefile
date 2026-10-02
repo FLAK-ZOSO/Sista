@@ -123,8 +123,18 @@ libSista_api.a: api.o
 	ar rcs libSista_api.a api.o
 	ranlib libSista_api.a
 
-clean:
-	rm -f *.o sista libSista.so* libSista.a libSista.dylib* libSista.dll libSista.lib api.o libSista_api.so* libSista_api.a libSista_api.dylib* libSista_api.dll libSista_api.lib
+mostlyclean:
+	rm -f *.o
+
+clean: mostlyclean
+	rm -f sista libSista.so* libSista.a libSista.dylib* libSista.dll libSista.lib libSista_api.so* libSista_api.a libSista_api.dylib* libSista_api.dll libSista_api.lib
+
+distclean: clean
+
+maintainer-clean:
+	@echo 'This command is intended for maintainers to use; it'
+	@echo 'deletes files that may need special tools to rebuild.'
+	$(MAKE) distclean
 
 ifeq ($(OS),Windows_NT)
 install: libSista.dll libSista.a libSista_api.dll libSista_api.a
@@ -225,4 +235,4 @@ uninstall:
 	fi
 endif
 
-.PHONY: all build objects objects_dynamic clean install uninstall sista_against_dynamic_lib_local sista_against_static_lib_local sista_against_dynamic_lib_shared sista_against_static_lib_shared
+.PHONY: all build objects objects_dynamic mostlyclean clean distclean maintainer-clean install uninstall sista_against_dynamic_lib_local sista_against_static_lib_local sista_against_dynamic_lib_shared sista_against_static_lib_shared
