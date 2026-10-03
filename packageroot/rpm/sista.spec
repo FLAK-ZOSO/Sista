@@ -1,8 +1,8 @@
 Name:           sista
 Version:        %{?sista_version}%{!?sista_version:3.0.3}
 Release:        %{?sista_release}%{!?sista_release:1}%{?dist}
-# The upstream build does not emit debug information. Disable automatic debug
-# subpackage generation rather than failing on an empty debugsource file.
+# Shared libraries are stripped during installation below. Disable automatic
+# debug subpackages rather than failing on an empty debugsource file.
 %global debug_package %{nil}
 Summary:        Lightweight C++ library for terminal games and animations
 License:        GPL-3.0-only

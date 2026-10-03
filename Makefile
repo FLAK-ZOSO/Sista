@@ -189,6 +189,23 @@ libSista_api.a: api.o
 	$(AR) rcs libSista_api.a api.o
 	$(RANLIB) libSista_api.a
 
+ifeq ($(OS),Windows_NT)
+mostlyclean:
+	-del /F /Q *.o 2>NUL
+
+clean: mostlyclean
+	-del /F /Q sista sista.exe libSista.a libSista.dll libSista.lib libSista_api.a libSista_api.dll libSista_api.lib 2>NUL
+
+distclean: clean
+	@if exist docs\html rmdir /S /Q docs\html
+	@if exist docs\latex rmdir /S /Q docs\latex
+
+maintainer-clean:
+	@echo This command is intended for maintainers to use; it
+	@echo deletes files that may need special tools to rebuild.
+	$(MAKE) distclean
+	-del /F /Q TAGS $(DIST_ARCHIVE) 2>NUL
+else
 mostlyclean:
 	rm -f *.o
 
@@ -203,6 +220,7 @@ maintainer-clean:
 	@echo 'deletes files that may need special tools to rebuild.'
 	$(MAKE) distclean
 	rm -f TAGS $(DIST_ARCHIVE)
+endif
 
 ifeq ($(OS),Windows_NT)
 install: libSista.dll libSista.a libSista_api.dll libSista_api.a installdirs
