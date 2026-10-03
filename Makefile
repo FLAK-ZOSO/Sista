@@ -1,135 +1,230 @@
 IMPLEMENTATIONS = include/sista/ansi.cpp include/sista/border.cpp include/sista/coordinates.cpp include/sista/cursor.cpp include/sista/field.cpp include/sista/pawn.cpp
 OBJECTS = ansi.o border.o coordinates.o cursor.o field.o pawn.o
 
+CXX ?= g++
+AR ?= ar
+RANLIB ?= ranlib
+CXXSTD ?= -std=c++17
+CXXFLAGS ?= -Wall -g
+PICFLAGS ?= -fPIC
+
 RAW_TAG := $(shell git describe --tags --abbrev=0 2>/dev/null)
-TAG := $(subst v,,$(RAW_TAG))
-FULL_VERSION ?= $(TAG)
-FULL_VERSION ?= 3.0.0-beta.42 # Fallback version if no tag is found
+TAG := $(patsubst v%,%,$(RAW_TAG))
+HEADER_VERSION := $(shell sed -n 's/^\#define SISTA_VERSION "\([^"]*\)"/\1/p' include/sista/version.hpp)
+FULL_VERSION ?= $(if $(strip $(TAG)),$(TAG),$(HEADER_VERSION))
 
 MAJOR_VERSION := $(word 1,$(subst ., ,$(FULL_VERSION)))
 MINOR_VERSION := $(word 2,$(subst ., ,$(FULL_VERSION)))
 PATCH_AND_PR := $(word 3,$(subst ., ,$(FULL_VERSION)))
 
-
-# For the Makefile CI workflow, macos-latest cannot use the `-static` flag
-ifeq "$(shell uname -s)" "Darwin"
-	STATIC_FLAG=
-	LIB_EXT=.a
-	SHARED_EXT=.dylib
-else
-	STATIC_FLAG=-static
+ifeq ($(strip $(PATCH_AND_PR)),)
+$(error FULL_VERSION must contain at least MAJOR.MINOR.PATCH; got '$(FULL_VERSION)')
 endif
+
 
 # Set default PREFIX and variables based on OS
 ifeq ($(OS),Windows_NT)
     PREFIX ?= C:\Program Files\Sista
     LIB_EXT=.a
     SHARED_EXT=.dll
+    SHARED_TARGETS=libSista.dll libSista_api.dll
 else ifeq "$(shell uname -s)" "Darwin"
     PREFIX ?= /usr/local
     LIB_EXT=.a
     SHARED_EXT=.dylib
+    SHARED_TARGETS=libSista.dylib libSista_api.dylib
 else
     PREFIX ?= /usr/local
     LIB_EXT=.a
     SHARED_EXT=.so
+    SHARED_TARGETS=libSista.so libSista_api.so
 endif
 
 # May be overridden by distribution packaging (for example, /usr/lib64 on
 # 64-bit RPM systems). Keep the conventional /lib subdirectory by default.
+ifneq ($(origin prefix),undefined)
+    PREFIX := $(prefix)
+endif
 LIBDIR ?= $(PREFIX)/lib
+ifneq ($(origin libdir),undefined)
+    LIBDIR := $(libdir)
+endif
+
+# GNU installation directory and command conventions.  Keep the historical
+# uppercase variables as compatibility aliases for packaging and existing users.
+prefix ?= $(PREFIX)
+exec_prefix ?= $(prefix)
+libdir ?= $(LIBDIR)
+includedir ?= $(prefix)/include
+datarootdir ?= $(prefix)/share
+docdir ?= $(datarootdir)/doc/sista
+htmldir ?= $(docdir)/html
+dvidir ?= $(docdir)/dvi
+pdfdir ?= $(docdir)/pdf
+psdir ?= $(docdir)/ps
+infodir ?= $(datarootdir)/info
+
+INSTALL ?= install
+INSTALL_DATA ?= $(INSTALL) -m 644
+MKDIR_P ?= mkdir -p
+STRIP ?= strip
+CTAGS ?= ctags
+DOXYGEN ?= doxygen
+
+PACKAGE = sista
+DIST_NAME = $(PACKAGE)-$(FULL_VERSION)
+DIST_ARCHIVE = $(DIST_NAME).tar.gz
 
 # Use cmd.exe for recipes on Windows
 ifeq ($(OS),Windows_NT)
 	SHELL := cmd.exe
 endif
 
-all: sista
+all: build
 
-build: libSista.so libSista_api.so libSista.a libSista_api.a
+build: $(SHARED_TARGETS) libSista.a libSista_api.a
 
-objects:
-	g++ -std=c++17 -Wall -c $(IMPLEMENTATIONS)
+check: build
+	$(MAKE) -C demo pawnsCountTest
+ifeq ($(OS),Windows_NT)
+	demo\pawnsCountTest.exe
+else
+	./demo/pawnsCountTest
+endif
 
-objects_dynamic:
-	g++ -std=c++17 -Wall -fPIC -c $(IMPLEMENTATIONS)
+test: check
+
+info dvi pdf ps:
+	@echo 'Sista does not provide documentation in the $@ format.'
+
+html: docs/html/index.html
+
+docs/html/index.html: Doxyfile $(IMPLEMENTATIONS) $(wildcard include/sista/*.hpp) $(wildcard include/sista/*.h)
+	$(DOXYGEN) Doxyfile
+
+TAGS: $(IMPLEMENTATIONS) $(wildcard include/sista/*.hpp) $(wildcard include/sista/*.h) sista.cpp
+	$(CTAGS) -e -o $@ $(IMPLEMENTATIONS) $(wildcard include/sista/*.hpp) $(wildcard include/sista/*.h) sista.cpp
+
+dist:
+	git archive --format=tar.gz --prefix=$(DIST_NAME)/ -o $(DIST_ARCHIVE) HEAD
+
+objects objects_dynamic: $(OBJECTS)
 
 # Compiles all the library files into object files, then links them to the executable
-sista: objects
-	g++ -std=c++17 -Wall -c sista.cpp
-	g++ $(STATIC_FLAG) -Wall -o sista sista.o $(OBJECTS)
+sista: $(OBJECTS)
+	$(CXX) $(CPPFLAGS) $(CXXSTD) $(CXXFLAGS) -c sista.cpp
+	$(CXX) $(LDFLAGS) -o sista sista.o $(OBJECTS)
 
 # Compiles sista.cpp and links it against the local dynamic library libSista.so
-sista_against_dynamic_lib_local: libSista.so objects_dynamic
-	g++ -std=c++17 -Wall -fPIC -c sista.cpp
-	g++ -o sista sista.o libSista.so
+sista_against_dynamic_lib_local: libSista$(SHARED_EXT)
+	$(CXX) $(CPPFLAGS) $(CXXSTD) $(CXXFLAGS) $(PICFLAGS) -c sista.cpp
+	$(CXX) $(LDFLAGS) -o sista sista.o ./libSista$(SHARED_EXT)
 
-ifneq "$(shell uname -s)" "Darwin"
-# Compiles sista.cpp and links it against the local static library libSista.a
-sista_against_static_lib_local: libSista.a objects
-	g++ -std=c++17 -Wall -c sista.cpp
-	g++ -static -o sista sista.o libSista.a
-endif
+# Links Sista statically while retaining dynamic system dependencies
+sista_against_static_lib_local: libSista.a
+	$(CXX) $(CPPFLAGS) $(CXXSTD) $(CXXFLAGS) -c sista.cpp
+	$(CXX) $(LDFLAGS) -o sista sista.o libSista.a
 
 # Compiles sista.cpp and links it against the system dynamic library libSista.so
 sista_against_dynamic_lib_shared:
-	g++ -std=c++17 -Wall -fPIC -c sista.cpp
-	g++ -o sista sista.o -lSista
+	$(CXX) $(CPPFLAGS) $(CXXSTD) $(CXXFLAGS) $(PICFLAGS) -c sista.cpp
+	$(CXX) $(LDFLAGS) -o sista sista.o -lSista
 
-ifneq "$(shell uname -s)" "Darwin"
-# Compiles sista.cpp and links it against the system static library libSista.a
+# Links the installed Sista archive while retaining dynamic system dependencies
 sista_against_static_lib_shared:
-	g++ -std=c++17 -Wall -c sista.cpp
-	g++ -static -o sista sista.o -lSista
-endif
+	$(CXX) $(CPPFLAGS) $(CXXSTD) $(CXXFLAGS) -c sista.cpp
+	$(CXX) $(LDFLAGS) -o sista sista.o "$(LIBDIR)/libSista.a"
 
 %.o: include/sista/%.cpp
-	g++ -std=c++17 -Wall -fPIC -c $< -o $@
+	$(CXX) $(CPPFLAGS) $(CXXSTD) $(CXXFLAGS) $(PICFLAGS) -c $< -o $@
 
 api.o: include/sista/api.h include/sista/api.cpp
-	g++ -std=c++17 -Wall -fPIC -Iinclude -c include/sista/api.cpp -o api.o
+	$(CXX) $(CPPFLAGS) $(CXXSTD) $(CXXFLAGS) $(PICFLAGS) -Iinclude -c include/sista/api.cpp -o api.o
 
-libSista.so: $(OBJECTS)
-	g++ -std=c++17 -Wall -fPIC -shared -o libSista.so.$(FULL_VERSION) $(OBJECTS) -Wl,-soname,libSista.so.$(MAJOR_VERSION)
+libSista.so: libSista.so.$(FULL_VERSION)
+	ln -sf libSista.so.$(FULL_VERSION) libSista.so.$(MAJOR_VERSION)
+	ln -sf libSista.so.$(MAJOR_VERSION) libSista.so
 
-libSista_api.so: api.o
-	g++ -Wall -fPIC -shared -o libSista_api.so.$(FULL_VERSION) api.o libSista.so.$(FULL_VERSION) -lstdc++ -Wl,-soname,libSista_api.so.$(MAJOR_VERSION)
+libSista.so.$(FULL_VERSION): $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(PICFLAGS) -shared -o libSista.so.$(FULL_VERSION) $(OBJECTS) -Wl,-soname,libSista.so.$(MAJOR_VERSION)
+
+libSista_api.so: libSista_api.so.$(FULL_VERSION)
+	ln -sf libSista_api.so.$(FULL_VERSION) libSista_api.so.$(MAJOR_VERSION)
+	ln -sf libSista_api.so.$(MAJOR_VERSION) libSista_api.so
+
+libSista_api.so.$(FULL_VERSION): api.o libSista.so
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $(PICFLAGS) -shared -o libSista_api.so.$(FULL_VERSION) api.o libSista.so.$(FULL_VERSION) -lstdc++ -Wl,-soname,libSista_api.so.$(MAJOR_VERSION)
 
 ifeq "$(shell uname -s)" "Darwin"
-libSista.dylib: $(OBJECTS)
-	g++ -Wall -dynamiclib -o libSista.dylib.$(FULL_VERSION) $(OBJECTS) \
+libSista.dylib: libSista.dylib.$(FULL_VERSION)
+	ln -sf libSista.dylib.$(FULL_VERSION) libSista.dylib.$(MAJOR_VERSION)
+	ln -sf libSista.dylib.$(MAJOR_VERSION) libSista.dylib
+
+libSista.dylib.$(FULL_VERSION): $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -dynamiclib -o libSista.dylib.$(FULL_VERSION) $(OBJECTS) \
 	-Wl,-install_name,@rpath/libSista.dylib,-current_version,$(MAJOR_VERSION),-compatibility_version,$(MAJOR_VERSION),-rpath,$(PREFIX)/lib
 
-libSista_api.dylib: api.o
-	g++ -Wall -dynamiclib -o libSista_api.dylib.$(FULL_VERSION) api.o libSista.dylib.$(FULL_VERSION) \
+libSista_api.dylib: libSista_api.dylib.$(FULL_VERSION)
+	ln -sf libSista_api.dylib.$(FULL_VERSION) libSista_api.dylib.$(MAJOR_VERSION)
+	ln -sf libSista_api.dylib.$(MAJOR_VERSION) libSista_api.dylib
+
+libSista_api.dylib.$(FULL_VERSION): api.o libSista.dylib
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -dynamiclib -o libSista_api.dylib.$(FULL_VERSION) api.o libSista.dylib.$(FULL_VERSION) \
 	-Wl,-install_name,@rpath/libSista_api.dylib,-current_version,$(MAJOR_VERSION),-compatibility_version,$(MAJOR_VERSION),-rpath,$(PREFIX)/lib
 endif
 
 ifeq ($(OS),Windows_NT) # Assumes usage of MinGW on Windows
 libSista.dll: $(OBJECTS)
-	g++ -std=c++17 -Wall -shared -o libSista.dll $(OBJECTS) -Wl,--out-implib,libSista.lib
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -shared -o libSista.dll $(OBJECTS) -Wl,--out-implib,libSista.lib
 
-libSista_api.dll: api.o
-	g++ -Wall -shared -o libSista_api.dll api.o libSista.dll -Wl,--out-implib,libSista_api.lib
+libSista_api.dll: api.o libSista.dll
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -shared -o libSista_api.dll api.o libSista.dll -Wl,--out-implib,libSista_api.lib
 endif
 
 libSista.a: $(OBJECTS)
-	ar rcs libSista.a $(OBJECTS)
-	ranlib libSista.a
+	$(AR) rcs libSista.a $(OBJECTS)
+	$(RANLIB) libSista.a
 
 libSista_api.a: api.o
-	ar rcs libSista_api.a api.o
-	ranlib libSista_api.a
-
-clean:
-	rm -f *.o sista libSista.so* libSista.a libSista.dylib* libSista.dll libSista.lib api.o libSista_api.so* libSista_api.a libSista_api.dylib* libSista_api.dll libSista_api.lib
+	$(AR) rcs libSista_api.a api.o
+	$(RANLIB) libSista_api.a
 
 ifeq ($(OS),Windows_NT)
-install: libSista.dll libSista.a libSista_api.dll libSista_api.a
+mostlyclean:
+	-del /F /Q *.o 2>NUL
+
+clean: mostlyclean
+	-del /F /Q sista sista.exe libSista.a libSista.dll libSista.lib libSista_api.a libSista_api.dll libSista_api.lib 2>NUL
+
+distclean: clean
+	@if exist docs\html rmdir /S /Q docs\html
+	@if exist docs\latex rmdir /S /Q docs\latex
+
+maintainer-clean:
+	@echo This command is intended for maintainers to use; it
+	@echo deletes files that may need special tools to rebuild.
+	$(MAKE) distclean
+	-del /F /Q TAGS $(DIST_ARCHIVE) 2>NUL
+else
+mostlyclean:
+	rm -f *.o
+
+clean: mostlyclean
+	rm -f sista libSista.so* libSista.a libSista.dylib* libSista.dll libSista.lib libSista_api.so* libSista_api.a libSista_api.dylib* libSista_api.dll libSista_api.lib
+
+distclean: clean
+	rm -rf docs/html docs/latex
+
+maintainer-clean:
+	@echo 'This command is intended for maintainers to use; it'
+	@echo 'deletes files that may need special tools to rebuild.'
+	$(MAKE) distclean
+	rm -f TAGS $(DIST_ARCHIVE)
+endif
+
+ifeq ($(OS),Windows_NT)
+install: libSista.dll libSista.a libSista_api.dll libSista_api.a installdirs
 	@echo "Installing Sista version $(FULL_VERSION) to $(PREFIX)..."
-	@if not exist "$(PREFIX)" mkdir "$(PREFIX)"
-	@if not exist "$(PREFIX)\lib" mkdir "$(PREFIX)\lib"
-	@if not exist "$(PREFIX)\include\sista" mkdir "$(PREFIX)\include\sista"
 	copy libSista.dll "$(PREFIX)\lib\"
 	copy libSista.lib "$(PREFIX)\lib\"
 	copy libSista.a "$(PREFIX)\lib\"
@@ -148,71 +243,71 @@ uninstall:
 	del "$(PREFIX)\lib\libSista.dll"
 	del "$(PREFIX)\lib\libSista.lib"
 	del "$(PREFIX)\lib\libSista.a"
+	del "$(PREFIX)\lib\libSista_api.dll"
+	del "$(PREFIX)\lib\libSista_api.lib"
+	del "$(PREFIX)\lib\libSista_api.a"
 	@if exist "$(PREFIX)\include\sista" rmdir /S /Q "$(PREFIX)\include\sista"
+	@if exist "$(docdir)" rmdir /S /Q "$(docdir)"
 	REM remove MSVC-friendly names as well
 	del "$(PREFIX)\lib\Sista.lib" || @rem
 	del "$(PREFIX)\lib\Sista_api.lib" || @rem
 else ifeq "$(shell uname -s)" "Darwin"
-install: libSista.dylib libSista.a libSista_api.dylib libSista_api.a
+install: libSista.dylib libSista.a libSista_api.dylib libSista_api.a installdirs
 	@echo "Installing Sista version $(FULL_VERSION) to $(PREFIX)..."
-	install -d $(PREFIX)/lib
-	install -m 644 libSista.dylib.$(FULL_VERSION) $(PREFIX)/lib/
-	install -m 644 libSista_api.dylib.$(FULL_VERSION) $(PREFIX)/lib/
-	ln -sf libSista.dylib.$(FULL_VERSION) $(PREFIX)/lib/libSista.dylib.$(MAJOR_VERSION)
-	ln -sf libSista.dylib.$(MAJOR_VERSION) $(PREFIX)/lib/libSista.dylib
-	ln -sf libSista_api.dylib.$(FULL_VERSION) $(PREFIX)/lib/libSista_api.dylib.$(MAJOR_VERSION)
-	ln -sf libSista_api.dylib.$(MAJOR_VERSION) $(PREFIX)/lib/libSista_api.dylib
-	install -m 644 libSista.a $(PREFIX)/lib/
-	install -m 644 libSista_api.a $(PREFIX)/lib/
-	install -d $(PREFIX)/include/sista
-	install -m 644 include/sista/*.hpp $(PREFIX)/include/sista/
-	install -m 644 include/sista/*.h $(PREFIX)/include/sista/
+	$(INSTALL_DATA) libSista.dylib.$(FULL_VERSION) $(DESTDIR)$(libdir)/
+	$(INSTALL_DATA) libSista_api.dylib.$(FULL_VERSION) $(DESTDIR)$(libdir)/
+	ln -sf libSista.dylib.$(FULL_VERSION) $(DESTDIR)$(libdir)/libSista.dylib.$(MAJOR_VERSION)
+	ln -sf libSista.dylib.$(MAJOR_VERSION) $(DESTDIR)$(libdir)/libSista.dylib
+	ln -sf libSista_api.dylib.$(FULL_VERSION) $(DESTDIR)$(libdir)/libSista_api.dylib.$(MAJOR_VERSION)
+	ln -sf libSista_api.dylib.$(MAJOR_VERSION) $(DESTDIR)$(libdir)/libSista_api.dylib
+	$(INSTALL_DATA) libSista.a $(DESTDIR)$(libdir)/
+	$(INSTALL_DATA) libSista_api.a $(DESTDIR)$(libdir)/
+	$(INSTALL_DATA) include/sista/*.hpp $(DESTDIR)$(includedir)/sista/
+	$(INSTALL_DATA) include/sista/*.h $(DESTDIR)$(includedir)/sista/
 
 uninstall:
-	rm -f $(PREFIX)/lib/libSista.dylib
-	rm -f $(PREFIX)/lib/libSista.dylib.*
-	rm -f $(PREFIX)/lib/libSista_api.dylib
-	rm -f $(PREFIX)/lib/libSista_api.dylib.*
-	rm -f $(PREFIX)/lib/libSista.a
-	rm -f $(PREFIX)/lib/libSista_api.a
-	rm -rf $(PREFIX)/include/sista
+	rm -f $(DESTDIR)$(libdir)/libSista.dylib
+	rm -f $(DESTDIR)$(libdir)/libSista.dylib.*
+	rm -f $(DESTDIR)$(libdir)/libSista_api.dylib
+	rm -f $(DESTDIR)$(libdir)/libSista_api.dylib.*
+	rm -f $(DESTDIR)$(libdir)/libSista.a
+	rm -f $(DESTDIR)$(libdir)/libSista_api.a
+	rm -rf $(DESTDIR)$(includedir)/sista $(DESTDIR)$(docdir)
 else
-install: libSista.so libSista.a libSista_api.so libSista_api.a
+install: libSista.so libSista.a libSista_api.so libSista_api.a installdirs
 	@echo "Staged install to '$(DESTDIR)$(PREFIX)' (use DESTDIR for packaging)"
-	install -d $(DESTDIR)$(LIBDIR)
-	install -m 644 libSista.so.$(FULL_VERSION) $(DESTDIR)$(LIBDIR)/
-	install -m 644 libSista_api.so.$(FULL_VERSION) $(DESTDIR)$(LIBDIR)/
-	ln -sf libSista_api.so.$(FULL_VERSION) $(DESTDIR)$(LIBDIR)/libSista_api.so.$(MAJOR_VERSION)
-	ln -sf libSista_api.so.$(MAJOR_VERSION) $(DESTDIR)$(LIBDIR)/libSista_api.so
-	ln -sf libSista.so.$(FULL_VERSION) $(DESTDIR)$(LIBDIR)/libSista.so.$(MAJOR_VERSION)
-	ln -sf libSista.so.$(MAJOR_VERSION) $(DESTDIR)$(LIBDIR)/libSista.so
-	install -m 644 libSista.a $(DESTDIR)$(LIBDIR)/
-	install -m 644 libSista_api.a $(DESTDIR)$(LIBDIR)/
-	install -d $(DESTDIR)$(PREFIX)/include/sista
-	install -m 644 include/sista/*.hpp $(DESTDIR)$(PREFIX)/include/sista/ || true
-	install -m 644 include/sista/*.h $(DESTDIR)$(PREFIX)/include/sista/ || true
+	$(INSTALL_DATA) libSista.so.$(FULL_VERSION) $(DESTDIR)$(libdir)/
+	$(INSTALL_DATA) libSista_api.so.$(FULL_VERSION) $(DESTDIR)$(libdir)/
+	ln -sf libSista_api.so.$(FULL_VERSION) $(DESTDIR)$(libdir)/libSista_api.so.$(MAJOR_VERSION)
+	ln -sf libSista_api.so.$(MAJOR_VERSION) $(DESTDIR)$(libdir)/libSista_api.so
+	ln -sf libSista.so.$(FULL_VERSION) $(DESTDIR)$(libdir)/libSista.so.$(MAJOR_VERSION)
+	ln -sf libSista.so.$(MAJOR_VERSION) $(DESTDIR)$(libdir)/libSista.so
+	$(INSTALL_DATA) libSista.a $(DESTDIR)$(libdir)/
+	$(INSTALL_DATA) libSista_api.a $(DESTDIR)$(libdir)/
+	$(INSTALL_DATA) include/sista/*.hpp $(DESTDIR)$(includedir)/sista/ || true
+	$(INSTALL_DATA) include/sista/*.h $(DESTDIR)$(includedir)/sista/ || true
 	# write ld.so config into the package tree (do not modify the real system)
 	install -d $(DESTDIR)/etc/ld.so.conf.d
-	printf '%s\n' '$(LIBDIR)' > $(DESTDIR)/etc/ld.so.conf.d/sista.conf
+	printf '%s\n' '$(libdir)' > $(DESTDIR)/etc/ld.so.conf.d/sista.conf
 	# only update the real system if DESTDIR is empty (interactive install)
 	if [ -z "$(DESTDIR)" ]; then \
 	  if command -v sudo >/dev/null 2>&1; then \
-	    echo "$(LIBDIR)" | sudo tee /etc/ld.so.conf.d/sista.conf; \
+	    echo "$(libdir)" | sudo tee /etc/ld.so.conf.d/sista.conf; \
 	    sudo ldconfig || true; \
 	  else \
-	    echo "$(LIBDIR)" | tee /etc/ld.so.conf.d/sista.conf; \
+	    echo "$(libdir)" | tee /etc/ld.so.conf.d/sista.conf; \
 	    ldconfig || true; \
 	  fi \
 	fi
 
 uninstall:
-	rm -f $(DESTDIR)$(LIBDIR)/libSista.so
-	rm -f $(DESTDIR)$(LIBDIR)/libSista.so.*
-	rm -f $(DESTDIR)$(LIBDIR)/libSista_api.so
-	rm -f $(DESTDIR)$(LIBDIR)/libSista_api.so.*
-	rm -f $(DESTDIR)$(LIBDIR)/libSista.a
-	rm -f $(DESTDIR)$(LIBDIR)/libSista_api.a
-	rm -rf $(DESTDIR)$(PREFIX)/include/sista
+	rm -f $(DESTDIR)$(libdir)/libSista.so
+	rm -f $(DESTDIR)$(libdir)/libSista.so.*
+	rm -f $(DESTDIR)$(libdir)/libSista_api.so
+	rm -f $(DESTDIR)$(libdir)/libSista_api.so.*
+	rm -f $(DESTDIR)$(libdir)/libSista.a
+	rm -f $(DESTDIR)$(libdir)/libSista_api.a
+	rm -rf $(DESTDIR)$(includedir)/sista $(DESTDIR)$(docdir)
 	rm -f $(DESTDIR)/etc/ld.so.conf.d/sista.conf
 	if [ -z "$(DESTDIR)" ]; then \
 	  if command -v sudo >/dev/null 2>&1; then \
@@ -223,4 +318,61 @@ uninstall:
 	fi
 endif
 
-.PHONY: all objects objects_dynamic clean install uninstall sista_against_dynamic_lib_local sista_against_static_lib_local sista_against_dynamic_lib_shared sista_against_static_lib_shared
+ifeq ($(OS),Windows_NT)
+installdirs:
+	@if not exist "$(PREFIX)" mkdir "$(PREFIX)"
+	@if not exist "$(PREFIX)\lib" mkdir "$(PREFIX)\lib"
+	@if not exist "$(PREFIX)\include\sista" mkdir "$(PREFIX)\include\sista"
+	@if not exist "$(htmldir)" mkdir "$(htmldir)"
+	@if not exist "$(dvidir)" mkdir "$(dvidir)"
+	@if not exist "$(pdfdir)" mkdir "$(pdfdir)"
+	@if not exist "$(psdir)" mkdir "$(psdir)"
+	@if not exist "$(infodir)" mkdir "$(infodir)"
+
+install-html: html installdirs
+	xcopy /E /I /Y docs\html "$(htmldir)"
+
+install-strip: install
+	$(STRIP) "$(PREFIX)\lib\libSista.dll" "$(PREFIX)\lib\libSista_api.dll"
+
+installcheck:
+	$(MAKE) -B -C demo api-test-errors PREFIX="$(DESTDIR)$(PREFIX)" LIBDIR="$(DESTDIR)$(PREFIX)\lib"
+	set "PATH=$(DESTDIR)$(PREFIX)\lib;%PATH%" && demo\api-test-errors.exe
+else
+installdirs:
+	$(MKDIR_P) $(DESTDIR)$(libdir) $(DESTDIR)$(includedir)/sista
+	$(MKDIR_P) $(DESTDIR)$(htmldir) $(DESTDIR)$(dvidir) $(DESTDIR)$(pdfdir) $(DESTDIR)$(psdir) $(DESTDIR)$(infodir)
+
+install-html: html installdirs
+	cp -R docs/html/. $(DESTDIR)$(htmldir)/
+
+ifeq "$(shell uname -s)" "Darwin"
+install-strip: install
+	$(STRIP) -x $(DESTDIR)$(libdir)/libSista.dylib.$(FULL_VERSION) $(DESTDIR)$(libdir)/libSista_api.dylib.$(FULL_VERSION)
+
+installcheck:
+	$(MAKE) -B -C demo api-test-errors PREFIX="$(DESTDIR)$(prefix)" LIBDIR="$(DESTDIR)$(libdir)"
+	DYLD_LIBRARY_PATH="$(DESTDIR)$(libdir)" ./demo/api-test-errors
+else
+install-strip: install
+	$(STRIP) --strip-unneeded $(DESTDIR)$(libdir)/libSista.so.$(FULL_VERSION) $(DESTDIR)$(libdir)/libSista_api.so.$(FULL_VERSION)
+
+installcheck:
+	$(MAKE) -B -C demo api-test-errors PREFIX="$(DESTDIR)$(prefix)" LIBDIR="$(DESTDIR)$(libdir)"
+	LD_LIBRARY_PATH="$(DESTDIR)$(libdir)" ./demo/api-test-errors
+endif
+endif
+
+install-info: info installdirs
+	@echo 'Sista has no Info manual to install.'
+
+install-dvi: dvi installdirs
+	@echo 'Sista has no DVI manual to install.'
+
+install-pdf: pdf installdirs
+	@echo 'Sista has no PDF manual to install.'
+
+install-ps: ps installdirs
+	@echo 'Sista has no PostScript manual to install.'
+
+.PHONY: all build check test info dvi html pdf ps dist objects objects_dynamic mostlyclean clean distclean maintainer-clean install install-html install-dvi install-pdf install-ps install-info install-strip uninstall installcheck installdirs sista_against_dynamic_lib_local sista_against_static_lib_local sista_against_dynamic_lib_shared sista_against_static_lib_shared

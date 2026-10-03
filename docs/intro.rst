@@ -14,6 +14,7 @@ To use the ``Sista`` library, you can either include it as a source library or i
 
     git clone https://github.com/FLAK-ZOSO/Sista
     cd Sista
+    make
     sudo make install
 
 This will install the ``Sista`` library in your system library path, allowing you to link against it when compiling your project.
@@ -24,6 +25,7 @@ Since v2.2.0, Sista is available as a shared library on Windows using MinGW. To 
 
     git clone https://github.com/FLAK-ZOSO/Sista
     cd Sista
+    make
     # Make sure to run this in an elevated shell (as administrator) since 'sudo' is not available in MinGW/MSYS2
     make install
 
@@ -243,7 +245,9 @@ In case you have ``make`` installed, it's easier to directly use it in pair with
 
 .. code-block:: bash
 
-    make
+    make sista
+
+Plain ``make`` builds the core and C API libraries. The explicit ``sista`` target builds the example executable used in this walkthrough.
 
 ``Execution``
 --------------------

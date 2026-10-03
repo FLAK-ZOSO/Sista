@@ -2,21 +2,23 @@ IMPLEMENTATIONS = ../include/sista/ansi.cpp ../include/sista/border.cpp ../inclu
 OBJECTS = ansi.o border.o coordinates.o cursor.o field.o pawn.o
 ifeq ($(OS),Windows_NT)
 	PREFIX ?= C:\Program Files\Sista
+	LIBDIR ?= $(PREFIX)\lib
 	INCLUDE_PATH_DIRECTIVE = -I"$(PREFIX)\include"
-	LD_LIBRARY_PATH_DIRECTIVE = -L"$(PREFIX)\lib"
+	LD_LIBRARY_PATH_DIRECTIVE = -L"$(LIBDIR)"
 else
 	PREFIX ?= /usr/local
+	LIBDIR ?= $(PREFIX)/lib
 	INCLUDE_PATH_DIRECTIVE = -I$(PREFIX)/include
-	LD_LIBRARY_PATH_DIRECTIVE = -L$(PREFIX)/lib
+	LD_LIBRARY_PATH_DIRECTIVE = -L$(LIBDIR)
 endif
 ifeq "$(shell uname -s)" "Darwin"
-	DYLD_LIBRARY_PATH_DIRECTIVE = -Wl,-rpath,$(PREFIX)/lib
+	DYLD_LIBRARY_PATH_DIRECTIVE = -Wl,-rpath,$(LIBDIR)
 endif
 
 all: header-test color-string colors24-bit \
 	colors256 conflictTest resetAttribute \
 	screen-mode swapTest verticalTest pawnsCountTest \
-	attributes clean_objects
+	attributes mostlyclean
 
 attributes.o: attributes.cpp
 	g++ -std=c++17 -Wall -g -c attributes.cpp
@@ -46,7 +48,7 @@ shared-test-static.o:
 	g++ -std=c++17 -Wall -Wno-narrowing -Wno-sign-compare -g $(INCLUDE_PATH_DIRECTIVE) -c shared-test-static.cpp
 
 shared-test-static: shared-test-static.o
-	g++ -static -o shared-test-static shared-test-static.o $(LD_LIBRARY_PATH_DIRECTIVE) -lSista
+	g++ -o shared-test-static shared-test-static.o $(LD_LIBRARY_PATH_DIRECTIVE) "$(LIBDIR)/libSista.a"
 
 %.o: ../include/sista/%.cpp
 	g++ -std=c++17 -Wall -g -c $< -o $@
@@ -119,12 +121,21 @@ api-test-errors.o: api-test-errors.c
 api-test-errors: api-test-errors.o
 	g++ -Wall -g -o api-test-errors api-test-errors.o -lSista_api -lSista $(LD_LIBRARY_PATH_DIRECTIVE) $(DYLD_LIBRARY_PATH_DIRECTIVE)
 
-clean_objects:
+mostlyclean:
 	rm -f *.o
 
-clean: clean_objects
+clean_objects: mostlyclean
+
+clean: mostlyclean
 	rm -f colors24-bit colors256 conflictTest resetAttribute screen-mode swapTest verticalTest pawnsCountTest
 	rm -f header-test shared-test shared-test-static
 	rm -f api-test api-test-border api-test-multiple-styles api-test-swap api-test-cursor api-test-errors attributes
 
-.PHONY: all clean_objects clean
+distclean: clean
+
+maintainer-clean:
+	@echo 'This command is intended for maintainers to use; it'
+	@echo 'deletes files that may need special tools to rebuild.'
+	$(MAKE) distclean
+
+.PHONY: all mostlyclean clean_objects clean distclean maintainer-clean

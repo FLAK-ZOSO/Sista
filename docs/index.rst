@@ -70,11 +70,25 @@ As a shared library
 
 To use Sista as a shared library, you will need to install it in your system library path. This is the preferred inclusion method in Linux for versions v`2.0.0` and later.
 
-To install Sista, you can use the provided Makefile in the repository. Simply run the following command in your terminal with administrative privileges:
+To install Sista, first build the shared and static core and C API libraries, then install them with administrative privileges:
 
 .. code-block:: bash
 
+    make
     sudo make install
+
+Plain ``make`` is equivalent to ``make all`` and ``make build``. The repository's terminal example is built separately with ``make sista``.
+
+The Makefile also provides the conventional GNU targets:
+
+* ``check`` and ``test`` build and run the self-test;
+* ``mostlyclean``, ``clean``, ``distclean``, and ``maintainer-clean`` provide progressively broader cleanup;
+* ``installdirs``, ``install``, ``install-strip``, ``installcheck``, and ``uninstall`` manage and verify installations. ``install`` preserves debugging information, while ``install-strip`` strips installed shared libraries without modifying the build tree; static archives retain their debugging information;
+* ``html`` and ``install-html`` build and install the Doxygen reference;
+* ``TAGS`` creates an Emacs tags table;
+* ``dist`` creates a versioned source archive.
+
+The ``info``, ``dvi``, ``pdf``, and ``ps`` targets, together with their ``install-*`` counterparts, succeed without producing files because Sista does not provide manuals in those formats.
 
 On most Linux and macOS systems, `/usr/local/lib` is a standard library path and no additional configuration is needed after installation. If you install Sista to a different location, you may need to adjust your library search path (e.g., by setting `LD_LIBRARY_PATH` on Linux or `DYLD_LIBRARY_PATH` on macOS).
 
@@ -111,15 +125,15 @@ The equivalent command on MacOS to check if Sista is installed correctly is:
 
 .. code-block:: bash
 
-    otool -L /usr/local/lib/libSista.so
+    otool -L /usr/local/lib/libSista.dylib
 
 You can also link statically against Sista by using the following command:
 
 .. code-block:: bash
 
-    g++ -std=c++17 -o sista sista.cpp -static -lSista
+    g++ -std=c++17 -o sista sista.cpp /usr/local/lib/libSista.a
 
-This will create a statically linked executable that includes the Sista library, which can be useful if you want to distribute your application without requiring users to install Sista separately.
+This embeds Sista in the executable while leaving system dependencies such as the C++ runtime dynamically linked. Fully static executables are not supported on macOS and are often unsuitable on other platforms.
 
 If you need to uninstall Sista, you can run the following command in your terminal with administrative privileges:
 
@@ -131,6 +145,7 @@ If you want to use Sista as a shared library on Windows, you can follow the same
 
 .. code-block:: bash
 
+    make
     make install
 
 You can likely find a good example of a Makefile that dynamically links to the Sista shared library at `Inävjaga <https://github.com/FLAK-ZOSO/Inavjaga/blob/sista-v2.0.0/Makefile>`_.

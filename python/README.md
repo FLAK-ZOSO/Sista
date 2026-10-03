@@ -25,7 +25,14 @@ Before building the extension, ensure you have:
 
 1. Python development headers installed
 2. C++ compiler (g++, clang++, etc.)
-3. The Sista C++ library built and available
+3. The Sista C++ library built and installed, or available through custom compiler and linker search paths
+
+From the repository root, plain `make` builds the core and C API libraries; it no longer builds the terminal demo. A typical local installation is:
+
+```bash
+make
+sudo make install
+```
 
 ### Building Process
 

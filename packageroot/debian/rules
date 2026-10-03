@@ -1,10 +1,10 @@
 #!/usr/bin/make -f
 clean:
-	make -C .. clean
+	$(MAKE) -C .. clean
 	dh_clean
 
 build:
-	make -C .. build
+	$(MAKE) -C .. build
 
 # https://www.debian.org/doc/manuals/debmake-doc/ch06.en.html#rules
 build-arch: build
@@ -12,7 +12,7 @@ build-indep: build
 
 install:
 	# install into staging tree: PREFIX must be the real install prefix; DESTDIR is the package root
-	make -C .. install PREFIX=/usr DESTDIR=$(CURDIR)/debian/sista
+	$(MAKE) -C .. install PREFIX=/usr DESTDIR=$(CURDIR)/debian/sista
 
 	# remove any ld.so config created by upstream install (packaging must not modify ld.so search path)
 	-rm -f $(CURDIR)/debian/sista/etc/ld.so.conf.d/sista.conf
@@ -45,3 +45,5 @@ binary: install
 
 binary-arch: binary
 binary-indep: binary
+
+.PHONY: clean build build-arch build-indep install install-arch install-indep binary binary-arch binary-indep

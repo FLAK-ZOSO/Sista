@@ -1,8 +1,8 @@
 Name:           sista
 Version:        %{?sista_version}%{!?sista_version:3.0.3}
 Release:        %{?sista_release}%{!?sista_release:1}%{?dist}
-# The upstream build does not emit debug information. Disable automatic debug
-# subpackage generation rather than failing on an empty debugsource file.
+# Shared libraries are stripped by install-strip below. Disable automatic
+# debug subpackages rather than failing on an empty debugsource file.
 %global debug_package %{nil}
 Summary:        Lightweight C++ library for terminal games and animations
 License:        GPL-3.0-only
@@ -25,7 +25,7 @@ make build FULL_VERSION=%{?sista_full_version}%{!?sista_full_version:%{version}}
 
 %install
 rm -rf %{buildroot}
-make install FULL_VERSION=%{?sista_full_version}%{!?sista_full_version:%{version}} PREFIX=%{_prefix} LIBDIR=%{_libdir} DESTDIR=%{buildroot}
+make install-strip FULL_VERSION=%{?sista_full_version}%{!?sista_full_version:%{version}} PREFIX=%{_prefix} LIBDIR=%{_libdir} DESTDIR=%{buildroot}
 # RPM's dependency generator scans executable shared objects. The libraries
 # themselves need this mode too, so their SONAME Provides are recorded.
 find %{buildroot}%{_libdir} -type f -name '*.so.*' -exec chmod 755 {} +

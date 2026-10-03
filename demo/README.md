@@ -6,7 +6,7 @@ This directory contains a set of demo programs that showcase the features of the
 
 - `header-test`: A simple program that tests the usage from source of `Sista`
 - `shared-test`: A program that tests the shared library usage of `Sista` for dynamic linking
-- `shared-test-static`: A program that tests the shared library usage of `Sista` for static linking
+- `shared-test-static`: A program that links the Sista static archive while keeping system dependencies dynamic
 - `colors24-bit`: showcases the 24-bit color support
 - `colors256`: showcases the 256-color support
 - `conflictTest`: tests the conflict resolution features of `sista::SwappableField`
@@ -35,13 +35,19 @@ make
 
 All demos are compiled with debugging symbols enabled, which allows you to run them in a debugger if needed.
 
-To clean up the compiled objects and executables, you can run:
+To remove intermediate object files while keeping the demo executables, run:
+
+```bash
+make mostlyclean
+```
+
+To remove both object files and demo executables, run:
 
 ```bash
 make clean
 ```
 
-This will remove all object files and executables created during the build process, keeping the directory clean.
+`make distclean` and `make maintainer-clean` are also available as conventional cleanup targets; this directory has no additional generated configuration or maintainer files for them to remove.
 
 ### `shared-test`
 
@@ -49,6 +55,7 @@ The `shared-test` demo is built similarly, but it links against the `Sista` shar
 
 ```bash
 # Go to the main Sista/ directory, root of this repository
+make
 sudo make install
 ```
 
@@ -76,7 +83,7 @@ You can also verify if you can link statically against the library.
 make shared-test-static
 ```
 
-This will create the `shared-test-static` executable, which you can [also after uninstalling the library](https://stackoverflow.com/questions/311882/what-do-statically-linked-and-dynamically-linked-mean).
+This creates `shared-test-static` using the installed `libSista.a` archive. It does not need a Sista shared library at runtime; system dependencies such as the C++ runtime remain dynamically linked.
 
 ### Uninstalling the library
 
