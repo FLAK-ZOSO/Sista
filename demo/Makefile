@@ -2,12 +2,14 @@ IMPLEMENTATIONS = ../include/sista/ansi.cpp ../include/sista/border.cpp ../inclu
 OBJECTS = ansi.o border.o coordinates.o cursor.o field.o pawn.o
 ifeq ($(OS),Windows_NT)
 	PREFIX ?= C:\Program Files\Sista
+	LIBDIR ?= $(PREFIX)\lib
 	INCLUDE_PATH_DIRECTIVE = -I"$(PREFIX)\include"
-	LD_LIBRARY_PATH_DIRECTIVE = -L"$(PREFIX)\lib"
+	LD_LIBRARY_PATH_DIRECTIVE = -L"$(LIBDIR)"
 else
 	PREFIX ?= /usr/local
+	LIBDIR ?= $(PREFIX)/lib
 	INCLUDE_PATH_DIRECTIVE = -I$(PREFIX)/include
-	LD_LIBRARY_PATH_DIRECTIVE = -L$(PREFIX)/lib
+	LD_LIBRARY_PATH_DIRECTIVE = -L$(LIBDIR)
 endif
 ifeq "$(shell uname -s)" "Darwin"
 	DYLD_LIBRARY_PATH_DIRECTIVE = -Wl,-rpath,$(PREFIX)/lib
