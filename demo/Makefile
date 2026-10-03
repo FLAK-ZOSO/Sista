@@ -12,7 +12,7 @@ else
 	LD_LIBRARY_PATH_DIRECTIVE = -L$(LIBDIR)
 endif
 ifeq "$(shell uname -s)" "Darwin"
-	DYLD_LIBRARY_PATH_DIRECTIVE = -Wl,-rpath,$(PREFIX)/lib
+	DYLD_LIBRARY_PATH_DIRECTIVE = -Wl,-rpath,$(LIBDIR)
 endif
 
 all: header-test color-string colors24-bit \
@@ -48,7 +48,7 @@ shared-test-static.o:
 	g++ -std=c++17 -Wall -Wno-narrowing -Wno-sign-compare -g $(INCLUDE_PATH_DIRECTIVE) -c shared-test-static.cpp
 
 shared-test-static: shared-test-static.o
-	g++ -o shared-test-static shared-test-static.o $(LD_LIBRARY_PATH_DIRECTIVE) "$(PREFIX)/lib/libSista.a"
+	g++ -o shared-test-static shared-test-static.o $(LD_LIBRARY_PATH_DIRECTIVE) "$(LIBDIR)/libSista.a"
 
 %.o: ../include/sista/%.cpp
 	g++ -std=c++17 -Wall -g -c $< -o $@
