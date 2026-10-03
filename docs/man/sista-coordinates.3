@@ -1,0 +1,44 @@
+.TH SISTA-COORDINATES 3 "2026-10-04" "Sista 3.0.3"
+.SH NAME
+sista-coordinates \- represent a row and column in a Sista field
+.SH LIBRARY
+Sista C++ library (libSista, \fI-lSista\fP)
+.SH SYNOPSIS
+.nf
+.B #include <sista/coordinates.hpp>
+
+.B "struct sista::Coordinates {"
+.B "    unsigned short y;"
+.B "    unsigned short x;"
+.B "    Coordinates();"
+.B "    Coordinates(unsigned short y, unsigned short x);"
+.B "    static Coordinates fromPair(const std::pair<unsigned short,"
+.B "                              unsigned short> &pair);"
+.B "    std::pair<unsigned short, unsigned short> toPair() const;"
+.B "};"
+.fi
+.SH DESCRIPTION
+.B Coordinates
+stores a zero-based row in
+.B y
+and a zero-based column in
+.BR x .
+It supports equality, row-major ordering, arithmetic, conversion to and
+from
+.BR std::pair ,
+and hashing for standard unordered containers.
+.SH RETURN VALUE
+Arithmetic operators return coordinates and do not enforce field bounds.
+.SH CAVEATS
+The members are unsigned.
+Subtraction can underflow, and arithmetic can produce a coordinate
+invalid for a particular field.
+.SH EXAMPLES
+.nf
+sista::Coordinates position(2, 3);
+auto pair = position.toPair();
+.fi
+.SH SEE ALSO
+.BR sista-field (3),
+.BR sista-pawn (3),
+.BR sista (7)

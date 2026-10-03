@@ -1,0 +1,48 @@
+.TH SISTA-PAWN 3 "2026-10-04" "Sista 3.0.3"
+.SH NAME
+sista-pawn \- represent a styled object in a field
+.SH LIBRARY
+Sista C++ library (libSista, \fI-lSista\fP)
+.SH SYNOPSIS
+.nf
+.B #include <sista/pawn.hpp>
+
+.B "sista::Pawn::Pawn(char symbol, const Coordinates &position,"
+.B "                  const ANSISettings &settings);"
+.B "void sista::Pawn::setCoordinates(const Coordinates &position);"
+.B "Coordinates sista::Pawn::getCoordinates() const;"
+.B "void sista::Pawn::setSettings(const ANSISettings &settings);"
+.B "ANSISettings sista::Pawn::getSettings() const;"
+.B "void sista::Pawn::setSymbol(char symbol);"
+.B "char sista::Pawn::getSymbol() const;"
+.B "virtual void sista::Pawn::print() const;"
+.fi
+.SH DESCRIPTION
+.B Pawn
+combines a character, coordinates, and ANSI settings.
+It is designed to be subclassed for application-specific objects.
+.PP
+Movement is managed by
+.BR Field .
+Changing a pawn's coordinates or symbol directly does not update or
+redraw an associated field.
+.SH RETURN VALUE
+Getters return the stored property.
+Setters and
+.B print()
+return no value.
+.SH CAVEATS
+Fields normally retain pawns through
+.BR std::shared_ptr<Pawn> .
+Do not give a field a non-owning pointer disguised as a shared owner.
+.SH EXAMPLES
+.nf
+auto pawn = std::make_shared<sista::Pawn>(
+    '@', sista::Coordinates(2, 3), sista::ANSISettings());
+field.addPawn(pawn);
+.fi
+.SH SEE ALSO
+.BR sista-ansi (3),
+.BR sista-coordinates (3),
+.BR sista-field (3),
+.BR sista (7)

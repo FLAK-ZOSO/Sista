@@ -1,0 +1,61 @@
+.TH SISTA 7 "2026-10-04" "Sista 3.0.3"
+.SH NAME
+sista \- terminal building blocks for games and animations
+.SH DESCRIPTION
+Sista is a C++17 library providing ANSI styling, cursor control,
+coordinates, borders, fields, and movable pawns.
+The umbrella header
+.B <sista/sista.hpp>
+includes the complete C++ interface.
+.PP
+The section-3 pages document interface contracts and common usage.
+The installed headers are authoritative for complete declarations.
+.SH LINKING
+Link C++ programs with:
+.PP
+.nf
+c++ program.cpp \-lSista
+.fi
+.PP
+Compile C programs with a C compiler, then link their objects with:
+.PP
+.nf
+c++ program.o \-lSista_api \-lSista
+.fi
+.PP
+The static archives contain Sista objects only; using them does not
+request a fully static C++ runtime or C library.
+.SH COMPONENTS
+.TP
+.BR sista-ansi (3)
+Colors, attributes, and reusable ANSI settings.
+.TP
+.BR sista-border (3)
+Styled border cells.
+.TP
+.BR sista-coordinates (3)
+Rows, columns, arithmetic, ordering, and hashing.
+.TP
+.BR sista-cursor (3)
+Screen clearing, cursor visibility, positioning, and erasure.
+.TP
+.BR sista-field (3)
+Fields, occupancy, movement, rendering, and deferred swaps.
+.TP
+.BR sista-pawn (3)
+Pawn appearance, position, and field ownership.
+.TP
+.BR sista-c-api (3)
+Opaque handles, ownership, status codes, and diagnostics for C callers.
+.TP
+.BR sista-version (3)
+Compile-time and runtime version information.
+.SH SEE ALSO
+.BR sista-ansi (3),
+.BR sista-border (3),
+.BR sista-c-api (3),
+.BR sista-coordinates (3),
+.BR sista-cursor (3),
+.BR sista-field (3),
+.BR sista-pawn (3),
+.BR sista-version (3)

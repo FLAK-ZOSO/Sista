@@ -1,38 +1,102 @@
-.TH SISTA-C-API 3 "" "Sista" "Library Functions Manual"
+.TH SISTA-C-API 3 "2026-10-04" "Sista 3.0.3"
 .SH NAME
-sista-c-api \- C interface to the Sista library
+sista-c-api \- use Sista from C
+.SH LIBRARY
+Sista C API library (libSista_api, \fI-lSista_api -lSista\fP)
 .SH SYNOPSIS
 .nf
 .B #include <sista/api.h>
-.PP
-.B cc \-c program.c
-.B c++ program.o \-lSista_api \-lSista
+
+.B "FieldHandler_t sista_createField(size_t width, size_t height);"
+.B "int sista_printField(FieldHandler_t field, char border);"
+.B "int sista_destroyField(FieldHandler_t field);"
+.B "SwappableFieldHandler_t sista_createSwappableField(size_t width,"
+.B "                                                      size_t height);"
+.B "int sista_printSwappableField(SwappableFieldHandler_t field,"
+.B "                                char border);"
+.B "int sista_destroySwappableField(SwappableFieldHandler_t field);"
+.B "int sista_resetAnsi();"
+.B "int sista_setForegroundColor(enum sista_ForegroundColor color);"
+.B "int sista_setBackgroundColor(enum sista_BackgroundColor color);"
+.B "int sista_setAttribute(enum sista_Attribute attribute);"
+.B "int sista_resetAttribute(enum sista_Attribute attribute);"
+.B "int sista_setForegroundColorRGB(const struct sista_RGBColor *color);"
+.B "int sista_setBackgroundColorRGB(const struct sista_RGBColor *color);"
+.B "ANSISettingsHandler_t sista_createANSISettings("
+.B "    enum sista_ForegroundColor foreground,"
+.B "    enum sista_BackgroundColor background,"
+.B "    enum sista_Attribute attribute);"
+.B "ANSISettingsHandler_t sista_createANSISettingsRGB("
+.B "    struct sista_RGBColor foreground,"
+.B "    struct sista_RGBColor background,"
+.B "    enum sista_Attribute attribute);"
+.B "int sista_applyANSISettings(ANSISettingsHandler_t settings);"
+.B "int sista_destroyANSISettings(ANSISettingsHandler_t settings);"
+.B "BorderHandler_t sista_createBorder(char symbol,"
+.B "                                   ANSISettingsHandler_t settings);"
+.B "int sista_destroyBorder(BorderHandler_t border);"
+.B "int sista_printFieldWithBorder(FieldHandler_t field,"
+.B "                               BorderHandler_t border);"
+.B "int sista_printSwappableFieldWithBorder(SwappableFieldHandler_t field,"
+.B "                                          BorderHandler_t border);"
+.B "PawnHandler_t sista_createPawnInField(FieldHandler_t field,"
+.B "                                       char symbol,"
+.B "                                       ANSISettingsHandler_t settings,"
+.B "    struct sista_Coordinates position);"
+.B "PawnHandler_t sista_createPawnInSwappableField("
+.B "    SwappableFieldHandler_t field, char symbol,"
+.B "    ANSISettingsHandler_t settings,"
+.B "    struct sista_Coordinates position);"
+.B "int sista_getLastErrorCode();"
+.B "const char *sista_getLastErrorMessage();"
+.B "int sista_movePawn(FieldHandler_t field, PawnHandler_t pawn,"
+.B "                   struct sista_Coordinates destination);"
+.B "int sista_addPawnToSwap(SwappableFieldHandler_t field,"
+.B "                        PawnHandler_t pawn,"
+.B "                        struct sista_Coordinates destination);"
+.B "int sista_applySwaps(SwappableFieldHandler_t field);"
+.B "int sista_clearScreen(int spaces);"
+.B "CursorHandler_t sista_createCursor();"
+.B "int sista_moveCursor(CursorHandler_t cursor,"
+.B "                     enum sista_MoveCursor direction,"
+.B "                     unsigned short amount);"
+.B "int sista_cursorGoTo(CursorHandler_t cursor, unsigned short y,"
+.B "                     unsigned short x);"
+.B "int sista_cursorGoToCoordinates(CursorHandler_t cursor,"
+.B "                                struct sista_Coordinates position);"
+.B "int sista_destroyCursor(CursorHandler_t cursor);"
+.B "const char *sista_getVersion();"
+.B "int sista_getVersionMajor();"
+.B "int sista_getVersionMinor();"
+.B "int sista_getVersionPatch();"
 .fi
 .SH DESCRIPTION
-The C API exposes Sista objects through opaque handle types such as
-.BR FieldHandler_t ,
-.BR PawnHandler_t ,
-and
-.BR ANSISettingsHandler_t .
-Creation functions return a handle, and matching destruction functions
-release resources owned by that handle.
+The C interface represents Sista objects with opaque handles.
+Creation functions return handles; matching destruction functions release
+objects owned by the caller.
 .PP
-Functions that perform an operation return a value from
-.BR enum\ sista_ErrorCode .
+Pawns created in a field are owned by that field and must not be
+destroyed by the caller.
+The installed header is the complete declaration and ownership reference.
+.SH RETURN VALUE
+Handle-creation functions return
+.B NULL
+on failure.
+Operations return a value from
+.BR "enum sista_ErrorCode" ;
 .B SISTA_OK
 indicates success.
-After a failure,
+.SH ERRORS
+After a failed call,
 .B sista_getLastErrorCode()
-and
+returns the error code and
 .B sista_getLastErrorMessage()
-provide diagnostic information.
-.PP
-The installed
-.B <sista/api.h>
-header is authoritative for ownership rules and individual declarations.
-In particular, consult the declaration of each pawn-creation function to see
-whether the returned pawn remains owned by its field.
-.SH EXAMPLE
+returns a static description valid until the next call on the same thread
+that updates the error state.
+.SH ATTRIBUTES
+The last-error state is thread-local.
+Object handles are not implicitly synchronized.
+.SH EXAMPLES
 .nf
 #include <stdio.h>
 #include <sista/api.h>
@@ -44,21 +108,21 @@ int main(void)
         fprintf(stderr, "%s\en", sista_getLastErrorMessage());
         return 1;
     }
-
-    if (sista_printField(field, '#') != SISTA_OK) {
+    if (sista_printField(field, '#') != SISTA_OK)
         fprintf(stderr, "%s\en", sista_getLastErrorMessage());
-        sista_destroyField(field);
-        return 1;
-    }
-
     return sista_destroyField(field) == SISTA_OK ? 0 : 1;
 }
 .fi
-.SH THREAD SAFETY
-Error information is intended to describe the most recent C API failure.
-Callers should consume it immediately after the failing call and should not
-assume that one thread's error state describes another thread's operation.
+.PP
+Compile and link C source with the C++ linker driver:
+.PP
+.nf
+cc \-c example.c
+c++ example.o \-lSista_api \-lSista
+.fi
 .SH SEE ALSO
-.BR sista (3),
 .BR sista-ansi (3),
-.BR sista-field (3)
+.BR sista-cursor (3),
+.BR sista-field (3),
+.BR sista-version (3),
+.BR sista (7)

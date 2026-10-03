@@ -1,51 +1,50 @@
-.TH SISTA-FIELD 3 "" "Sista" "Library Functions Manual"
+.TH SISTA-FIELD 3 "2026-10-04" "Sista 3.0.3"
 .SH NAME
-sista-field \- fields, coordinates, borders, and pawns
+sista-field \- manage terminal fields and pawn movement
+.SH LIBRARY
+Sista C++ library (libSista, \fI-lSista\fP)
 .SH SYNOPSIS
 .nf
 .B #include <sista/field.hpp>
-.B #include <sista/pawn.hpp>
-.B #include <sista/border.hpp>
-.B #include <sista/coordinates.hpp>
-.PP
-.B c++ program.cpp \-lSista
+
+.B "sista::Field::Field(int width, int height);"
+.B "void sista::Field::addPawn(std::shared_ptr<Pawn> pawn);"
+.B "void sista::Field::movePawn(Pawn *pawn,"
+.B "                            const Coordinates &destination);"
+.B "void sista::Field::print() const;"
+.B "void sista::Field::print(char border) const;"
+.B "sista::SwappableField::SwappableField(int width, int height);"
+.B "void sista::SwappableField::addPawnToSwap(Pawn *pawn,"
+.B "    const Coordinates &destination);"
+.B "void sista::SwappableField::applySwaps();"
 .fi
 .SH DESCRIPTION
 .B Field
-models a rectangular terminal area containing pawns.
-A
-.B Pawn
-has a character, coordinates, and ANSI settings.
-A
-.B Border
-describes the character and appearance used around a printed field.
-.PP
-Pawns are normally owned through
-.B std::shared_ptr<Pawn>.
-Adding a pawn associates it with the field; movement and removal operations
-must use a pawn that belongs to the relevant field.
+models a rectangular area containing shared pawns.
+Movement, occupancy checks, lookup, removal, and rendering operate
+relative to that area.
 .PP
 .B SwappableField
-extends
-.B Field
-with deferred movement.
-Call
+adds deferred movement.
+Queue each intended destination with
 .B addPawnToSwap()
-for each intended movement and then
-.B applySwaps()
-to apply the batch.
-This is useful when several pawns move during the same frame.
-.SH COORDINATES
-.B Coordinates
-stores a row and column as y and x.
-Field dimensions and bounds should be checked before movement.
-The
+and commit the batch with
+.BR applySwaps() .
+.PP
 .B Effect::PACMAN
-movement effect wraps out-of-bounds coordinates, while
+wraps movement at field edges.
 .B Effect::MATRIX
-turns horizontal overflow into movement between adjacent rows.
-Matrix movement fails if the resulting row is outside the field.
-.SH EXAMPLE
+turns horizontal overflow into movement between adjacent rows and fails
+if the resulting row is outside the field.
+.SH ERRORS
+Invalid operations throw standard exceptions.
+.B std::invalid_argument
+reports null pawns, occupied destinations, or missing pawns.
+.B std::out_of_range
+and
+.B std::range_error
+report invalid coordinates or movement.
+.SH EXAMPLES
 .nf
 #include <memory>
 #include <sista/sista.hpp>
@@ -55,11 +54,12 @@ int main()
     sista::Field field(20, 8);
     auto pawn = std::make_shared<sista::Pawn>(
         '@', sista::Coordinates(2, 3), sista::ANSISettings());
-
     field.addPawn(pawn);
     field.print('#');
 }
 .fi
 .SH SEE ALSO
-.BR sista (3),
-.BR sista-ansi (3)
+.BR sista-border (3),
+.BR sista-coordinates (3),
+.BR sista-pawn (3),
+.BR sista (7)

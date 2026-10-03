@@ -1,0 +1,50 @@
+.TH SISTA-CURSOR 3 "2026-10-04" "Sista 3.0.3"
+.SH NAME
+sista-cursor \- clear a terminal and move its cursor
+.SH LIBRARY
+Sista C++ library (libSista, \fI-lSista\fP)
+.SH SYNOPSIS
+.nf
+.B #include <sista/cursor.hpp>
+
+.B "void sista::clearScreen(bool spaces = true);"
+.B "sista::Cursor::Cursor();"
+.B "sista::Cursor::~Cursor();"
+.B "void sista::Cursor::goTo(unsigned short y, unsigned short x) const;"
+.B "void sista::Cursor::goTo(Coordinates position) const;"
+.B "void sista::Cursor::eraseScreen(EraseScreen mode) const;"
+.B "void sista::Cursor::eraseLine(EraseLine mode,"
+.B "                              bool move_cursor = true) const;"
+.B "void sista::Cursor::move(MoveCursor direction,"
+.B "                         unsigned short amount) const;"
+.fi
+.SH DESCRIPTION
+.B clearScreen()
+writes terminal clearing and positioning sequences.
+When
+.I spaces
+is false, it only returns the cursor to the top-left position.
+.PP
+Constructing
+.B Cursor
+hides the terminal cursor; destroying it shows the cursor again.
+Member functions provide absolute positioning, relative movement,
+erasure, and DEC or SCO save-and-restore commands.
+.SH RETURN VALUE
+These operations return no value.
+.SH CAVEATS
+Output is meaningful only on terminals that implement the emitted ANSI
+sequences.
+Keep cursor-owning objects scoped so their destructors restore visibility.
+.SH EXAMPLES
+.nf
+{
+    sista::Cursor cursor;
+    cursor.goTo(4, 10);
+    cursor.move(sista::MoveCursor::RIGHT, 2);
+}
+.fi
+.SH SEE ALSO
+.BR sista-ansi (3),
+.BR sista-coordinates (3),
+.BR sista (7)

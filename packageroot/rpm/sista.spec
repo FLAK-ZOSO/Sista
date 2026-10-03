@@ -43,7 +43,8 @@ rmdir --ignore-fail-on-non-empty %{buildroot}%{_sysconfdir} 2>/dev/null || :
 %{_libdir}/libSista_api.so
 %{_libdir}/libSista_api.so.*
 %{_libdir}/libSista_api.a
-%{_mandir}/man3/sista*.3*
+%{_mandir}/man3/*
+%{_mandir}/man7/sista.7*
 
 %changelog
 * Fri Jul 31 2026 FLAK-ZOSO <mattia.marchese.2006@gmail.com> - 3.0.3-1
