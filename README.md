@@ -21,15 +21,6 @@ sudo make install
 
 `make` (equivalently, `make all` or `make build`) builds the core and C API libraries in both shared and static forms, using the platform's shared-library format. Shared libraries dynamically link system dependencies. Static archives contain only Sista objects.
 
-The terminal demo is optional and can be built with `make sista`. It embeds Sista while dynamically linking system dependencies. `make sista_against_static_lib_local` explicitly links the local Sista archive with the same dependency policy.
-
-The Makefile follows the conventional cleanup target hierarchy:
-
-- `make mostlyclean` removes intermediate object files while preserving built libraries and the optional `sista` executable.
-- `make clean` removes every normal build output, including libraries and `sista`.
-- `make distclean` currently has the same effect as `clean` because Sista has no generated configuration files.
-- `make maintainer-clean` currently has the same file scope as `distclean`; it is provided for GNU Make compatibility.
-
 `make install` installs the libraries in the system library path and the headers in the system include path. This is the preferred inclusion method for versions v`3.0.0` and later. More on this in the [documentation](https://sista.readthedocs.io/en/latest/).
 
 ```bash
@@ -37,6 +28,26 @@ sudo make uninstall
 ```
 
 This will remove the installed files from the system library and include paths. The same disclaimer applies as above, you will need administrative privileges to run this command.
+
+### More GNU Make targets
+
+The terminal demo is optional and can be built with `make sista`. It embeds Sista while dynamically linking system dependencies. `make sista_against_static_lib_local` explicitly links the local Sista archive with the same dependency policy.
+
+The Makefile follows the conventional cleanup target hierarchy:
+
+- `make mostlyclean` removes intermediate object files while preserving built libraries and the optional `sista` executable.
+- `make clean` removes every normal build output, including libraries and `sista`.
+- `make distclean` additionally removes generated documentation.
+- `make maintainer-clean` additionally removes `TAGS` and distribution archives.
+
+Other standard GNU Make targets are available:
+
+- `make check` (or `make test`) builds and runs the self-test without installing Sista.
+- `make installcheck` tests the installed shared library.
+- `make installdirs`, `make install-strip`, and `make uninstall` manage installation directories and installed files.
+- `make html` generates the Doxygen HTML reference, and `make install-html` installs it. The `info`, `dvi`, `pdf`, and `ps` targets and their installation counterparts are successful no-ops because Sista has no manuals in those formats.
+- `make TAGS` creates an Emacs tags table
+- `make dist` creates `sista-VERSION.tar.gz` from the current Git revision.
 
 ### Sista as a shared library - `.deb` package
 

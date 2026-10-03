@@ -79,6 +79,17 @@ To install Sista, first build the shared and static core and C API libraries, th
 
 Plain ``make`` is equivalent to ``make all`` and ``make build``. The repository's terminal example is built separately with ``make sista``.
 
+The Makefile also provides the conventional GNU targets:
+
+* ``check`` and ``test`` build and run the self-test;
+* ``mostlyclean``, ``clean``, ``distclean``, and ``maintainer-clean`` provide progressively broader cleanup;
+* ``installdirs``, ``install``, ``install-strip``, ``installcheck``, and ``uninstall`` manage and verify installations;
+* ``html`` and ``install-html`` build and install the Doxygen reference;
+* ``TAGS`` creates an Emacs tags table;
+* ``dist`` creates a versioned source archive.
+
+The ``info``, ``dvi``, ``pdf``, and ``ps`` targets, together with their ``install-*`` counterparts, succeed without producing files because Sista does not provide manuals in those formats.
+
 On most Linux and macOS systems, `/usr/local/lib` is a standard library path and no additional configuration is needed after installation. If you install Sista to a different location, you may need to adjust your library search path (e.g., by setting `LD_LIBRARY_PATH` on Linux or `DYLD_LIBRARY_PATH` on macOS).
 
 After installing Sista, you can include it in your project by adding the following line to your source files:
