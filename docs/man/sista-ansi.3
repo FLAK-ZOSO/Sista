@@ -1,0 +1,55 @@
+.TH SISTA-ANSI 3 "" "Sista" "Library Functions Manual"
+.SH NAME
+sista-ansi \- terminal styling, screen, and cursor facilities
+.SH SYNOPSIS
+.nf
+.B #include <sista/ansi.hpp>
+.B #include <sista/cursor.hpp>
+.PP
+.B c++ program.cpp \-lSista
+.fi
+.SH DESCRIPTION
+The ANSI facilities emit terminal control sequences for foreground and
+background colors, text attributes, cursor movement, screen erasure, and
+selected terminal modes.
+.PP
+.B ForegroundColor,
+.B BackgroundColor,
+and
+.B Attribute
+represent the standard named settings.
+.B RGBColor
+and the integer overloads provide true-color and 256-color forms.
+.B ANSISettings
+groups a foreground color, background color, and one or more attributes so
+the same appearance can be applied repeatedly.
+.PP
+.B Cursor
+provides relative and absolute movement operations.
+Cursor objects also manage cursor visibility during their lifetime.
+.SH EXAMPLE
+.nf
+#include <iostream>
+#include <sista/sista.hpp>
+
+int main()
+{
+    sista::ANSISettings warning(
+        sista::ForegroundColor::YELLOW,
+        sista::BackgroundColor::BLACK,
+        sista::Attribute::BRIGHT);
+
+    warning.apply();
+    std::cout << "warning";
+    sista::resetAnsi();
+    std::cout << '\en';
+}
+.fi
+.SH PORTABILITY
+Terminal capabilities vary.
+Applications should not assume that every color, attribute, or screen mode
+is supported by every terminal or redirected output stream.
+Reset changed settings before returning control to the shell.
+.SH SEE ALSO
+.BR sista (3),
+.BR sista-field (3)

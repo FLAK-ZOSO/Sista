@@ -1,0 +1,64 @@
+.TH SISTA-C-API 3 "" "Sista" "Library Functions Manual"
+.SH NAME
+sista-c-api \- C interface to the Sista library
+.SH SYNOPSIS
+.nf
+.B #include <sista/api.h>
+.PP
+.B cc \-c program.c
+.B c++ program.o \-lSista_api \-lSista
+.fi
+.SH DESCRIPTION
+The C API exposes Sista objects through opaque handle types such as
+.BR FieldHandler_t ,
+.BR PawnHandler_t ,
+and
+.BR ANSISettingsHandler_t .
+Creation functions return a handle, and matching destruction functions
+release resources owned by that handle.
+.PP
+Functions that perform an operation return a value from
+.BR enum\ sista_ErrorCode .
+.B SISTA_OK
+indicates success.
+After a failure,
+.B sista_getLastErrorCode()
+and
+.B sista_getLastErrorMessage()
+provide diagnostic information.
+.PP
+The installed
+.B <sista/api.h>
+header is authoritative for ownership rules and individual declarations.
+In particular, consult the declaration of each pawn-creation function to see
+whether the returned pawn remains owned by its field.
+.SH EXAMPLE
+.nf
+#include <stdio.h>
+#include <sista/api.h>
+
+int main(void)
+{
+    FieldHandler_t field = sista_createField(20, 8);
+    if (field == NULL) {
+        fprintf(stderr, "%s\en", sista_getLastErrorMessage());
+        return 1;
+    }
+
+    if (sista_printField(field, '#') != SISTA_OK) {
+        fprintf(stderr, "%s\en", sista_getLastErrorMessage());
+        sista_destroyField(field);
+        return 1;
+    }
+
+    return sista_destroyField(field) == SISTA_OK ? 0 : 1;
+}
+.fi
+.SH THREAD SAFETY
+Error information is intended to describe the most recent C API failure.
+Callers should consume it immediately after the failing call and should not
+assume that one thread's error state describes another thread's operation.
+.SH SEE ALSO
+.BR sista (3),
+.BR sista-ansi (3),
+.BR sista-field (3)

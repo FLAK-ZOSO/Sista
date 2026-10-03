@@ -63,6 +63,8 @@ dvidir ?= $(docdir)/dvi
 pdfdir ?= $(docdir)/pdf
 psdir ?= $(docdir)/ps
 infodir ?= $(datarootdir)/info
+mandir ?= $(datarootdir)/man
+man3dir ?= $(mandir)/man3
 
 INSTALL ?= install
 INSTALL_DATA ?= $(INSTALL) -m 644
@@ -74,6 +76,7 @@ DOXYGEN ?= doxygen
 PACKAGE = sista
 DIST_NAME = $(PACKAGE)-$(FULL_VERSION)
 DIST_ARCHIVE = $(DIST_NAME).tar.gz
+MAN3_PAGES = docs/man/sista.3 docs/man/sista-c-api.3 docs/man/sista-ansi.3 docs/man/sista-field.3
 
 # Use cmd.exe for recipes on Windows
 ifeq ($(OS),Windows_NT)
@@ -96,6 +99,8 @@ test: check
 
 info dvi pdf ps:
 	@echo 'Sista does not provide documentation in the $@ format.'
+
+man: $(MAN3_PAGES)
 
 html: docs/html/index.html
 
@@ -223,7 +228,7 @@ maintainer-clean:
 endif
 
 ifeq ($(OS),Windows_NT)
-install: libSista.dll libSista.a libSista_api.dll libSista_api.a installdirs
+install: libSista.dll libSista.a libSista_api.dll libSista_api.a install-man
 	@echo "Installing Sista version $(FULL_VERSION) to $(PREFIX)..."
 	copy libSista.dll "$(PREFIX)\lib\"
 	copy libSista.lib "$(PREFIX)\lib\"
@@ -248,11 +253,12 @@ uninstall:
 	del "$(PREFIX)\lib\libSista_api.a"
 	@if exist "$(PREFIX)\include\sista" rmdir /S /Q "$(PREFIX)\include\sista"
 	@if exist "$(docdir)" rmdir /S /Q "$(docdir)"
+	@if exist "$(man3dir)\sista*.3" del /F /Q "$(man3dir)\sista*.3"
 	REM remove MSVC-friendly names as well
 	del "$(PREFIX)\lib\Sista.lib" || @rem
 	del "$(PREFIX)\lib\Sista_api.lib" || @rem
 else ifeq "$(shell uname -s)" "Darwin"
-install: libSista.dylib libSista.a libSista_api.dylib libSista_api.a installdirs
+install: libSista.dylib libSista.a libSista_api.dylib libSista_api.a install-man
 	@echo "Installing Sista version $(FULL_VERSION) to $(PREFIX)..."
 	$(INSTALL_DATA) libSista.dylib.$(FULL_VERSION) $(DESTDIR)$(libdir)/
 	$(INSTALL_DATA) libSista_api.dylib.$(FULL_VERSION) $(DESTDIR)$(libdir)/
@@ -273,8 +279,9 @@ uninstall:
 	rm -f $(DESTDIR)$(libdir)/libSista.a
 	rm -f $(DESTDIR)$(libdir)/libSista_api.a
 	rm -rf $(DESTDIR)$(includedir)/sista $(DESTDIR)$(docdir)
+	rm -f $(DESTDIR)$(man3dir)/sista*.3
 else
-install: libSista.so libSista.a libSista_api.so libSista_api.a installdirs
+install: libSista.so libSista.a libSista_api.so libSista_api.a install-man
 	@echo "Staged install to '$(DESTDIR)$(PREFIX)' (use DESTDIR for packaging)"
 	$(INSTALL_DATA) libSista.so.$(FULL_VERSION) $(DESTDIR)$(libdir)/
 	$(INSTALL_DATA) libSista_api.so.$(FULL_VERSION) $(DESTDIR)$(libdir)/
@@ -308,6 +315,7 @@ uninstall:
 	rm -f $(DESTDIR)$(libdir)/libSista.a
 	rm -f $(DESTDIR)$(libdir)/libSista_api.a
 	rm -rf $(DESTDIR)$(includedir)/sista $(DESTDIR)$(docdir)
+	rm -f $(DESTDIR)$(man3dir)/sista*.3
 	rm -f $(DESTDIR)/etc/ld.so.conf.d/sista.conf
 	if [ -z "$(DESTDIR)" ]; then \
 	  if command -v sudo >/dev/null 2>&1; then \
@@ -328,6 +336,10 @@ installdirs:
 	@if not exist "$(pdfdir)" mkdir "$(pdfdir)"
 	@if not exist "$(psdir)" mkdir "$(psdir)"
 	@if not exist "$(infodir)" mkdir "$(infodir)"
+	@if not exist "$(man3dir)" mkdir "$(man3dir)"
+
+install-man: man installdirs
+	copy docs\man\*.3 "$(man3dir)\"
 
 install-html: html installdirs
 	xcopy /E /I /Y docs\html "$(htmldir)"
@@ -342,6 +354,10 @@ else
 installdirs:
 	$(MKDIR_P) $(DESTDIR)$(libdir) $(DESTDIR)$(includedir)/sista
 	$(MKDIR_P) $(DESTDIR)$(htmldir) $(DESTDIR)$(dvidir) $(DESTDIR)$(pdfdir) $(DESTDIR)$(psdir) $(DESTDIR)$(infodir)
+	$(MKDIR_P) $(DESTDIR)$(man3dir)
+
+install-man: man installdirs
+	$(INSTALL_DATA) $(MAN3_PAGES) $(DESTDIR)$(man3dir)/
 
 install-html: html installdirs
 	cp -R docs/html/. $(DESTDIR)$(htmldir)/
@@ -375,4 +391,4 @@ install-pdf: pdf installdirs
 install-ps: ps installdirs
 	@echo 'Sista has no PostScript manual to install.'
 
-.PHONY: all build check test info dvi html pdf ps dist objects objects_dynamic mostlyclean clean distclean maintainer-clean install install-html install-dvi install-pdf install-ps install-info install-strip uninstall installcheck installdirs sista_against_dynamic_lib_local sista_against_static_lib_local sista_against_dynamic_lib_shared sista_against_static_lib_shared
+.PHONY: all build check test info dvi html man pdf ps dist objects objects_dynamic mostlyclean clean distclean maintainer-clean install install-html install-man install-dvi install-pdf install-ps install-info install-strip uninstall installcheck installdirs sista_against_dynamic_lib_local sista_against_static_lib_local sista_against_dynamic_lib_shared sista_against_static_lib_shared

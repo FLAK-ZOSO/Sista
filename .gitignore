@@ -44,7 +44,6 @@ sista
 # Doxygen output
 docs/html/
 docs/latex/
-docs/man
 
 # Debian packages
 *.deb

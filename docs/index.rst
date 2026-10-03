@@ -84,7 +84,7 @@ The Makefile also provides the conventional GNU targets:
 * ``check`` and ``test`` build and run the self-test;
 * ``mostlyclean``, ``clean``, ``distclean``, and ``maintainer-clean`` provide progressively broader cleanup;
 * ``installdirs``, ``install``, ``install-strip``, ``installcheck``, and ``uninstall`` manage and verify installations. ``install`` preserves debugging information, while ``install-strip`` strips installed shared libraries without modifying the build tree; static archives retain their debugging information;
-* ``html`` and ``install-html`` build and install the Doxygen reference;
+* ``man`` and ``install-man`` provide curated section-3 manual pages, while ``html`` and ``install-html`` build and install the exhaustive Doxygen reference;
 * ``TAGS`` creates an Emacs tags table;
 * ``dist`` creates a versioned source archive.
 

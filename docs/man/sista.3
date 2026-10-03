@@ -1,0 +1,60 @@
+.TH SISTA 3 "" "Sista" "Library Functions Manual"
+.SH NAME
+sista \- terminal building blocks for C++ applications
+.SH SYNOPSIS
+.nf
+.B #include <sista/sista.hpp>
+.PP
+.B c++ program.cpp \-lSista
+.fi
+.SH DESCRIPTION
+.B Sista
+is a C++17 library for terminal games and animations.
+It provides ANSI styling and cursor control together with coordinates,
+borders, fields, and movable pawns.
+.PP
+The umbrella header
+.B <sista/sista.hpp>
+includes the complete C++ interface.
+Individual component headers may be included when preferred.
+.PP
+This manual describes stable concepts and common usage.
+The installed headers and the online API reference are authoritative for
+individual declarations.
+.SH COMPONENTS
+.TP
+.BR sista-ansi (3)
+Terminal colors, attributes, screen control, and cursor movement.
+.TP
+.BR sista-field (3)
+Fields, coordinates, borders, pawns, and deferred swaps.
+.TP
+.BR sista-c-api (3)
+The opaque-handle C interface provided by
+.BR <sista/api.h> .
+.SH EXAMPLE
+.nf
+#include <iostream>
+#include <sista/sista.hpp>
+
+int main()
+{
+    sista::setForegroundColor(sista::ForegroundColor::GREEN);
+    std::cout << "Sista";
+    sista::resetAnsi();
+    std::cout << '\en';
+}
+.fi
+.PP
+Compile the example with:
+.PP
+.nf
+c++ example.cpp \-lSista
+.fi
+.SH NOTES
+The static archive contains Sista code only.
+Linking it does not request a fully static C++ runtime or C library.
+.SH SEE ALSO
+.BR sista-ansi (3),
+.BR sista-c-api (3),
+.BR sista-field (3)
