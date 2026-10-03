@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['package_0',['package',['../index.html#autotoc_md19',1,'Sista as a shared library - &lt;tt&gt;.deb&lt;/tt&gt; package'],['../index.html#autotoc_md20',1,'Sista as a shared library - &lt;tt&gt;.rpm&lt;/tt&gt; package']]],
+  ['package_0',['package',['../index.html#autotoc_md20',1,'Sista as a shared library - &lt;tt&gt;.deb&lt;/tt&gt; package'],['../index.html#autotoc_md21',1,'Sista as a shared library - &lt;tt&gt;.rpm&lt;/tt&gt; package']]],
   ['pacman_1',['PACMAN',['../namespacesista.html#a08036e71b88be0e177eec4ef2a24adc9a1da57b2bd62ddc95d1e91830646a196b',1,'sista']]],
   ['path_2',['path',['../structsista_1_1Path.html',1,'sista::Path'],['../structsista_1_1Path.html#a1aeb935624ef571774b552eaee8e67d4',1,'sista::Path::Path()']]],
   ['pawn_3',['pawn',['../classsista_1_1Pawn.html',1,'sista::Pawn'],['../structPawnObject.html#a99f3b2e787cfc690f2856bc5c0a1bb6b',1,'PawnObject::pawn'],['../classsista_1_1Pawn.html#af03b8108686bb3f40d701b0b6b26cafb',1,'sista::Pawn::Pawn()'],['../structsista_1_1Path.html#aad4758060bab6fc2815ad15b320dc163',1,'sista::Path::pawn']]],

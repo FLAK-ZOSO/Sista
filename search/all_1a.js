@@ -17,5 +17,5 @@ var searchData=
   ['reverse_14',['REVERSE',['../namespacesista.html#a429fa0f15cf3706b0efb6c28f9017d2fa642e0b6684e6165e142c074f1cd8d55c',1,'sista']]],
   ['rgbcolor_15',['rgbcolor',['../structsista_1_1RGBColor.html',1,'sista::RGBColor'],['../structsista_1_1RGBColor.html#a80f1b3240c6678b7da86e476c5c2663e',1,'sista::RGBColor::RGBColor(unsigned char, unsigned char, unsigned char)'],['../structsista_1_1RGBColor.html#a6fefbc7d8ec4427f2a783bf7e89c24fe',1,'sista::RGBColor::RGBColor()']]],
   ['right_16',['right',['../api_8h.html#acf93245807642a551415bb6eaeb1bca4aec8379af7490bb9eaaf579cf17876f38',1,'RIGHT:&#160;api.h'],['../namespacesista.html#a7aced27e09de586e7565fcad8f5459e4a21507b40c80068eda19865706fdc2403',1,'sista::RIGHT']]],
-  ['rpm_20tt_20package_17',['Sista as a shared library - &lt;tt&gt;.rpm&lt;/tt&gt; package',['../index.html#autotoc_md20',1,'']]]
+  ['rpm_20tt_20package_17',['Sista as a shared library - &lt;tt&gt;.rpm&lt;/tt&gt; package',['../index.html#autotoc_md21',1,'']]]
 ];

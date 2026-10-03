@@ -95,9 +95,12 @@ Prerequisites</h2>
 <ol type="1">
 <li>Python development headers installed</li>
 <li>C++ compiler (g++, clang++, etc.)</li>
-<li>The Sista C++ library built and available</li>
+<li>The Sista C++ library built and installed, or available through custom compiler and linker search paths</li>
 </ol>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<p>From the repository root, plain <code>make</code> builds the core and C API libraries; it no longer builds the terminal demo. A typical local installation is:</p>
+<div class="fragment"><div class="line">make</div>
+<div class="line">sudo make install</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md6"></a>
 Building Process</h2>
 <h3><a class="anchor" id="autotoc_md7"></a>
 Option 1: Using setup.py (Recommended)</h3>
@@ -189,7 +192,7 @@ License</h1>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 31 2026 07:48:20 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sat Oct 3 2026 15:02:40 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

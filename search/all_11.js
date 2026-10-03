@@ -8,8 +8,9 @@ var searchData=
   ['getversionmajor_5',['getVersionMajor',['../namespacesista.html#af0bc6786b2b2d9863cf4c5ea1f951cb7',1,'sista']]],
   ['getversionminor_6',['getVersionMinor',['../namespacesista.html#a540ac9639ce9722504542ac0980a0eef',1,'sista']]],
   ['getversionpatch_7',['getVersionPatch',['../namespacesista.html#ad827ed9a4f765ef61e50cb28393f127e',1,'sista']]],
-  ['go_5fto_8',['go_to',['../structsista_1_1Cursor.html#ab4fc505dfba821a0bd9d6c1ecc9b268c',1,'sista::Cursor']]],
-  ['go_5fto_5fcoordinates_9',['go_to_coordinates',['../structsista_1_1Cursor.html#a23ebb5ec07bbf6258401f14af052d126',1,'sista::Cursor']]],
-  ['goto_10',['goto',['../structsista_1_1Cursor.html#a8108bca18a010e5376d51a441c463855',1,'sista::Cursor::goTo(unsigned short int, unsigned short int) const'],['../structsista_1_1Cursor.html#a374cefd86dd146c01cd2092449f6be6c',1,'sista::Cursor::goTo(sista::Coordinates) const']]],
-  ['green_11',['green',['../structsista__RGBColor.html#ad4eea68431bd92bb0b4600a969a6b99b',1,'sista_RGBColor::green'],['../structsista_1_1RGBColor.html#a44808d025b101191d96ebfa01f46db29',1,'sista::RGBColor::green'],['../namespacesista.html#a72a9a13a3fd5aa83f5852d073bcdbe28a9de0e5dd94e861317e74964bed179fa0',1,'sista::GREEN'],['../namespacesista.html#ade2b5834bc07e347f46027a10a06d1caa9de0e5dd94e861317e74964bed179fa0',1,'sista::GREEN']]]
+  ['gnu_20make_20targets_8',['More GNU Make targets',['../index.html#autotoc_md19',1,'']]],
+  ['go_5fto_9',['go_to',['../structsista_1_1Cursor.html#ab4fc505dfba821a0bd9d6c1ecc9b268c',1,'sista::Cursor']]],
+  ['go_5fto_5fcoordinates_10',['go_to_coordinates',['../structsista_1_1Cursor.html#a23ebb5ec07bbf6258401f14af052d126',1,'sista::Cursor']]],
+  ['goto_11',['goto',['../structsista_1_1Cursor.html#a374cefd86dd146c01cd2092449f6be6c',1,'sista::Cursor::goTo(sista::Coordinates) const'],['../structsista_1_1Cursor.html#a8108bca18a010e5376d51a441c463855',1,'sista::Cursor::goTo(unsigned short int, unsigned short int) const']]],
+  ['green_12',['green',['../structsista__RGBColor.html#ad4eea68431bd92bb0b4600a969a6b99b',1,'sista_RGBColor::green'],['../structsista_1_1RGBColor.html#a44808d025b101191d96ebfa01f46db29',1,'sista::RGBColor::green'],['../namespacesista.html#a72a9a13a3fd5aa83f5852d073bcdbe28a9de0e5dd94e861317e74964bed179fa0',1,'sista::GREEN'],['../namespacesista.html#ade2b5834bc07e347f46027a10a06d1caa9de0e5dd94e861317e74964bed179fa0',1,'sista::GREEN']]]
 ];

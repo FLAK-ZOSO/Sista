@@ -73,8 +73,8 @@ $(function() {
   <div class="headertitle"><div class="title">Release Notes</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md26"></a> Here you can find the release notes for each version of <code>Sista</code> since <code>v0.1.0</code>, with changelog since v<code>0.7.0</code>; these are listed in a bottom-up order.</p>
-<h1><a class="anchor" id="autotoc_md27"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md27"></a> Here you can find the release notes for each version of <code>Sista</code> since <code>v0.1.0</code>, with changelog since v<code>0.7.0</code>; these are listed in a bottom-up order.</p>
+<h1><a class="anchor" id="autotoc_md28"></a>
 v&lt;tt&gt;3.0.0&lt;/tt&gt;</h1>
 <p>Major release.</p>
 <ul>
@@ -125,7 +125,7 @@ v&lt;tt&gt;3.0.0&lt;/tt&gt;</h1>
 <li>Testing on memory safety with <code>valgrind</code>, detected no memory leaks or invalid accesses</li>
 <li>Constructor and destructor of <code><a class="el" href="structsista_1_1Cursor.html" title="Class representing a terminal cursor for movement operations.">sista::Cursor</a></code> only hide/show the cursor, but do not alter the ANSI settings nor clear the screen anymore</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md28"></a>
+<h2><a class="anchor" id="autotoc_md29"></a>
 v&lt;tt&gt;3.0.0-beta.4&lt;/tt&gt;</h2>
 <ul>
 <li>Improved Python exception behavior in the C extension:<ul>
@@ -143,13 +143,13 @@ v&lt;tt&gt;3.0.0-beta.4&lt;/tt&gt;</h2>
 <li>Swapped <code>(x, y)</code> pairs fixed</li>
 <li>Some bounds checks added to <code>Field</code>'s <code>Pawn</code> getters</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md29"></a>
+<h1><a class="anchor" id="autotoc_md30"></a>
 v&lt;tt&gt;2.2.1&lt;/tt&gt;</h1>
 <p>Patch release.</p>
 <ul>
 <li>Adapted <code>Makefile</code> for MacOS install</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md30"></a>
+<h1><a class="anchor" id="autotoc_md31"></a>
 v&lt;tt&gt;2.2.0&lt;/tt&gt;</h1>
 <p>Minor release.</p>
 <ul>
@@ -157,21 +157,21 @@ v&lt;tt&gt;2.2.0&lt;/tt&gt;</h1>
 </ul>
 <p>The previous state was that <code>Sista</code> was only available in source format on Windows, but now it can be installed on the system as a shared library.</p>
 <p>MSVC support is not available, and it won't for the foreseeable future unless there is a demand for it and a volunteer to test it.</p>
-<h1><a class="anchor" id="autotoc_md31"></a>
+<h1><a class="anchor" id="autotoc_md32"></a>
 v&lt;tt&gt;2.1.2&lt;/tt&gt;</h1>
 <ul>
 <li>Added new demo <code>shared-test-static</code> to test static linking against the <code>Sista</code> library</li>
 <li>Updated <code>demo/Makefile</code> to include the new demo and to build it correctly</li>
 <li>Updated Makefile CI workflow to build all demos, including the new <code>shared-test-static</code> demo</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md32"></a>
+<h1><a class="anchor" id="autotoc_md33"></a>
 v&lt;tt&gt;2.1.1&lt;/tt&gt;</h1>
 <ul>
 <li>Fixed the <code>Makefile</code> to correctly build the demos without the need for <code>Sista</code> to be installed</li>
 <li>Added documentation in the <code>demo/README.md</code> file</li>
 <li>Updated and refreshed the documentation on ReadTheDocs, under <code>docs/</code></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md33"></a>
+<h1><a class="anchor" id="autotoc_md34"></a>
 v&lt;tt&gt;2.1.0&lt;/tt&gt;</h1>
 <p>Minor release.</p>
 <ul>
@@ -179,13 +179,13 @@ v&lt;tt&gt;2.1.0&lt;/tt&gt;</h1>
 <li>Added <code>uninstall</code> target to the <code>Makefile</code> to remove the installed files</li>
 <li>Added <code>demo/shared-test.cpp</code> and related <code>Makefile</code> target to test the shared library installation</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md34"></a>
+<h1><a class="anchor" id="autotoc_md35"></a>
 v&lt;tt&gt;2.0.0&lt;/tt&gt;</h1>
 <p>Major release.</p>
 <ul>
 <li>Sista now available as a shared library, <code>libSista.so</code>, which can be installed in the system library path</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md35"></a>
+<h1><a class="anchor" id="autotoc_md36"></a>
 v&lt;tt&gt;1.1.8&lt;/tt&gt;</h1>
 <p>Bug fix release.</p>
 <ul>
@@ -199,7 +199,7 @@ v&lt;tt&gt;1.1.8&lt;/tt&gt;</h1>
 <div class="line">}</div>
 </div><!-- fragment --><p>This change is necessary to ensure that constructs such as <code>std::set&lt;<a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">sista::Coordinates</a>&gt;</code> work correctly, as it requires a strict weak ordering relation.</p>
 <p>We don't plan to implement an hash function for <code><a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">sista::Coordinates</a></code> at the moment as the direct comparison is more efficient and straightforward for the intended use cases.</p>
-<h1><a class="anchor" id="autotoc_md36"></a>
+<h1><a class="anchor" id="autotoc_md37"></a>
 v&lt;tt&gt;1.1.7&lt;/tt&gt;</h1>
 <ul>
 <li>Allow <code>ANSI::Settings</code> to be initialized with mixed <code>ForegroundColor</code> and <code>RGBColor</code> or <code>RGBColor</code> and <code>BackgroundColor</code></li>
@@ -211,7 +211,7 @@ v&lt;tt&gt;1.1.7&lt;/tt&gt;</h1>
 <div class="line">    ANSI::BackgroundColor::B_BLACK,</div>
 <div class="line">    ANSI::Attribute::BRIGHT</div>
 <div class="line">};</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md37"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md38"></a>
 v&lt;tt&gt;1.1.6&lt;/tt&gt;</h1>
 <ul>
 <li>Added <code>&lt;</code> comparison operator to <code><a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">sista::Coordinates</a></code></li>
@@ -221,7 +221,7 @@ v&lt;tt&gt;1.1.6&lt;/tt&gt;</h1>
 <div class="line"><span class="keywordtype">bool</span> Coordinates::operator&lt;(<span class="keyword">const</span> Coordinates&amp; other)<span class="keyword"> const </span>{</div>
 <div class="line">    <span class="keywordflow">return</span> (y + x) &lt; (other.y + other.x);</div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md38"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md39"></a>
 v&lt;tt&gt;1.1.5&lt;/tt&gt;</h1>
 <ul>
 <li>Added <code>RGBColor</code> and support for it in the <code>ANSI::Settings</code> struct</li>
@@ -235,7 +235,7 @@ v&lt;tt&gt;1.1.5&lt;/tt&gt;</h1>
 <div class="line">};</div>
 </div><!-- fragment --><p>The library does not enforce consistency across foreground and background indications, as in one of the two can be an <code>RGBColor</code> and the other one a <code>ForegroundColor</code>, for instance.</p>
 <p>This change is backwards compatible, so the <code>ForegroundColor</code>/<code>BackgroundColor</code> based initialization is still functional and will always be supported.</p>
-<h1><a class="anchor" id="autotoc_md39"></a>
+<h1><a class="anchor" id="autotoc_md40"></a>
 v&lt;tt&gt;1.1.4&lt;/tt&gt;</h1>
 <ul>
 <li>Added <code><a class="el" href="classsista_1_1Field.html#ab1d0a24261d8e595ff5f719fd6e28d5c" title="Removes a Pawn from the field.">sista::Field::removePawn</a>(<a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">sista::Coordinates</a>&amp;)</code> to remove a pawn from the field by coordinates without the need of a pointer to the pawn</li>
@@ -254,7 +254,7 @@ v&lt;tt&gt;1.1.4&lt;/tt&gt;</h1>
 <div class="line">    ANSI::reset(); <span class="comment">// Reset the settings for that cell</span></div>
 <div class="line">    std::cout &lt;&lt; <span class="charliteral">&#39; &#39;</span>; <span class="comment">// Print a space to clear the cell</span></div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md40"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md41"></a>
 v&lt;tt&gt;1.1.3&lt;/tt&gt;</h1>
 <ul>
 <li>Added <code><a class="el" href="classsista_1_1Field.html#af3ee2d7fc112ba03a697f4fe5ae2ea7e" title="Reprints a Pawn at its current coordinates.">sista::Field::rePrintPawn()</a></code></li>
@@ -267,7 +267,7 @@ v&lt;tt&gt;1.1.3&lt;/tt&gt;</h1>
 <div class="line">}</div>
 </div><!-- fragment --><div class="fragment"><div class="line"> ++</div>
 <div class="line">Coordinates operator*(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>) <span class="keyword">const</span>;</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md41"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md42"></a>
 v&lt;tt&gt;1.1.2&lt;/tt&gt;</h1>
 <ul>
 <li>Added more operators for <code><a class="el" href="structsista_1_1Coordinates.html" title="Represents 2D coordinates with x and y values.">sista::Coordinates</a></code> struct</li>
@@ -276,7 +276,7 @@ v&lt;tt&gt;1.1.2&lt;/tt&gt;</h1>
 <div class="line">Coordinates operator-(<span class="keyword">const</span> Coordinates&amp;) <span class="keyword">const</span>;</div>
 <div class="line">Coordinates operator+=(<span class="keyword">const</span> Coordinates&amp;);</div>
 <div class="line">Coordinates operator-=(<span class="keyword">const</span> Coordinates&amp;);</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md42"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md43"></a>
 v&lt;tt&gt;1.1.1&lt;/tt&gt;</h1>
 <ul>
 <li>Added <code><a class="el" href="classsista_1_1Field.html#a900f4baab9a1acbf90a8b133bb90b8ac" title="Removes a Pawn from the field at specified coordinates.">sista::Field::erasePawn()</a></code> to remove and erase Pawn from the screen</li>
@@ -288,13 +288,13 @@ v&lt;tt&gt;1.1.1&lt;/tt&gt;</h1>
 <div class="line">    ANSI::reset(); <span class="comment">// Reset the settings for that cell</span></div>
 <div class="line">    std::cout &lt;&lt; <span class="charliteral">&#39; &#39;</span>; <span class="comment">// Print a space to clear the cell</span></div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md43"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md44"></a>
 v&lt;tt&gt;1.0.0&lt;/tt&gt;</h1>
 <ul>
 <li>Divided Sista in <code>.hpp</code> headers and <code>.cpp</code> sources</li>
 </ul>
 <p>This should make it possible to use Sista in projects with multiple source files.</p>
-<h1><a class="anchor" id="autotoc_md44"></a>
+<h1><a class="anchor" id="autotoc_md45"></a>
 v&lt;tt&gt;0.9.4&lt;/tt&gt;</h1>
 <ul>
 <li>Added <code><a class="el" href="classsista_1_1Field.html#a1a98bca7c067d5d72c9c1d1329ad5474" title="Adds a Pawn to the field at its specified coordinates and prints it.">sista::Field::addPrintPawn()</a></code> to add and print Pawn without reprint</li>
@@ -305,7 +305,7 @@ v&lt;tt&gt;0.9.4&lt;/tt&gt;</h1>
 <div class="line">    this-&gt;cursor.set(pawn-&gt;getCoordinates()); <span class="comment">// Set the cursor to the pawn&#39;s coordinates</span></div>
 <div class="line">    pawn-&gt;print(); <span class="comment">// Print the pawn</span></div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md45"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md46"></a>
 v&lt;tt&gt;0.9.3&lt;/tt&gt;</h1>
 <ul>
 <li>Fixed <code>sista::Field::reset()</code> which was resizing the field to 0x0</li>
@@ -320,7 +320,7 @@ v&lt;tt&gt;0.9.3&lt;/tt&gt;</h1>
 <div class="line">        }</div>
 <div class="line">    }        </div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md46"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md47"></a>
 v&lt;tt&gt;0.9.2&lt;/tt&gt;</h1>
 <ul>
 <li>Added ScreenMode management</li>
@@ -363,7 +363,7 @@ v&lt;tt&gt;0.9.2&lt;/tt&gt;</h1>
 <div class="line">                delete pawn; <span class="comment">// Delete the pawn</span></div>
 <div class="line">    pawns.clear(); <span class="comment">// Clear the pawns</span></div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md47"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md48"></a>
 v&lt;tt&gt;0.9.0&lt;/tt&gt;</h1>
 <ul>
 <li>Added 256 color support</li>
@@ -385,7 +385,7 @@ v&lt;tt&gt;0.9.0&lt;/tt&gt;</h1>
 <div class="line"><span class="keywordtype">void</span> setBackgroundColor(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> red, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> green, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> blue) {</div>
 <div class="line">    std::cout &lt;&lt; <a class="code hl_define" href="ansi_8hpp.html#abc85bb07f8fa1e7c2eba467b6c8e8624">CSI</a> &lt;&lt; <span class="stringliteral">&quot;48;2;&quot;</span> &lt;&lt; red &lt;&lt; <span class="stringliteral">&quot;;&quot;</span> &lt;&lt; green &lt;&lt; <span class="stringliteral">&quot;;&quot;</span> &lt;&lt; blue &lt;&lt; <span class="stringliteral">&quot;m&quot;</span>;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md48"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md49"></a>
 v&lt;tt&gt;0.8.0&lt;/tt&gt;</h1>
 <ul>
 <li>Added <a href="https://github.com/FLAK-ZOSO/Sista/blob/3f861a7e1f61609f4d8f9cf03aaaf3c056db1278/include/sista/cursor.hpp#L70-L89">more ANSI cursor commands</a></li>
@@ -458,7 +458,7 @@ v&lt;tt&gt;0.8.0&lt;/tt&gt;</h1>
 </div><!-- fragment --><ul>
 <li>Added <code>ESC</code> constant to <code>ANSI-Settings.hpp</code></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md49"></a>
+<h1><a class="anchor" id="autotoc_md50"></a>
 v&lt;tt&gt;0.7.1&lt;/tt&gt;</h1>
 <ul>
 <li>Added <a href="https://github.com/FLAK-ZOSO/Sista/blob/main/include/sista/ANSI-Settings.hpp#L57-L60">condition</a> over the attribute reset function</li>
@@ -472,14 +472,14 @@ v&lt;tt&gt;0.7.1&lt;/tt&gt;</h1>
 <div class="line">    std::cout &lt;&lt; <a class="code hl_define" href="ansi_8hpp.html#abc85bb07f8fa1e7c2eba467b6c8e8624">CSI</a> &lt;&lt; attribute + 20 &lt;&lt; <span class="stringliteral">&quot;m&quot;</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>I added the if statement to check if the attribute is <code>BRIGHT</code> or not, because the <code>BRIGHT</code> reset code is <code>+21</code> (from set code) and the rest are <code>+20</code>.</p>
-<h1><a class="anchor" id="autotoc_md50"></a>
+<h1><a class="anchor" id="autotoc_md51"></a>
 v&lt;tt&gt;0.1.0&lt;/tt&gt;</h1>
 <p>This is the first version of <code>Sista</code> and it is still in development. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 31 2026 07:48:20 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sat Oct 3 2026 15:02:40 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
