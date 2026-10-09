@@ -47,7 +47,7 @@ rmdir --ignore-fail-on-non-empty %{buildroot}%{_sysconfdir} 2>/dev/null || :
 %{_mandir}/man7/sista.7*
 
 %changelog
-* Fri Oct 09 2026 FLAK-ZOSO <mattia.marchese.2006@gmail.com> - 3.1.0-0.rc2
+* Fri Oct 09 2026 FLAK-ZOSO <mattia.marchese.2006@gmail.com> - 3.1.0-1
 - Build libraries by default and add conventional Make targets.
 - Include section 3 and section 7 man pages in the RPM.
 

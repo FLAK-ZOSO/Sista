@@ -2,7 +2,7 @@
 
 Here you can find the release notes for each version of `Sista` since `v0.1.0`, with changelog since v`0.7.0`; the newest releases are listed first.
 
-## v`3.1.0rc2`
+## v`3.1.0`
 
 Minor release. Plain `make` now builds the shared and static libraries; use
 `make sista` for the terminal demo. Shared libraries no longer force static

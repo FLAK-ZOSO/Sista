@@ -11,7 +11,7 @@
  *
  * \author FLAK-ZOSO
  * \date 2022-2026
- * \version 3.1.0rc2
+ * \version 3.1.0
  * \see Field
  * \see SwappableField
  * \see Path

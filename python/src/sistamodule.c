@@ -6,7 +6,7 @@
  *
  *  \author FLAK-ZOSO
  *  \date 2025
- *  \version 3.1.0rc2
+ *  \version 3.1.0
  *  \copyright GNU General Public License v3.0
  *
  *  \see https://peps.python.org/pep-0007/
