@@ -36,9 +36,17 @@ invalid for a particular field.
 .PP
 The system of coordinates in Sista is
 .B {y, x}
-where y is increasing on the vertical axis as it gets to the bottom of the screen,
-x is increasing on the horizontal axis as it gets to the right of the screen,
-and both are zero based.
+with zero-based rows and columns:
+.PP
+.nf
+              x (column) increases -->
+              0       1       2
+         0  (0,0)   (0,1)   (0,2)
+ y       1  (1,0)   (1,1)   (1,2)
+ (row)   2  (2,0)   (2,1)   (2,2)
+   |
+   v  increases
+.fi
 .SH EXAMPLES
 .nf
 #include <sista/coordinates.hpp>
