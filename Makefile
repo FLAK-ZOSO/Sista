@@ -285,7 +285,7 @@ uninstall:
 	@if exist "$(PREFIX)\include\sista" rmdir /S /Q "$(PREFIX)\include\sista"
 	@if exist "$(docdir)" rmdir /S /Q "$(docdir)"
 	@if exist "$(man3dir)\sista*.3" del /F /Q "$(man3dir)\sista*.3"
-	@if exist "$(man3dir)\ANSISettings.3" del /F /Q "$(man3dir)\ANSISettings.3" "$(man3dir)\RGBColor.3" "$(man3dir)\Border.3" "$(man3dir)\Coordinates.3" "$(man3dir)\Cursor.3" "$(man3dir)\Field.3" "$(man3dir)\Path.3" "$(man3dir)\SwappableField.3" "$(man3dir)\Pawn.3" "$(man3dir)\getVersion.3"
+	-@del /F /Q "$(man3dir)\ANSISettings.3" "$(man3dir)\RGBColor.3" "$(man3dir)\Border.3" "$(man3dir)\Coordinates.3" "$(man3dir)\Cursor.3" "$(man3dir)\Field.3" "$(man3dir)\Path.3" "$(man3dir)\SwappableField.3" "$(man3dir)\Pawn.3" "$(man3dir)\getVersion.3" >NUL 2>&1
 	@if exist "$(man7dir)\sista.7" del /F /Q "$(man7dir)\sista.7"
 	REM remove MSVC-friendly names as well
 	del "$(PREFIX)\lib\Sista.lib" || @rem
