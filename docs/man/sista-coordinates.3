@@ -33,6 +33,12 @@ Arithmetic operators return coordinates and do not enforce field bounds.
 The members are unsigned.
 Subtraction can underflow, and arithmetic can produce a coordinate
 invalid for a particular field.
+.PP
+The system of coordinates in Sista is
+.B {y, x}
+where y is increasing on the vertical axis as it gets to the bottom of the screen,
+x is increasing on the horizontal axis as it gets to the right of the screen,
+and both are zero based.
 .SH EXAMPLES
 .nf
 #include <sista/coordinates.hpp>
