@@ -27,7 +27,10 @@ jobs:
       - id: check
         name: Check whether this version is already on PyPI
         shell: bash
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
         run: |
+          python3 scripts/check_release_version.py "$RELEASE_TAG"
           version=$(sed -n "s/^__version__ = ['\"]\([^'\"]*\)['\"]$/\1/p" python/src/sista/__init__.py)
           test -n "$version"
           status=$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' "https://pypi.org/pypi/sista/$version/json")
@@ -181,7 +184,7 @@ jobs:
       - check-pypi-version
       - release-build
       - release-build-macos
-    if: always() && needs.check-pypi-version.outputs.version_exists != 'true'
+    if: needs.check-pypi-version.result == 'success' && needs.check-pypi-version.outputs.version_exists != 'true' && needs.release-build.result == 'success' && needs.release-build-macos.result == 'success'
     permissions:
       # IMPORTANT: this permission is mandatory for trusted publishing
       id-token: write

@@ -20,15 +20,7 @@ jobs:
       - name: Check tag and package versions
         shell: bash
         run: |
-          version="${GITHUB_REF_NAME#v}"
-          test "$GITHUB_REF_NAME" = "v$version"
-          grep -Fqx "#define SISTA_VERSION \"$version\"" include/sista/version.hpp
-          grep -Fqx "__version__ = '$version'" python/src/sista/__init__.py
-          grep -Fqx "__version__ = '$version'" python/src/sista/__init__.pyi
-          grep -Fq "PROJECT_NUMBER         = v$version" Doxyfile
-          head -1 packageroot/debian/changelog | grep -Fq "sista ($version)"
-          grep -Fq "Version:        %{?sista_version}%{!?sista_version:$version}" packageroot/rpm/sista.spec
-          grep -Fq "## [$version]" changelog.md
+          python3 scripts/check_release_version.py "$GITHUB_REF_NAME"
 
   build:
     needs: verify-version

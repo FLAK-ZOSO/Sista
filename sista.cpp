@@ -10,7 +10,7 @@
  *
  *  \author FLAK-ZOSO
  *  \date 2022-2026
- *  \version 3.1.0
+ *  \version 3.1.0rc2
  *  \see SwappableField
  *  \see Field
  *  \see Pawn

@@ -11,7 +11,10 @@ fi
 
 rpm_version=${version%%-*}
 rpm_release=1
-if [[ "$version" == *-* ]]; then
+if [[ "$version" =~ ^([0-9]+\.[0-9]+\.[0-9]+)rc([0-9]+)$ ]]; then
+  rpm_version=${BASH_REMATCH[1]}
+  rpm_release="0.rc${BASH_REMATCH[2]}"
+elif [[ "$version" == *-* ]]; then
   rpm_release="0.${version#*-}"
 fi
 

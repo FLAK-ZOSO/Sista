@@ -7,7 +7,7 @@
  * 
  *  \author FLAK-ZOSO
  *  \date 2022-2026
- *  \version 3.1.0
+ *  \version 3.1.0rc2
  *  \see Pawn
  *  \copyright GNU General Public License v3.0
  */
