@@ -9,6 +9,5 @@ var searchData=
   ['0_209_202_20tt_6',['v&lt;tt&gt;0.9.2&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md48',1,'']]],
   ['0_209_203_20tt_7',['v&lt;tt&gt;0.9.3&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md47',1,'']]],
   ['0_209_204_20tt_8',['v&lt;tt&gt;0.9.4&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md46',1,'']]],
-  ['0_20tt_9',['0 tt',['../md_ReleaseNotes.html#autotoc_md35',1,'v&lt;tt&gt;2.1.0&lt;/tt&gt;'],['../md_ReleaseNotes.html#autotoc_md32',1,'v&lt;tt&gt;2.2.0&lt;/tt&gt;']]],
-  ['0rc2_20tt_10',['v&lt;tt&gt;3.1.0rc2&lt;/tt&gt;',['../md_ReleaseNotes.html#autotoc_md28',1,'']]]
+  ['0_20tt_9',['0 tt',['../md_ReleaseNotes.html#autotoc_md35',1,'v&lt;tt&gt;2.1.0&lt;/tt&gt;'],['../md_ReleaseNotes.html#autotoc_md32',1,'v&lt;tt&gt;2.2.0&lt;/tt&gt;'],['../md_ReleaseNotes.html#autotoc_md28',1,'v&lt;tt&gt;3.1.0&lt;/tt&gt;']]]
 ];
