@@ -1,4 +1,4 @@
-.TH SISTA-PAWN 3 "2026-10-04" "Sista 3.0.3"
+.TH SISTA-PAWN 3 "2026-10-09" "Sista"
 .SH NAME
 sista-pawn \- represent a styled object in a field
 .SH LIBRARY
@@ -37,9 +37,16 @@ Fields normally retain pawns through
 Do not give a field a non-owning pointer disguised as a shared owner.
 .SH EXAMPLES
 .nf
-auto pawn = std::make_shared<sista::Pawn>(
-    '@', sista::Coordinates(2, 3), sista::ANSISettings());
-field.addPawn(pawn);
+#include <memory>
+#include <sista/sista.hpp>
+
+int main()
+{
+    sista::Field field(20, 8);
+    auto pawn = std::make_shared<sista::Pawn>(
+        '@', sista::Coordinates(2, 3), sista::ANSISettings());
+    field.addPawn(pawn);
+}
 .fi
 .SH SEE ALSO
 .BR sista-ansi (3),

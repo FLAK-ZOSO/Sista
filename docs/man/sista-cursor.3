@@ -1,4 +1,4 @@
-.TH SISTA-CURSOR 3 "2026-10-04" "Sista 3.0.3"
+.TH SISTA-CURSOR 3 "2026-10-09" "Sista"
 .SH NAME
 sista-cursor \- clear a terminal and move its cursor
 .SH LIBRARY
@@ -38,6 +38,9 @@ sequences.
 Keep cursor-owning objects scoped so their destructors restore visibility.
 .SH EXAMPLES
 .nf
+#include <sista/cursor.hpp>
+
+int main()
 {
     sista::Cursor cursor;
     cursor.goTo(4, 10);

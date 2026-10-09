@@ -1,4 +1,4 @@
-.TH SISTA-COORDINATES 3 "2026-10-04" "Sista 3.0.3"
+.TH SISTA-COORDINATES 3 "2026-10-09" "Sista"
 .SH NAME
 sista-coordinates \- represent a row and column in a Sista field
 .SH LIBRARY
@@ -35,8 +35,14 @@ Subtraction can underflow, and arithmetic can produce a coordinate
 invalid for a particular field.
 .SH EXAMPLES
 .nf
-sista::Coordinates position(2, 3);
-auto pair = position.toPair();
+#include <sista/coordinates.hpp>
+
+int main()
+{
+    sista::Coordinates position(2, 3);
+    auto pair = position.toPair();
+    return pair.first == 2 && pair.second == 3 ? 0 : 1;
+}
 .fi
 .SH SEE ALSO
 .BR sista-field (3),

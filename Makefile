@@ -130,6 +130,9 @@ info dvi pdf ps:
 
 man: $(MAN3_PAGES) $(MAN7_PAGES)
 
+check-man: man
+	python3 scripts/check_man_pages.py
+
 html: docs/html/index.html
 
 docs/html/index.html: Doxyfile $(IMPLEMENTATIONS) $(wildcard include/sista/*.hpp) $(wildcard include/sista/*.h)
@@ -432,4 +435,4 @@ install-pdf: pdf installdirs
 install-ps: ps installdirs
 	@echo 'Sista has no PostScript manual to install.'
 
-.PHONY: all build check test info dvi html man pdf ps dist objects objects_dynamic mostlyclean clean distclean maintainer-clean install install-html install-man install-dvi install-pdf install-ps install-info install-strip uninstall installcheck installdirs sista_against_dynamic_lib_local sista_against_static_lib_local sista_against_dynamic_lib_shared sista_against_static_lib_shared
+.PHONY: all build check test check-man info dvi html man pdf ps dist objects objects_dynamic mostlyclean clean distclean maintainer-clean install install-html install-man install-dvi install-pdf install-ps install-info install-strip uninstall installcheck installdirs sista_against_dynamic_lib_local sista_against_static_lib_local sista_against_dynamic_lib_shared sista_against_static_lib_shared

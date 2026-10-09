@@ -46,6 +46,7 @@ Other standard GNU Make targets are available:
 - `make installcheck` tests the installed shared library.
 - `make installdirs`, `make install-strip`, and `make uninstall` manage installation directories and installed files. `install` preserves debugging information; `install-strip` strips the installed shared libraries without modifying the build tree. Static archives retain their debugging information.
 - `make man` provides the curated library manuals in sections 3 and 7, which `make install` and `make install-man` install. Common class and C function names are installed as aliases for direct lookup. `make html` generates the exhaustive Doxygen reference, and `make install-html` installs it. The `info`, `dvi`, `pdf`, and `ps` targets and their installation counterparts are successful no-ops because Sista has no manuals in those formats.
+- `make check-man` renders and checks the manual sources and compiles their examples; it requires Python 3, Groff, and C/C++ compilers.
 - `make TAGS` creates an Emacs tags table
 - `make dist` creates `sista-VERSION.tar.gz` from the current Git revision.
 

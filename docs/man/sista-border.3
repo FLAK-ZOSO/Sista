@@ -1,4 +1,4 @@
-.TH SISTA-BORDER 3 "2026-10-04" "Sista 3.0.3"
+.TH SISTA-BORDER 3 "2026-10-09" "Sista"
 .SH NAME
 sista-border \- describe a styled field border cell
 .SH LIBRARY
@@ -23,10 +23,15 @@ returns no value.
 .nf
 #include <sista/sista.hpp>
 
-sista::Border border(
-    '#', sista::ANSISettings(sista::ForegroundColor::WHITE,
-                            sista::BackgroundColor::BLACK,
-                            sista::Attribute::BRIGHT));
+int main()
+{
+    sista::Border border(
+        '#', sista::ANSISettings(sista::ForegroundColor::WHITE,
+                                sista::BackgroundColor::BLACK,
+                                sista::Attribute::BRIGHT));
+    border.print();
+    sista::resetAnsi();
+}
 .fi
 .SH SEE ALSO
 .BR sista-ansi (3),
