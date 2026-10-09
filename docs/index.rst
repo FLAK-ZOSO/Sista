@@ -84,7 +84,8 @@ The Makefile also provides the conventional GNU targets:
 * ``check`` and ``test`` build and run the self-test;
 * ``mostlyclean``, ``clean``, ``distclean``, and ``maintainer-clean`` provide progressively broader cleanup;
 * ``installdirs``, ``install``, ``install-strip``, ``installcheck``, and ``uninstall`` manage and verify installations. ``install`` preserves debugging information, while ``install-strip`` strips installed shared libraries without modifying the build tree; static archives retain their debugging information;
-* ``man`` and ``install-man`` provide curated section-3 interface manuals, a section-7 overview, and lookup aliases, while ``html`` and ``install-html`` build and install the exhaustive Doxygen reference;
+* ``man`` checks that the hand-written section-3 and section-7 pages in ``docs/man`` exist; editing them requires no generation step. ``check-man`` validates them and compiles their examples. ``install-man`` installs the pages and lookup aliases. Preview the overview with ``man -l docs/man/sista.7``;
+* ``html`` and ``install-html`` build and install the exhaustive Doxygen reference;
 * ``TAGS`` creates an Emacs tags table;
 * ``dist`` creates a versioned source archive.
 

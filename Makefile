@@ -129,6 +129,7 @@ info dvi pdf ps:
 	@echo 'Sista does not provide documentation in the $@ format.'
 
 man: $(MAN3_PAGES) $(MAN7_PAGES)
+	@echo 'Man pages are maintained in docs/man; use make check-man to validate or make install-man to install them.'
 
 check-man: man
 	python3 scripts/check_man_pages.py
