@@ -104,7 +104,8 @@ More GNU Make targets</h2>
 <li><code>make check</code> (or <code>make test</code>) builds and runs the self-test without installing Sista.</li>
 <li><code>make installcheck</code> tests the installed shared library.</li>
 <li><code>make installdirs</code>, <code>make install-strip</code>, and <code>make uninstall</code> manage installation directories and installed files. <code>install</code> preserves debugging information; <code>install-strip</code> strips the installed shared libraries without modifying the build tree. Static archives retain their debugging information.</li>
-<li><code>make html</code> generates the Doxygen HTML reference, and <code>make install-html</code> installs it. The <code>info</code>, <code>dvi</code>, <code>pdf</code>, and <code>ps</code> targets and their installation counterparts are successful no-ops because Sista has no manuals in those formats.</li>
+<li>The section-3 and section-7 man pages in <code>docs/man</code> are hand-written roff files, ready to install. <code>make man</code> checks that they exist; editing one requires no generation step. Use <code>make check-man</code> to render and validate them and compile their examples (requires Python 3, Groff, and C/C++ compilers). Preview a page with <code>man -l docs/man/sista.7</code>.</li>
+<li><code>make install</code> and <code>make install-man</code> install the man pages and aliases for common class and C function names. <code>make html</code> generates the exhaustive Doxygen reference, and <code>make install-html</code> installs it. The <code>info</code>, <code>dvi</code>, <code>pdf</code>, and <code>ps</code> targets and their installation counterparts are successful no-ops because Sista has no manuals in those formats.</li>
 <li><code>make TAGS</code> creates an Emacs tags table</li>
 <li><code>make dist</code> creates <code>sista-VERSION.tar.gz</code> from the current Git revision.</li>
 </ul>
@@ -163,7 +164,7 @@ Sista-based works</h1>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Oct 3 2026 15:02:40 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Fri Oct 9 2026 17:55:00 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
