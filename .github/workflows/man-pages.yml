@@ -7,6 +7,7 @@ name: Man pages
       - 'include/sista/**'
       - 'Makefile'
       - 'scripts/check_man_pages.py'
+      - 'scripts/install_man_aliases.ps1'
       - '.github/workflows/man-pages.yml'
   pull_request:
     paths:
@@ -14,6 +15,7 @@ name: Man pages
       - 'include/sista/**'
       - 'Makefile'
       - 'scripts/check_man_pages.py'
+      - 'scripts/install_man_aliases.ps1'
       - '.github/workflows/man-pages.yml'
 
 jobs:
@@ -24,8 +26,8 @@ jobs:
       - name: Install man pages and aliases
         shell: pwsh
         run: |
-          make install-man PREFIX="$env:RUNNER_TEMP\Sista"
-          $man = Join-Path $env:RUNNER_TEMP 'Sista\share\man'
+          make install-man PREFIX="$env:RUNNER_TEMP\Sista Test"
+          $man = Join-Path $env:RUNNER_TEMP 'Sista Test\share\man'
           if (-not (Test-Path (Join-Path $man 'man7\sista.7'))) { throw 'Missing section-7 page' }
           if (-not (Test-Path (Join-Path $man 'man3\sista-c-api.3'))) { throw 'Missing section-3 page' }
           if (-not (Test-Path (Join-Path $man 'man3\sista_createField.3'))) { throw 'Missing C API alias' }

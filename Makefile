@@ -377,7 +377,7 @@ installdirs:
 install-man: man installdirs
 	copy docs\man\*.3 "$(man3dir)\"
 	copy docs\man\*.7 "$(man7dir)\"
-	@call scripts\install_man_aliases.cmd "$(man3dir)" $(MAN_ALIAS_SPECS)
+	@powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts\install_man_aliases.ps1 -Man3Dir "$(man3dir)" -Specs "$(MAN_ALIAS_SPECS)"
 
 install-html: html installdirs
 	xcopy /E /I /Y docs\html "$(htmldir)"
