@@ -21,8 +21,11 @@ Sista C++ library (libSista, \fI-lSista\fP)
 .SH DESCRIPTION
 .B Field
 models a rectangular area containing shared pawns.
+Width counts columns; height counts rows.
 Movement, occupancy checks, lookup, removal, and rendering operate
 relative to that area.
+Removing a pawn or clearing a field releases the field's shared
+ownership; other shared owners keep the pawn alive.
 .PP
 .B SwappableField
 adds deferred movement.
@@ -30,6 +33,7 @@ Queue each intended destination with
 .B addPawnToSwap()
 and commit the batch with
 .BR applySwaps() .
+Conflicting moves may be skipped.
 .PP
 .B Effect::PACMAN
 wraps movement at field edges.

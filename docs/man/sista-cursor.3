@@ -30,6 +30,11 @@ Constructing
 hides the terminal cursor; destroying it shows the cursor again.
 Member functions provide absolute positioning, relative movement,
 erasure, and DEC or SCO save-and-restore commands.
+The numeric
+.B goTo(y, x)
+overload uses terminal coordinates; the
+.B goTo(Coordinates)
+overload applies Sista's field offset.
 .SH RETURN VALUE
 These operations return no value.
 .SH CAVEATS

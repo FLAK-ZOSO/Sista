@@ -77,6 +77,17 @@ objects owned by the caller.
 .PP
 Pawns created in a field are owned by that field and must not be
 destroyed by the caller.
+Their handles become invalid when the field is destroyed.
+Settings are copied when creating borders and pawns.
+Coordinates use
+.B {y, x}
+(row, column); cursor positioning uses terminal coordinates.
+Field dimensions must fit in an
+.B int
+because the C++ implementation converts them from
+.BR size_t .
+Conflicting queued swaps may be skipped by
+.BR sista_applySwaps() .
 The installed header is the complete declaration and ownership reference.
 .SH RETURN VALUE
 Handle-creation functions return
