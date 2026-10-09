@@ -377,7 +377,7 @@ installdirs:
 install-man: man installdirs
 	copy docs\man\*.3 "$(man3dir)\"
 	copy docs\man\*.7 "$(man7dir)\"
-	@for %%S in ($(MAN_ALIAS_SPECS)) do @for /F "tokens=1,2 delims==" %%A in ("%%S") do @copy /Y "$(man3dir)\%%B" "$(man3dir)\%%A.3" >NUL
+	@for %S in ($(MAN_ALIAS_SPECS)) do @for /F "tokens=1,2 delims==" %A in ("%S") do @copy /Y "$(man3dir)\%B" "$(man3dir)\%A.3" >NUL
 
 install-html: html installdirs
 	xcopy /E /I /Y docs\html "$(htmldir)"

@@ -17,6 +17,20 @@ name: Man pages
       - '.github/workflows/man-pages.yml'
 
 jobs:
+  windows-install:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install man pages and aliases
+        shell: pwsh
+        run: |
+          make install-man PREFIX="$env:RUNNER_TEMP\Sista"
+          $man = Join-Path $env:RUNNER_TEMP 'Sista\share\man'
+          if (-not (Test-Path (Join-Path $man 'man7\sista.7'))) { throw 'Missing section-7 page' }
+          if (-not (Test-Path (Join-Path $man 'man3\sista-c-api.3'))) { throw 'Missing section-3 page' }
+          if (-not (Test-Path (Join-Path $man 'man3\sista_createField.3'))) { throw 'Missing C API alias' }
+          if (-not (Test-Path (Join-Path $man 'man3\Field.3'))) { throw 'Missing C++ alias' }
+
   validate:
     runs-on: ubuntu-latest
     steps:
