@@ -45,7 +45,8 @@ Other standard GNU Make targets are available:
 - `make check` (or `make test`) builds and runs the self-test without installing Sista.
 - `make installcheck` tests the installed shared library.
 - `make installdirs`, `make install-strip`, and `make uninstall` manage installation directories and installed files. `install` preserves debugging information; `install-strip` strips the installed shared libraries without modifying the build tree. Static archives retain their debugging information.
-- `make html` generates the Doxygen HTML reference, and `make install-html` installs it. The `info`, `dvi`, `pdf`, and `ps` targets and their installation counterparts are successful no-ops because Sista has no manuals in those formats.
+- The section-3 and section-7 man pages in `docs/man` are hand-written roff files, ready to install. `make man` checks that they exist; editing one requires no generation step. Use `make check-man` to render and validate them and compile their examples (requires Python 3, Groff, and C/C++ compilers). Preview a page with `man -l docs/man/sista.7`.
+- `make install` and `make install-man` install the man pages and aliases for common class and C function names. `make html` generates the exhaustive Doxygen reference, and `make install-html` installs it. The `info`, `dvi`, `pdf`, and `ps` targets and their installation counterparts are successful no-ops because Sista has no manuals in those formats.
 - `make TAGS` creates an Emacs tags table
 - `make dist` creates `sista-VERSION.tar.gz` from the current Git revision.
 

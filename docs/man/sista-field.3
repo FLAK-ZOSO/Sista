@@ -1,0 +1,69 @@
+.TH SISTA-FIELD 3 "2026-10-09" "Sista"
+.SH NAME
+sista-field \- manage terminal fields and pawn movement
+.SH LIBRARY
+Sista C++ library (libSista, \fI-lSista\fP)
+.SH SYNOPSIS
+.nf
+.B #include <sista/field.hpp>
+
+.B "sista::Field::Field(int width, int height);"
+.B "void sista::Field::addPawn(std::shared_ptr<Pawn> pawn);"
+.B "void sista::Field::movePawn(Pawn *pawn,"
+.B "                            const Coordinates &destination);"
+.B "void sista::Field::print() const;"
+.B "void sista::Field::print(char border) const;"
+.B "sista::SwappableField::SwappableField(int width, int height);"
+.B "void sista::SwappableField::addPawnToSwap(Pawn *pawn,"
+.B "    const Coordinates &destination);"
+.B "void sista::SwappableField::applySwaps();"
+.fi
+.SH DESCRIPTION
+.B Field
+models a rectangular area containing shared pawns.
+Width counts columns; height counts rows.
+Movement, occupancy checks, lookup, removal, and rendering operate
+relative to that area.
+Removing a pawn or clearing a field releases the field's shared
+ownership; other shared owners keep the pawn alive.
+.PP
+.B SwappableField
+adds deferred movement.
+Queue each intended destination with
+.B addPawnToSwap()
+and commit the batch with
+.BR applySwaps() .
+Conflicting moves may be skipped.
+.PP
+.B Effect::PACMAN
+wraps movement at field edges.
+.B Effect::MATRIX
+turns horizontal overflow into movement between adjacent rows and fails
+if the resulting row is outside the field.
+.SH ERRORS
+Invalid operations throw standard exceptions.
+.B std::invalid_argument
+reports null pawns, occupied destinations, or missing pawns.
+.B std::out_of_range
+and
+.B std::range_error
+report invalid coordinates or movement.
+.SH EXAMPLES
+.nf
+#include <memory>
+#include <sista/sista.hpp>
+
+int main()
+{
+    sista::Field field(20, 8);
+    auto pawn = std::make_shared<sista::Pawn>(
+        '@', sista::Coordinates(2, 3), sista::ANSISettings());
+    field.addPawn(pawn);
+    field.print('#');
+}
+.fi
+.SH SEE ALSO
+.BR sista-border (3),
+.BR sista-coordinates (3),
+.BR sista-pawn (3),
+.BR sista (7)

@@ -1,0 +1,35 @@
+.TH SISTA-VERSION 3 "2026-10-09" "Sista"
+.SH NAME
+sista-version \- query the Sista header version
+.SH LIBRARY
+Header-only interface (no additional library required)
+.SH SYNOPSIS
+.nf
+.B #include <sista/version.hpp>
+
+.B "#define SISTA_VERSION ..."
+.B "#define SISTA_VERSION_MAJOR ..."
+.B "#define SISTA_VERSION_MINOR ..."
+.B "#define SISTA_VERSION_PATCH ..."
+.B "const char *sista::getVersion();"
+.B "int sista::getVersionMajor();"
+.B "int sista::getVersionMinor();"
+.B "int sista::getVersionPatch();"
+.fi
+.SH DESCRIPTION
+The macros expose the version encoded by the installed headers.
+The inline C++ functions return the same values in expression-friendly
+form.
+.SH RETURN VALUE
+.B getVersion()
+returns a static string in
+.I MAJOR.MINOR.PATCH
+form.
+The component functions return the corresponding integer.
+.SH CAVEATS
+These are header values.
+They do not independently inspect a dynamically loaded library, so
+applications must not use them as a runtime ABI compatibility test.
+.SH SEE ALSO
+.BR sista-c-api (3),
+.BR sista (7)

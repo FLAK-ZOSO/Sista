@@ -63,6 +63,9 @@ dvidir ?= $(docdir)/dvi
 pdfdir ?= $(docdir)/pdf
 psdir ?= $(docdir)/ps
 infodir ?= $(datarootdir)/info
+mandir ?= $(datarootdir)/man
+man3dir ?= $(mandir)/man3
+man7dir ?= $(mandir)/man7
 
 INSTALL ?= install
 INSTALL_DATA ?= $(INSTALL) -m 644
@@ -74,6 +77,34 @@ DOXYGEN ?= doxygen
 PACKAGE = sista
 DIST_NAME = $(PACKAGE)-$(FULL_VERSION)
 DIST_ARCHIVE = $(DIST_NAME).tar.gz
+MAN3_PAGES = docs/man/sista-ansi.3 docs/man/sista-border.3 docs/man/sista-c-api.3 \
+	docs/man/sista-coordinates.3 docs/man/sista-cursor.3 docs/man/sista-field.3 \
+	docs/man/sista-pawn.3 docs/man/sista-version.3
+MAN7_PAGES = docs/man/sista.7
+MAN_ALIAS_SPECS = ANSISettings=sista-ansi.3 RGBColor=sista-ansi.3 \
+	Border=sista-border.3 Coordinates=sista-coordinates.3 Cursor=sista-cursor.3 \
+	Field=sista-field.3 Path=sista-field.3 SwappableField=sista-field.3 \
+	Pawn=sista-pawn.3 getVersion=sista-version.3 \
+	sista_createField=sista-c-api.3 sista_printField=sista-c-api.3 \
+	sista_destroyField=sista-c-api.3 sista_createSwappableField=sista-c-api.3 \
+	sista_printSwappableField=sista-c-api.3 sista_destroySwappableField=sista-c-api.3 \
+	sista_resetAnsi=sista-c-api.3 sista_setForegroundColor=sista-c-api.3 \
+	sista_setBackgroundColor=sista-c-api.3 sista_setAttribute=sista-c-api.3 \
+	sista_resetAttribute=sista-c-api.3 sista_setForegroundColorRGB=sista-c-api.3 \
+	sista_setBackgroundColorRGB=sista-c-api.3 sista_createANSISettings=sista-c-api.3 \
+	sista_createANSISettingsRGB=sista-c-api.3 sista_applyANSISettings=sista-c-api.3 \
+	sista_destroyANSISettings=sista-c-api.3 sista_createBorder=sista-c-api.3 \
+	sista_destroyBorder=sista-c-api.3 sista_printFieldWithBorder=sista-c-api.3 \
+	sista_printSwappableFieldWithBorder=sista-c-api.3 \
+	sista_createPawnInSwappableField=sista-c-api.3 sista_createPawnInField=sista-c-api.3 \
+	sista_getLastErrorCode=sista-c-api.3 sista_getLastErrorMessage=sista-c-api.3 \
+	sista_movePawn=sista-c-api.3 sista_addPawnToSwap=sista-c-api.3 \
+	sista_applySwaps=sista-c-api.3 sista_clearScreen=sista-c-api.3 \
+	sista_createCursor=sista-c-api.3 sista_moveCursor=sista-c-api.3 \
+	sista_cursorGoTo=sista-c-api.3 sista_cursorGoToCoordinates=sista-c-api.3 \
+	sista_destroyCursor=sista-c-api.3 sista_getVersion=sista-c-api.3 \
+	sista_getVersionMajor=sista-c-api.3 sista_getVersionMinor=sista-c-api.3 \
+	sista_getVersionPatch=sista-c-api.3
 
 # Use cmd.exe for recipes on Windows
 ifeq ($(OS),Windows_NT)
@@ -96,6 +127,12 @@ test: check
 
 info dvi pdf ps:
 	@echo 'Sista does not provide documentation in the $@ format.'
+
+man: $(MAN3_PAGES) $(MAN7_PAGES)
+	@echo 'Man pages are maintained in docs/man; use make check-man to validate or make install-man to install them.'
+
+check-man: man
+	python3 scripts/check_man_pages.py
 
 html: docs/html/index.html
 
@@ -223,7 +260,7 @@ maintainer-clean:
 endif
 
 ifeq ($(OS),Windows_NT)
-install: libSista.dll libSista.a libSista_api.dll libSista_api.a installdirs
+install: libSista.dll libSista.a libSista_api.dll libSista_api.a install-man
 	@echo "Installing Sista version $(FULL_VERSION) to $(PREFIX)..."
 	copy libSista.dll "$(PREFIX)\lib\"
 	copy libSista.lib "$(PREFIX)\lib\"
@@ -248,11 +285,14 @@ uninstall:
 	del "$(PREFIX)\lib\libSista_api.a"
 	@if exist "$(PREFIX)\include\sista" rmdir /S /Q "$(PREFIX)\include\sista"
 	@if exist "$(docdir)" rmdir /S /Q "$(docdir)"
+	@if exist "$(man3dir)\sista*.3" del /F /Q "$(man3dir)\sista*.3"
+	-@del /F /Q "$(man3dir)\ANSISettings.3" "$(man3dir)\RGBColor.3" "$(man3dir)\Border.3" "$(man3dir)\Coordinates.3" "$(man3dir)\Cursor.3" "$(man3dir)\Field.3" "$(man3dir)\Path.3" "$(man3dir)\SwappableField.3" "$(man3dir)\Pawn.3" "$(man3dir)\getVersion.3" >NUL 2>&1
+	@if exist "$(man7dir)\sista.7" del /F /Q "$(man7dir)\sista.7"
 	REM remove MSVC-friendly names as well
 	del "$(PREFIX)\lib\Sista.lib" || @rem
 	del "$(PREFIX)\lib\Sista_api.lib" || @rem
 else ifeq "$(shell uname -s)" "Darwin"
-install: libSista.dylib libSista.a libSista_api.dylib libSista_api.a installdirs
+install: libSista.dylib libSista.a libSista_api.dylib libSista_api.a install-man
 	@echo "Installing Sista version $(FULL_VERSION) to $(PREFIX)..."
 	$(INSTALL_DATA) libSista.dylib.$(FULL_VERSION) $(DESTDIR)$(libdir)/
 	$(INSTALL_DATA) libSista_api.dylib.$(FULL_VERSION) $(DESTDIR)$(libdir)/
@@ -273,8 +313,10 @@ uninstall:
 	rm -f $(DESTDIR)$(libdir)/libSista.a
 	rm -f $(DESTDIR)$(libdir)/libSista_api.a
 	rm -rf $(DESTDIR)$(includedir)/sista $(DESTDIR)$(docdir)
+	rm -f $(DESTDIR)$(man3dir)/sista*.3 $(DESTDIR)$(man7dir)/sista.7
+	@for spec in $(MAN_ALIAS_SPECS); do alias=$${spec%%=*}; rm -f "$(DESTDIR)$(man3dir)/$$alias.3"; done
 else
-install: libSista.so libSista.a libSista_api.so libSista_api.a installdirs
+install: libSista.so libSista.a libSista_api.so libSista_api.a install-man
 	@echo "Staged install to '$(DESTDIR)$(PREFIX)' (use DESTDIR for packaging)"
 	$(INSTALL_DATA) libSista.so.$(FULL_VERSION) $(DESTDIR)$(libdir)/
 	$(INSTALL_DATA) libSista_api.so.$(FULL_VERSION) $(DESTDIR)$(libdir)/
@@ -308,6 +350,8 @@ uninstall:
 	rm -f $(DESTDIR)$(libdir)/libSista.a
 	rm -f $(DESTDIR)$(libdir)/libSista_api.a
 	rm -rf $(DESTDIR)$(includedir)/sista $(DESTDIR)$(docdir)
+	rm -f $(DESTDIR)$(man3dir)/sista*.3 $(DESTDIR)$(man7dir)/sista.7
+	@for spec in $(MAN_ALIAS_SPECS); do alias=$${spec%%=*}; rm -f "$(DESTDIR)$(man3dir)/$$alias.3"; done
 	rm -f $(DESTDIR)/etc/ld.so.conf.d/sista.conf
 	if [ -z "$(DESTDIR)" ]; then \
 	  if command -v sudo >/dev/null 2>&1; then \
@@ -328,6 +372,13 @@ installdirs:
 	@if not exist "$(pdfdir)" mkdir "$(pdfdir)"
 	@if not exist "$(psdir)" mkdir "$(psdir)"
 	@if not exist "$(infodir)" mkdir "$(infodir)"
+	@if not exist "$(man3dir)" mkdir "$(man3dir)"
+	@if not exist "$(man7dir)" mkdir "$(man7dir)"
+
+install-man: man installdirs
+	copy docs\man\*.3 "$(man3dir)\"
+	copy docs\man\*.7 "$(man7dir)\"
+	@powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts\install_man_aliases.ps1 -Man3Dir "$(man3dir)" -Specs "$(MAN_ALIAS_SPECS)"
 
 install-html: html installdirs
 	xcopy /E /I /Y docs\html "$(htmldir)"
@@ -342,6 +393,16 @@ else
 installdirs:
 	$(MKDIR_P) $(DESTDIR)$(libdir) $(DESTDIR)$(includedir)/sista
 	$(MKDIR_P) $(DESTDIR)$(htmldir) $(DESTDIR)$(dvidir) $(DESTDIR)$(pdfdir) $(DESTDIR)$(psdir) $(DESTDIR)$(infodir)
+	$(MKDIR_P) $(DESTDIR)$(man3dir)
+	$(MKDIR_P) $(DESTDIR)$(man7dir)
+
+install-man: man installdirs
+	$(INSTALL_DATA) $(MAN3_PAGES) $(DESTDIR)$(man3dir)/
+	$(INSTALL_DATA) $(MAN7_PAGES) $(DESTDIR)$(man7dir)/
+	@for spec in $(MAN_ALIAS_SPECS); do \
+		alias=$${spec%%=*}; target=$${spec#*=}; \
+		ln -sf "$$target" "$(DESTDIR)$(man3dir)/$$alias.3"; \
+	done
 
 install-html: html installdirs
 	cp -R docs/html/. $(DESTDIR)$(htmldir)/
@@ -375,4 +436,4 @@ install-pdf: pdf installdirs
 install-ps: ps installdirs
 	@echo 'Sista has no PostScript manual to install.'
 
-.PHONY: all build check test info dvi html pdf ps dist objects objects_dynamic mostlyclean clean distclean maintainer-clean install install-html install-dvi install-pdf install-ps install-info install-strip uninstall installcheck installdirs sista_against_dynamic_lib_local sista_against_static_lib_local sista_against_dynamic_lib_shared sista_against_static_lib_shared
+.PHONY: all build check test check-man info dvi html man pdf ps dist objects objects_dynamic mostlyclean clean distclean maintainer-clean install install-html install-man install-dvi install-pdf install-ps install-info install-strip uninstall installcheck installdirs sista_against_dynamic_lib_local sista_against_static_lib_local sista_against_dynamic_lib_shared sista_against_static_lib_shared

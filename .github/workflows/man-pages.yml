@@ -1,0 +1,54 @@
+name: Man pages
+
+'on':
+  push:
+    paths:
+      - 'docs/man/**'
+      - 'include/sista/**'
+      - 'Makefile'
+      - 'scripts/check_man_pages.py'
+      - 'scripts/install_man_aliases.ps1'
+      - '.github/workflows/man-pages.yml'
+  pull_request:
+    paths:
+      - 'docs/man/**'
+      - 'include/sista/**'
+      - 'Makefile'
+      - 'scripts/check_man_pages.py'
+      - 'scripts/install_man_aliases.ps1'
+      - '.github/workflows/man-pages.yml'
+
+jobs:
+  windows-install:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install man pages and aliases
+        shell: pwsh
+        run: |
+          make install-man PREFIX="$env:RUNNER_TEMP\Sista Test"
+          $man = Join-Path $env:RUNNER_TEMP 'Sista Test\share\man'
+          if (-not (Test-Path (Join-Path $man 'man7\sista.7'))) { throw 'Missing section-7 page' }
+          if (-not (Test-Path (Join-Path $man 'man3\sista-c-api.3'))) { throw 'Missing section-3 page' }
+          if (-not (Test-Path (Join-Path $man 'man3\sista_createField.3'))) { throw 'Missing C API alias' }
+          if (-not (Test-Path (Join-Path $man 'man3\Field.3'))) { throw 'Missing C++ alias' }
+
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install man-page tools
+        run: sudo apt-get update && sudo apt-get install -y groff-base man-db
+      - name: Check formatting and compile examples
+        run: make check-man
+      - name: Check installed pages and lookup aliases
+        run: |
+          stage="$RUNNER_TEMP/sista-man-stage"
+          make install-man DESTDIR="$stage" prefix=/usr
+          man_root="$stage/usr/share/man"
+          test -f "$man_root/man7/sista.7"
+          test -f "$man_root/man3/sista-c-api.3"
+          test -z "$(find "$man_root" -type l ! -exec test -e {} \; -print)"
+          MANPATH="$man_root" man -w 7 sista
+          MANPATH="$man_root" man -w 3 Field
+          MANPATH="$man_root" man -w 3 sista_createField

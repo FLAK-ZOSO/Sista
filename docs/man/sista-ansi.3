@@ -1,0 +1,53 @@
+.TH SISTA-ANSI 3 "2026-10-09" "Sista"
+.SH NAME
+sista-ansi \- configure terminal colors and text attributes
+.SH LIBRARY
+Sista C++ library (libSista, \fI-lSista\fP)
+.SH SYNOPSIS
+.nf
+.B #include <sista/ansi.hpp>
+
+.B "void sista::setForegroundColor(ForegroundColor color);"
+.B "void sista::setBackgroundColor(BackgroundColor color);"
+.B "void sista::setAttribute(Attribute attribute);"
+.B "void sista::resetAttribute(Attribute attribute);"
+.B "void sista::resetAnsi();"
+.B "struct sista::RGBColor;"
+.B "struct sista::ANSISettings;"
+.fi
+.SH DESCRIPTION
+The free functions write ANSI control sequences to standard output.
+Overloads accept named colors, RGB values, or 256-color palette indexes.
+.PP
+.B ANSISettings
+stores foreground and background colors plus one or more attributes.
+.B apply()
+writes the stored settings;
+.B reset()
+resets those settings.
+.SH RETURN VALUE
+The setters and reset functions return no value.
+The corresponding string helpers return the control sequence without
+writing it.
+.SH NOTES
+Terminal capabilities vary, particularly for RGB colors and uncommon
+attributes.
+Reset changed settings before returning control to the shell.
+.SH EXAMPLES
+.nf
+#include <iostream>
+#include <sista/sista.hpp>
+
+int main()
+{
+    sista::setForegroundColor(sista::ForegroundColor::GREEN);
+    std::cout << "ready";
+    sista::resetAnsi();
+    std::cout << '\en';
+}
+.fi
+.SH SEE ALSO
+.BR sista-border (3),
+.BR sista-cursor (3),
+.BR sista-pawn (3),
+.BR sista (7)

@@ -1,0 +1,40 @@
+.TH SISTA-BORDER 3 "2026-10-09" "Sista"
+.SH NAME
+sista-border \- describe a styled field border cell
+.SH LIBRARY
+Sista C++ library (libSista, \fI-lSista\fP)
+.SH SYNOPSIS
+.nf
+.B #include <sista/border.hpp>
+
+.B "sista::Border::Border(char symbol, const ANSISettings &settings);"
+.B "virtual void sista::Border::print(bool apply_settings = true) const;"
+.fi
+.SH DESCRIPTION
+.B Border
+combines one character with reusable ANSI settings.
+Fields accept a border object when rendering.
+.B print()
+writes one border character and optionally applies its settings first.
+Those settings remain active until reset.
+.SH RETURN VALUE
+.B print()
+returns no value.
+.SH EXAMPLES
+.nf
+#include <sista/sista.hpp>
+
+int main()
+{
+    sista::Border border(
+        '#', sista::ANSISettings(sista::ForegroundColor::WHITE,
+                                sista::BackgroundColor::BLACK,
+                                sista::Attribute::BRIGHT));
+    border.print();
+    sista::resetAnsi();
+}
+.fi
+.SH SEE ALSO
+.BR sista-ansi (3),
+.BR sista-field (3),
+.BR sista (7)
