@@ -6,6 +6,33 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 
 ## [Unreleased]
 
+## [3.1.0] - 2026-10-09
+
+### Added
+
+- Added concise section-3 and section-7 man pages, lookup aliases, and CI checks for their formatting and examples.
+- Added conventional Make targets for building, checking, installing, and cleaning the libraries and documentation.
+
+### Changed
+
+- Plain `make` now builds the libraries; the demo executable remains available through `make sista`.
+- Shared libraries use dynamic system dependencies instead of forcing static runtime linkage.
+- Library and man-page installation now supports staged package builds and versioned library links.
+
+## [3.0.3] - 2026-07-31
+
+- Added RPM distribution support and made PyPI publishing idempotent.
+
+## [3.0.2] - 2026-07-30
+
+- Fixed macOS Python distribution.
+
+## [3.0.1] - 2026-07-30
+
+- Declared the first stable 3.0 release.
+
+## [3.0.0]
+
 ### Added
 
 - Added `std::hash` specialization for `sista::Coordinates` to allow its use in hash-based containers like `std::unordered_map` and `std::unordered_set`

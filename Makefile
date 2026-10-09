@@ -8,10 +8,8 @@ CXXSTD ?= -std=c++17
 CXXFLAGS ?= -Wall -g
 PICFLAGS ?= -fPIC
 
-RAW_TAG := $(shell git describe --tags --abbrev=0 2>/dev/null)
-TAG := $(patsubst v%,%,$(RAW_TAG))
 HEADER_VERSION := $(shell sed -n 's/^\#define SISTA_VERSION "\([^"]*\)"/\1/p' include/sista/version.hpp)
-FULL_VERSION ?= $(if $(strip $(TAG)),$(TAG),$(HEADER_VERSION))
+FULL_VERSION ?= $(HEADER_VERSION)
 
 MAJOR_VERSION := $(word 1,$(subst ., ,$(FULL_VERSION)))
 MINOR_VERSION := $(word 2,$(subst ., ,$(FULL_VERSION)))

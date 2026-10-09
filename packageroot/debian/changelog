@@ -1,3 +1,10 @@
+sista (3.1.0) unstable; urgency=medium
+
+  * Build libraries by default and add conventional Make targets.
+  * Install section 3 and section 7 man pages and lookup aliases.
+
+ -- FLAK-ZOSO <mattia.marchese.2006@gmail.com>  Fri, 09 Oct 2026 20:56:00 +0300
+
 sista (3.0.3) unstable; urgency=medium
 
   * Add RPM distribution support with EL9-compatible library packaging.

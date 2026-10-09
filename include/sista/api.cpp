@@ -7,7 +7,7 @@
  *
  *  \author FLAK-ZOSO
  *  \date 2025
- *  \version 3.0.3
+ *  \version 3.1.0
  *  \copyright GNU General Public License v3.0
  */
 #include <sista/api.h>

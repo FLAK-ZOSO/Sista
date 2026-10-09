@@ -1,6 +1,14 @@
 # Release Notes
 
-Here you can find the release notes for each version of `Sista` since `v0.1.0`, with changelog since v`0.7.0`; these are listed in a bottom-up order.
+Here you can find the release notes for each version of `Sista` since `v0.1.0`, with changelog since v`0.7.0`; the newest releases are listed first.
+
+## v`3.1.0`
+
+Minor release. Plain `make` now builds the shared and static libraries; use
+`make sista` for the terminal demo. Shared libraries no longer force static
+linkage of system runtimes. Installation supports staged package builds and
+includes concise section-3 API pages and a section-7 overview in both the
+Debian and RPM packages. `make check-man` validates the pages and examples.
 
 ## v`3.0.0`
 

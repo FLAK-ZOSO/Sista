@@ -74,7 +74,7 @@ asset from the [latest release](https://github.com/FLAK-ZOSO/Sista/releases),
 then install it with your package manager, for example:
 
 ```bash
-sudo dnf install ~/Downloads/sista-3.0.3-1.el9.x86_64.rpm
+sudo dnf install ~/Downloads/sista-3.1.0-1.el9.x86_64.rpm
 ```
 
 To build an RPM locally, install `rpm-build` and run:
