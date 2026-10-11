@@ -94,6 +94,24 @@ extern "C" {
         return SISTA_OK;
     }
 
+    int sista_printHyperlink(const char* text, const char* url) {
+        sista_clear_last_error();
+        if (text == nullptr || url == nullptr) {
+            sista_set_last_error(SISTA_ERR_NULL_STRING, "hyperlink text or URL is null");
+            return SISTA_ERR_NULL_STRING;
+        }
+        try {
+            sista::printHyperlink(text, url);
+            return SISTA_OK;
+        } catch (const std::bad_alloc&) {
+            sista_set_last_error(SISTA_ERR_BAD_ALLOC, "memory allocation failed while printing hyperlink");
+            return SISTA_ERR_BAD_ALLOC;
+        } catch (...) {
+            sista_set_last_error(SISTA_ERR_UNKNOWN, "failed to print hyperlink");
+            return SISTA_ERR_UNKNOWN;
+        }
+    }
+
     int sista_resetAnsi() {
         sista_clear_last_error();
         sista::resetAnsi();

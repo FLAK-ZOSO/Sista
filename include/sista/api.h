@@ -150,6 +150,20 @@ int sista_destroySwappableField(SwappableFieldHandler_t);
 */
 int sista_resetAnsi();
 
+/** \brief Prints an OSC 8 hyperlink to standard output without a newline.
+ *  \param text Null-terminated UTF-8 display text.
+ *  \param url Null-terminated, appropriately percent-encoded URL.
+ *  \retval SISTA_OK On success.
+ *  \retval SISTA_ERR_NULL_STRING If either argument is NULL.
+ *  \retval SISTA_ERR_BAD_ALLOC If memory allocation fails.
+ *  \retval SISTA_ERR_UNKNOWN If another exception occurs.
+ *  \warning Arguments are emitted verbatim and must not contain terminal
+ *  control characters, including ESC and BEL.
+ *  \note Requires OSC 8 terminal support. Empty strings are accepted.
+ *  \see sista::printHyperlink
+ */
+int sista_printHyperlink(const char* text, const char* url);
+
 /** \enum sista_ForegroundColor
  *  \brief Predefined foreground colors for terminal text.
  *
@@ -517,6 +531,7 @@ enum sista_ErrorCode {
     SISTA_ERR_NULL_BORDER = 1007,
     SISTA_ERR_NULL_CURSOR = 1008,
     SISTA_ERR_NULL_COLOR = 1009,
+    SISTA_ERR_NULL_STRING = 1010,
     SISTA_ERR_UNKNOWN = 1099
 };
 
