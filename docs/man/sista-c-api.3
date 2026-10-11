@@ -16,6 +16,7 @@ Sista C API library (libSista_api, \fI-lSista_api -lSista\fP)
 .B "                                char border);"
 .B "int sista_destroySwappableField(SwappableFieldHandler_t field);"
 .B "int sista_resetAnsi();"
+.B "int sista_printHyperlink(const char *text, const char *url);"
 .B "int sista_setForegroundColor(enum sista_ForegroundColor color);"
 .B "int sista_setBackgroundColor(enum sista_BackgroundColor color);"
 .B "int sista_setAttribute(enum sista_Attribute attribute);"
@@ -134,6 +135,18 @@ Compile and link C source with the C++ linker driver:
 cc \-c example.c
 c++ example.o \-lSista_api \-lSista
 .fi
+.SH HYPERLINKS
+.nf
+int sista_printHyperlink(const char *text, const char *url);
+.fi
+Print an OSC 8 hyperlink without a newline. Both arguments are
+null-terminated UTF-8 strings. Empty strings are accepted.
+Null pointers return SISTA_ERR_NULL_STRING. A successful call clears the
+last error.
+The terminal must support OSC 8. URLs must be appropriately
+percent-encoded; arguments must not contain terminal control
+characters such as ESC or BEL.
+
 .SH SEE ALSO
 .BR sista-ansi (3),
 .BR sista-cursor (3),

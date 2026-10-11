@@ -89,7 +89,8 @@ MAN_ALIAS_SPECS = ANSISettings=sista-ansi.3 RGBColor=sista-ansi.3 \
 	sista_createField=sista-c-api.3 sista_printField=sista-c-api.3 \
 	sista_destroyField=sista-c-api.3 sista_createSwappableField=sista-c-api.3 \
 	sista_printSwappableField=sista-c-api.3 sista_destroySwappableField=sista-c-api.3 \
-	sista_resetAnsi=sista-c-api.3 sista_setForegroundColor=sista-c-api.3 \
+	sista_resetAnsi=sista-c-api.3 sista_printHyperlink=sista-c-api.3 \
+	sista_setForegroundColor=sista-c-api.3 \
 	sista_setBackgroundColor=sista-c-api.3 sista_setAttribute=sista-c-api.3 \
 	sista_resetAttribute=sista-c-api.3 sista_setForegroundColorRGB=sista-c-api.3 \
 	sista_setBackgroundColorRGB=sista-c-api.3 sista_createANSISettings=sista-c-api.3 \
