@@ -145,3 +145,7 @@ python3 ffi-test.py
 Make sure that `libSista_api.so` (or `libSista_api.dll` on Windows) is in your library path so that Python can find it when loading the C API.
 
 Note that the Python demo requires to use the C functions for output as `sys.stdout` does not correspond to `stdout` in C and tying them together is not trivial. This is a limitation of using Python (via `ctypes`) and any C API, and not of `Sista` itself.
+
+## Licensing
+
+Documentation prose and images are licensed under CC-BY-SA-4.0. Code examples and command snippets are licensed under GPL-3.0-only. These licenses apply to their respective portions; code examples do not require the prose license.

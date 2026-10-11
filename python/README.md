@@ -136,4 +136,6 @@ This verifies core API behavior, including exception paths.
 
 ## License
 
-This Python extension is licensed under the same license as the Sista project (GNU General Public License v3.0).
+The Python extension is licensed under GPL-3.0-only.
+
+Documentation prose and images are licensed under CC-BY-SA-4.0. Code examples and command snippets are licensed under GPL-3.0-only. These licenses apply to their respective portions; code examples do not require the prose license.
