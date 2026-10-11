@@ -1,0 +1,77 @@
+# SPDX-FileCopyrightText: 2026 FLAK-ZOSO <mattia.marchese.2006@gmail.com>
+# SPDX-License-Identifier: GPL-3.0-only
+
+version = 1
+
+# Files without inline SPDX headers. Keep these paths explicit so new files
+# must receive their own licensing metadata.
+
+[[annotations]]
+path = [
+    "docs/img/OX.png",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2022 FLAK-ZOSO <mattia.marchese.2006@gmail.com>"
+SPDX-License-Identifier = "GPL-3.0-only"
+
+[[annotations]]
+path = [
+    "docs/sista.rst",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2022-2025 FLAK-ZOSO <mattia.marchese.2006@gmail.com>"
+SPDX-License-Identifier = "GPL-3.0-only"
+
+[[annotations]]
+path = [
+    ".gitignore",
+    "README.md",
+    "ReleaseNotes.md",
+    "docs/index.rst",
+    "docs/intro.rst",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2022-2026 FLAK-ZOSO <mattia.marchese.2006@gmail.com>"
+SPDX-License-Identifier = "GPL-3.0-only"
+
+[[annotations]]
+path = [
+    "docs/img/colors24-bit.png",
+    "packageroot/debian/compat",
+    "packageroot/debian/control",
+    "packageroot/debian/copyright",
+    "packageroot/debian/lintian-overrides",
+    "packageroot/debian/source/format",
+    "python/.gitignore",
+    "python/PyPI-README.md",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2025 FLAK-ZOSO <mattia.marchese.2006@gmail.com>"
+SPDX-License-Identifier = "GPL-3.0-only"
+
+[[annotations]]
+path = [
+    "changelog.md",
+    "demo/README.md",
+    "packageroot/debian/changelog",
+    "python/README.md",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2025-2026 FLAK-ZOSO <mattia.marchese.2006@gmail.com>"
+SPDX-License-Identifier = "GPL-3.0-only"
+
+[[annotations]]
+path = [
+    "docs/man/sista-ansi.3",
+    "docs/man/sista-border.3",
+    "docs/man/sista-c-api.3",
+    "docs/man/sista-coordinates.3",
+    "docs/man/sista-cursor.3",
+    "docs/man/sista-field.3",
+    "docs/man/sista-pawn.3",
+    "docs/man/sista-version.3",
+    "docs/man/sista.7",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 FLAK-ZOSO <mattia.marchese.2006@gmail.com>"
+SPDX-License-Identifier = "GPL-3.0-only"
