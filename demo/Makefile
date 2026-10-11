@@ -138,10 +138,13 @@ api-test-errors: api-test-errors.o
 	g++ -Wall -g -o api-test-errors api-test-errors.o -lSista_api -lSista $(LD_LIBRARY_PATH_DIRECTIVE) $(DYLD_LIBRARY_PATH_DIRECTIVE)
 
 api-test-hyperlink.o: api-test-hyperlink.c
-	gcc -std=c89 -Wall -g -c api-test-hyperlink.c $(INCLUDE_PATH_DIRECTIVE)
+	gcc -std=c89 -Wall -g -I../include -c api-test-hyperlink.c
 
-api-test-hyperlink: api-test-hyperlink.o
-	g++ -Wall -g -o api-test-hyperlink api-test-hyperlink.o -lSista_api -lSista $(LD_LIBRARY_PATH_DIRECTIVE) $(DYLD_LIBRARY_PATH_DIRECTIVE)
+api.o: ../include/sista/api.cpp ../include/sista/api.h
+	g++ -std=c++17 -Wall -g -I../include -c ../include/sista/api.cpp -o api.o
+
+api-test-hyperlink: api-test-hyperlink.o api.o $(OBJECTS)
+	g++ -Wall -g -o api-test-hyperlink api-test-hyperlink.o api.o $(OBJECTS)
 
 mostlyclean:
 	rm -f *.o
