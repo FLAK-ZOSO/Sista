@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2023-2025 FLAK-ZOSO <mattia.marchese.2006@gmail.com>
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
 #include <chrono>
 #include <thread>
 #include <iostream>

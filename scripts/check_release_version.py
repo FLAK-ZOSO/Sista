@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2026 FLAK-ZOSO <mattia.marchese.2006@gmail.com>
+# SPDX-License-Identifier: GPL-3.0-only
+
 """Check that a release tag and every package's version agree."""
 
 import re

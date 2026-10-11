@@ -137,3 +137,11 @@ Here are some of the most relevant works based on Sista.
 - [`Dödas`](https://github.com/Lioydiano/Dodas) - _de dödas angrepp_ (attack of the dead) - a survival speedrun videogame
 - [`Dune`](https://github.com/Lioydiano/Dune) - a survival videogame inspired by Dune
 - [`Inävjaga`](https://github.com/FLAK-ZOSO/Inavjaga) - _Inälvor jagade_ (intestin hunt) - a survival videogame with hordes of enemies
+
+## Licensing
+
+The library, bindings, demos, scripts, and build configuration are licensed under GPL-3.0-only.
+
+Documentation prose and images are licensed under CC-BY-SA-4.0. Code examples and command snippets are licensed under GPL-3.0-only. These licenses apply to their respective portions; code examples do not require the prose license.
+
+See [GPL-3.0-only](LICENSES/GPL-3.0-only.txt), [CC-BY-SA-4.0](LICENSES/CC-BY-SA-4.0.txt), and [REUSE.toml](REUSE.toml) for license texts and per-file metadata.

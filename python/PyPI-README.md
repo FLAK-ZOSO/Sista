@@ -46,3 +46,7 @@ python -m http.server --directory docs
 ```
 
 Then, open your web browser and navigate to `http://localhost:8000/sista/index.html` to view the documentation.
+
+## Licensing
+
+Documentation prose and images are licensed under CC-BY-SA-4.0. Code examples and command snippets are licensed under GPL-3.0-only. These licenses apply to their respective portions; code examples do not require the prose license.

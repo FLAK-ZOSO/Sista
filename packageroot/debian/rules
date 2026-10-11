@@ -1,4 +1,7 @@
 #!/usr/bin/make -f
+# SPDX-FileCopyrightText: 2025-2026 FLAK-ZOSO <mattia.marchese.2006@gmail.com>
+# SPDX-License-Identifier: GPL-3.0-only
+
 clean:
 	$(MAKE) -C .. clean
 	dh_clean

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 FLAK-ZOSO <mattia.marchese.2006@gmail.com>
+# SPDX-License-Identifier: GPL-3.0-only
+
 Name:           sista
 Version:        %{?sista_version}%{!?sista_version:3.1.0}
 Release:        %{?sista_release}%{!?sista_release:1}%{?dist}
@@ -5,7 +8,7 @@ Release:        %{?sista_release}%{!?sista_release:1}%{?dist}
 # debug subpackages rather than failing on an empty debugsource file.
 %global debug_package %{nil}
 Summary:        Lightweight C++ library for terminal games and animations
-License:        GPL-3.0-only
+License:        GPL-3.0-only AND CC-BY-SA-4.0
 URL:            https://github.com/FLAK-ZOSO/Sista
 Source0:        %{name}-%{version}.tar.gz
 
@@ -34,7 +37,7 @@ rmdir --ignore-fail-on-non-empty %{buildroot}%{_sysconfdir}/ld.so.conf.d 2>/dev/
 rmdir --ignore-fail-on-non-empty %{buildroot}%{_sysconfdir} 2>/dev/null || :
 
 %files
-%license LICENSE.md
+%license LICENSE.md LICENSES/CC-BY-SA-4.0.txt
 %doc README.md ReleaseNotes.md changelog.md
 %{_includedir}/sista/
 %{_libdir}/libSista.so

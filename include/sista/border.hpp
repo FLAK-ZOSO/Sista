@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2022-2026 FLAK-ZOSO <mattia.marchese.2006@gmail.com>
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
 /** \file border.hpp
  *  \brief Border class header file.
  * 

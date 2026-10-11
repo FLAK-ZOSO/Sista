@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025-2026 FLAK-ZOSO <mattia.marchese.2006@gmail.com>
+# SPDX-License-Identifier: GPL-3.0-only
+
 """Memory-safe and OS-agnostic library for making terminal videogames and animations"""
 __version__ = '3.1.0'
 

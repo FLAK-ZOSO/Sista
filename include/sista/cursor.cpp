@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2023-2026 FLAK-ZOSO <mattia.marchese.2006@gmail.com>
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
 /** \file cursor.cpp
  *  \brief Implementation of the Cursor class for representing and manipulating the terminal cursor.
  * 
