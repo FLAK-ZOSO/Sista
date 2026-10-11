@@ -123,6 +123,11 @@ namespace sista {
         std::cout << CSI << '=' << static_cast<int>(mode) << 'l';
     }
 
+    void printHyperlink(std::string text, std::string url) {
+        std::cout << ESC << "]8;;" << url << ESC << "\\"
+                << text << ESC << "]8;;" << ESC << "\\";
+    }
+
     ANSISettings::ANSISettings() {
         foregroundColor = ForegroundColor::WHITE;
         backgroundColor = BackgroundColor::BLACK;

@@ -465,6 +465,19 @@ namespace sista {
     */
     void unsetScreenMode(ScreenMode);
 
+    /** \brief Prints some text as an hyperlink
+     *  \param text The text printed to screen
+     *  \param url The URL to link to
+     *
+     *  Prints the provided text as an hyperlink to an URL
+     *
+     *  \warning No formal checks are ensured for spaces in the URL
+     *
+     *  \note This functionality relies on OSC8 support
+     *  \see https://github.com/Alhadis/OSC8-Adoption
+     */
+    void printHyperlink(std::string, std::string);
+
     /** \struct ANSISettings
      *  \brief Represents a set of ANSI settings including colors and attributes.
      *
