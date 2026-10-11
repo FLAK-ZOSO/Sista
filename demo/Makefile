@@ -18,7 +18,8 @@ ifeq "$(shell uname -s)" "Darwin"
 	DYLD_LIBRARY_PATH_DIRECTIVE = -Wl,-rpath,$(LIBDIR)
 endif
 
-all: header-test color-string colors24-bit \
+all: header-test hyperlink-test hyperlink-output-test api-test-hyperlink \
+	color-string colors24-bit \
 	colors256 conflictTest resetAttribute \
 	screen-mode swapTest verticalTest pawnsCountTest \
 	attributes mostlyclean
@@ -46,6 +47,12 @@ hyperlink-test.o: hyperlink-test.cpp
 
 hyperlink-test: hyperlink-test.o $(OBJECTS)
 	g++ -o hyperlink-test hyperlink-test.o $(OBJECTS)
+
+hyperlink-output-test.o: hyperlink-output-test.cpp
+	g++ -std=c++17 -Wall -g -c hyperlink-output-test.cpp
+
+hyperlink-output-test: hyperlink-output-test.o $(OBJECTS)
+	g++ -o hyperlink-output-test hyperlink-output-test.o $(OBJECTS)
 
 shared-test.o:
 	g++ -std=c++17 -Wall -Wno-narrowing -Wno-sign-compare -g $(INCLUDE_PATH_DIRECTIVE) -c shared-test.cpp
@@ -130,12 +137,19 @@ api-test-errors.o: api-test-errors.c
 api-test-errors: api-test-errors.o
 	g++ -Wall -g -o api-test-errors api-test-errors.o -lSista_api -lSista $(LD_LIBRARY_PATH_DIRECTIVE) $(DYLD_LIBRARY_PATH_DIRECTIVE)
 
+api-test-hyperlink.o: api-test-hyperlink.c
+	gcc -std=c89 -Wall -g -c api-test-hyperlink.c $(INCLUDE_PATH_DIRECTIVE)
+
+api-test-hyperlink: api-test-hyperlink.o
+	g++ -Wall -g -o api-test-hyperlink api-test-hyperlink.o -lSista_api -lSista $(LD_LIBRARY_PATH_DIRECTIVE) $(DYLD_LIBRARY_PATH_DIRECTIVE)
+
 mostlyclean:
 	rm -f *.o
 
 clean_objects: mostlyclean
 
 clean: mostlyclean
+	rm -f hyperlink-test hyperlink-output-test api-test-hyperlink
 	rm -f colors24-bit colors256 conflictTest resetAttribute screen-mode swapTest verticalTest pawnsCountTest
 	rm -f header-test shared-test shared-test-static
 	rm -f api-test api-test-border api-test-multiple-styles api-test-swap api-test-cursor api-test-errors attributes
