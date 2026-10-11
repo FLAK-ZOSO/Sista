@@ -79,6 +79,15 @@ def reset_attribute(attribute: int) -> None:
     :type attribute: int
     """
     ...
+def print_hyperlink(text: str, url: str) -> None:
+    """Print an OSC 8 hyperlink without a newline to native standard output.
+
+    Requires a supporting terminal. Percent-encode the URL as appropriate;
+    neither argument may contain terminal control characters (ESC, BEL, etc.).
+    Empty strings are accepted. Embedded NUL characters raise ValueError.
+    """
+    ...
+
 def reset_ansi() -> None:
     """
     Reset all ANSI text attributes and colors to the terminal defaults.
