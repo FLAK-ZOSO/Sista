@@ -119,6 +119,16 @@ el.replaceWith(d);
 <li><code>message</code> (str): Message to print (a single text line).</li>
 </ul></div>
 </dd>
+<dt id="sista.print_hyperlink"><code class="name flex">
+<span>def <span class="ident">print_hyperlink</span></span>(<span>text, url)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Print an OSC 8 hyperlink to native standard output without a newline.
+Requires OSC 8 terminal support. Strings are UTF-8 encoded; the URL must
+be appropriately percent-encoded and neither argument may contain terminal
+control characters (including ESC and BEL). Arguments are emitted verbatim.
+Empty strings are accepted; embedded NUL characters are rejected.</p></div>
+</dd>
 <dt id="sista.reset_ansi"><code class="name flex">
 <span>def <span class="ident">reset_ansi</span></span>(<span>...)</span>
 </code></dt>
@@ -361,6 +371,7 @@ el.replaceWith(d);
 <li><code><a title="sista.create_border" href="#sista.create_border">create_border</a></code></li>
 <li><code><a title="sista.create_coordinates" href="#sista.create_coordinates">create_coordinates</a></code></li>
 <li><code><a title="sista.print" href="#sista.print">print</a></code></li>
+<li><code><a title="sista.print_hyperlink" href="#sista.print_hyperlink">print_hyperlink</a></code></li>
 <li><code><a title="sista.reset_ansi" href="#sista.reset_ansi">reset_ansi</a></code></li>
 <li><code><a title="sista.reset_attribute" href="#sista.reset_attribute">reset_attribute</a></code></li>
 <li><code><a title="sista.set_attribute" href="#sista.set_attribute">set_attribute</a></code></li>
