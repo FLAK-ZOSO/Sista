@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2024-2025 FLAK-ZOSO <mattia.marchese.2006@gmail.com>
 # SPDX-License-Identifier: GPL-3.0-only
 
 # Configuration file for the Sphinx documentation builder.

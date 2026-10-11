@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2025 FLAK-ZOSO <mattia.marchese.2006@gmail.com>
 # SPDX-License-Identifier: GPL-3.0-only
 
 """Test script to verify enum exposure in sista module"""

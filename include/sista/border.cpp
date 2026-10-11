@@ -1,4 +1,7 @@
-/* SPDX-License-Identifier: GPL-3.0-only */
+/*
+ * SPDX-FileCopyrightText: 2023-2026 FLAK-ZOSO <mattia.marchese.2006@gmail.com>
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
 
 /** \file border.cpp
  *  \brief Implementation of the Border class for terminal borders.

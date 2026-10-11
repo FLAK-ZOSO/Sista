@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2025-2026 FLAK-ZOSO <mattia.marchese.2006@gmail.com>
 # SPDX-License-Identifier: GPL-3.0-only
 
 """Comprehensive (not actually) test script for sista Python C extension module"""
