@@ -41,6 +41,12 @@ header-test.o:
 header-test: header-test.o $(OBJECTS)
 	g++ -o header-test header-test.o $(OBJECTS)
 
+hyperlink-test.o: hyperlink-test.cpp
+	g++ -std=c++17 -Wall -Wno-narrowing -Wno-sign-compare -g -c hyperlink-test.cpp
+
+hyperlink-test: hyperlink-test.o $(OBJECTS)
+	g++ -o hyperlink-test hyperlink-test.o $(OBJECTS)
+
 shared-test.o:
 	g++ -std=c++17 -Wall -Wno-narrowing -Wno-sign-compare -g $(INCLUDE_PATH_DIRECTIVE) -c shared-test.cpp
 
