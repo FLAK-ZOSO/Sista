@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-3.0-only */
+
 /** \file api.cpp
  *  \brief Implementation of the C API for Sista
  *

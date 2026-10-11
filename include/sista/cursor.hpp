@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-3.0-only */
+
 /** \file cursor.hpp
  *  \brief Cursor manipulation header file.
  * 

@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-3.0-only
+
 Name:           sista
 Version:        %{?sista_version}%{!?sista_version:3.1.0}
 Release:        %{?sista_release}%{!?sista_release:1}%{?dist}

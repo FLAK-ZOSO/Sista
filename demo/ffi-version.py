@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-only
+
 import ctypes, ctypes.util
 import platform
 import time

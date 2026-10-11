@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-only
+
 """Check the maintained man pages and compile their example programs."""
 
 from pathlib import Path

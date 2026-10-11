@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-3.0-only */
+
 /** \file version.hpp
  *  \brief Sista version information.
  *  \author FLAK-ZOSO

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-3.0-only */
+
 /** \file sistamodule.c
  *  \brief Python C extension module for Sista C API
  *

@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-3.0-only */
+
 /** \file border.hpp
  *  \brief Border class header file.
  * 

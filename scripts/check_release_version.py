@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-only
+
 """Check that a release tag and every package's version agree."""
 
 import re

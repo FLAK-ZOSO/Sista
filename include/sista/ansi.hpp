@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-3.0-only */
+
 /**
  * \file ansi.hpp
  * \brief ANSI escape code utilities and types for terminal formatting.

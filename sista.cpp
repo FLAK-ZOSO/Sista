@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-3.0-only */
+
 /** \file sista.cpp
  *  \brief A demo of the SwappableField class from the Sista library.
  *

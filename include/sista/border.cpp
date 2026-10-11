@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-3.0-only */
+
 /** \file border.cpp
  *  \brief Implementation of the Border class for terminal borders.
  * 

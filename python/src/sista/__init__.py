@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-3.0-only
+
 """Memory-safe and OS-agnostic library for making terminal videogames and animations"""
 __version__ = '3.1.0'
 

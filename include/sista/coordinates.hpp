@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-3.0-only */
+
 /** \file coordinates.hpp
  *  \brief Coordinates struct header file.
  * 

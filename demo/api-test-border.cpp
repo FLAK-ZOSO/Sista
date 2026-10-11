@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-3.0-only */
+
 #include <sista/api.h>
 #include <chrono>
 #include <thread>

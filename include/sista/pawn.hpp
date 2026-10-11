@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-3.0-only */
+
 /** \file pawn.hpp
  *  \brief Pawn class header file.
  *

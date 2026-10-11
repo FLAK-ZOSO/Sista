@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-3.0-only */
+
 /** \file ansi.cpp
  *  \brief Implementation of ANSI functions and classes.
  * 

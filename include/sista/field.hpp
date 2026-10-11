@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-3.0-only */
+
 /** \file field.hpp
  *  \brief This file contains the Field class and related structures.
  * 

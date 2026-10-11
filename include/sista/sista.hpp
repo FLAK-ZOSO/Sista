@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: GPL-3.0-only */
+
 /** \file sista.hpp
  *  \brief Main include file for the Sista library.
  *
