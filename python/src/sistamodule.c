@@ -40,6 +40,7 @@ py_sista_raise_from_status(int status_code, const char* fallback_message) {
         case SISTA_ERR_NULL_BORDER:
         case SISTA_ERR_NULL_CURSOR:
         case SISTA_ERR_NULL_COLOR:
+        case SISTA_ERR_NULL_STRING:
             exc_type = PyExc_ValueError;
             break;
         case SISTA_ERR_OUT_OF_BOUNDS:
@@ -336,6 +337,30 @@ py_sista_print(PyObject* self, PyObject* args) {
 
 /** \brief Resets ANSI settings to default.
  */
+PyDoc_STRVAR(py_sista_print_hyperlink_doc,
+"print_hyperlink(text, url)\n--\n\n"
+"Print an OSC 8 hyperlink to native standard output without a newline.\n"
+"Requires OSC 8 terminal support. Strings are UTF-8 encoded; the URL must\n"
+"be appropriately percent-encoded and neither argument may contain terminal\n"
+"control characters (including ESC and BEL). Arguments are emitted verbatim.\n"
+"Empty strings are accepted; embedded NUL characters are rejected.");
+
+static PyObject*
+py_sista_print_hyperlink(PyObject* self, PyObject* args, PyObject* kwargs) {
+    const char* text;
+    const char* url;
+    static char* kwlist[] = {"text", "url", NULL};
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "ss:print_hyperlink",
+                                    kwlist, &text, &url)) {
+        return NULL;
+    }
+    if (py_sista_raise_from_status(sista_printHyperlink(text, url),
+                                   "Failed to print hyperlink") < 0) {
+        return NULL;
+    }
+    Py_RETURN_NONE;
+}
+
 static PyObject*
 py_sista_reset_ansi(PyObject* self, PyObject* Py_UNUSED(ignored)) {
     if (py_sista_raise_from_status(sista_resetAnsi(), "Failed to reset ANSI settings") < 0) {
@@ -1232,6 +1257,9 @@ sista_module_exec(PyObject* module)
 
 /* Module methods definition. */
 static PyMethodDef sista_module_methods[] = {
+    {"print_hyperlink", (PyCFunction)py_sista_print_hyperlink,
+     METH_VARARGS | METH_KEYWORDS,
+     py_sista_print_hyperlink_doc},
     {"reset_ansi", (PyCFunction)py_sista_reset_ansi,
      METH_NOARGS,
      py_sista_reset_ansi_doc},
