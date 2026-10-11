@@ -195,6 +195,7 @@ Enumerations</h2></td></tr>
 , <br />
 &#160;&#160;<a class="el" href="api_8h.html#a27e7f9747cbd25bc0265d483ec45d572a3193a4a34dfa65d754d2b3e925c4df96">SISTA_ERR_NULL_CURSOR</a> = 1008
 , <a class="el" href="api_8h.html#a27e7f9747cbd25bc0265d483ec45d572a73e57d87904ff5e58d0dd4d0d5584bf5">SISTA_ERR_NULL_COLOR</a> = 1009
+, <a class="el" href="api_8h.html#a27e7f9747cbd25bc0265d483ec45d572aa628cd1be23888b755efffe82a3ac153">SISTA_ERR_NULL_STRING</a> = 1010
 , <a class="el" href="api_8h.html#a27e7f9747cbd25bc0265d483ec45d572abc987ada834466c7248b43fcaea42d1c">SISTA_ERR_UNKNOWN</a> = 1099
 <br />
  }</td></tr>
@@ -237,6 +238,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a8b3414af796239468247c8668b3dfa22" id="r_a8b3414af796239468247c8668b3dfa22"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a8b3414af796239468247c8668b3dfa22">sista_resetAnsi</a> ()</td></tr>
 <tr class="memdesc:a8b3414af796239468247c8668b3dfa22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets ANSI settings to default.  <br /></td></tr>
 <tr class="separator:a8b3414af796239468247c8668b3dfa22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d82f3cdbcbe35a6c0516b6ee72f9e84" id="r_a0d82f3cdbcbe35a6c0516b6ee72f9e84"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a0d82f3cdbcbe35a6c0516b6ee72f9e84">sista_printHyperlink</a> (const char *text, const char *url)</td></tr>
+<tr class="memdesc:a0d82f3cdbcbe35a6c0516b6ee72f9e84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints an OSC 8 hyperlink to standard output without a newline.  <br /></td></tr>
+<tr class="separator:a0d82f3cdbcbe35a6c0516b6ee72f9e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a822b99ffb35c1ba4ab371f0694517815" id="r_a822b99ffb35c1ba4ab371f0694517815"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="api_8h.html#a822b99ffb35c1ba4ab371f0694517815">sista_setForegroundColor</a> (enum <a class="el" href="api_8h.html#a3e96ff0d0454a62df1bd01897ba1a5ef">sista_ForegroundColor</a>)</td></tr>
 <tr class="memdesc:a822b99ffb35c1ba4ab371f0694517815"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the foreground color using a predefined color.  <br /></td></tr>
 <tr class="separator:a822b99ffb35c1ba4ab371f0694517815"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -510,6 +514,7 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a27e7f9747cbd25bc0265d483ec45d572a631c53229336412735b22411d07ea97a" name="a27e7f9747cbd25bc0265d483ec45d572a631c53229336412735b22411d07ea97a"></a>SISTA_ERR_NULL_BORDER&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a27e7f9747cbd25bc0265d483ec45d572a3193a4a34dfa65d754d2b3e925c4df96" name="a27e7f9747cbd25bc0265d483ec45d572a3193a4a34dfa65d754d2b3e925c4df96"></a>SISTA_ERR_NULL_CURSOR&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a27e7f9747cbd25bc0265d483ec45d572a73e57d87904ff5e58d0dd4d0d5584bf5" name="a27e7f9747cbd25bc0265d483ec45d572a73e57d87904ff5e58d0dd4d0d5584bf5"></a>SISTA_ERR_NULL_COLOR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a27e7f9747cbd25bc0265d483ec45d572aa628cd1be23888b755efffe82a3ac153" name="a27e7f9747cbd25bc0265d483ec45d572aa628cd1be23888b755efffe82a3ac153"></a>SISTA_ERR_NULL_STRING&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a27e7f9747cbd25bc0265d483ec45d572abc987ada834466c7248b43fcaea42d1c" name="a27e7f9747cbd25bc0265d483ec45d572abc987ada834466c7248b43fcaea42d1c"></a>SISTA_ERR_UNKNOWN&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
@@ -1766,6 +1771,55 @@ Border </dd></dl>
 
 </div>
 </div>
+<a id="a0d82f3cdbcbe35a6c0516b6ee72f9e84" name="a0d82f3cdbcbe35a6c0516b6ee72f9e84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d82f3cdbcbe35a6c0516b6ee72f9e84">&#9670;&#160;</a></span>sista_printHyperlink()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sista_printHyperlink </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>url</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints an OSC 8 hyperlink to standard output without a newline. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>Null-terminated UTF-8 display text. </td></tr>
+    <tr><td class="paramname">url</td><td>Null-terminated, appropriately percent-encoded URL. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">SISTA_OK</td><td>On success. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_NULL_STRING</td><td>If either argument is NULL. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_BAD_ALLOC</td><td>If memory allocation fails. </td></tr>
+    <tr><td class="paramname">SISTA_ERR_UNKNOWN</td><td>If another exception occurs. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>Arguments are emitted verbatim and must not contain terminal control characters, including ESC and BEL. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Requires OSC 8 terminal support. Empty strings are accepted. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacesista.html#a356ab6382bd9e403235eb6e98d0c8fe8" title="Prints text as a hyperlink.">sista::printHyperlink</a> </dd></dl>
+
+</div>
+</div>
 <a id="a0c57afcfffee4dd2f5132c456240af21" name="a0c57afcfffee4dd2f5132c456240af21"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0c57afcfffee4dd2f5132c456240af21">&#9670;&#160;</a></span>sista_printSwappableField()</h2>
 
@@ -2120,7 +2174,7 @@ Border </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 11 2026 12:32:56 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sun Oct 11 2026 14:53:46 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

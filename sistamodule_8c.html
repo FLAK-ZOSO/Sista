@@ -187,8 +187,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a5dc4b25b1fbe7db05a52e73d4e786792" id="r_a5dc4b25b1fbe7db05a52e73d4e786792"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a5dc4b25b1fbe7db05a52e73d4e786792">py_sista_print</a> (PyObject *self, PyObject *args)</td></tr>
 <tr class="memdesc:a5dc4b25b1fbe7db05a52e73d4e786792"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a message.  <br /></td></tr>
 <tr class="separator:a5dc4b25b1fbe7db05a52e73d4e786792"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1e793a6ccd5c494b8d422ddeedeb30d" id="r_ad1e793a6ccd5c494b8d422ddeedeb30d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#ad1e793a6ccd5c494b8d422ddeedeb30d">PyDoc_STRVAR</a> (py_sista_print_hyperlink_doc, &quot;print_hyperlink(text, url)\n--\n\n&quot; &quot;Print an OSC 8 hyperlink to native standard output without a newline.\n&quot; &quot;Requires OSC 8 terminal support. Strings are UTF-8 encoded; the URL must\n&quot; &quot;be appropriately percent-encoded and neither argument may contain terminal\n&quot; &quot;control characters (including <a class="el" href="ansi_8hpp.html#a4af1b6159e447ba72652bb7fcdfa726e">ESC</a> and BEL). Arguments are emitted verbatim.\n&quot; &quot;Empty strings are accepted; embedded NUL characters are rejected.&quot;)</td></tr>
+<tr class="memdesc:ad1e793a6ccd5c494b8d422ddeedeb30d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets ANSI settings to default.  <br /></td></tr>
+<tr class="separator:ad1e793a6ccd5c494b8d422ddeedeb30d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa871ae48ace4b7561fc7d39e7c346f97" id="r_aa871ae48ace4b7561fc7d39e7c346f97"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#aa871ae48ace4b7561fc7d39e7c346f97">py_sista_print_hyperlink</a> (PyObject *self, PyObject *args, PyObject *kwargs)</td></tr>
+<tr class="separator:aa871ae48ace4b7561fc7d39e7c346f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeccac2f9c32503331c442ed19ee28beb" id="r_aeccac2f9c32503331c442ed19ee28beb"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#aeccac2f9c32503331c442ed19ee28beb">py_sista_reset_ansi</a> (PyObject *self, PyObject *Py_UNUSED(ignored))</td></tr>
-<tr class="memdesc:aeccac2f9c32503331c442ed19ee28beb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets ANSI settings to default.  <br /></td></tr>
 <tr class="separator:aeccac2f9c32503331c442ed19ee28beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00e69ee89d19018b750d1e7a3bf87e35" id="r_a00e69ee89d19018b750d1e7a3bf87e35"><td class="memItemLeft" align="right" valign="top">static PyObject *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sistamodule_8c.html#a00e69ee89d19018b750d1e7a3bf87e35">py_sista_clear_screen</a> (PyObject *self, PyObject *args, PyObject *kwargs)</td></tr>
 <tr class="memdesc:a00e69ee89d19018b750d1e7a3bf87e35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the terminal and repositions the cursor.  <br /></td></tr>
@@ -1143,6 +1147,48 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="aa871ae48ace4b7561fc7d39e7c346f97" name="aa871ae48ace4b7561fc7d39e7c346f97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa871ae48ace4b7561fc7d39e7c346f97">&#9670;&#160;</a></span>py_sista_print_hyperlink()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static PyObject * py_sista_print_hyperlink </td>
+          <td>(</td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>args</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PyObject *&#160;</td>
+          <td class="paramname"><em>kwargs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="acc6025aed2d8a94fe52fd33f7d1db9d2" name="acc6025aed2d8a94fe52fd33f7d1db9d2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acc6025aed2d8a94fe52fd33f7d1db9d2">&#9670;&#160;</a></span>py_sista_raise_from_last_error()</h2>
 
@@ -1238,8 +1284,6 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Resets ANSI settings to default. </p>
 
 </div>
 </div>
@@ -1420,7 +1464,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a60014423dc1f8aa7356226b32b9ce829" name="a60014423dc1f8aa7356226b32b9ce829"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60014423dc1f8aa7356226b32b9ce829">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[1/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a60014423dc1f8aa7356226b32b9ce829">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[1/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1448,7 +1492,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a5fe53061af602d00e95b333455fe82b3" name="a5fe53061af602d00e95b333455fe82b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5fe53061af602d00e95b333455fe82b3">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[2/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fe53061af602d00e95b333455fe82b3">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[2/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1476,7 +1520,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="ad74a6074715be8c10ebe2c299b71d805" name="ad74a6074715be8c10ebe2c299b71d805"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad74a6074715be8c10ebe2c299b71d805">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[3/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad74a6074715be8c10ebe2c299b71d805">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[3/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1504,7 +1548,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a0db26449f233936d02c2b0baefbb649b" name="a0db26449f233936d02c2b0baefbb649b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0db26449f233936d02c2b0baefbb649b">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[4/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0db26449f233936d02c2b0baefbb649b">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[4/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1544,7 +1588,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a06681a55513f6ea6310193b531e8204c" name="a06681a55513f6ea6310193b531e8204c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06681a55513f6ea6310193b531e8204c">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[5/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a06681a55513f6ea6310193b531e8204c">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[5/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1584,7 +1628,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a4fd61dcbecfefa63dc381b9648f6c802" name="a4fd61dcbecfefa63dc381b9648f6c802"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4fd61dcbecfefa63dc381b9648f6c802">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[6/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fd61dcbecfefa63dc381b9648f6c802">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[6/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1612,7 +1656,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a679622b68d1351211443fca95dc82f63" name="a679622b68d1351211443fca95dc82f63"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a679622b68d1351211443fca95dc82f63">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[7/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a679622b68d1351211443fca95dc82f63">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[7/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1658,7 +1702,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a514a4478c6b7b2e7eba60cf2d5be9084" name="a514a4478c6b7b2e7eba60cf2d5be9084"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a514a4478c6b7b2e7eba60cf2d5be9084">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[8/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a514a4478c6b7b2e7eba60cf2d5be9084">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[8/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1686,7 +1730,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="af0b79c3307fb82e2361829c18807b9ff" name="af0b79c3307fb82e2361829c18807b9ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0b79c3307fb82e2361829c18807b9ff">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[9/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af0b79c3307fb82e2361829c18807b9ff">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[9/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1714,7 +1758,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a9117096df7fbfb6ae62562e67d995b3a" name="a9117096df7fbfb6ae62562e67d995b3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9117096df7fbfb6ae62562e67d995b3a">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[10/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9117096df7fbfb6ae62562e67d995b3a">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[10/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1742,7 +1786,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="ab0608c7165e5e3636d499d212af2424d" name="ab0608c7165e5e3636d499d212af2424d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0608c7165e5e3636d499d212af2424d">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[11/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0608c7165e5e3636d499d212af2424d">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[11/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1770,7 +1814,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a01a01d0b3fb53124c5ea25234ba80355" name="a01a01d0b3fb53124c5ea25234ba80355"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01a01d0b3fb53124c5ea25234ba80355">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[12/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a01a01d0b3fb53124c5ea25234ba80355">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[12/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1798,7 +1842,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a0498f4b73ecbe4603de2f4385987e917" name="a0498f4b73ecbe4603de2f4385987e917"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0498f4b73ecbe4603de2f4385987e917">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[13/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0498f4b73ecbe4603de2f4385987e917">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[13/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1826,7 +1870,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="ae5674d428313b66d3d105d667b65580f" name="ae5674d428313b66d3d105d667b65580f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5674d428313b66d3d105d667b65580f">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[14/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5674d428313b66d3d105d667b65580f">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[14/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1854,7 +1898,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="ad3976bc4f808e33436c28eab6336125f" name="ad3976bc4f808e33436c28eab6336125f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3976bc4f808e33436c28eab6336125f">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[15/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3976bc4f808e33436c28eab6336125f">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[15/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1881,8 +1925,38 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="ad1e793a6ccd5c494b8d422ddeedeb30d" name="ad1e793a6ccd5c494b8d422ddeedeb30d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1e793a6ccd5c494b8d422ddeedeb30d">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[16/25]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PyDoc_STRVAR </td>
+          <td>(</td>
+          <td class="paramtype">py_sista_print_hyperlink_doc&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&quot;print_hyperlink(text, url)\n--\n\n&quot; &quot;Print an OSC 8 hyperlink to native standard output without a newline.\n&quot; &quot;Requires OSC 8 terminal support. Strings are UTF-8 encoded; the URL must\n&quot; &quot;be appropriately percent-encoded and neither argument may contain terminal\n&quot; &quot;control characters (including <a class="el" href="ansi_8hpp.html#a4af1b6159e447ba72652bb7fcdfa726e">ESC</a> and BEL). Arguments are emitted verbatim.\n&quot; &quot;Empty strings are accepted; embedded NUL characters are rejected.&quot;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resets ANSI settings to default. </p>
+
+</div>
+</div>
 <a id="a6934221ed23aa74555fce8b2121a947b" name="a6934221ed23aa74555fce8b2121a947b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6934221ed23aa74555fce8b2121a947b">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[16/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6934221ed23aa74555fce8b2121a947b">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[17/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1910,7 +1984,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="afd0d2ec7dcf7e3a5b8b29f0206ca297f" name="afd0d2ec7dcf7e3a5b8b29f0206ca297f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd0d2ec7dcf7e3a5b8b29f0206ca297f">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[17/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afd0d2ec7dcf7e3a5b8b29f0206ca297f">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[18/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1938,7 +2012,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a07149ca054d6b69dc0683636b315b81b" name="a07149ca054d6b69dc0683636b315b81b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07149ca054d6b69dc0683636b315b81b">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[18/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a07149ca054d6b69dc0683636b315b81b">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[19/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1966,7 +2040,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a4752fc052e78d9aa7486793a0ba3c1b4" name="a4752fc052e78d9aa7486793a0ba3c1b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4752fc052e78d9aa7486793a0ba3c1b4">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[19/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4752fc052e78d9aa7486793a0ba3c1b4">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[20/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1994,7 +2068,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a39508f8a159bfe5eb6488edbd7f07878" name="a39508f8a159bfe5eb6488edbd7f07878"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39508f8a159bfe5eb6488edbd7f07878">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[20/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a39508f8a159bfe5eb6488edbd7f07878">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[21/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2022,7 +2096,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a211fb7c82075e54831e003305e48c1d8" name="a211fb7c82075e54831e003305e48c1d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a211fb7c82075e54831e003305e48c1d8">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[21/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a211fb7c82075e54831e003305e48c1d8">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[22/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2050,7 +2124,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="aff91939833105486f13732ade025c13c" name="aff91939833105486f13732ade025c13c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff91939833105486f13732ade025c13c">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[22/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aff91939833105486f13732ade025c13c">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[23/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2078,7 +2152,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a90f427b8c87d1cc6527f18e006df0a6a" name="a90f427b8c87d1cc6527f18e006df0a6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90f427b8c87d1cc6527f18e006df0a6a">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[23/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a90f427b8c87d1cc6527f18e006df0a6a">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[24/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2106,7 +2180,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a082b79d8ccdeb67c932dc11a5a1f8a98" name="a082b79d8ccdeb67c932dc11a5a1f8a98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a082b79d8ccdeb67c932dc11a5a1f8a98">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[24/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a082b79d8ccdeb67c932dc11a5a1f8a98">&#9670;&#160;</a></span>PyDoc_STRVAR() <span class="overload">[25/25]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2419,9 +2493,9 @@ Variables</h2></td></tr>
 <div class="line">    {<span class="stringliteral">&quot;move&quot;</span>, (PyCFunction)<a class="code hl_function" href="sistamodule_8c.html#a3cbdce11db98425ccaab414483d4944c">Cursor_move</a>, METH_VARARGS, py_Cursor_move_doc},</div>
 <div class="line">    {NULL, NULL, 0, NULL}</div>
 <div class="line">}</div>
-<div class="ttc" id="asistamodule_8c_html_a3cbdce11db98425ccaab414483d4944c"><div class="ttname"><a href="sistamodule_8c.html#a3cbdce11db98425ccaab414483d4944c">Cursor_move</a></div><div class="ttdeci">static PyObject * Cursor_move(PyObject *self, PyObject *args)</div><div class="ttdoc">Cursor.move(self, direction, amount)</div><div class="ttdef"><b>Definition</b> sistamodule.c:693</div></div>
-<div class="ttc" id="asistamodule_8c_html_ad44dd0ce6232f80679cdecd9951671c0"><div class="ttname"><a href="sistamodule_8c.html#ad44dd0ce6232f80679cdecd9951671c0">Cursor_go_to_coordinates</a></div><div class="ttdeci">static PyObject * Cursor_go_to_coordinates(PyObject *self, PyObject *args)</div><div class="ttdoc">Cursor.go_to_coordinates(self, coords_capsule)</div><div class="ttdef"><b>Definition</b> sistamodule.c:656</div></div>
-<div class="ttc" id="asistamodule_8c_html_af547fbb5495f3893585968f383f3d96b"><div class="ttname"><a href="sistamodule_8c.html#af547fbb5495f3893585968f383f3d96b">Cursor_go_to</a></div><div class="ttdeci">static PyObject * Cursor_go_to(PyObject *self, PyObject *args)</div><div class="ttdoc">Cursor.go_to(self, y, x)</div><div class="ttdef"><b>Definition</b> sistamodule.c:627</div></div>
+<div class="ttc" id="asistamodule_8c_html_a3cbdce11db98425ccaab414483d4944c"><div class="ttname"><a href="sistamodule_8c.html#a3cbdce11db98425ccaab414483d4944c">Cursor_move</a></div><div class="ttdeci">static PyObject * Cursor_move(PyObject *self, PyObject *args)</div><div class="ttdoc">Cursor.move(self, direction, amount)</div><div class="ttdef"><b>Definition</b> sistamodule.c:718</div></div>
+<div class="ttc" id="asistamodule_8c_html_ad44dd0ce6232f80679cdecd9951671c0"><div class="ttname"><a href="sistamodule_8c.html#ad44dd0ce6232f80679cdecd9951671c0">Cursor_go_to_coordinates</a></div><div class="ttdeci">static PyObject * Cursor_go_to_coordinates(PyObject *self, PyObject *args)</div><div class="ttdoc">Cursor.go_to_coordinates(self, coords_capsule)</div><div class="ttdef"><b>Definition</b> sistamodule.c:681</div></div>
+<div class="ttc" id="asistamodule_8c_html_af547fbb5495f3893585968f383f3d96b"><div class="ttname"><a href="sistamodule_8c.html#af547fbb5495f3893585968f383f3d96b">Cursor_go_to</a></div><div class="ttdeci">static PyObject * Cursor_go_to(PyObject *self, PyObject *args)</div><div class="ttdoc">Cursor.go_to(self, y, x)</div><div class="ttdef"><b>Definition</b> sistamodule.c:652</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2455,10 +2529,10 @@ Variables</h2></td></tr>
 <div class="line">    .tp_new = PyType_GenericNew,</div>
 <div class="line">    .tp_init = <a class="code hl_function" href="sistamodule_8c.html#aaaaa94aa134cbaa393c02c336d9ef039">Cursor_init</a>,</div>
 <div class="line">}</div>
-<div class="ttc" id="asistamodule_8c_html_a3dd2ebc3367dc8d4def021e3db17d5fe"><div class="ttname"><a href="sistamodule_8c.html#a3dd2ebc3367dc8d4def021e3db17d5fe">Cursor_dealloc</a></div><div class="ttdeci">static void Cursor_dealloc(PyObject *self)</div><div class="ttdef"><b>Definition</b> sistamodule.c:609</div></div>
-<div class="ttc" id="asistamodule_8c_html_a5cf4dc4e472901a803e138e82d659498"><div class="ttname"><a href="sistamodule_8c.html#a5cf4dc4e472901a803e138e82d659498">Cursor_methods</a></div><div class="ttdeci">static PyMethodDef Cursor_methods[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:716</div></div>
-<div class="ttc" id="asistamodule_8c_html_aaaaa94aa134cbaa393c02c336d9ef039"><div class="ttname"><a href="sistamodule_8c.html#aaaaa94aa134cbaa393c02c336d9ef039">Cursor_init</a></div><div class="ttdeci">static int Cursor_init(PyObject *self, PyObject *args, PyObject *kwds)</div><div class="ttdef"><b>Definition</b> sistamodule.c:724</div></div>
-<div class="ttc" id="astructCursorObject_html"><div class="ttname"><a href="structCursorObject.html">CursorObject</a></div><div class="ttdef"><b>Definition</b> sistamodule.c:531</div></div>
+<div class="ttc" id="asistamodule_8c_html_a3dd2ebc3367dc8d4def021e3db17d5fe"><div class="ttname"><a href="sistamodule_8c.html#a3dd2ebc3367dc8d4def021e3db17d5fe">Cursor_dealloc</a></div><div class="ttdeci">static void Cursor_dealloc(PyObject *self)</div><div class="ttdef"><b>Definition</b> sistamodule.c:634</div></div>
+<div class="ttc" id="asistamodule_8c_html_a5cf4dc4e472901a803e138e82d659498"><div class="ttname"><a href="sistamodule_8c.html#a5cf4dc4e472901a803e138e82d659498">Cursor_methods</a></div><div class="ttdeci">static PyMethodDef Cursor_methods[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:741</div></div>
+<div class="ttc" id="asistamodule_8c_html_aaaaa94aa134cbaa393c02c336d9ef039"><div class="ttname"><a href="sistamodule_8c.html#aaaaa94aa134cbaa393c02c336d9ef039">Cursor_init</a></div><div class="ttdeci">static int Cursor_init(PyObject *self, PyObject *args, PyObject *kwds)</div><div class="ttdef"><b>Definition</b> sistamodule.c:749</div></div>
+<div class="ttc" id="astructCursorObject_html"><div class="ttname"><a href="structCursorObject.html">CursorObject</a></div><div class="ttdef"><b>Definition</b> sistamodule.c:556</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2487,9 +2561,9 @@ Variables</h2></td></tr>
 <div class="line">    {<span class="stringliteral">&quot;print_with_border&quot;</span>, (PyCFunction)<a class="code hl_function" href="sistamodule_8c.html#afb60cca9ebd37dd90b5250c7c42ed816">Field_print_with_border</a>, METH_VARARGS, py_Field_print_with_border_doc},</div>
 <div class="line">    {NULL, NULL, 0, NULL}</div>
 <div class="line">}</div>
-<div class="ttc" id="asistamodule_8c_html_a63992e40d22faeac3ca5edb5f8707765"><div class="ttname"><a href="sistamodule_8c.html#a63992e40d22faeac3ca5edb5f8707765">Field_create_pawn</a></div><div class="ttdeci">static PyObject * Field_create_pawn(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:986</div></div>
-<div class="ttc" id="asistamodule_8c_html_a6f56989ac366e9b7c0d40ce34138f220"><div class="ttname"><a href="sistamodule_8c.html#a6f56989ac366e9b7c0d40ce34138f220">Field_move_pawn</a></div><div class="ttdeci">static PyObject * Field_move_pawn(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:1035</div></div>
-<div class="ttc" id="asistamodule_8c_html_afb60cca9ebd37dd90b5250c7c42ed816"><div class="ttname"><a href="sistamodule_8c.html#afb60cca9ebd37dd90b5250c7c42ed816">Field_print_with_border</a></div><div class="ttdeci">static PyObject * Field_print_with_border(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:1068</div></div>
+<div class="ttc" id="asistamodule_8c_html_a63992e40d22faeac3ca5edb5f8707765"><div class="ttname"><a href="sistamodule_8c.html#a63992e40d22faeac3ca5edb5f8707765">Field_create_pawn</a></div><div class="ttdeci">static PyObject * Field_create_pawn(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:1011</div></div>
+<div class="ttc" id="asistamodule_8c_html_a6f56989ac366e9b7c0d40ce34138f220"><div class="ttname"><a href="sistamodule_8c.html#a6f56989ac366e9b7c0d40ce34138f220">Field_move_pawn</a></div><div class="ttdeci">static PyObject * Field_move_pawn(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:1060</div></div>
+<div class="ttc" id="asistamodule_8c_html_afb60cca9ebd37dd90b5250c7c42ed816"><div class="ttname"><a href="sistamodule_8c.html#afb60cca9ebd37dd90b5250c7c42ed816">Field_print_with_border</a></div><div class="ttdeci">static PyObject * Field_print_with_border(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:1093</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2523,10 +2597,10 @@ Variables</h2></td></tr>
 <div class="line">    .tp_new = PyType_GenericNew,</div>
 <div class="line">    .tp_init = <a class="code hl_function" href="sistamodule_8c.html#a3c423fb6fa6a3c32e161b822d54a3642">Field_init</a>,</div>
 <div class="line">}</div>
-<div class="ttc" id="asistamodule_8c_html_a0422c662e860a4ce4ac174cd325476e8"><div class="ttname"><a href="sistamodule_8c.html#a0422c662e860a4ce4ac174cd325476e8">Field_dealloc</a></div><div class="ttdeci">static void Field_dealloc(PyObject *self)</div><div class="ttdef"><b>Definition</b> sistamodule.c:974</div></div>
-<div class="ttc" id="asistamodule_8c_html_a12e79c76e9522ac7380bbb4f438c07e3"><div class="ttname"><a href="sistamodule_8c.html#a12e79c76e9522ac7380bbb4f438c07e3">Field_methods</a></div><div class="ttdeci">static PyMethodDef Field_methods[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:1098</div></div>
-<div class="ttc" id="asistamodule_8c_html_a3c423fb6fa6a3c32e161b822d54a3642"><div class="ttname"><a href="sistamodule_8c.html#a3c423fb6fa6a3c32e161b822d54a3642">Field_init</a></div><div class="ttdeci">static int Field_init(PyObject *self, PyObject *args, PyObject *kwds)</div><div class="ttdoc">Initializes a Field object.</div><div class="ttdef"><b>Definition</b> sistamodule.c:1113</div></div>
-<div class="ttc" id="astructFieldObject_html"><div class="ttname"><a href="structFieldObject.html">FieldObject</a></div><div class="ttdef"><b>Definition</b> sistamodule.c:965</div></div>
+<div class="ttc" id="asistamodule_8c_html_a0422c662e860a4ce4ac174cd325476e8"><div class="ttname"><a href="sistamodule_8c.html#a0422c662e860a4ce4ac174cd325476e8">Field_dealloc</a></div><div class="ttdeci">static void Field_dealloc(PyObject *self)</div><div class="ttdef"><b>Definition</b> sistamodule.c:999</div></div>
+<div class="ttc" id="asistamodule_8c_html_a12e79c76e9522ac7380bbb4f438c07e3"><div class="ttname"><a href="sistamodule_8c.html#a12e79c76e9522ac7380bbb4f438c07e3">Field_methods</a></div><div class="ttdeci">static PyMethodDef Field_methods[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:1123</div></div>
+<div class="ttc" id="asistamodule_8c_html_a3c423fb6fa6a3c32e161b822d54a3642"><div class="ttname"><a href="sistamodule_8c.html#a3c423fb6fa6a3c32e161b822d54a3642">Field_init</a></div><div class="ttdeci">static int Field_init(PyObject *self, PyObject *args, PyObject *kwds)</div><div class="ttdoc">Initializes a Field object.</div><div class="ttdef"><b>Definition</b> sistamodule.c:1138</div></div>
+<div class="ttc" id="astructFieldObject_html"><div class="ttname"><a href="structFieldObject.html">FieldObject</a></div><div class="ttdef"><b>Definition</b> sistamodule.c:990</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2559,9 +2633,9 @@ Variables</h2></td></tr>
 <div class="line">    .tp_new = PyType_GenericNew,</div>
 <div class="line">    .tp_init = <a class="code hl_function" href="sistamodule_8c.html#add90fff177745a9bec1a6ef8c4025d06">Pawn_init</a>,</div>
 <div class="line">}</div>
-<div class="ttc" id="asistamodule_8c_html_a56113023a3c3a9a398aa7a5dab00174a"><div class="ttname"><a href="sistamodule_8c.html#a56113023a3c3a9a398aa7a5dab00174a">Pawn_dealloc</a></div><div class="ttdeci">static void Pawn_dealloc(PyObject *self)</div><div class="ttdef"><b>Definition</b> sistamodule.c:548</div></div>
-<div class="ttc" id="asistamodule_8c_html_add90fff177745a9bec1a6ef8c4025d06"><div class="ttname"><a href="sistamodule_8c.html#add90fff177745a9bec1a6ef8c4025d06">Pawn_init</a></div><div class="ttdeci">static int Pawn_init(PyObject *self, PyObject *args, PyObject *kwds)</div><div class="ttdef"><b>Definition</b> sistamodule.c:558</div></div>
-<div class="ttc" id="astructPawnObject_html"><div class="ttname"><a href="structPawnObject.html">PawnObject</a></div><div class="ttdef"><b>Definition</b> sistamodule.c:539</div></div>
+<div class="ttc" id="asistamodule_8c_html_a56113023a3c3a9a398aa7a5dab00174a"><div class="ttname"><a href="sistamodule_8c.html#a56113023a3c3a9a398aa7a5dab00174a">Pawn_dealloc</a></div><div class="ttdeci">static void Pawn_dealloc(PyObject *self)</div><div class="ttdef"><b>Definition</b> sistamodule.c:573</div></div>
+<div class="ttc" id="asistamodule_8c_html_add90fff177745a9bec1a6ef8c4025d06"><div class="ttname"><a href="sistamodule_8c.html#add90fff177745a9bec1a6ef8c4025d06">Pawn_init</a></div><div class="ttdeci">static int Pawn_init(PyObject *self, PyObject *args, PyObject *kwds)</div><div class="ttdef"><b>Definition</b> sistamodule.c:583</div></div>
+<div class="ttc" id="astructPawnObject_html"><div class="ttname"><a href="structPawnObject.html">PawnObject</a></div><div class="ttdef"><b>Definition</b> sistamodule.c:564</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2591,8 +2665,8 @@ Variables</h2></td></tr>
 <div class="line">    .m_methods = <a class="code hl_variable" href="sistamodule_8c.html#ac155536feb4e0938ea7da93825a0348d">sista_module_methods</a>,</div>
 <div class="line">    .m_slots = <a class="code hl_variable" href="sistamodule_8c.html#a84fc77e2b5e20cc60f294e1ae60c4ea3">sista_module_slots</a>,</div>
 <div class="line">}</div>
-<div class="ttc" id="asistamodule_8c_html_a84fc77e2b5e20cc60f294e1ae60c4ea3"><div class="ttname"><a href="sistamodule_8c.html#a84fc77e2b5e20cc60f294e1ae60c4ea3">sista_module_slots</a></div><div class="ttdeci">static PyModuleDef_Slot sista_module_slots[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:1272</div></div>
-<div class="ttc" id="asistamodule_8c_html_ac155536feb4e0938ea7da93825a0348d"><div class="ttname"><a href="sistamodule_8c.html#ac155536feb4e0938ea7da93825a0348d">sista_module_methods</a></div><div class="ttdeci">static PyMethodDef sista_module_methods[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:1234</div></div>
+<div class="ttc" id="asistamodule_8c_html_a84fc77e2b5e20cc60f294e1ae60c4ea3"><div class="ttname"><a href="sistamodule_8c.html#a84fc77e2b5e20cc60f294e1ae60c4ea3">sista_module_slots</a></div><div class="ttdeci">static PyModuleDef_Slot sista_module_slots[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:1300</div></div>
+<div class="ttc" id="asistamodule_8c_html_ac155536feb4e0938ea7da93825a0348d"><div class="ttname"><a href="sistamodule_8c.html#ac155536feb4e0938ea7da93825a0348d">sista_module_methods</a></div><div class="ttdeci">static PyMethodDef sista_module_methods[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:1259</div></div>
 </div><!-- fragment -->
 <p>Module definition. </p>
 
@@ -2643,7 +2717,7 @@ Variables</h2></td></tr>
 <div class="line">    {Py_mod_exec, (<span class="keywordtype">void</span>*)<a class="code hl_function" href="sistamodule_8c.html#a1ecfc910058a9b5a3e471e0eb7b472f2">sista_module_exec</a>},</div>
 <div class="line">    {0, NULL}</div>
 <div class="line">}</div>
-<div class="ttc" id="asistamodule_8c_html_a1ecfc910058a9b5a3e471e0eb7b472f2"><div class="ttname"><a href="sistamodule_8c.html#a1ecfc910058a9b5a3e471e0eb7b472f2">sista_module_exec</a></div><div class="ttdeci">static int sista_module_exec(PyObject *module)</div><div class="ttdef"><b>Definition</b> sistamodule.c:1156</div></div>
+<div class="ttc" id="asistamodule_8c_html_a1ecfc910058a9b5a3e471e0eb7b472f2"><div class="ttname"><a href="sistamodule_8c.html#a1ecfc910058a9b5a3e471e0eb7b472f2">sista_module_exec</a></div><div class="ttdeci">static int sista_module_exec(PyObject *module)</div><div class="ttdef"><b>Definition</b> sistamodule.c:1181</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2673,10 +2747,10 @@ Variables</h2></td></tr>
 <div class="line">    {<span class="stringliteral">&quot;print_with_border&quot;</span>, (PyCFunction)<a class="code hl_function" href="sistamodule_8c.html#a83893096dce0554b780ff5b247573030">SwappableField_print_with_border</a>, METH_VARARGS, py_SwappableField_print_with_border_doc},</div>
 <div class="line">    {NULL, NULL, 0, NULL}</div>
 <div class="line">}</div>
-<div class="ttc" id="asistamodule_8c_html_a32161d343fbfe89c94ba316b404669d4"><div class="ttname"><a href="sistamodule_8c.html#a32161d343fbfe89c94ba316b404669d4">SwappableField_add_pawn_to_swap</a></div><div class="ttdeci">static PyObject * SwappableField_add_pawn_to_swap(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:822</div></div>
-<div class="ttc" id="asistamodule_8c_html_a83893096dce0554b780ff5b247573030"><div class="ttname"><a href="sistamodule_8c.html#a83893096dce0554b780ff5b247573030">SwappableField_print_with_border</a></div><div class="ttdeci">static PyObject * SwappableField_print_with_border(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:880</div></div>
-<div class="ttc" id="asistamodule_8c_html_a961814691d7c680a09e467144c8f1fa3"><div class="ttname"><a href="sistamodule_8c.html#a961814691d7c680a09e467144c8f1fa3">SwappableField_create_pawn</a></div><div class="ttdeci">static PyObject * SwappableField_create_pawn(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:773</div></div>
-<div class="ttc" id="asistamodule_8c_html_aa8527343b4bd2e796fb46e3b2aec5e6e"><div class="ttname"><a href="sistamodule_8c.html#aa8527343b4bd2e796fb46e3b2aec5e6e">SwappableField_apply_swaps</a></div><div class="ttdeci">static PyObject * SwappableField_apply_swaps(PyObject *self, PyObject *Py_UNUSED(ignored))</div><div class="ttdef"><b>Definition</b> sistamodule.c:865</div></div>
+<div class="ttc" id="asistamodule_8c_html_a32161d343fbfe89c94ba316b404669d4"><div class="ttname"><a href="sistamodule_8c.html#a32161d343fbfe89c94ba316b404669d4">SwappableField_add_pawn_to_swap</a></div><div class="ttdeci">static PyObject * SwappableField_add_pawn_to_swap(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:847</div></div>
+<div class="ttc" id="asistamodule_8c_html_a83893096dce0554b780ff5b247573030"><div class="ttname"><a href="sistamodule_8c.html#a83893096dce0554b780ff5b247573030">SwappableField_print_with_border</a></div><div class="ttdeci">static PyObject * SwappableField_print_with_border(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:905</div></div>
+<div class="ttc" id="asistamodule_8c_html_a961814691d7c680a09e467144c8f1fa3"><div class="ttname"><a href="sistamodule_8c.html#a961814691d7c680a09e467144c8f1fa3">SwappableField_create_pawn</a></div><div class="ttdeci">static PyObject * SwappableField_create_pawn(PyObject *self, PyObject *args)</div><div class="ttdef"><b>Definition</b> sistamodule.c:798</div></div>
+<div class="ttc" id="asistamodule_8c_html_aa8527343b4bd2e796fb46e3b2aec5e6e"><div class="ttname"><a href="sistamodule_8c.html#aa8527343b4bd2e796fb46e3b2aec5e6e">SwappableField_apply_swaps</a></div><div class="ttdeci">static PyObject * SwappableField_apply_swaps(PyObject *self, PyObject *Py_UNUSED(ignored))</div><div class="ttdef"><b>Definition</b> sistamodule.c:890</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2710,17 +2784,17 @@ Variables</h2></td></tr>
 <div class="line">    .tp_new = PyType_GenericNew,</div>
 <div class="line">    .tp_init = <a class="code hl_function" href="sistamodule_8c.html#a1df06403c38402ab51c4c5b5976b272c">SwappableField_init</a>,</div>
 <div class="line">}</div>
-<div class="ttc" id="asistamodule_8c_html_a14fd8c596cc255b87beda7fde0e64069"><div class="ttname"><a href="sistamodule_8c.html#a14fd8c596cc255b87beda7fde0e64069">SwappableField_methods</a></div><div class="ttdeci">static PyMethodDef SwappableField_methods[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:910</div></div>
-<div class="ttc" id="asistamodule_8c_html_a1df06403c38402ab51c4c5b5976b272c"><div class="ttname"><a href="sistamodule_8c.html#a1df06403c38402ab51c4c5b5976b272c">SwappableField_init</a></div><div class="ttdeci">static int SwappableField_init(PyObject *self, PyObject *args, PyObject *kwds)</div><div class="ttdef"><b>Definition</b> sistamodule.c:919</div></div>
-<div class="ttc" id="asistamodule_8c_html_a7d3374703b31394c6b893357a36b2c20"><div class="ttname"><a href="sistamodule_8c.html#a7d3374703b31394c6b893357a36b2c20">SwappableField_dealloc</a></div><div class="ttdeci">static void SwappableField_dealloc(PyObject *self)</div><div class="ttdef"><b>Definition</b> sistamodule.c:761</div></div>
-<div class="ttc" id="astructSwappableFieldObject_html"><div class="ttname"><a href="structSwappableFieldObject.html">SwappableFieldObject</a></div><div class="ttdef"><b>Definition</b> sistamodule.c:752</div></div>
+<div class="ttc" id="asistamodule_8c_html_a14fd8c596cc255b87beda7fde0e64069"><div class="ttname"><a href="sistamodule_8c.html#a14fd8c596cc255b87beda7fde0e64069">SwappableField_methods</a></div><div class="ttdeci">static PyMethodDef SwappableField_methods[]</div><div class="ttdef"><b>Definition</b> sistamodule.c:935</div></div>
+<div class="ttc" id="asistamodule_8c_html_a1df06403c38402ab51c4c5b5976b272c"><div class="ttname"><a href="sistamodule_8c.html#a1df06403c38402ab51c4c5b5976b272c">SwappableField_init</a></div><div class="ttdeci">static int SwappableField_init(PyObject *self, PyObject *args, PyObject *kwds)</div><div class="ttdef"><b>Definition</b> sistamodule.c:944</div></div>
+<div class="ttc" id="asistamodule_8c_html_a7d3374703b31394c6b893357a36b2c20"><div class="ttname"><a href="sistamodule_8c.html#a7d3374703b31394c6b893357a36b2c20">SwappableField_dealloc</a></div><div class="ttdeci">static void SwappableField_dealloc(PyObject *self)</div><div class="ttdef"><b>Definition</b> sistamodule.c:786</div></div>
+<div class="ttc" id="astructSwappableFieldObject_html"><div class="ttname"><a href="structSwappableFieldObject.html">SwappableFieldObject</a></div><div class="ttdef"><b>Definition</b> sistamodule.c:777</div></div>
 </div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 11 2026 12:32:56 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sun Oct 11 2026 14:53:46 for Sista by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>
