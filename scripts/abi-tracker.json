@@ -1,0 +1,20 @@
+{
+    "Name": "Sista",
+    "Versions": [
+        {
+            "Number": "3.1.0",
+            "Installed": "installed/3.1.0",
+            "Changelog": "On"
+        },
+        {
+            "Number": "3.0.3",
+            "Installed": "installed/3.0.3",
+            "Changelog": "On"
+        },
+        {
+            "Number": "3.0.2",
+            "Installed": "installed/3.0.2",
+            "Changelog": "On"
+        }
+    ]
+}
